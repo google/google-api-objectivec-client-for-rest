@@ -77,20 +77,20 @@
 
 @end
 
-@implementation GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation
+@implementation GTLRDocumentQuery_ProjectsLocationsOperationsCancel
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation *query =
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDocumentQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
-  query.loggingName = @"documentai.projects.locations.operations.cancelOperation";
+  query.loggingName = @"documentai.projects.locations.operations.cancel";
   return query;
 }
 
@@ -326,20 +326,20 @@
 
 @end
 
-@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"uiv1beta3/{+name}";
-  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation *query =
+  NSString *pathURITemplate = @"uiv1beta3/{+name}:cancel";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
-  query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.cancelOperation";
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.cancel";
   return query;
 }
 

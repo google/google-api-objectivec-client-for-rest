@@ -186,8 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable
 // GTLRTesting_AndroidRoboTest.roboMode
 
 /**
- *  LINT.IfChange This means that the server should choose the mode.
- *  Recommended.
+ *  This means that the server should choose the mode. Recommended.
  *
  *  Value: "ROBO_MODE_UNSPECIFIED"
  */
@@ -1108,8 +1107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  A test of an android application that explores the application on a virtual
- *  or physical Android Device, finding culprits and crashes as it goes. Next
- *  tag: 30
+ *  or physical Android Device, finding culprits and crashes as it goes.
  */
 @interface GTLRTesting_AndroidRoboTest : GTLRObject
 
@@ -1155,9 +1153,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  populate this field automatically.
  *
  *  Likely values:
- *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified
- *        LINT.IfChange This means that the server should choose the mode.
- *        Recommended. (Value: "ROBO_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified This
+ *        means that the server should choose the mode. Recommended. (Value:
+ *        "ROBO_MODE_UNSPECIFIED")
  *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1 Runs Robo in
  *        UIAutomator-only mode without app resigning (Value: "ROBO_VERSION_1")
  *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 Runs Robo in
@@ -1896,9 +1894,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  List of directories on the device to upload to Cloud Storage at the end of
- *  the test. Directories should either be in a shared directory (e.g.
+ *  the test. Directories should either be in a shared directory (such as
  *  /private/var/mobile/Media) or within an accessible directory inside the
- *  app's filesystem (e.g. /Documents) by specifying the bundle id.
+ *  app's filesystem (such as /Documents) by specifying the bundle ID.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosDeviceFile *> *pullDirectories;
 

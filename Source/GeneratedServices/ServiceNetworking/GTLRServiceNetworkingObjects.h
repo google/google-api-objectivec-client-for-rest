@@ -920,6 +920,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
 
 /**
+ *  Optional. The private IPv6 google access type for the VMs in this subnet.
+ *  For information about the access types that can be set using this field, see
+ *  [subnetwork](https://cloud.google.com/compute/docs/reference/rest/v1/subnetworks)
+ *  in the Compute API documentation.
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
+
+/**
  *  Required. The name of a [region](/compute/docs/regions-zones) for the
  *  subnet, such `europe-west1`.
  */

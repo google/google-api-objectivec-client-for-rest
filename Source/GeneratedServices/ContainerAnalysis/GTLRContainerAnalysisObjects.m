@@ -210,6 +210,14 @@ NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile = @"SPDX_FILE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage = @"SPDX_PACKAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 
+// GTLRContainerAnalysis_PackageIssue.effectiveSeverity
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Critical = @"CRITICAL";
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_High = @"HIGH";
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Low = @"LOW";
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Medium = @"MEDIUM";
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Minimal = @"MINIMAL";
+NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
 NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson = @"SIMPLE_SIGNING_JSON";
@@ -1351,7 +1359,8 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 //
 
 @implementation GTLRContainerAnalysis_PackageIssue
-@dynamic affectedLocation, fixedLocation, severityName;
+@dynamic affectedLocation, effectiveSeverity, fixedLocation, packageType,
+         severityName;
 @end
 
 

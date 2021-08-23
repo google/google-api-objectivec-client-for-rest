@@ -1622,6 +1622,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_ListClientsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "client" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTagManager_ListClientsResponse : GTLRCollectionObject
+
+/**
+ *  All GTM Clients of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Client *> *client;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  List Containers Response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2073,6 +2097,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  The result of reverting a client in a workspace.
+ */
+@interface GTLRTagManager_RevertClientResponse : GTLRObject
+
+/**
+ *  Client as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no client is present, that means the
+ *  client was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Client *client;
 
 @end
 

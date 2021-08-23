@@ -667,9 +667,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  If not successful, returns BatchCreateContactsErrorDetails.contacts which
- *  contains a list of errors for each invalid contact. The response to a
- *  request to create a batch of contacts.
+ *  If not successful, returns BatchCreateContactsErrorDetails which contains a
+ *  list of errors for each invalid contact. The response to a request to create
+ *  a batch of contacts.
  */
 @interface GTLRPeopleService_BatchCreateContactsResponse : GTLRObject
 
@@ -769,9 +769,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  If not successful, returns BatchUpdateContactsErrorDetails.contacts, a list
- *  of errors corresponding to each contact. The response to a request to update
- *  a batch of contacts.
+ *  If not successful, returns BatchUpdateContactsErrorDetails, a list of errors
+ *  corresponding to each contact. The response to a request to update a batch
+ *  of contacts.
  */
 @interface GTLRPeopleService_BatchUpdateContactsResponse : GTLRObject
 
@@ -1291,7 +1291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @interface GTLRPeopleService_FieldMetadata : GTLRObject
 
 /**
- *  True if the field is the primary field for the person.
+ *  Output only. True if the field is the primary field for all sources in the
+ *  person. Each person will have at most one field with `primary` set to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1301,7 +1302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) GTLRPeopleService_Source *source;
 
 /**
- *  True if the field is the primary field for the source.
+ *  True if the field is the primary field for the source. Each source must have
+ *  at most one field with `source_primary` set to true.
  *
  *  Uses NSNumber of boolValue.
  */

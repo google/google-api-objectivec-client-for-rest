@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRTagManager_Account;
+@class GTLRTagManager_Client;
 @class GTLRTagManager_Container;
 @class GTLRTagManager_ContainerVersion;
 @class GTLRTagManager_CreateContainerVersionRequestVersionOptions;
@@ -1588,6 +1589,212 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert
  */
 + (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Creates a GTM Client.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsCreate : GTLRTagManagerQuery
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_Client.
+ *
+ *  Creates a GTM Client.
+ *
+ *  @param object The @c GTLRTagManager_Client to include in the query.
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsCreate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Client *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GTM Client.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsDelete : GTLRTagManagerQuery
+
+/**
+ *  GTM Client's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a GTM Client.
+ *
+ *  @param path GTM Client's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsDelete
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Gets a GTM Client.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsGet : GTLRTagManagerQuery
+
+/**
+ *  GTM Client's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Client.
+ *
+ *  Gets a GTM Client.
+ *
+ *  @param path GTM Client's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsGet
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Lists all GTM Clients of a GTM container workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ *    @c kGTLRAuthScopeTagManagerReadonly
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsList : GTLRTagManagerQuery
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  GTM Workspace's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTagManager_ListClientsResponse.
+ *
+ *  Lists all GTM Clients of a GTM container workspace.
+ *
+ *  @param parent GTM Workspace's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Reverts changes to a GTM Client in a GTM Workspace.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.revert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsRevert : GTLRTagManagerQuery
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the client in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Client's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_RevertClientResponse.
+ *
+ *  Reverts changes to a GTM Client in a GTM Workspace.
+ *
+ *  @param path GTM Client's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsRevert
+ */
++ (instancetype)queryWithPath:(NSString *)path;
+
+@end
+
+/**
+ *  Updates a GTM Client.
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.clients.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesClientsUpdate : GTLRTagManagerQuery
+
+/**
+ *  When provided, this fingerprint must match the fingerprint of the client in
+ *  storage.
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
+ *  GTM Client's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_Client.
+ *
+ *  Updates a GTM Client.
+ *
+ *  @param object The @c GTLRTagManager_Client to include in the query.
+ *  @param path GTM Client's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/clients/{client_id}
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesClientsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_Client *)object
+                           path:(NSString *)path;
 
 @end
 

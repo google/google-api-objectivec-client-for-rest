@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   GKE Hub (gkehub/v1)
+//   GKE Hub API (gkehub/v1)
 // Documentation:
 //   https://cloud.google.com/anthos/multicluster-management/connect/registering-a-cluster
 
@@ -41,7 +41,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGKEHubCloudPlatform;
 //
 
 /**
- *  Service for executing GKE Hub queries.
+ *  Service for executing GKE Hub API queries.
  */
 @interface GTLRGKEHubService : GTLRService
 

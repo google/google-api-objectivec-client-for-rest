@@ -31,27 +31,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage your data in Google BigQuery
+ *  Authorization scope: View and manage your data in Google BigQuery and see
+ *  the email address for your Google Account
  *
  *  Value "https://www.googleapis.com/auth/bigquery"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigquery;
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatform;
 /**
- *  Authorization scope: View your data across Google Cloud Platform services
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryCloudPlatformReadOnly;
 /**
- *  Authorization scope: Manage your data and permissions in Google Cloud
- *  Storage
+ *  Authorization scope: Manage your data and permissions in Cloud Storage and
+ *  see the email address for your Google Account
  *
  *  Value "https://www.googleapis.com/auth/devstorage.full_control"
  */
@@ -63,7 +65,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageFullControl;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadOnly;
 /**
- *  Authorization scope: Manage your data in Google Cloud Storage
+ *  Authorization scope: Manage your data in Cloud Storage and see the email
+ *  address of your Google Account
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_write"
  */

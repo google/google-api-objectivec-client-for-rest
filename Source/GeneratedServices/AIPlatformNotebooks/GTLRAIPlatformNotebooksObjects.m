@@ -43,6 +43,11 @@ NSString * const kGTLRAIPlatformNotebooks_Execution_State_Running = @"RUNNING";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Succeeded = @"SUCCEEDED";
 
+// GTLRAIPlatformNotebooks_ExecutionTemplate.jobType
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_Dataproc = @"DATAPROC";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_JobTypeUnspecified = @"JOB_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_VertexAi = @"VERTEX_AI";
+
 // GTLRAIPlatformNotebooks_ExecutionTemplate.scaleTier
 NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Basic = @"BASIC";
 NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicGpu = @"BASIC_GPU";
@@ -237,6 +242,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_DataprocParameters
+//
+
+@implementation GTLRAIPlatformNotebooks_DataprocParameters
+@dynamic cluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Disk
 //
 
@@ -328,9 +343,9 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_ExecutionTemplate
-@dynamic acceleratorConfig, containerImageUri, inputNotebookFile, labels,
-         masterType, outputNotebookFolder, parameters, paramsYamlFile,
-         scaleTier, serviceAccount;
+@dynamic acceleratorConfig, containerImageUri, dataprocParameters,
+         inputNotebookFile, jobType, labels, masterType, outputNotebookFolder,
+         parameters, paramsYamlFile, scaleTier, serviceAccount;
 @end
 
 

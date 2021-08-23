@@ -9047,7 +9047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  GTLRYouTube_LiveChatMessageSnippet
+ *  Next ID: 29
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9058,7 +9058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  became a sponsor messageDeletedEvent - the moderator that took the action
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action superChatEvent - the
- *  user that made the purchase
+ *  user that made the purchase superStickerEvent - the user that made the
+ *  purchase
  */
 @property(nonatomic, copy, nullable) NSString *authorChannelId;
 

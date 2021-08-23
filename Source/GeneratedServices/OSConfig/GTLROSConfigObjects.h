@@ -40,9 +40,6 @@
 @class GTLROSConfig_InventoryZypperPatch;
 @class GTLROSConfig_MonthlySchedule;
 @class GTLROSConfig_OneTimeSchedule;
-@class GTLROSConfig_Operation;
-@class GTLROSConfig_Operation_Metadata;
-@class GTLROSConfig_Operation_Response;
 @class GTLROSConfig_PatchConfig;
 @class GTLROSConfig_PatchDeployment;
 @class GTLROSConfig_PatchInstanceFilter;
@@ -53,8 +50,6 @@
 @class GTLROSConfig_PatchJobInstanceDetailsSummary;
 @class GTLROSConfig_PatchRollout;
 @class GTLROSConfig_RecurringSchedule;
-@class GTLROSConfig_Status;
-@class GTLROSConfig_Status_Details_Item;
 @class GTLROSConfig_TimeOfDay;
 @class GTLROSConfig_TimeZone;
 @class GTLROSConfig_VulnerabilityReport;
@@ -1626,30 +1621,6 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLROSConfig_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_Operation *> *operations;
-
-@end
-
-
-/**
  *  A response message for listing patch deployments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1783,86 +1754,6 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 /** Required. The desired patch job execution time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *executeTime;
 
-@end
-
-
-/**
- *  This resource represents a long-running operation that is the result of a
- *  network API call.
- */
-@interface GTLROSConfig_Operation : GTLRObject
-
-/**
- *  If the value is `false`, it means the operation is still in progress. If
- *  `true`, the operation is completed, and either `error` or `response` is
- *  available.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *done;
-
-/** The error result of the operation in case of failure or cancellation. */
-@property(nonatomic, strong, nullable) GTLROSConfig_Status *error;
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- */
-@property(nonatomic, strong, nullable) GTLROSConfig_Operation_Metadata *metadata;
-
-/**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the `name`
- *  should be a resource name ending with `operations/{unique_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- */
-@property(nonatomic, strong, nullable) GTLROSConfig_Operation_Response *response;
-
-@end
-
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLROSConfig_Operation_Metadata : GTLRObject
-@end
-
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLROSConfig_Operation_Response : GTLRObject
 @end
 
 
@@ -2519,51 +2410,6 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 /** Required. Schedule with weekly executions. */
 @property(nonatomic, strong, nullable) GTLROSConfig_WeeklySchedule *weekly;
 
-@end
-
-
-/**
- *  The `Status` type defines a logical error model that is suitable for
- *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details. You can
- *  find out more about this error model and how to work with it in the [API
- *  Design Guide](https://cloud.google.com/apis/design/errors).
- */
-@interface GTLROSConfig_Status : GTLRObject
-
-/**
- *  The status code, which should be an enum value of google.rpc.Code.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *code;
-
-/**
- *  A list of messages that carry the error details. There is a common set of
- *  message types for APIs to use.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_Status_Details_Item *> *details;
-
-/**
- *  A developer-facing error message, which should be in English. Any
- *  user-facing error message should be localized and sent in the
- *  google.rpc.Status.details field, or localized by the client.
- */
-@property(nonatomic, copy, nullable) NSString *message;
-
-@end
-
-
-/**
- *  GTLROSConfig_Status_Details_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLROSConfig_Status_Details_Item : GTLRObject
 @end
 
 

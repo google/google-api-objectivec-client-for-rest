@@ -161,12 +161,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
- *  Method: documentai.projects.locations.operations.cancelOperation
+ *  Method: documentai.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDocumentCloudPlatform
  */
-@interface GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation : GTLRDocumentQuery
+@interface GTLRDocumentQuery_ProjectsLocationsOperationsCancel : GTLRDocumentQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -186,7 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation
+ *  @return GTLRDocumentQuery_ProjectsLocationsOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -581,12 +581,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
- *  Method: documentai.uiv1beta3.projects.locations.operations.cancelOperation
+ *  Method: documentai.uiv1beta3.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDocumentCloudPlatform
  */
-@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation : GTLRDocumentQuery
+@interface GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel : GTLRDocumentQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -606,7 +606,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation
+ *  @return GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancel
  */
 + (instancetype)queryWithName:(NSString *)name;
 

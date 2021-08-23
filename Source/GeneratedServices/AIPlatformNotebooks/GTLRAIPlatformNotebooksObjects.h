@@ -23,6 +23,7 @@
 @class GTLRAIPlatformNotebooks_AcceleratorConfig;
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_ContainerImage;
+@class GTLRAIPlatformNotebooks_DataprocParameters;
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_EncryptionConfig;
 @class GTLRAIPlatformNotebooks_Environment;
@@ -239,6 +240,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Stat
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ExecutionTemplate.jobType
+
+/**
+ *  Run execution on a cluster with Dataproc as a job.
+ *  https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs
+ *
+ *  Value: "DATAPROC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_Dataproc;
+/**
+ *  No type specified.
+ *
+ *  Value: "JOB_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_JobTypeUnspecified;
+/**
+ *  Custom Job in `aiplatform.googleapis.com`. Default value for an execution.
+ *
+ *  Value: "VERTEX_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_VertexAi;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_ExecutionTemplate.scaleTier
@@ -1125,6 +1149,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  Parameters used in Dataproc JobType executions.
+ */
+@interface GTLRAIPlatformNotebooks_DataprocParameters : GTLRObject
+
+/**
+ *  URI for cluster used to run Dataproc execution. Format:
+ *  'projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+@end
+
+
+/**
  *  An instance-attached disk resource.
  */
 @interface GTLRAIPlatformNotebooks_Disk : GTLRObject
@@ -1404,12 +1442,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, copy, nullable) NSString *containerImageUri;
 
+/** Parameters used in Dataproc JobType executions. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_DataprocParameters *dataprocParameters;
+
 /**
  *  Path to the notebook file to execute. Must be in a Google Cloud Storage
  *  bucket. Format: gs://{project_id}/{folder}/{notebook_file_name} Ex:
  *  gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb
  */
 @property(nonatomic, copy, nullable) NSString *inputNotebookFile;
+
+/**
+ *  The type of Job to be used on this execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_Dataproc Run
+ *        execution on a cluster with Dataproc as a job.
+ *        https://cloud.google.com/dataproc/docs/reference/rest/v1/projects.regions.jobs
+ *        (Value: "DATAPROC")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_JobTypeUnspecified
+ *        No type specified. (Value: "JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_JobType_VertexAi Custom
+ *        Job in `aiplatform.googleapis.com`. Default value for an execution.
+ *        (Value: "VERTEX_AI")
+ */
+@property(nonatomic, copy, nullable) NSString *jobType;
 
 /**
  *  Labels for execution. If execution is scheduled, a field included will be
@@ -2586,7 +2643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

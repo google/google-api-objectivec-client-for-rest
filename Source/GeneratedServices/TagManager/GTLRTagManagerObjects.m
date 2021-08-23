@@ -548,6 +548,28 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_ListClientsResponse
+//
+
+@implementation GTLRTagManager_ListClientsResponse
+@dynamic client, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"client" : [GTLRTagManager_Client class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"client";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_ListContainersResponse
 //
 
@@ -874,6 +896,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_RevertBuiltInVariableResponse
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_RevertClientResponse
+//
+
+@implementation GTLRTagManager_RevertClientResponse
+@dynamic client;
 @end
 
 

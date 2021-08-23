@@ -3606,6 +3606,35 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_ImageFamilyViewsGet
+
+@dynamic family, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                          family:(NSString *)family {
+  NSArray *pathParams = @[
+    @"family", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/imageFamilyViews/{family}";
+  GTLRComputeQuery_ImageFamilyViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.family = family;
+  query.expectedObjectClass = [GTLRCompute_ImageFamilyView class];
+  query.loggingName = @"compute.imageFamilyViews.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ImagesDelete
 
 @dynamic image, project, requestId;

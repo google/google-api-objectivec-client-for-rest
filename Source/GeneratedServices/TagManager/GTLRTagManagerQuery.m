@@ -655,6 +655,135 @@ NSString * const kGTLRTagManagerTypeVideoVisible               = @"videoVisible"
 
 @end
 
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTagManager_Client *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/clients";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTagManager_Client class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsDelete
+
+@dynamic path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsGet
+
+@dynamic path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_Client class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsList
+
+@dynamic pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+parent}/clients";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTagManager_ListClientsResponse class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsRevert
+
+@dynamic fingerprint, path;
+
++ (instancetype)queryWithPath:(NSString *)path {
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}:revert";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsRevert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_RevertClientResponse class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.revert";
+  return query;
+}
+
+@end
+
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsUpdate
+
+@dynamic fingerprint, path;
+
++ (instancetype)queryWithObject:(GTLRTagManager_Client *)object
+                           path:(NSString *)path {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesClientsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_Client class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.clients.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRTagManagerQuery_AccountsContainersWorkspacesCreate
 
 @dynamic parent;

@@ -29,23 +29,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// creatorPlatform
-
-/** Value: "BLOGGER" */
-FOUNDATION_EXTERN NSString * const kGTLRIdeahubCreatorPlatformBlogger;
-/** Value: "SITEKIT" */
-FOUNDATION_EXTERN NSString * const kGTLRIdeahubCreatorPlatformSitekit;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRIdeahubCreatorPlatformUnknown;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other Ideahub query classes.
  */
@@ -62,21 +45,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIdeahubCreatorPlatformUnknown;
  *  Method: ideahub.ideas.list
  */
 @interface GTLRIdeahubQuery_IdeasList : GTLRIdeahubQuery
-
-/**
- *  Identifies the platform from which this user is accessing Idea Hub.
- *
- *  Likely values:
- *    @arg @c kGTLRIdeahubCreatorPlatformUnknown Value "UNKNOWN"
- *    @arg @c kGTLRIdeahubCreatorPlatformBlogger Value "BLOGGER"
- *    @arg @c kGTLRIdeahubCreatorPlatformSitekit Value "SITEKIT"
- */
-@property(nonatomic, copy, nullable) NSString *creatorPlatform;
-
-/**
- *  Identifies the platform account (blog/site/etc.) for which to fetch Ideas.
- */
-@property(nonatomic, copy, nullable) NSString *creatorPlatformId;
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -162,21 +130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIdeahubCreatorPlatformUnknown;
  *  Method: ideahub.platforms.properties.ideas.list
  */
 @interface GTLRIdeahubQuery_PlatformsPropertiesIdeasList : GTLRIdeahubQuery
-
-/**
- *  Identifies the platform from which this user is accessing Idea Hub.
- *
- *  Likely values:
- *    @arg @c kGTLRIdeahubCreatorPlatformUnknown Value "UNKNOWN"
- *    @arg @c kGTLRIdeahubCreatorPlatformBlogger Value "BLOGGER"
- *    @arg @c kGTLRIdeahubCreatorPlatformSitekit Value "SITEKIT"
- */
-@property(nonatomic, copy, nullable) NSString *creatorPlatform;
-
-/**
- *  Identifies the platform account (blog/site/etc.) for which to fetch Ideas.
- */
-@property(nonatomic, copy, nullable) NSString *creatorPlatformId;
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one

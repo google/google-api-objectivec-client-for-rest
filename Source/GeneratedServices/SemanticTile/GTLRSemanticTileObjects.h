@@ -668,7 +668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
  *  between them as integers at some requested level of precision to take
  *  advantage of integer packing. The actual altitude values a[] can be
  *  reconstructed using the scale and each row's first_altitude and
- *  altitude_diff fields.
+ *  altitude_diff fields. More details in
+ *  go/elevation-encoding-options-for-enduro under "Recommended implementation".
  */
 @interface GTLRSemanticTile_FirstDerivativeElevationGrid : GTLRObject
 
@@ -952,7 +953,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
 /** The global tile coordinates that uniquely identify this tile. */
 @property(nonatomic, strong, nullable) GTLRSemanticTile_TileCoordinates *coordinates;
 
-/** Terrain elevation data encoded as a FirstDerivativeElevationGrid. */
+/**
+ *  Terrain elevation data encoded as a FirstDerivativeElevationGrid.
+ *  cs/symbol:FirstDerivativeElevationGrid.
+ */
 @property(nonatomic, strong, nullable) GTLRSemanticTile_FirstDerivativeElevationGrid *firstDerivative;
 
 /**
@@ -963,7 +967,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Terrain elevation data encoded as a SecondDerivativeElevationGrid. . */
+/**
+ *  Terrain elevation data encoded as a SecondDerivativeElevationGrid.
+ *  cs/symbol:SecondDerivativeElevationGrid. See go/byte-encoded-terrain for
+ *  more details.
+ */
 @property(nonatomic, strong, nullable) GTLRSemanticTile_SecondDerivativeElevationGrid *secondDerivative;
 
 @end

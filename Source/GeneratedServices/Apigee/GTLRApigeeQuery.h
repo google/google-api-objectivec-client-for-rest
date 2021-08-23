@@ -28,6 +28,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
+@class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
+@class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
 @class GTLRApigee_GoogleCloudApigeeV1Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation;
@@ -46,6 +48,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ExportRequest;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHook;
+@class GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest;
+@class GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest;
 @class GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Instance;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
@@ -1310,6 +1314,46 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsApisList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing API proxy.
+ *
+ *  Method: apigee.organizations.apis.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisPatch : GTLRApigeeQuery
+
+/**
+ *  Required. API proxy to update in the following format:
+ *  `organizations/{org}/apis/{api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxy.
+ *
+ *  Updates an existing API proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProxy to include in
+ *    the query.
+ *  @param name Required. API proxy to update in the following format:
+ *    `organizations/{org}/apis/{api}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiProxy *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -4327,6 +4371,276 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new ArchiveDeployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate : GTLRApigeeQuery
+
+/** Required. The Environment this Archive Deployment will be created in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new ArchiveDeployment.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment to
+ *    include in the query.
+ *  @param parent Required. The Environment this Archive Deployment will be
+ *    created in.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an archive deployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes an archive deployment.
+ *
+ *  @param name Required. Name of the Archive Deployment in the following
+ *    format: `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a signed URL for downloading the original zip file used to create
+ *  an Archive Deployment. The URL is only valid for a limited period and should
+ *  be used within minutes after generation. Each call returns a new upload URL.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.generateDownloadUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl : GTLRApigeeQuery
+
+/** Required. The name of the Archive Deployment you want to download. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlResponse.
+ *
+ *  Generates a signed URL for downloading the original zip file used to create
+ *  an Archive Deployment. The URL is only valid for a limited period and should
+ *  be used within minutes after generation. Each call returns a new upload URL.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest to include in the
+ *    query.
+ *  @param name Required. The name of the Archive Deployment you want to
+ *    download.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a signed URL for uploading an Archive zip file to Google Cloud
+ *  Storage. Once the upload is complete, the signed URL should be passed to
+ *  CreateArchiveDeployment. When uploading to the generated signed URL, please
+ *  follow these restrictions: * Source file type should be a zip file. * Source
+ *  file size should not exceed 1GB limit. * No credentials should be attached -
+ *  the signed URLs provide access to the target bucket using internal service
+ *  identity; if credentials were attached, the identity from the credentials
+ *  would be used, but that identity does not have permissions to upload files
+ *  to the URL. When making a HTTP PUT request, these two headers need to be
+ *  specified: * `content-type: application/zip` * `x-goog-content-length-range:
+ *  0,1073741824` And this header SHOULD NOT be specified: * `Authorization:
+ *  Bearer YOUR_TOKEN`
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.generateUploadUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl : GTLRApigeeQuery
+
+/** Required. The organization and environment to upload to. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlResponse.
+ *
+ *  Generates a signed URL for uploading an Archive zip file to Google Cloud
+ *  Storage. Once the upload is complete, the signed URL should be passed to
+ *  CreateArchiveDeployment. When uploading to the generated signed URL, please
+ *  follow these restrictions: * Source file type should be a zip file. * Source
+ *  file size should not exceed 1GB limit. * No credentials should be attached -
+ *  the signed URLs provide access to the target bucket using internal service
+ *  identity; if credentials were attached, the identity from the credentials
+ *  would be used, but that identity does not have permissions to upload files
+ *  to the URL. When making a HTTP PUT request, these two headers need to be
+ *  specified: * `content-type: application/zip` * `x-goog-content-length-range:
+ *  0,1073741824` And this header SHOULD NOT be specified: * `Authorization:
+ *  Bearer YOUR_TOKEN`
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest
+ *    to include in the query.
+ *  @param parent Required. The organization and environment to upload to.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the specified ArchiveDeployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment.
+ *
+ *  Gets the specified ArchiveDeployment.
+ *
+ *  @param name Required. Name of the Archive Deployment in the following
+ *    format: `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the ArchiveDeployments in the specified Environment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList : GTLRApigeeQuery
+
+/**
+ *  Optional. An optional query used to return a subset of Archive Deployments
+ *  using the semantics defined in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of Archive Deployments to return. If unspecified,
+ *  at most 25 deployments will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous ListArchiveDeployments call,
+ *  that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the Environment for which to list Archive Deployments in
+ *  the format: `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListArchiveDeploymentsResponse.
+ *
+ *  Lists the ArchiveDeployments in the specified Environment.
+ *
+ *  @param parent Required. Name of the Environment for which to list Archive
+ *    Deployments in the format: `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing ArchiveDeployment. Labels can modified but most of the
+ *  other fields are not modifiable.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch : GTLRApigeeQuery
+
+/**
+ *  Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment.
+ *
+ *  Updates an existing ArchiveDeployment. Labels can modified but most of the
+ *  other fields are not modifiable.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment to
+ *    include in the query.
+ *  @param name Name of the Archive Deployment in the following format:
+ *    `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -10,18 +10,6 @@
 
 #import "GTLRIdeahubObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// creatorPlatform
-NSString * const kGTLRIdeahubCreatorPlatformBlogger = @"BLOGGER";
-NSString * const kGTLRIdeahubCreatorPlatformSitekit = @"SITEKIT";
-NSString * const kGTLRIdeahubCreatorPlatformUnknown = @"UNKNOWN";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRIdeahubQuery
 
 @dynamic fields;
@@ -30,16 +18,7 @@ NSString * const kGTLRIdeahubCreatorPlatformUnknown = @"UNKNOWN";
 
 @implementation GTLRIdeahubQuery_IdeasList
 
-@dynamic creatorPlatform, creatorPlatformId, filter, orderBy, pageSize,
-         pageToken, parent;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"creatorPlatform" : @"creator.platform",
-    @"creatorPlatformId" : @"creator.platformId"
-  };
-  return map;
-}
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1alpha/ideas";
@@ -83,16 +62,7 @@ NSString * const kGTLRIdeahubCreatorPlatformUnknown = @"UNKNOWN";
 
 @implementation GTLRIdeahubQuery_PlatformsPropertiesIdeasList
 
-@dynamic creatorPlatform, creatorPlatformId, filter, orderBy, pageSize,
-         pageToken, parent;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"creatorPlatform" : @"creator.platform",
-    @"creatorPlatformId" : @"creator.platformId"
-  };
-  return map;
-}
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

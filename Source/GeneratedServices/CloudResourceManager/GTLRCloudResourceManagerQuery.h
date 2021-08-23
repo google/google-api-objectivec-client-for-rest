@@ -1113,8 +1113,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the IAM access control policy for the specified project. Permission
- *  is denied if the policy or the resource do not exist.
+ *  Returns the IAM access control policy for the specified project, in the
+ *  format `projects/{ProjectIdOrNumber}` e.g. projects/123. Permission is
+ *  denied if the policy or the resource do not exist.
  *
  *  Method: cloudresourcemanager.projects.getIamPolicy
  *
@@ -1133,8 +1134,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Policy.
  *
- *  Returns the IAM access control policy for the specified project. Permission
- *  is denied if the policy or the resource do not exist.
+ *  Returns the IAM access control policy for the specified project, in the
+ *  format `projects/{ProjectIdOrNumber}` e.g. projects/123. Permission is
+ *  denied if the policy or the resource do not exist.
  *
  *  @param object The @c GTLRCloudResourceManager_GetIamPolicyRequest to include
  *    in the query.
@@ -1380,34 +1382,34 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the IAM access control policy for the specified project. CAUTION: This
- *  method will replace the existing policy, and cannot be used to append
- *  additional IAM settings. Note: Removing service accounts from policies or
- *  changing their roles can render services completely inoperable. It is
- *  important to understand how the service account is being used before
- *  removing or updating its roles. The following constraints apply when using
- *  `setIamPolicy()`: + Project does not support `allUsers` and
- *  `allAuthenticatedUsers` as `members` in a `Binding` of a `Policy`. + The
- *  owner role can be granted to a `user`, `serviceAccount`, or a group that is
- *  part of an organization. For example, group\@myownpersonaldomain.com could
- *  be added as an owner to a project in the myownpersonaldomain.com
- *  organization, but not the examplepetstore.com organization. + Service
- *  accounts can be made owners of a project directly without any restrictions.
- *  However, to be added as an owner, a user must be invited using the Cloud
- *  Platform console and must accept the invitation. + A user cannot be granted
- *  the owner role using `setIamPolicy()`. The user must be granted the owner
- *  role using the Cloud Platform Console and must explicitly accept the
- *  invitation. + Invitations to grant the owner role cannot be sent using
- *  `setIamPolicy()`; they must be sent only using the Cloud Platform Console. +
- *  Membership changes that leave the project without any owners that have
- *  accepted the Terms of Service (ToS) will be rejected. + If the project is
- *  not part of an organization, there must be at least one owner who has
- *  accepted the Terms of Service (ToS) agreement in the policy. Calling
- *  `setIamPolicy()` to remove the last ToS-accepted owner from the policy will
- *  fail. This restriction also applies to legacy projects that no longer have
- *  owners who have accepted the ToS. Edits to IAM policies will be rejected
- *  until the lack of a ToS-accepting owner is rectified. + Calling this method
- *  requires enabling the App Engine Admin API.
+ *  Sets the IAM access control policy for the specified project, in the format
+ *  `projects/{ProjectIdOrNumber}` e.g. projects/123. CAUTION: This method will
+ *  replace the existing policy, and cannot be used to append additional IAM
+ *  settings. Note: Removing service accounts from policies or changing their
+ *  roles can render services completely inoperable. It is important to
+ *  understand how the service account is being used before removing or updating
+ *  its roles. The following constraints apply when using `setIamPolicy()`: +
+ *  Project does not support `allUsers` and `allAuthenticatedUsers` as `members`
+ *  in a `Binding` of a `Policy`. + The owner role can be granted to a `user`,
+ *  `serviceAccount`, or a group that is part of an organization. For example,
+ *  group\@myownpersonaldomain.com could be added as an owner to a project in
+ *  the myownpersonaldomain.com organization, but not the examplepetstore.com
+ *  organization. + Service accounts can be made owners of a project directly
+ *  without any restrictions. However, to be added as an owner, a user must be
+ *  invited using the Cloud Platform console and must accept the invitation. + A
+ *  user cannot be granted the owner role using `setIamPolicy()`. The user must
+ *  be granted the owner role using the Cloud Platform Console and must
+ *  explicitly accept the invitation. + Invitations to grant the owner role
+ *  cannot be sent using `setIamPolicy()`; they must be sent only using the
+ *  Cloud Platform Console. + Membership changes that leave the project without
+ *  any owners that have accepted the Terms of Service (ToS) will be rejected. +
+ *  If the project is not part of an organization, there must be at least one
+ *  owner who has accepted the Terms of Service (ToS) agreement in the policy.
+ *  Calling `setIamPolicy()` to remove the last ToS-accepted owner from the
+ *  policy will fail. This restriction also applies to legacy projects that no
+ *  longer have owners who have accepted the ToS. Edits to IAM policies will be
+ *  rejected until the lack of a ToS-accepting owner is rectified. + Calling
+ *  this method requires enabling the App Engine Admin API.
  *
  *  Method: cloudresourcemanager.projects.setIamPolicy
  *
@@ -1425,34 +1427,34 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_Policy.
  *
- *  Sets the IAM access control policy for the specified project. CAUTION: This
- *  method will replace the existing policy, and cannot be used to append
- *  additional IAM settings. Note: Removing service accounts from policies or
- *  changing their roles can render services completely inoperable. It is
- *  important to understand how the service account is being used before
- *  removing or updating its roles. The following constraints apply when using
- *  `setIamPolicy()`: + Project does not support `allUsers` and
- *  `allAuthenticatedUsers` as `members` in a `Binding` of a `Policy`. + The
- *  owner role can be granted to a `user`, `serviceAccount`, or a group that is
- *  part of an organization. For example, group\@myownpersonaldomain.com could
- *  be added as an owner to a project in the myownpersonaldomain.com
- *  organization, but not the examplepetstore.com organization. + Service
- *  accounts can be made owners of a project directly without any restrictions.
- *  However, to be added as an owner, a user must be invited using the Cloud
- *  Platform console and must accept the invitation. + A user cannot be granted
- *  the owner role using `setIamPolicy()`. The user must be granted the owner
- *  role using the Cloud Platform Console and must explicitly accept the
- *  invitation. + Invitations to grant the owner role cannot be sent using
- *  `setIamPolicy()`; they must be sent only using the Cloud Platform Console. +
- *  Membership changes that leave the project without any owners that have
- *  accepted the Terms of Service (ToS) will be rejected. + If the project is
- *  not part of an organization, there must be at least one owner who has
- *  accepted the Terms of Service (ToS) agreement in the policy. Calling
- *  `setIamPolicy()` to remove the last ToS-accepted owner from the policy will
- *  fail. This restriction also applies to legacy projects that no longer have
- *  owners who have accepted the ToS. Edits to IAM policies will be rejected
- *  until the lack of a ToS-accepting owner is rectified. + Calling this method
- *  requires enabling the App Engine Admin API.
+ *  Sets the IAM access control policy for the specified project, in the format
+ *  `projects/{ProjectIdOrNumber}` e.g. projects/123. CAUTION: This method will
+ *  replace the existing policy, and cannot be used to append additional IAM
+ *  settings. Note: Removing service accounts from policies or changing their
+ *  roles can render services completely inoperable. It is important to
+ *  understand how the service account is being used before removing or updating
+ *  its roles. The following constraints apply when using `setIamPolicy()`: +
+ *  Project does not support `allUsers` and `allAuthenticatedUsers` as `members`
+ *  in a `Binding` of a `Policy`. + The owner role can be granted to a `user`,
+ *  `serviceAccount`, or a group that is part of an organization. For example,
+ *  group\@myownpersonaldomain.com could be added as an owner to a project in
+ *  the myownpersonaldomain.com organization, but not the examplepetstore.com
+ *  organization. + Service accounts can be made owners of a project directly
+ *  without any restrictions. However, to be added as an owner, a user must be
+ *  invited using the Cloud Platform console and must accept the invitation. + A
+ *  user cannot be granted the owner role using `setIamPolicy()`. The user must
+ *  be granted the owner role using the Cloud Platform Console and must
+ *  explicitly accept the invitation. + Invitations to grant the owner role
+ *  cannot be sent using `setIamPolicy()`; they must be sent only using the
+ *  Cloud Platform Console. + Membership changes that leave the project without
+ *  any owners that have accepted the Terms of Service (ToS) will be rejected. +
+ *  If the project is not part of an organization, there must be at least one
+ *  owner who has accepted the Terms of Service (ToS) agreement in the policy.
+ *  Calling `setIamPolicy()` to remove the last ToS-accepted owner from the
+ *  policy will fail. This restriction also applies to legacy projects that no
+ *  longer have owners who have accepted the ToS. Edits to IAM policies will be
+ *  rejected until the lack of a ToS-accepting owner is rectified. + Calling
+ *  this method requires enabling the App Engine Admin API.
  *
  *  @param object The @c GTLRCloudResourceManager_SetIamPolicyRequest to include
  *    in the query.
@@ -1468,7 +1470,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified project.
+ *  Returns permissions that a caller has on the specified project, in the
+ *  format `projects/{ProjectIdOrNumber}` e.g. projects/123..
  *
  *  Method: cloudresourcemanager.projects.testIamPermissions
  *
@@ -1487,7 +1490,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudResourceManager_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified project.
+ *  Returns permissions that a caller has on the specified project, in the
+ *  format `projects/{ProjectIdOrNumber}` e.g. projects/123..
  *
  *  @param object The @c GTLRCloudResourceManager_TestIamPermissionsRequest to
  *    include in the query.

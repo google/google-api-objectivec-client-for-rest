@@ -40,6 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRTexttospeech_AudioConfig.audioEncoding
 
 /**
+ *  8-bit samples that compand 14-bit audio samples using G.711 PCMU/A-law.
+ *  Audio content returned as ALAW also contains a WAV header.
+ *
+ *  Value: "ALAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Alaw;
+/**
  *  Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
  *
  *  Value: "AUDIO_ENCODING_UNSPECIFIED"
@@ -58,6 +65,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_L
  *  Value: "MP3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3;
+/**
+ *  8-bit samples that compand 14-bit audio samples using G.711 PCMU/mu-law.
+ *  Audio content returned as MULAW also contains a WAV header.
+ *
+ *  Value: "MULAW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw;
 /**
  *  Opus encoded audio wrapped in an ogg container. The result will be a file
  *  which can be played natively on Android, and in browsers (at least Chrome
@@ -139,6 +153,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  Required. The format of the audio byte stream.
  *
  *  Likely values:
+ *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Alaw 8-bit samples
+ *        that compand 14-bit audio samples using G.711 PCMU/A-law. Audio
+ *        content returned as ALAW also contains a WAV header. (Value: "ALAW")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified
  *        Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
  *        (Value: "AUDIO_ENCODING_UNSPECIFIED")
@@ -147,6 +164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        returned as LINEAR16 also contains a WAV header. (Value: "LINEAR16")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 MP3 audio at
  *        32kbps. (Value: "MP3")
+ *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw 8-bit samples
+ *        that compand 14-bit audio samples using G.711 PCMU/mu-law. Audio
+ *        content returned as MULAW also contains a WAV header. (Value: "MULAW")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus Opus encoded
  *        audio wrapped in an ogg container. The result will be a file which can
  *        be played natively on Android, and in browsers (at least Chrome and

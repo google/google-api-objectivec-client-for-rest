@@ -481,7 +481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Output only. The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -500,7 +500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the source Cloud Filestore instance, in the format
- *  projects/{project_number}/locations/{location_id}/instances/{instance_id},
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`,
  *  used to create this backup.
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstance;
@@ -697,8 +697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}, that
- *  this file share has been restored from.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`,
+ *  that this file share has been restored from.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -1229,7 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Output only. The resource name of the instance, in the format
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  `projects/{project}/locations/{location}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1325,7 +1325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  A list of backups in the project for the specified location. If the
- *  {location} value in the request is "-", the response contains a list of
+ *  `{location}` value in the request is "-", the response contains a list of
  *  backups from all locations. If any location is unreachable, the response
  *  will only return backups in reachable locations and the "unreachable" field
  *  will be populated with a list of unreachable locations.
@@ -1359,7 +1359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  A list of instances in the project for the specified location. If the
- *  {location} value in the request is "-", the response contains a list of
+ *  `{location}` value in the request is "-", the response contains a list of
  *  instances from all locations. If any location is unreachable, the response
  *  will only return instances in reachable locations and the "unreachable"
  *  field will be populated with a list of unreachable locations.
@@ -1579,9 +1579,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_NetworkConfig : GTLRObject
 
 /**
- *  Output only. IPv4 addresses in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4} or IPv6 addresses in the format {block 1}:{block 2}:{block
- *  3}:{block 4}:{block 5}:{block 6}:{block 7}:{block 8}.
+ *  Output only. IPv4 addresses in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format
+ *  `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
@@ -1593,17 +1593,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The name of the Google Compute Engine [VPC
- *  network](/compute/docs/networks-and-firewalls#networks) to which the
- *  instance is connected.
+ *  network](https://cloud.google.com/vpc/docs/vpc) to which the instance is
+ *  connected.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  A /29 CIDR block in one of the [internal IP address
- *  ranges](https://www.arin.net/knowledge/address_filters.html) that identifies
- *  the range of IP addresses reserved for this instance. For example,
- *  10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with
- *  either existing subnets or assigned IP address ranges for other Cloud
+ *  ranges](https://www.arin.net/reference/research/statistics/address_filters/)
+ *  that identifies the range of IP addresses reserved for this instance. For
+ *  example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap
+ *  with either existing subnets or assigned IP address ranges for other Cloud
  *  Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
@@ -1651,12 +1651,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, strong, nullable) NSNumber *anonUid;
 
 /**
- *  List of either an IPv4 addresses in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4} or CIDR ranges in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4}/{mask size} which may mount the file share. Overlapping IP
- *  ranges are not allowed, both within and across NfsExportOptions. An error
- *  will be returned. The limit is 64 IP ranges/addresses for each
- *  FileShareConfig among all NfsExportOptions.
+ *  List of either an IPv4 addresses in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}` or CIDR ranges in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}/{mask size}` which may mount the file
+ *  share. Overlapping IP ranges are not allowed, both within and across
+ *  NfsExportOptions. An error will be returned. The limit is 64 IP
+ *  ranges/addresses for each FileShareConfig among all NfsExportOptions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipRanges;
 
@@ -1769,7 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
@@ -1811,7 +1811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 

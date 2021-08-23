@@ -7,7 +7,7 @@
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
 // Documentation:
-//   https://cloud.google.com/network-connectivity/docs
+//   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -754,7 +754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

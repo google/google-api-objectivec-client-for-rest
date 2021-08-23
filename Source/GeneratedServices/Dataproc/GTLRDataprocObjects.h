@@ -1005,8 +1005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Describes the identifying information, config, and status of a cluster of
- *  Compute Engine instances.
+ *  Describes the identifying information, config, and status of a Dataproc
+ *  cluster
  */
 @interface GTLRDataproc_Cluster : GTLRObject
 
@@ -1023,8 +1023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Required. The cluster config. Note that Dataproc may set default values, and
- *  values may change when clusters are updated.
+ *  Optional. The cluster config for a cluster of Compute Engine Instances. Note
+ *  that Dataproc may set default values, and values may change when clusters
+ *  are updated.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterConfig *config;
 
@@ -1093,10 +1094,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
  *  EU) for your cluster's staging bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Dataproc staging bucket
+ *  project-level, per-location bucket (see Dataproc staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
- *  This field requires a Cloud Storage bucket name, not a URI to a Cloud
- *  Storage bucket.
+ *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
+ *  Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
@@ -1136,8 +1137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_LifecycleConfig *lifecycleConfig;
 
 /**
- *  Optional. The Compute Engine config settings for the master instance in a
- *  cluster.
+ *  Optional. The Compute Engine config settings for the cluster's master
+ *  instance.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *masterConfig;
 
@@ -1145,15 +1146,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_MetastoreConfig *metastoreConfig;
 
 /**
- *  Optional. The Compute Engine config settings for additional worker instances
- *  in a cluster.
+ *  Optional. The Compute Engine config settings for a cluster's secondary
+ *  worker instances
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *secondaryWorkerConfig;
 
 /** Optional. Security settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SecurityConfig *securityConfig;
 
-/** Optional. The config settings for software inside the cluster. */
+/** Optional. The config settings for cluster software. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig *softwareConfig;
 
 /**
@@ -1163,14 +1164,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  EU) for your cluster's temp bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
  *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
- *  but you can use any TTL (or none) if you specify a bucket. This field
- *  requires a Cloud Storage bucket name, not a URI to a Cloud Storage bucket.
+ *  but you can use any TTL (or none) if you specify a bucket (see Dataproc
+ *  staging and temp buckets
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
+ *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
+ *  Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *tempBucket;
 
 /**
- *  Optional. The Compute Engine config settings for worker instances in a
- *  cluster.
+ *  Optional. The Compute Engine config settings for the cluster's worker
+ *  instances.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *workerConfig;
 
@@ -1777,7 +1781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  The GKE config for this cluster.
+ *  The cluster's GKE config.
  */
 @interface GTLRDataproc_GkeClusterConfig : GTLRObject
 
@@ -3208,7 +3212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the IAM
  *  documentation (https://cloud.google.com/iam/docs/).
  */

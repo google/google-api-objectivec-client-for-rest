@@ -545,6 +545,16 @@ NSString * const kGTLRCompute_Commitment_Status_Creating     = @"CREATING";
 NSString * const kGTLRCompute_Commitment_Status_Expired      = @"EXPIRED";
 NSString * const kGTLRCompute_Commitment_Status_NotYetActive = @"NOT_YET_ACTIVE";
 
+// GTLRCompute_Commitment.type
+NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimized = @"ACCELERATOR_OPTIMIZED";
+NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized = @"COMPUTE_OPTIMIZED";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose   = @"GENERAL_PURPOSE";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2 = @"GENERAL_PURPOSE_E2";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2 = @"GENERAL_PURPOSE_N2";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d = @"GENERAL_PURPOSE_N2D";
+NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
+NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
+
 // GTLRCompute_CommitmentAggregatedList_Warning.code
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -2990,6 +3000,7 @@ NSString * const kGTLRCompute_PublicAdvertisedPrefixList_Warning_Code_Unreachabl
 NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Announced = @"ANNOUNCED";
 NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Deleting = @"DELETING";
 NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Initializing = @"INITIALIZING";
+NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_ReadyToAnnounce = @"READY_TO_ANNOUNCE";
 
 // GTLRCompute_PublicDelegatedPrefixAggregatedList_Warning.code
 NSString * const kGTLRCompute_PublicDelegatedPrefixAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
@@ -3102,7 +3113,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP100Gpus = @"COMMITTED
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gpus = @"COMMITTED_NVIDIA_P4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus = @"COMMITTED_NVIDIA_T4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus = @"COMMITTED_NVIDIA_V100_GPUS";
-NSString * const kGTLRCompute_Quota_Metric_CommittedP2dCpus    = @"COMMITTED_P2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedT2dCpus    = @"COMMITTED_T2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_Cpus                = @"CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions      = @"CPUS_ALL_REGIONS";
 NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb        = @"DISKS_TOTAL_GB";
@@ -3151,7 +3162,6 @@ NSString * const kGTLRCompute_Quota_Metric_NvidiaP4VwsGpus     = @"NVIDIA_P4_VWS
 NSString * const kGTLRCompute_Quota_Metric_NvidiaT4Gpus        = @"NVIDIA_T4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus     = @"NVIDIA_T4_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus      = @"NVIDIA_V100_GPUS";
-NSString * const kGTLRCompute_Quota_Metric_P2dCpus             = @"P2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_PacketMirrorings    = @"PACKET_MIRRORINGS";
 NSString * const kGTLRCompute_Quota_Metric_PdExtremeTotalProvisionedIops = @"PD_EXTREME_TOTAL_PROVISIONED_IOPS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleCpus     = @"PREEMPTIBLE_CPUS";
@@ -3187,6 +3197,7 @@ NSString * const kGTLRCompute_Quota_Metric_SslCertificates     = @"SSL_CERTIFICA
 NSString * const kGTLRCompute_Quota_Metric_StaticAddresses     = @"STATIC_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses = @"STATIC_BYOIP_ADDRESSES";
 NSString * const kGTLRCompute_Quota_Metric_Subnetworks         = @"SUBNETWORKS";
+NSString * const kGTLRCompute_Quota_Metric_T2dCpus             = @"T2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_TargetHttpProxies   = @"TARGET_HTTP_PROXIES";
 NSString * const kGTLRCompute_Quota_Metric_TargetHttpsProxies  = @"TARGET_HTTPS_PROXIES";
 NSString * const kGTLRCompute_Quota_Metric_TargetInstances     = @"TARGET_INSTANCES";
@@ -6613,7 +6624,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Commitment
 @dynamic category, creationTimestamp, descriptionProperty, endTimestamp,
          identifier, kind, licenseResource, name, plan, region, reservations,
-         resources, selfLink, startTimestamp, status, statusMessage;
+         resources, selfLink, startTimestamp, status, statusMessage, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -6882,7 +6893,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_CustomerEncryptionKey
-@dynamic kmsKeyName, kmsKeyServiceAccount, rawKey, sha256;
+@dynamic kmsKeyName, kmsKeyServiceAccount, rawKey, rsaEncryptedKey, sha256;
 @end
 
 
@@ -9094,6 +9105,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_ImageFamilyView
+//
+
+@implementation GTLRCompute_ImageFamilyView
+@dynamic image;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ImageList
 //
 
@@ -9655,7 +9676,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceGroupManagersDeleteInstancesRequest
-@dynamic instances;
+@dynamic instances, skipInstancesOnValidationError;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -14506,7 +14527,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_RegionInstanceGroupManagersDeleteInstancesRequest
-@dynamic instances;
+@dynamic instances, skipInstancesOnValidationError;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

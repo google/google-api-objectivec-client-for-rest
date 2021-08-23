@@ -58,6 +58,14 @@ NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven = @"MAVEN";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os = @"OS";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
 
+// GTLROnDemandScanning_PackageIssue.effectiveSeverity
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Critical = @"CRITICAL";
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_High = @"HIGH";
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Low = @"LOW";
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Medium = @"MEDIUM";
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Minimal = @"MINIMAL";
+NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
 NSString * const kGTLROnDemandScanning_Version_Kind_Minimum    = @"MINIMUM";
@@ -707,8 +715,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageIssue
-@dynamic affectedCpeUri, affectedPackage, affectedVersion, fixAvailable,
-         fixedCpeUri, fixedPackage, fixedVersion;
+@dynamic affectedCpeUri, affectedPackage, affectedVersion, effectiveSeverity,
+         fixAvailable, fixedCpeUri, fixedPackage, fixedVersion, packageType;
 @end
 
 

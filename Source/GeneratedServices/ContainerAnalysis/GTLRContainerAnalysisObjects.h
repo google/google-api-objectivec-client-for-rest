@@ -983,6 +983,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxPa
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability;
 
 // ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_PackageIssue.effectiveSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Medium;
+/**
+ *  Minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Minimal;
+/**
+ *  Unknown.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
 
 /**
@@ -2962,7 +3002,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  The distro assigned severity for this vulnerability when it is available,
  *  and note provider assigned severity when distro has not yet assigned a
- *  severity for this vulnerability.
+ *  severity for this vulnerability. When there are multiple PackageIssues for
+ *  this vulnerability, they can have different effective severities because
+ *  some might be provided by the distro while others are provided by the
+ *  language ecosystem for a language pack. For this reason, it is advised to
+ *  use the effective severity on the PackageIssue level. In the case where
+ *  multiple PackageIssues have differing effective severities, this field
+ *  should be the highest severity for any of the PackageIssues.
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Critical
@@ -3617,8 +3663,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /** Required. The location of the vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *affectedLocation;
 
+/**
+ *  Output only. The distro or language system assigned severity for this
+ *  vulnerability when that is available and note provider assigned severity
+ *  when it is not available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_High High
+ *        severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Low Low
+ *        severity. (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Medium
+ *        Medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_Minimal
+ *        Minimal severity. (Value: "MINIMAL")
+ *    @arg @c kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified
+ *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
 /** The location of the available fix for vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *fixedLocation;
+
+/** The type of package (e.g. OS, MAVEN, GO). */
+@property(nonatomic, copy, nullable) NSString *packageType;
 
 /**
  *  Deprecated, use Details.effective_severity instead The severity (e.g.,
@@ -3856,7 +3926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

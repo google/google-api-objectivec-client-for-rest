@@ -630,6 +630,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased;
 /**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeSalesVolumeBased;
+/**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
  *  (currently only min is available) among other merchants who sell the same
@@ -655,6 +669,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_Repri
  *  Value: "TYPE_COGS_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased;
+/**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeSalesVolumeBased;
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
@@ -710,6 +738,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  Value: "TYPE_COGS_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased;
+/**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeSalesVolumeBased;
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
@@ -1150,8 +1192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_AccountAddress : GTLRObject
 
 /**
- *  CLDR country code (e.g. "US"). This value cannot be set for a sub-account of
- *  an MCA. All MCA sub-accounts inherit the country of their parent MCA.
+ *  CLDR country code (e.g. "US"). All MCA sub-accounts inherit the country of
+ *  their parent MCA by default, however the country can be updated for
+ *  individual sub-accounts.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -9148,8 +9191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
 
 /**
- *  The ID of the product to mutate. Only defined if the method is `get`,
- *  `delete`, or `update`. or `delete`.
+ *  The ID of the product to get or mutate. Only defined if the method is `get`,
+ *  `delete`, or `update`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 
@@ -10136,6 +10179,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        Cost of goods sale based rule. Repricer will adjust the offer price
  *        based on the offer's sale cost which is provided by the merchant.
  *        (Value: "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeSalesVolumeBased
+ *        Sales volume based rule. Repricer will adjust the offer price based on
+ *        the offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on
@@ -10238,6 +10289,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        goods sale based rule. Repricer will adjust the offer price based on
  *        the offer's sale cost which is provided by the merchant. (Value:
  *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeSalesVolumeBased Sales
+ *        volume based rule. Repricer will adjust the offer price based on the
+ *        offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased Statistical
  *        measurement based rules among Google SA merchants. If this rule is
  *        chosen, repricer will adjust the offer price based on statistical
@@ -10432,6 +10491,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        of goods sale based rule. Repricer will adjust the offer price based
  *        on the offer's sale cost which is provided by the merchant. (Value:
  *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeSalesVolumeBased
+ *        Sales volume based rule. Repricer will adjust the offer price based on
+ *        the offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on

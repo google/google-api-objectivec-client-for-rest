@@ -22,7 +22,6 @@
 #endif
 
 @class GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest;
-@class GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -38,33 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
-
-@end
-
-/**
- *  Gets information about a Google OAuth 2.0 access token issued by the Google
- *  Cloud [Security Token Service
- *  API](https://cloud.google.com/iam/docs/reference/sts/rest).
- *
- *  Method: sts.introspect
- */
-@interface GTLRCloudSecurityTokenQuery_V1Introspect : GTLRCloudSecurityTokenQuery
-
-/**
- *  Fetches a @c
- *  GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse.
- *
- *  Gets information about a Google OAuth 2.0 access token issued by the Google
- *  Cloud [Security Token Service
- *  API](https://cloud.google.com/iam/docs/reference/sts/rest).
- *
- *  @param object The @c
- *    GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest to
- *    include in the query.
- *
- *  @return GTLRCloudSecurityTokenQuery_V1Introspect
- */
-+ (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest *)object;
 
 @end
 
