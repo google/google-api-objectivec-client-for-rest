@@ -7,7 +7,7 @@
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
 // Documentation:
-//   https://cloud.google.com/network-connectivity/docs
+//   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
 #import "GTLRNetworkconnectivityObjects.h"
 

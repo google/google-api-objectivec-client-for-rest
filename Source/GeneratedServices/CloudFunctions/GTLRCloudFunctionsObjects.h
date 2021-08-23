@@ -412,6 +412,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, copy, nullable) NSString *buildId;
 
 /**
+ *  Output only. The Cloud Build Name of the function deployment.
+ *  projects//locations//builds/.
+ */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
+/**
  *  Name of the Cloud Build Custom Worker Pool that should be used to build the
  *  function. The format of this field is
  *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
@@ -487,6 +493,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxInstances;
+
+/**
+ *  A lower bound for the number function instances that may coexist at a given
+ *  time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstances;
 
 /**
  *  A user-defined name of the function. Function names must be unique globally
@@ -1171,7 +1185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

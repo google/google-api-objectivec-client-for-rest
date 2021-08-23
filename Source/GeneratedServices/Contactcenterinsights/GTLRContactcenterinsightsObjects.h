@@ -1497,7 +1497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant : GTLRObject
 
 /**
- *  The name of the Dialogflow participant. Format:
+ *  Deprecated. Use `dialogflow_participant_name` instead. The name of the
+ *  Dialogflow participant. Format:
  *  projects/{project}/locations/{location}/conversations/{conversation}/participants/{participant}
  */
 @property(nonatomic, copy, nullable) NSString *dialogflowParticipant;

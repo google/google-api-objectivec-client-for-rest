@@ -1008,7 +1008,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType,
+@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, gvnic, imageType,
          kubeletConfig, labels, linuxNodeConfig, localSsdCount, machineType,
          metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
          reservationAffinity, sandboxConfig, serviceAccount,
@@ -1662,8 +1662,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, imageType, kubeletConfig, linuxNodeConfig, locations, name,
-         nodePoolId, nodeVersion, projectId, upgradeSettings,
+@dynamic clusterId, gvnic, imageType, kubeletConfig, linuxNodeConfig, locations,
+         name, nodePoolId, nodeVersion, projectId, upgradeSettings,
          workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1745,6 +1745,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_VerticalPodAutoscaling
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_VirtualNIC
+//
+
+@implementation GTLRContainer_VirtualNIC
 @dynamic enabled;
 @end
 

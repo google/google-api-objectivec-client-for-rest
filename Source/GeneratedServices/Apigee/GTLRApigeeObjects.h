@@ -40,6 +40,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy_Labels;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties;
 @class GTLRApigee_GoogleCloudApigeeV1App;
+@class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
+@class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
@@ -359,6 +361,61 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_Sta
  *  Value: "RUNTIME_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Environment.apiProxyType
+
+/**
+ *  API proxy type not specified.
+ *
+ *  Value: "API_PROXY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_ApiProxyTypeUnspecified;
+/**
+ *  Configurable API Proxies enable you to develop efficient APIs using simple
+ *  configuration while complex execution control flow logic is handled by
+ *  Apigee. This type only works with the ARCHIVE deployment type and cannot be
+ *  combined with the PROXY deployment type.
+ *
+ *  Value: "CONFIGURABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Configurable;
+/**
+ *  Programmable API Proxies enable you to develop APIs with highly flexible
+ *  behavior using bundled policy configuration and one or more programming
+ *  languages to describe complex sequential and/or conditional flows of logic.
+ *
+ *  Value: "PROGRAMMABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Programmable;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Environment.deploymentType
+
+/**
+ *  Archive deployment enables you to develop API proxies locally then deploy an
+ *  archive of your API proxy configuration to an environment in Apigee on
+ *  Google Cloud. You will be prevented from performing a [subset of
+ *  actions](/apigee/docs/api-platform/local-development/overview#prevented-actions)
+ *  within the environment.
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_Archive;
+/**
+ *  Deployment type not specified.
+ *
+ *  Value: "DEPLOYMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_DeploymentTypeUnspecified;
+/**
+ *  Proxy deployment enables you to develop and deploy API proxies using Apigee
+ *  on Google Cloud. This cannot currently be combined with the CONFIGURABLE API
+ *  proxy type.
+ *
+ *  Value: "PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_Proxy;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Environment.state
@@ -1902,6 +1959,79 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Archive Deployment information.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment : GTLRObject
+
+/**
+ *  Output only. The time at which the Archive Deployment was created in
+ *  milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Input only. The Google Cloud Storage signed URL returned from
+ *  GenerateUploadUrl and used to upload the Archive zip file.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/**
+ *  User-supplied key-value pairs used to organize ArchiveDeployments. Label
+ *  keys must be between 1 and 63 characters long, have a UTF-8 encoding of
+ *  maximum 128 bytes, and must conform to the following PCRE regular
+ *  expression: \\p{Ll}\\p{Lo}{0,62} Label values must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels *labels;
+
+/**
+ *  Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. A reference to the LRO that created this Archive Deployment in
+ *  the following format: `organizations/{org}/operations/{id}`
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  Output only. The time at which the Archive Deployment was updated in
+ *  milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedAt;
+
+@end
+
+
+/**
+ *  User-supplied key-value pairs used to organize ArchiveDeployments. Label
+ *  keys must be between 1 and 63 characters long, have a UTF-8 encoding of
+ *  maximum 128 bytes, and must conform to the following PCRE regular
+ *  expression: \\p{Ll}\\p{Lo}{0,62} Label values must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels : GTLRObject
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1AsyncQuery
  */
 @interface GTLRApigee_GoogleCloudApigeeV1AsyncQuery : GTLRObject
@@ -3254,11 +3384,59 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1Environment : GTLRObject
 
 /**
+ *  Optional. API Proxy type supported by the environment. The type can be set
+ *  when creating the Environment and cannot be changed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_ApiProxyTypeUnspecified
+ *        API proxy type not specified. (Value: "API_PROXY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Configurable
+ *        Configurable API Proxies enable you to develop efficient APIs using
+ *        simple configuration while complex execution control flow logic is
+ *        handled by Apigee. This type only works with the ARCHIVE deployment
+ *        type and cannot be combined with the PROXY deployment type. (Value:
+ *        "CONFIGURABLE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Programmable
+ *        Programmable API Proxies enable you to develop APIs with highly
+ *        flexible behavior using bundled policy configuration and one or more
+ *        programming languages to describe complex sequential and/or
+ *        conditional flows of logic. (Value: "PROGRAMMABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *apiProxyType;
+
+/**
  *  Output only. Creation time of this environment as milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Optional. Deployment type supported by the environment. The deployment type
+ *  can be set when creating the environment and cannot be changed. When you
+ *  enable archive deployment, you will be **prevented from performing** a
+ *  [subset of
+ *  actions](/apigee/docs/api-platform/local-development/overview#prevented-actions)
+ *  within the environment, including: * Managing the deployment of API proxy or
+ *  shared flow revisions * Creating, updating, or deleting resource files *
+ *  Creating, updating, or deleting target servers
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_Archive
+ *        Archive deployment enables you to develop API proxies locally then
+ *        deploy an archive of your API proxy configuration to an environment in
+ *        Apigee on Google Cloud. You will be prevented from performing a
+ *        [subset of
+ *        actions](/apigee/docs/api-platform/local-development/overview#prevented-actions)
+ *        within the environment. (Value: "ARCHIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_DeploymentTypeUnspecified
+ *        Deployment type not specified. (Value: "DEPLOYMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_DeploymentType_Proxy
+ *        Proxy deployment enables you to develop and deploy API proxies using
+ *        Apigee on Google Cloud. This cannot currently be combined with the
+ *        CONFIGURABLE API proxy type. (Value: "PROXY")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentType;
 
 /**
  *  Optional. Description of the environment.
@@ -3315,6 +3493,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig : GTLRObject
 
+/**
+ *  The location for the config blob of API Runtime Control, aka Envoy Adapter,
+ *  for op-based authentication as a URI, e.g. a Cloud Storage URI. This is only
+ *  used by Envoy-based gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *arcConfigLocation;
+
 /** Time that the environment configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3332,6 +3517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of flow hooks in the environment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1FlowHookConfig *> *flowhooks;
+
+/**
+ *  The location for the gateway config blob as a URI, e.g. a Cloud Storage URI.
+ *  This is only used by Envoy-based gateways.
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayConfigLocation;
 
 /** List of keystores in the environment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1KeystoreConfig *> *keystores;
@@ -3679,6 +3870,48 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `organizations/{org}/sharedflows/{sharedflow}`
  */
 @property(nonatomic, copy, nullable) NSString *sharedFlowName;
+
+@end
+
+
+/**
+ *  Request for GenerateDownloadUrl method.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for GenerateDownloadUrl method.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlResponse : GTLRObject
+
+/**
+ *  The Google Cloud Storage signed URL that can be used to download the Archive
+ *  zip file.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadUri;
+
+@end
+
+
+/**
+ *  Request for GenerateUploadUrl method.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for GenerateUploadUrl method.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlResponse : GTLRObject
+
+/**
+ *  The Google Cloud Storage signed URL that can be used to upload a new Archive
+ *  zip file.
+ */
+@property(nonatomic, copy, nullable) NSString *uploadUri;
 
 @end
 
@@ -4112,6 +4345,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1ListAppsResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1App *> *app;
+
+@end
+
+
+/**
+ *  Response for ListArchiveDeployments method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "archiveDeployments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListArchiveDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  Archive Deployments in the specified environment.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *> *archiveDeployments;
+
+/**
+ *  Page token that you can include in a ListArchiveDeployments request to
+ *  retrieve the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -7030,7 +7290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

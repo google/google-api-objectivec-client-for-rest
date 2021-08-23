@@ -47,8 +47,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrinters;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrintersReadonly;
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

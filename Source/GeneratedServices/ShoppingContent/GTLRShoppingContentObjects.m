@@ -85,11 +85,15 @@ NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingSt
 // GTLRShoppingContent_RepricingProductReport.type
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCompetitivePrice = @"TYPE_COMPETITIVE_PRICE";
+NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeSalesVolumeBased = @"TYPE_SALES_VOLUME_BASED";
 NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
 
 // GTLRShoppingContent_RepricingRule.type
 NSString * const kGTLRShoppingContent_RepricingRule_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCompetitivePrice = @"TYPE_COMPETITIVE_PRICE";
+NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeSalesVolumeBased = @"TYPE_SALES_VOLUME_BASED";
 NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased = @"TYPE_STATS_BASED";
 
 // GTLRShoppingContent_RepricingRuleEligibleOfferMatcher.matcherOption
@@ -101,6 +105,8 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 // GTLRShoppingContent_RepricingRuleReport.type
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCompetitivePrice = @"TYPE_COMPETITIVE_PRICE";
+NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeSalesVolumeBased = @"TYPE_SALES_VOLUME_BASED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
 
 // GTLRShoppingContent_RequestPhoneVerificationRequest.phoneVerificationMethod

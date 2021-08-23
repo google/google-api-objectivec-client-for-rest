@@ -720,10 +720,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Recommender"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_RemoteBuildExecution",
-            targets: ["GoogleAPIClientForREST_RemoteBuildExecution"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_Reports",
             targets: ["GoogleAPIClientForREST_Reports"]
         ),
@@ -2021,12 +2017,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Recommender",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Recommender",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_RemoteBuildExecution",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/RemoteBuildExecution",
             publicHeadersPath: "."
         ),
         .target(

@@ -873,8 +873,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Message
 @dynamic actionResponse, annotations, argumentText, attachment, cards,
-         createTime, fallbackText, name, previewText, sender, slashCommand,
-         space, text, thread;
+         createTime, fallbackText, lastUpdateTime, name, previewText, sender,
+         slashCommand, space, text, thread;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

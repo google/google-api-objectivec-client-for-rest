@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The backup's project and location, in the format
- *  projects/{project_number}/locations/{location}. In Cloud Filestore, backup
+ *  `projects/{project_number}/locations/{location}`. In Cloud Filestore, backup
  *  locations map to GCP regions, for example **us-west1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -76,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param parent Required. The backup's project and location, in the format
- *    projects/{project_number}/locations/{location}. In Cloud Filestore, backup
- *    locations map to GCP regions, for example **us-west1**.
+ *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
+ *    backup locations map to GCP regions, for example **us-west1**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsCreate
  */
@@ -98,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The backup resource name, in the format
- *  projects/{project_number}/locations/{location}/backups/{backup_id}
+ *  `projects/{project_number}/locations/{location}/backups/{backup_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -108,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a backup.
  *
  *  @param name Required. The backup resource name, in the format
- *    projects/{project_number}/locations/{location}/backups/{backup_id}
+ *    `projects/{project_number}/locations/{location}/backups/{backup_id}`
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsDelete
  */
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The backup resource name, in the format
- *  projects/{project_number}/locations/{location}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -138,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific backup.
  *
  *  @param name Required. The backup resource name, in the format
- *    projects/{project_number}/locations/{location}/backups/{backup_id}.
+ *    `projects/{project_number}/locations/{location}/backups/{backup_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsGet
  */
@@ -176,9 +176,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve backup information,
- *  in the format projects/{project_number}/locations/{location}. In Cloud
+ *  in the format `projects/{project_number}/locations/{location}`. In Cloud
  *  Filestore, backup locations map to GCP regions, for example **us-west1**. To
- *  retrieve backup information for all locations, use "-" for the {location}
+ *  retrieve backup information for all locations, use "-" for the `{location}`
  *  value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -191,9 +191,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    backup information, in the format
- *    projects/{project_number}/locations/{location}. In Cloud Filestore, backup
- *    locations map to GCP regions, for example **us-west1**. To retrieve backup
- *    information for all locations, use "-" for the {location} value.
+ *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
+ *    backup locations map to GCP regions, for example **us-west1**. To retrieve
+ *    backup information for all locations, use "-" for the `{location}` value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsList
  *
@@ -217,7 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -236,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param name Output only. The resource name of the backup, in the format
- *    projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *    `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsPatch
  */
@@ -291,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The instance's project and location, in the format
- *  projects/{project_id}/locations/{location}. In Cloud Filestore, locations
+ *  `projects/{project_id}/locations/{location}`. In Cloud Filestore, locations
  *  map to GCP zones, for example **us-west1-b**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -305,8 +305,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param parent Required. The instance's project and location, in the format
- *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
- *    map to GCP zones, for example **us-west1-b**.
+ *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+ *    locations map to GCP zones, for example **us-west1-b**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
  */
@@ -327,7 +327,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The instance resource name, in the format
- *  projects/{project_id}/locations/{location}/instances/{instance_id}
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an instance.
  *
  *  @param name Required. The instance resource name, in the format
- *    projects/{project_id}/locations/{location}/instances/{instance_id}
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete
  */
@@ -357,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The instance resource name, in the format
- *  projects/{project_id}/locations/{location}/instances/{instance_id}.
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific instance.
  *
  *  @param name Required. The instance resource name, in the format
- *    projects/{project_id}/locations/{location}/instances/{instance_id}.
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet
  */
@@ -405,10 +405,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve instance
- *  information, in the format projects/{project_id}/locations/{location}. In
+ *  information, in the format `projects/{project_id}/locations/{location}`. In
  *  Cloud Filestore, locations map to GCP zones, for example **us-west1-b**. To
- *  retrieve instance information for all locations, use "-" for the {location}
- *  value.
+ *  retrieve instance information for all locations, use "-" for the
+ *  `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -420,9 +420,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    instance information, in the format
- *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
- *    map to GCP zones, for example **us-west1-b**. To retrieve instance
- *    information for all locations, use "-" for the {location} value.
+ *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+ *    locations map to GCP zones, for example **us-west1-b**. To retrieve
+ *    instance information for all locations, use "-" for the `{location}`
+ *    value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList
  *
@@ -446,7 +447,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The resource name of the instance, in the format
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  `projects/{project}/locations/{location}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -466,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param name Output only. The resource name of the instance, in the format
- *    projects/{project}/locations/{location}/instances/{instance}.
+ *    `projects/{project}/locations/{location}/instances/{instance}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch
  */
@@ -489,7 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the instance, in the format
- *  projects/{project_number}/locations/{location_id}/instances/{instance_id}.
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -503,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudFilestore_RestoreInstanceRequest to include in
  *    the query.
  *  @param name Required. The resource name of the instance, in the format
- *    projects/{project_number}/locations/{location_id}/instances/{instance_id}.
+ *    `projects/{project_number}/locations/{location_id}/instances/{instance_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
  */

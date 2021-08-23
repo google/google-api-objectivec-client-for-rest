@@ -7,7 +7,7 @@
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
 // Documentation:
-//   https://cloud.google.com/network-connectivity/docs
+//   https://cloud.google.com/network-connectivity/docs/reference/networkconnectivity/rest
 
 #import "GTLRNetworkconnectivityQuery.h"
 
@@ -221,83 +221,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
   query.loggingName = @"networkconnectivity.projects.locations.global.hubs.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:getIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:setIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:testIamPermissions";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
-  query.loggingName = @"networkconnectivity.projects.locations.global.policyBasedRoutes.testIamPermissions";
   return query;
 }
 

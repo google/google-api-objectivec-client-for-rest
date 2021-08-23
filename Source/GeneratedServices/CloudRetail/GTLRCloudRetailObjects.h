@@ -2217,10 +2217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  {"text": ["vendor123", "vendor456"]}, "lengths_cm": {"numbers":[2.3, 15.4]},
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
- *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
- *  encoded string with a length limit of 128 characters. * For indexable
- *  attribute, the key must match the pattern: a-zA-Z0-9*. For example,
- *  key0LikeThis or KEY_1_LIKE_THIS.
+ *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
+ *  128 characters. * For indexable attribute, the key must match the pattern:
+ *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
 
@@ -2350,7 +2349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The Global Trade Item Number (GTIN) of the product. This field must be a
  *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  INVALID_ARGUMENT error is returned. This field must be a Unigram. Otherwise,
+ *  an INVALID_ARGUMENT error is returned. Google Merchant Center property
  *  [gtin](https://support.google.com/merchants/answer/6324461). Schema.org
  *  property [Product.isbn](https://schema.org/isbn) or
  *  [Product.gtin8](https://schema.org/gtin8) or
@@ -2412,7 +2412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The pattern or graphic print of the product. For example, "striped", "polka
- *  dot", "paisley". A maximum of 5 values are allowed per Product. Each value
+ *  dot", "paisley". A maximum of 20 values are allowed per Product. Each value
  *  must be a UTF-8 encoded string with a length limit of 128 characters.
  *  Otherwise, an INVALID_ARGUMENT error is returned. Google Merchant Center
  *  property [pattern](https://support.google.com/merchants/answer/6324483).
@@ -2584,10 +2584,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  {"text": ["vendor123", "vendor456"]}, "lengths_cm": {"numbers":[2.3, 15.4]},
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
- *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
- *  encoded string with a length limit of 128 characters. * For indexable
- *  attribute, the key must match the pattern: a-zA-Z0-9*. For example,
- *  key0LikeThis or KEY_1_LIKE_THIS.
+ *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
+ *  128 characters. * For indexable attribute, the key must match the pattern:
+ *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c

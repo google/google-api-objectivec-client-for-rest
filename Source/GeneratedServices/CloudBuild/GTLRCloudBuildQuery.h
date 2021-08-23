@@ -457,7 +457,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -472,7 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete
  */
@@ -495,7 +495,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -509,7 +509,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet
  */
@@ -565,7 +565,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -587,7 +587,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
  *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    For example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch
  */
@@ -920,7 +920,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -935,7 +935,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete
  */
@@ -958,7 +958,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This field should contain the name of the enterprise config resource. For
- *  example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -972,7 +972,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
- *    "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet
  */
@@ -1028,7 +1028,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The full resource name for the GitHubEnterpriseConfig For example:
- *  "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *  "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1050,7 +1050,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
  *  @param name Optional. The full resource name for the GitHubEnterpriseConfig
- *    For example: "projects/{$project_id}/githubEnterpriseConfig/{$config_id}"
+ *    For example: "projects/{$project_id}/githubEnterpriseConfigs/{$config_id}"
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch
  */

@@ -31,44 +31,6 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @end
 
-@implementation GTLROSConfigQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_Empty class];
-  query.loggingName = @"osconfig.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLROSConfigQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLROSConfigQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLROSConfig_ListOperationsResponse class];
-  query.loggingName = @"osconfig.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
 
 @dynamic name, view;

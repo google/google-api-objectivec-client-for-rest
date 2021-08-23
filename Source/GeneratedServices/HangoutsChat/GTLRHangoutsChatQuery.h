@@ -56,13 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -98,13 +99,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -140,13 +142,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -223,13 +226,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -265,13 +269,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -307,13 +312,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -505,13 +511,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -635,13 +642,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post further updates to it. Has no effect if
- *  thread field, corresponding to an existing thread, is set in message.
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Hangouts Chat thread ID of a
+ *  thread (created earlier by them) to post further updates to it. Has no
+ *  effect if thread field, corresponding to an existing thread, is set in
+ *  message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 

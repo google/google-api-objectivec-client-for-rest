@@ -1309,7 +1309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1374,17 +1374,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 /** The delta for Bindings between two policies. */
 @property(nonatomic, strong, nullable) NSArray<GTLRIam_BindingDelta *> *bindingDeltas;
-
-@end
-
-
-/**
- *  Metadata for long-running Policy operations.
- */
-@interface GTLRIam_PolicyOperationMetadata : GTLRObject
-
-/** Timestamp when the google.longrunning.Operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 @end
 

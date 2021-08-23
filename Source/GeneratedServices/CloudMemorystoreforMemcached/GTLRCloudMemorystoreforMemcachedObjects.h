@@ -1819,8 +1819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /**
  *  Deny Maintenance Period that is applied to resource to indicate when
  *  maintenance is forbidden. User can specify zero or more non-overlapping deny
- *  periods. For V1, Maximum number of deny_maintenance_periods is expected to
- *  be one.
+ *  periods. Maximum number of deny_maintenance_periods expected is one.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 

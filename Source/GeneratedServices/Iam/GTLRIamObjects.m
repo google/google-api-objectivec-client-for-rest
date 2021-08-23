@@ -566,16 +566,6 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRIam_PolicyOperationMetadata
-//
-
-@implementation GTLRIam_PolicyOperationMetadata
-@dynamic createTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRIam_QueryAuditableServicesRequest
 //
 

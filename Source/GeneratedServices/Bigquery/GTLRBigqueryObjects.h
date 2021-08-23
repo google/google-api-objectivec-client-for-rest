@@ -418,13 +418,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus;
 /**
- *  [Beta] AutoML Tables classification model.
+ *  AutoML Tables classification model.
  *
  *  Value: "AUTOML_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier;
 /**
- *  [Beta] AutoML Tables regression model.
+ *  AutoML Tables regression model.
  *
  *  Value: "AUTOML_REGRESSOR"
  */
@@ -5225,9 +5225,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
  *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlus New name for the ARIMA
  *        model. (Value: "ARIMA_PLUS")
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier [Beta] AutoML
- *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor [Beta] AutoML Tables
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier AutoML Tables
+ *        classification model. (Value: "AUTOML_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor AutoML Tables
  *        regression model. (Value: "AUTOML_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier Boosted tree
  *        classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
@@ -5425,7 +5425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -6138,15 +6138,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *definitionBody;
 
 /**
- *  Optional. [Experimental] The description of the routine if defined.
+ *  Optional. The description of the routine, if defined.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. [Experimental] The determinism level of the JavaScript UDF if
- *  defined.
+ *  Optional. The determinism level of the JavaScript UDF, if defined.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified
@@ -6190,12 +6189,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
-/** Optional. Set only if Routine is a "TABLE_VALUED_FUNCTION". */
+/**
+ *  Optional. Can be set only if routine_type = "TABLE_VALUED_FUNCTION". If
+ *  absent, the return table type is inferred from definition_body at query time
+ *  in each query that references this routine. If present, then the columns in
+ *  the evaluated table result will be cast to match the column types specificed
+ *  in return table type, at query time.
+ */
 @property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlTableType *returnTableType;
 
 /**
- *  Optional if language = "SQL"; required otherwise. If absent, the return type
- *  is inferred from definition_body at query time in each query that references
+ *  Optional if language = "SQL"; required otherwise. Cannot be set if
+ *  routine_type = "TABLE_VALUED_FUNCTION". If absent, the return type is
+ *  inferred from definition_body at query time in each query that references
  *  this routine. If present, then the evaluated result will be cast to the
  *  specified returned type at query time. For example, for the functions
  *  created with the following statements: * `CREATE FUNCTION Add(x FLOAT64, y

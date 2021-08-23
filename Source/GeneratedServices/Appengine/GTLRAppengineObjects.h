@@ -961,6 +961,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The service account associated with the application. This is the app-level
+ *  default identity. If no identity provided during create version, Admin API
+ *  will fallback to this one.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
  *  Serving status of this application.
  *
  *  Likely values:

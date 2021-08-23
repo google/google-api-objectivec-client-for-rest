@@ -352,11 +352,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
- *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
- *  will be set to a time 24 hours in the future, at which point the state will
- *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
- *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
- *  reverse the process.
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
+ *  will be set to the time destroy_scheduled_duration in the future. At that
+ *  time, the state will automatically change to DESTROYED, and the key material
+ *  will be irrevocably destroyed. Before the destroy_time is reached,
+ *  RestoreCryptoKeyVersion may be called to reverse the process.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
  *
@@ -373,11 +373,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
- *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
- *  will be set to a time 24 hours in the future, at which point the state will
- *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
- *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
- *  reverse the process.
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
+ *  will be set to the time destroy_scheduled_duration in the future. At that
+ *  time, the state will automatically change to DESTROYED, and the key material
+ *  will be irrevocably destroyed. Before the destroy_time is reached,
+ *  RestoreCryptoKeyVersion may be called to reverse the process.
  *
  *  @param object The @c GTLRCloudKMS_DestroyCryptoKeyVersionRequest to include
  *    in the query.

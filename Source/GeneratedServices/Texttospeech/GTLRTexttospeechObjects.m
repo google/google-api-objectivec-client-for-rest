@@ -15,9 +15,11 @@
 // Constants
 
 // GTLRTexttospeech_AudioConfig.audioEncoding
+NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Alaw = @"ALAW";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified = @"AUDIO_ENCODING_UNSPECIFIED";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16 = @"LINEAR16";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 = @"MP3";
+NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mulaw = @"MULAW";
 NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus = @"OGG_OPUS";
 
 // GTLRTexttospeech_Voice.ssmlGender

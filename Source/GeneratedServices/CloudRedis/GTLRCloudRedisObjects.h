@@ -458,7 +458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 
 /**
- *  A Google Cloud Redis instance. next id = 30
+ *  A Google Cloud Redis instance. next id = 36
  */
 @interface GTLRCloudRedis_Instance : GTLRObject
 
@@ -529,10 +529,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 /**
  *  Optional. The zone where the instance will be provisioned. If not provided,
- *  the service will choose a zone for the instance. For STANDARD_HA tier,
- *  instances will be created across two zones for protection against zonal
- *  failures. If alternative_location_id is also provided, it must be different
- *  from location_id.
+ *  the service will choose a zone from the specified region for the instance.
+ *  For standard tier, instances will be created across two zones for protection
+ *  against zonal failures. If [alternative_location_id] is also provided, it
+ *  must be different from [location_id].
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 

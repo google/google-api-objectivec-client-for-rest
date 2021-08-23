@@ -308,6 +308,46 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROnDemandScanning_PackageIssue.effectiveSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Medium;
+/**
+ *  Minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Minimal;
+/**
+ *  Unknown.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
 
 /**
@@ -1593,6 +1633,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Version *affectedVersion;
 
 /**
+ *  Output only. The distro or language system assigned severity for this
+ *  vulnerability when that is available and note provider assigned severity
+ *  when it is not available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_High High
+ *        severity. (Value: "HIGH")
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Low Low
+ *        severity. (Value: "LOW")
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Medium Medium
+ *        severity. (Value: "MEDIUM")
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_Minimal
+ *        Minimal severity. (Value: "MINIMAL")
+ *    @arg @c kGTLROnDemandScanning_PackageIssue_EffectiveSeverity_SeverityUnspecified
+ *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveSeverity;
+
+/**
  *  Output only. Whether a fix is available for this package.
  *
  *  Uses NSNumber of boolValue.
@@ -1616,6 +1677,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  Setting this to VersionKind.MAXIMUM means no fix is yet available.
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Version *fixedVersion;
+
+/** The type of package (e.g. OS, MAVEN, GO). */
+@property(nonatomic, copy, nullable) NSString *packageType;
 
 @end
 
@@ -2087,7 +2151,14 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /**
  *  The distro assigned severity for this vulnerability when it is available,
- *  otherwise this is the note provider assigned severity.
+ *  otherwise this is the note provider assigned severity. When there are
+ *  multiple PackageIssues for this vulnerability, they can have different
+ *  effective severities because some might be provided by the distro while
+ *  others are provided by the language ecosystem for a language pack. For this
+ *  reason, it is advised to use the effective severity on the PackageIssue
+ *  level. In the case where multiple PackageIssues have differing effective
+ *  severities, this field should be the highest severity for any of the
+ *  PackageIssues.
  *
  *  Likely values:
  *    @arg @c kGTLROnDemandScanning_VulnerabilityOccurrence_EffectiveSeverity_Critical

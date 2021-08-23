@@ -19,28 +19,6 @@
 
 @end
 
-@implementation GTLRCloudSecurityTokenQuery_V1Introspect
-
-+ (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/introspect";
-  GTLRCloudSecurityTokenQuery_V1Introspect *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse class];
-  query.loggingName = @"sts.introspect";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudSecurityTokenQuery_V1Token
 
 + (instancetype)queryWithObject:(GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest *)object {

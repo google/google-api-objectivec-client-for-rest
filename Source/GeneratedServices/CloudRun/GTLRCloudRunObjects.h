@@ -1611,7 +1611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -2638,13 +2638,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Not supported by Cloud Run Volume represents a named volume in a container.
+ *  Volume represents a named volume in a container.
  */
 @interface GTLRCloudRun_Volume : GTLRObject
 
 @property(nonatomic, strong, nullable) GTLRCloudRun_ConfigMapVolumeSource *configMap;
 
-/** Volume's name. */
+/**
+ *  Volume's name. In Cloud Run Fully Managed, the name 'cloudsql' is reserved.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @property(nonatomic, strong, nullable) GTLRCloudRun_SecretVolumeSource *secret;
@@ -2653,8 +2655,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Not supported by Cloud Run VolumeMount describes a mounting of a Volume
- *  within a container.
+ *  VolumeMount describes a mounting of a Volume within a container.
  */
 @interface GTLRCloudRun_VolumeMount : GTLRObject
 
@@ -2664,7 +2665,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, copy, nullable) NSString *mountPath;
 
-/** This must match the Name of a Volume. */
+/**
+ *  The name of the volume. There must be a corresponding Volume with the same
+ *  name.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

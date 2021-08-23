@@ -180,7 +180,7 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 @dynamic authDomain, codeBucket, databaseType, defaultBucket,
          defaultCookieExpiration, defaultHostname, dispatchRules,
          featureSettings, gcrDomain, iap, identifier, locationId, name,
-         servingStatus;
+         serviceAccount, servingStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

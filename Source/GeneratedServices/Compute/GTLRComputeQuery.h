@@ -7911,6 +7911,50 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Returns the latest image that is part of an image family, is not deprecated
+ *  and is rolled out in the specified zone.
+ *
+ *  Method: compute.imageFamilyViews.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ImageFamilyViewsGet : GTLRComputeQuery
+
+/** Name of the image family to search for. */
+@property(nonatomic, copy, nullable) NSString *family;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ImageFamilyView.
+ *
+ *  Returns the latest image that is part of an image family, is not deprecated
+ *  and is rolled out in the specified zone.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param family Name of the image family to search for.
+ *
+ *  @return GTLRComputeQuery_ImageFamilyViewsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                          family:(NSString *)family;
+
+@end
+
+/**
  *  Deletes the specified image.
  *
  *  Method: compute.images.delete
@@ -16208,9 +16252,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Updates the specified network peering with the data included in the request
- *  Only the following fields can be modified:
- *  NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
+ *  Updates the specified network peering with the data included in the request.
+ *  You can only modify the NetworkPeering.export_custom_routes field and the
+ *  NetworkPeering.import_custom_routes field.
  *
  *  Method: compute.networks.updatePeering
  *
@@ -16242,9 +16286,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates the specified network peering with the data included in the request
- *  Only the following fields can be modified:
- *  NetworkPeering.export_custom_routes, and NetworkPeering.import_custom_routes
+ *  Updates the specified network peering with the data included in the request.
+ *  You can only modify the NetworkPeering.export_custom_routes field and the
+ *  NetworkPeering.import_custom_routes field.
  *
  *  @param object The @c GTLRCompute_NetworksUpdatePeeringRequest to include in
  *    the query.

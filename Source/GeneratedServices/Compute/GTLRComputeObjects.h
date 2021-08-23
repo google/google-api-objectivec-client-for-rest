@@ -3673,6 +3673,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_Expired;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Status_NotYetActive;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Commitment.type
+
+/** Value: "ACCELERATOR_OPTIMIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_AcceleratorOptimized;
+/** Value: "COMPUTE_OPTIMIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_ComputeOptimized;
+/** Value: "GENERAL_PURPOSE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose;
+/** Value: "GENERAL_PURPOSE_E2" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2;
+/** Value: "GENERAL_PURPOSE_N2" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2;
+/** Value: "GENERAL_PURPOSE_N2D" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d;
+/** Value: "MEMORY_OPTIMIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized;
+/** Value: "TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_CommitmentAggregatedList_Warning.code
 
 /**
@@ -17343,6 +17363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Ann
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Deleting;
 /** Value: "INITIALIZING" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_Initializing;
+/** Value: "READY_TO_ANNOUNCE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PublicDelegatedPrefix_Status_ReadyToAnnounce;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PublicDelegatedPrefixAggregatedList_Warning.code
@@ -17894,8 +17916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaP4Gp
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaT4Gpus;
 /** Value: "COMMITTED_NVIDIA_V100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus;
-/** Value: "COMMITTED_P2D_CPUS" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedP2dCpus;
+/** Value: "COMMITTED_T2D_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedT2dCpus;
 /**
  *  Guest CPUs
  *
@@ -17996,8 +18018,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4Gpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus;
 /** Value: "NVIDIA_V100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_NvidiaV100Gpus;
-/** Value: "P2D_CPUS" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_P2dCpus;
 /** Value: "PACKET_MIRRORINGS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PacketMirrorings;
 /** Value: "PD_EXTREME_TOTAL_PROVISIONED_IOPS" */
@@ -18072,6 +18092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticAddresses;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_StaticByoipAddresses;
 /** Value: "SUBNETWORKS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Subnetworks;
+/** Value: "T2D_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_T2dCpus;
 /** Value: "TARGET_HTTP_PROXIES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_TargetHttpProxies;
 /** Value: "TARGET_HTTPS_PROXIES" */
@@ -30024,18 +30046,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Use global external addresses for GFE-based external HTTP(S) load balancers
- *  in Premium Tier. Use global internal addresses for reserved peering network
- *  range. Use regional external addresses for the following resources: -
- *  External IP addresses for VM instances - Regional external forwarding rules
- *  - Cloud NAT external IP addresses - GFE based LBs in Standard Tier - Network
- *  LBs in Premium or Standard Tier - Cloud VPN gateways (both Classic and HA)
- *  Use regional internal IP addresses for subnet IP ranges (primary and
- *  secondary). This includes: - Internal IP addresses for VM instances - Alias
- *  IP ranges of VM instances (/32 only) - Regional internal forwarding rules -
- *  Internal TCP/UDP load balancer addresses - Internal HTTP(S) load balancer
- *  addresses - Cloud DNS inbound forwarding IP addresses For more information,
- *  see Reserving a static external IP address.
+ *  Represents an IP Address resource. Google Compute Engine has two IP Address
+ *  resources: * [Global (external and
+ *  internal)](https://cloud.google.com/compute/docs/reference/rest/v1/globalAddresses)
+ *  * [Regional (external and
+ *  internal)](https://cloud.google.com/compute/docs/reference/rest/v1/addresses)
+ *  For more information, see Reserving a static external IP address.
  */
 @interface GTLRCompute_Address : GTLRObject
 
@@ -30099,7 +30115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression `[a-z]([-a-z0-9]*[a-z0-9])?`. The first character must be a
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])?. The first character must be a
  *  lowercase letter, and all following characters (except for the last
  *  character) must be a dash, lowercase letter, or digit. The last character
  *  must be a lowercase letter or digit.
@@ -30114,12 +30130,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This signifies the networking tier used for configuring this address and can
- *  only take the following values: PREMIUM or STANDARD. Global forwarding rules
- *  can only be Premium Tier. Regional forwarding rules can be either Premium or
- *  Standard Tier. Standard Tier addresses applied to regional forwarding rules
- *  can be used with any external load balancer. Regional forwarding rules in
- *  Premium Tier can only be used with a network load balancer. If this field is
- *  not specified, it is assumed to be PREMIUM.
+ *  only take the following values: PREMIUM or STANDARD. Internal IP addresses
+ *  are always Premium Tier; global external IP addresses are always Premium
+ *  Tier; regional external IP addresses can be either Standard or Premium Tier.
+ *  If this field is not specified, it is assumed to be PREMIUM.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_NetworkTier_Premium High quality,
@@ -30140,14 +30154,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The purpose of this resource, which can be one of the following values: -
- *  `GCE_ENDPOINT` for addresses that are used by VM instances, alias IP ranges,
- *  internal load balancers, and similar resources. - `DNS_RESOLVER` for a DNS
- *  resolver address in a subnetwork - `VPC_PEERING` for addresses that are
- *  reserved for VPC peer networks. - `NAT_AUTO` for addresses that are external
- *  IP addresses automatically reserved for Cloud NAT. - `IPSEC_INTERCONNECT`
- *  for addresses created from a private IP range that are reserved for a VLAN
- *  attachment in an *IPsec-encrypted Cloud Interconnect* configuration. These
- *  addresses are regional resources. Not currently available publicly. -
+ *  GCE_ENDPOINT for addresses that are used by VM instances, alias IP ranges,
+ *  load balancers, and similar resources. - DNS_RESOLVER for a DNS resolver
+ *  address in a subnetwork for a Cloud DNS inbound forwarder IP addresses
+ *  (regional internal IP address in a subnet of a VPC network) - VPC_PEERING
+ *  for global internal IP addresses used for private services access allocated
+ *  ranges. - NAT_AUTO for the regional external IP addresses used by Cloud NAT
+ *  when allocating addresses using . - IPSEC_INTERCONNECT for addresses created
+ *  from a private IP range that are reserved for a VLAN attachment in an
+ *  *IPsec-encrypted Cloud Interconnect* configuration. These addresses are
+ *  regional resources. Not currently available publicly. -
  *  `SHARED_LOADBALANCER_VIP` for an internal IP address that is assigned to
  *  multiple internal forwarding rules. - `PRIVATE_SERVICE_CONNECT` for a
  *  private network address that is used to configure Private Service Connect.
@@ -32333,7 +32349,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Specifies how to determine whether the backend of a load balancer can handle
  *  additional traffic or is fully loaded. For usage guidelines, see Connection
- *  balancing mode.
+ *  balancing mode. Backends must use compatible balancing modes. For more
+ *  information, see Restrictions and guidelines. Note: Currently, if you use
+ *  the API to configure incompatible balancing modes, the configuration might
+ *  be accepted even though it has no impact and will be ignored. Specifically,
+ *  Backend.maxUtilization is ignored when Backend.balancingMode is RATE. In the
+ *  future, this incompatible combination will be rejected.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Connection Balance based on the
@@ -32440,7 +32461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *maxRatePerInstance;
 
 /**
- *  maxUtilization
+ *  Optional parameter to define a target capacity for the UTILIZATIONbalancing
+ *  mode. The valid range is [0.0, 1.0]. For usage guidelines, see Utilization
+ *  balancing mode.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -34531,6 +34554,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] An optional, human-readable explanation of the status. */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
+/**
+ *  The type of commitment, which affects the discount rate and the eligible
+ *  resources. Type MEMORY_OPTIMIZED specifies a commitment that will only apply
+ *  to memory optimized machines. Type ACCELERATOR_OPTIMIZED specifies a
+ *  commitment that will only apply to accelerator optimized machines.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Commitment_Type_AcceleratorOptimized Value
+ *        "ACCELERATOR_OPTIMIZED"
+ *    @arg @c kGTLRCompute_Commitment_Type_ComputeOptimized Value
+ *        "COMPUTE_OPTIMIZED"
+ *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurpose Value
+ *        "GENERAL_PURPOSE"
+ *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeE2 Value
+ *        "GENERAL_PURPOSE_E2"
+ *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeN2 Value
+ *        "GENERAL_PURPOSE_N2"
+ *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeN2d Value
+ *        "GENERAL_PURPOSE_N2D"
+ *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimized Value
+ *        "MEMORY_OPTIMIZED"
+ *    @arg @c kGTLRCompute_Commitment_Type_TypeUnspecified Value
+ *        "TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -35258,6 +35307,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  base64 to either encrypt or decrypt this resource.
  */
 @property(nonatomic, copy, nullable) NSString *rawKey;
+
+/**
+ *  Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied
+ *  encryption key to either encrypt or decrypt this resource. The key must meet
+ *  the following requirements before you can provide it to Compute Engine: 1.
+ *  The key is wrapped using a RSA public key certificate provided by Google. 2.
+ *  After being wrapped, the key must be encoded in RFC 4648 base64 encoding.
+ *  Gets the RSA public key certificate provided by Google at:
+ *  https://cloud-certs.storage.googleapis.com/google-cloud-csek-ingress.pem
+ */
+@property(nonatomic, copy, nullable) NSString *rsaEncryptedKey;
 
 /**
  *  [Output only] The RFC 4648 base64 encoded SHA-256 hash of the
@@ -37613,7 +37673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  If destination ranges are specified, the firewall rule applies only to
  *  traffic that has destination IP address in these ranges. These ranges must
- *  be expressed in CIDR format. Only IPv4 is supported.
+ *  be expressed in CIDR format. Both IPv4 and IPv6 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destinationRanges;
 
@@ -37708,7 +37768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  both fields are set, the rule applies to traffic that has a source IP
  *  address within sourceRanges OR a source IP from a resource with a matching
  *  tag listed in the sourceTags field. The connection does not need to match
- *  both fields for the rule to apply. Only IPv4 is supported.
+ *  both fields for the rule to apply. Both IPv4 and IPv6 are supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceRanges;
 
@@ -38435,7 +38495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  CIDR IP address range. Maximum number of destination CIDR IP ranges allowed
- *  is 256.
+ *  is 5000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *destIpRanges;
 
@@ -38444,7 +38504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  CIDR IP address range. Maximum number of source CIDR IP ranges allowed is
- *  256.
+ *  5000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
 
@@ -39696,9 +39756,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  either regional or global health checks (`compute.v1.regionHealthChecks` or
  *  `compute.v1.HealthChecks`). External HTTP(S), TCP proxy, and SSL proxy load
  *  balancers as well as managed instance group auto-healing must use global
- *  health checks (`compute.v1.HealthChecks`). Network load balancers must use
- *  legacy HTTP health checks (httpHealthChecks). For more information, see
- *  Health checks overview.
+ *  health checks (`compute.v1.HealthChecks`). Backend service-based network
+ *  load balancers must use regional health checks
+ *  (`compute.v1.regionHealthChecks`). Target pool-based network load balancers
+ *  must use legacy HTTP health checks (`compute.v1.httpHealthChecks`). For more
+ *  information, see Health checks overview.
  */
 @interface GTLRCompute_HealthCheck : GTLRObject
 
@@ -41171,9 +41233,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a legacy HTTP Health Check resource. Legacy health checks are
- *  required by network load balancers. For more information, read Health Check
- *  Concepts.
+ *  Represents a legacy HTTP Health Check resource. Legacy HTTP health checks
+ *  are now only required by target pool-based network load balancers. For all
+ *  other load balancers, including backend service-based network load
+ *  balancers, and for managed instance group auto-healing, you must use modern
+ *  (non-legacy) health checks. For more information, see Health checks overview
+ *  .
  */
 @interface GTLRCompute_HttpHealthCheck : GTLRObject
 
@@ -41938,9 +42003,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a legacy HTTPS Health Check resource. Legacy health checks are
- *  required by network load balancers. For more information, read Health Check
- *  Concepts.
+ *  Represents a legacy HTTPS Health Check resource. Legacy HTTPS health checks
+ *  have been deprecated. If you are using a target pool-based network load
+ *  balancer, you must use a legacy HTTP (not HTTPS) health check. For all other
+ *  load balancers, including backend service-based network load balancers, and
+ *  for managed instance group auto-healing, you must use modern (non-legacy)
+ *  health checks. For more information, see Health checks overview .
  */
 @interface GTLRCompute_HttpsHealthCheck : GTLRObject
 
@@ -42364,10 +42432,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *sourceDiskId;
 
 /**
- *  URL of the source image used to create this image. In order to create an
- *  image, you must provide the full or partial URL of one of the following: -
- *  The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The
- *  sourceSnapshot URL
+ *  URL of the source image used to create this image. The following are valid
+ *  formats for the URL: -
+ *  https://www.googleapis.com/compute/v1/projects/project_id/global/
+ *  images/image_name - projects/project_id/global/images/image_name In order to
+ *  create an image, you must provide the full or partial URL of one of the
+ *  following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage
+ *  URL - The sourceSnapshot URL
  */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
 
@@ -42385,10 +42456,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *sourceImageId;
 
 /**
- *  URL of the source snapshot used to create this image. In order to create an
- *  image, you must provide the full or partial URL of one of the following: -
- *  The rawDisk.source URL - The sourceDisk URL - The sourceImage URL - The
- *  sourceSnapshot URL
+ *  URL of the source snapshot used to create this image. The following are
+ *  valid formats for the URL: -
+ *  https://www.googleapis.com/compute/v1/projects/project_id/global/
+ *  snapshots/snapshot_name - projects/project_id/global/snapshots/snapshot_name
+ *  In order to create an image, you must provide the full or partial URL of one
+ *  of the following: - The rawDisk.source URL - The sourceDisk URL - The
+ *  sourceImage URL - The sourceSnapshot URL
  */
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
@@ -42477,12 +42551,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *sha1Checksum;
 
 /**
- *  The full Google Cloud Storage URL where the disk image is stored. In order
- *  to create an image, you must provide the full or partial URL of one of the
- *  following: - The rawDisk.source URL - The sourceDisk URL - The sourceImage
- *  URL - The sourceSnapshot URL
+ *  The full Google Cloud Storage URL where the raw disk image archive is
+ *  stored. The following are valid formats for the URL: -
+ *  https://storage.googleapis.com/bucket_name/image_archive_name -
+ *  https://storage.googleapis.com/bucket_name/folder_name/ image_archive_name
+ *  In order to create an image, you must provide the full or partial URL of one
+ *  of the following: - The rawDisk.source URL - The sourceDisk URL - The
+ *  sourceImage URL - The sourceSnapshot URL
  */
 @property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  GTLRCompute_ImageFamilyView
+ */
+@interface GTLRCompute_ImageFamilyView : GTLRObject
+
+/**
+ *  The latest image that is part of the specified image family in the requested
+ *  location, and that is not deprecated.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Image *image;
 
 @end
 
@@ -43651,8 +43742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerActionsSummary *currentActions;
 
 /**
- *  An optional description of this resource. Provide this property when you
- *  create the resource.
+ *  An optional description of this resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -44348,6 +44438,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+/**
+ *  Specifies whether the request should proceed despite the inclusion of
+ *  instances that are not members of the group or that are already in the
+ *  process of being deleted or abandoned. If this field is set to `false` and
+ *  such an instance is specified in the request, the operation fails. The
+ *  operation always fails if the request contains a malformed instance URL or a
+ *  reference to an instance that exists in a zone or region other than the
+ *  group's zone or region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipInstancesOnValidationError;
 
 @end
 
@@ -51669,9 +51772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Whether subnet routes with public IP range are exported. The default value
- *  is true, all subnet routes are exported. The IPv4 special-use ranges
- *  (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always exported
- *  to peers and are not controlled by this field.
+ *  is true, all subnet routes are exported. IPv4 special-use ranges are always
+ *  exported to peers and are not controlled by this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -51686,9 +51788,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Whether subnet routes with public IP range are imported. The default value
- *  is false. The IPv4 special-use ranges
- *  (https://en.wikipedia.org/wiki/IPv4#Special_addresses) are always imported
- *  from peers and are not controlled by this field.
+ *  is false. IPv4 special-use ranges are always imported from peers and are not
+ *  controlled by this field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -51875,7 +51976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represent a sole-tenant Node Group resource. A sole-tenant node is a
+ *  Represents a sole-tenant Node Group resource. A sole-tenant node is a
  *  physical server that is dedicated to hosting VM instances only for your
  *  specific project. Use sole-tenant nodes to keep your instances physically
  *  separated from instances in other projects, or to group your instances
@@ -56983,6 +57084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "DELETING"
  *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_Initializing Value
  *        "INITIALIZING"
+ *    @arg @c kGTLRCompute_PublicDelegatedPrefix_Status_ReadyToAnnounce Value
+ *        "READY_TO_ANNOUNCE"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -57596,8 +57699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_NVIDIA_T4_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedNvidiaV100Gpus Value
  *        "COMMITTED_NVIDIA_V100_GPUS"
- *    @arg @c kGTLRCompute_Quota_Metric_CommittedP2dCpus Value
- *        "COMMITTED_P2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedT2dCpus Value
+ *        "COMMITTED_T2D_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_Cpus Guest CPUs (Value: "CPUS")
  *    @arg @c kGTLRCompute_Quota_Metric_CpusAllRegions Value "CPUS_ALL_REGIONS"
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"
@@ -57666,7 +57769,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaT4VwsGpus Value
  *        "NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NvidiaV100Gpus Value "NVIDIA_V100_GPUS"
- *    @arg @c kGTLRCompute_Quota_Metric_P2dCpus Value "P2D_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PacketMirrorings Value
  *        "PACKET_MIRRORINGS"
  *    @arg @c kGTLRCompute_Quota_Metric_PdExtremeTotalProvisionedIops Value
@@ -57729,6 +57831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_StaticByoipAddresses Value
  *        "STATIC_BYOIP_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_Subnetworks Value "SUBNETWORKS"
+ *    @arg @c kGTLRCompute_Quota_Metric_T2dCpus Value "T2D_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetHttpProxies Value
  *        "TARGET_HTTP_PROXIES"
  *    @arg @c kGTLRCompute_Quota_Metric_TargetHttpsProxies Value
@@ -58712,6 +58815,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  partial URL, such as zones/[ZONE]/instances/[INSTANCE_NAME].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
+
+/**
+ *  Specifies whether the request should proceed despite the inclusion of
+ *  instances that are not members of the group or that are already in the
+ *  process of being deleted or abandoned. If this field is set to `false` and
+ *  such an instance is specified in the request, the operation fails. The
+ *  operation always fails if the request contains a malformed instance URL or a
+ *  reference to an instance that exists in a zone or region other than the
+ *  group's zone or region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipInstancesOnValidationError;
 
 @end
 
@@ -71851,10 +71967,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  An optional prefix for the name of the usage report object stored in
- *  bucketName. If not supplied, defaults to usage. The report is stored as a
- *  CSV file named report_name_prefix_gce_YYYYMMDD.csv where YYYYMMDD is the day
- *  of the usage according to Pacific Time. If you supply a prefix, it should
- *  conform to Cloud Storage object naming conventions.
+ *  bucketName. If not supplied, defaults to usage_gce. The report is stored as
+ *  a CSV file named report_name_prefix_gce_YYYYMMDD.csv where YYYYMMDD is the
+ *  day of the usage according to Pacific Time. If you supply a prefix, it
+ *  should conform to Cloud Storage object naming conventions.
  */
 @property(nonatomic, copy, nullable) NSString *reportNamePrefix;
 

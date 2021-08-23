@@ -2874,6 +2874,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
+/**
+ *  Output only. The time at which the message was last updated in Hangouts Chat
+ *  server. If the message was never updated, this field will be same as
+ *  create_time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

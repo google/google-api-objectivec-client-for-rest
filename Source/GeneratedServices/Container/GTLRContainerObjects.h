@@ -102,6 +102,7 @@
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
 @class GTLRContainer_VerticalPodAutoscaling;
+@class GTLRContainer_VirtualNIC;
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
 
@@ -3152,6 +3153,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
+/** Enable or disable gvnic in the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
+
 /**
  *  The image type to use for this node. Note that for a given image type, the
  *  latest version of it will be used.
@@ -5155,6 +5159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
+/** Enable or disable gvnic on the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
+
 /** Required. The desired image type for the node pool. */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -5422,6 +5429,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Enables vertical pod autoscaling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration of gVNIC feature.
+ */
+@interface GTLRContainer_VirtualNIC : GTLRObject
+
+/**
+ *  Whether gVNIC features are enabled in the node pool.
  *
  *  Uses NSNumber of boolValue.
  */
