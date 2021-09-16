@@ -318,6 +318,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings : GTLRObject
 
 /**
+ *  If set to true, it means allowed_package_names will not be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAllPackageNames;
+
+/**
  *  Android package names of apps allowed to use the key. Example:
  *  'com.companyname.appname'
  */
@@ -480,6 +487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Settings specific to keys that can be used by iOS apps.
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings : GTLRObject
+
+/**
+ *  If set to true, it means allowed_bundle_ids will not be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAllBundleIds;
 
 /**
  *  iOS bundle ids of apps allowed to use the key. Example:

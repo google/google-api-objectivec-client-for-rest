@@ -289,7 +289,10 @@ NSString * const kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_Sim
 // GTLRCloudTalentSolution_SearchJobsRequest.diversificationLevel
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled = @"DISABLED";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified = @"DIVERSIFICATION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversifyByLooserSimilarity = @"DIVERSIFY_BY_LOOSER_SIMILARITY";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_OnePerCompany = @"ONE_PER_COMPANY";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple = @"SIMPLE";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_TwoPerCompany = @"TWO_PER_COMPANY";
 
 // GTLRCloudTalentSolution_SearchJobsRequest.jobView
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewFull = @"JOB_VIEW_FULL";
@@ -297,6 +300,12 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnl
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal = @"JOB_VIEW_MINIMAL";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewSmall = @"JOB_VIEW_SMALL";
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified = @"JOB_VIEW_UNSPECIFIED";
+
+// GTLRCloudTalentSolution_SearchJobsRequest.keywordMatchMode
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchAll = @"KEYWORD_MATCH_ALL";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchDisabled = @"KEYWORD_MATCH_DISABLED";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchModeUnspecified = @"KEYWORD_MATCH_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly = @"KEYWORD_MATCH_TITLE_ONLY";
 
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
 NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch = @"FEATURED_JOB_SEARCH";
@@ -1093,8 +1102,9 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 @implementation GTLRCloudTalentSolution_SearchJobsRequest
 @dynamic customRankingInfo, disableKeywordMatch, diversificationLevel,
-         enableBroadening, histogramQueries, jobQuery, jobView, maxPageSize,
-         offset, orderBy, pageToken, requestMetadata, searchMode;
+         enableBroadening, histogramQueries, jobQuery, jobView,
+         keywordMatchMode, maxPageSize, offset, orderBy, pageToken,
+         requestMetadata, searchMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

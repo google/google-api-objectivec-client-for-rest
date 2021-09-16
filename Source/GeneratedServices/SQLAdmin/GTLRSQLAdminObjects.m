@@ -104,6 +104,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnsp
 // GTLRSQLAdmin_DatabaseInstance.state
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed   = @"FAILED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance = @"ONLINE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate = @"PENDING_CREATE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete = @"PENDING_DELETE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable = @"RUNNABLE";
@@ -459,7 +460,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ConnectSettings
-@dynamic backendType, databaseVersion, ipAddresses, kind, serverCaCert;
+@dynamic backendType, databaseVersion, ipAddresses, kind, region, serverCaCert;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -515,10 +516,10 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic backendType, connectionName, currentDiskSize, databaseVersion,
-         diskEncryptionConfiguration, diskEncryptionStatus, ETag,
-         failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
-         masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
+@dynamic backendType, connectionName, createTime, currentDiskSize,
+         databaseVersion, diskEncryptionConfiguration, diskEncryptionStatus,
+         ETag, failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address,
+         kind, masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
          outOfDiskReport, project, region, replicaConfiguration, replicaNames,
          rootPassword, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
          selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
@@ -603,7 +604,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DemoteMasterContext
-@dynamic kind, masterInstanceName, replicaConfiguration, verifyGtidConsistency;
+@dynamic kind, masterInstanceName, replicaConfiguration, skipReplicationSetup,
+         verifyGtidConsistency;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -706,7 +708,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext_CsvExportOptions
-@dynamic selectQuery;
+@dynamic escapeCharacter, fieldsTerminatedBy, linesTerminatedBy, quoteCharacter,
+         selectQuery;
 @end
 
 
@@ -869,7 +872,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ImportContext_CsvImportOptions
-@dynamic columns, table;
+@dynamic columns, escapeCharacter, fieldsTerminatedBy, linesTerminatedBy,
+         quoteCharacter, table;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -899,6 +903,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_InsightsConfig
 @dynamic queryInsightsEnabled, queryPlansPerMinute, queryStringLength,
          recordApplicationTags, recordClientAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstanceReference
+//
+
+@implementation GTLRSQLAdmin_InstanceReference
+@dynamic name, project, region;
 @end
 
 
@@ -1123,6 +1137,15 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_MySqlSyncConfig
+@dynamic initialSyncFlags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"initialSyncFlags" : [GTLRSQLAdmin_SyncFlags class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1133,7 +1156,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_OnPremisesConfiguration
 @dynamic caCertificate, clientCertificate, clientKey, dumpFilePath, hostPort,
-         kind, password, username;
+         kind, password, sourceInstance, username;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1300,8 +1323,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
          dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, insightsConfig,
          ipConfiguration, kind, locationPreference, maintenanceWindow,
-         pricingPlan, replicationType, settingsVersion, storageAutoResize,
-         storageAutoResizeLimit, tier, userLabels;
+         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
+         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1395,7 +1418,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
-@dynamic mysqlSyncConfig, syncMode, verifyConnectionOnly;
+@dynamic mysqlSyncConfig, syncMode, verifyConnectionOnly, verifyReplicationOnly;
 @end
 
 
@@ -1441,6 +1464,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_SqlScheduledMaintenance
 @dynamic canDefer, canReschedule, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlServerAuditConfig
+//
+
+@implementation GTLRSQLAdmin_SqlServerAuditConfig
+@dynamic bucket, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1567,6 +1607,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SyncFlags
+//
+
+@implementation GTLRSQLAdmin_SyncFlags
+@dynamic name, value;
 @end
 
 

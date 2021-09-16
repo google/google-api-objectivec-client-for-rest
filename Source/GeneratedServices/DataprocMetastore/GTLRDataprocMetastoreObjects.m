@@ -42,6 +42,11 @@ NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_A
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql = @"MYSQL";
 NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
+
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -207,6 +212,30 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_DataplexConfig
+//
+
+@implementation GTLRDataprocMetastore_DataplexConfig
+@dynamic lakeResources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_DataplexConfig_LakeResources
+//
+
+@implementation GTLRDataprocMetastore_DataplexConfig_LakeResources
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_Lake class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Empty
 //
 
@@ -255,7 +284,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_HiveMetastoreConfig
-@dynamic configOverrides, kerberosConfig, version;
+@dynamic configOverrides, endpointProtocol, kerberosConfig, version;
 @end
 
 
@@ -290,6 +319,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 @implementation GTLRDataprocMetastore_KerberosConfig
 @dynamic keytab, krb5ConfigGcsUri, principal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Lake
+//
+
+@implementation GTLRDataprocMetastore_Lake
+@dynamic name;
 @end
 
 
@@ -504,7 +543,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_MetadataIntegration
-@dynamic dataCatalogConfig;
+@dynamic dataCatalogConfig, dataplexConfig;
 @end
 
 

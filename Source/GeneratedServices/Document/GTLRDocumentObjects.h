@@ -144,12 +144,20 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments;
 @class GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix;
 @class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1Processor;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
 @class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1Schema;
+@class GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType;
 @class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
 @class GTLRDocument_GoogleCloudLocationLocation_Labels;
@@ -1087,6 +1095,117 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1Processor.state
+
+/**
+ *  The processor is being created, will become either ENABLED (for successful
+ *  creation) or FAILED (for failed ones). Once a processor is in this state, it
+ *  can then be used for document processing, but the feature dependencies of
+ *  the processor might not be fully created yet.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Creating;
+/**
+ *  The processor is being deleted, will be removed if successful.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Deleting;
+/**
+ *  The processor is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled;
+/**
+ *  The processor is being disabled, will become DISABLED if successful.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling;
+/**
+ *  The processor is enabled, i.e, has an enabled version which can currently
+ *  serve processing requests and all the feature dependencies have been
+ *  successfully initialized.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled;
+/**
+ *  The processor is being enabled, will become ENABLED if successful.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling;
+/**
+ *  The processor failed during creation or initialization of feature
+ *  dependencies. The user should delete the processor and recreate one as all
+ *  the functionalities of the processor are disabled.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed;
+/**
+ *  The processor is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
+
+/**
+ *  The processor version is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating;
+/**
+ *  The processor version is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting;
+/**
+ *  The processor version is deployed and can be used for processing.
+ *
+ *  Value: "DEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deployed;
+/**
+ *  The processor version is being deployed.
+ *
+ *  Value: "DEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deploying;
+/**
+ *  The processor version failed and is in an indeterminate state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Failed;
+/**
+ *  The processor version is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_StateUnspecified;
+/**
+ *  The processor version is not deployed and cannot be used for processing.
+ *
+ *  Value: "UNDEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed;
+/**
+ *  The processor version is being undeployed.
+ *
+ *  Value: "UNDEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
 
 /**
@@ -1102,6 +1221,101 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Value: "URGENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType.occurrenceType
+
+/**
+ *  Unspecified occurrence type.
+ *
+ *  Value: "OCCURRENCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified;
+/**
+ *  The entity type will appear zero or multiple times.
+ *
+ *  Value: "OPTIONAL_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalMultiple;
+/**
+ *  The entity type will appear zero times or once.
+ *
+ *  Value: "OPTIONAL_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalOnce;
+/**
+ *  The entity type will appear once or more times.
+ *
+ *  Value: "REQUIRED_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredMultiple;
+/**
+ *  The entity type will only appear exactly once.
+ *
+ *  Value: "REQUIRED_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredOnce;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType.source
+
+/**
+ *  The entity type is in the predefined schema of a pretrained version of a
+ *  processor.
+ *
+ *  Value: "PREDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Predefined;
+/**
+ *  Unspecified source.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_SourceUnspecified;
+/**
+ *  The entity type is added by the users either: - during an uptraining of an
+ *  existing processor, or - during the process of creating a customized
+ *  processor.
+ *
+ *  Value: "USER_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_UserInput;
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response of the delete documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response of the batch move documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsResponse : GTLRObject
+@end
+
 
 /**
  *  The common metadata for long running operations.
@@ -1284,6 +1498,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Metadata of the import document operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response of the import document operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsResponse : GTLRObject
+@end
+
+
+/**
  *  The long running operation metadata for set default processor version
  *  method.
  */
@@ -1382,6 +1614,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Response message for the undeploy processor version method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UndeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
 @end
 
 
@@ -1626,8 +1869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity : GTLRObject
 
@@ -1649,7 +1893,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -1727,15 +1974,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
 
 /**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
  *  Money value. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -1975,6 +2238,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  A form field detected on the page.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField : GTLRObject
+
+/**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
 
 /**
  *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
@@ -2848,8 +3125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity : GTLRObject
 
@@ -2871,7 +3149,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -2949,15 +3230,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
 
 /**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
  *  Money value. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -3228,6 +3525,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  A form field detected on the page.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField : GTLRObject
+
+/**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
 
 /**
  *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
@@ -4145,6 +4456,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  The long running operation metadata for delete processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
  *  The long running operation metadata for disable processor method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata : GTLRObject
@@ -4278,6 +4618,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  The long running operation metadata for set default processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for the undeploy processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
  *  A bounding polygon for the detected image annotation.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly : GTLRObject
@@ -4324,6 +4702,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The last update time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  The long running operation metadata for delete processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for delete processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the disable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorResponse : GTLRObject
 @end
 
 
@@ -4401,8 +4852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity : GTLRObject
 
@@ -4424,7 +4876,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -4502,15 +4957,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
 
 /**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
  *  Money value. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -4773,6 +5244,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  A form field detected on the page.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField : GTLRObject
+
+/**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
 
 /**
  *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
@@ -5371,6 +5856,131 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  The long running operation metadata for enable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the enable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the enable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorResponse : GTLRObject
+@end
+
+
+/**
+ *  Evaluation metrics, either in aggregate or about a specific entity.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics : GTLRObject
+
+/**
+ *  The calculated f1 score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *f1Score;
+
+/**
+ *  The amount of false negatives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falseNegativesCount;
+
+/**
+ *  The amount of false positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falsePositivesCount;
+
+/**
+ *  The amount of occurrences in ground truth documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundTruthOccurrencesCount;
+
+/**
+ *  The calculated precision.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  The amount of occurrences in predicted documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedOccurrencesCount;
+
+/**
+ *  The calculated recall.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recall;
+
+/**
+ *  The amount of documents that had an occurrence of this label.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentsCount;
+
+/**
+ *  The amount of true positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truePositivesCount;
+
+@end
+
+
+/**
+ *  Gives a short summary of an evaluation, and links to the evaluation itself.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference : GTLRObject
+
+/** An aggregate of the statistics for the evaluation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics *aggregateMetrics;
+
+/** The resource name of the evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
+
+/** The resource name of the Long Running Operation for the evaluation. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+@end
+
+
+/**
+ *  Response message for fetch processor types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse : GTLRObject
+
+/** The list of processor types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorType *> *processorTypes;
+
+@end
+
+
+/**
  *  Specifies a document stored on Cloud Storage.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1GcsDocument : GTLRObject
@@ -5449,6 +6059,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Response message for list processors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "processors" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ListProcessorsResponse : GTLRCollectionObject
+
+/** Points to the next processor, otherwise empty. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of processors.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1Processor *> *processors;
+
+@end
+
+
+/**
+ *  Response message for list processors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "processorVersions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ListProcessorVersionsResponse : GTLRCollectionObject
+
+/** Points to the next processor, otherwise empty. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of processors.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion *> *processorVersions;
+
+@end
+
+
+/**
  *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
  *  coordinates are relative to the original image and range from 0 to 1.
  */
@@ -5467,6 +6125,195 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  The first-class citizen for DAI. Each processor defines how to extract
+ *  structural information from a document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Processor : GTLRObject
+
+/** The time the processor was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The default processor version. */
+@property(nonatomic, copy, nullable) NSString *defaultProcessorVersion;
+
+/** The display name of the processor. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The KMS key used for encryption/decryption in CMEK scenarios. See
+ *  https://cloud.google.com/security-key-management.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. Immutable. The resource name of the processor. Format:
+ *  projects/{project}/locations/{location}/processors/{processor}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Immutable. The http endpoint that can be called to invoke
+ *  processing.
+ */
+@property(nonatomic, copy, nullable) NSString *processEndpoint;
+
+/**
+ *  Output only. The state of the processor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Creating The
+ *        processor is being created, will become either ENABLED (for successful
+ *        creation) or FAILED (for failed ones). Once a processor is in this
+ *        state, it can then be used for document processing, but the feature
+ *        dependencies of the processor might not be fully created yet. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Deleting The
+ *        processor is being deleted, will be removed if successful. (Value:
+ *        "DELETING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled The
+ *        processor is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling The
+ *        processor is being disabled, will become DISABLED if successful.
+ *        (Value: "DISABLING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled The
+ *        processor is enabled, i.e, has an enabled version which can currently
+ *        serve processing requests and all the feature dependencies have been
+ *        successfully initialized. (Value: "ENABLED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling The
+ *        processor is being enabled, will become ENABLED if successful. (Value:
+ *        "ENABLING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed The
+ *        processor failed during creation or initialization of feature
+ *        dependencies. The user should delete the processor and recreate one as
+ *        all the functionalities of the processor are disabled. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified
+ *        The processor is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The processor type, e.g., INVOICE_PARSING, W2_PARSING, etc. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A processor type is responsible for performing a certain document
+ *  understanding task on a certain type of document. All processor types are
+ *  created by the documentai service internally. User will only list all
+ *  available processor types via UI. For different users (projects), the
+ *  available processor types may be different since we'll expose the access of
+ *  some types via EAP whitelisting. We make the ProcessorType a resource under
+ *  location so we have a unified API and keep the possibility that UI will load
+ *  different available processor types from different regions. But for alpha
+ *  the behavior is that the user will always get the union of all available
+ *  processor types among all regions no matter which regionalized endpoint is
+ *  called, and then we use the 'available_locations' field to show under which
+ *  regions a processor type is available. For example, users can call either
+ *  the 'US' or 'EU' endpoint to feach processor types. In the return, we will
+ *  have an 'invoice parsing' processor with 'available_locations' field only
+ *  containing 'US'. So the user can try to create an 'invoice parsing'
+ *  processor under the location 'US'. Such attempt of creating under the
+ *  location 'EU' will fail. Next ID: 8.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorType : GTLRObject
+
+/**
+ *  Whether the processor type allows creation. If yes, user can create a
+ *  processor of this processor type. Otherwise, user needs to request access.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCreation;
+
+/** The locations in which this processor is available. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo *> *availableLocations;
+
+/** The processor category, used by UI to group processor types. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  The resource name of the processor type. Format:
+ *  projects/{project}/processorTypes/{processor_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The type of the processor, e.g, "invoice_parsing". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The location information about where the processor is available.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo : GTLRObject
+
+/** The location id, currently must be one of [us, eu]. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+@end
+
+
+/**
+ *  A processor version is an implementation of a processor. Each processor can
+ *  have multiple versions, pre-trained by Google internally or up-trained by
+ *  the customer. At a time, a processor can only have one default version
+ *  version. So the processor's behavior (when processing documents) is defined
+ *  by a default version.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion : GTLRObject
+
+/** The time the processor version was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The display name of the processor version. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The most recently invoked evaluation for the processor version. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference *latestEvaluation;
+
+/**
+ *  The resource name of the processor version. Format:
+ *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The schema of the processor version. Describes the output. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Schema *schema;
+
+/**
+ *  The state of the processor version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating
+ *        The processor version is being created. (Value: "CREATING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting
+ *        The processor version is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deployed
+ *        The processor version is deployed and can be used for processing.
+ *        (Value: "DEPLOYED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deploying
+ *        The processor version is being deployed. (Value: "DEPLOYING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Failed
+ *        The processor version failed and is in an indeterminate state. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_StateUnspecified
+ *        The processor version is in an unspecified state. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed
+ *        The processor version is not deployed and cannot be used for
+ *        processing. (Value: "UNDEPLOYED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying
+ *        The processor version is being undeployed. (Value: "UNDEPLOYING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -5582,6 +6429,166 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The Cloud Storage uri for the human reviewed document. */
 @property(nonatomic, copy, nullable) NSString *gcsDestination;
 
+@end
+
+
+/**
+ *  The schema defines the output of the processed document by a processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Schema : GTLRObject
+
+/**
+ *  Description of the schema.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name to show to users. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Entity types of the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType *> *entityTypes;
+
+@end
+
+
+/**
+ *  EntityType is the wrapper of a label of the corresponding model with
+ *  detailed attributes and limitations for entity-based processors. Multiple
+ *  types can also compose a dependency tree to represent nested types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType : GTLRObject
+
+/**
+ *  Type of the entity. It must be one of the following: `document` - the entity
+ *  represents a classification of a logical document. `object` - if the entity
+ *  has properties it is likely an object (or or a document.) `datetime` - the
+ *  entity is a date or time value. `money` - the entity represents a money
+ *  value amount. `number` - the entity is a number - integer or floating point.
+ *  `string` - the entity is a string value. `boolean` - the entity is a boolean
+ *  value. `address` - the entity is a location address.
+ */
+@property(nonatomic, copy, nullable) NSString *baseType;
+
+/**
+ *  Description of the entity type.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** If specified, lists all the possible values for this entity. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enumValues;
+
+/**
+ *  Occurrence type limits the number of times an entity type appears in the
+ *  document.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified
+ *        Unspecified occurrence type. (Value: "OCCURRENCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalMultiple
+ *        The entity type will appear zero or multiple times. (Value:
+ *        "OPTIONAL_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalOnce
+ *        The entity type will appear zero times or once. (Value:
+ *        "OPTIONAL_ONCE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredMultiple
+ *        The entity type will appear once or more times. (Value:
+ *        "REQUIRED_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredOnce
+ *        The entity type will only appear exactly once. (Value:
+ *        "REQUIRED_ONCE")
+ */
+@property(nonatomic, copy, nullable) NSString *occurrenceType;
+
+/**
+ *  Describing the nested structure of an entity. An EntityType may consist of
+ *  several other EntityTypes. For example, in a document there can be an
+ *  EntityType 'ID', which consists of EntityType 'name' and 'address', with
+ *  corresponding attributes, such as TEXT for both types and ONCE for
+ *  occurrence types.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType *> *properties;
+
+/**
+ *  Source of this entity type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Predefined
+ *        The entity type is in the predefined schema of a pretrained version of
+ *        a processor. (Value: "PREDEFINED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_SourceUnspecified
+ *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_UserInput
+ *        The entity type is added by the users either: - during an uptraining
+ *        of an existing processor, or - during the process of creating a
+ *        customized processor. (Value: "USER_INPUT")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** Name of the type. It must be unique within the set of same level types. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The long running operation metadata for set default processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest : GTLRObject
+
+/**
+ *  Required. The resource name of child ProcessorVersion to use as default.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultProcessorVersion;
+
+@end
+
+
+/**
+ *  Response message for set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for the undeploy processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionResponse : GTLRObject
 @end
 
 

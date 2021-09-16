@@ -237,6 +237,15 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_DisableServiceAccountKeyRequest
+//
+
+@implementation GTLRIam_DisableServiceAccountKeyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_DisableServiceAccountRequest
 //
 
@@ -250,6 +259,15 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 //
 
 @implementation GTLRIam_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_EnableServiceAccountKeyRequest
+//
+
+@implementation GTLRIam_EnableServiceAccountKeyRequest
 @end
 
 
@@ -709,8 +727,8 @@ NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = 
 //
 
 @implementation GTLRIam_ServiceAccountKey
-@dynamic keyAlgorithm, keyOrigin, keyType, name, privateKeyData, privateKeyType,
-         publicKeyData, validAfterTime, validBeforeTime;
+@dynamic disabled, keyAlgorithm, keyOrigin, keyType, name, privateKeyData,
+         privateKeyType, publicKeyData, validAfterTime, validBeforeTime;
 @end
 
 

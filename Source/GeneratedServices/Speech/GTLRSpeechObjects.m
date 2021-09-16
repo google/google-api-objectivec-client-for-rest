@@ -110,7 +110,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_LongRunningRecognizeRequest
-@dynamic audio, config;
+@dynamic audio, config, outputConfig;
 @end
 
 
@@ -316,6 +316,16 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_TranscriptOutputConfig
+//
+
+@implementation GTLRSpeech_TranscriptOutputConfig
+@dynamic gcsUri;
 @end
 
 

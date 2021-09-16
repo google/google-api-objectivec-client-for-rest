@@ -66,7 +66,9 @@
 @class GTLRGKEHub_MembershipFeatureSpec;
 @class GTLRGKEHub_MembershipFeatureState;
 @class GTLRGKEHub_MembershipState;
+@class GTLRGKEHub_MultiCloudCluster;
 @class GTLRGKEHub_MultiClusterIngressFeatureSpec;
+@class GTLRGKEHub_OnPremCluster;
 @class GTLRGKEHub_Operation;
 @class GTLRGKEHub_Operation_Metadata;
 @class GTLRGKEHub_Operation_Response;
@@ -2095,14 +2097,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  */
 @interface GTLRGKEHub_MembershipEndpoint : GTLRObject
 
-/**
- *  Optional. GKE-specific information. Only present if this Membership is a GKE
- *  cluster.
- */
+/** Optional. Specific information for a GKE-on-GCP cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_GkeCluster *gkeCluster;
 
 /** Output only. Useful Kubernetes-specific metadata. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_KubernetesMetadata *kubernetesMetadata;
+
+/** Optional. Specific information for a GKE Multi-Cloud cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_MultiCloudCluster *multiCloudCluster;
+
+/** Optional. Specific information for a GKE On-Prem cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_OnPremCluster *onPremCluster;
 
 @end
 
@@ -2162,6 +2167,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 
 
 /**
+ *  MultiCloudCluster contains information specific to GKE Multi-Cloud clusters.
+ */
+@interface GTLRGKEHub_MultiCloudCluster : GTLRObject
+
+/**
+ *  Output only. If cluster_missing is set then it denotes that
+ *  API(gkemulticloud.googleapis.com) resource for this GKE Multi-Cloud cluster
+ *  no longer exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clusterMissing;
+
+/**
+ *  Immutable. Self-link of the GCP resource for the GKE Multi-Cloud cluster.
+ *  For example:
+ *  //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/awsClusters/my-cluster
+ *  //gkemulticloud.googleapis.com/projects/my-project/locations/us-west1-a/azureClusters/my-cluster
+ */
+@property(nonatomic, copy, nullable) NSString *resourceLink;
+
+@end
+
+
+/**
  *  **Multi-cluster Ingress**: The configuration for the MultiClusterIngress
  *  feature.
  */
@@ -2172,6 +2202,38 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Example: `projects/foo-proj/locations/global/memberships/bar`
  */
 @property(nonatomic, copy, nullable) NSString *configMembership;
+
+@end
+
+
+/**
+ *  OnPremCluster contains information specific to GKE On-Prem clusters.
+ */
+@interface GTLRGKEHub_OnPremCluster : GTLRObject
+
+/**
+ *  Immutable. Whether the cluster is an admin cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adminCluster;
+
+/**
+ *  Output only. If cluster_missing is set then it denotes that
+ *  API(gkeonprem.googleapis.com) resource for this GKE On-Prem cluster no
+ *  longer exists.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clusterMissing;
+
+/**
+ *  Immutable. Self-link of the GCP resource for the GKE On-Prem cluster. For
+ *  example:
+ *  //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/vmwareClusters/my-cluster
+ *  //gkeonprem.googleapis.com/projects/my-project/locations/us-west1-a/bareMetalClusters/my-cluster
+ */
+@property(nonatomic, copy, nullable) NSString *resourceLink;
 
 @end
 

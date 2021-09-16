@@ -40,7 +40,6 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
-@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
@@ -996,15 +995,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
 
-/**
- *  By default node is eligible if instance is eligible. But individual node
- *  might be excluded from SLO by adding entry here. For semantic see
- *  SloMetadata.exclusions. If both instance and node level exclusions are
- *  present for time period, the node level's reason will be reported by
- *  Eligibility Exporter.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
-
 /** The location of the node, if different from instance location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1117,61 +1107,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 
 /**
- *  SloExclusion represents an exclusion in SLI calculation applies to all SLOs.
- */
-@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
-
-/**
- *  Exclusion duration. No restrictions on the possible values. When an ongoing
- *  operation is taking longer than initially expected, an existing entry in the
- *  exclusion list can be updated by extending the duration. This is supported
- *  by the subsystem exporting eligibility data as long as such extension is
- *  committed at least 10 minutes before the original exclusion expiration -
- *  otherwise it is possible that there will be "gaps" in the exclusion
- *  application in the exported timeseries.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
-
-/**
- *  Human-readable reason for the exclusion. This should be a static string
- *  (e.g. "Disruptive update in progress") and should not contain dynamically
- *  generated data (e.g. instance name). Can be left empty.
- */
-@property(nonatomic, copy, nullable) NSString *reason;
-
-/**
- *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
- *  that the instance should be excluded from all SLIs.
- */
-@property(nonatomic, copy, nullable) NSString *sliName;
-
-/**
- *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-@end
-
-
-/**
  *  SloMetadata contains resources required for proper SLO classification of the
  *  instance.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
-
-/**
- *  List of SLO exclusion windows. When multiple entries in the list match
- *  (matching the exclusion time-window against current time point) the
- *  exclusion reason used in the first matching entry will be published. It is
- *  not needed to include expired exclusion in this list, as only the currently
- *  applicable exclusions are taken into account by the eligibility exporting
- *  subsystem (the historical state of exclusions will be reflected in the
- *  historically produced timeseries regardless of the current state). This
- *  field can be used to mark the instance as temporary ineligible for the
- *  purpose of SLO calculation. For permanent instance SLO exclusion, use of
- *  custom instance eligibility is recommended. See 'eligibility' field below.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
  *  Optional. List of nodes. Some producers need to use per-node metadata to

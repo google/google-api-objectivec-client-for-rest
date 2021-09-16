@@ -465,6 +465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_UploadRef *uploadReference;
 
+/** Time when the image was uploaded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *uploadTime;
+
 /**
  *  Output only. View count of the photo.
  *

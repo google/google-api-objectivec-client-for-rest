@@ -447,9 +447,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
- *  key material provided in the request. The version ID will be assigned the
- *  next sequential id within the CryptoKey.
+ *  Import wrapped key material into a CryptoKeyVersion. All requests must
+ *  specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the
+ *  request, key material will be reimported into that version. Otherwise, a new
+ *  version will be created, and will be assigned the next sequential id within
+ *  the CryptoKey.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import
  *
@@ -459,19 +461,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport : GTLRCloudKMSQuery
 
-/** Required. The name of the CryptoKey to be imported into. */
+/**
+ *  Required. The name of the CryptoKey to be imported into. The create
+ *  permission is only required on this key when creating a new
+ *  CryptoKeyVersion.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
- *  key material provided in the request. The version ID will be assigned the
- *  next sequential id within the CryptoKey.
+ *  Import wrapped key material into a CryptoKeyVersion. All requests must
+ *  specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the
+ *  request, key material will be reimported into that version. Otherwise, a new
+ *  version will be created, and will be assigned the next sequential id within
+ *  the CryptoKey.
  *
  *  @param object The @c GTLRCloudKMS_ImportCryptoKeyVersionRequest to include
  *    in the query.
- *  @param parent Required. The name of the CryptoKey to be imported into.
+ *  @param parent Required. The name of the CryptoKey to be imported into. The
+ *    create permission is only required on this key when creating a new
+ *    CryptoKeyVersion.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
  */

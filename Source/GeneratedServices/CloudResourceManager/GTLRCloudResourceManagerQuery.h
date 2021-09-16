@@ -248,8 +248,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersList : GTLRCloudResourceManagerQuery
 
 /**
- *  Optional. The maximum number of folders to return in the response. If
- *  unspecified, server picks an appropriate default.
+ *  Optional. The maximum number of folders to return in the response. The
+ *  server can return fewer folders than requested. If unspecified, server picks
+ *  an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -422,8 +423,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_FoldersSearch : GTLRCloudResourceManagerQuery
 
 /**
- *  Optional. The maximum number of folders to return in the response. If
- *  unspecified, server picks an appropriate default.
+ *  Optional. The maximum number of folders to return in the response. The
+ *  server can return fewer folders than requested. If unspecified, server picks
+ *  an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -706,6 +708,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of items to return. This is a suggestion for the server.
+ *  The server can return fewer liens than requested. If unspecified, server
+ *  picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -864,8 +868,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudResourceManagerQuery_OrganizationsSearch : GTLRCloudResourceManagerQuery
 
 /**
- *  Optional. The maximum number of organizations to return in the response. If
- *  unspecified, server picks an appropriate default.
+ *  Optional. The maximum number of organizations to return in the response. The
+ *  server can return fewer organizations than requested. If unspecified, server
+ *  picks an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

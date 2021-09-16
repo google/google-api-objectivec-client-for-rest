@@ -26,6 +26,8 @@
 @class GTLRPubsubLite_Operation_Response;
 @class GTLRPubsubLite_PartitionConfig;
 @class GTLRPubsubLite_PartitionCursor;
+@class GTLRPubsubLite_Reservation;
+@class GTLRPubsubLite_ReservationConfig;
 @class GTLRPubsubLite_RetentionConfig;
 @class GTLRPubsubLite_Status;
 @class GTLRPubsubLite_Status_Details_Item;
@@ -378,6 +380,54 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
 
 
 /**
+ *  Response for ListReservations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "reservations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPubsubLite_ListReservationsResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page of
+ *  results. If this field is omitted, there are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of reservation in the requested parent. The order of the
+ *  reservations is unspecified.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsubLite_Reservation *> *reservations;
+
+@end
+
+
+/**
+ *  Response for ListReservationTopics.
+ */
+@interface GTLRPubsubLite_ListReservationTopicsResponse : GTLRObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page of
+ *  results. If this field is omitted, there are no more results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The names of topics attached to the reservation. The order of the topics is
+ *  unspecified.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topics;
+
+@end
+
+
+/**
  *  Response for ListSubscriptions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -613,6 +663,46 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
 
 
 /**
+ *  Metadata about a reservation resource.
+ */
+@interface GTLRPubsubLite_Reservation : GTLRObject
+
+/**
+ *  The name of the reservation. Structured like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The reserved throughput capacity. Every unit of throughput capacity is
+ *  equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
+ *  messages. Any topics which are declared as using capacity from a Reservation
+ *  will consume resources from this reservation instead of being charged
+ *  individually.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *throughputCapacity;
+
+@end
+
+
+/**
+ *  The settings for this topic's Reservation usage.
+ */
+@interface GTLRPubsubLite_ReservationConfig : GTLRObject
+
+/**
+ *  The Reservation to use for this topic's throughput capacity. Structured
+ *  like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *throughputReservation;
+
+@end
+
+
+/**
  *  The settings for a topic's message retention.
  */
 @interface GTLRPubsubLite_RetentionConfig : GTLRObject
@@ -780,6 +870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_Named
 
 /** The settings for this topic's partitions. */
 @property(nonatomic, strong, nullable) GTLRPubsubLite_PartitionConfig *partitionConfig;
+
+/** The settings for this topic's Reservation usage. */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_ReservationConfig *reservationConfig;
 
 /** The settings for this topic's message retention. */
 @property(nonatomic, strong, nullable) GTLRPubsubLite_RetentionConfig *retentionConfig;

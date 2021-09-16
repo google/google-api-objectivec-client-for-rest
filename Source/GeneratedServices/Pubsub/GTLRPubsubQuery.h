@@ -176,8 +176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 
 /**
  *  The set of fields to return in the response. If not set, returns a Schema
- *  with `name` and `type`, but not `definition`. Set to `FULL` to retrieve all
- *  fields.
+ *  with all fields filled out. Set to `BASIC` to omit the `definition`.
  *
  *  Likely values:
  *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.

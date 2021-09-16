@@ -318,15 +318,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
-@dynamic exclusions, location, nodeId, perSliEligibility;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
-  };
-  return map;
-}
-
+@dynamic location, nodeId, perSliEligibility;
 @end
 
 
@@ -376,25 +368,14 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-//
-
-@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic duration, reason, sliName, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic exclusions, nodes, perSliEligibility, tier;
+@dynamic nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class],
     @"nodes" : [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata class]
   };
   return map;

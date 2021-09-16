@@ -31,6 +31,8 @@
 @class GTLRShoppingContent_AccountTax;
 @class GTLRShoppingContent_AccounttaxCustomBatchRequest;
 @class GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest;
+@class GTLRShoppingContent_BuyOnGoogleProgramStatus;
+@class GTLRShoppingContent_CaptureOrderRequest;
 @class GTLRShoppingContent_Collection;
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedsCustomBatchRequest;
@@ -71,6 +73,7 @@
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
+@class GTLRShoppingContent_Promotion;
 @class GTLRShoppingContent_PubsubNotificationSettings;
 @class GTLRShoppingContent_Region;
 @class GTLRShoppingContent_RegionalInventory;
@@ -1264,7 +1267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Validates verification code to verify phone number for the account.
+ *  Validates verification code to verify phone number for the account. If
+ *  successful this will overwrite the value of
+ *  `accounts.businessinformation.phoneNumber`. Only verified phone number will
+ *  replace an existing verified phone number.
  *
  *  Method: content.accounts.verifyphonenumber
  *
@@ -1286,7 +1292,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_VerifyPhoneNumberResponse.
  *
- *  Validates verification code to verify phone number for the account.
+ *  Validates verification code to verify phone number for the account. If
+ *  successful this will overwrite the value of
+ *  `accounts.businessinformation.phoneNumber`. Only verified phone number will
+ *  replace an existing verified phone number.
  *
  *  @param object The @c GTLRShoppingContent_VerifyPhoneNumberRequest to include
  *    in the query.
@@ -1464,7 +1473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  The program region code [ISO 3166-1
+ *  Required. The program region code [ISO 3166-1
  *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *  US is available.
  */
@@ -1481,7 +1490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @param object The @c GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
  *    to include in the query.
  *  @param merchantId Required. The ID of the account.
- *  @param regionCode The program region code [ISO 3166-1
+ *  @param regionCode Required. The program region code [ISO 3166-1
  *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *    US is available.
  *
@@ -1507,7 +1516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  The Program region code [ISO 3166-1
+ *  Required. The Program region code [ISO 3166-1
  *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *  US is available.
  */
@@ -1519,7 +1528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Retrieves a status of the BoG program for your Merchant Center account.
  *
  *  @param merchantId Required. The ID of the account.
- *  @param regionCode The Program region code [ISO 3166-1
+ *  @param regionCode Required. The Program region code [ISO 3166-1
  *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *    US is available.
  *
@@ -1550,7 +1559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  The program region code [ISO 3166-1
+ *  Required. The program region code [ISO 3166-1
  *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *  US is available.
  */
@@ -1571,13 +1580,62 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @param object The @c GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest to
  *    include in the query.
  *  @param merchantId Required. The ID of the account.
- *  @param regionCode The program region code [ISO 3166-1
+ *  @param regionCode Required. The program region code [ISO 3166-1
  *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *    US is available.
  *
  *  @return GTLRShoppingContentQuery_BuyongoogleprogramsOnboard
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode;
+
+@end
+
+/**
+ *  Updates the status of the BoG program for your Merchant Center account.
+ *
+ *  Method: content.buyongoogleprograms.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsPatch : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Required. The program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  The list of fields to update. If the update mask is not provided, then all
+ *  the fields set in buyOnGoogleProgramStatus will be updated. Clearing fields
+ *  is only possible if update mask is provided.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_BuyOnGoogleProgramStatus.
+ *
+ *  Updates the status of the BoG program for your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_BuyOnGoogleProgramStatus to include
+ *    in the query.
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode Required. The program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_BuyOnGoogleProgramStatus *)object
                      merchantId:(long long)merchantId
                      regionCode:(NSString *)regionCode;
 
@@ -1598,7 +1656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  The program region code [ISO 3166-1
+ *  Required. The program region code [ISO 3166-1
  *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *  US is available.
  */
@@ -1614,7 +1672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @param object The @c GTLRShoppingContent_PauseBuyOnGoogleProgramRequest to
  *    include in the query.
  *  @param merchantId Required. The ID of the account.
- *  @param regionCode The program region code [ISO 3166-1
+ *  @param regionCode Required. The program region code [ISO 3166-1
  *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *    US is available.
  *
@@ -1642,7 +1700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) long long merchantId;
 
 /**
- *  The program region code [ISO 3166-1
+ *  Required. The program region code [ISO 3166-1
  *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *  US is available.
  */
@@ -1660,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest to include in
  *    the query.
  *  @param merchantId Required. The ID of the account.
- *  @param regionCode The program region code [ISO 3166-1
+ *  @param regionCode Required. The program region code [ISO 3166-1
  *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
  *    US is available.
  *
@@ -3666,6 +3724,56 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Capture funds from the customer for the current order total. This method
+ *  should be called after the merchant verifies that they are able and ready to
+ *  start shipping the order. This method blocks until a response is received
+ *  from the payment processsor. If this method succeeds, the merchant is
+ *  guaranteed to receive funds for the order after shipment. If the request
+ *  fails, it can be retried or the order may be cancelled. This method cannot
+ *  be called after the entire order is already shipped.
+ *
+ *  Method: content.orders.captureOrder
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdersCaptureOrder : GTLRShoppingContentQuery
+
+/**
+ *  Required. The ID of the account that manages the order. This cannot be a
+ *  multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The ID of the Order. */
+@property(nonatomic, copy, nullable) NSString *orderId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_CaptureOrderResponse.
+ *
+ *  Capture funds from the customer for the current order total. This method
+ *  should be called after the merchant verifies that they are able and ready to
+ *  start shipping the order. This method blocks until a response is received
+ *  from the payment processsor. If this method succeeds, the merchant is
+ *  guaranteed to receive funds for the order after shipment. If the request
+ *  fails, it can be retried or the order may be cancelled. This method cannot
+ *  be called after the entire order is already shipped.
+ *
+ *  @param object The @c GTLRShoppingContent_CaptureOrderRequest to include in
+ *    the query.
+ *  @param merchantId Required. The ID of the account that manages the order.
+ *    This cannot be a multi-client account.
+ *  @param orderId Required. The ID of the Order.
+ *
+ *  @return GTLRShoppingContentQuery_OrdersCaptureOrder
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_CaptureOrderRequest *)object
+                     merchantId:(long long)merchantId
+                        orderId:(NSString *)orderId;
+
+@end
+
+/**
  *  Sandbox only. Creates a test order.
  *
  *  Method: content.orders.createtestorder
@@ -5077,6 +5185,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_Product *)object
                      merchantId:(unsigned long long)merchantId
                       productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Inserts a promotion for your Merchant Center account. If the promotion
+ *  already exists, then it will update the promotion instead.
+ *
+ *  Method: content.promotions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_PromotionsCreate : GTLRShoppingContentQuery
+
+/** Required. The ID of the account that contains the collection. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Promotion.
+ *
+ *  Inserts a promotion for your Merchant Center account. If the promotion
+ *  already exists, then it will update the promotion instead.
+ *
+ *  @param object The @c GTLRShoppingContent_Promotion to include in the query.
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection.
+ *
+ *  @return GTLRShoppingContentQuery_PromotionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Promotion *)object
+                     merchantId:(long long)merchantId;
 
 @end
 

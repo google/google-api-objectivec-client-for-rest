@@ -86,6 +86,12 @@ NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoRese
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDataproc_SessionOperationMetadata.operationType
+NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Create = @"CREATE";
+NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified = @"SESSION_OPERATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate = @"TERMINATE";
+
 // GTLRDataproc_SoftwareConfig.optionalComponents
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
@@ -1404,6 +1410,43 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_SecurityConfig
 @dynamic identityConfig, kerberosConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SessionOperationMetadata
+//
+
+@implementation GTLRDataproc_SessionOperationMetadata
+@dynamic createTime, descriptionProperty, doneTime, labels, operationType,
+         session, sessionUuid, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SessionOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_SessionOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

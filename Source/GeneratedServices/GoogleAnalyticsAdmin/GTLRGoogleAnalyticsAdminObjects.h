@@ -29,6 +29,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
@@ -217,6 +218,49 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
  *  Value: "METRIC_SCOPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.eventDataRetention
+
+/**
+ *  The data retention time duration is 50 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "FIFTY_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths;
+/**
+ *  The data retention time duration is 14 months.
+ *
+ *  Value: "FOURTEEN_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths;
+/**
+ *  Data retention time duration is not specified.
+ *
+ *  Value: "RETENTION_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified;
+/**
+ *  The data retention time duration is 38 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "THIRTY_EIGHT_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths;
+/**
+ *  The data retention time duration is 26 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "TWENTY_SIX_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths;
+/**
+ *  The data retention time duration is 2 months.
+ *
+ *  Value: "TWO_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
@@ -595,6 +639,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Value: "CUSTOM_METRIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric;
+/**
+ *  DataRetentionSettings resource
+ *
+ *  Value: "DATA_RETENTION_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings;
 /**
  *  FirebaseLink resource
  *
@@ -1018,6 +1068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** A snapshot of a CustomMetric resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *customMetric;
 
+/** A snapshot of a data retention settings resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings *dataRetentionSettings;
+
 /**
  *  A snapshot of a DisplayVideo360AdvertiserLink resource in change history.
  */
@@ -1321,6 +1374,52 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        Scope unknown or not specified. (Value: "METRIC_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Settings values for data retention. This is a singleton resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings : GTLRObject
+
+/**
+ *  The length of time that event-level data is retained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths
+ *        The data retention time duration is 50 months. Available to 360
+ *        properties only. (Value: "FIFTY_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths
+ *        The data retention time duration is 14 months. (Value:
+ *        "FOURTEEN_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified
+ *        Data retention time duration is not specified. (Value:
+ *        "RETENTION_DURATION_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths
+ *        The data retention time duration is 38 months. Available to 360
+ *        properties only. (Value: "THIRTY_EIGHT_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths
+ *        The data retention time duration is 26 months. Available to 360
+ *        properties only. (Value: "TWENTY_SIX_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths
+ *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
+ */
+@property(nonatomic, copy, nullable) NSString *eventDataRetention;
+
+/**
+ *  Output only. Resource name for this DataRetentionSetting resource. Format:
+ *  properties/{property}/dataRetentionSettings
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If true, reset the retention period for the user identifier with every event
+ *  from that user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resetUserDataOnNewActivity;
 
 @end
 
@@ -2566,10 +2665,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /**
  *  Roles directly assigned to this user for this account or property. Valid
  *  values: predefinedRoles/read predefinedRoles/collaborate
- *  predefinedRoles/edit predefinedRoles/manage-users Excludes roles that are
- *  inherited from a higher-level entity, group, or organization admin role. A
- *  UserLink that is updated to have an empty list of direct_roles will be
- *  deleted.
+ *  predefinedRoles/edit predefinedRoles/admin Excludes roles that are inherited
+ *  from a higher-level entity, group, or organization admin role. A UserLink
+ *  that is updated to have an empty list of direct_roles will be deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
 

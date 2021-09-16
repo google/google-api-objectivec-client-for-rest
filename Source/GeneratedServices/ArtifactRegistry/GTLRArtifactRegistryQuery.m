@@ -88,12 +88,14 @@
 
 @dynamic filter, name, pageSize, pageToken;
 
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1/operations";
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRArtifactRegistryQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
+  query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_ListOperationsResponse class];
   query.loggingName = @"artifactregistry.operations.list";
   return query;

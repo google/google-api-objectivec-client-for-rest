@@ -764,7 +764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *

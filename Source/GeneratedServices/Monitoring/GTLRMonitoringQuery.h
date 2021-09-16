@@ -2507,8 +2507,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously and
+ *  callers may check the returned operation to track its progress. User-created
+ *  metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  Method: monitoring.projects.metricDescriptors.create
  *
@@ -2529,8 +2531,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
- *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously and
+ *  callers may check the returned operation to track its progress. User-created
+ *  metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.

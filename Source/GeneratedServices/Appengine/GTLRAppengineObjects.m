@@ -519,6 +519,44 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_GoogleAppengineV2mainOperationMetadata
+//
+
+@implementation GTLRAppengine_GoogleAppengineV2mainOperationMetadata
+@dynamic apiVersion, createTime, endTime, ephemeralMessage,
+         requestedCancellation, statusMessage, target, verb, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warning" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_GoogleAppengineV2OperationMetadata
+//
+
+@implementation GTLRAppengine_GoogleAppengineV2OperationMetadata
+@dynamic apiVersion, createTime, endTime, ephemeralMessage,
+         requestedCancellation, statusMessage, target, verb, warning;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warning" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_HealthCheck
 //
 

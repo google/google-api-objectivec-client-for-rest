@@ -39,6 +39,25 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:fetchProcessorTypes";
+  GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse class];
+  query.loggingName = @"documentai.projects.locations.fetchProcessorTypes";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -161,6 +180,125 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1Processor *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/processors";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1Processor class];
+  query.loggingName = @"documentai.projects.locations.processors.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.enable";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1Processor class];
+  query.loggingName = @"documentai.projects.locations.processors.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsLocationsProcessorsHumanReviewConfigReviewDocument
 
 @dynamic humanReviewConfig;
@@ -183,6 +321,25 @@
   query.humanReviewConfig = humanReviewConfig;
   query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
   query.loggingName = @"documentai.projects.locations.processors.humanReviewConfig.reviewDocument";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/processors";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ListProcessorsResponse class];
+  query.loggingName = @"documentai.projects.locations.processors.list";
   return query;
 }
 
@@ -242,6 +399,90 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.processorVersions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDeploy
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deploy";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDeploy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.processorVersions.deploy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion class];
+  query.loggingName = @"documentai.projects.locations.processors.processorVersions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/processorVersions";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ListProcessorVersionsResponse class];
+  query.loggingName = @"documentai.projects.locations.processors.processorVersions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsProcess
 
 @dynamic name;
@@ -264,6 +505,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse class];
   query.loggingName = @"documentai.projects.locations.processors.processorVersions.process";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsUndeploy
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undeploy";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsUndeploy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.processorVersions.undeploy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsProcessorsSetDefaultProcessorVersion
+
+@dynamic processor;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest *)object
+                      processor:(NSString *)processor {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"processor" ];
+  NSString *pathURITemplate = @"v1/{+processor}:setDefaultProcessorVersion";
+  GTLRDocumentQuery_ProjectsLocationsProcessorsSetDefaultProcessorVersion *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.processor = processor;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.processors.setDefaultProcessorVersion";
   return query;
 }
 

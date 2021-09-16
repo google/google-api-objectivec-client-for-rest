@@ -421,6 +421,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_AvroOptions
+//
+
+@implementation GTLRBigquery_AvroOptions
+@dynamic useAvroLogicalTypes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_BiEngineReason
 //
 
@@ -724,10 +734,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Dataset
-@dynamic access, creationTime, datasetReference, defaultEncryptionConfiguration,
-         defaultPartitionExpirationMs, defaultTableExpirationMs,
-         descriptionProperty, ETag, friendlyName, identifier, isCaseInsensitive,
-         kind, labels, lastModifiedTime, location, satisfiesPZS, selfLink;
+@dynamic access, creationTime, datasetReference, defaultCollation,
+         defaultEncryptionConfiguration, defaultPartitionExpirationMs,
+         defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
+         identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
+         location, satisfiesPZS, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1034,10 +1045,10 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ExternalDataConfiguration
-@dynamic autodetect, bigtableOptions, compression, connectionId, csvOptions,
-         decimalTargetTypes, googleSheetsOptions, hivePartitioningOptions,
-         ignoreUnknownValues, maxBadRecords, parquetOptions, schema,
-         sourceFormat, sourceUris;
+@dynamic autodetect, avroOptions, bigtableOptions, compression, connectionId,
+         csvOptions, decimalTargetTypes, googleSheetsOptions,
+         hivePartitioningOptions, ignoreUnknownValues, maxBadRecords,
+         parquetOptions, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1926,7 +1937,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_QueryResponse
 @dynamic cacheHit, dmlStats, errors, jobComplete, jobReference, kind,
-         numDmlAffectedRows, pageToken, rows, schema, sessionInfoTemplate,
+         numDmlAffectedRows, pageToken, rows, schema, sessionInfo,
          totalBytesProcessed, totalRows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2000,7 +2011,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_Routine
 @dynamic arguments, creationTime, definitionBody, descriptionProperty,
          determinismLevel, ETag, importedLibraries, language, lastModifiedTime,
-         returnTableType, returnType, routineReference, routineType;
+         returnTableType, returnType, routineReference, routineType, strictMode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2215,13 +2226,13 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Table
-@dynamic clustering, creationTime, descriptionProperty, encryptionConfiguration,
-         ETag, expirationTime, externalDataConfiguration, friendlyName,
-         identifier, kind, labels, lastModifiedTime, location, materializedView,
-         model, numBytes, numLongTermBytes, numPhysicalBytes, numRows,
-         rangePartitioning, requirePartitionFilter, schema, selfLink,
-         snapshotDefinition, streamingBuffer, tableReference, timePartitioning,
-         type, view;
+@dynamic clustering, creationTime, defaultCollation, descriptionProperty,
+         encryptionConfiguration, ETag, expirationTime,
+         externalDataConfiguration, friendlyName, identifier, kind, labels,
+         lastModifiedTime, location, materializedView, model, numBytes,
+         numLongTermBytes, numPhysicalBytes, numRows, rangePartitioning,
+         requirePartitionFilter, schema, selfLink, snapshotDefinition,
+         streamingBuffer, tableReference, timePartitioning, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

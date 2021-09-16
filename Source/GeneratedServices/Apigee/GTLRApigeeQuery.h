@@ -33,6 +33,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
 @class GTLRApigee_GoogleCloudApigeeV1Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation;
+@class GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1DataCollector;
 @class GTLRApigee_GoogleCloudApigeeV1Datastore;
@@ -41,6 +42,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1Environment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
@@ -2957,6 +2959,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Credits the account balance for the developer.
+ *
+ *  Method: apigee.organizations.developers.balance.credit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperBalance.
+ *
+ *  Credits the account balance for the developer.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest to include in
+ *    the query.
+ *  @param name Required. Account balance for the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a developer. Once created, the developer can register an app and
  *  obtain an API key. At creation time, a developer is set as `active`. To
  *  change the developer status, use the SetDeveloperStatus API.
@@ -3072,6 +3109,69 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the account balance for the developer.
+ *
+ *  Method: apigee.organizations.developers.getBalance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersGetBalance : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperBalance.
+ *
+ *  Gets the account balance for the developer.
+ *
+ *  @param name Required. Account balance for the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersGetBalance
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the monetization configuration for the developer.
+ *
+ *  Method: apigee.organizations.developers.getMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the developer. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/developers/{developer}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.
+ *
+ *  Gets the monetization configuration for the developer.
+ *
+ *  @param name Required. Monetization configuration for the developer. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -3396,6 +3496,42 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsDevelopersUpdate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Developer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the monetization configuration for the developer.
+ *
+ *  Method: apigee.organizations.developers.updateMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the developer. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/developers/{developer}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.
+ *
+ *  Updates the monetization configuration for the developer.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig to include in
+ *    the query.
+ *  @param name Required. Monetization configuration for the developer. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig *)object
                            name:(NSString *)name;
 
 @end

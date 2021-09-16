@@ -31,6 +31,7 @@
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
+@class GTLRBigquery_AvroOptions;
 @class GTLRBigquery_BiEngineReason;
 @class GTLRBigquery_BiEngineStatistics;
 @class GTLRBigquery_BigtableColumn;
@@ -1749,6 +1750,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_AvroOptions
+ */
+@interface GTLRBigquery_AvroOptions : GTLRObject
+
+/**
+ *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  logical types as the corresponding BigQuery data type (for example,
+ *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAvroLogicalTypes;
+
+@end
+
+
+/**
  *  GTLRBigquery_BiEngineReason
  */
 @interface GTLRBigquery_BiEngineReason : GTLRObject
@@ -2508,6 +2526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** [Required] A reference that identifies the dataset. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
+
+/** [Output-only] The default collation of the dataset. */
+@property(nonatomic, copy, nullable) NSString *defaultCollation;
 
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *defaultEncryptionConfiguration;
 
@@ -3320,6 +3341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
+
+/** Additional properties to set if sourceFormat is set to Avro. */
+@property(nonatomic, strong, nullable) GTLRBigquery_AvroOptions *avroOptions;
 
 /** [Optional] Additional options if sourceFormat is set to BIGTABLE. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BigtableOptions *bigtableOptions;
@@ -4152,9 +4176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  [Optional] If sourceFormat is set to "AVRO", indicates whether to enable
- *  interpreting logical types into their corresponding types (ie. TIMESTAMP),
- *  instead of only using their raw types (ie. INTEGER).
+ *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  logical types as the corresponding BigQuery data type (for example,
+ *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5905,7 +5929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  [Output-only] [Preview] Information of the session if this job is part of
  *  one.
  */
-@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfoTemplate;
+@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
 
 /**
  *  The total number of bytes processed for this query. If this query was a dry
@@ -6233,6 +6257,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        permanent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
+
+/**
+ *  Optional. Can be set for procedures only. If true (default), the definition
+ *  body will be validated in the creation and the updates of the procedure. For
+ *  procedures with an argument of ANY TYPE, the definition body validtion is
+ *  not supported at creation/update time, and thus this field must be set to
+ *  false explicitly.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMode;
 
 @end
 
@@ -6618,6 +6653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
+
+/** [Output-only] The default collation of the table. */
+@property(nonatomic, copy, nullable) NSString *defaultCollation;
 
 /**
  *  [Optional] A user-friendly description of this table.

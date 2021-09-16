@@ -40,14 +40,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingAdmin;
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingCloudPlatform;
 /**
- *  Authorization scope: View your data across Google Cloud Platform services
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */

@@ -470,7 +470,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Instance
-@dynamic displayName, labels, name, state, type;
+@dynamic createTime, displayName, labels, name, state, type;
 @end
 
 

@@ -227,7 +227,7 @@ NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_TransferStatusUnkno
 @implementation GTLRStreetViewPublish_Photo
 @dynamic captureTime, connections, downloadUrl, mapsPublishStatus, photoId,
          places, pose, shareLink, thumbnailUrl, transferStatus, uploadReference,
-         viewCount;
+         uploadTime, viewCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

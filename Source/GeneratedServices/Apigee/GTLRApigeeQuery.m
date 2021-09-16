@@ -1545,6 +1545,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:credit";
+  GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperBalance class];
+  query.loggingName = @"apigee.organizations.developers.balance.credit";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsDevelopersCreate
 
 @dynamic parent;
@@ -1605,6 +1632,44 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1Developer class];
   query.loggingName = @"apigee.organizations.developers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersGetBalance
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersGetBalance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperBalance class];
+  query.loggingName = @"apigee.organizations.developers.getBalance";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig class];
+  query.loggingName = @"apigee.organizations.developers.getMonetizationConfig";
   return query;
 }
 
@@ -1762,6 +1827,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1Developer class];
   query.loggingName = @"apigee.organizations.developers.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig class];
+  query.loggingName = @"apigee.organizations.developers.updateMonetizationConfig";
   return query;
 }
 

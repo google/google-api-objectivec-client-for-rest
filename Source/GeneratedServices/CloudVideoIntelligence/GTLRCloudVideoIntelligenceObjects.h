@@ -5061,7 +5061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /**
  *  Model to use for shot change detection. Supported values: "builtin/stable"
- *  (the default if unset) and "builtin/latest".
+ *  (the default if unset), "builtin/latest", and "builtin/legacy".
  */
 @property(nonatomic, copy, nullable) NSString *model;
 

@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRCloudHealthcare_ActivateConsentRequest;
+@class GTLRCloudHealthcare_AnalyzeEntitiesRequest;
 @class GTLRCloudHealthcare_ArchiveUserDataMappingRequest;
 @class GTLRCloudHealthcare_AttributeDefinition;
 @class GTLRCloudHealthcare_CancelOperationRequest;
@@ -5943,6 +5944,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Analyze heathcare entity in a document. Its response includes the recognized
+ *  entity mentions and the relationships between them. AnalyzeEntities uses
+ *  context aware models to detect entities.
+ *
+ *  Method: healthcare.projects.locations.services.nlp.analyzeEntities
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsServicesNlpAnalyzeEntities : GTLRCloudHealthcareQuery
+
+/**
+ *  The resource name of the service of the form:
+ *  "projects/{project_id}/locations/{location_id}/services/nlp".
+ */
+@property(nonatomic, copy, nullable) NSString *nlpService;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_AnalyzeEntitiesResponse.
+ *
+ *  Analyze heathcare entity in a document. Its response includes the recognized
+ *  entity mentions and the relationships between them. AnalyzeEntities uses
+ *  context aware models to detect entities.
+ *
+ *  @param object The @c GTLRCloudHealthcare_AnalyzeEntitiesRequest to include
+ *    in the query.
+ *  @param nlpService The resource name of the service of the form:
+ *    "projects/{project_id}/locations/{location_id}/services/nlp".
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsServicesNlpAnalyzeEntities
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_AnalyzeEntitiesRequest *)object
+                     nlpService:(NSString *)nlpService;
 
 @end
 

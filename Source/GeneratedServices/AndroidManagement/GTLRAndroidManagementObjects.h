@@ -37,12 +37,14 @@
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_ContactInfo;
 @class GTLRAndroidManagement_ContentProviderEndpoint;
+@class GTLRAndroidManagement_CrossProfilePolicies;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
 @class GTLRAndroidManagement_Enterprise;
+@class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_FreezePeriod;
 @class GTLRAndroidManagement_HardwareInfo;
@@ -652,6 +654,85 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo
  *  Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
+
+/**
+ *  Default. Prevents users from pasting into the personal profile text copied
+ *  from the work profile. Text copied from the personal profile can be pasted
+ *  into the work profile, and text copied from the work profile can be pasted
+ *  into the work profile.
+ *
+ *  Value: "COPY_FROM_WORK_TO_PERSONAL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed;
+/**
+ *  Text copied in either profile can be pasted in the other profile.
+ *
+ *  Value: "CROSS_PROFILE_COPY_PASTE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed;
+/**
+ *  Unspecified. Defaults to COPY_FROM_WORK_TO_PERSONAL_DISALLOWED
+ *
+ *  Value: "CROSS_PROFILE_COPY_PASTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileDataSharing
+
+/**
+ *  Data from either profile can be shared with the other profile.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed;
+/**
+ *  Prevents data from being shared from both the personal profile to the work
+ *  profile and the work profile to the personal profile.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed;
+/**
+ *  Unspecified. Defaults to DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified;
+/**
+ *  Default. Prevents users from sharing data from the work profile to apps in
+ *  the personal profile. Personal data can be shared with work apps.
+ *
+ *  Value: "DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
+
+/**
+ *  Default. Allows work profile contacts to appear in personal profile contact
+ *  searches and incoming calls
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed;
+/**
+ *  Prevents work profile contacts from appearing in personal profile contact
+ *  searches and incoming calls
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed;
+/**
+ *  Unspecified. Defaults to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED.
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -2302,6 +2383,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *googlePlayProtectVerifyApps;
 
 /**
+ *  Personal apps that can read work profile notifications using a
+ *  NotificationListenerService
+ *  (https://developer.android.com/reference/android/service/notification/NotificationListenerService).
+ *  By default, no personal apps (aside from system apps) can read work
+ *  notifications. Each value in the list must be a package name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *personalAppsThatCanReadWorkNotifications;
+
+/**
  *  The policy for untrusted apps (apps from unknown sources) enforced on the
  *  device. Replaces install_unknown_sources_allowed (deprecated).
  *
@@ -2541,6 +2631,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Configuration to enable this app as an extension app, with the capability of
+ *  interacting with Android Device Policy offline.This field can be set for at
+ *  most one app.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtensionConfig *extensionConfig;
 
 /**
  *  The type of installation to perform.
@@ -2989,7 +3086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Contact details for LaForge enterprises.
+ *  Contact details for managed Google Play enterprises.
  */
 @interface GTLRAndroidManagement_ContactInfo : GTLRObject
 
@@ -3044,6 +3141,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** This feature is not generally available. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Cross-profile policies applied on the device.
+ */
+@interface GTLRAndroidManagement_CrossProfilePolicies : GTLRObject
+
+/**
+ *  Whether text copied from one profile (personal or work) can be pasted in the
+ *  other profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed
+ *        Default. Prevents users from pasting into the personal profile text
+ *        copied from the work profile. Text copied from the personal profile
+ *        can be pasted into the work profile, and text copied from the work
+ *        profile can be pasted into the work profile. (Value:
+ *        "COPY_FROM_WORK_TO_PERSONAL_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed
+ *        Text copied in either profile can be pasted in the other profile.
+ *        (Value: "CROSS_PROFILE_COPY_PASTE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified
+ *        Unspecified. Defaults to COPY_FROM_WORK_TO_PERSONAL_DISALLOWED (Value:
+ *        "CROSS_PROFILE_COPY_PASTE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProfileCopyPaste;
+
+/**
+ *  Whether data from one profile (personal or work) can be shared with apps in
+ *  the other profile. Specifically controls simple data sharing via intents.
+ *  Management of other cross-profile communication channels, such as contact
+ *  search, copy/paste, or connected work & personal apps, are configured
+ *  separately.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed
+ *        Data from either profile can be shared with the other profile. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed
+ *        Prevents data from being shared from both the personal profile to the
+ *        work profile and the work profile to the personal profile. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified
+ *        Unspecified. Defaults to
+ *        DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed
+ *        Default. Prevents users from sharing data from the work profile to
+ *        apps in the personal profile. Personal data can be shared with work
+ *        apps. (Value: "DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProfileDataSharing;
+
+/**
+ *  Whether contacts stored in the work profile can be shown in personal profile
+ *  contact searches and incoming calls.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed
+ *        Default. Allows work profile contacts to appear in personal profile
+ *        contact searches and incoming calls (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed
+ *        Prevents work profile contacts from appearing in personal profile
+ *        contact searches and incoming calls (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified
+ *        Unspecified. Defaults to
+ *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *showWorkContactsInPersonalProfile;
 
 @end
 
@@ -3668,6 +3839,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  this enterprise. A page of terms is generated for each value in this list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TermsAndConditions *> *termsAndConditions;
+
+@end
+
+
+/**
+ *  Configuration to enable an app as an extension app, with the capability of
+ *  interacting with Android Device Policy offline.
+ */
+@interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
+
+/**
+ *  Fully qualified class name of the receiver service class for Android Device
+ *  Policy to notify the extension app of any local command status updates.
+ */
+@property(nonatomic, copy, nullable) NSString *notificationReceiver;
+
+/**
+ *  Hex-encoded SHA256 hash of the signing certificate of the extension app.
+ *  Only hexadecimal string representations of 64 characters are valid.If not
+ *  specified, the signature for the corresponding package name is obtained from
+ *  the Play Store instead.If this list is empty, the signature of the extension
+ *  app on the device must match the signature obtained from the Play Store for
+ *  the app to be able to communicate with Android Device Policy.If this list is
+ *  not empty, the signature of the extension app on the device must match one
+ *  of the entries in this list for the app to be able to communicate with
+ *  Android Device Policy.In production use cases, it is recommended to leave
+ *  this empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyFingerprintsSha256;
 
 @end
 
@@ -5172,6 +5372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *credentialsConfigDisabled;
+
+/** Cross-profile policies applied on the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossProfilePolicies *crossProfilePolicies;
 
 /**
  *  Whether roaming data services are disabled.

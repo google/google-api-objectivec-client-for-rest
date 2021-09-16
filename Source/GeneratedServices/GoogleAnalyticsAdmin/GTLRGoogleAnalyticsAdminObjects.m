@@ -45,6 +45,14 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_S
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event = @"EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.eventDataRetention
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths = @"FIFTY_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths = @"FOURTEEN_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified = @"RETENTION_DURATION_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths = @"THIRTY_EIGHT_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented = @"GOOGLE_SIGNALS_CONSENT_CONSENTED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented = @"GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED";
@@ -116,6 +124,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings = @"DATA_RETENTION_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
@@ -393,7 +402,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
 @dynamic account, androidAppDataStream, conversionEvent, customDimension,
-         customMetric, displayVideo360AdvertiserLink,
+         customMetric, dataRetentionSettings, displayVideo360AdvertiserLink,
          displayVideo360AdvertiserLinkProposal, firebaseLink, googleAdsLink,
          googleSignalsSettings, iosAppDataStream, measurementProtocolSecret,
          property, webDataStream;
@@ -472,6 +481,16 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
+@dynamic eventDataRetention, name, resetUserDataOnNewActivity;
 @end
 
 

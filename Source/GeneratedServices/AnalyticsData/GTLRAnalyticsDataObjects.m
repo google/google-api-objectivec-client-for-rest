@@ -13,17 +13,32 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Incompatible = @"INCOMPATIBLE";
+
 // GTLRAnalyticsData_CohortsRange.granularity
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Daily = @"DAILY";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_GranularityUnspecified = @"GRANULARITY_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Monthly = @"MONTHLY";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Weekly = @"WEEKLY";
 
+// GTLRAnalyticsData_DimensionCompatibility.compatibility
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Incompatible = @"INCOMPATIBLE";
+
 // GTLRAnalyticsData_DimensionOrderBy.orderType
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_Alphanumeric = @"ALPHANUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_CaseInsensitiveAlphanumeric = @"CASE_INSENSITIVE_ALPHANUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_Numeric = @"NUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_OrderTypeUnspecified = @"ORDER_TYPE_UNSPECIFIED";
+
+// GTLRAnalyticsData_MetricCompatibility.compatibility
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Incompatible = @"INCOMPATIBLE";
 
 // GTLRAnalyticsData_MetricHeader.type
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
@@ -199,6 +214,45 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_CheckCompatibilityRequest
+//
+
+@implementation GTLRAnalyticsData_CheckCompatibilityRequest
+@dynamic compatibilityFilter, dimensionFilter, dimensions, metricFilter,
+         metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRAnalyticsData_Dimension class],
+    @"metrics" : [GTLRAnalyticsData_Metric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_CheckCompatibilityResponse
+//
+
+@implementation GTLRAnalyticsData_CheckCompatibilityResponse
+@dynamic dimensionCompatibilities, metricCompatibilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionCompatibilities" : [GTLRAnalyticsData_DimensionCompatibility class],
+    @"metricCompatibilities" : [GTLRAnalyticsData_MetricCompatibility class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_Cohort
 //
 
@@ -285,6 +339,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_DimensionCompatibility
+//
+
+@implementation GTLRAnalyticsData_DimensionCompatibility
+@dynamic compatibility, dimensionMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_DimensionExpression
 //
 
@@ -309,8 +373,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_DimensionMetadata
-@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
-         uiName;
+@dynamic apiName, category, customDefinition, deprecatedApiNames,
+         descriptionProperty, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -433,6 +497,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_MetricCompatibility
+//
+
+@implementation GTLRAnalyticsData_MetricCompatibility
+@dynamic compatibility, metricMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_MetricHeader
 //
 
@@ -447,8 +521,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_MetricMetadata
-@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
-         expression, type, uiName;
+@dynamic apiName, category, customDefinition, deprecatedApiNames,
+         descriptionProperty, expression, type, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -635,7 +709,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_ResponseMetaData
-@dynamic dataLossFromOtherRow;
+@dynamic currencyCode, dataLossFromOtherRow, timeZone;
 @end
 
 

@@ -370,6 +370,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_Date
+//
+
+@implementation GTLRCloudAsset_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_Empty
 //
 
@@ -1409,6 +1419,34 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_RelatedResource
+//
+
+@implementation GTLRCloudAsset_RelatedResource
+@dynamic assetType, fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelatedResources
+//
+
+@implementation GTLRCloudAsset_RelatedResources
+@dynamic relatedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relatedResources" : [GTLRCloudAsset_RelatedResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_RelationshipAttributes
 //
 
@@ -1451,7 +1489,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 @dynamic additionalAttributes, assetType, attachedResources, createTime,
          descriptionProperty, displayName, folders, kmsKey, labels, location,
          name, networkTags, organization, parentAssetType,
-         parentFullResourceName, project, state, updateTime, versionedResources;
+         parentFullResourceName, project, relationships, state, updateTime,
+         versionedResources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1493,6 +1532,20 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ResourceSearchResult_Relationships
+//
+
+@implementation GTLRCloudAsset_ResourceSearchResult_Relationships
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAsset_RelatedResources class];
 }
 
 @end
@@ -1558,8 +1611,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_SoftwarePackage
-@dynamic aptPackage, cosPackage, googetPackage, qfePackage, wuaPackage,
-         yumPackage, zypperPackage, zypperPatch;
+@dynamic aptPackage, cosPackage, googetPackage, qfePackage, windowsApplication,
+         wuaPackage, yumPackage, zypperPackage, zypperPatch;
 @end
 
 
@@ -1656,6 +1709,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_WindowsApplication
+//
+
+@implementation GTLRCloudAsset_WindowsApplication
+@dynamic displayName, displayVersion, helpLink, installDate, publisher;
 @end
 
 

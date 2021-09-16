@@ -279,6 +279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder;
 /** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
@@ -847,6 +849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrder;
 /** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
@@ -1665,6 +1669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedViewableImpressionsSharePercent;
 /** Value: "METRIC_IMPRESSION_CUSTOM_VALUE_COST" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionCustomValueCost;
+/** Value: "METRIC_IMPRESSION_LOSS_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionLossTargetedImpressions;
 /** Value: "METRIC_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressions;
 /** Value: "METRIC_IMPRESSIONS_TO_CONVERSION_RATE" */
@@ -1699,6 +1705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchTotalConversions;
 /** Value: "METRIC_LAST_TOUCH_VIEW_THROUGH_CONVERSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchViewThroughConversions;
+/** Value: "METRIC_LINEITEM_BID_RESPONSE_COUNT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLineitemBidResponseCount;
 /** Value: "METRIC_MEDIA_COST_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiser;
 /** Value: "METRIC_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY" */
@@ -2145,6 +2153,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachSharePercent;
 /** Value: "METRIC_WATCH_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWatchTime;
+/** Value: "METRIC_WIN_LOSS_DEAL_AVAILABLE_REQUESTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossDealAvailableRequests;
+/** Value: "METRIC_WIN_LOSS_DEAL_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossDealTargetedImpressions;
+/** Value: "METRIC_WIN_LOSS_LINEITEM_AVAILABLE_REQUESTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossLineitemAvailableRequests;
+/** Value: "METRIC_WIN_LOSS_LINEITEM_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossLineitemTargetedImpressions;
+/** Value: "METRIC_WIN_LOSS_RATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossRate;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.type
@@ -2457,6 +2475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrder;
 /** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
@@ -3270,6 +3290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_HOUSEHOLD_INCOME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionCountingMethod
  *        Value "FILTER_IMPRESSION_COUNTING_METHOD"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionLossRejectionReason
+ *        Value "FILTER_IMPRESSION_LOSS_REJECTION_REASON"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder
  *        Value "FILTER_INSERTION_ORDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderGoalType
@@ -4079,6 +4101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_HOUSEHOLD_INCOME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionCountingMethod
  *        Value "FILTER_IMPRESSION_COUNTING_METHOD"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionLossRejectionReason
+ *        Value "FILTER_IMPRESSION_LOSS_REJECTION_REASON"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrder
  *        Value "FILTER_INSERTION_ORDER"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderGoalType

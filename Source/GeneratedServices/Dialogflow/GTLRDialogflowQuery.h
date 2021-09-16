@@ -517,7 +517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an Environment in the specified Agent.
+ *  Creates an Environment in the specified Agent. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  Method: dialogflow.projects.locations.agents.environments.create
  *
@@ -536,7 +542,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Creates an Environment in the specified Agent.
+ *  Creates an Environment in the specified Agent. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Environment to
  *    include in the query.
@@ -959,7 +971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified Environment.
+ *  Updates the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  Method: dialogflow.projects.locations.agents.environments.patch
  *
@@ -985,7 +1002,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Updates the specified Environment.
+ *  Updates the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Environment to
  *    include in the query.
@@ -1000,7 +1022,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Kicks off a continuous test under the specified Environment.
+ *  Kicks off a continuous test under the specified Environment. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunContinuousTestMetadata - `response`:
+ *  RunContinuousTestResponse
  *
  *  Method: dialogflow.projects.locations.agents.environments.runContinuousTest
  *
@@ -1016,7 +1043,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Kicks off a continuous test under the specified Environment.
+ *  Kicks off a continuous test under the specified Environment. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunContinuousTestMetadata - `response`:
+ *  RunContinuousTestResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest to
@@ -1401,7 +1433,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Exports the specified agent to a binary file.
+ *  Exports the specified agent to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportAgentResponse
  *
  *  Method: dialogflow.projects.locations.agents.export
  *
@@ -1420,7 +1457,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Exports the specified agent to a binary file.
+ *  Exports the specified agent to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportAgentResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest to include in
@@ -1528,8 +1570,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Exports the specified flow to a binary file. Note that resources (e.g.
- *  intents, entities, webhooks) that the flow references will also be exported.
+ *  Exports the specified flow to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportFlowResponse Note that resources (e.g. intents,
+ *  entities, webhooks) that the flow references will also be exported.
  *
  *  Method: dialogflow.projects.locations.agents.flows.export
  *
@@ -1548,8 +1595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Exports the specified flow to a binary file. Note that resources (e.g.
- *  intents, entities, webhooks) that the flow references will also be exported.
+ *  Exports the specified flow to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportFlowResponse Note that resources (e.g. intents,
+ *  entities, webhooks) that the flow references will also be exported.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest to include in
@@ -1645,9 +1697,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Imports the specified flow to the specified agent from a binary file. Note:
- *  You should always train a flow prior to sending it queries. See the
- *  [training
+ *  Imports the specified flow to the specified agent from a binary file. This
+ *  method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ImportFlowResponse Note: You should always train a flow prior
+ *  to sending it queries. See the [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.import
@@ -1667,9 +1724,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Imports the specified flow to the specified agent from a binary file. Note:
- *  You should always train a flow prior to sending it queries. See the
- *  [training
+ *  Imports the specified flow to the specified agent from a binary file. This
+ *  method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ImportFlowResponse Note: You should always train a flow prior
+ *  to sending it queries. See the [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
@@ -2057,8 +2119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The mask to control which fields get updated. If `update_mask` is
- *  not specified, an error will be returned.
+ *  The mask to control which fields get updated. If the mask is not present,
+ *  all fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2085,8 +2147,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained. Note: You should always train a flow prior to sending it queries.
- *  See the [training
+ *  trained. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train a flow prior to sending it queries. See the
+ *  [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.train
@@ -2106,8 +2175,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained. Note: You should always train a flow prior to sending it queries.
- *  See the [training
+ *  trained. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train a flow prior to sending it queries. See the
+ *  [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
@@ -2419,7 +2495,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a Version in the specified Flow.
+ *  Creates a Version in the specified Flow. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: CreateVersionOperationMetadata - `response`: Version
  *
  *  Method: dialogflow.projects.locations.agents.flows.versions.create
  *
@@ -2438,7 +2517,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Creates a Version in the specified Flow.
+ *  Creates a Version in the specified Flow. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: CreateVersionOperationMetadata - `response`: Version
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Version to
  *    include in the query.
@@ -2559,7 +2641,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Loads resources in the specified version to the draft flow.
+ *  Loads resources in the specified version to the draft flow. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
  *
  *  Method: dialogflow.projects.locations.agents.flows.versions.load
  *
@@ -2578,7 +2667,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Loads resources in the specified version to the draft flow.
+ *  Loads resources in the specified version to the draft flow. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest to include in
@@ -3046,8 +3142,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed. Note: You should always train flows
- *  prior to sending them queries. See the [training
+ *  entity types, flows) will be removed. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train flows prior to sending them queries. See the
+ *  [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.restore
@@ -3069,8 +3172,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed. Note: You should always train flows
- *  prior to sending them queries. See the [training
+ *  entity types, flows) will be removed. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train flows prior to sending them queries. See the
+ *  [training
  *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
@@ -3491,7 +3601,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Kicks off a batch run of test cases.
+ *  Kicks off a batch run of test cases. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: BatchRunTestCasesMetadata - `response`:
+ *  BatchRunTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.batchRun
  *
@@ -3507,7 +3621,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Kicks off a batch run of test cases.
+ *  Kicks off a batch run of test cases. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: BatchRunTestCasesMetadata - `response`:
+ *  BatchRunTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3BatchRunTestCasesRequest to
@@ -3603,7 +3721,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Exports the test cases under the agent to a Cloud Storage bucket or a local
- *  file. Filter can be applied to export a subset of test cases.
+ *  file. Filter can be applied to export a subset of test cases. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.export
  *
@@ -3623,7 +3745,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Exports the test cases under the agent to a Cloud Storage bucket or a local
- *  file. Filter can be applied to export a subset of test cases.
+ *  file. Filter can be applied to export a subset of test cases. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest to include
@@ -3672,7 +3798,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
  *  always creates new test cases and won't overwite any existing ones. The
- *  provided ID in the imported test case is neglected.
+ *  provided ID in the imported test case is neglected. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportTestCasesMetadata - `response`: ImportTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.import
  *
@@ -3693,7 +3823,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
  *  always creates new test cases and won't overwite any existing ones. The
- *  provided ID in the imported test case is neglected.
+ *  provided ID in the imported test case is neglected. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportTestCasesMetadata - `response`: ImportTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportTestCasesRequest to include
@@ -3906,7 +4040,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Kicks off a test case run.
+ *  Kicks off a test case run. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.run
  *
@@ -3925,7 +4062,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Kicks off a test case run.
+ *  Kicks off a test case run. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest to include in

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Vault API (vault/v1)
+//   Google Vault API (vault/v1)
 // Description:
 //   Retention and eDiscovery for Google Workspace. To work with Vault
 //   resources, the account must have the [required Vault

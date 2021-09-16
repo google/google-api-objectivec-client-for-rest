@@ -22,6 +22,7 @@
 
 @class GTLRAnalyticsData_BatchRunPivotReportsRequest;
 @class GTLRAnalyticsData_BatchRunReportsRequest;
+@class GTLRAnalyticsData_CheckCompatibilityRequest;
 @class GTLRAnalyticsData_RunPivotReportRequest;
 @class GTLRAnalyticsData_RunRealtimeReportRequest;
 @class GTLRAnalyticsData_RunReportRequest;
@@ -131,6 +132,64 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAnalyticsDataQuery_PropertiesBatchRunReports
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object
+                       property:(NSString *)property;
+
+@end
+
+/**
+ *  This compatibility method lists dimensions and metrics that can be added to
+ *  a report request and maintain compatibility. This method fails if the
+ *  request's dimensions and metrics are incompatible. In Google Analytics,
+ *  reports fail if they request incompatible dimensions and/or metrics; in that
+ *  case, you will need to remove dimensions and/or metrics from the
+ *  incompatible report until the report is compatible. The Realtime and Core
+ *  reports have different compatibility rules. This method checks compatibility
+ *  for Core reports.
+ *
+ *  Method: analyticsdata.properties.checkCompatibility
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesCheckCompatibility : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked. To
+ *  learn more, see [where to find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  `property` should be the same value as in your `runReport` request. Example:
+ *  properties/1234 Set the Property ID to 0 for compatibility checking on
+ *  dimensions and metrics common to all properties. In this special mode, this
+ *  method will not return custom dimensions and metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_CheckCompatibilityResponse.
+ *
+ *  This compatibility method lists dimensions and metrics that can be added to
+ *  a report request and maintain compatibility. This method fails if the
+ *  request's dimensions and metrics are incompatible. In Google Analytics,
+ *  reports fail if they request incompatible dimensions and/or metrics; in that
+ *  case, you will need to remove dimensions and/or metrics from the
+ *  incompatible report until the report is compatible. The Realtime and Core
+ *  reports have different compatibility rules. This method checks compatibility
+ *  for Core reports.
+ *
+ *  @param object The @c GTLRAnalyticsData_CheckCompatibilityRequest to include
+ *    in the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. To learn more, see [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    `property` should be the same value as in your `runReport` request.
+ *    Example: properties/1234 Set the Property ID to 0 for compatibility
+ *    checking on dimensions and metrics common to all properties. In this
+ *    special mode, this method will not return custom dimensions and metrics.
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesCheckCompatibility
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_CheckCompatibilityRequest *)object
                        property:(NSString *)property;
 
 @end
