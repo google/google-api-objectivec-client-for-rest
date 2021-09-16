@@ -55,6 +55,31 @@ NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Avatar = @"AVATAR";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
 
+// GTLRHangoutsChat_CommonEventObject.hostApp
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_AllHostApps = @"ALL_HOST_APPS";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar = @"CALENDAR";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat = @"CHAT";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Demo = @"DEMO";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Docs = @"DOCS";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings = @"DRAWINGS";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drive = @"DRIVE";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail = @"GMAIL";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Sheets = @"SHEETS";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Slides = @"SLIDES";
+NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_UnspecifiedHostApp = @"UNSPECIFIED_HOST_APP";
+
+// GTLRHangoutsChat_CommonEventObject.platform
+NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Android = @"ANDROID";
+NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Ios = @"IOS";
+NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_UnknownPlatform = @"UNKNOWN_PLATFORM";
+NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Web = @"WEB";
+
+// GTLRHangoutsChat_DeprecatedEvent.dialogEventType
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog = @"CANCEL_DIALOG";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog = @"REQUEST_DIALOG";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog = @"SUBMIT_DIALOG";
+NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRHangoutsChat_DeprecatedEvent.type
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace = @"ADDED_TO_SPACE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked = @"CARD_CLICKED";
@@ -350,12 +375,71 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_CommonEventObject
+//
+
+@implementation GTLRHangoutsChat_CommonEventObject
+@dynamic formInputs, hostApp, invokedFunction, parameters, platform, timeZone,
+         userLocale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CommonEventObject_FormInputs
+//
+
+@implementation GTLRHangoutsChat_CommonEventObject_FormInputs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRHangoutsChat_Inputs class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_CommonEventObject_Parameters
+//
+
+@implementation GTLRHangoutsChat_CommonEventObject_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DateInput
+//
+
+@implementation GTLRHangoutsChat_DateInput
+@dynamic msSinceEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DateTimeInput
+//
+
+@implementation GTLRHangoutsChat_DateTimeInput
+@dynamic hasDate, hasTime, msSinceEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_DeprecatedEvent
 //
 
 @implementation GTLRHangoutsChat_DeprecatedEvent
-@dynamic action, configCompleteRedirectUrl, eventTime, message, space,
-         threadKey, token, type, user;
+@dynamic action, common, configCompleteRedirectUrl, dialogEventType, eventTime,
+         isDialogEvent, message, space, threadKey, token, type, user;
 @end
 
 
@@ -793,6 +877,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_Inputs
+//
+
+@implementation GTLRHangoutsChat_Inputs
+@dynamic dateInput, dateTimeInput, stringInputs, timeInput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_KeyValue
 //
 
@@ -958,6 +1052,24 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_StringInputs
+//
+
+@implementation GTLRHangoutsChat_StringInputs
+@dynamic value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"value" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_TextButton
 //
 
@@ -983,6 +1095,31 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Thread
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_TimeInput
+//
+
+@implementation GTLRHangoutsChat_TimeInput
+@dynamic hours, minutes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_TimeZone
+//
+
+@implementation GTLRHangoutsChat_TimeZone
+@dynamic identifier, offset;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

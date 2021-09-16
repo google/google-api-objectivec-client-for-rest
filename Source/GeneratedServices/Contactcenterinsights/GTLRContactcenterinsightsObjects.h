@@ -774,7 +774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig : GTLRObject
 
 /**
- *  Required. Medium of conversations used in training data.
+ *  Required.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_Chat
@@ -2166,6 +2166,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueAssignment : GTLRObject
 
+/**
+ *  Immutable. Display name of the assigned issue. This field is set at time of
+ *  analyis and immutable since then.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /** Resource name of the assigned issue. */
 @property(nonatomic, copy, nullable) NSString *issue;
 
@@ -2238,7 +2244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig : GTLRObject
 
 /**
- *  Required. Medium of conversations used in training data.
+ *  Required.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_Chat
@@ -2382,8 +2388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation *> *conversations;
 
 /**
- *  A token, which can be sent as `page_token` to retrieve the next page. If
- *  this field is omitted, there are no subsequent pages.
+ *  A token which can be sent as `page_token` to retrieve the next page. If this
+ *  field is set, it means there is another page available. If it is not set, it
+ *  means no other pages are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

@@ -44,9 +44,13 @@
 @class GTLRCloudHealthcare_DicomFilterConfig;
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_DicomStore_Labels;
+@class GTLRCloudHealthcare_Entity;
+@class GTLRCloudHealthcare_EntityMention;
+@class GTLRCloudHealthcare_EntityMentionRelationship;
 @class GTLRCloudHealthcare_EvaluateUserConsentsRequest_RequestAttributes;
 @class GTLRCloudHealthcare_EvaluateUserConsentsRequest_ResourceAttributes;
 @class GTLRCloudHealthcare_Expr;
+@class GTLRCloudHealthcare_Feature;
 @class GTLRCloudHealthcare_FhirConfig;
 @class GTLRCloudHealthcare_FhirFilter;
 @class GTLRCloudHealthcare_FhirStore;
@@ -72,6 +76,7 @@
 @class GTLRCloudHealthcare_Image;
 @class GTLRCloudHealthcare_ImageConfig;
 @class GTLRCloudHealthcare_InfoTypeTransformation;
+@class GTLRCloudHealthcare_LinkedEntity;
 @class GTLRCloudHealthcare_Location;
 @class GTLRCloudHealthcare_Location_Labels;
 @class GTLRCloudHealthcare_Location_Metadata;
@@ -107,6 +112,7 @@
 @class GTLRCloudHealthcare_StreamConfig;
 @class GTLRCloudHealthcare_TagFilterList;
 @class GTLRCloudHealthcare_TextConfig;
+@class GTLRCloudHealthcare_TextSpan;
 @class GTLRCloudHealthcare_Type;
 @class GTLRCloudHealthcare_UserDataMapping;
 @class GTLRCloudHealthcare_VersionSource;
@@ -120,6 +126,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_AnalyzeEntitiesRequest.licensedVocabularies
+
+/**
+ *  ICD-10-CM vocabulary
+ *
+ *  Value: "ICD10CM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_Icd10cm;
+/**
+ *  No licensed vocabulary specified.
+ *
+ *  Value: "LICENSED_VOCABULARY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_LicensedVocabularyUnspecified;
+/**
+ *  SNOMED CT (US version) vocabulary
+ *
+ *  Value: "SNOMEDCT_US"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_SnomedctUs;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_AttributeDefinition.category
@@ -208,8 +236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Consent_State_Active;
 /**
- *  When a Consent is updated, the current version is archived and a new one is
- *  created with its state set to the updated Consent's previous state.
+ *  The archived state is currently not being used.
  *
  *  Value: "ARCHIVED"
  */
@@ -496,6 +523,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_ParserConfig.version
+
+/**
+ *  Unspecified parser version, equivalent to V1.
+ *
+ *  Value: "PARSER_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_ParserVersionUnspecified;
+/**
+ *  The `parsed_data` includes every given non-empty message field except the
+ *  Field Separator (MSH-1) field. As a result, the parsed MSH segment starts
+ *  with the MSH-2 field and the field numbers are off-by-one with respect to
+ *  the HL7 standard.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V1;
+/**
+ *  The `parsed_data` includes every given non-empty message field.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 
 /**
@@ -540,6 +592,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_Schematize
  *  Value: "SOFT_FAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_SchematizedParsingType_SoftFail;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_SchemaPackage.unexpectedSegmentHandling
+
+/**
+ *  Unexpected segments fail to parse and return an error.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Fail;
+/**
+ *  Unexpected segments do not fail, but are parsed in place and added to the
+ *  current group. If a segment has a type definition, it is used, otherwise it
+ *  is parsed as VARIES.
+ *
+ *  Value: "PARSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Parse;
+/**
+ *  Unexpected segments do not fail, but are omitted from the output.
+ *
+ *  Value: "SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Skip;
+/**
+ *  Unspecified handling mode, equivalent to FAIL.
+ *
+ *  Value: "UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_UnexpectedSegmentHandlingModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_Type.primitive
@@ -592,6 +674,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /** The time to live for this Consent from when it is marked as active. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+@end
+
+
+/**
+ *  The request to analyze healthcare entities in a document.
+ */
+@interface GTLRCloudHealthcare_AnalyzeEntitiesRequest : GTLRObject
+
+/** document_content is a document to be annotated. */
+@property(nonatomic, copy, nullable) NSString *documentContent;
+
+/**
+ *  A list of licensed vocabularies to use in the request, in addition to the
+ *  default unlicensed vocabularies.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licensedVocabularies;
+
+@end
+
+
+/**
+ *  Includes recognized entity mentions and relationships between them.
+ */
+@interface GTLRCloudHealthcare_AnalyzeEntitiesResponse : GTLRObject
+
+/**
+ *  The union of all the candidate entities that the entity_mentions in this
+ *  response could link to. These are UMLS concepts or normalized mention
+ *  content.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Entity *> *entities;
+
+/**
+ *  entity_mentions contains all the annotated medical entities that were
+ *  mentioned in the provided document.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_EntityMention *> *entityMentions;
+
+/**
+ *  relationships contains all the binary relationships that were identified
+ *  between entity mentions within the provided document.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_EntityMentionRelationship *> *relationships;
 
 @end
 
@@ -985,10 +1111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *    @arg @c kGTLRCloudHealthcare_Consent_State_Active The Consent is active
  *        and is considered when evaluating a user's consent on resources.
  *        (Value: "ACTIVE")
- *    @arg @c kGTLRCloudHealthcare_Consent_State_Archived When a Consent is
- *        updated, the current version is archived and a new one is created with
- *        its state set to the updated Consent's previous state. (Value:
- *        "ARCHIVED")
+ *    @arg @c kGTLRCloudHealthcare_Consent_State_Archived The archived state is
+ *        currently not being used. (Value: "ARCHIVED")
  *    @arg @c kGTLRCloudHealthcare_Consent_State_Draft A draft Consent is not
  *        considered when evaluating a user's consent on resources unless
  *        explicitly specified. (Value: "DRAFT")
@@ -1521,6 +1645,117 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  The candidate entities that an entity mention could link to.
+ */
+@interface GTLRCloudHealthcare_Entity : GTLRObject
+
+/**
+ *  entity_id is a first class field entity_id uniquely identifies this concept
+ *  and its meta-vocabulary. For example, "UMLS/C0000970".
+ */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+/**
+ *  preferred_term is the preferred term for this concept. For example,
+ *  "Acetaminophen". For ad hoc entities formed by normalization, this is the
+ *  most popular unnormalized string.
+ */
+@property(nonatomic, copy, nullable) NSString *preferredTerm;
+
+/**
+ *  Vocabulary codes are first-class fields and differentiated from the concept
+ *  unique identifier (entity_id). vocabulary_codes contains the representation
+ *  of this concept in particular vocabularies, such as ICD-10, SNOMED-CT and
+ *  RxNORM. These are prefixed by the name of the vocabulary, followed by the
+ *  unique code within that vocabulary. For example, "RXNORM/A10334543".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vocabularyCodes;
+
+@end
+
+
+/**
+ *  An entity mention in the document.
+ */
+@interface GTLRCloudHealthcare_EntityMention : GTLRObject
+
+/**
+ *  The certainty assessment of the entity mention. Its value is one of: LIKELY,
+ *  SOMEWHAT_LIKELY, UNCERTAIN, SOMEWHAT_UNLIKELY, UNLIKELY, CONDITIONAL
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Feature *certaintyAssessment;
+
+/**
+ *  The model's confidence in this entity mention annotation. A number between 0
+ *  and 1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  linked_entities are candidate ontological concepts that this entity mention
+ *  may refer to. They are sorted by decreasing confidence.it
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_LinkedEntity *> *linkedEntities;
+
+/**
+ *  mention_id uniquely identifies each entity mention in a single response.
+ */
+@property(nonatomic, copy, nullable) NSString *mentionId;
+
+/**
+ *  The subject this entity mention relates to. Its value is one of: PATIENT,
+ *  FAMILY_MEMBER, OTHER
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Feature *subject;
+
+/**
+ *  How this entity mention relates to the subject temporally. Its value is one
+ *  of: CURRENT, CLINICAL_HISTORY, FAMILY_HISTORY, UPCOMING, ALLERGY
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Feature *temporalAssessment;
+
+/** text is the location of the entity mention in the document. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_TextSpan *text;
+
+/**
+ *  The semantic type of the entity: UNKNOWN_ENTITY_TYPE, ALONE,
+ *  ANATOMICAL_STRUCTURE, ASSISTED_LIVING, BF_RESULT, BM_RESULT, BM_UNIT,
+ *  BM_VALUE, BODY_FUNCTION, BODY_MEASUREMENT, COMPLIANT, DOESNOT_FOLLOWUP,
+ *  FAMILY, FOLLOWSUP, LABORATORY_DATA, LAB_RESULT, LAB_UNIT, LAB_VALUE,
+ *  MEDICAL_DEVICE, MEDICINE, MED_DOSE, MED_DURATION, MED_FORM, MED_FREQUENCY,
+ *  MED_ROUTE, MED_STATUS, MED_STRENGTH, MED_TOTALDOSE, MED_UNIT, NON_COMPLIANT,
+ *  OTHER_LIVINGSTATUS, PROBLEM, PROCEDURE, PROCEDURE_RESULT, PROC_METHOD,
+ *  REASON_FOR_NONCOMPLIANCE, SEVERITY, SUBSTANCE_ABUSE, UNCLEAR_FOLLOWUP.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Defines directed relationship from one entity mention to another.
+ */
+@interface GTLRCloudHealthcare_EntityMentionRelationship : GTLRObject
+
+/**
+ *  The model's confidence in this annotation. A number between 0 and 1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** object_id is the id of the object entity mention. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/** subject_id is the id of the subject entity mention. */
+@property(nonatomic, copy, nullable) NSString *subjectId;
+
+@end
+
+
+/**
  *  Evaluate a user's Consents for all matching User data mappings. Note: User
  *  data mappings are indexed asynchronously, causing slight delays between the
  *  time mappings are created or updated and when they are included in
@@ -1754,6 +1989,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A feature of an entity mention.
+ */
+@interface GTLRCloudHealthcare_Feature : GTLRObject
+
+/**
+ *  The model's confidence in this feature annotation. A number between 0 and 1.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The value of this feature annotation. Its range depends on the type of the
+ *  feature.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2693,6 +2949,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  EntityMentions can be linked to multiple entities using a LinkedEntity
+ *  message lets us add other fields, e.g. confidence.
+ */
+@interface GTLRCloudHealthcare_LinkedEntity : GTLRObject
+
+/**
+ *  entity_id is a concept unique identifier. These are prefixed by a string
+ *  that identifies the entity coding system, followed by the unique identifier
+ *  within that system. For example, "UMLS/C0000970". This also supports ad hoc
+ *  entities, which are formed by normalizing entity mention content.
+ */
+@property(nonatomic, copy, nullable) NSString *entityId;
+
+@end
+
+
+/**
  *  GTLRCloudHealthcare_ListAttributeDefinitionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3376,6 +3649,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, copy, nullable) NSString *segmentTerminator;
 
+/**
+ *  Immutable. Determines the version of the unschematized parser to be used
+ *  when `schema` is not given. This field is immutable after store creation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_ParserVersionUnspecified
+ *        Unspecified parser version, equivalent to V1. (Value:
+ *        "PARSER_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_V1 The `parsed_data`
+ *        includes every given non-empty message field except the Field
+ *        Separator (MSH-1) field. As a result, the parsed MSH segment starts
+ *        with the MSH-2 field and the field numbers are off-by-one with respect
+ *        to the HL7 standard. (Value: "V1")
+ *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_V2 The `parsed_data`
+ *        includes every given non-empty message field. (Value: "V2")
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -3420,7 +3711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -3799,6 +4090,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7TypesConfig *> *types;
 
+/**
+ *  Determines how unexpected segments (segments not matched to the schema) are
+ *  handled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Fail
+ *        Unexpected segments fail to parse and return an error. (Value: "FAIL")
+ *    @arg @c kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Parse
+ *        Unexpected segments do not fail, but are parsed in place and added to
+ *        the current group. If a segment has a type definition, it is used,
+ *        otherwise it is parsed as VARIES. (Value: "PARSE")
+ *    @arg @c kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Skip
+ *        Unexpected segments do not fail, but are omitted from the output.
+ *        (Value: "SKIP")
+ *    @arg @c kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_UnexpectedSegmentHandlingModeUnspecified
+ *        Unspecified handling mode, equivalent to FAIL. (Value:
+ *        "UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unexpectedSegmentHandling;
+
 @end
 
 
@@ -4118,6 +4429,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /** The transformations to apply to the detected data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_InfoTypeTransformation *> *transformations;
+
+@end
+
+
+/**
+ *  A span of text in the provided document.
+ */
+@interface GTLRCloudHealthcare_TextSpan : GTLRObject
+
+/**
+ *  The unicode codepoint index of the beginning of this span.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *beginOffset;
+
+/** The original text contained in this span. */
+@property(nonatomic, copy, nullable) NSString *content;
 
 @end
 

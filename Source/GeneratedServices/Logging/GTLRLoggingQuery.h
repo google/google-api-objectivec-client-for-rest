@@ -617,7 +617,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  Method: logging.billingAccounts.locations.buckets.views.create
  *
@@ -641,7 +641,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param parent Required. The bucket in which to create the view
@@ -2337,7 +2337,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  Method: logging.folders.locations.buckets.views.create
  *
@@ -2361,7 +2361,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param parent Required. The bucket in which to create the view
@@ -3519,7 +3519,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  Method: logging.locations.buckets.views.create
  *
@@ -3543,7 +3543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param parent Required. The bucket in which to create the view
@@ -4688,7 +4688,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  Method: logging.organizations.locations.buckets.views.create
  *
@@ -4712,7 +4712,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param parent Required. The bucket in which to create the view
@@ -6169,7 +6169,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  Method: logging.projects.locations.buckets.views.create
  *
@@ -6193,7 +6193,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Creates a view over log entries in a log bucket. A bucket may contain a
- *  maximum of 50 views.
+ *  maximum of 30 views.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param parent Required. The bucket in which to create the view

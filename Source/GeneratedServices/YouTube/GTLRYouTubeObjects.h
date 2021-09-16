@@ -89,6 +89,7 @@
 @class GTLRYouTube_LiveBroadcastStatus;
 @class GTLRYouTube_LiveChatBanSnippet;
 @class GTLRYouTube_LiveChatFanFundingEventDetails;
+@class GTLRYouTube_LiveChatMemberMilestoneChatDetails;
 @class GTLRYouTube_LiveChatMessage;
 @class GTLRYouTube_LiveChatMessageAuthorDetails;
 @class GTLRYouTube_LiveChatMessageDeletedDetails;
@@ -96,6 +97,7 @@
 @class GTLRYouTube_LiveChatMessageSnippet;
 @class GTLRYouTube_LiveChatModerator;
 @class GTLRYouTube_LiveChatModeratorSnippet;
+@class GTLRYouTube_LiveChatNewSponsorDetails;
 @class GTLRYouTube_LiveChatSuperChatDetails;
 @class GTLRYouTube_LiveChatSuperStickerDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
@@ -3720,6 +3722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Chat
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
 /** Value: "invalidType" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType;
+/** Value: "memberMilestoneChatEvent" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent;
 /** Value: "messageDeletedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
 /** Value: "messageRetractedEvent" */
@@ -8892,6 +8896,36 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  GTLRYouTube_LiveChatMemberMilestoneChatDetails
+ */
+@interface GTLRYouTube_LiveChatMemberMilestoneChatDetails : GTLRObject
+
+/**
+ *  The name of the Level at which the viever is a member. The Level names are
+ *  defined by the YouTube channel offering the Membership. In some situations
+ *  this field isn't filled.
+ */
+@property(nonatomic, copy, nullable) NSString *memberLevelName;
+
+/**
+ *  The total amount of months (rounded up) the viewer has been a member that
+ *  granted them this Member Milestone Chat. This is the same number of months
+ *  as is being displayed to YouTube users.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberMonth;
+
+/**
+ *  The comment added by the member to this Member Milestone Chat. This field is
+ *  empty for messages without a comment from the member.
+ */
+@property(nonatomic, copy, nullable) NSString *userComment;
+
+@end
+
+
+/**
  *  A *liveChatMessage* resource represents a chat message in a YouTube Live
  *  Chat.
  */
@@ -9047,7 +9081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  Next ID: 29
+ *  Next ID: 31
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9055,7 +9089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The ID of the user that authored this message, this field is not always
  *  filled. textMessageEvent - the user that wrote the message fanFundingEvent -
  *  the user that funded the broadcast newSponsorEvent - the user that just
- *  became a sponsor messageDeletedEvent - the moderator that took the action
+ *  became a sponsor memberMilestoneChatEvent - the member that sent the message
+ *  messageDeletedEvent - the moderator that took the action
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action superChatEvent - the
  *  user that made the purchase superStickerEvent - the user that made the
@@ -9084,8 +9119,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) NSNumber *hasDisplayContent;
 
 @property(nonatomic, copy, nullable) NSString *liveChatId;
+
+/**
+ *  Details about the Member Milestone Chat event, this is only set if the type
+ *  is 'memberMilestoneChatEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMemberMilestoneChatDetails *memberMilestoneChatDetails;
+
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
+
+/**
+ *  Details about the New Member Announcement event, this is only set if the
+ *  type is 'newSponsorEvent'. Please note that "member" is the new term for
+ *  "sponsor".
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatNewSponsorDetails *newSponsorDetails NS_RETURNS_NOT_RETAINED;
 
 /** The date and time when the message was orignally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
@@ -9119,6 +9168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        "fanFundingEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType Value
  *        "invalidType"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent
+ *        Value "memberMilestoneChatEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent Value
  *        "messageDeletedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent
@@ -9239,6 +9290,29 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** Details about the moderator. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatNewSponsorDetails
+ */
+@interface GTLRYouTube_LiveChatNewSponsorDetails : GTLRObject
+
+/**
+ *  If the viewer just had upgraded from a lower level. For viewers that were
+ *  not members at the time of purchase, this field is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isUpgrade;
+
+/**
+ *  The name of the Level that the viewer just had joined. The Level names are
+ *  defined by the YouTube channel offering the Membership. In some situations
+ *  this field isn't filled.
+ */
+@property(nonatomic, copy, nullable) NSString *memberLevelName;
 
 @end
 

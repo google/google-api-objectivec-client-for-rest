@@ -4437,6 +4437,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_TestsInsert : GTLRYouTubeQuery
 
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
+
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
 /**

@@ -23,8 +23,14 @@
 #endif
 
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1Processor;
 @class GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest;
 @class GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest;
+@class GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -72,6 +78,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDocumentQuery_OperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches processor types.
+ *
+ *  Method: documentai.projects.locations.fetchProcessorTypes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes : GTLRDocumentQuery
+
+/**
+ *  Required. The project of processor type to list. The available processor
+ *  types may depend on the whitelisting on projects. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse.
+ *
+ *  Fetches processor types.
+ *
+ *  @param parent Required. The project of processor type to list. The available
+ *    processor types may depend on the whitelisting on projects. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -315,6 +354,155 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a processor from the type processor that the user chose. The
+ *  processor will be at "ENABLED" state by default after its creation.
+ *
+ *  Method: documentai.projects.locations.processors.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsCreate : GTLRDocumentQuery
+
+/**
+ *  Required. The parent (project and location) under which to create the
+ *  processor. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1Processor.
+ *
+ *  Creates a processor from the type processor that the user chose. The
+ *  processor will be at "ENABLED" state by default after its creation.
+ *
+ *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1Processor to
+ *    include in the query.
+ *  @param parent Required. The parent (project and location) under which to
+ *    create the processor. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1Processor *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the processor, unloads all deployed model artifacts if it was
+ *  enabled and then deletes all artifacts associated with this processor.
+ *
+ *  Method: documentai.projects.locations.processors.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsDelete : GTLRDocumentQuery
+
+/** Required. The processor resource name to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Deletes the processor, unloads all deployed model artifacts if it was
+ *  enabled and then deletes all artifacts associated with this processor.
+ *
+ *  @param name Required. The processor resource name to be deleted.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disables a processor
+ *
+ *  Method: documentai.projects.locations.processors.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsDisable : GTLRDocumentQuery
+
+/** Required. The processor resource name to be disabled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Disables a processor
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest to include in
+ *    the query.
+ *  @param name Required. The processor resource name to be disabled.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsDisable
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enables a processor
+ *
+ *  Method: documentai.projects.locations.processors.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsEnable : GTLRDocumentQuery
+
+/** Required. The processor resource name to be enabled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Enables a processor
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest to include in
+ *    the query.
+ *  @param name Required. The processor resource name to be enabled.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsEnable
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a processor detail.
+ *
+ *  Method: documentai.projects.locations.processors.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsGet : GTLRDocumentQuery
+
+/** Required. The processor resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1Processor.
+ *
+ *  Gets a processor detail.
+ *
+ *  @param name Required. The processor resource name.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Send a document for Human Review. The input document should be processed by
  *  the specified processor.
  *
@@ -347,6 +535,53 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest *)object
               humanReviewConfig:(NSString *)humanReviewConfig;
+
+@end
+
+/**
+ *  Lists all processors which belong to this project.
+ *
+ *  Method: documentai.projects.locations.processors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsList : GTLRDocumentQuery
+
+/**
+ *  The maximum number of processors to return. If unspecified, at most 50
+ *  processors will be returned. The maximum value is 100; values above 100 will
+ *  be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  We will return the processors sorted by creation time. The page token will
+ *  point to the next processor.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project and location) which owns this collection of
+ *  Processors. Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ListProcessorsResponse.
+ *
+ *  Lists all processors which belong to this project.
+ *
+ *  @param parent Required. The parent (project and location) which owns this
+ *    collection of Processors. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -427,6 +662,139 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes the processor version, all artifacts under the processor version
+ *  will be deleted.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDelete : GTLRDocumentQuery
+
+/** Required. The processor version resource name to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Deletes the processor version, all artifacts under the processor version
+ *  will be deleted.
+ *
+ *  @param name Required. The processor version resource name to be deleted.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deploys the processor version.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.deploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDeploy : GTLRDocumentQuery
+
+/** Required. The processor version resource name to be deployed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Deploys the processor version.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest to
+ *    include in the query.
+ *  @param name Required. The processor version resource name to be deployed.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsDeploy
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a processor version detail.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsGet : GTLRDocumentQuery
+
+/** Required. The processor resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.
+ *
+ *  Gets a processor version detail.
+ *
+ *  @param name Required. The processor resource name.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all versions of a processor.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsList : GTLRDocumentQuery
+
+/**
+ *  The maximum number of processor versions to return. If unspecified, at most
+ *  10 processor versions will be returned. The maximum value is 20; values
+ *  above 20 will be coerced to 20.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  We will return the processor versions sorted by creation time. The page
+ *  token will point to the next processor version.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent (project, location and processor) to list all versions.
+ *  Format: projects/{project}/locations/{location}/processors/{processor}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDocument_GoogleCloudDocumentaiV1ListProcessorVersionsResponse.
+ *
+ *  Lists all versions of a processor.
+ *
+ *  @param parent Required. The parent (project, location and processor) to list
+ *    all versions. Format:
+ *    projects/{project}/locations/{location}/processors/{processor}
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Processes a single document.
  *
  *  Method: documentai.projects.locations.processors.processorVersions.process
@@ -462,6 +830,69 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeploys the processor version.
+ *
+ *  Method: documentai.projects.locations.processors.processorVersions.undeploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsUndeploy : GTLRDocumentQuery
+
+/** Required. The processor version resource name to be undeployed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Undeploys the processor version.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest to
+ *    include in the query.
+ *  @param name Required. The processor version resource name to be undeployed.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsUndeploy
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Set the default (active) version of a Processor that will be used in
+ *  ProcessDocument and BatchProcessDocuments.
+ *
+ *  Method: documentai.projects.locations.processors.setDefaultProcessorVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsProcessorsSetDefaultProcessorVersion : GTLRDocumentQuery
+
+/** Required. The resource name of the Processor to change default version. */
+@property(nonatomic, copy, nullable) NSString *processor;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Set the default (active) version of a Processor that will be used in
+ *  ProcessDocument and BatchProcessDocuments.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest to
+ *    include in the query.
+ *  @param processor Required. The resource name of the Processor to change
+ *    default version.
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsSetDefaultProcessorVersion
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest *)object
+                      processor:(NSString *)processor;
 
 @end
 

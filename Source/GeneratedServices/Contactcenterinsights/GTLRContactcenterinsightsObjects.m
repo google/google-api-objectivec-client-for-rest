@@ -960,7 +960,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueAssignment
-@dynamic issue, score;
+@dynamic displayName, issue, score;
 @end
 
 

@@ -3028,7 +3028,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page *currentPage;
 
-/** Required. Input only. The diagnostic info output for the turn. */
+/**
+ *  Required. Input only. The diagnostic info output for the turn. Required to
+ *  calculate the testing coverage.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput_DiagnosticInfo *diagnosticInfo;
 
 /**
@@ -3059,7 +3062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Required. Input only. The diagnostic info output for the turn.
+ *  Required. Input only. The diagnostic info output for the turn. Required to
+ *  calculate the testing coverage.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3229,6 +3233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Metadata returned for the TestCases.ExportTestCases long running operation.
+ *  This message currently has no fields.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportTestCasesMetadata : GTLRObject
 @end
@@ -4402,7 +4407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata returned for the TestCases.RunTestCase long running operation.
+ *  Metadata returned for the TestCases.RunTestCase long running operation. This
+ *  message currently has no fields.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunTestCaseMetadata : GTLRObject
 @end
@@ -5112,7 +5118,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Page *currentPage;
 
-/** Required. Input only. The diagnostic info output for the turn. */
+/**
+ *  Required. Input only. The diagnostic info output for the turn. Required to
+ *  calculate the testing coverage.
+ */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput_DiagnosticInfo *diagnosticInfo;
 
 /**
@@ -5143,7 +5152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Required. Input only. The diagnostic info output for the turn.
+ *  Required. Input only. The diagnostic info output for the turn. Required to
+ *  calculate the testing coverage.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -5890,6 +5900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Metadata returned for the TestCases.ExportTestCases long running operation.
+ *  This message currently has no fields.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesMetadata : GTLRObject
 @end
@@ -8512,7 +8523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Metadata returned for the TestCases.RunTestCase long running operation.
+ *  Metadata returned for the TestCases.RunTestCase long running operation. This
+ *  message currently has no fields.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseMetadata : GTLRObject
 @end

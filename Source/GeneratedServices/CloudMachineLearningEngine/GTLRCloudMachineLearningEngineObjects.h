@@ -152,11 +152,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
 /**
+ *  TPU v2 POD.
+ *
+ *  Value: "TPU_V2_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2Pod;
+/**
  *  TPU v3.
  *
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3;
+/**
+ *  TPU v3 POD.
+ *
+ *  Value: "TPU_V3_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -210,11 +222,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
 /**
+ *  TPU v2 POD.
+ *
+ *  Value: "TPU_V2_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2Pod;
+/**
  *  TPU v3.
  *
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
+/**
+ *  TPU v3 POD.
+ *
+ *  Value: "TPU_V3_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -1064,8 +1088,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        Nvidia V100 GPU. (Value: "NVIDIA_TESLA_V100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2
  *        TPU v2. (Value: "TPU_V2")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2Pod
+ *        TPU v2 POD. (Value: "TPU_V2_POD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3
  *        TPU v3. (Value: "TPU_V3")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod
+ *        TPU v3 POD. (Value: "TPU_V3_POD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4253,7 +4281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

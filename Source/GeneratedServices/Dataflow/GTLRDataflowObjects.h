@@ -672,6 +672,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_Unkn
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.autoscalingAlgorithm
+
+/**
+ *  Increase worker count over time to reduce job execution time.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmBasic;
+/**
+ *  Disable autoscaling.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmNone;
+/**
+ *  The algorithm is unknown, or unspecified.
+ *
+ *  Value: "AUTOSCALING_ALGORITHM_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_FlexTemplateRuntimeEnvironment.flexrsGoal
 
 /**
@@ -1861,7 +1883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Metadata for a Cloud BigTable connector used by the job.
+ *  Metadata for a Cloud Bigtable connector used by the job.
  */
 @interface GTLRDataflow_BigTableIODetails : GTLRObject
 
@@ -2956,11 +2978,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
 /**
+ *  The algorithm to use for autoscaling
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmBasic
+ *        Increase worker count over time to reduce job execution time. (Value:
+ *        "AUTOSCALING_ALGORITHM_BASIC")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmNone
+ *        Disable autoscaling. (Value: "AUTOSCALING_ALGORITHM_NONE")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmUnknown
+ *        The algorithm is unknown, or unspecified. (Value:
+ *        "AUTOSCALING_ALGORITHM_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *autoscalingAlgorithm;
+
+/**
  *  Worker disk size, in gigabytes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  If true, save a heap dump before killing a thread or process which is GC
+ *  thrashing or out of memory. The location of the heap file will either be
+ *  echoed back to the user, or the user will be given the opportunity to
+ *  download the heap file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dumpHeapOnOom;
 
 /**
  *  Whether to enable Streaming Engine for the job.
@@ -3010,13 +3057,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
- *  The maximum number of workers to cap scaling at.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxNumWorkers;
-
-/**
  *  The maximum number of Google Compute Engine instances to be made available
  *  to your pipeline during execution, from 1 to 1000.
  *
@@ -3036,6 +3076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWorkers;
+
+/**
+ *  Cloud Storage bucket (directory) to upload heap dumps to the given location.
+ *  Enabling this implies that heap dumps should be generated on OOM
+ *  (dump_heap_on_oom is set to true).
+ */
+@property(nonatomic, copy, nullable) NSString *saveHeapDumpsToGcsPath;
 
 /**
  *  Docker registry location of container image to use for the 'worker harness.
@@ -3868,7 +3915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Identification of a BigQuery source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigQueryIODetails *> *bigqueryDetails;
 
-/** Identification of a Cloud BigTable source used in the Dataflow job. */
+/** Identification of a Cloud Bigtable source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigTableIODetails *> *bigTableDetails;
 
 /** Identification of a Datastore source used in the Dataflow job. */
@@ -3877,7 +3924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Identification of a File source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_FileIODetails *> *fileDetails;
 
-/** Identification of a PubSub source used in the Dataflow job. */
+/** Identification of a Pub/Sub source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PubSubIODetails *> *pubsubDetails;
 
 /** The SDK version used to run the job. */
@@ -5179,7 +5226,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @interface GTLRDataflow_RuntimeEnvironment : GTLRObject
 
-/** Additional experiment flags for the job. */
+/**
+ *  Additional experiment flags for the job, specified with the `--experiments`
+ *  option.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
 
 /**
@@ -5657,7 +5707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** The project this snapshot belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** PubSub snapshot metadata. */
+/** Pub/Sub snapshot metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PubsubSnapshotMetadata *> *pubsubMetadata;
 
 /** Cloud region where this snapshot lives in, e.g., "us-central1". */

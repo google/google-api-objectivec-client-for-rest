@@ -32,6 +32,7 @@
 @class GTLRSpeech_SpeakerDiarizationConfig;
 @class GTLRSpeech_Status;
 @class GTLRSpeech_Status_Details_Item;
+@class GTLRSpeech_TranscriptOutputConfig;
 @class GTLRSpeech_WordInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -364,6 +365,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  process the request.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionConfig *config;
+
+/**
+ *  Optional. Specifies an optional destination for the recognition results.
+ */
+@property(nonatomic, strong, nullable) GTLRSpeech_TranscriptOutputConfig *outputConfig;
 
 @end
 
@@ -992,6 +998,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSpeech_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Specifies an optional destination for the recognition results.
+ */
+@interface GTLRSpeech_TranscriptOutputConfig : GTLRObject
+
+/**
+ *  Specifies a Cloud Storage URI for the recognition results. Must be specified
+ *  in the format: `gs://bucket_name/object_name`, and the bucket must already
+ *  exist.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
 @end
 
 

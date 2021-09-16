@@ -641,6 +641,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for CreateGroup LRO.
+ */
+@interface GTLRCloudIdentity_CreateGroupMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for CreateMembership LRO.
+ */
+@interface GTLRCloudIdentity_CreateMembershipMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for DeleteGroup LRO.
+ */
+@interface GTLRCloudIdentity_DeleteGroupMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for DeleteMembership LRO.
+ */
+@interface GTLRCloudIdentity_DeleteMembershipMetadata : GTLRObject
+@end
+
+
+/**
  *  Dynamic group metadata like queries and status.
  */
 @interface GTLRCloudIdentity_DynamicGroupMetadata : GTLRObject
@@ -740,7 +768,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  represents a Google-managed entity such as a Google user or a Google Group.
  *  If specified, the `EntityKey` represents an external-identity-mapped group.
  *  The namespace must correspond to an identity source created in Admin Console
- *  and must be in the form of `identitysources/{identity_source_id}`.
+ *  and must be in the form of `identitysources/{identity_source}`.
  *
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
@@ -757,6 +785,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** The time at which the `MembershipRole` will expire. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
+@end
+
+
+/**
+ *  Metadata of GetMembershipGraphResponse LRO. This is currently empty to
+ *  permit future extensibility.
+ */
+@interface GTLRCloudIdentity_GetMembershipGraphMetadata : GTLRObject
 @end
 
 
@@ -832,6 +868,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for ApproveDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for approving the device to access user data.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest : GTLRObject
@@ -841,8 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -861,6 +904,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for BlockDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for blocking account on device.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest : GTLRObject
@@ -870,8 +920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -890,6 +940,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for CancelWipeDevice LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for cancelling an unfinished device wipe.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest : GTLRObject
@@ -899,8 +956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -922,6 +979,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for CancelWipeDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for cancelling an unfinished user account wipe.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest : GTLRObject
@@ -931,8 +995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1042,15 +1106,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  ClientState in format:
- *  `devices/{device_id}/deviceUsers/{device_user_id}/clientState/{partner_id}`,
- *  where partner_id corresponds to the partner storing the data. For partners
- *  belonging to the "BeyondCorp Alliance", this is the partner ID specified to
- *  you by Google. For all other callers, this is a string of the form:
- *  `{customer_id}-suffix`, where `customer_id` is your customer ID. The
- *  *suffix* is any string the caller specifies. This string will be displayed
- *  verbatim in the administration console. This suffix is used in setting up
- *  Custom Access Levels in Context-Aware Access. Your organization's customer
- *  ID can be obtained from the URL: `GET
+ *  `devices/{device}/deviceUsers/{device_user}/clientState/{partner}`, where
+ *  partner corresponds to the partner storing the data. For partners belonging
+ *  to the "BeyondCorp Alliance", this is the partner ID specified to you by
+ *  Google. For all other callers, this is a string of the form:
+ *  `{customer}-suffix`, where `customer` is your customer ID. The *suffix* is
+ *  any string the caller specifies. This string will be displayed verbatim in
+ *  the administration console. This suffix is used in setting up Custom Access
+ *  Levels in Context-Aware Access. Your organization's customer ID can be
+ *  obtained from the URL: `GET
  *  https://www.googleapis.com/admin/directory/v1/customers/my_customer` The
  *  `id` field in the response contains the customer ID starting with the letter
  *  'C'. The customer ID to be used in this API is the string after the letter
@@ -1093,6 +1157,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for CreateDevice LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CreateDeviceMetadata : GTLRObject
+@end
+
+
+/**
  *  Additional custom attribute values may be one of these types
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue : GTLRObject
@@ -1114,6 +1185,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Represents a string value. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
+@end
+
+
+/**
+ *  Metadata for DeleteDevice LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for DeleteDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceUserMetadata : GTLRObject
 @end
 
 
@@ -1260,8 +1345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}`, where device_id is the unique id assigned to
- *  the Device.
+ *  format: `devices/{device}`, where device is the unique id assigned to the
+ *  Device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1370,8 +1455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser
- *  in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *  `device_user_id` uniquely identifies a user's use of a device.
+ *  in format: `devices/{device}/deviceUsers/{device_user}`, where `device_user`
+ *  uniquely identifies a user's use of a device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1479,6 +1564,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for ListEndpointApps LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListEndpointAppsMetadata : GTLRObject
+@end
+
+
+/**
  *  Response containing resource names of the DeviceUsers associated with the
  *  caller's credentials.
  */
@@ -1492,9 +1584,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  [Resource names](https://cloud.google.com/apis/design/resource_names) of the
- *  DeviceUsers in the format:
- *  `devices/{device_id}/deviceUsers/{user_resource_id}`, where device_id is the
- *  unique ID assigned to a Device and user_resource_id is the unique user ID
+ *  DeviceUsers in the format: `devices/{device}/deviceUsers/{user_resource}`,
+ *  where device is the unique ID assigned to a Device and user_resource is the
+ *  unique user ID
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -1508,6 +1600,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for SignoutDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1SignoutDeviceUserMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for UpdateClientState LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateClientStateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for UpdateDevice LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateDeviceMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for WipeDevice LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for wiping all data on the device.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest : GTLRObject
@@ -1517,8 +1637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1540,6 +1660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  Metadata for WipeDeviceUser LRO.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for starting an account wipe on device.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest : GTLRObject
@@ -1549,8 +1676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1613,16 +1740,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Output only. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the `Group`.
- *  Shall be of the form `groups/{group_id}`.
+ *  Shall be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Immutable. The resource name of the entity under which this
  *  `Group` resides in the Cloud Identity resource hierarchy. Must be of the
- *  form `identitysources/{identity_source_id}` for external- identity-mapped
- *  groups or `customers/{customer_id}` for Google Groups. The `customer_id`
- *  must begin with "C" (for example, 'C046psxkn').
+ *  form `identitysources/{identity_source}` for external- identity-mapped
+ *  groups or `customers/{customer}` for Google Groups. The `customer` must
+ *  begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1787,7 +1914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  The [resource name](https://cloud.google.com/apis/design/resource_names) of
  *  the looked-up `Membership`. Must be of the form
- *  `groups/{group_id}/memberships/{membership_id}`.
+ *  `groups/{group}/memberships/{membership}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1847,7 +1974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Output only. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  `Membership`. Shall be of the form
- *  `groups/{group_id}/memberships/{membership_id}`.
+ *  `groups/{group}/memberships/{membership}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2186,6 +2313,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  Metadata for UpdateGroup LRO.
+ */
+@interface GTLRCloudIdentity_UpdateGroupMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for UpdateMembership LRO.
+ */
+@interface GTLRCloudIdentity_UpdateMembershipMetadata : GTLRObject
 @end
 
 

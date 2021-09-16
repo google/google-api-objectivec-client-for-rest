@@ -632,6 +632,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessAccountManagement/*.{h,m}'
   end
+  s.subspec 'MyBusinessBusinessInformation' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessBusinessInformation/*.{h,m}'
+  end
   s.subspec 'MyBusinessLodging' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessLodging/*.{h,m}'
@@ -643,6 +647,10 @@ Pod::Spec.new do |s|
   s.subspec 'MyBusinessPlaceActions' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessPlaceActions/*.{h,m}'
+  end
+  s.subspec 'MyBusinessVerifications' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessVerifications/*.{h,m}'
   end
   s.subspec 'Networkconnectivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

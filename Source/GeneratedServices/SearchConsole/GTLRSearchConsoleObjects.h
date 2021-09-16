@@ -884,7 +884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 @interface GTLRSearchConsole_WmxSitemapContent : GTLRObject
 
 /**
- *  The number of URLs from the sitemap that were indexed (of the content type).
+ *  *Deprecated; do not use.*
  *
  *  Uses NSNumber of longLongValue.
  */

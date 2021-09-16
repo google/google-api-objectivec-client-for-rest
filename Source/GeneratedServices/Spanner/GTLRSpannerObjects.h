@@ -526,11 +526,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
 /**
- *  Encoded as a JSON-formatted 'string' as described in RFC 7159. The following
- *  rules will be applied when parsing JSON input: - Whitespace will be stripped
- *  from the document. - If a JSON object has duplicate keys, only the first key
- *  will be preserved. - Members of a JSON object are not guaranteed to have
- *  their order preserved. JSON array elements will have their order preserved.
+ *  Encoded as a JSON-formatted `string` as described in RFC 7159. The following
+ *  rules are applied when parsing JSON input: - Whitespace characters are not
+ *  preserved. - If a JSON object has duplicate keys, only the first key is
+ *  preserved. - Members of a JSON object are not guaranteed to have their order
+ *  preserved. - JSON array elements will have their order preserved.
  *
  *  Value: "JSON"
  */
@@ -1758,16 +1758,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  And they can be used as arguments to policy management rules (e.g. route,
  *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
- *  `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values must be between 0 and 63
- *  characters long and must conform to the regular expression
- *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64 labels can be associated
- *  with a given resource. See https://goo.gl/xmQnxf for more information on and
- *  examples of labels. If you plan to use labels in your own code, please note
- *  that additional characters may be allowed in the future. And so you are
- *  advised to use an internal label representation, such as JSON, which doesn't
- *  rely upon specific characters being disallowed. For example, representing
- *  labels as the string: name + "_" + value would prove problematic if we were
- *  to allow "_" in a future release.
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. And so you are advised to use an internal label representation, such
+ *  as JSON, which doesn't rely upon specific characters being disallowed. For
+ *  example, representing labels as the string: name + "_" + value would prove
+ *  problematic if we were to allow "_" in a future release.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance_Labels *labels;
 
@@ -1828,16 +1827,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  And they can be used as arguments to policy management rules (e.g. route,
  *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
- *  `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values must be between 0 and 63
- *  characters long and must conform to the regular expression
- *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64 labels can be associated
- *  with a given resource. See https://goo.gl/xmQnxf for more information on and
- *  examples of labels. If you plan to use labels in your own code, please note
- *  that additional characters may be allowed in the future. And so you are
- *  advised to use an internal label representation, such as JSON, which doesn't
- *  rely upon specific characters being disallowed. For example, representing
- *  labels as the string: name + "_" + value would prove problematic if we were
- *  to allow "_" in a future release.
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. And so you are advised to use an internal label representation, such
+ *  as JSON, which doesn't rely upon specific characters being disallowed. For
+ *  example, representing labels as the string: name + "_" + value would prove
+ *  problematic if we were to allow "_" in a future release.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1865,7 +1863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`
+ *  `projects//instanceConfigs/a-z*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4125,56 +4123,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  the same session as the original attempt. The original session's lock
  *  priority increases with each consecutive abort, meaning that each attempt
  *  has a slightly better chance of success than the previous. Under some
- *  circumstances (e.g., many transactions attempting to modify the same
+ *  circumstances (for example, many transactions attempting to modify the same
  *  row(s)), a transaction can abort many times in a short period before
  *  successfully committing. Thus, it is not a good idea to cap the number of
  *  retries a transaction can attempt; instead, it is better to limit the total
- *  amount of wall time spent retrying. Idle Transactions: A transaction is
+ *  amount of time spent retrying. Idle Transactions: A transaction is
  *  considered idle if it has no outstanding reads or SQL queries and has not
  *  started a read or SQL query within the last 10 seconds. Idle transactions
  *  can be aborted by Cloud Spanner so that they don't hold on to locks
- *  indefinitely. In that case, the commit will fail with error `ABORTED`. If
- *  this behavior is undesirable, periodically executing a simple SQL query in
- *  the transaction (e.g., `SELECT 1`) prevents the transaction from becoming
- *  idle. Snapshot Read-Only Transactions: Snapshot read-only transactions
- *  provides a simpler method than locking read-write transactions for doing
- *  several consistent reads. However, this type of transaction does not support
- *  writes. Snapshot transactions do not take locks. Instead, they work by
- *  choosing a Cloud Spanner timestamp, then executing all reads at that
- *  timestamp. Since they do not acquire locks, they do not block concurrent
- *  read-write transactions. Unlike locking read-write transactions, snapshot
- *  read-only transactions never abort. They can fail if the chosen read
- *  timestamp is garbage collected; however, the default garbage collection
- *  policy is generous enough that most applications do not need to worry about
- *  this in practice. Snapshot read-only transactions do not need to call Commit
- *  or Rollback (and in fact are not permitted to do so). To execute a snapshot
- *  transaction, the client specifies a timestamp bound, which tells Cloud
- *  Spanner how to choose a read timestamp. The types of timestamp bound are: -
- *  Strong (the default). - Bounded staleness. - Exact staleness. If the Cloud
- *  Spanner database to be read is geographically distributed, stale read-only
- *  transactions can execute more quickly than strong or read-write transaction,
- *  because they are able to execute far from the leader replica. Each type of
- *  timestamp bound is discussed in detail below. Strong: Strong reads are
- *  guaranteed to see the effects of all transactions that have committed before
- *  the start of the read. Furthermore, all rows yielded by a single read are
- *  consistent with each other -- if any part of the read observes a
- *  transaction, all parts of the read see the transaction. Strong reads are not
- *  repeatable: two consecutive strong read-only transactions might return
- *  inconsistent results if there are concurrent writes. If consistency across
- *  reads is required, the reads should be executed within a transaction or at
- *  an exact read timestamp. See TransactionOptions.ReadOnly.strong. Exact
- *  Staleness: These timestamp bounds execute reads at a user-specified
- *  timestamp. Reads at a timestamp are guaranteed to see a consistent prefix of
- *  the global transaction history: they observe modifications done by all
- *  transactions with a commit timestamp <= the read timestamp, and observe none
- *  of the modifications done by transactions with a larger commit timestamp.
- *  They will block until all conflicting transactions that may be assigned
- *  commit timestamps <= the read timestamp have finished. The timestamp can
- *  either be expressed as an absolute Cloud Spanner commit timestamp or a
- *  staleness relative to the current time. These modes do not require a
- *  "negotiation phase" to pick a timestamp. As a result, they execute slightly
- *  faster than the equivalent boundedly stale concurrency modes. On the other
- *  hand, boundedly stale reads usually return fresher results. See
+ *  indefinitely. If an idle transaction is aborted, the commit will fail with
+ *  error `ABORTED`. If this behavior is undesirable, periodically executing a
+ *  simple SQL query in the transaction (for example, `SELECT 1`) prevents the
+ *  transaction from becoming idle. Snapshot Read-Only Transactions: Snapshot
+ *  read-only transactions provides a simpler method than locking read-write
+ *  transactions for doing several consistent reads. However, this type of
+ *  transaction does not support writes. Snapshot transactions do not take
+ *  locks. Instead, they work by choosing a Cloud Spanner timestamp, then
+ *  executing all reads at that timestamp. Since they do not acquire locks, they
+ *  do not block concurrent read-write transactions. Unlike locking read-write
+ *  transactions, snapshot read-only transactions never abort. They can fail if
+ *  the chosen read timestamp is garbage collected; however, the default garbage
+ *  collection policy is generous enough that most applications do not need to
+ *  worry about this in practice. Snapshot read-only transactions do not need to
+ *  call Commit or Rollback (and in fact are not permitted to do so). To execute
+ *  a snapshot transaction, the client specifies a timestamp bound, which tells
+ *  Cloud Spanner how to choose a read timestamp. The types of timestamp bound
+ *  are: - Strong (the default). - Bounded staleness. - Exact staleness. If the
+ *  Cloud Spanner database to be read is geographically distributed, stale
+ *  read-only transactions can execute more quickly than strong or read-write
+ *  transaction, because they are able to execute far from the leader replica.
+ *  Each type of timestamp bound is discussed in detail below. Strong: Strong
+ *  reads are guaranteed to see the effects of all transactions that have
+ *  committed before the start of the read. Furthermore, all rows yielded by a
+ *  single read are consistent with each other -- if any part of the read
+ *  observes a transaction, all parts of the read see the transaction. Strong
+ *  reads are not repeatable: two consecutive strong read-only transactions
+ *  might return inconsistent results if there are concurrent writes. If
+ *  consistency across reads is required, the reads should be executed within a
+ *  transaction or at an exact read timestamp. See
+ *  TransactionOptions.ReadOnly.strong. Exact Staleness: These timestamp bounds
+ *  execute reads at a user-specified timestamp. Reads at a timestamp are
+ *  guaranteed to see a consistent prefix of the global transaction history:
+ *  they observe modifications done by all transactions with a commit timestamp
+ *  less than or equal to the read timestamp, and observe none of the
+ *  modifications done by transactions with a larger commit timestamp. They will
+ *  block until all conflicting transactions that may be assigned commit
+ *  timestamps <= the read timestamp have finished. The timestamp can either be
+ *  expressed as an absolute Cloud Spanner commit timestamp or a staleness
+ *  relative to the current time. These modes do not require a "negotiation
+ *  phase" to pick a timestamp. As a result, they execute slightly faster than
+ *  the equivalent boundedly stale concurrency modes. On the other hand,
+ *  boundedly stale reads usually return fresher results. See
  *  TransactionOptions.ReadOnly.read_timestamp and
  *  TransactionOptions.ReadOnly.exact_staleness. Bounded Staleness: Bounded
  *  staleness modes allow Cloud Spanner to pick the read timestamp, subject to a
@@ -4329,13 +4328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal
  *        format. (Value: "INT64")
- *    @arg @c kGTLRSpanner_Type_Code_Json Encoded as a JSON-formatted 'string'
- *        as described in RFC 7159. The following rules will be applied when
- *        parsing JSON input: - Whitespace will be stripped from the document. -
- *        If a JSON object has duplicate keys, only the first key will be
- *        preserved. - Members of a JSON object are not guaranteed to have their
- *        order preserved. JSON array elements will have their order preserved.
- *        (Value: "JSON")
+ *    @arg @c kGTLRSpanner_Type_Code_Json Encoded as a JSON-formatted `string`
+ *        as described in RFC 7159. The following rules are applied when parsing
+ *        JSON input: - Whitespace characters are not preserved. - If a JSON
+ *        object has duplicate keys, only the first key is preserved. - Members
+ *        of a JSON object are not guaranteed to have their order preserved. -
+ *        JSON array elements will have their order preserved. (Value: "JSON")
  *    @arg @c kGTLRSpanner_Type_Code_Numeric Encoded as `string`, in decimal
  *        format or scientific notation format. Decimal format:
  *        `[+-]Digits[.[Digits]]` or `+-.Digits` Scientific notation:

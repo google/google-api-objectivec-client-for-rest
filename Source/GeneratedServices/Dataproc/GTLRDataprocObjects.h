@@ -96,6 +96,7 @@
 @class GTLRDataproc_RegexValidation;
 @class GTLRDataproc_ReservationAffinity;
 @class GTLRDataproc_SecurityConfig;
+@class GTLRDataproc_SessionOperationMetadata_Labels;
 @class GTLRDataproc_ShieldedInstanceConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
@@ -500,6 +501,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_SpecificReservation;
 /** Value: "TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_SessionOperationMetadata.operationType
+
+/**
+ *  Create Session operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Create;
+/**
+ *  Delete Session operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Delete;
+/**
+ *  Session operation type is unknown.
+ *
+ *  Value: "SESSION_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified;
+/**
+ *  Terminate Session operation type.
+ *
+ *  Value: "TERMINATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
@@ -3501,6 +3530,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Kerberos related configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KerberosConfig *kerberosConfig;
 
+@end
+
+
+/**
+ *  Metadata describing the Session operation.
+ */
+@interface GTLRDataproc_SessionOperationMetadata : GTLRObject
+
+/** The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The time when the operation was finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SessionOperationMetadata_Labels *labels;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Create Create
+ *        Session operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Delete Delete
+ *        Session operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified
+ *        Session operation type is unknown. (Value:
+ *        "SESSION_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate
+ *        Terminate Session operation type. (Value: "TERMINATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Name of the session for the operation. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/** Session UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *sessionUuid;
+
+/** Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SessionOperationMetadata_Labels : GTLRObject
 @end
 
 

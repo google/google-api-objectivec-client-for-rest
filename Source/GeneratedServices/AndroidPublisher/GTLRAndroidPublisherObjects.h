@@ -809,7 +809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Information about the current page. */
+/** Deprecated and unset. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
 
 /** Pagination token, to handle a number of products that is over one page. */

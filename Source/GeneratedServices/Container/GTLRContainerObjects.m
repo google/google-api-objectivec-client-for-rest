@@ -205,7 +205,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AcceleratorConfig
-@dynamic acceleratorCount, acceleratorType;
+@dynamic acceleratorCount, acceleratorType, gpuPartitionSize;
 @end
 
 
@@ -216,8 +216,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
-         gcePersistentDiskCsiDriverConfig, horizontalPodAutoscaling,
-         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
+         gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
+         horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
+         networkPolicyConfig;
 @end
 
 
@@ -579,6 +580,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_GcePersistentDiskCsiDriverConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GcpFilestoreCsiDriverConfig
+//
+
+@implementation GTLRContainer_GcpFilestoreCsiDriverConfig
 @dynamic enabled;
 @end
 

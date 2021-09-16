@@ -72,6 +72,33 @@
 
 @end
 
+@implementation GTLRAnalyticsDataQuery_PropertiesCheckCompatibility
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_CheckCompatibilityRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:checkCompatibility";
+  GTLRAnalyticsDataQuery_PropertiesCheckCompatibility *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_CheckCompatibilityResponse class];
+  query.loggingName = @"analyticsdata.properties.checkCompatibility";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsDataQuery_PropertiesGetMetadata
 
 @dynamic name;

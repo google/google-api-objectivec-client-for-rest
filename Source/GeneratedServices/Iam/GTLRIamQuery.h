@@ -25,7 +25,9 @@
 @class GTLRIam_CreateRoleRequest;
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
+@class GTLRIam_DisableServiceAccountKeyRequest;
 @class GTLRIam_DisableServiceAccountRequest;
+@class GTLRIam_EnableServiceAccountKeyRequest;
 @class GTLRIam_EnableServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
 @class GTLRIam_PatchServiceAccountRequest;
@@ -850,7 +852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The list of fields update.
+ *  Required. The list of fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1941,6 +1943,88 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @return GTLRIamQuery_ProjectsServiceAccountsKeysDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disable a ServiceAccountKey. A disabled service account key can be enabled
+ *  through EnableServiceAccountKey. The API is currently in preview phase.
+ *
+ *  Method: iam.projects.serviceAccounts.keys.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsKeysDisable : GTLRIamQuery
+
+/**
+ *  Required. The resource name of the service account key in the following
+ *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
+ *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
+ *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
+ *  of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Disable a ServiceAccountKey. A disabled service account key can be enabled
+ *  through EnableServiceAccountKey. The API is currently in preview phase.
+ *
+ *  @param object The @c GTLRIam_DisableServiceAccountKeyRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the service account key in the
+ *    following format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
+ *    a wildcard for the `PROJECT_ID` will infer the project from the account.
+ *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
+ *    service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsKeysDisable
+ */
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountKeyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enable a ServiceAccountKey. The API is currently in preview phase.
+ *
+ *  Method: iam.projects.serviceAccounts.keys.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsKeysEnable : GTLRIamQuery
+
+/**
+ *  Required. The resource name of the service account key in the following
+ *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
+ *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
+ *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
+ *  of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Enable a ServiceAccountKey. The API is currently in preview phase.
+ *
+ *  @param object The @c GTLRIam_EnableServiceAccountKeyRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the service account key in the
+ *    following format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
+ *    a wildcard for the `PROJECT_ID` will infer the project from the account.
+ *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
+ *    service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsKeysEnable
+ */
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountKeyRequest *)object
+                           name:(NSString *)name;
 
 @end
 

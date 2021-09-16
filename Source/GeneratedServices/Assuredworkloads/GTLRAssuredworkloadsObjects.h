@@ -249,6 +249,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport;
+/**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
  *  Value: "CJIS"
@@ -306,6 +312,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
+/**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport;
 /**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
@@ -776,6 +788,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")
@@ -858,6 +873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")

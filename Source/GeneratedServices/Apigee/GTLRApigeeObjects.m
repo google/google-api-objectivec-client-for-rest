@@ -60,6 +60,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing = @
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Ready = @"READY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified = @"RUNTIME_STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.billingType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid = @"POSTPAID";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid = @"PREPAID";
+
 // GTLRApigee_GoogleCloudApigeeV1Environment.apiProxyType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_ApiProxyTypeUnspecified = @"API_PROXY_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_ApiProxyType_Configurable = @"CONFIGURABLE";
@@ -775,6 +780,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest
+@dynamic transactionAmount, transactionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1CustomReport
 //
 
@@ -1121,6 +1136,44 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1DeveloperBalance
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeveloperBalance
+@dynamic wallets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"wallets" : [GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet
+@dynamic balance, lastCreditTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig
+@dynamic billingType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription
 //
 
@@ -1458,7 +1511,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Instance
 @dynamic createdAt, descriptionProperty, diskEncryptionKeyName, displayName,
-         host, lastModifiedAt, location, name, peeringCidrRange, port, state;
+         host, lastModifiedAt, location, name, peeringCidrRange, port,
+         runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2976,7 +3030,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TargetServerConfig
-@dynamic host, name, port, protocol, tlsInfo;
+@dynamic enabled, host, name, port, protocol, tlsInfo;
 @end
 
 

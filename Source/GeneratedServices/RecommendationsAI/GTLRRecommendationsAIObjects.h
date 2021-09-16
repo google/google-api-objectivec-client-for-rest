@@ -1058,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest : GTLRObject
 
 /**
- *  Optional. Use dryRun mode for this prediction query. If set to true, a dummy
+ *  Optional. Use dryRun mode for this prediction query. If set to true, a fake
  *  model will be used that returns arbitrary catalog items. Note that the
  *  dryRun mode should only be used for testing the API, or if the model is not
  *  ready.

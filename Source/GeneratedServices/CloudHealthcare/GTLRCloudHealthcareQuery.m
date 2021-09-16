@@ -2845,3 +2845,30 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 }
 
 @end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsServicesNlpAnalyzeEntities
+
+@dynamic nlpService;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_AnalyzeEntitiesRequest *)object
+                     nlpService:(NSString *)nlpService {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"nlpService" ];
+  NSString *pathURITemplate = @"v1/{+nlpService}:analyzeEntities";
+  GTLRCloudHealthcareQuery_ProjectsLocationsServicesNlpAnalyzeEntities *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.nlpService = nlpService;
+  query.expectedObjectClass = [GTLRCloudHealthcare_AnalyzeEntitiesResponse class];
+  query.loggingName = @"healthcare.projects.locations.services.nlp.analyzeEntities";
+  return query;
+}
+
+@end

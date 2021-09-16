@@ -102,7 +102,9 @@
 @class GTLRContainerAnalysis_SourceContext_Labels;
 @class GTLRContainerAnalysis_Status;
 @class GTLRContainerAnalysis_Status_Details_Item;
+@class GTLRContainerAnalysis_TimeSpan;
 @class GTLRContainerAnalysis_Version;
+@class GTLRContainerAnalysis_Volume;
 @class GTLRContainerAnalysis_Vulnerability;
 @class GTLRContainerAnalysis_VulnerabilityLocation;
 @class GTLRContainerAnalysis_WindowsDetail;
@@ -167,6 +169,71 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType
  *  Value: "PKIX_PEM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_BuildStep.status
+
+/**
+ *  Build or step was canceled by a user.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Cancelled;
+/**
+ *  Build was enqueued for longer than the value of `queue_ttl`.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Expired;
+/**
+ *  Build or step failed to complete successfully.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Failure;
+/**
+ *  Build or step failed due to an internal cause.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_InternalError;
+/**
+ *  Build has been created and is pending execution and queuing. It has not been
+ *  queued.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Pending;
+/**
+ *  Build or step is queued; work has not yet begun.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Queued;
+/**
+ *  Status of the build is unknown.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_StatusUnknown;
+/**
+ *  Build or step finished successfully.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Success;
+/**
+ *  Build or step took longer than was allowed.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Timeout;
+/**
+ *  Build or step is being executed.
+ *
+ *  Value: "WORKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Working;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_CVSSv3.attackComplexity
@@ -1781,6 +1848,148 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *signature;
+
+@end
+
+
+/**
+ *  A step in the build pipeline.
+ */
+@interface GTLRContainerAnalysis_BuildStep : GTLRObject
+
+/**
+ *  A list of arguments that will be presented to the step when it is started.
+ *  If the image used to run the step's container has an entrypoint, the `args`
+ *  are used as arguments to that entrypoint. If the image does not define an
+ *  entrypoint, the first element in args is used as the entrypoint, and the
+ *  remainder will be used as arguments.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Working directory to use when running this step's container. If this value
+ *  is a relative path, it is relative to the build's working directory. If this
+ *  value is absolute, it may be outside the build's working directory, in which
+ *  case the contents of the path may not be persisted across build step
+ *  executions, unless a `volume` for that path is specified. If the build
+ *  specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies
+ *  an absolute path, the `RepoSource` `dir` is ignored for the step's
+ *  execution.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Entrypoint to be used instead of the build step image's default entrypoint.
+ *  If unset, the image's default entrypoint is used.
+ */
+@property(nonatomic, copy, nullable) NSString *entrypoint;
+
+/**
+ *  A list of environment variable definitions to be used when running a step.
+ *  The elements are of the form "KEY=VALUE" for the environment variable "KEY"
+ *  being given the value "VALUE".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *env;
+
+/**
+ *  Unique identifier for this build step, used in `wait_for` to reference this
+ *  build step as a dependency.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. The name of the container image that will run this particular
+ *  build step. If the image is available in the host's Docker daemon's cache,
+ *  it will be run directly. If not, the host will attempt to pull the image
+ *  first, using the builder service account's credentials if necessary. The
+ *  Docker daemon's cache will already have the latest versions of all of the
+ *  officially supported build steps
+ *  ([https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders)).
+ *  The Docker daemon will also have cached many of the layers for some popular
+ *  images, like "ubuntu", "debian", but they will be refreshed at the time you
+ *  attempt to use them. If you built an image in a previous build step, it will
+ *  be stored in the host's Docker daemon's cache and is available to use as the
+ *  name for a later build step.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Stores timing information for pulling this build step's builder
+ *  image only.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_TimeSpan *pullTiming;
+
+/**
+ *  A shell script to be executed in the step. When script is provided, the user
+ *  cannot specify the entrypoint or args.
+ */
+@property(nonatomic, copy, nullable) NSString *script;
+
+/**
+ *  A list of environment variables which are encrypted using a Cloud Key
+ *  Management Service crypto key. These values must be specified in the build's
+ *  `Secret`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
+
+/**
+ *  Output only. Status of the build step. At this time, build step status is
+ *  only updated on build completion; step status is not updated in real-time as
+ *  the build progresses.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Cancelled Build or step
+ *        was canceled by a user. (Value: "CANCELLED")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Expired Build was enqueued
+ *        for longer than the value of `queue_ttl`. (Value: "EXPIRED")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Failure Build or step
+ *        failed to complete successfully. (Value: "FAILURE")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_InternalError Build or
+ *        step failed due to an internal cause. (Value: "INTERNAL_ERROR")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Pending Build has been
+ *        created and is pending execution and queuing. It has not been queued.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Queued Build or step is
+ *        queued; work has not yet begun. (Value: "QUEUED")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_StatusUnknown Status of
+ *        the build is unknown. (Value: "STATUS_UNKNOWN")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Success Build or step
+ *        finished successfully. (Value: "SUCCESS")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Timeout Build or step took
+ *        longer than was allowed. (Value: "TIMEOUT")
+ *    @arg @c kGTLRContainerAnalysis_BuildStep_Status_Working Build or step is
+ *        being executed. (Value: "WORKING")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Time limit for executing this build step. If not defined, the step has no
+ *  time limit and will be allowed to continue to run until either it completes
+ *  or the build itself times out.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/** Output only. Stores timing information for executing this build step. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_TimeSpan *timing;
+
+/**
+ *  List of volumes to mount into the build step. Each volume is created as an
+ *  empty volume prior to execution of the build step. Upon completion of the
+ *  build, volumes and their contents are discarded. Using a named volume in
+ *  only one step is not valid as it is indicative of a build request with an
+ *  incorrect configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Volume *> *volumes;
+
+/**
+ *  The ID(s) of the step(s) that this build step depends on. This build step
+ *  will not start until all the build steps in `wait_for` have completed
+ *  successfully. If `wait_for` is empty, this build step will start when all
+ *  previous build steps in the `Build.Steps` list have completed successfully.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *waitFor;
 
 @end
 
@@ -4516,6 +4725,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  Start and end times for a build execution phase.
+ */
+@interface GTLRContainerAnalysis_TimeSpan : GTLRObject
+
+/** End of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Start of time span. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Version contains structured information about the version of a package.
  */
 @interface GTLRContainerAnalysis_Version : GTLRObject
@@ -4563,6 +4786,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** The iteration of the package build from the above version. */
 @property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  Volume describes a Docker container volume which is mounted into build steps
+ *  in order to persist files across build step execution.
+ */
+@interface GTLRContainerAnalysis_Volume : GTLRObject
+
+/**
+ *  Name of the volume to mount. Volume names must be unique per build step and
+ *  must be valid names for Docker volumes. Each named volume must be used by at
+ *  least two build steps.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Path at which to mount the volume. Paths must be absolute and cannot
+ *  conflict with other volume paths on the same build step or with certain
+ *  reserved volume paths.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 

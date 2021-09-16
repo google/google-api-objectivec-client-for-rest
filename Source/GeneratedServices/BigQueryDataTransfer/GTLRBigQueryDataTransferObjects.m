@@ -153,6 +153,24 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_EnrollDataSourcesRequest
+//
+
+@implementation GTLRBigQueryDataTransfer_EnrollDataSourcesRequest
+@dynamic dataSourceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataSourceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ListDataSourcesResponse
 //
 
@@ -415,7 +433,7 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, emailPreferences, name,
-         nextRunTime, notificationPubsubTopic, params, schedule,
+         nextRunTime, notificationPubsubTopic, ownerInfo, params, schedule,
          scheduleOptions, state, updateTime, userId;
 @end
 
@@ -467,4 +485,14 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_UserInfo
+//
+
+@implementation GTLRBigQueryDataTransfer_UserInfo
+@dynamic email;
 @end

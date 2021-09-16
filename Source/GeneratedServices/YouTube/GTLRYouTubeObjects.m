@@ -932,6 +932,7 @@ NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary = @"temporary";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent = @"chatEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fanFundingEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType = @"invalidType";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent = @"memberMilestoneChatEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
@@ -2374,6 +2375,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_LiveChatMemberMilestoneChatDetails
+//
+
+@implementation GTLRYouTube_LiveChatMemberMilestoneChatDetails
+@dynamic memberLevelName, memberMonth, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_LiveChatMessage
 //
 
@@ -2452,9 +2463,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatMessageSnippet
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
-         hasDisplayContent, liveChatId, messageDeletedDetails,
-         messageRetractedDetails, publishedAt, superChatDetails,
-         superStickerDetails, textMessageDetails, type, userBannedDetails;
+         hasDisplayContent, liveChatId, memberMilestoneChatDetails,
+         messageDeletedDetails, messageRetractedDetails, newSponsorDetails,
+         publishedAt, superChatDetails, superStickerDetails, textMessageDetails,
+         type, userBannedDetails;
 @end
 
 
@@ -2507,6 +2519,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatModeratorSnippet
 @dynamic liveChatId, moderatorDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatNewSponsorDetails
+//
+
+@implementation GTLRYouTube_LiveChatNewSponsorDetails
+@dynamic isUpgrade, memberLevelName;
 @end
 
 

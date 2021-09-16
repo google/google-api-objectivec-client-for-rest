@@ -128,6 +128,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAu
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser;
 /**
+ *  Target ads around locations of a business chain within a specific geo
+ *  region.
+ *
+ *  Value: "TARGETING_TYPE_BUSINESS_CHAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain;
+/**
  *  Target ads to a specific network carrier or internet service provider (ISP)
  *  (for example, Comcast or Orange).
  *
@@ -277,6 +284,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOp
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus;
+/**
+ *  Target ads around a specific point of interest, such as a notable building,
+ *  a street address, or latitude/longitude coordinates.
+ *
+ *  Value: "TARGETING_TYPE_POI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypePoi;
 /**
  *  Target ads to the specified points of interest on a proximity location list.
  *
@@ -991,6 +1005,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1143,6 +1164,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1347,6 +1375,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -1497,6 +1532,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -2695,6 +2737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -2835,6 +2884,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3026,6 +3082,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3164,6 +3227,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3822,6 +3892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -3962,6 +4039,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4118,6 +4202,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4257,6 +4348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4416,6 +4514,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4556,6 +4661,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4746,6 +4858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -4883,6 +5002,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6271,6 +6397,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6410,6 +6543,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6563,6 +6703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6701,6 +6848,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6857,6 +7011,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -6996,6 +7157,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7180,6 +7348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7317,6 +7492,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -7500,16 +7682,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  `AND`. * A restriction has the form of `{field} {operator} {value}`. * The
  *  operator must be `CONTAINS (:)` or `EQUALS (=)`. * The operator must be
  *  `CONTAINS (:)` for the following field: - `displayName` * The operator must
- *  be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` *
- *  For `displayName`, the value is a string. We return all custom bidding
- *  algorithms whose display_name contains such string. * For
- *  `customBiddingAlgorithmType`, the value is a string. We return all
- *  algorithms whose custom_bidding_algorithm_type is equal to the given type.
- *  Examples: * All custom bidding algorithms for which the display name
+ *  be `EQUALS (=)` for the following field: - `customBiddingAlgorithmType` -
+ *  `customBiddingAlgorithmState` * For `displayName`, the value is a string. We
+ *  return all custom bidding algorithms whose display_name contains such
+ *  string. * For `customBiddingAlgorithmType`, the value is a string. We return
+ *  all algorithms whose custom_bidding_algorithm_type is equal to the given
+ *  type. * For `customBiddingAlgorithmState`, the value is a string. We return
+ *  all algorithms whose custom_bidding_algorithm_state is equal to the given
+ *  type. Examples: * All custom bidding algorithms for which the display name
  *  contains "politics": `displayName:politics`. * All custom bidding algorithms
  *  for which the type is "SCRIPT_BASED":
- *  `customBiddingAlgorithmType=SCRIPT_BASED` The length of this field should be
- *  no more than 500 characters.
+ *  `customBiddingAlgorithmType=SCRIPT_BASED` * All custom bidding algorithms
+ *  for which the state is "ENABLED": `customBiddingAlgorithmState=ENABLED` The
+ *  length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9231,6 +9416,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9368,6 +9560,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9519,6 +9718,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9655,6 +9861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9809,6 +10022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -9946,6 +10166,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10128,6 +10355,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10262,6 +10496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10482,6 +10723,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10616,6 +10864,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10802,6 +11057,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10934,6 +11196,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -10963,7 +11232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  Required. The type of targeting options to retrieve. Accepted values are: *
- *  `TARGETING_TYPE_GEO_REGION`
+ *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_POI` *
+ *  `TARGETING_TYPE_BUSINESS_CHAIN`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -11082,6 +11352,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
@@ -11099,7 +11376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @param object The @c GTLRDisplayVideo_SearchTargetingOptionsRequest to
  *    include in the query.
  *  @param targetingType Required. The type of targeting options to retrieve.
- *    Accepted values are: * `TARGETING_TYPE_GEO_REGION`
+ *    Accepted values are: * `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_POI`
+ *    * `TARGETING_TYPE_BUSINESS_CHAIN`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -11218,6 +11496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypePoi Target ads around a
+ *        specific point of interest, such as a notable building, a street
+ *        address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain Target
+ *        ads around locations of a business chain within a specific geo region.
+ *        (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
  *        Target ads to a specific native content position. (Value:
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")

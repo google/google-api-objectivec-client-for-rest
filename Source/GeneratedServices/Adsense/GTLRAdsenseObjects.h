@@ -52,13 +52,15 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAdsense_AdUnit.state
 
 /**
- *  Ad unit has been activated by the user and can serve ads.
+ *  Ad unit has been activated by the user.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_AdUnit_State_Active;
 /**
- *  Ad unit has been archived by the user and can no longer serve ads.
+ *  Ad unit has been archived by the user. Note that archived ad units are only
+ *  removed from the default view in the UI. Archived ad units can still serve
+ *  ads.
  *
  *  Value: "ARCHIVED"
  */
@@ -339,9 +341,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRAdsense_AdUnit_State_Active Ad unit has been activated by the
- *        user and can serve ads. (Value: "ACTIVE")
+ *        user. (Value: "ACTIVE")
  *    @arg @c kGTLRAdsense_AdUnit_State_Archived Ad unit has been archived by
- *        the user and can no longer serve ads. (Value: "ARCHIVED")
+ *        the user. Note that archived ad units are only removed from the
+ *        default view in the UI. Archived ad units can still serve ads. (Value:
+ *        "ARCHIVED")
  *    @arg @c kGTLRAdsense_AdUnit_State_StateUnspecified State unspecified.
  *        (Value: "STATE_UNSPECIFIED")
  */

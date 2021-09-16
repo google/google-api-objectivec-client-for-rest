@@ -192,13 +192,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  users must ensure the name binding is the parent resource, without the
  *  operations collection id.
  *
+ *  @param name The name of the operation's parent resource.
+ *
  *  @return GTLRArtifactRegistryQuery_OperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)query;
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

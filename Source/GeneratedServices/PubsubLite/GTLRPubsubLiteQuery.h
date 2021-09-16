@@ -23,6 +23,7 @@
 @class GTLRPubsubLite_ComputeHeadCursorRequest;
 @class GTLRPubsubLite_ComputeMessageStatsRequest;
 @class GTLRPubsubLite_ComputeTimeCursorRequest;
+@class GTLRPubsubLite_Reservation;
 @class GTLRPubsubLite_SeekSubscriptionRequest;
 @class GTLRPubsubLite_Subscription;
 @class GTLRPubsubLite_Topic;
@@ -201,6 +202,243 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new reservation.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsCreate : GTLRPubsubLiteQuery
+
+/**
+ *  Required. The parent location in which to create the reservation. Structured
+ *  like `projects/{project_number}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the reservation, which will become the final
+ *  component of the reservation's name. This value is structured like:
+ *  `my-reservation-name`.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationId;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_Reservation.
+ *
+ *  Creates a new reservation.
+ *
+ *  @param object The @c GTLRPubsubLite_Reservation to include in the query.
+ *  @param parent Required. The parent location in which to create the
+ *    reservation. Structured like
+ *    `projects/{project_number}/locations/{location}`.
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRPubsubLite_Reservation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified reservation.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsDelete : GTLRPubsubLiteQuery
+
+/**
+ *  Required. The name of the reservation to delete. Structured like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_Empty.
+ *
+ *  Deletes the specified reservation.
+ *
+ *  @param name Required. The name of the reservation to delete. Structured
+ *    like:
+ *    projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the reservation configuration.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsGet : GTLRPubsubLiteQuery
+
+/**
+ *  Required. The name of the reservation whose configuration to return.
+ *  Structured like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_Reservation.
+ *
+ *  Returns the reservation configuration.
+ *
+ *  @param name Required. The name of the reservation whose configuration to
+ *    return. Structured like:
+ *    projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of reservations for the given project.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsList : GTLRPubsubLiteQuery
+
+/**
+ *  The maximum number of reservations to return. The service may return fewer
+ *  than this value. If unset or zero, all reservations for the parent will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListReservations` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListReservations` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent whose reservations are to be listed. Structured like
+ *  `projects/{project_number}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_ListReservationsResponse.
+ *
+ *  Returns the list of reservations for the given project.
+ *
+ *  @param parent Required. The parent whose reservations are to be listed.
+ *    Structured like `projects/{project_number}/locations/{location}`.
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates properties of the specified reservation.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsPatch : GTLRPubsubLiteQuery
+
+/**
+ *  The name of the reservation. Structured like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A mask specifying the reservation fields to change.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_Reservation.
+ *
+ *  Updates properties of the specified reservation.
+ *
+ *  @param object The @c GTLRPubsubLite_Reservation to include in the query.
+ *  @param name The name of the reservation. Structured like:
+ *    projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRPubsubLite_Reservation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the topics attached to the specified reservation.
+ *
+ *  Method: pubsublite.admin.projects.locations.reservations.topics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsTopicsList : GTLRPubsubLiteQuery
+
+/**
+ *  Required. The name of the reservation whose topics to list. Structured like:
+ *  projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of topics to return. The service may return fewer than
+ *  this value. If unset or zero, all topics for the given reservation will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListReservationTopics` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListReservationTopics` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_ListReservationTopicsResponse.
+ *
+ *  Lists the topics attached to the specified reservation.
+ *
+ *  @param name Required. The name of the reservation whose topics to list.
+ *    Structured like:
+ *    projects/{project_number}/locations/{location}/reservations/{reservation_id}
+ *
+ *  @return GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsTopicsList
  */
 + (instancetype)queryWithName:(NSString *)name;
 

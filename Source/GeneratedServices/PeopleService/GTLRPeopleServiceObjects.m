@@ -769,8 +769,9 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_Organization
-@dynamic current, department, domain, endDate, formattedType, jobDescription,
-         location, metadata, name, phoneticName, startDate, symbol, title, type;
+@dynamic costCenter, current, department, domain, endDate, formattedType,
+         fullTimeEquivalentMillipercent, jobDescription, location, metadata,
+         name, phoneticName, startDate, symbol, title, type;
 @end
 
 

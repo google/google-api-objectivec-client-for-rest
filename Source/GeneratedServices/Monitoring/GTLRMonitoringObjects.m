@@ -319,7 +319,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_AlertStrategy
-@dynamic notificationRateLimit;
+@dynamic autoClose, notificationRateLimit;
 @end
 
 

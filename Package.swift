@@ -612,6 +612,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessAccountManagement"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessBusinessInformation",
+            targets: ["GoogleAPIClientForREST_MyBusinessBusinessInformation"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MyBusinessLodging",
             targets: ["GoogleAPIClientForREST_MyBusinessLodging"]
         ),
@@ -622,6 +626,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
             targets: ["GoogleAPIClientForREST_MyBusinessPlaceActions"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_MyBusinessVerifications",
+            targets: ["GoogleAPIClientForREST_MyBusinessVerifications"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Networkconnectivity",
@@ -1858,6 +1866,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_MyBusinessBusinessInformation",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessBusinessInformation",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_MyBusinessLodging",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessLodging",
@@ -1873,6 +1887,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessPlaceActions",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_MyBusinessVerifications",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessVerifications",
             publicHeadersPath: "."
         ),
         .target(

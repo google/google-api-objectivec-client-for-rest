@@ -3095,10 +3095,12 @@ NSString * const kGTLRCompute_Quota_Metric_BackendBuckets      = @"BACKEND_BUCKE
 NSString * const kGTLRCompute_Quota_Metric_BackendServices     = @"BACKEND_SERVICES";
 NSString * const kGTLRCompute_Quota_Metric_C2Cpus              = @"C2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_C2dCpus             = @"C2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_C3Cpus              = @"C3_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_Commitments         = @"COMMITMENTS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedA2Cpus     = @"COMMITTED_A2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus     = @"COMMITTED_C2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedC2dCpus    = @"COMMITTED_C2D_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedC3Cpus     = @"COMMITTED_C3_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedCpus       = @"COMMITTED_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedE2Cpus     = @"COMMITTED_E2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses   = @"COMMITTED_LICENSES";
@@ -3729,6 +3731,11 @@ NSString * const kGTLRCompute_RouterBgpPeer_Enable_True  = @"TRUE";
 // GTLRCompute_RouterBgpPeer.managementType
 NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByAttachment = @"MANAGED_BY_ATTACHMENT";
 NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByUser = @"MANAGED_BY_USER";
+
+// GTLRCompute_RouterBgpPeerBfd.sessionInitializationMode
+NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Active = @"ACTIVE";
+NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Disabled = @"DISABLED";
+NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Passive = @"PASSIVE";
 
 // GTLRCompute_RouterInterface.managementType
 NSString * const kGTLRCompute_RouterInterface_ManagementType_ManagedByAttachment = @"MANAGED_BY_ATTACHMENT";
@@ -15727,8 +15734,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouterBgpPeer
 @dynamic advertisedGroups, advertisedIpRanges, advertisedRoutePriority,
-         advertiseMode, enable, interfaceName, ipAddress, managementType, name,
-         peerAsn, peerIpAddress;
+         advertiseMode, bfd, enable, interfaceName, ipAddress, managementType,
+         name, peerAsn, peerIpAddress, routerApplianceInstance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -15743,12 +15750,23 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_RouterBgpPeerBfd
+//
+
+@implementation GTLRCompute_RouterBgpPeerBfd
+@dynamic minReceiveInterval, minTransmitInterval, multiplier,
+         sessionInitializationMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_RouterInterface
 //
 
 @implementation GTLRCompute_RouterInterface
 @dynamic ipRange, linkedInterconnectAttachment, linkedVpnTunnel, managementType,
-         name;
+         name, privateIpAddress, redundantInterface, subnetwork;
 @end
 
 
@@ -15939,7 +15957,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_RouterStatusBgpPeerStatus
 @dynamic advertisedRoutes, ipAddress, linkedVpnTunnel, name, numLearnedRoutes,
-         peerIpAddress, state, status, uptime, uptimeSeconds;
+         peerIpAddress, routerApplianceInstance, state, status, uptime,
+         uptimeSeconds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -17815,7 +17834,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_TargetInstance
 @dynamic creationTimestamp, descriptionProperty, identifier, instance, kind,
-         name, natPolicy, selfLink, zoneProperty;
+         name, natPolicy, network, selfLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

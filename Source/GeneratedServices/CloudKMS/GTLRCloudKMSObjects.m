@@ -351,7 +351,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 @implementation GTLRCloudKMS_CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
          externalProtectionLevelOptions, generateTime, importFailureReason,
-         importJob, importTime, name, protectionLevel, state;
+         importJob, importTime, name, protectionLevel, reimportEligible, state;
 @end
 
 
@@ -478,7 +478,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_ImportCryptoKeyVersionRequest
-@dynamic algorithm, importJob, rsaAesWrappedKey;
+@dynamic algorithm, cryptoKeyVersion, importJob, rsaAesWrappedKey;
 @end
 
 

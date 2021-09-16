@@ -25,6 +25,8 @@
 @class GTLRMyBusinessLodging_Activities;
 @class GTLRMyBusinessLodging_Business;
 @class GTLRMyBusinessLodging_Connectivity;
+@class GTLRMyBusinessLodging_EcoCertification;
+@class GTLRMyBusinessLodging_EnergyEfficiency;
 @class GTLRMyBusinessLodging_EnhancedCleaning;
 @class GTLRMyBusinessLodging_Families;
 @class GTLRMyBusinessLodging_FoodAndDrink;
@@ -52,9 +54,14 @@
 @class GTLRMyBusinessLodging_Pools;
 @class GTLRMyBusinessLodging_Property;
 @class GTLRMyBusinessLodging_Services;
+@class GTLRMyBusinessLodging_Sustainability;
+@class GTLRMyBusinessLodging_SustainabilityCertifications;
+@class GTLRMyBusinessLodging_SustainableSourcing;
 @class GTLRMyBusinessLodging_TimeOfDay;
 @class GTLRMyBusinessLodging_Transportation;
 @class GTLRMyBusinessLodging_ViewsFromUnit;
+@class GTLRMyBusinessLodging_WasteReduction;
+@class GTLRMyBusinessLodging_WaterConservation;
 @class GTLRMyBusinessLodging_Wellness;
 
 // Generated comments include content from the discovery document; avoid them
@@ -878,6 +885,410 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Connectivity_WifiAvail
  *  Value: "UNDER_CONSTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Connectivity_WifiAvailableException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EcoCertification.awardedException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EcoCertification.ecoCertificate
+
+/**
+ *  Asian Ecotourism Standard for Accommodations (AESA).
+ *
+ *  Value: "ASIAN_ECOTOURISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_AsianEcotourism;
+/**
+ *  Biosphere Responsible Tourism Standard.
+ *
+ *  Value: "BIOSPHERE_RESPOSNIBLE_TOURISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BiosphereResposnibleTourism;
+/**
+ *  Bureau Veritas.
+ *
+ *  Value: "BUREAU_VERITAS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BureauVeritas;
+/**
+ *  Control Union.
+ *
+ *  Value: "CONTROL_UNION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_ControlUnion;
+/**
+ *  EarthCheck.
+ *
+ *  Value: "EARTHCHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Earthcheck;
+/**
+ *  Default EcoCertificate. Do not use.
+ *
+ *  Value: "ECO_CERTIFICATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificateUnspecified;
+/**
+ *  Eco-Certification Malta Standard.
+ *
+ *  Value: "ECO_CERTIFICATION_MALTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificationMalta;
+/**
+ *  Ecotourism Australia's ECO Certification Standard.
+ *
+ *  Value: "ECOTOURISM_AUSTRALIAS_ECO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcotourismAustraliasEco;
+/**
+ *  GREAT Green Deal Certification.
+ *
+ *  Value: "GREAT_GREEN_DEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreatGreenDeal;
+/**
+ *  Green Globe.
+ *
+ *  Value: "GREEN_GLOBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGlobe;
+/**
+ *  Green Growth 2050 Standard.
+ *
+ *  Value: "GREEN_GROWTH2050"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGrowth2050;
+/**
+ *  Green Key.
+ *
+ *  Value: "GREEN_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKey;
+/**
+ *  Geen Key Eco Rating.
+ *
+ *  Value: "GREEN_KEY_ECO_RATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKeyEcoRating;
+/**
+ *  Green Seal.
+ *
+ *  Value: "GREEN_SEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenSeal;
+/**
+ *  Green Star Hotel Standard.
+ *
+ *  Value: "GREEN_STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenStar;
+/**
+ *  Green Tourism Active Standard.
+ *
+ *  Value: "GREEN_TOURISM_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenTourismActive;
+/**
+ *  Hilton LightStay.
+ *
+ *  Value: "HILTON_LIGHTSTAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HiltonLightstay;
+/**
+ *  Hostelling International's Quality and Sustainability Standard.
+ *
+ *  Value: "HOSTELLING_INTERNATIONALS_QUALITY_AND_SUSTAINABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HostellingInternationalsQualityAndSustainability;
+/**
+ *  Hoteles más Verdes (AHT) Standard.
+ *
+ *  Value: "HOTELES_MAS_VERDES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HotelesMasVerdes;
+/**
+ *  ISO14001.
+ *
+ *  Value: "ISO14001"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso14001;
+/**
+ *  ISO50001.
+ *
+ *  Value: "ISO50001"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso50001;
+/**
+ *  Nordic Swan Ecolabel.
+ *
+ *  Value: "NORDIC_SWAN_ECOLABEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_NordicSwanEcolabel;
+/**
+ *  Preferred by Nature Sustainable Tourism Standard for Accommodation.
+ *
+ *  Value: "PREFERRED_BY_NATURE_SUSTAINABLE_TOURISM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_PreferredByNatureSustainableTourism;
+/**
+ *  Sustainable Travel Ireland – GSTC Industry Criteria.
+ *
+ *  Value: "SUSTAINABLE_TRAVEL_IRELAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_SustainableTravelIreland;
+/**
+ *  TOFTigers Initiative's Pug Standard.
+ *
+ *  Value: "TOF_TIGERS_INITITIVES_PUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_TofTigersInititivesPug;
+/**
+ *  Travelife Standard for Hotels & Accommodations.
+ *
+ *  Value: "TRAVELIFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Travelife;
+/**
+ *  United Certification Systems Limited.
+ *
+ *  Value: "UNITED_CERTIFICATION_SYSTEMS_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_UnitedCertificationSystemsLimited;
+/**
+ *  Vireo Srl.
+ *
+ *  Value: "VIREO_SRL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_VireoSrl;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.carbonFreeEnergySourcesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.energyConservationProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.energyEfficientHeatingAndCoolingSystemsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.energyEfficientLightingException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.energySavingThermostatsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.greenBuildingDesignException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_EnergyEfficiency.independentOrganizationAuditsEnergyUseException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_UnderConstruction;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessLodging_EnhancedCleaning.commercialGradeDisinfectantCleaningException
@@ -5924,6 +6335,382 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Services_WakeUpCallsEx
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Services_WakeUpCallsException_UnderConstruction;
 
 // ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainabilityCertifications.breeamCertification
+
+/**
+ *  Default BreeamCertification. Do not use.
+ *
+ *  Value: "BREEAM_CERTIFICATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamCertificationUnspecified;
+/**
+ *  BREEAM Excellent.
+ *
+ *  Value: "BREEAM_EXCELLENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamExcellent;
+/**
+ *  BREEAM Good.
+ *
+ *  Value: "BREEAM_GOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamGood;
+/**
+ *  BREEAM Outstanding.
+ *
+ *  Value: "BREEAM_OUTSTANDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamOutstanding;
+/**
+ *  BREEAM Pass.
+ *
+ *  Value: "BREEAM_PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamPass;
+/**
+ *  BREEAM Very Good.
+ *
+ *  Value: "BREEAM_VERY_GOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamVeryGood;
+/**
+ *  Not certified.
+ *
+ *  Value: "NO_BREEAM_CERTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_NoBreeamCertification;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainabilityCertifications.breeamCertificationException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainabilityCertifications.leedCertification
+
+/**
+ *  Default LeedCertification. Do not use.
+ *
+ *  Value: "LEED_CERTIFICATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertificationUnspecified;
+/**
+ *  LEED Certified.
+ *
+ *  Value: "LEED_CERTIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertified;
+/**
+ *  LEED Gold.
+ *
+ *  Value: "LEED_GOLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedGold;
+/**
+ *  LEED Platinum.
+ *
+ *  Value: "LEED_PLATINUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedPlatinum;
+/**
+ *  LEED Silver.
+ *
+ *  Value: "LEED_SILVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedSilver;
+/**
+ *  Not certified.
+ *
+ *  Value: "NO_LEED_CERTIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_NoLeedCertification;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainabilityCertifications.leedCertificationException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.ecoFriendlyToiletriesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.locallySourcedFoodAndBeveragesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.organicCageFreeEggsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.organicFoodAndBeveragesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.responsiblePurchasingPolicyException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.responsiblySourcesSeafoodException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.veganMealsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_SustainableSourcing.vegetarianMealsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
 // GTLRMyBusinessLodging_Transportation.airportShuttleException
 
 /**
@@ -6357,6 +7144,644 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyVi
  *  Value: "UNDER_CONSTRUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyViewException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.compostableFoodContainersAndCutleryException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.compostsExcessFoodException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.donatesExcessFoodException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.foodWasteReductionProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.noSingleUsePlasticStrawsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.noSingleUsePlasticWaterBottlesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.noStyrofoamFoodContainersException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.recyclingProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.refillableToiletryContainersException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesBatteriesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesElectronicsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesLightbulbsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.safelyHandlesHazardousSubstancesException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.soapDonationProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.toiletryDonationProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WasteReduction.waterBottleFillingStationsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.independentOrganizationAuditsWaterUseException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.linenReuseProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.towelReuseProgramException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.waterSavingShowersException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.waterSavingSinksException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_UnderConstruction;
+
+// ----------------------------------------------------------------------------
+// GTLRMyBusinessLodging_WaterConservation.waterSavingToiletsException
+
+/**
+ *  Amenity or service availability depends on the day of the week.
+ *
+ *  Value: "DEPENDENT_ON_DAY_OF_WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnDayOfWeek;
+/**
+ *  Amenity or service availability is seasonal.
+ *
+ *  Value: "DEPENDENT_ON_SEASON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnSeason;
+/**
+ *  Default unspecified exception. Use this only if a more specific exception
+ *  does not match.
+ *
+ *  Value: "EXCEPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_ExceptionUnspecified;
+/**
+ *  Amenity or service is unavailable due to ongoing work orders.
+ *
+ *  Value: "UNDER_CONSTRUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_UnderConstruction;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessLodging_Wellness.doctorOnCallException
@@ -7505,6 +8930,335 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *        "UNDER_CONSTRUCTION")
  */
 @property(nonatomic, copy, nullable) NSString *wifiAvailableException;
+
+@end
+
+
+/**
+ *  An eco certificate awarded to the hotel.
+ */
+@interface GTLRMyBusinessLodging_EcoCertification : GTLRObject
+
+/**
+ *  Whether the eco certificate was awarded or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *awarded;
+
+/**
+ *  Awarded exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_AwardedException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_AwardedException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *awardedException;
+
+/**
+ *  Required. The eco certificate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_AsianEcotourism
+ *        Asian Ecotourism Standard for Accommodations (AESA). (Value:
+ *        "ASIAN_ECOTOURISM")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BiosphereResposnibleTourism
+ *        Biosphere Responsible Tourism Standard. (Value:
+ *        "BIOSPHERE_RESPOSNIBLE_TOURISM")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BureauVeritas
+ *        Bureau Veritas. (Value: "BUREAU_VERITAS")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_ControlUnion
+ *        Control Union. (Value: "CONTROL_UNION")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Earthcheck
+ *        EarthCheck. (Value: "EARTHCHECK")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificateUnspecified
+ *        Default EcoCertificate. Do not use. (Value:
+ *        "ECO_CERTIFICATE_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificationMalta
+ *        Eco-Certification Malta Standard. (Value: "ECO_CERTIFICATION_MALTA")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcotourismAustraliasEco
+ *        Ecotourism Australia's ECO Certification Standard. (Value:
+ *        "ECOTOURISM_AUSTRALIAS_ECO")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreatGreenDeal
+ *        GREAT Green Deal Certification. (Value: "GREAT_GREEN_DEAL")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGlobe
+ *        Green Globe. (Value: "GREEN_GLOBE")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGrowth2050
+ *        Green Growth 2050 Standard. (Value: "GREEN_GROWTH2050")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKey
+ *        Green Key. (Value: "GREEN_KEY")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKeyEcoRating
+ *        Geen Key Eco Rating. (Value: "GREEN_KEY_ECO_RATING")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenSeal
+ *        Green Seal. (Value: "GREEN_SEAL")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenStar
+ *        Green Star Hotel Standard. (Value: "GREEN_STAR")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenTourismActive
+ *        Green Tourism Active Standard. (Value: "GREEN_TOURISM_ACTIVE")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HiltonLightstay
+ *        Hilton LightStay. (Value: "HILTON_LIGHTSTAY")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HostellingInternationalsQualityAndSustainability
+ *        Hostelling International's Quality and Sustainability Standard.
+ *        (Value: "HOSTELLING_INTERNATIONALS_QUALITY_AND_SUSTAINABILITY")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HotelesMasVerdes
+ *        Hoteles más Verdes (AHT) Standard. (Value: "HOTELES_MAS_VERDES")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso14001
+ *        ISO14001. (Value: "ISO14001")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso50001
+ *        ISO50001. (Value: "ISO50001")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_NordicSwanEcolabel
+ *        Nordic Swan Ecolabel. (Value: "NORDIC_SWAN_ECOLABEL")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_PreferredByNatureSustainableTourism
+ *        Preferred by Nature Sustainable Tourism Standard for Accommodation.
+ *        (Value: "PREFERRED_BY_NATURE_SUSTAINABLE_TOURISM")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_SustainableTravelIreland
+ *        Sustainable Travel Ireland – GSTC Industry Criteria. (Value:
+ *        "SUSTAINABLE_TRAVEL_IRELAND")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_TofTigersInititivesPug
+ *        TOFTigers Initiative's Pug Standard. (Value:
+ *        "TOF_TIGERS_INITITIVES_PUG")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Travelife
+ *        Travelife Standard for Hotels & Accommodations. (Value: "TRAVELIFE")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_UnitedCertificationSystemsLimited
+ *        United Certification Systems Limited. (Value:
+ *        "UNITED_CERTIFICATION_SYSTEMS_LIMITED")
+ *    @arg @c kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_VireoSrl
+ *        Vireo Srl. (Value: "VIREO_SRL")
+ */
+@property(nonatomic, copy, nullable) NSString *ecoCertificate;
+
+@end
+
+
+/**
+ *  Energy efficiency practices implemented at the hotel.
+ */
+@interface GTLRMyBusinessLodging_EnergyEfficiency : GTLRObject
+
+/**
+ *  Carbon free energy sources. Property sources carbon-free electricity via at
+ *  least one of the following methods: on-site clean energy generation, power
+ *  purchase agreement(s) with clean energy generators, green power provided by
+ *  electricity supplier, or purchases of Energy Attribute Certificates (such as
+ *  Renewable Energy Certificates or Guarantees of Origin).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *carbonFreeEnergySources;
+
+/**
+ *  Carbon free energy sources exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *carbonFreeEnergySourcesException;
+
+/**
+ *  Energy conservation program. The property tracks corporate-level Scope 1 and
+ *  2 GHG emissions, and Scope 3 emissions if available. The property has a
+ *  commitment to implement initiatives that reduce GHG emissions year over
+ *  year. The property has shown an absolute reduction in emissions for at least
+ *  2 years. Emissions are either verfied by a third-party and/or published in
+ *  external communications.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *energyConservationProgram;
+
+/**
+ *  Energy conservation program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *energyConservationProgramException;
+
+/**
+ *  Energy efficient heating and cooling systems. The property doesn't use
+ *  chlorofluorocarbon (CFC)-based refrigerants in heating, ventilating, and
+ *  air-conditioning systems unless a third-party audit shows it's not
+ *  economically feasible. The CFC-based refrigerants which are used should have
+ *  a Global Warming Potential (GWP) ≤ 10. The property uses occupancy sensors
+ *  on HVAC systems in back-of-house spaces, meeting rooms, and other
+ *  low-traffic areas.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *energyEfficientHeatingAndCoolingSystems;
+
+/**
+ *  Energy efficient heating and cooling systems exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *energyEfficientHeatingAndCoolingSystemsException;
+
+/**
+ *  Energy efficient lighting. At least 75% of the property's lighting is energy
+ *  efficient, using lighting that is more than 45 lumens per watt – typically
+ *  LED or CFL lightbulbs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *energyEfficientLighting;
+
+/**
+ *  Energy efficient lighting exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *energyEfficientLightingException;
+
+/**
+ *  Energy saving thermostats. The property installed energy-saving thermostats
+ *  throughout the building to conserve energy when rooms or areas are not in
+ *  use. Energy-saving thermostats are devices that control heating/cooling in
+ *  the building by learning temperature preferences and automatically adjusting
+ *  to energy-saving temperatures as the default. The thermostats are
+ *  automatically set to a temperature between 68-78 degrees F (20-26 °C),
+ *  depending on seasonality. In the winter, set the thermostat to 68°F (20°C)
+ *  when the room is occupied, lowering room temperature when unoccupied. In the
+ *  summer, set the thermostat to 78°F (26°C) when the room is occupied.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *energySavingThermostats;
+
+/**
+ *  Energy saving thermostats exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *energySavingThermostatsException;
+
+/**
+ *  Output only. Green building design. True if BREEAM-* or LEED-* certified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *greenBuildingDesign;
+
+/**
+ *  Output only. Green building design exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *greenBuildingDesignException;
+
+/**
+ *  Independent organization audits energy use. The property conducts an energy
+ *  audit at least every 5 years, the results of which are either verified by a
+ *  third-party and/or published in external communications. An energy audit is
+ *  a detailed assessment of the facility which provides recommendations to
+ *  existing operations and procedures to improve energy efficiency, available
+ *  incentives or rebates,and opportunities for improvements through renovations
+ *  or upgrades. Examples of organizations that conduct credible third party
+ *  audits include: Engie Impact, DNV GL (EU), Dexma, and local utility
+ *  providers (they often provide energy and water audits).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *independentOrganizationAuditsEnergyUse;
+
+/**
+ *  Independent organization audits energy use exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *independentOrganizationAuditsEnergyUseException;
 
 @end
 
@@ -10650,6 +12404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessLodging_GuestUnitFeatures *someUnits;
 
+/** Sustainability practices implemented at the hotel. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_Sustainability *sustainability;
+
 /** Vehicles or vehicular services facilitated or owned by the property. */
 @property(nonatomic, strong, nullable) GTLRMyBusinessLodging_Transportation *transportation;
 
@@ -12678,6 +14435,357 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 
 
 /**
+ *  Sustainability practices implemented at the hotel.
+ */
+@interface GTLRMyBusinessLodging_Sustainability : GTLRObject
+
+/** Energy efficiency practices implemented at the hotel. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_EnergyEfficiency *energyEfficiency;
+
+/** Sustainability certifications the hotel has been awarded. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_SustainabilityCertifications *sustainabilityCertifications;
+
+/** Sustainable sourcing practices implemented at the hotel. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_SustainableSourcing *sustainableSourcing;
+
+/** Waste reduction practices implemented at the hotel. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_WasteReduction *wasteReduction;
+
+/** Water conservation practices implemented at the hotel. */
+@property(nonatomic, strong, nullable) GTLRMyBusinessLodging_WaterConservation *waterConservation;
+
+@end
+
+
+/**
+ *  Sustainability certifications the hotel has been awarded.
+ */
+@interface GTLRMyBusinessLodging_SustainabilityCertifications : GTLRObject
+
+/**
+ *  BREEAM certification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamCertificationUnspecified
+ *        Default BreeamCertification. Do not use. (Value:
+ *        "BREEAM_CERTIFICATION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamExcellent
+ *        BREEAM Excellent. (Value: "BREEAM_EXCELLENT")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamGood
+ *        BREEAM Good. (Value: "BREEAM_GOOD")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamOutstanding
+ *        BREEAM Outstanding. (Value: "BREEAM_OUTSTANDING")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamPass
+ *        BREEAM Pass. (Value: "BREEAM_PASS")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamVeryGood
+ *        BREEAM Very Good. (Value: "BREEAM_VERY_GOOD")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_NoBreeamCertification
+ *        Not certified. (Value: "NO_BREEAM_CERTIFICATION")
+ */
+@property(nonatomic, copy, nullable) NSString *breeamCertification;
+
+/**
+ *  BREEAM certification exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *breeamCertificationException;
+
+/** The eco certificates awarded to the hotel. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMyBusinessLodging_EcoCertification *> *ecoCertifications;
+
+/**
+ *  LEED certification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertificationUnspecified
+ *        Default LeedCertification. Do not use. (Value:
+ *        "LEED_CERTIFICATION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertified
+ *        LEED Certified. (Value: "LEED_CERTIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedGold
+ *        LEED Gold. (Value: "LEED_GOLD")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedPlatinum
+ *        LEED Platinum. (Value: "LEED_PLATINUM")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedSilver
+ *        LEED Silver. (Value: "LEED_SILVER")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_NoLeedCertification
+ *        Not certified. (Value: "NO_LEED_CERTIFICATION")
+ */
+@property(nonatomic, copy, nullable) NSString *leedCertification;
+
+/**
+ *  LEED certification exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *leedCertificationException;
+
+@end
+
+
+/**
+ *  Sustainable sourcing practices implemented at the hotel.
+ */
+@interface GTLRMyBusinessLodging_SustainableSourcing : GTLRObject
+
+/**
+ *  Eco friendly toiletries. Soap, shampoo, lotion, and other toiletries
+ *  provided for guests have a nationally or internationally recognized
+ *  sustainability certification, such as USDA Organic, EU Organic, or
+ *  cruelty-free.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ecoFriendlyToiletries;
+
+/**
+ *  Eco friendly toiletries exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *ecoFriendlyToiletriesException;
+
+/**
+ *  Locally sourced food and beverages. Property sources locally in order to
+ *  lower the environmental footprint from reduced transportation and to
+ *  stimulate the local economy. Products produced less than 62 miles from the
+ *  establishment are normally considered as locally produced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locallySourcedFoodAndBeverages;
+
+/**
+ *  Locally sourced food and beverages exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *locallySourcedFoodAndBeveragesException;
+
+/**
+ *  Organic cage free eggs. The property sources 100% certified organic and
+ *  cage-free eggs (shell, liquid, and egg products). Cage-free means hens are
+ *  able to walk, spread their wings and lay their eggs in nests).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organicCageFreeEggs;
+
+/**
+ *  Organic cage free eggs exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *organicCageFreeEggsException;
+
+/**
+ *  Organic food and beverages. At least 25% of food and beverages, by spend,
+ *  are certified organic. Organic means products that are certified to one of
+ *  the organic standard listed in the IFOAM family of standards. Qualifying
+ *  certifications include USDA Organic and EU Organic, among others.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organicFoodAndBeverages;
+
+/**
+ *  Organic food and beverages exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *organicFoodAndBeveragesException;
+
+/**
+ *  Responsible purchasing policy. The property has a responsible procurement
+ *  policy in place. Responsible means integration of social, ethical, and/or
+ *  environmental performance factors into the procurement process when
+ *  selecting suppliers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responsiblePurchasingPolicy;
+
+/**
+ *  Responsible purchasing policy exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *responsiblePurchasingPolicyException;
+
+/**
+ *  Responsibly sources seafood. The property does not source seafood from the
+ *  Monterey Bay Aquarium Seafood Watch "avoid" list, and must sustainably
+ *  source seafood listed as "good alternative," "eco-certified," and "best
+ *  choice". The property has a policy outlining a commitment to source Marine
+ *  Stewardship Council (MSC) and/or Aquaculture Stewardship Council (ASC) Chain
+ *  of Custody certified seafood.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *responsiblySourcesSeafood;
+
+/**
+ *  Responsibly sources seafood exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *responsiblySourcesSeafoodException;
+
+/**
+ *  Vegan meals. The property provides vegan menu options for guests. Vegan food
+ *  does not contain animal products or byproducts.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *veganMeals;
+
+/**
+ *  Vegan meals exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *veganMealsException;
+
+/**
+ *  Vegetarian meals. The property provides vegetarian menu options for guests.
+ *  Vegetarian food does not contain animal products.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vegetarianMeals;
+
+/**
+ *  Vegetarian meals exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *vegetarianMealsException;
+
+@end
+
+
+/**
  *  Represents a time of day. The date and time zone are either not significant
  *  or are specified elsewhere. An API may choose to allow leap seconds. Related
  *  types are google.type.Date and `google.protobuf.Timestamp`.
@@ -13145,6 +15253,649 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
  *        "UNDER_CONSTRUCTION")
  */
 @property(nonatomic, copy, nullable) NSString *valleyViewException;
+
+@end
+
+
+/**
+ *  Waste reduction practices implemented at the hotel.
+ */
+@interface GTLRMyBusinessLodging_WasteReduction : GTLRObject
+
+/**
+ *  Compostable food containers and cutlery. 100% of food service containers and
+ *  to-go cutlery are compostable, and reusable utensils are offered wherever
+ *  possible. Compostable materials are capable of undergoing biological
+ *  decomposition in a compost site, such that material is not visually
+ *  distinguishable and breaks down into carbon dioxide, water, inorganic
+ *  compounds, and biomass.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *compostableFoodContainersAndCutlery;
+
+/**
+ *  Compostable food containers and cutlery exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *compostableFoodContainersAndCutleryException;
+
+/**
+ *  Composts excess food. The property has a program and/or policy for diverting
+ *  waste from landfill by composting food and yard waste, either through
+ *  compost collection and off-site processing or on-site compost processing.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *compostsExcessFood;
+
+/**
+ *  Composts excess food exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *compostsExcessFoodException;
+
+/**
+ *  Donates excess food. The property has a program and/or policy for diverting
+ *  waste from landfill that may include efforts to donate for human consumption
+ *  or divert food for animal feed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *donatesExcessFood;
+
+/**
+ *  Donates excess food exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *donatesExcessFoodException;
+
+/**
+ *  Food waste reduction program. The property has established a food waste
+ *  reduction and donation program, aiming to reduce food waste by half. These
+ *  programs typically use tools such as the Hotel Kitchen Toolkit and others to
+ *  track waste and measure progress.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *foodWasteReductionProgram;
+
+/**
+ *  Food waste reduction program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *foodWasteReductionProgramException;
+
+/**
+ *  No single use plastic straws. The property bans single-use plastic straws.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noSingleUsePlasticStraws;
+
+/**
+ *  No single use plastic straws exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *noSingleUsePlasticStrawsException;
+
+/**
+ *  No single use plastic water bottles. The property bans single-use plastic
+ *  water bottles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noSingleUsePlasticWaterBottles;
+
+/**
+ *  No single use plastic water bottles exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *noSingleUsePlasticWaterBottlesException;
+
+/**
+ *  No styrofoam food containers. The property eliminates the use of Styrofoam
+ *  in disposable food service items.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noStyrofoamFoodContainers;
+
+/**
+ *  No styrofoam food containers exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *noStyrofoamFoodContainersException;
+
+/**
+ *  Recycling program. The property has a recycling program, aligned with LEED
+ *  waste requirements, and a policy outlining efforts to send less than 50% of
+ *  waste to landfill. The recycling program includes storage locations for
+ *  recyclable materials, including mixed paper, corrugated cardboard, glass,
+ *  plastics, and metals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recyclingProgram;
+
+/**
+ *  Recycling program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *recyclingProgramException;
+
+/**
+ *  Refillable toiletry containers. The property has replaced miniature
+ *  individual containers with refillable amenity dispensers for shampoo,
+ *  conditioner, soap, and lotion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refillableToiletryContainers;
+
+/**
+ *  Refillable toiletry containers exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *refillableToiletryContainersException;
+
+/**
+ *  Safely disposes batteries. The property safely stores and disposes
+ *  batteries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safelyDisposesBatteries;
+
+/**
+ *  Safely disposes batteries exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *safelyDisposesBatteriesException;
+
+/**
+ *  Safely disposes electronics. The property has a reputable recycling program
+ *  that keeps hazardous electronic parts and chemical compounds out of
+ *  landfills, dumps and other unauthorized abandonment sites, and
+ *  recycles/reuses applicable materials. (e.g. certified electronics
+ *  recyclers).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safelyDisposesElectronics;
+
+/**
+ *  Safely disposes electronics exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *safelyDisposesElectronicsException;
+
+/**
+ *  Safely disposes lightbulbs. The property safely stores and disposes
+ *  lightbulbs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safelyDisposesLightbulbs;
+
+/**
+ *  Safely disposes lightbulbs exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *safelyDisposesLightbulbsException;
+
+/**
+ *  Safely handles hazardous substances. The property has a hazardous waste
+ *  management program aligned wit GreenSeal and LEED requirements, and meets
+ *  all regulatory requirements for hazardous waste disposal and recycling.
+ *  Hazardous means substances that are classified as "hazardous" by an
+ *  authoritative body (such as OSHA or DOT), are labeled with signal words such
+ *  as "Danger," "Caution," "Warning," or are flammable, corrosive, or
+ *  ignitable. Requirements include: - The property shall maintain records of
+ *  the efforts it has made to replace the hazardous substances it uses with
+ *  less hazardous alternatives. - An inventory of the hazardous materials
+ *  stored on-site. - Products intended for cleaning, dishwashing, laundry, and
+ *  pool maintenance shall be stored in clearly labeled containers. These
+ *  containers shall be checked regularly for leaks, and replaced a necessary. -
+ *  Spill containment devices shall be installed to collect spills, drips, or
+ *  leaching of chemicals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *safelyHandlesHazardousSubstances;
+
+/**
+ *  Safely handles hazardous substances exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *safelyHandlesHazardousSubstancesException;
+
+/**
+ *  Soap donation program. The property participates in a soap donation program
+ *  such as Clean the World or something similar.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *soapDonationProgram;
+
+/**
+ *  Soap donation program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *soapDonationProgramException;
+
+/**
+ *  Toiletry donation program. The property participates in a toiletry donation
+ *  program such as Clean the World or something similar.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *toiletryDonationProgram;
+
+/**
+ *  Toiletry donation program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *toiletryDonationProgramException;
+
+/**
+ *  Water bottle filling stations. The property offers water stations throughout
+ *  the building for guest use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waterBottleFillingStations;
+
+/**
+ *  Water bottle filling stations exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *waterBottleFillingStationsException;
+
+@end
+
+
+/**
+ *  Water conservation practices implemented at the hotel.
+ */
+@interface GTLRMyBusinessLodging_WaterConservation : GTLRObject
+
+/**
+ *  Independent organization audits water use. The property conducts a water
+ *  conservation audit every 5 years, the results of which are either verified
+ *  by a third-party and/or published in external communications. A water
+ *  conservation audit is a detailed assessment of the facility, providing
+ *  recommendations to existing operations and procedures to improve water
+ *  efficiency, available incentives or rebates, and opportunities for
+ *  improvements through renovations or upgrades. Examples of organizations who
+ *  conduct credible third party audits include: Engie Impact, and local utility
+ *  providers (they often provide energy and water audits).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *independentOrganizationAuditsWaterUse;
+
+/**
+ *  Independent organization audits water use exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *independentOrganizationAuditsWaterUseException;
+
+/**
+ *  Linen reuse program. The property offers a linen reuse program.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *linenReuseProgram;
+
+/**
+ *  Linen reuse program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *linenReuseProgramException;
+
+/**
+ *  Towel reuse program. The property offers a towel reuse program.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *towelReuseProgram;
+
+/**
+ *  Towel reuse program exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *towelReuseProgramException;
+
+/**
+ *  Water saving showers. All of the property's guest rooms have shower heads
+ *  that use no more than 2.0 gallons per minute (gpm).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waterSavingShowers;
+
+/**
+ *  Water saving showers exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *waterSavingShowersException;
+
+/**
+ *  Water saving sinks. All of the property's guest rooms have bathroom faucets
+ *  that use a maximum of 1.5 gallons per minute (gpm), public restroom faucets
+ *  do not exceed 0.5 gpm, and kitchen faucets (excluding faucets used
+ *  exclusively for filling operations) do not exceed 2.2 gpm.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waterSavingSinks;
+
+/**
+ *  Water saving sinks exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *waterSavingSinksException;
+
+/**
+ *  Water saving toilets. All of the property's toilets use 1.6 gallons per
+ *  flush, or less.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *waterSavingToilets;
+
+/**
+ *  Water saving toilets exception.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnDayOfWeek
+ *        Amenity or service availability depends on the day of the week.
+ *        (Value: "DEPENDENT_ON_DAY_OF_WEEK")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnSeason
+ *        Amenity or service availability is seasonal. (Value:
+ *        "DEPENDENT_ON_SEASON")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_ExceptionUnspecified
+ *        Default unspecified exception. Use this only if a more specific
+ *        exception does not match. (Value: "EXCEPTION_UNSPECIFIED")
+ *    @arg @c kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_UnderConstruction
+ *        Amenity or service is unavailable due to ongoing work orders. (Value:
+ *        "UNDER_CONSTRUCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *waterSavingToiletsException;
 
 @end
 

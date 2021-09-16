@@ -4801,7 +4801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Redact */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RedactConfig *redactConfig;
 
-/** Replace */
+/** Replace with a specified value. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig *replaceConfig;
 
 /** Replace with infotype */

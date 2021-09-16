@@ -194,6 +194,46 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_ListReservationsResponse
+//
+
+@implementation GTLRPubsubLite_ListReservationsResponse
+@dynamic nextPageToken, reservations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservations" : [GTLRPubsubLite_Reservation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reservations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ListReservationTopicsResponse
+//
+
+@implementation GTLRPubsubLite_ListReservationTopicsResponse
+@dynamic nextPageToken, topics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topics" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_ListSubscriptionsResponse
 //
 
@@ -324,6 +364,26 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_Reservation
+//
+
+@implementation GTLRPubsubLite_Reservation
+@dynamic name, throughputCapacity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ReservationConfig
+//
+
+@implementation GTLRPubsubLite_ReservationConfig
+@dynamic throughputReservation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_RetentionConfig
 //
 
@@ -409,7 +469,7 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 //
 
 @implementation GTLRPubsubLite_Topic
-@dynamic name, partitionConfig, retentionConfig;
+@dynamic name, partitionConfig, reservationConfig, retentionConfig;
 @end
 
 

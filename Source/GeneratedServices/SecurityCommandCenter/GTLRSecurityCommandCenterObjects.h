@@ -27,6 +27,8 @@
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_Cve;
+@class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Expr;
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
@@ -50,6 +52,7 @@
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_Reference;
 @class GTLRSecurityCommandCenter_Resource;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
@@ -58,6 +61,7 @@
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
+@class GTLRSecurityCommandCenter_Vulnerability;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -121,6 +125,239 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.attackComplexity
+
+/**
+ *  A successful attack depends on conditions beyond the attacker's control.
+ *  That is, a successful attack cannot be accomplished at will, but requires
+ *  the attacker to invest in some measurable amount of effort in preparation or
+ *  execution against the vulnerable component before a successful attack can be
+ *  expected.
+ *
+ *  Value: "ATTACK_COMPLEXITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh;
+/**
+ *  Specialized access conditions or extenuating circumstances do not exist. An
+ *  attacker can expect repeatable success when attacking the vulnerable
+ *  component.
+ *
+ *  Value: "ATTACK_COMPLEXITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.attackVector
+
+/**
+ *  The vulnerable component is bound to the network stack, but the attack is
+ *  limited at the protocol level to a logically adjacent topology.
+ *
+ *  Value: "ATTACK_VECTOR_ADJACENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorAdjacent;
+/**
+ *  The vulnerable component is not bound to the network stack and the
+ *  attacker's path is via read/write/execute capabilities.
+ *
+ *  Value: "ATTACK_VECTOR_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorLocal;
+/**
+ *  The vulnerable component is bound to the network stack and the set of
+ *  possible attackers extends beyond the other options listed below, up to and
+ *  including the entire Internet.
+ *
+ *  Value: "ATTACK_VECTOR_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorNetwork;
+/**
+ *  The attack requires the attacker to physically touch or manipulate the
+ *  vulnerable component.
+ *
+ *  Value: "ATTACK_VECTOR_PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorPhysical;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_VECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.availabilityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.confidentialityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.integrityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.privilegesRequired
+
+/**
+ *  The attacker requires privileges that provide significant (e.g.,
+ *  administrative) control over the vulnerable component allowing access to
+ *  component-wide settings and files.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredHigh;
+/**
+ *  The attacker requires privileges that provide basic user capabilities that
+ *  could normally affect only settings and files owned by a user.
+ *  Alternatively, an attacker with Low privileges has the ability to access
+ *  only non-sensitive resources.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredLow;
+/**
+ *  The attacker is unauthorized prior to attack, and therefore does not require
+ *  any access to settings or files of the vulnerable system to carry out an
+ *  attack.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.scope
+
+/**
+ *  An exploited vulnerability can affect resources beyond the security scope
+ *  managed by the security authority of the vulnerable component.
+ *
+ *  Value: "SCOPE_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeChanged;
+/**
+ *  An exploited vulnerability can only affect resources managed by the same
+ *  security authority.
+ *
+ *  Value: "SCOPE_UNCHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnchanged;
+/**
+ *  Invalid value.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.userInteraction
+
+/**
+ *  The vulnerable system can be exploited without interaction from any user.
+ *
+ *  Value: "USER_INTERACTION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionNone;
+/**
+ *  Successful exploitation of this vulnerability requires a user to take some
+ *  action before the vulnerability can be exploited.
+ *
+ *  Value: "USER_INTERACTION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired;
+/**
+ *  Invalid value.
+ *
+ *  Value: "USER_INTERACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.findingClass
@@ -707,6 +944,205 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  CVE stands for Common Vulnerabilities and Exposures. More information:
+ *  https://cve.mitre.org
+ */
+@interface GTLRSecurityCommandCenter_Cve : GTLRObject
+
+/**
+ *  Describe Common Vulnerability Scoring System specified at
+ *  https://www.first.org/cvss/v3.1/specification-document
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cvssv3 *cvssv3;
+
+/**
+ *  The unique identifier for the vulnerability. e.g. CVE-2021-34527
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Additional information about the CVE. e.g.
+ *  https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Reference *> *references;
+
+@end
+
+
+/**
+ *  Common Vulnerability Scoring System version 3.
+ */
+@interface GTLRSecurityCommandCenter_Cvssv3 : GTLRObject
+
+/**
+ *  This metric describes the conditions beyond the attacker's control that must
+ *  exist in order to exploit the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh
+ *        A successful attack depends on conditions beyond the attacker's
+ *        control. That is, a successful attack cannot be accomplished at will,
+ *        but requires the attacker to invest in some measurable amount of
+ *        effort in preparation or execution against the vulnerable component
+ *        before a successful attack can be expected. (Value:
+ *        "ATTACK_COMPLEXITY_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow
+ *        Specialized access conditions or extenuating circumstances do not
+ *        exist. An attacker can expect repeatable success when attacking the
+ *        vulnerable component. (Value: "ATTACK_COMPLEXITY_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityUnspecified
+ *        Invalid value. (Value: "ATTACK_COMPLEXITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackComplexity;
+
+/**
+ *  Base Metrics Represents the intrinsic characteristics of a vulnerability
+ *  that are constant over time and across user environments. This metric
+ *  reflects the context by which vulnerability exploitation is possible.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorAdjacent
+ *        The vulnerable component is bound to the network stack, but the attack
+ *        is limited at the protocol level to a logically adjacent topology.
+ *        (Value: "ATTACK_VECTOR_ADJACENT")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorLocal
+ *        The vulnerable component is not bound to the network stack and the
+ *        attacker's path is via read/write/execute capabilities. (Value:
+ *        "ATTACK_VECTOR_LOCAL")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorNetwork
+ *        The vulnerable component is bound to the network stack and the set of
+ *        possible attackers extends beyond the other options listed below, up
+ *        to and including the entire Internet. (Value: "ATTACK_VECTOR_NETWORK")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorPhysical
+ *        The attack requires the attacker to physically touch or manipulate the
+ *        vulnerable component. (Value: "ATTACK_VECTOR_PHYSICAL")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorUnspecified
+ *        Invalid value. (Value: "ATTACK_VECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackVector;
+
+/**
+ *  This metric measures the impact to the availability of the impacted
+ *  component resulting from a successfully exploited vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactHigh
+ *        High impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactLow Low
+ *        impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactNone No
+ *        impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityImpact;
+
+/**
+ *  The base score is a function of the base metric scores.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseScore;
+
+/**
+ *  This metric measures the impact to the confidentiality of the information
+ *  resources managed by a software component due to a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactHigh
+ *        High impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactLow
+ *        Low impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactNone
+ *        No impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialityImpact;
+
+/**
+ *  This metric measures the impact to integrity of a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactHigh High
+ *        impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactLow Low
+ *        impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactNone No
+ *        impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *integrityImpact;
+
+/**
+ *  This metric describes the level of privileges an attacker must possess
+ *  before successfully exploiting the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredHigh
+ *        The attacker requires privileges that provide significant (e.g.,
+ *        administrative) control over the vulnerable component allowing access
+ *        to component-wide settings and files. (Value:
+ *        "PRIVILEGES_REQUIRED_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredLow
+ *        The attacker requires privileges that provide basic user capabilities
+ *        that could normally affect only settings and files owned by a user.
+ *        Alternatively, an attacker with Low privileges has the ability to
+ *        access only non-sensitive resources. (Value:
+ *        "PRIVILEGES_REQUIRED_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredNone
+ *        The attacker is unauthorized prior to attack, and therefore does not
+ *        require any access to settings or files of the vulnerable system to
+ *        carry out an attack. (Value: "PRIVILEGES_REQUIRED_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredUnspecified
+ *        Invalid value. (Value: "PRIVILEGES_REQUIRED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privilegesRequired;
+
+/**
+ *  The Scope metric captures whether a vulnerability in one vulnerable
+ *  component impacts resources in components beyond its security scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeChanged An exploited
+ *        vulnerability can affect resources beyond the security scope managed
+ *        by the security authority of the vulnerable component. (Value:
+ *        "SCOPE_CHANGED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnchanged An
+ *        exploited vulnerability can only affect resources managed by the same
+ *        security authority. (Value: "SCOPE_UNCHANGED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnspecified Invalid
+ *        value. (Value: "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  This metric captures the requirement for a human user, other than the
+ *  attacker, to participate in the successful compromise of the vulnerable
+ *  component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionNone
+ *        The vulnerable system can be exploited without interaction from any
+ *        user. (Value: "USER_INTERACTION_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired
+ *        Successful exploitation of this vulnerability requires a user to take
+ *        some action before the vulnerability can be exploited. (Value:
+ *        "USER_INTERACTION_REQUIRED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified
+ *        Invalid value. (Value: "USER_INTERACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInteraction;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -943,6 +1379,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Represents vulnerability specific fields like cve, cvss scores etc. CVE
+ *  stands for Common Vulnerabilities and Exposures
+ *  (https://cve.mitre.org/about/)
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Vulnerability *vulnerability;
 
 @end
 
@@ -2213,6 +2656,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Additional Links
+ */
+@interface GTLRSecurityCommandCenter_Reference : GTLRObject
+
+/** Source of the reference e.g. NVD */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Uri for the mentioned source e.g.
+ *  https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Information related to the Google Cloud resource that is associated with
  *  this finding.
  */
@@ -2553,6 +3013,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Refers to common vulnerability fields e.g. cve, cvss, cwe etc.
+ */
+@interface GTLRSecurityCommandCenter_Vulnerability : GTLRObject
+
+/**
+ *  CVE stands for Common Vulnerabilities and Exposures
+ *  (https://cve.mitre.org/about/)
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cve *cve;
 
 @end
 
