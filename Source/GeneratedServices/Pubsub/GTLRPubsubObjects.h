@@ -680,7 +680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1151,7 +1151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  successfully consuming messages from the subscription or is issuing
  *  operations on the subscription. If `expiration_policy` is not set, a
  *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
- *  value for `expiration_policy.ttl` is 1 day.
+ *  value for `expiration_policy.ttl` is 1 day. If `expiration_policy` is set,
+ *  but `expiration_policy.ttl` is not set, the subscription never expires.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_ExpirationPolicy *expirationPolicy;
 

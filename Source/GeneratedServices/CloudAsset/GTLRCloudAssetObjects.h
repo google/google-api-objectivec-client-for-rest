@@ -29,6 +29,7 @@
 @class GTLRCloudAsset_Binding;
 @class GTLRCloudAsset_ConditionContext;
 @class GTLRCloudAsset_ConditionEvaluation;
+@class GTLRCloudAsset_Date;
 @class GTLRCloudAsset_Explanation;
 @class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
@@ -95,12 +96,15 @@
 @class GTLRCloudAsset_PubsubDestination;
 @class GTLRCloudAsset_RelatedAsset;
 @class GTLRCloudAsset_RelatedAssets;
+@class GTLRCloudAsset_RelatedResource;
+@class GTLRCloudAsset_RelatedResources;
 @class GTLRCloudAsset_RelationshipAttributes;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
 @class GTLRCloudAsset_ResourceSearchResult;
 @class GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes;
 @class GTLRCloudAsset_ResourceSearchResult_Labels;
+@class GTLRCloudAsset_ResourceSearchResult_Relationships;
 @class GTLRCloudAsset_ResourceSelector;
 @class GTLRCloudAsset_SoftwarePackage;
 @class GTLRCloudAsset_Status;
@@ -110,6 +114,7 @@
 @class GTLRCloudAsset_VersionedPackage;
 @class GTLRCloudAsset_VersionedResource;
 @class GTLRCloudAsset_VersionedResource_Resource;
+@class GTLRCloudAsset_WindowsApplication;
 @class GTLRCloudAsset_WindowsQuickFixEngineeringPackage;
 @class GTLRCloudAsset_WindowsUpdateCategory;
 @class GTLRCloudAsset_WindowsUpdatePackage;
@@ -1269,6 +1274,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  be unique under a specific parent project/folder/organization.
  */
 @property(nonatomic, copy, nullable) NSString *feedId;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLRCloudAsset_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -3735,8 +3780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_OutputConfig : GTLRObject
 
 /**
- *  Destination on BigQuery. The output table stores the fields in asset proto
- *  as columns in BigQuery.
+ *  Destination on BigQuery. The output table stores the fields in asset
+ *  Protobuf as columns in BigQuery.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_BigQueryDestination *bigqueryDestination;
 
@@ -3887,7 +3932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  An asset identify in Google Cloud which contains its name, type and
+ *  An asset identifier in Google Cloud which contains its name, type and
  *  ancestors. An asset can be any resource in the Google Cloud [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
@@ -3937,6 +3982,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** The detailed relationship attributes. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_RelationshipAttributes *relationshipAttributes;
+
+@end
+
+
+/**
+ *  The detailed related resource.
+ */
+@interface GTLRCloudAsset_RelatedResource : GTLRObject
+
+/** The type of the asset. Example: `compute.googleapis.com/Instance` */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  The full resource name of the related resource. Example:
+ *  `//compute.googleapis.com/projects/my_proj_123/zones/instance/instance123`
+ */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+@end
+
+
+/**
+ *  The related resources of the primary resource.
+ */
+@interface GTLRCloudAsset_RelatedResources : GTLRObject
+
+/** The detailed related resources of the primary resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_RelatedResource *> *relatedResources;
 
 @end
 
@@ -4078,9 +4151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The create timestamp of this resource, at which the resource was created.
  *  The granularity is in seconds. Timestamp.nanos will always be 0. This field
- *  is available only when the resource's proto contains it. To search against
- *  `create_time`: * use a field query. - value in seconds since unix epoch.
- *  Example: `createTime > 1609459200` - value in date string. Example:
+ *  is available only when the resource's Protobuf contains it. To search
+ *  against `create_time`: * use a field query. - value in seconds since unix
+ *  epoch. Example: `createTime > 1609459200` - value in date string. Example:
  *  `createTime > 2021-01-01` - value in date-time string (must be quoted).
  *  Example: `createTime > "2021-01-01T00:00:00"`
  */
@@ -4089,8 +4162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  One or more paragraphs of text description of this resource. Maximum length
  *  could be up to 1M bytes. This field is available only when the resource's
- *  proto contains it. To search against the `description`: * use a field query.
- *  Example: `description:"important instance"` * use a free text query.
+ *  Protobuf contains it. To search against the `description`: * use a field
+ *  query. Example: `description:"important instance"` * use a free text query.
  *  Example: `"important instance"`
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -4099,8 +4172,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The display name of this resource. This field is available only when the
- *  resource's proto contains it. To search against the `display_name`: * use a
- *  field query. Example: `displayName:"My Instance"` * use a free text query.
+ *  resource's Protobuf contains it. To search against the `display_name`: * use
+ *  a field query. Example: `displayName:"My Instance"` * use a free text query.
  *  Example: `"My Instance"`
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -4116,29 +4189,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The Cloud KMS
- *  [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys?hl=en)
+ *  [CryptoKey](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys)
  *  name or
- *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions?hl=en)
- *  name. This field is available only when the resource's proto contains it. To
- *  search against the `kms_key`: * use a field query. Example: `kmsKey:key` *
- *  use a free text query. Example: `key`
+ *  [CryptoKeyVersion](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys.cryptoKeyVersions)
+ *  name. This field is available only when the resource's Protobuf contains it.
+ *  To search against the `kms_key`: * use a field query. Example: `kmsKey:key`
+ *  * use a free text query. Example: `key`
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
 /**
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information. This field is available only when the resource's proto
- *  contains it. To search against the `labels`: * use a field query: - query on
- *  any label's key or value. Example: `labels:prod` - query by a given label.
- *  Example: `labels.env:prod` - query by a given label's existence. Example:
- *  `labels.env:*` * use a free text query. Example: `prod`
+ *  for more information. This field is available only when the resource's
+ *  Protobuf contains it. To search against the `labels`: * use a field query: -
+ *  query on any label's key or value. Example: `labels:prod` - query by a given
+ *  label. Example: `labels.env:prod` - query by a given label's existence.
+ *  Example: `labels.env:*` * use a free text query. Example: `prod`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Labels *labels;
 
 /**
  *  Location can be `global`, regional like `us-east1`, or zonal like
- *  `us-west1-b`. This field is available only when the resource's proto
+ *  `us-west1-b`. This field is available only when the resource's Protobuf
  *  contains it. To search against the `location`: * use a field query. Example:
  *  `location:us-west*` * use a free text query. Example: `us-west*`
  */
@@ -4158,9 +4231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Network tags associated with this resource. Like labels, network tags are a
  *  type of annotations used to group GCP resources. See [Labelling GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information. This field is available only when the resource's proto
- *  contains it. To search against the `network_tags`: * use a field query.
- *  Example: `networkTags:internal` * use a free text query. Example: `internal`
+ *  for more information. This field is available only when the resource's
+ *  Protobuf contains it. To search against the `network_tags`: * use a field
+ *  query. Example: `networkTags:internal` * use a free text query. Example:
+ *  `internal`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
 
@@ -4200,12 +4274,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  A map of related resources of this resource, keyed by the relationship type.
+ *  A relationship type is in the format of {SourceType}_{ACTION}_{DestType}.
+ *  Example: `DISK_TO_INSTANCE`, `DISK_TO_NETWORK`, `INSTANCE_TO_INSTANCEGROUP`.
+ *  See [supported relationship
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#supported_relationship_types).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Relationships *relationships;
+
+/**
  *  The state of this resource. Different resources types have different state
  *  definitions that are mapped from various fields of different resource types.
- *  This field is available only when the resource's proto contains it. Example:
- *  If the resource is an instance provided by Compute Engine, its state will
- *  include PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED,
- *  REPAIRING, and TERMINATED. See `status` definition in [API
+ *  This field is available only when the resource's Protobuf contains it.
+ *  Example: If the resource is an instance provided by Compute Engine, its
+ *  state will include PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING,
+ *  SUSPENDED, REPAIRING, and TERMINATED. See `status` definition in [API
  *  Reference](https://cloud.google.com/compute/docs/reference/rest/v1/instances).
  *  If the resource is a project provided by Cloud Resource Manager, its state
  *  will include LIFECYCLE_STATE_UNSPECIFIED, ACTIVE, DELETE_REQUESTED and
@@ -4219,11 +4302,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The last update timestamp of this resource, at which the resource was last
  *  modified or deleted. The granularity is in seconds. Timestamp.nanos will
- *  always be 0. This field is available only when the resource's proto contains
- *  it. To search against `update_time`: * use a field query. - value in seconds
- *  since unix epoch. Example: `updateTime < 1609459200` - value in date string.
- *  Example: `updateTime < 2021-01-01` - value in date-time string (must be
- *  quoted). Example: `updateTime < "2021-01-01T00:00:00"`
+ *  always be 0. This field is available only when the resource's Protobuf
+ *  contains it. To search against `update_time`: * use a field query. - value
+ *  in seconds since unix epoch. Example: `updateTime < 1609459200` - value in
+ *  date string. Example: `updateTime < 2021-01-01` - value in date-time string
+ *  (must be quoted). Example: `updateTime < "2021-01-01T00:00:00"`
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -4267,11 +4350,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information. This field is available only when the resource's proto
- *  contains it. To search against the `labels`: * use a field query: - query on
- *  any label's key or value. Example: `labels:prod` - query by a given label.
- *  Example: `labels.env:prod` - query by a given label's existence. Example:
- *  `labels.env:*` * use a free text query. Example: `prod`
+ *  for more information. This field is available only when the resource's
+ *  Protobuf contains it. To search against the `labels`: * use a field query: -
+ *  query on any label's key or value. Example: `labels:prod` - query by a given
+ *  label. Example: `labels.env:prod` - query by a given label's existence.
+ *  Example: `labels.env:*` * use a free text query. Example: `prod`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4279,6 +4362,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        fetch them all at once.
  */
 @interface GTLRCloudAsset_ResourceSearchResult_Labels : GTLRObject
+@end
+
+
+/**
+ *  A map of related resources of this resource, keyed by the relationship type.
+ *  A relationship type is in the format of {SourceType}_{ACTION}_{DestType}.
+ *  Example: `DISK_TO_INSTANCE`, `DISK_TO_NETWORK`, `INSTANCE_TO_INSTANCEGROUP`.
+ *  See [supported relationship
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#supported_relationship_types).
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudAsset_RelatedResources. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_ResourceSearchResult_Relationships : GTLRObject
 @end
 
 
@@ -4384,6 +4483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  for info in Windows Quick Fix Engineering.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_WindowsQuickFixEngineeringPackage *qfePackage;
+
+/** Details of Windows Application. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_WindowsApplication *windowsApplication;
 
 /**
  *  Details of a Windows Update package. See
@@ -4607,6 +4709,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudAsset_VersionedResource_Resource : GTLRObject
+@end
+
+
+/**
+ *  Contains information about a Windows application as retrieved from the
+ *  Windows Registry. For more information about these fields, see [Windows
+ *  Installer Properties for the Uninstall
+ *  Registry](https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key){:
+ *  class="external" }
+ */
+@interface GTLRCloudAsset_WindowsApplication : GTLRObject
+
+/** The name of the application or product. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The version of the product or application in string format. */
+@property(nonatomic, copy, nullable) NSString *displayVersion;
+
+/** The internet address for technical support. */
+@property(nonatomic, copy, nullable) NSString *helpLink;
+
+/**
+ *  The last time this product received service. The value of this property is
+ *  replaced each time a patch is applied or removed from the product or the
+ *  command-line option is used to repair the product.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Date *installDate;
+
+/** The name of the manufacturer for the product or application. */
+@property(nonatomic, copy, nullable) NSString *publisher;
+
 @end
 
 

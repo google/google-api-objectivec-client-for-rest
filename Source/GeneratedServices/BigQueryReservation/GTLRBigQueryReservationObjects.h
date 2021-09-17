@@ -208,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
 
 /**
- *  A Assignment allows a project to submit jobs of a certain type using slots
+ *  An assignment allows a project to submit jobs of a certain type using slots
  *  from the specified reservation.
  */
 @interface GTLRBigQueryReservation_Assignment : GTLRObject
@@ -544,7 +544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  If false, any query or pipeline job using this reservation will use idle
  *  slots from other reservations within the same admin project. If true, a
  *  query or pipeline job using this reservation will execute with the slot
- *  capacity specified above at most.
+ *  capacity specified in the slot_capacity field at most.
  *
  *  Uses NSNumber of boolValue.
  */

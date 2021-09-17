@@ -144,6 +144,42 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_CreateGroupMetadata
+//
+
+@implementation GTLRCloudIdentity_CreateGroupMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_CreateMembershipMetadata
+//
+
+@implementation GTLRCloudIdentity_CreateMembershipMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DeleteGroupMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteGroupMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DeleteMembershipMetadata
+//
+
+@implementation GTLRCloudIdentity_DeleteMembershipMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_DynamicGroupMetadata
 //
 
@@ -211,6 +247,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GetMembershipGraphMetadata
+//
+
+@implementation GTLRCloudIdentity_GetMembershipGraphMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GetMembershipGraphResponse
 //
 
@@ -241,6 +286,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest
 //
 
@@ -256,6 +310,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserResponse
 @dynamic deviceUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserMetadata
 @end
 
 
@@ -281,6 +344,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest
 //
 
@@ -296,6 +368,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceResponse
 @dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserMetadata
 @end
 
 
@@ -358,11 +439,38 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CreateDeviceMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CreateDeviceMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue
 @dynamic boolValue, numberValue, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeleteDeviceUserMetadata
 @end
 
 
@@ -471,6 +579,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListEndpointAppsMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListEndpointAppsMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1LookupSelfDeviceUsersResponse
 //
 
@@ -484,6 +601,42 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1SignoutDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1SignoutDeviceUserMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateClientStateMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateClientStateMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateDeviceMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1UpdateDeviceMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceMetadata
 @end
 
 
@@ -504,6 +657,15 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceResponse
 @dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserMetadata
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserMetadata
 @end
 
 
@@ -891,6 +1053,24 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_TransitiveMembershipRole
 @dynamic role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UpdateGroupMetadata
+//
+
+@implementation GTLRCloudIdentity_UpdateGroupMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UpdateMembershipMetadata
+//
+
+@implementation GTLRCloudIdentity_UpdateMembershipMetadata
 @end
 
 

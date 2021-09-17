@@ -365,7 +365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, copy, nullable) NSString *inputConstraint;
 
 /**
- *  Output only. If the field has a set of know values, this field will provide
+ *  Output only. If the field has a set of known values, this field will provide
  *  a description for these values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription *> *knownValueDescriptions;

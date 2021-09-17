@@ -131,8 +131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}`, where device_id is the unique ID assigned to
- *  the Device.
+ *  format: `devices/{device}`, where device is the unique ID assigned to the
+ *  Device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -152,8 +152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    to include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}`, where device_id is the unique ID
- *    assigned to the Device.
+ *    in format: `devices/{device}`, where device is the unique ID assigned to
+ *    the Device.
  *
  *  @return GTLRCloudIdentityQuery_DevicesCancelWipe
  */
@@ -177,8 +177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -212,16 +212,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}`, where device_id is the unique ID assigned to
- *  the Device.
+ *  format: `devices/{device}`, where device is the unique ID assigned to the
+ *  Device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -232,8 +232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}`, where device_id is the unique ID
- *    assigned to the Device.
+ *    in format: `devices/{device}`, where device is the unique ID assigned to
+ *    the Device.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDelete
  */
@@ -251,9 +251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -267,9 +267,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    to include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersApprove
  */
@@ -288,9 +288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -304,9 +304,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    to include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersBlock
  */
@@ -327,9 +327,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -345,9 +345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    to include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe
  */
@@ -368,8 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -377,18 +377,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  ClientState in format:
- *  `devices/{device_id}/deviceUsers/{device_user_id}/clientStates/{partner_id}`,
- *  where `device_id` is the unique ID assigned to the Device, `device_user_id`
- *  is the unique ID assigned to the User and `partner_id` identifies the
- *  partner storing the data. To get the client state for devices belonging to
- *  your own organization, the `partnerId` is in the format:
- *  `customerId-*anystring*`. Where the `customerId` is your organization's
- *  customer ID and `anystring` is any suffix. This suffix is used in setting up
- *  Custom Access Levels in Context-Aware Access. You may use `my_customer`
- *  instead of the customer ID for devices managed by your own organization. You
- *  may specify `-` in place of the `{device_id}`, so the ClientState resource
- *  name can be:
- *  `devices/-/deviceUsers/{device_user_resource_id}/clientStates/{partner_id}`.
+ *  `devices/{device}/deviceUsers/{device_user}/clientStates/{partner}`, where
+ *  `device` is the unique ID assigned to the Device, `device_user` is the
+ *  unique ID assigned to the User and `partner` identifies the partner storing
+ *  the data. To get the client state for devices belonging to your own
+ *  organization, the `partnerId` is in the format: `customerId-*anystring*`.
+ *  Where the `customerId` is your organization's customer ID and `anystring` is
+ *  any suffix. This suffix is used in setting up Custom Access Levels in
+ *  Context-Aware Access. You may use `my_customer` instead of the customer ID
+ *  for devices managed by your own organization. You may specify `-` in place
+ *  of the `{device}`, so the ClientState resource name can be:
+ *  `devices/-/deviceUsers/{device_user_resource}/clientStates/{partner}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -400,18 +399,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    ClientState in format:
- *    `devices/{device_id}/deviceUsers/{device_user_id}/clientStates/{partner_id}`,
- *    where `device_id` is the unique ID assigned to the Device,
- *    `device_user_id` is the unique ID assigned to the User and `partner_id`
- *    identifies the partner storing the data. To get the client state for
- *    devices belonging to your own organization, the `partnerId` is in the
- *    format: `customerId-*anystring*`. Where the `customerId` is your
- *    organization's customer ID and `anystring` is any suffix. This suffix is
- *    used in setting up Custom Access Levels in Context-Aware Access. You may
- *    use `my_customer` instead of the customer ID for devices managed by your
- *    own organization. You may specify `-` in place of the `{device_id}`, so
- *    the ClientState resource name can be:
- *    `devices/-/deviceUsers/{device_user_resource_id}/clientStates/{partner_id}`.
+ *    `devices/{device}/deviceUsers/{device_user}/clientStates/{partner}`, where
+ *    `device` is the unique ID assigned to the Device, `device_user` is the
+ *    unique ID assigned to the User and `partner` identifies the partner
+ *    storing the data. To get the client state for devices belonging to your
+ *    own organization, the `partnerId` is in the format:
+ *    `customerId-*anystring*`. Where the `customerId` is your organization's
+ *    customer ID and `anystring` is any suffix. This suffix is used in setting
+ *    up Custom Access Levels in Context-Aware Access. You may use `my_customer`
+ *    instead of the customer ID for devices managed by your own organization.
+ *    You may specify `-` in place of the `{device}`, so the ClientState
+ *    resource name can be:
+ *    `devices/-/deviceUsers/{device_user_resource}/clientStates/{partner}`.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet
  */
@@ -431,8 +430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -493,8 +492,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -502,15 +501,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  ClientState in format:
- *  `devices/{device_id}/deviceUsers/{device_user_id}/clientState/{partner_id}`,
- *  where partner_id corresponds to the partner storing the data. For partners
- *  belonging to the "BeyondCorp Alliance", this is the partner ID specified to
- *  you by Google. For all other callers, this is a string of the form:
- *  `{customer_id}-suffix`, where `customer_id` is your customer ID. The
- *  *suffix* is any string the caller specifies. This string will be displayed
- *  verbatim in the administration console. This suffix is used in setting up
- *  Custom Access Levels in Context-Aware Access. Your organization's customer
- *  ID can be obtained from the URL: `GET
+ *  `devices/{device}/deviceUsers/{device_user}/clientState/{partner}`, where
+ *  partner corresponds to the partner storing the data. For partners belonging
+ *  to the "BeyondCorp Alliance", this is the partner ID specified to you by
+ *  Google. For all other callers, this is a string of the form:
+ *  `{customer}-suffix`, where `customer` is your customer ID. The *suffix* is
+ *  any string the caller specifies. This string will be displayed verbatim in
+ *  the administration console. This suffix is used in setting up Custom Access
+ *  Levels in Context-Aware Access. Your organization's customer ID can be
+ *  obtained from the URL: `GET
  *  https://www.googleapis.com/admin/directory/v1/customers/my_customer` The
  *  `id` field in the response contains the customer ID starting with the letter
  *  'C'. The customer ID to be used in this API is the string after the letter
@@ -540,15 +539,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param name Output only. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    ClientState in format:
- *    `devices/{device_id}/deviceUsers/{device_user_id}/clientState/{partner_id}`,
- *    where partner_id corresponds to the partner storing the data. For partners
+ *    `devices/{device}/deviceUsers/{device_user}/clientState/{partner}`, where
+ *    partner corresponds to the partner storing the data. For partners
  *    belonging to the "BeyondCorp Alliance", this is the partner ID specified
  *    to you by Google. For all other callers, this is a string of the form:
- *    `{customer_id}-suffix`, where `customer_id` is your customer ID. The
- *    *suffix* is any string the caller specifies. This string will be displayed
- *    verbatim in the administration console. This suffix is used in setting up
- *    Custom Access Levels in Context-Aware Access. Your organization's customer
- *    ID can be obtained from the URL: `GET
+ *    `{customer}-suffix`, where `customer` is your customer ID. The *suffix* is
+ *    any string the caller specifies. This string will be displayed verbatim in
+ *    the administration console. This suffix is used in setting up Custom
+ *    Access Levels in Context-Aware Access. Your organization's customer ID can
+ *    be obtained from the URL: `GET
  *    https://www.googleapis.com/admin/directory/v1/customers/my_customer` The
  *    `id` field in the response contains the customer ID starting with the
  *    letter 'C'. The customer ID to be used in this API is the string after the
@@ -574,17 +573,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -596,9 +595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersDelete
  */
@@ -618,17 +617,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -639,9 +638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersGet
  */
@@ -661,8 +660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
- *  organization, use `customers/{customer_id}`, where customer_id is the
- *  customer to whom the device belongs.
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -823,9 +822,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -845,9 +844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersWipe
  */
@@ -866,19 +865,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Customer
- *  in the format: `customers/{customer_id}`, where customer_id is the customer
- *  to whom the device belongs. If you're using this API for your own
- *  organization, use `customers/my_customer`. If you're using this API to
- *  manage another organization, use `customers/{customer_id}`, where
- *  customer_id is the customer to whom the device belongs.
+ *  in the format: `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs. If you're using this API for your own organization,
+ *  use `customers/my_customer`. If you're using this API to manage another
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  the format: `devices/{device_id}`, where device_id is the unique ID assigned
- *  to the Device.
+ *  the format: `devices/{device}`, where device is the unique ID assigned to
+ *  the Device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -889,8 +888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in the format: `devices/{device_id}`, where device_id is the unique ID
- *    assigned to the Device.
+ *    in the format: `devices/{device}`, where device is the unique ID assigned
+ *    to the Device.
  *
  *  @return GTLRCloudIdentityQuery_DevicesGet
  */
@@ -908,11 +907,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer
- *  in the format: `customers/{customer_id}`, where customer_id is the customer
- *  to whom the device belongs. If you're using this API for your own
- *  organization, use `customers/my_customer`. If you're using this API to
- *  manage another organization, use `customers/{customer_id}`, where
- *  customer_id is the customer to whom the device belongs.
+ *  in the format: `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs. If you're using this API for your own organization,
+ *  use `customers/my_customer`. If you're using this API to manage another
+ *  organization, use `customers/{customer}`, where customer is the customer to
+ *  whom the device belongs.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -991,9 +990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Device in
- *  format: `devices/{device_id}/deviceUsers/{device_user_id}`, where device_id
- *  is the unique ID assigned to the Device, and device_user_id is the unique ID
- *  assigned to the User.
+ *  format: `devices/{device}/deviceUsers/{device_user}`, where device is the
+ *  unique ID assigned to the Device, and device_user is the unique ID assigned
+ *  to the User.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1007,9 +1006,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    include in the query.
  *  @param name Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the Device
- *    in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
- *    device_id is the unique ID assigned to the Device, and device_user_id is
- *    the unique ID assigned to the User.
+ *    in format: `devices/{device}/deviceUsers/{device_user}`, where device is
+ *    the unique ID assigned to the Device, and device_user is the unique ID
+ *    assigned to the User.
  *
  *  @return GTLRCloudIdentityQuery_DevicesWipe
  */
@@ -1072,7 +1071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the `Group` to
- *  retrieve. Must be of the form `groups/{group_id}`.
+ *  retrieve. Must be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1083,7 +1082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the `Group`
- *    to retrieve. Must be of the form `groups/{group_id}`.
+ *    to retrieve. Must be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsDelete
  */
@@ -1106,7 +1105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the `Group` to
- *  retrieve. Must be of the form `groups/{group_id}`.
+ *  retrieve. Must be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1117,7 +1116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param name Required. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the `Group`
- *    to retrieve. Must be of the form `groups/{group_id}`.
+ *    to retrieve. Must be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsGet
  */
@@ -1154,9 +1153,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Required. The parent resource under which to list all `Group` resources.
- *  Must be of the form `identitysources/{identity_source_id}` for external-
- *  identity-mapped groups or `customers/{customer_id}` for Google Groups. The
- *  `customer_id` must begin with "C" (for example, 'C046psxkn').
+ *  Must be of the form `identitysources/{identity_source}` for external-
+ *  identity-mapped groups or `customers/{customer}` for Google Groups. The
+ *  `customer` must begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1216,7 +1215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  represents a Google-managed entity such as a Google user or a Google Group.
  *  If specified, the `EntityKey` represents an external-identity-mapped group.
  *  The namespace must correspond to an identity source created in Admin Console
- *  and must be in the form of `identitysources/{identity_source_id}`.
+ *  and must be in the form of `identitysources/{identity_source}`.
  */
 @property(nonatomic, copy, nullable) NSString *groupKeyNamespace;
 
@@ -1254,9 +1253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
- *  group to check the transitive membership in. Format: `groups/{group_id}`,
- *  where `group_id` is the unique id assigned to the Group to which the
- *  Membership belongs to.
+ *  group to check the transitive membership in. Format: `groups/{group}`, where
+ *  `group` is the unique id assigned to the Group to which the Membership
+ *  belongs to.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1283,8 +1282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param parent [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the group to
- *    check the transitive membership in. Format: `groups/{group_id}`, where
- *    `group_id` is the unique id assigned to the Group to which the Membership
+ *    check the transitive membership in. Format: `groups/{group}`, where
+ *    `group` is the unique id assigned to the Group to which the Membership
  *    belongs to.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership
@@ -1306,7 +1305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Required. The parent `Group` resource under which to create the
- *  `Membership`. Must be of the form `groups/{group_id}`.
+ *  `Membership`. Must be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1317,7 +1316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param object The @c GTLRCloudIdentity_Membership to include in the query.
  *  @param parent Required. The parent `Group` resource under which to create
- *    the `Membership`. Must be of the form `groups/{group_id}`.
+ *    the `Membership`. Must be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsCreate
  */
@@ -1341,7 +1340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  `Membership` to delete. Must be of the form
- *  `groups/{group_id}/memberships/{membership_id}`
+ *  `groups/{group}/memberships/{membership}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1353,7 +1352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param name Required. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    `Membership` to delete. Must be of the form
- *    `groups/{group_id}/memberships/{membership_id}`
+ *    `groups/{group}/memberships/{membership}`
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsDelete
  */
@@ -1377,7 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  `Membership` to retrieve. Must be of the form
- *  `groups/{group_id}/memberships/{membership_id}`.
+ *  `groups/{group}/memberships/{membership}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1389,7 +1388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param name Required. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    `Membership` to retrieve. Must be of the form
- *    `groups/{group_id}/memberships/{membership_id}`.
+ *    `groups/{group}/memberships/{membership}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsGet
  */
@@ -1419,12 +1418,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the group to
- *  search transitive memberships in. Format: `groups/{group_id}`, where
- *  `group_id` is the unique ID assigned to the Group to which the Membership
- *  belongs to. group_id can be a wildcard collection id "-". When a group_id is
- *  specified, the membership graph will be constrained to paths between the
- *  member (defined in the query) and the parent. If a wildcard collection is
- *  provided, all membership paths connected to the member will be returned.
+ *  search transitive memberships in. Format: `groups/{group}`, where `group` is
+ *  the unique ID assigned to the Group to which the Membership belongs to.
+ *  group can be a wildcard collection id "-". When a group is specified, the
+ *  membership graph will be constrained to paths between the member (defined in
+ *  the query) and the parent. If a wildcard collection is provided, all
+ *  membership paths connected to the member will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1451,13 +1450,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param parent Required. [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the group to
- *    search transitive memberships in. Format: `groups/{group_id}`, where
- *    `group_id` is the unique ID assigned to the Group to which the Membership
- *    belongs to. group_id can be a wildcard collection id "-". When a group_id
- *    is specified, the membership graph will be constrained to paths between
- *    the member (defined in the query) and the parent. If a wildcard collection
- *    is provided, all membership paths connected to the member will be
- *    returned.
+ *    search transitive memberships in. Format: `groups/{group}`, where `group`
+ *    is the unique ID assigned to the Group to which the Membership belongs to.
+ *    group can be a wildcard collection id "-". When a group is specified, the
+ *    membership graph will be constrained to paths between the member (defined
+ *    in the query) and the parent. If a wildcard collection is provided, all
+ *    membership paths connected to the member will be returned.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph
  */
@@ -1495,7 +1493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Required. The parent `Group` resource under which to lookup the `Membership`
- *  name. Must be of the form `groups/{group_id}`.
+ *  name. Must be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1519,7 +1517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Lists the `Membership`s within a `Group`.
  *
  *  @param parent Required. The parent `Group` resource under which to lookup
- *    the `Membership` name. Must be of the form `groups/{group_id}`.
+ *    the `Membership` name. Must be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsList
  *
@@ -1558,13 +1556,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  represents a Google-managed entity such as a Google user or a Google Group.
  *  If specified, the `EntityKey` represents an external-identity-mapped group.
  *  The namespace must correspond to an identity source created in Admin Console
- *  and must be in the form of `identitysources/{identity_source_id}`.
+ *  and must be in the form of `identitysources/{identity_source}`.
  */
 @property(nonatomic, copy, nullable) NSString *memberKeyNamespace;
 
 /**
  *  Required. The parent `Group` resource under which to lookup the `Membership`
- *  name. Must be of the form `groups/{group_id}`.
+ *  name. Must be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1576,7 +1574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  by its `EntityKey`.
  *
  *  @param parent Required. The parent `Group` resource under which to lookup
- *    the `Membership` name. Must be of the form `groups/{group_id}`.
+ *    the `Membership` name. Must be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsLookup
  */
@@ -1599,7 +1597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  `Membership` whose roles are to be modified. Must be of the form
- *  `groups/{group_id}/memberships/{membership_id}`.
+ *  `groups/{group}/memberships/{membership}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1613,7 +1611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param name Required. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    `Membership` whose roles are to be modified. Must be of the form
- *    `groups/{group_id}/memberships/{membership_id}`.
+ *    `groups/{group}/memberships/{membership}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsModifyMembershipRoles
  */
@@ -1650,9 +1648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
- *  group to search transitive memberships in. Format: `groups/{group_id}`,
- *  where `group_id` is always '-' as this API will search across all groups for
- *  a given member.
+ *  group to search transitive memberships in. Format: `groups/{group}`, where
+ *  `group` is always '-' as this API will search across all groups for a given
+ *  member.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1680,9 +1678,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param parent [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the group to
- *    search transitive memberships in. Format: `groups/{group_id}`, where
- *    `group_id` is always '-' as this API will search across all groups for a
- *    given member.
+ *    search transitive memberships in. Format: `groups/{group}`, where `group`
+ *    is always '-' as this API will search across all groups for a given
+ *    member.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups
  *
@@ -1722,8 +1720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
- *  group to search transitive memberships in. Format: `groups/{group_id}`,
- *  where `group_id` is the unique ID assigned to the Group.
+ *  group to search transitive memberships in. Format: `groups/{group}`, where
+ *  `group` is the unique ID assigned to the Group.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1740,8 +1738,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *
  *  @param parent [Resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the group to
- *    search transitive memberships in. Format: `groups/{group_id}`, where
- *    `group_id` is the unique ID assigned to the Group.
+ *    search transitive memberships in. Format: `groups/{group}`, where `group`
+ *    is the unique ID assigned to the Group.
  *
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships
  *
@@ -1767,13 +1765,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Output only. The [resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the `Group`.
- *  Shall be of the form `groups/{group_id}`.
+ *  Shall be of the form `groups/{group}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The names of fields to update. May only contain the following
- *  fields: `display_name`, `description`, `labels`.
+ *  field names: `display_name`, `description`, `labels`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1787,7 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @param object The @c GTLRCloudIdentity_Group to include in the query.
  *  @param name Output only. The [resource
  *    name](https://cloud.google.com/apis/design/resource_names) of the `Group`.
- *    Shall be of the form `groups/{group_id}`.
+ *    Shall be of the form `groups/{group}`.
  *
  *  @return GTLRCloudIdentityQuery_GroupsPatch
  */
@@ -1828,9 +1826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Required. The search query. Must be specified in [Common Expression
  *  Language](https://opensource.google/projects/cel). May only contain equality
  *  operators on the parent and inclusion operators on labels (e.g., `parent ==
- *  'customers/{customer_id}' &&
+ *  'customers/{customer}' &&
  *  'cloudidentity.googleapis.com/groups.discussion_forum' in labels`). The
- *  `customer_id` must begin with "C" (for example, 'C046psxkn').
+ *  `customer` must begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

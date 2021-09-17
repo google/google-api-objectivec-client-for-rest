@@ -60,7 +60,8 @@
 @class GTLROnDemandScanning_PackageOccurrence;
 @class GTLROnDemandScanning_ProjectRepoId;
 @class GTLROnDemandScanning_Recipe;
-@class GTLROnDemandScanning_Recipe_Environment;
+@class GTLROnDemandScanning_Recipe_Arguments_Item;
+@class GTLROnDemandScanning_Recipe_Environment_Item;
 @class GTLROnDemandScanning_RelatedUrl;
 @class GTLROnDemandScanning_RepoId;
 @class GTLROnDemandScanning_Signature;
@@ -517,6 +518,13 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  create Vulnerability Occurrences for it.
  */
 @interface GTLROnDemandScanning_AnalyzePackagesRequestV1 : GTLRObject
+
+/**
+ *  Whether to include OSV data in the scan.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeOsvData;
 
 /** The packages to analyze. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_PackageData *> *packages;
@@ -1726,9 +1734,11 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  Collection of all external inputs that influenced the build on top of
  *  recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe
  *  type were "make", then this might be the flags passed to make aside from the
- *  target, which is captured in recipe.entryPoint.
+ *  target, which is captured in recipe.entryPoint. Since the arguments field
+ *  can greatly vary in structure, depending on the builder and recipe type,
+ *  this is of form "Any".
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Recipe_Arguments_Item *> *arguments;
 
 /**
  *  Index in materials containing the recipe steps that are not implied by
@@ -1753,9 +1763,10 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /**
  *  Any other builder-controlled inputs necessary for correctly evaluating the
  *  recipe. Usually only needed for reproducing the build but not evaluated as
- *  part of policy.
+ *  part of policy. Since the environment field can greatly vary in structure,
+ *  depending on the builder and recipe type, this is of form "Any".
  */
-@property(nonatomic, strong, nullable) GTLROnDemandScanning_Recipe_Environment *environment;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Recipe_Environment_Item *> *environment;
 
 /**
  *  URI indicating what type of recipe was performed. It determines the meaning
@@ -1767,16 +1778,26 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  Any other builder-controlled inputs necessary for correctly evaluating the
- *  recipe. Usually only needed for reproducing the build but not evaluated as
- *  part of policy.
+ *  GTLROnDemandScanning_Recipe_Arguments_Item
  *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
-@interface GTLROnDemandScanning_Recipe_Environment : GTLRObject
+@interface GTLROnDemandScanning_Recipe_Arguments_Item : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_Recipe_Environment_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROnDemandScanning_Recipe_Environment_Item : GTLRObject
 @end
 
 

@@ -98,6 +98,11 @@ NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind = @"SING
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind = @"WRITE_KIND";
 
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.autoscalingAlgorithm
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmBasic = @"AUTOSCALING_ALGORITHM_BASIC";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmNone = @"AUTOSCALING_ALGORITHM_NONE";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmUnknown = @"AUTOSCALING_ALGORITHM_UNKNOWN";
+
 // GTLRDataflow_FlexTemplateRuntimeEnvironment.flexrsGoal
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsCostOptimized = @"FLEXRS_COST_OPTIMIZED";
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsSpeedOptimized = @"FLEXRS_SPEED_OPTIMIZED";
@@ -791,11 +796,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
-@dynamic additionalExperiments, additionalUserLabels, diskSizeGb,
-         enableStreamingEngine, flexrsGoal, ipConfiguration, kmsKeyName,
-         machineType, maxNumWorkers, maxWorkers, network, numWorkers,
-         sdkContainerImage, serviceAccountEmail, stagingLocation, subnetwork,
-         tempLocation, workerRegion, workerZone, zoneProperty;
+@dynamic additionalExperiments, additionalUserLabels, autoscalingAlgorithm,
+         diskSizeGb, dumpHeapOnOom, enableStreamingEngine, flexrsGoal,
+         ipConfiguration, kmsKeyName, machineType, maxWorkers, network,
+         numWorkers, saveHeapDumpsToGcsPath, sdkContainerImage,
+         serviceAccountEmail, stagingLocation, subnetwork, tempLocation,
+         workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -808,7 +808,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_MembershipEndpoint
-@dynamic gkeCluster, kubernetesMetadata;
+@dynamic gkeCluster, kubernetesMetadata, multiCloudCluster, onPremCluster;
 @end
 
 
@@ -844,11 +844,31 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_MultiCloudCluster
+//
+
+@implementation GTLRGKEHub_MultiCloudCluster
+@dynamic clusterMissing, resourceLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_MultiClusterIngressFeatureSpec
 //
 
 @implementation GTLRGKEHub_MultiClusterIngressFeatureSpec
 @dynamic configMembership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_OnPremCluster
+//
+
+@implementation GTLRGKEHub_OnPremCluster
+@dynamic adminCluster, clusterMissing, resourceLink;
 @end
 
 

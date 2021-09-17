@@ -84,7 +84,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUnspecified;
 /**
- *  Used for notification only, do not use in Cancel API. Cancallation due to
+ *  Used for notification only, do not use in Cancel API. Cancellation due to
  *  upgrade or downgrade.
  *
  *  Value: "CANCELLATION_REASON_UPGRADE_DOWNGRADE"
@@ -222,7 +222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUnspecified;
 /**
- *  Used for notification only, do not use in Cancel API. Cancallation due to
+ *  Used for notification only, do not use in Cancel API. Cancellation due to
  *  upgrade or downgrade.
  *
  *  Value: "CANCELLATION_REASON_UPGRADE_DOWNGRADE"
@@ -287,7 +287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUpgradeDowngrade
- *        Used for notification only, do not use in Cancel API. Cancallation due
+ *        Used for notification only, do not use in Cancel API. Cancellation due
  *        to upgrade or downgrade. (Value:
  *        "CANCELLATION_REASON_UPGRADE_DOWNGRADE")
  */
@@ -716,7 +716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUnspecified
  *        Reason is unspecified. (Value: "CANCELLATION_REASON_UNSPECIFIED")
  *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade
- *        Used for notification only, do not use in Cancel API. Cancallation due
+ *        Used for notification only, do not use in Cancel API. Cancellation due
  *        to upgrade or downgrade. (Value:
  *        "CANCELLATION_REASON_UPGRADE_DOWNGRADE")
  */

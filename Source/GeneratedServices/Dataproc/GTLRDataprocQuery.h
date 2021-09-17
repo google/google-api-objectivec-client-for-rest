@@ -47,6 +47,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// actionOnFailedPrimaryWorkers
+
+/**
+ *  Delete the failed cluster resource.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersDelete;
+/**
+ *  When FailureAction is unspecified, failure action defaults to NO_ACTION.
+ *
+ *  Value: "FAILURE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified;
+/**
+ *  Take no action on failure to create a cluster resource. NO_ACTION is the
+ *  default.
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersNoAction;
+
+// ----------------------------------------------------------------------------
 // jobStateMatcher
 
 /**
@@ -1279,6 +1302,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersCreate : GTLRDataprocQuery
+
+/**
+ *  Optional. Failure action when primary worker creation fails.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified
+ *        When FailureAction is unspecified, failure action defaults to
+ *        NO_ACTION. (Value: "FAILURE_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersNoAction Take no action
+ *        on failure to create a cluster resource. NO_ACTION is the default.
+ *        (Value: "NO_ACTION")
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersDelete Delete the failed
+ *        cluster resource. (Value: "DELETE")
+ */
+@property(nonatomic, copy, nullable) NSString *actionOnFailedPrimaryWorkers;
 
 /**
  *  Required. The ID of the Google Cloud Platform project that the cluster

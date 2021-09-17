@@ -893,6 +893,60 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsServiceAccountsKeysDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRIamQuery_ProjectsServiceAccountsKeysDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.keys.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsServiceAccountsKeysEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRIamQuery_ProjectsServiceAccountsKeysEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.keys.enable";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsServiceAccountsKeysGet
 
 @dynamic name, publicKeyType;

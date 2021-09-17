@@ -881,6 +881,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsPatch
+
+@dynamic merchantId, regionCode, updateMask;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_BuyOnGoogleProgramStatus *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/buyongoogleprograms/{regionCode}";
+  GTLRShoppingContentQuery_BuyongoogleprogramsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.expectedObjectClass = [GTLRShoppingContent_BuyOnGoogleProgramStatus class];
+  query.loggingName = @"content.buyongoogleprograms.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_BuyongoogleprogramsPause
 
 @dynamic merchantId, regionCode;
@@ -2144,6 +2175,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrdersCaptureOrder
+
+@dynamic merchantId, orderId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_CaptureOrderRequest *)object
+                     merchantId:(long long)merchantId
+                        orderId:(NSString *)orderId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"orderId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/captureOrder";
+  GTLRShoppingContentQuery_OrdersCaptureOrder *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.orderId = orderId;
+  query.expectedObjectClass = [GTLRShoppingContent_CaptureOrderResponse class];
+  query.loggingName = @"content.orders.captureOrder";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrdersCreatetestorder
 
 @dynamic merchantId;
@@ -3062,6 +3124,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.productId = productId;
   query.expectedObjectClass = [GTLRShoppingContent_Product class];
   query.loggingName = @"content.products.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_PromotionsCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_Promotion *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/promotions";
+  GTLRShoppingContentQuery_PromotionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_Promotion class];
+  query.loggingName = @"content.promotions.create";
   return query;
 }
 

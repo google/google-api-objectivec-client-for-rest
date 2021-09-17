@@ -1103,7 +1103,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Image
-@dynamic contentUrl, imageProperties, sourceUrl;
+@dynamic contentUrl, imageProperties, placeholder, sourceUrl;
 @end
 
 

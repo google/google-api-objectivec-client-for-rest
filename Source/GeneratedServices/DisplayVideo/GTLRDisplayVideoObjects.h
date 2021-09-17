@@ -49,6 +49,9 @@
 @class GTLRDisplayVideo_BrowserAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_BrowserTargetingOptionDetails;
 @class GTLRDisplayVideo_BudgetSummary;
+@class GTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_BusinessChainSearchTerms;
+@class GTLRDisplayVideo_BusinessChainTargetingOptionDetails;
 @class GTLRDisplayVideo_Campaign;
 @class GTLRDisplayVideo_CampaignBudget;
 @class GTLRDisplayVideo_CampaignFlight;
@@ -172,6 +175,9 @@
 @class GTLRDisplayVideo_PartnerRevenueModel;
 @class GTLRDisplayVideo_PerformanceGoal;
 @class GTLRDisplayVideo_PerformanceGoalBidStrategy;
+@class GTLRDisplayVideo_PoiAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_PoiSearchTerms;
+@class GTLRDisplayVideo_PoiTargetingOptionDetails;
 @class GTLRDisplayVideo_PrismaConfig;
 @class GTLRDisplayVideo_PrismaCpeCode;
 @class GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails;
@@ -961,6 +967,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBrowser;
 /**
+ *  Target ads around locations of a business chain within a specific geo
+ *  region.
+ *
+ *  Value: "TARGETING_TYPE_BUSINESS_CHAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBusinessChain;
+/**
  *  Target ads to a specific network carrier or internet service provider (ISP)
  *  (for example, Comcast or Orange).
  *
@@ -1110,6 +1123,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeParentalStatus;
+/**
+ *  Target ads around a specific point of interest, such as a notable building,
+ *  a street address, or latitude/longitude coordinates.
+ *
+ *  Value: "TARGETING_TYPE_POI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypePoi;
 /**
  *  Target ads to the specified points of interest on a proximity location list.
  *
@@ -1323,6 +1343,206 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusTarge
  *  Value: "AUTHORIZED_SELLER_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails.proximityRadiusUnit
+
+/**
+ *  Kilometers.
+ *
+ *  Value: "DISTANCE_UNIT_KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitKilometers;
+/**
+ *  Miles.
+ *
+ *  Value: "DISTANCE_UNIT_MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitMiles;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "DISTANCE_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_BusinessChainTargetingOptionDetails.geoRegionType
+
+/**
+ *  The geographic region is an airport.
+ *
+ *  Value: "GEO_REGION_TYPE_AIRPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAirport;
+/**
+ *  The geographic region is an arrondissement.
+ *
+ *  Value: "GEO_REGION_TYPE_ARRONDISSEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeArrondissement;
+/**
+ *  The geographic region is an autonomous community.
+ *
+ *  Value: "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity;
+/**
+ *  The geographic region is a borough.
+ *
+ *  Value: "GEO_REGION_TYPE_BOROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeBorough;
+/**
+ *  The geographic region is a canton.
+ *
+ *  Value: "GEO_REGION_TYPE_CANTON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCanton;
+/**
+ *  The geographic region is a city.
+ *
+ *  Value: "GEO_REGION_TYPE_CITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCity;
+/**
+ *  The geographic region is a city region.
+ *
+ *  Value: "GEO_REGION_TYPE_CITY_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion;
+/**
+ *  The geographic region is a congressional district.
+ *
+ *  Value: "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCongressionalDistrict;
+/**
+ *  The geographic region is a country.
+ *
+ *  Value: "GEO_REGION_TYPE_COUNTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCountry;
+/**
+ *  The geographic region is a county.
+ *
+ *  Value: "GEO_REGION_TYPE_COUNTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCounty;
+/**
+ *  The geographic region targeting type is department.
+ *
+ *  Value: "GEO_REGION_TYPE_DEPARTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDepartment;
+/**
+ *  The geographic region is a district.
+ *
+ *  Value: "GEO_REGION_TYPE_DISTRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict;
+/**
+ *  The geographic region is a designated market area (DMA) region.
+ *
+ *  Value: "GEO_REGION_TYPE_DMA_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDmaRegion;
+/**
+ *  The geographic region is a governorate.
+ *
+ *  Value: "GEO_REGION_TYPE_GOVERNORATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeGovernorate;
+/**
+ *  The geographic region type is metro.
+ *
+ *  Value: "GEO_REGION_TYPE_METRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMetro;
+/**
+ *  The geographic region is a municipality.
+ *
+ *  Value: "GEO_REGION_TYPE_MUNICIPALITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality;
+/**
+ *  The geographic region is a neighborhood.
+ *
+ *  Value: "GEO_REGION_TYPE_NEIGHBORHOOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeNeighborhood;
+/**
+ *  The geographic region is an okrug.
+ *
+ *  Value: "GEO_REGION_TYPE_OKRUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeOkrug;
+/**
+ *  The geographic region type is other.
+ *
+ *  Value: "GEO_REGION_TYPE_OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeOther;
+/**
+ *  The geographic region targeting type is postal code.
+ *
+ *  Value: "GEO_REGION_TYPE_POSTAL_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypePostalCode;
+/**
+ *  The geographic region is a prefecture.
+ *
+ *  Value: "GEO_REGION_TYPE_PREFECTURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypePrefecture;
+/**
+ *  The geographic region is a province.
+ *
+ *  Value: "GEO_REGION_TYPE_PROVINCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince;
+/**
+ *  The geographic region type is region.
+ *
+ *  Value: "GEO_REGION_TYPE_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeRegion;
+/**
+ *  The geographic region is a state.
+ *
+ *  Value: "GEO_REGION_TYPE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeState;
+/**
+ *  The geographic region is a territory.
+ *
+ *  Value: "GEO_REGION_TYPE_TERRITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeTerritory;
+/**
+ *  The geographic region is a TV region.
+ *
+ *  Value: "GEO_REGION_TYPE_TV_REGION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeTvRegion;
+/**
+ *  The geographic region is a union territory.
+ *
+ *  Value: "GEO_REGION_TYPE_UNION_TERRITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnionTerritory;
+/**
+ *  The geographic region is a university.
+ *
+ *  Value: "GEO_REGION_TYPE_UNIVERSITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUniversity;
+/**
+ *  The geographic region type is unknown.
+ *
+ *  Value: "GEO_REGION_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Campaign.entityStatus
@@ -1724,6 +1944,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser;
 /**
+ *  Target ads around locations of a business chain within a specific geo
+ *  region.
+ *
+ *  Value: "TARGETING_TYPE_BUSINESS_CHAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain;
+/**
  *  Target ads to a specific network carrier or internet service provider (ISP)
  *  (for example, Comcast or Orange).
  *
@@ -1873,6 +2100,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus;
+/**
+ *  Target ads around a specific point of interest, such as a notable building,
+ *  a street address, or latitude/longitude coordinates.
+ *
+ *  Value: "TARGETING_TYPE_POI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypePoi;
 /**
  *  Target ads to the specified points of interest on a proximity location list.
  *
@@ -2412,6 +2646,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeVideo;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CustomBiddingAlgorithm.customBiddingAlgorithmState
+
+/**
+ *  Algorithm has not been used recently. Although the algorithm still acts as
+ *  `ENABLED`, it will eventually be suspended if not used.
+ *
+ *  Value: "DORMANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Dormant;
+/**
+ *  Algorithm is enabled, either recently used, currently used or scheduled to
+ *  be used. The algorithm is actively scoring impressions.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Enabled;
+/**
+ *  State is not specified or is unknown in this version.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_StateUnspecified;
+/**
+ *  Algorithm is susepended from scoring impressions and doesn't have a serving
+ *  model trained. If the algorithm is assigned to a line item or otherwise
+ *  updated, it will switch back to the `ENABLED` state and require time to
+ *  prepare the serving model again.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Suspended;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CustomBiddingAlgorithm.customBiddingAlgorithmType
 
 /**
@@ -2426,6 +2693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_Cust
  *  Value: "CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_CustomBiddingAlgorithmTypeUnspecified;
+/**
+ *  Algorithm created through goal builder in DV3 UI.
+ *
+ *  Value: "GOAL_BUILDER_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_GoalBuilderBased;
 /**
  *  Algorithm generated through customer-uploaded custom bidding script files.
  *
@@ -2589,6 +2862,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser;
 /**
+ *  Target ads around locations of a business chain within a specific geo
+ *  region.
+ *
+ *  Value: "TARGETING_TYPE_BUSINESS_CHAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain;
+/**
  *  Target ads to a specific network carrier or internet service provider (ISP)
  *  (for example, Comcast or Orange).
  *
@@ -2738,6 +3018,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus;
+/**
+ *  Target ads around a specific point of interest, such as a notable building,
+ *  a street address, or latitude/longitude coordinates.
+ *
+ *  Value: "TARGETING_TYPE_POI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypePoi;
 /**
  *  Target ads to the specified points of interest on a proximity location list.
  *
@@ -3857,6 +4144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePulsepoint;
 /**
+ *  Red For Publishers.
+ *
+ *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRedForPublishers;
+/**
  *  RevenueMax.
  *
  *  Value: "EXCHANGE_REVENUEMAX"
@@ -3934,6 +4227,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_TABOOLA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTaboola;
+/**
+ *  Tapjoy.
+ *
+ *  Value: "EXCHANGE_TAPJOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTapjoy;
 /**
  *  TeadsTv.
  *
@@ -4245,6 +4544,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePulsepoint;
 /**
+ *  Red For Publishers.
+ *
+ *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRedForPublishers;
+/**
  *  RevenueMax.
  *
  *  Value: "EXCHANGE_REVENUEMAX"
@@ -4322,6 +4627,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_TABOOLA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTaboola;
+/**
+ *  Tapjoy.
+ *
+ *  Value: "EXCHANGE_TAPJOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTapjoy;
 /**
  *  TeadsTv.
  *
@@ -4661,6 +4972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePulsepoint;
 /**
+ *  Red For Publishers.
+ *
+ *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRedForPublishers;
+/**
  *  RevenueMax.
  *
  *  Value: "EXCHANGE_REVENUEMAX"
@@ -4738,6 +5055,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_TABOOLA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTaboola;
+/**
+ *  Tapjoy.
+ *
+ *  Value: "EXCHANGE_TAPJOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTapjoy;
 /**
  *  TeadsTv.
  *
@@ -6574,6 +6897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangePulsepoint;
 /**
+ *  Red For Publishers.
+ *
+ *  Value: "EXCHANGE_RED_FOR_PUBLISHERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRedForPublishers;
+/**
  *  RevenueMax.
  *
  *  Value: "EXCHANGE_REVENUEMAX"
@@ -6651,6 +6980,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_TABOOLA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTaboola;
+/**
+ *  Tapjoy.
+ *
+ *  Value: "EXCHANGE_TAPJOY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTapjoy;
 /**
  *  TeadsTv.
  *
@@ -8210,6 +8545,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PoiAssignedTargetingOptionDetails.proximityRadiusUnit
+
+/**
+ *  Kilometers.
+ *
+ *  Value: "DISTANCE_UNIT_KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitKilometers;
+/**
+ *  Miles.
+ *
+ *  Value: "DISTANCE_UNIT_MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitMiles;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "DISTANCE_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_PrismaConfig.prismaType
 
 /**
@@ -8910,6 +9267,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBrowser;
 /**
+ *  Target ads around locations of a business chain within a specific geo
+ *  region.
+ *
+ *  Value: "TARGETING_TYPE_BUSINESS_CHAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBusinessChain;
+/**
  *  Target ads to a specific network carrier or internet service provider (ISP)
  *  (for example, Comcast or Orange).
  *
@@ -9059,6 +9423,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  *  Value: "TARGETING_TYPE_PARENTAL_STATUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeParentalStatus;
+/**
+ *  Target ads around a specific point of interest, such as a notable building,
+ *  a street address, or latitude/longitude coordinates.
+ *
+ *  Value: "TARGETING_TYPE_POI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypePoi;
 /**
  *  Target ads to the specified points of interest on a proximity location list.
  *
@@ -10371,6 +10742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BrowserAssignedTargetingOptionDetails *browserDetails;
 
 /**
+ *  Business chain details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_BUSINESS_CHAIN`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails *businessChainDetails;
+
+/**
  *  Carrier and ISP details. This field will be populated when the
  *  targeting_type is `TARGETING_TYPE_CARRIER_AND_ISP`.
  */
@@ -10547,6 +10924,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ParentalStatusAssignedTargetingOptionDetails *parentalStatusDetails;
 
 /**
+ *  POI details. This field will be populated when the targeting_type is
+ *  `TARGETING_TYPE_POI`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PoiAssignedTargetingOptionDetails *poiDetails;
+
+/**
  *  Proximity location list details. This field will be populated when the
  *  targeting_type is `TARGETING_TYPE_PROXIMITY_LOCATION_LIST`.
  */
@@ -10597,6 +10980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
  *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBusinessChain
+ *        Target ads around locations of a business chain within a specific geo
+ *        region. (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeCarrierAndIsp
  *        Target ads to a specific network carrier or internet service provider
  *        (ISP) (for example, Comcast or Orange). (Value:
@@ -10672,6 +11058,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypePoi
+ *        Target ads around a specific point of interest, such as a notable
+ *        building, a street address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -11611,6 +12001,180 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Details for assigned Business chain targeting option. This will be populated
+ *  in the details field of an AssignedTargetingOption when targeting_type is
+ *  `TARGETING_TYPE_BUSINESS_CHAIN`.
+ */
+@interface GTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The display name of a business chain, e.g. "KFC", "Chase Bank".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The radius of the area around the business chain that will be
+ *  targeted. The units of the radius are specified by proximity_radius_unit.
+ *  Must be 1 to 800 if unit is `DISTANCE_UNIT_KILOMETERS` and 1 to 500 if unit
+ *  is `DISTANCE_UNIT_MILES`. The minimum increment for both cases is 0.1.
+ *  Inputs will be rounded to the nearest acceptable value if it is too
+ *  granular, e.g. 15.57 will become 15.6.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proximityRadiusAmount;
+
+/**
+ *  Required. The unit of distance by which the targeting radius is measured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitKilometers
+ *        Kilometers. (Value: "DISTANCE_UNIT_KILOMETERS")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitMiles
+ *        Miles. (Value: "DISTANCE_UNIT_MILES")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "DISTANCE_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *proximityRadiusUnit;
+
+/**
+ *  Required. The targeting_option_id of a TargetingOption of type
+ *  `TARGETING_TYPE_BUSINESS_CHAIN`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Search terms for Business Chain targeting options. At least one of the field
+ *  should be populated.
+ */
+@interface GTLRDisplayVideo_BusinessChainSearchTerms : GTLRObject
+
+/**
+ *  The search query for the desired business chain. The query must be the full
+ *  name of the business, e.g. "KFC", "mercedes-benz".
+ */
+@property(nonatomic, copy, nullable) NSString *businessChainQuery;
+
+/**
+ *  The search query for the desired geo region, e.g. "Seattle", "United State".
+ */
+@property(nonatomic, copy, nullable) NSString *regionQuery;
+
+@end
+
+
+/**
+ *  Represents a targetable business chain within a geo region. This will be
+ *  populated in the business_chain_details field when targeting_type is
+ *  `TARGETING_TYPE_BUSINESS_CHAIN`.
+ */
+@interface GTLRDisplayVideo_BusinessChainTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The display name of the business chain, e.g. "KFC", "Chase
+ *  Bank".
+ */
+@property(nonatomic, copy, nullable) NSString *businessChain;
+
+/**
+ *  Output only. The display name of the geographic region, e.g. "Ontario,
+ *  Canada".
+ */
+@property(nonatomic, copy, nullable) NSString *geoRegion;
+
+/**
+ *  Output only. The type of the geographic region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAirport
+ *        The geographic region is an airport. (Value:
+ *        "GEO_REGION_TYPE_AIRPORT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeArrondissement
+ *        The geographic region is an arrondissement. (Value:
+ *        "GEO_REGION_TYPE_ARRONDISSEMENT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeAutonomousCommunity
+ *        The geographic region is an autonomous community. (Value:
+ *        "GEO_REGION_TYPE_AUTONOMOUS_COMMUNITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeBorough
+ *        The geographic region is a borough. (Value: "GEO_REGION_TYPE_BOROUGH")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCanton
+ *        The geographic region is a canton. (Value: "GEO_REGION_TYPE_CANTON")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCity
+ *        The geographic region is a city. (Value: "GEO_REGION_TYPE_CITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCityRegion
+ *        The geographic region is a city region. (Value:
+ *        "GEO_REGION_TYPE_CITY_REGION")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCongressionalDistrict
+ *        The geographic region is a congressional district. (Value:
+ *        "GEO_REGION_TYPE_CONGRESSIONAL_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCountry
+ *        The geographic region is a country. (Value: "GEO_REGION_TYPE_COUNTRY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeCounty
+ *        The geographic region is a county. (Value: "GEO_REGION_TYPE_COUNTY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDepartment
+ *        The geographic region targeting type is department. (Value:
+ *        "GEO_REGION_TYPE_DEPARTMENT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDistrict
+ *        The geographic region is a district. (Value:
+ *        "GEO_REGION_TYPE_DISTRICT")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeDmaRegion
+ *        The geographic region is a designated market area (DMA) region.
+ *        (Value: "GEO_REGION_TYPE_DMA_REGION")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeGovernorate
+ *        The geographic region is a governorate. (Value:
+ *        "GEO_REGION_TYPE_GOVERNORATE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMetro
+ *        The geographic region type is metro. (Value: "GEO_REGION_TYPE_METRO")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeMunicipality
+ *        The geographic region is a municipality. (Value:
+ *        "GEO_REGION_TYPE_MUNICIPALITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeNeighborhood
+ *        The geographic region is a neighborhood. (Value:
+ *        "GEO_REGION_TYPE_NEIGHBORHOOD")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeOkrug
+ *        The geographic region is an okrug. (Value: "GEO_REGION_TYPE_OKRUG")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeOther
+ *        The geographic region type is other. (Value: "GEO_REGION_TYPE_OTHER")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypePostalCode
+ *        The geographic region targeting type is postal code. (Value:
+ *        "GEO_REGION_TYPE_POSTAL_CODE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypePrefecture
+ *        The geographic region is a prefecture. (Value:
+ *        "GEO_REGION_TYPE_PREFECTURE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeProvince
+ *        The geographic region is a province. (Value:
+ *        "GEO_REGION_TYPE_PROVINCE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeRegion
+ *        The geographic region type is region. (Value:
+ *        "GEO_REGION_TYPE_REGION")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeState
+ *        The geographic region is a state. (Value: "GEO_REGION_TYPE_STATE")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeTerritory
+ *        The geographic region is a territory. (Value:
+ *        "GEO_REGION_TYPE_TERRITORY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeTvRegion
+ *        The geographic region is a TV region. (Value:
+ *        "GEO_REGION_TYPE_TV_REGION")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnionTerritory
+ *        The geographic region is a union territory. (Value:
+ *        "GEO_REGION_TYPE_UNION_TERRITORY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUniversity
+ *        The geographic region is a university. (Value:
+ *        "GEO_REGION_TYPE_UNIVERSITY")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown
+ *        The geographic region type is unknown. (Value:
+ *        "GEO_REGION_TYPE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *geoRegionType;
+
+@end
+
+
+/**
  *  A single campaign.
  */
 @interface GTLRDisplayVideo_Campaign : GTLRObject
@@ -12475,6 +13039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
  *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain
+ *        Target ads around locations of a business chain within a specific geo
+ *        region. (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeCarrierAndIsp
  *        Target ads to a specific network carrier or internet service provider
  *        (ISP) (for example, Comcast or Orange). (Value:
@@ -12550,6 +13117,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypePoi
+ *        Target ads around a specific point of interest, such as a notable
+ *        building, a street address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -13313,6 +13884,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *customBiddingAlgorithmId;
 
 /**
+ *  Output only. The status of custom bidding algorithm.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Dormant
+ *        Algorithm has not been used recently. Although the algorithm still
+ *        acts as `ENABLED`, it will eventually be suspended if not used.
+ *        (Value: "DORMANT")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Enabled
+ *        Algorithm is enabled, either recently used, currently used or
+ *        scheduled to be used. The algorithm is actively scoring impressions.
+ *        (Value: "ENABLED")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_StateUnspecified
+ *        State is not specified or is unknown in this version. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmState_Suspended
+ *        Algorithm is susepended from scoring impressions and doesn't have a
+ *        serving model trained. If the algorithm is assigned to a line item or
+ *        otherwise updated, it will switch back to the `ENABLED` state and
+ *        require time to prepare the serving model again. (Value: "SUSPENDED")
+ */
+@property(nonatomic, copy, nullable) NSString *customBiddingAlgorithmState;
+
+/**
  *  Required. Immutable. The type of custom bidding algorithm.
  *
  *  Likely values:
@@ -13322,6 +13916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_CustomBiddingAlgorithmTypeUnspecified
  *        Algorithm type is not specified or is unknown in this version. (Value:
  *        "CUSTOM_BIDDING_ALGORITHM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_GoalBuilderBased
+ *        Algorithm created through goal builder in DV3 UI. (Value:
+ *        "GOAL_BUILDER_BASED")
  *    @arg @c kGTLRDisplayVideo_CustomBiddingAlgorithm_CustomBiddingAlgorithmType_ScriptBased
  *        Algorithm generated through customer-uploaded custom bidding script
  *        files. (Value: "SCRIPT_BASED")
@@ -13372,6 +13969,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+/**
+ *  The IDs of the advertisers who have access to this algorithm. This field
+ *  will not be set if the algorithm owner is a partner and is being retrieved
+ *  using an advertiser accessor.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *sharedAdvertiserIds;
 
 @end
 
@@ -13594,6 +14200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
  *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain
+ *        Target ads around locations of a business chain within a specific geo
+ *        region. (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeCarrierAndIsp
  *        Target ads to a specific network carrier or internet service provider
  *        (ISP) (for example, Comcast or Orange). (Value:
@@ -13669,6 +14278,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypePoi
+ *        Target ads around a specific point of interest, such as a notable
+ *        building, a street address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
@@ -14409,6 +15022,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        PubMatic. (Value: "EXCHANGE_PUBMATIC")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePulsepoint
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRedForPublishers
+ *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon
@@ -14435,6 +15050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTaboola
  *        Taboola. (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTapjoy
+ *        Tapjoy. (Value: "EXCHANGE_TAPJOY")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria
@@ -14571,6 +15188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        PubMatic. (Value: "EXCHANGE_PUBMATIC")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePulsepoint
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRedForPublishers
+ *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon
@@ -14597,6 +15216,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTaboola
  *        Taboola. (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTapjoy
+ *        Tapjoy. (Value: "EXCHANGE_TAPJOY")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria
@@ -14736,6 +15357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        PubMatic. (Value: "EXCHANGE_PUBMATIC")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePulsepoint
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRedForPublishers
+ *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon
@@ -14762,6 +15385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTaboola
  *        Taboola. (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTapjoy
+ *        Tapjoy. (Value: "EXCHANGE_TAPJOY")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria
@@ -16498,6 +17123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        PubMatic. (Value: "EXCHANGE_PUBMATIC")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangePulsepoint
  *        PulsePoint. (Value: "EXCHANGE_PULSEPOINT")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRedForPublishers
+ *        Red For Publishers. (Value: "EXCHANGE_RED_FOR_PUBLISHERS")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRevenuemax
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon
@@ -16524,6 +17151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTaboola
  *        Taboola. (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTapjoy Tapjoy.
+ *        (Value: "EXCHANGE_TAPJOY")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria
@@ -19598,6 +20227,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Details for assigned POI targeting option. This will be populated in the
+ *  details field of an AssignedTargetingOption when targeting_type is
+ *  `TARGETING_TYPE_POI`.
+ */
+@interface GTLRDisplayVideo_PoiAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The display name of a POI, e.g. "Times Square", "Space Needle",
+ *  followed by its full address if available.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Latitude of the POI rounding to 6th decimal place.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  Output only. Longitude of the POI rounding to 6th decimal place.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+/**
+ *  Required. The radius of the area around the POI that will be targeted. The
+ *  units of the radius are specified by proximity_radius_unit. Must be 1 to 800
+ *  if unit is `DISTANCE_UNIT_KILOMETERS` and 1 to 500 if unit is
+ *  `DISTANCE_UNIT_MILES`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proximityRadiusAmount;
+
+/**
+ *  Required. The unit of distance by which the targeting radius is measured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitKilometers
+ *        Kilometers. (Value: "DISTANCE_UNIT_KILOMETERS")
+ *    @arg @c kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitMiles
+ *        Miles. (Value: "DISTANCE_UNIT_MILES")
+ *    @arg @c kGTLRDisplayVideo_PoiAssignedTargetingOptionDetails_ProximityRadiusUnit_DistanceUnitUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "DISTANCE_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *proximityRadiusUnit;
+
+/**
+ *  Required. The targeting_option_id of a TargetingOption of type
+ *  `TARGETING_TYPE_POI` or reuse an existing assigned_targeting_option_id.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Search terms for POI targeting options.
+ */
+@interface GTLRDisplayVideo_PoiSearchTerms : GTLRObject
+
+/**
+ *  The search query for the desired POI name, street address, or coordinate of
+ *  the desired POI. The query can be a prefix, e.g. "Times squar",
+ *  "40.7505045,-73.99562", "315 W 44th St", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *poiQuery;
+
+@end
+
+
+/**
+ *  Represents a targetable point of interest(POI). This will be populated in
+ *  the poi_details field when targeting_type is `TARGETING_TYPE_POI`.
+ */
+@interface GTLRDisplayVideo_PoiTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The display name of a POI(e.g. "Times Square", "Space Needle"),
+ *  followed by its full address if available.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Latitude of the POI rounding to 6th decimal place.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  Output only. Longitude of the POI rounding to 6th decimal place.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
+
+@end
+
+
+/**
  *  Settings specific to the Mediaocean Prisma tool.
  */
 @interface GTLRDisplayVideo_PrismaConfig : GTLRObject
@@ -20049,6 +20782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
+ *  Search terms for Business Chain targeting options. Can only be used when
+ *  targeting_type is `TARGETING_TYPE_BUSINESS_CHAIN`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_BusinessChainSearchTerms *businessChainSearchTerms;
+
+/**
  *  Search terms for geo region targeting options. Can only be used when
  *  targeting_type is `TARGETING_TYPE_GEO_REGION`.
  */
@@ -20070,6 +20809,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Search terms for POI targeting options. Can only be used when targeting_type
+ *  is `TARGETING_TYPE_POI`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PoiSearchTerms *poiSearchTerms;
 
 @end
 
@@ -20439,6 +21184,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Browser details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BrowserTargetingOptionDetails *browserDetails;
 
+/** Business chain resource details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_BusinessChainTargetingOptionDetails *businessChainDetails;
+
 /** Carrier and ISP details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CarrierAndIspTargetingOptionDetails *carrierAndIspDetails;
 
@@ -20496,6 +21244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Parental status details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ParentalStatusTargetingOptionDetails *parentalStatusDetails;
 
+/** POI resource details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PoiTargetingOptionDetails *poiDetails;
+
 /** Sensitive Category details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails *sensitiveCategoryDetails;
 
@@ -20531,6 +21282,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBrowser
  *        Target ads to specific web browsers (for example, Chrome). (Value:
  *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBusinessChain
+ *        Target ads around locations of a business chain within a specific geo
+ *        region. (Value: "TARGETING_TYPE_BUSINESS_CHAIN")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeCarrierAndIsp
  *        Target ads to a specific network carrier or internet service provider
  *        (ISP) (for example, Comcast or Orange). (Value:
@@ -20606,6 +21360,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeParentalStatus
  *        Target ads to a specific parental status (for example, parent or not a
  *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypePoi
+ *        Target ads around a specific point of interest, such as a notable
+ *        building, a street address, or latitude/longitude coordinates. (Value:
+ *        "TARGETING_TYPE_POI")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeProximityLocationList
  *        Target ads to the specified points of interest on a proximity location
  *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")

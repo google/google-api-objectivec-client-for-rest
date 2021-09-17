@@ -27,12 +27,15 @@
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
+@class GTLRDataprocMetastore_DataplexConfig;
+@class GTLRDataprocMetastore_DataplexConfig_LakeResources;
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
+@class GTLRDataprocMetastore_Lake;
 @class GTLRDataprocMetastore_Location;
 @class GTLRDataprocMetastore_Location_Labels;
 @class GTLRDataprocMetastore_Location_Metadata;
@@ -189,6 +192,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+
+/**
+ *  The protocol is not set.
+ *
+ *  Value: "ENDPOINT_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified;
+/**
+ *  Use the modernized gRPC protocol for the metastore service endpoint.
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc;
+/**
+ *  Use the legacy Apache Thrift protocol for the metastore service endpoint.
+ *
+ *  Value: "THRIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
@@ -749,6 +774,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Specifies how metastore metadata should be integrated with the Dataplex
+ *  service.
+ */
+@interface GTLRDataprocMetastore_DataplexConfig : GTLRObject
+
+/**
+ *  A reference to the Lake resources that this metastore service is attached
+ *  to. The key is the lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig_LakeResources *lakeResources;
+
+@end
+
+
+/**
+ *  A reference to the Lake resources that this metastore service is attached
+ *  to. The key is the lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_Lake. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_DataplexConfig_LakeResources : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -877,6 +932,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides *configOverrides;
 
 /**
+ *  The protocol to use for the metastore service endpoint. If unspecified,
+ *  defaults to THRIFT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified
+ *        The protocol is not set. (Value: "ENDPOINT_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc
+ *        Use the modernized gRPC protocol for the metastore service endpoint.
+ *        (Value: "GRPC")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift
+ *        Use the legacy Apache Thrift protocol for the metastore service
+ *        endpoint. (Value: "THRIFT")
+ */
+@property(nonatomic, copy, nullable) NSString *endpointProtocol;
+
+/**
  *  Information used to configure the Hive metastore service as a service
  *  principal in a Kerberos realm. To disable Kerberos, use the UpdateService
  *  method and specify this field's path (hive_metastore_config.kerberos_config)
@@ -948,6 +1019,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  but there is no exact format.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
+
+@end
+
+
+/**
+ *  Represents a Lake resource
+ */
+@interface GTLRDataprocMetastore_Lake : GTLRObject
+
+/**
+ *  The Lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -1314,6 +1399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /** The integration config for the Data Catalog service. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataCatalogConfig *dataCatalogConfig;
+
+/** The integration config for the Dataplex service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig *dataplexConfig;
 
 @end
 

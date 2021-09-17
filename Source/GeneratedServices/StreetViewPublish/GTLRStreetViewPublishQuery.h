@@ -354,7 +354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @interface GTLRStreetViewPublishQuery_PhotosList : GTLRStreetViewPublishQuery
 
 /**
- *  Required. The filter expression. For example:
+ *  Optional. The filter expression. For example:
  *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The only filter supported at the
  *  moment is `placeId`.
  */

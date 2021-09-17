@@ -131,7 +131,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_AnalyzePackagesRequestV1
-@dynamic packages, resourceUri;
+@dynamic includeOsvData, packages, resourceUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -758,7 +758,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"arguments" : [NSString class]
+    @"arguments" : [GTLROnDemandScanning_Recipe_Arguments_Item class],
+    @"environment" : [GTLROnDemandScanning_Recipe_Environment_Item class]
   };
   return map;
 }
@@ -768,13 +769,27 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROnDemandScanning_Recipe_Environment
+//   GTLROnDemandScanning_Recipe_Arguments_Item
 //
 
-@implementation GTLROnDemandScanning_Recipe_Environment
+@implementation GTLROnDemandScanning_Recipe_Arguments_Item
 
 + (Class)classForAdditionalProperties {
-  return [NSString class];
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_Recipe_Environment_Item
+//
+
+@implementation GTLROnDemandScanning_Recipe_Environment_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

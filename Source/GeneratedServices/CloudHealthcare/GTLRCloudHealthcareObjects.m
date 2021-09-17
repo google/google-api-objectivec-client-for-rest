@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudHealthcare_AnalyzeEntitiesRequest.licensedVocabularies
+NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_Icd10cm = @"ICD10CM";
+NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_LicensedVocabularyUnspecified = @"LICENSED_VOCABULARY_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_AnalyzeEntitiesRequest_LicensedVocabularies_SnomedctUs = @"SNOMEDCT_US";
+
 // GTLRCloudHealthcare_AttributeDefinition.category
 NSString * const kGTLRCloudHealthcare_AttributeDefinition_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_AttributeDefinition_Category_Request = @"REQUEST";
@@ -87,6 +92,11 @@ NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Co
 NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Resource = @"RESOURCE";
 NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_ResourcePretty = @"RESOURCE_PRETTY";
 
+// GTLRCloudHealthcare_ParserConfig.version
+NSString * const kGTLRCloudHealthcare_ParserConfig_Version_ParserVersionUnspecified = @"PARSER_VERSION_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V1  = @"V1";
+NSString * const kGTLRCloudHealthcare_ParserConfig_Version_V2  = @"V2";
+
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics = @"ANALYTICS";
 NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified = @"SCHEMA_TYPE_UNSPECIFIED";
@@ -95,6 +105,12 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 NSString * const kGTLRCloudHealthcare_SchemaPackage_SchematizedParsingType_HardFail = @"HARD_FAIL";
 NSString * const kGTLRCloudHealthcare_SchemaPackage_SchematizedParsingType_SchematizedParsingTypeUnspecified = @"SCHEMATIZED_PARSING_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcare_SchemaPackage_SchematizedParsingType_SoftFail = @"SOFT_FAIL";
+
+// GTLRCloudHealthcare_SchemaPackage.unexpectedSegmentHandling
+NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Fail = @"FAIL";
+NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Parse = @"PARSE";
+NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_Skip = @"SKIP";
+NSString * const kGTLRCloudHealthcare_SchemaPackage_UnexpectedSegmentHandling_UnexpectedSegmentHandlingModeUnspecified = @"UNEXPECTED_SEGMENT_HANDLING_MODE_UNSPECIFIED";
 
 // GTLRCloudHealthcare_Type.primitive
 NSString * const kGTLRCloudHealthcare_Type_Primitive_PrimitiveUnspecified = @"PRIMITIVE_UNSPECIFIED";
@@ -109,6 +125,44 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_ActivateConsentRequest
 @dynamic consentArtifact, expireTime, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_AnalyzeEntitiesRequest
+//
+
+@implementation GTLRCloudHealthcare_AnalyzeEntitiesRequest
+@dynamic documentContent, licensedVocabularies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"licensedVocabularies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_AnalyzeEntitiesResponse
+//
+
+@implementation GTLRCloudHealthcare_AnalyzeEntitiesResponse
+@dynamic entities, entityMentions, relationships;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entities" : [GTLRCloudHealthcare_Entity class],
+    @"entityMentions" : [GTLRCloudHealthcare_EntityMention class],
+    @"relationships" : [GTLRCloudHealthcare_EntityMentionRelationship class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -555,6 +609,53 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_Entity
+//
+
+@implementation GTLRCloudHealthcare_Entity
+@dynamic entityId, preferredTerm, vocabularyCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vocabularyCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_EntityMention
+//
+
+@implementation GTLRCloudHealthcare_EntityMention
+@dynamic certaintyAssessment, confidence, linkedEntities, mentionId, subject,
+         temporalAssessment, text, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"linkedEntities" : [GTLRCloudHealthcare_LinkedEntity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_EntityMentionRelationship
+//
+
+@implementation GTLRCloudHealthcare_EntityMentionRelationship
+@dynamic confidence, objectId, subjectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_EvaluateUserConsentsRequest
 //
 
@@ -664,6 +765,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_Feature
+//
+
+@implementation GTLRCloudHealthcare_Feature
+@dynamic confidence, value;
 @end
 
 
@@ -1093,6 +1204,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_IngestMessageResponse
 @dynamic hl7Ack, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_LinkedEntity
+//
+
+@implementation GTLRCloudHealthcare_LinkedEntity
+@dynamic entityId;
 @end
 
 
@@ -1535,7 +1656,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ParserConfig
-@dynamic allowNullHeader, schema, segmentTerminator;
+@dynamic allowNullHeader, schema, segmentTerminator, version;
 @end
 
 
@@ -1752,7 +1873,8 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_SchemaPackage
-@dynamic ignoreMinOccurs, schemas, schematizedParsingType, types;
+@dynamic ignoreMinOccurs, schemas, schematizedParsingType, types,
+         unexpectedSegmentHandling;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1972,6 +2094,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_TextSpan
+//
+
+@implementation GTLRCloudHealthcare_TextSpan
+@dynamic beginOffset, content;
 @end
 
 

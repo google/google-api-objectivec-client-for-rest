@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Security API (networksecurity/v1beta1)
+//   Network Security API (networksecurity/v1)
 // Documentation:
 //   https://cloud.google.com/networking
 
@@ -25,8 +25,8 @@
 @class GTLRNetworkSecurity_ClientTlsPolicy_Labels;
 @class GTLRNetworkSecurity_Destination;
 @class GTLRNetworkSecurity_Expr;
-@class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider;
-@class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint;
+@class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider;
+@class GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint;
 @class GTLRNetworkSecurity_GoogleIamV1AuditConfig;
 @class GTLRNetworkSecurity_GoogleIamV1AuditLogConfig;
 @class GTLRNetworkSecurity_GoogleIamV1Binding;
@@ -218,7 +218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  private keys) for peer to peer authentication. The presence of this dictates
  *  mTLS.
  */
-@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider *clientCertificate;
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider *clientCertificate;
 
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -371,7 +371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  Specification of certificate provider. Defines the mechanism to obtain the
  *  certificate and private key for peer to peer authentication.
  */
-@interface GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider : GTLRObject
+@interface GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider : GTLRObject
 
 /**
  *  The certificate provider instance specification that will be passed to the
@@ -383,7 +383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  gRPC specific configuration to access the gRPC server to obtain the cert and
  *  private key.
  */
-@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint *grpcEndpoint;
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint *grpcEndpoint;
 
 @end
 
@@ -391,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
 /**
  *  Specification of the GRPC Endpoint.
  */
-@interface GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint : GTLRObject
+@interface GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint : GTLRObject
 
 /**
  *  Required. The target URI of the gRPC endpoint. Only UDS path is supported,
@@ -552,7 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1089,7 +1089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  Cannot be combined with `allow_open` as a permissive mode that allows both
  *  plain text and TLS is not supported.
  */
-@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider *serverCertificate;
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider *serverCertificate;
 
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1193,7 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfi
  *  gRPC specific configuration to access the gRPC server to obtain the CA
  *  certificate.
  */
-@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint *grpcEndpoint;
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint *grpcEndpoint;
 
 @end
 

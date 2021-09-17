@@ -33,6 +33,11 @@
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
 @class GTLRHangoutsChat_Color;
+@class GTLRHangoutsChat_CommonEventObject;
+@class GTLRHangoutsChat_CommonEventObject_FormInputs;
+@class GTLRHangoutsChat_CommonEventObject_Parameters;
+@class GTLRHangoutsChat_DateInput;
+@class GTLRHangoutsChat_DateTimeInput;
 @class GTLRHangoutsChat_Dialog;
 @class GTLRHangoutsChat_DialogAction;
 @class GTLRHangoutsChat_DriveDataRef;
@@ -68,6 +73,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
+@class GTLRHangoutsChat_Inputs;
 @class GTLRHangoutsChat_KeyValue;
 @class GTLRHangoutsChat_Membership;
 @class GTLRHangoutsChat_Message;
@@ -77,9 +83,12 @@
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
 @class GTLRHangoutsChat_Space;
+@class GTLRHangoutsChat_StringInputs;
 @class GTLRHangoutsChat_TextButton;
 @class GTLRHangoutsChat_TextParagraph;
 @class GTLRHangoutsChat_Thread;
+@class GTLRHangoutsChat_TimeInput;
+@class GTLRHangoutsChat_TimeZone;
 @class GTLRHangoutsChat_User;
 @class GTLRHangoutsChat_UserMentionMetadata;
 @class GTLRHangoutsChat_WidgetMarkup;
@@ -339,10 +348,82 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_CommonEventObject.hostApp
+
+/**
+ *  This is only used for aggregating logs on the server. Clients should never
+ *  send these values directly.
+ *
+ *  Value: "ALL_HOST_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_AllHostApps;
+/** Value: "CALENDAR" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar;
+/** Value: "CHAT" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat;
+/** Value: "DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Demo;
+/** Value: "DOCS" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Docs;
+/** Value: "DRAWINGS" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings;
+/** Value: "DRIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Drive;
+/** Value: "GMAIL" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail;
+/** Value: "SHEETS" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Sheets;
+/** Value: "SLIDES" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Slides;
+/** Value: "UNSPECIFIED_HOST_APP" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_UnspecifiedHostApp;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_CommonEventObject.platform
+
+/** Value: "ANDROID" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Android;
+/** Value: "IOS" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Ios;
+/** Value: "UNKNOWN_PLATFORM" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_UnknownPlatform;
+/** Value: "WEB" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_CommonEventObject_Platform_Web;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_DeprecatedEvent.dialogEventType
+
+/**
+ *  For native cancellation button.
+ *
+ *  Value: "CANCEL_DIALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog;
+/**
+ *  For any user action that would result in a dialog opening.
+ *
+ *  Value: "REQUEST_DIALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog;
+/**
+ *  For card click events from any dialog.
+ *
+ *  Value: "SUBMIT_DIALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog;
+/**
+ *  This could be used when the corresponding event is not dialog related. For
+ *  example an \@mention.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_DeprecatedEvent.type
 
 /**
- *  The bot was added to a room or DM.
+ *  The bot was added to a space.
  *
  *  Value: "ADDED_TO_SPACE"
  */
@@ -354,13 +435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedT
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked;
 /**
- *  A message was sent in a room or direct message.
+ *  A message was sent in a space.
  *
  *  Value: "MESSAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message;
 /**
- *  The bot was removed from a room or DM.
+ *  The bot was removed from a space.
  *
  *  Value: "REMOVED_FROM_SPACE"
  */
@@ -876,13 +957,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_T
 // GTLRHangoutsChat_Space.type
 
 /**
- *  1:1 Direct Message between a human and a bot, where all messages are flat.
+ *  1:1 Direct Message between a human and a Chat bot, where all messages are
+ *  flat.
  *
  *  Value: "DM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_Type_Dm;
 /**
- *  Multi-user spaces such as rooms and DMs between humans.
+ *  Conversations between two or more humans.
  *
  *  Value: "ROOM"
  */
@@ -1164,7 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  An attachment in Hangouts Chat.
+ *  An attachment in Google Chat.
  */
 @interface GTLRHangoutsChat_Attachment : GTLRObject
 
@@ -1407,6 +1489,142 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Next available ID = 8
+ */
+@interface GTLRHangoutsChat_CommonEventObject : GTLRObject
+
+/**
+ *  The keys are the string IDs associated with the widget and the values are
+ *  inputs with a widget in the card.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject_FormInputs *formInputs;
+
+/**
+ *  The hostApp enum which indicates the app the add-on is invoked from
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_AllHostApps This is
+ *        only used for aggregating logs on the server. Clients should never
+ *        send these values directly. (Value: "ALL_HOST_APPS")
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar Value
+ *        "CALENDAR"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Chat Value "CHAT"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Demo Value "DEMO"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Docs Value "DOCS"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Drawings Value
+ *        "DRAWINGS"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Drive Value "DRIVE"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Gmail Value "GMAIL"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Sheets Value "SHEETS"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_Slides Value "SLIDES"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_HostApp_UnspecifiedHostApp
+ *        Value "UNSPECIFIED_HOST_APP"
+ */
+@property(nonatomic, copy, nullable) NSString *hostApp;
+
+/**
+ *  Name of the invoked function associated with the widget. This field is
+ *  currently only set for chat.
+ */
+@property(nonatomic, copy, nullable) NSString *invokedFunction;
+
+/** Any additional parameters. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject_Parameters *parameters;
+
+/**
+ *  The platform enum which indicates the platform where the add-on is running.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_Platform_Android Value
+ *        "ANDROID"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_Platform_Ios Value "IOS"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_Platform_UnknownPlatform Value
+ *        "UNKNOWN_PLATFORM"
+ *    @arg @c kGTLRHangoutsChat_CommonEventObject_Platform_Web Value "WEB"
+ */
+@property(nonatomic, copy, nullable) NSString *platform;
+
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_TimeZone *timeZone;
+
+/**
+ *  The full locale.displayName in the format of [ISO 639 language code]-[ISO
+ *  3166 country/region code] such as "en-US"
+ */
+@property(nonatomic, copy, nullable) NSString *userLocale;
+
+@end
+
+
+/**
+ *  The keys are the string IDs associated with the widget and the values are
+ *  inputs with a widget in the card.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRHangoutsChat_Inputs. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHangoutsChat_CommonEventObject_FormInputs : GTLRObject
+@end
+
+
+/**
+ *  Any additional parameters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRHangoutsChat_CommonEventObject_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Input Parameter for Date Picker widget.
+ */
+@interface GTLRHangoutsChat_DateInput : GTLRObject
+
+/**
+ *  msSinceEpoch
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *msSinceEpoch;
+
+@end
+
+
+/**
+ *  Input Parameter for Date and Time Picker widget.
+ */
+@interface GTLRHangoutsChat_DateTimeInput : GTLRObject
+
+/**
+ *  hasDate
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasDate;
+
+/**
+ *  hasTime
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasTime;
+
+/**
+ *  msSinceEpoch
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *msSinceEpoch;
+
+@end
+
+
+/**
  *  Google Chat events.
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
@@ -1419,6 +1637,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
 /**
+ *  This will include form information for dialogs such as form inputs, action
+ *  parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_CommonEventObject *common;
+
+/**
  *  The URL the bot should redirect the user to after they have completed an
  *  authorization or configuration flow outside of Google Chat. See the
  *  [Authorizing access to 3p services guide](/chat/how-tos/auth-3p) for more
@@ -1426,13 +1650,38 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
+/**
+ *  The type of dialog event we have received.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_CancelDialog For
+ *        native cancellation button. (Value: "CANCEL_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_RequestDialog
+ *        For any user action that would result in a dialog opening. (Value:
+ *        "REQUEST_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_SubmitDialog For
+ *        card click events from any dialog. (Value: "SUBMIT_DIALOG")
+ *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_DialogEventType_TypeUnspecified
+ *        This could be used when the corresponding event is not dialog related.
+ *        For example an \@mention. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dialogEventType;
+
 /** The timestamp indicating when the event was dispatched. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Whether or not this event is related to dialogs request, submit or cancel.
+ *  This will be set to true when we want a request/submit/cancel event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDialogEvent;
 
 /** The message that triggered the event, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
 
-/** The room or DM in which the event occurred. */
+/** The space in which the event occurred. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
@@ -1454,13 +1703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace The bot was
- *        added to a room or DM. (Value: "ADDED_TO_SPACE")
+ *        added to a space. (Value: "ADDED_TO_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked The bot's
  *        interactive card was clicked. (Value: "CARD_CLICKED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Message A message was sent
- *        in a room or direct message. (Value: "MESSAGE")
+ *        in a space. (Value: "MESSAGE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace The bot
- *        was removed from a room or DM. (Value: "REMOVED_FROM_SPACE")
+ *        was removed from a space. (Value: "REMOVED_FROM_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
  */
@@ -2650,6 +2899,19 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  The inputs with widgets.
+ */
+@interface GTLRHangoutsChat_Inputs : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_DateInput *dateInput;
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_DateTimeInput *dateTimeInput;
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_StringInputs *stringInputs;
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_TimeInput *timeInput;
+
+@end
+
+
+/**
  *  A UI element contains a key (label) and a value (content). And this element
  *  may also contain some actions such as onclick button.
  */
@@ -2800,7 +3062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Represents a membership relation in Hangouts Chat.
+ *  Represents a membership relation in Google Chat.
  */
 @interface GTLRHangoutsChat_Membership : GTLRObject
 
@@ -2810,7 +3072,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** A User in Hangout Chat */
+/** A user in Google Chat. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2836,7 +3098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A message in Hangouts Chat.
+ *  A message in Google Chat.
  */
 @interface GTLRHangoutsChat_Message : GTLRObject
 
@@ -2863,7 +3125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
 
 /**
- *  Output only. The time at which the message was created in Hangouts Chat
+ *  Output only. The time at which the message was created in Google Chat
  *  server.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2875,7 +3137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
 /**
- *  Output only. The time at which the message was last updated in Hangouts Chat
+ *  Output only. The time at which the message was last updated in Google Chat
  *  server. If the message was never updated, this field will be same as
  *  create_time.
  */
@@ -3007,13 +3269,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A room or DM in Hangouts Chat.
+ *  A space in Google Chat. Spaces are conversations between two or more users
+ *  or 1:1 messages between a user and a Chat bot.
  */
 @interface GTLRHangoutsChat_Space : GTLRObject
 
 /**
- *  Output only. The display name (only if the space is a room). Please note
- *  that this field might not be populated in direct messages between humans.
+ *  Output only. The display name (only if the space is of type `ROOM`). Please
+ *  note that this field might not be populated in direct messages between
+ *  humans.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3043,13 +3307,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
- *        and a bot, where all messages are flat. (Value: "DM")
- *    @arg @c kGTLRHangoutsChat_Space_Type_Room Multi-user spaces such as rooms
- *        and DMs between humans. (Value: "ROOM")
+ *        and a Chat bot, where all messages are flat. (Value: "DM")
+ *    @arg @c kGTLRHangoutsChat_Space_Type_Room Conversations between two or
+ *        more humans. (Value: "ROOM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
  *        "TYPE_UNSPECIFIED"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Input parameter for regular widgets. For single-valued widgets, it will be a
+ *  single value list; for multi-valued widgets, such as checkbox, all the
+ *  values are presented.
+ */
+@interface GTLRHangoutsChat_StringInputs : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *value;
 
 @end
 
@@ -3079,7 +3355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A thread in Hangouts Chat.
+ *  A thread in Google Chat.
  */
 @interface GTLRHangoutsChat_Thread : GTLRObject
 
@@ -3088,6 +3364,52 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  spaces/AAAAMpdlehY/threads/UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Input Parameter for Time Picker widget.
+ */
+@interface GTLRHangoutsChat_TimeInput : GTLRObject
+
+/**
+ *  hours
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  minutes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+@end
+
+
+/**
+ *  The timezone id and offset. The id is the tz database time zones such as
+ *  "America/Toronto". The user timezone offset, in milliseconds, from
+ *  Coordinated Universal Time (UTC).
+ */
+@interface GTLRHangoutsChat_TimeZone : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  offset
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *offset;
 
 @end
 

@@ -328,7 +328,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored.
+ *  This version is destroyed, and the key material is no longer stored. This
+ *  version may only become ENABLED again if this version is reimport_eligible
+ *  and the original key material is reimported with a call to
+ *  KeyManagementService.ImportCryptoKeyVersion.
  *
  *  Value: "DESTROYED"
  */
@@ -1597,20 +1600,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
 
 /**
- *  Output only. The root cause of an import failure. Only present if state is
- *  IMPORT_FAILED.
+ *  Output only. The root cause of the most recent import failure. Only present
+ *  if state is IMPORT_FAILED.
  */
 @property(nonatomic, copy, nullable) NSString *importFailureReason;
 
 /**
- *  Output only. The name of the ImportJob used to import this CryptoKeyVersion.
- *  Only present if the underlying key material was imported.
+ *  Output only. The name of the ImportJob used in the most recent import of
+ *  this CryptoKeyVersion. Only present if the underlying key material was
+ *  imported.
  */
 @property(nonatomic, copy, nullable) NSString *importJob;
 
 /**
- *  Output only. The time at which this CryptoKeyVersion's key material was
- *  imported.
+ *  Output only. The time at which this CryptoKeyVersion's key material was most
+ *  recently imported.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *importTime;
 
@@ -1639,14 +1643,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
 
 /**
+ *  Output only. Whether or not this key version is eligible for reimport, by
+ *  being specified as a target in
+ *  ImportCryptoKeyVersionRequest.crypto_key_version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reimportEligible;
+
+/**
  *  The current state of the CryptoKeyVersion.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This version is
- *        destroyed, and the key material is no longer stored. (Value:
- *        "DESTROYED")
+ *        destroyed, and the key material is no longer stored. This version may
+ *        only become ENABLED again if this version is reimport_eligible and the
+ *        original key material is reimported with a call to
+ *        KeyManagementService.ImportCryptoKeyVersion. (Value: "DESTROYED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled This version
  *        is scheduled for destruction, and will be destroyed soon. Call
  *        RestoreCryptoKeyVersion to put it back into the DISABLED state.
@@ -2273,6 +2288,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "RSA_SIGN_PSS_4096_SHA512")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
+
+/**
+ *  Optional. The optional name of an existing CryptoKeyVersion to target for an
+ *  import operation. If this field is not present, a new CryptoKeyVersion
+ *  containing the supplied key material is created. If this field is present,
+ *  the supplied key material is imported into the existing CryptoKeyVersion. To
+ *  import into an existing CryptoKeyVersion, the CryptoKeyVersion must be a
+ *  child of ImportCryptoKeyVersionRequest.parent, have been previously created
+ *  via ImportCryptoKeyVersion, and be in DESTROYED or IMPORT_FAILED state. The
+ *  key material and algorithm must match the previous CryptoKeyVersion exactly
+ *  if the CryptoKeyVersion has ever contained key material.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersion;
 
 /**
  *  Required. The name of the ImportJob that was used to wrap this key material.

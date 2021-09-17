@@ -1278,6 +1278,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Instance : GTLRObject
 
 /**
+ *  Output only. A server-assigned timestamp representing when this Instance was
+ *  created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
  *  Required. The descriptive name for this instance as it appears in UIs. Can
  *  be changed at any time, but should be kept globally unique to avoid
  *  confusion.
@@ -1866,7 +1872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

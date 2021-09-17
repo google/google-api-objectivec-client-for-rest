@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRBigQueryDataTransfer_CheckValidCredsRequest;
+@class GTLRBigQueryDataTransfer_EnrollDataSourcesRequest;
 @class GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest;
 @class GTLRBigQueryDataTransfer_StartManualTransferRunsRequest;
 @class GTLRBigQueryDataTransfer_TransferConfig;
@@ -268,6 +269,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
+ *  Enroll data sources in a user project. This allows users to create transfer
+ *  configurations for these data sources. They will also appear in the
+ *  ListDataSources RPC and as such, will appear in the BigQuery UI
+ *  'https://bigquery.cloud.google.com' (and the documents can be found at
+ *  https://cloud.google.com/bigquery/bigquery-web-ui and
+ *  https://cloud.google.com/bigquery/docs/working-with-transfers).
+ *
+ *  Method: bigquerydatatransfer.projects.enrollDataSources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources : GTLRBigQueryDataTransferQuery
+
+/** The name of the project resource in the form: `projects/{project_id}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_Empty.
+ *
+ *  Enroll data sources in a user project. This allows users to create transfer
+ *  configurations for these data sources. They will also appear in the
+ *  ListDataSources RPC and as such, will appear in the BigQuery UI
+ *  'https://bigquery.cloud.google.com' (and the documents can be found at
+ *  https://cloud.google.com/bigquery/bigquery-web-ui and
+ *  https://cloud.google.com/bigquery/docs/working-with-transfers).
+ *
+ *  @param object The @c GTLRBigQueryDataTransfer_EnrollDataSourcesRequest to
+ *    include in the query.
+ *  @param name The name of the project resource in the form:
+ *    `projects/{project_id}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_EnrollDataSourcesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns true if valid credentials exist for the given data source and
  *  requesting user. Some data sources doesn't support service account, so we
  *  need to talk to them on behalf of the end user. This API just checks whether
@@ -396,6 +438,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Enroll data sources in a user project. This allows users to create transfer
+ *  configurations for these data sources. They will also appear in the
+ *  ListDataSources RPC and as such, will appear in the BigQuery UI
+ *  'https://bigquery.cloud.google.com' (and the documents can be found at
+ *  https://cloud.google.com/bigquery/bigquery-web-ui and
+ *  https://cloud.google.com/bigquery/docs/working-with-transfers).
+ *
+ *  Method: bigquerydatatransfer.projects.locations.enrollDataSources
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources : GTLRBigQueryDataTransferQuery
+
+/** The name of the project resource in the form: `projects/{project_id}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_Empty.
+ *
+ *  Enroll data sources in a user project. This allows users to create transfer
+ *  configurations for these data sources. They will also appear in the
+ *  ListDataSources RPC and as such, will appear in the BigQuery UI
+ *  'https://bigquery.cloud.google.com' (and the documents can be found at
+ *  https://cloud.google.com/bigquery/bigquery-web-ui and
+ *  https://cloud.google.com/bigquery/docs/working-with-transfers).
+ *
+ *  @param object The @c GTLRBigQueryDataTransfer_EnrollDataSourcesRequest to
+ *    include in the query.
+ *  @param name The name of the project resource in the form:
+ *    `projects/{project_id}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_EnrollDataSourcesRequest *)object
+                           name:(NSString *)name;
 
 @end
 

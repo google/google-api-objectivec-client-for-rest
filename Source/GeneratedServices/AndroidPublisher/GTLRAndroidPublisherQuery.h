@@ -471,7 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
  *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    314572800. Accepted MIME type: application/octet-stream
+ *    629145600. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */
@@ -1897,7 +1897,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Lists all in-app products - both managed products and subscriptions.
+ *  Lists all in-app products - both managed products and subscriptions. If an
+ *  app has a large number of in-app products, the response may be paginated. In
+ *  this case the response field `tokenPagination.nextPageToken` will be set and
+ *  the caller should provide its value as a `token` request parameter to
+ *  retrieve the next page.
  *
  *  Method: androidpublisher.inappproducts.list
  *
@@ -1906,13 +1910,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @interface GTLRAndroidPublisherQuery_InappproductsList : GTLRAndroidPublisherQuery
 
-/** How many results the list operation should return. */
+/** Deprecated and ignored. The page size is determined by the server. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The index of the first element to return. */
+/**
+ *  Deprecated and ignored. Set the `token` parameter to rertieve the next page.
+ */
 @property(nonatomic, assign) NSUInteger startIndex;
 
 /** Pagination token. If empty, list starts at the first product. */
@@ -1921,7 +1927,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InappproductsListResponse.
  *
- *  Lists all in-app products - both managed products and subscriptions.
+ *  Lists all in-app products - both managed products and subscriptions. If an
+ *  app has a large number of in-app products, the response may be paginated. In
+ *  this case the response field `tokenPagination.nextPageToken` will be set and
+ *  the caller should provide its value as a `token` request parameter to
+ *  retrieve the next page.
  *
  *  @param packageName Package name of the app.
  *

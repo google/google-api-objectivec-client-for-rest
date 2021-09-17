@@ -37,6 +37,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_Execution.callLogLevel
+
+/**
+ *  No call logging specified.
+ *
+ *  Value: "CALL_LOG_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified;
+/**
+ *  Log all call steps within workflows, all call returns, and all exceptions
+ *  raised.
+ *
+ *  Value: "LOG_ALL_CALLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls;
+/**
+ *  Log only exceptions that are raised from call steps within workflows.
+ *
+ *  Value: "LOG_ERRORS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkflowExecutions_Execution.state
 
 /**
@@ -107,6 +130,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *  `'{"argument":"{\\"firstName\\":\\"FIRST\\",\\"lastName\\":\\"LAST\\"}"}'`
  */
 @property(nonatomic, copy, nullable) NSString *argument;
+
+/**
+ *  The call logging level associated to this execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified
+ *        No call logging specified. (Value: "CALL_LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls Log all
+ *        call steps within workflows, all call returns, and all exceptions
+ *        raised. (Value: "LOG_ALL_CALLS")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly Log
+ *        only exceptions that are raised from call steps within workflows.
+ *        (Value: "LOG_ERRORS_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *callLogLevel;
 
 /** Output only. Marks the end of execution, successful or not. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

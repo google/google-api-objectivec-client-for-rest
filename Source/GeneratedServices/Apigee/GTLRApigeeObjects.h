@@ -68,6 +68,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
@@ -361,6 +362,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_Sta
  *  Value: "RUNTIME_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.billingType
+
+/**
+ *  The default/unset value.
+ *
+ *  Value: "BILLING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_BillingTypeUnspecified;
+/**
+ *  Developer does not maintain an account balance. The API provider bills the
+ *  developer for API usage.
+ *
+ *  Value: "POSTPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid;
+/**
+ *  Developer pays in advance for the use of APIs and the charged amount is
+ *  deducted from their account balance.
+ *
+ *  Value: "PREPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Environment.apiProxyType
@@ -798,11 +823,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_Billi
 // GTLRApigee_GoogleCloudApigeeV1RatePlan.consumptionPricingType
 
 /**
- *  Variable rate charged based on the total volume of API calls. Example: *
+ *  Variable rate charged for each API call based on price tiers. Example: *
  *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
  *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
- *  price for 150 calls: 150 x $1.5 = $225 * Total price for 250 calls: 250 x $1
- *  = $250. **Note**: Not supported by Apigee at this time.
+ *  price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total price for 250
+ *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**: Not supported by
+ *  Apigee at this time.
  *
  *  Value: "BANDED"
  */
@@ -820,22 +846,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_Consu
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_FixedPerUnit;
 /**
- *  Flat rate charged for a bundle of API calls whether or not the entire bundle
- *  is used. Example: * 1-100 calls cost $75 flat fee * 101-200 calls cost $100
- *  flat free * 201-300 calls cost $150 flat fee * Total price for 1 call: $75 *
- *  Total price for 50 calls: $75 * Total price for 150 calls: $100 * Total
- *  price for 250 calls: $150. **Note**: Not supported by Apigee at this time.
+ *  **Note**: Not supported by Apigee at this time.
  *
  *  Value: "STAIRSTEP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Stairstep;
 /**
- *  Variable rate charged for each API call based on price tiers. Example: *
- *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
- *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
- *  price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total price for 250
- *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**: Not supported by
- *  Apigee at this time.
+ *  **Note**: Not supported by Apigee at this time.
  *
  *  Value: "TIERED"
  */
@@ -2402,6 +2419,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for CreditDeveloperBalance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest : GTLRObject
+
+/**
+ *  The amount of money to be credited. The wallet corresponding to the currency
+ *  specified within `transaction_amount` will be updated. For example, if you
+ *  specified `currency_code` within `transaction_amount` as "USD", then the
+ *  amount would be added to the wallet which has the "USD" currency or if no
+ *  such wallet exists, a new wallet will be created with the "USD" currency.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *transactionAmount;
+
+/**
+ *  Each transaction_id uniquely identifies a credit balance request. If
+ *  multiple requests are received with the same transaction_id, only one of
+ *  them will be considered.
+ */
+@property(nonatomic, copy, nullable) NSString *transactionId;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1CustomReport
  */
 @interface GTLRApigee_GoogleCloudApigeeV1CustomReport : GTLRObject
@@ -3292,6 +3333,62 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Account balance for the developer.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeveloperBalance : GTLRObject
+
+/**
+ *  Output only. List of all wallets. Each individual wallet stores the account
+ *  balance for a particular currency.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet *> *wallets;
+
+@end
+
+
+/**
+ *  Wallet used to manage an account balance for a particular currency.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeveloperBalanceWallet : GTLRObject
+
+/** Current remaining balance of the developer for a particular currency. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *balance;
+
+/**
+ *  Output only. Time at which the developer last added credit to the account in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastCreditTime;
+
+@end
+
+
+/**
+ *  Monetization configuration for the developer.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig : GTLRObject
+
+/**
+ *  Billing type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_BillingTypeUnspecified
+ *        The default/unset value. (Value: "BILLING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Postpaid
+ *        Developer does not maintain an account balance. The API provider bills
+ *        the developer for API usage. (Value: "POSTPAID")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig_BillingType_Prepaid
+ *        Developer pays in advance for the use of APIs and the charged amount
+ *        is deducted from their account balance. (Value: "PREPAID")
+ */
+@property(nonatomic, copy, nullable) NSString *billingType;
+
+@end
+
+
+/**
  *  Structure of a DeveloperSubscription.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription : GTLRObject
@@ -4117,6 +4214,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. Port number of the exposed Apigee endpoint. */
 @property(nonatomic, copy, nullable) NSString *port;
+
+/**
+ *  Output only. Version of the runtime system running in the instance. The
+ *  runtime system is the set of components that serve the API Proxy traffic in
+ *  your Environments.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 /**
  *  Output only. State of the instance. Values other than `ACTIVE` means the
@@ -5636,31 +5740,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Banded
- *        Variable rate charged based on the total volume of API calls. Example:
+ *        Variable rate charged for each API call based on price tiers. Example:
  *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
  *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
- *        $100 * Total price for 150 calls: 150 x $1.5 = $225 * Total price for
- *        250 calls: 250 x $1 = $250. **Note**: Not supported by Apigee at this
- *        time. (Value: "BANDED")
+ *        $100 * Total price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total
+ *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**:
+ *        Not supported by Apigee at this time. (Value: "BANDED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified
  *        Pricing model not specified. This is the default. (Value:
  *        "CONSUMPTION_PRICING_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_FixedPerUnit
  *        Fixed rate charged for each API call. (Value: "FIXED_PER_UNIT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Stairstep
- *        Flat rate charged for a bundle of API calls whether or not the entire
- *        bundle is used. Example: * 1-100 calls cost $75 flat fee * 101-200
- *        calls cost $100 flat free * 201-300 calls cost $150 flat fee * Total
- *        price for 1 call: $75 * Total price for 50 calls: $75 * Total price
- *        for 150 calls: $100 * Total price for 250 calls: $150. **Note**: Not
- *        supported by Apigee at this time. (Value: "STAIRSTEP")
+ *        **Note**: Not supported by Apigee at this time. (Value: "STAIRSTEP")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Tiered
- *        Variable rate charged for each API call based on price tiers. Example:
- *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
- *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
- *        $100 * Total price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total
- *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**:
- *        Not supported by Apigee at this time. (Value: "TIERED")
+ *        **Note**: Not supported by Apigee at this time. (Value: "TIERED")
  */
 @property(nonatomic, copy, nullable) NSString *consumptionPricingType;
 
@@ -6732,6 +6826,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  GTLRApigee_GoogleCloudApigeeV1TargetServerConfig
  */
 @interface GTLRApigee_GoogleCloudApigeeV1TargetServerConfig : GTLRObject
+
+/**
+ *  Whether the target server is enabled. An empty/omitted value for this field
+ *  should be interpreted as true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /** Host name of the target server. */
 @property(nonatomic, copy, nullable) NSString *host;

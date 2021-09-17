@@ -43,7 +43,6 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
-@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location_Labels;
@@ -54,6 +53,8 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Metadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Response;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration;
@@ -222,6 +223,40 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.state
+
+/**
+ *  Peering is connected.
+ *
+ *  Value: "CONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Connected;
+/**
+ *  Peering is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Creating;
+/**
+ *  Peering is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Deleting;
+/**
+ *  Peering is disconnected.
+ *
+ *  Value: "DISCONNECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Disconnected;
+/**
+ *  Not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule.day
@@ -1182,15 +1217,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
 
-/**
- *  By default node is eligible if instance is eligible. But individual node
- *  might be excluded from SLO by adding entry here. For semantic see
- *  SloMetadata.exclusions. If both instance and node level exclusions are
- *  present for time period, the node level's reason will be reported by
- *  Eligibility Exporter.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
-
 /** The location of the node, if different from instance location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1303,61 +1329,10 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  SloExclusion represents an exclusion in SLI calculation applies to all SLOs.
- */
-@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
-
-/**
- *  Exclusion duration. No restrictions on the possible values. When an ongoing
- *  operation is taking longer than initially expected, an existing entry in the
- *  exclusion list can be updated by extending the duration. This is supported
- *  by the subsystem exporting eligibility data as long as such extension is
- *  committed at least 10 minutes before the original exclusion expiration -
- *  otherwise it is possible that there will be "gaps" in the exclusion
- *  application in the exported timeseries.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
-
-/**
- *  Human-readable reason for the exclusion. This should be a static string
- *  (e.g. "Disruptive update in progress") and should not contain dynamically
- *  generated data (e.g. instance name). Can be left empty.
- */
-@property(nonatomic, copy, nullable) NSString *reason;
-
-/**
- *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
- *  that the instance should be excluded from all SLIs.
- */
-@property(nonatomic, copy, nullable) NSString *sliName;
-
-/**
- *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-@end
-
-
-/**
  *  SloMetadata contains resources required for proper SLO classification of the
  *  instance.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
-
-/**
- *  List of SLO exclusion windows. When multiple entries in the list match
- *  (matching the exclusion time-window against current time point) the
- *  exclusion reason used in the first matching entry will be published. It is
- *  not needed to include expired exclusion in this list, as only the currently
- *  applicable exclusions are taken into account by the eligibility exporting
- *  subsystem (the historical state of exclusions will be reflected in the
- *  historically produced timeseries regardless of the current state). This
- *  field can be used to mark the instance as temporary ineligible for the
- *  purpose of SLO calculation. For permanent instance SLO exclusion, use of
- *  custom instance eligibility is recommended. See 'eligibility' field below.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
  *  Optional. List of nodes. Some producers need to use per-node metadata to
@@ -1527,6 +1502,36 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation *> *operations;
+
+@end
+
+
+/**
+ *  ListPeeringsResponse is the response message for ListPeerings method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "peerings" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of Managed Identities Service Peerings in the project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering *> *peerings;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1796,7 +1801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
@@ -1821,6 +1826,80 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  Represents a Managed Service for Microsoft Active Directory Peering.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering : GTLRObject
+
+/**
+ *  Required. The full names of the Google Compute Engine
+ *  [networks](/compute/docs/networks-and-firewalls#networks) to which the
+ *  instance is connected. Caller needs to make sure that CIDR subnets do not
+ *  overlap between networks, else peering creation will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizedNetwork;
+
+/** Output only. The time the instance was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Full domain resource path for the Managed AD Domain involved in
+ *  peering. The resource path should be in the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *domainResource;
+
+/** Optional. Resource labels to represent user-provided metadata. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels *labels;
+
+/**
+ *  Output only. Unique name of the peering in this scope including projects and
+ *  location using the form:
+ *  `projects/{project_id}/locations/global/peerings/{peering_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of this Peering.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Connected
+ *        Peering is connected. (Value: "CONNECTED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Creating
+ *        Peering is being created. (Value: "CREATING")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Deleting
+ *        Peering is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Disconnected
+ *        Peering is disconnected. (Value: "DISCONNECTED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_StateUnspecified
+ *        Not set. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Additional information about the current status of this
+ *  peering, if available.
+ */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/** Output only. Last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Resource labels to represent user-provided metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels : GTLRObject
 @end
 
 
@@ -1851,7 +1930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -2274,8 +2353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 /**
  *  Deny Maintenance Period that is applied to resource to indicate when
  *  maintenance is forbidden. User can specify zero or more non-overlapping deny
- *  periods. For V1, Maximum number of deny_maintenance_periods is expected to
- *  be one.
+ *  periods. Maximum number of deny_maintenance_periods expected is one.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 

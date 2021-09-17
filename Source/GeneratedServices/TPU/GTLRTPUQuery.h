@@ -365,7 +365,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Stops a node.
+ *  Stops a node, this operation is only available with single TPU nodes.
  *
  *  Method: tpu.projects.locations.nodes.stop
  *
@@ -380,7 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTPU_Operation.
  *
- *  Stops a node.
+ *  Stops a node, this operation is only available with single TPU nodes.
  *
  *  @param object The @c GTLRTPU_StopNodeRequest to include in the query.
  *  @param name The resource name.

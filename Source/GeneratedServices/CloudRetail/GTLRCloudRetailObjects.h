@@ -1481,8 +1481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The IDs for this type, such as the store IDs for
  *  FulfillmentInfo.type.pickup-in-store or the region IDs for
- *  FulfillmentInfo.type.same-day-delivery. A maximum of 2000 values are
- *  allowed. Each value must be a string with a length limit of 10 characters,
+ *  FulfillmentInfo.type.same-day-delivery. A maximum of 3000 values are
+ *  allowed. Each value must be a string with a length limit of 30 characters,
  *  matching the pattern [a-zA-Z0-9_-]+, such as "store1" or "REGION-2".
  *  Otherwise, an INVALID_ARGUMENT error is returned.
  */
@@ -2970,7 +2970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Boost specification to boost certain products. See more details at this
- *  [user guide](/retail/private/docs/boosting).
+ *  [user guide](https://cloud.google.com/retail/docs/boosting).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec *boostSpec;
 
@@ -3011,8 +3011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The filter syntax consists of an expression language for constructing a
  *  predicate from one or more fields of the products being filtered. Filter
  *  expression is case-sensitive. See more details at this [user
- *  guide](/retail/private/docs/filter-and-order#filter). If this field is
- *  unrecognizable, an INVALID_ARGUMENT is returned.
+ *  guide](https://cloud.google.com/retail/docs/filter-and-order#filter). If
+ *  this field is unrecognizable, an INVALID_ARGUMENT is returned.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3030,8 +3030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The order in which products are returned. Products can be ordered by a field
  *  in an Product object. Leave it unset if ordered by relevance. OrderBy
  *  expression is case-sensitive. See more details at this [user
- *  guide](/retail/private/docs/filter-and-order#order). If this field is
- *  unrecognizable, an INVALID_ARGUMENT is returned.
+ *  guide](https://cloud.google.com/retail/docs/filter-and-order#order). If this
+ *  field is unrecognizable, an INVALID_ARGUMENT is returned.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3071,7 +3071,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The query expansion specification that specifies the conditions under which
  *  query expansion will occur. See more details at this [user
- *  guide](/retail/private/docs/result-size#query_expansion).
+ *  guide](https://cloud.google.com/retail/docs/result-size#query_expansion).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec *queryExpansionSpec;
 
@@ -3160,9 +3160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  An expression which specifies a boost condition. The syntax and supported
  *  fields are the same as a filter expression. See SearchRequest.filter for
  *  detail syntax and limitations. Examples: * To boost products with product ID
- *  "product_1" or "product_2", and color "Red" or "Blue": *(id:
- *  ANY("product_1", "product_2")) * *AND * *(colorFamilies: ANY("Red", "Blue"))
- *  *
+ *  "product_1" or "product_2", and color "Red" or "Blue": * (id:
+ *  ANY("product_1", "product_2")) AND (colorFamilies: ANY("Red","Blue"))
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -3273,36 +3272,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Required. Supported textual and numerical facet keys in Product object, over
  *  which the facet values are computed. Facet key is case-sensitive. Allowed
- *  facet keys when FacetKey.query is not specified: * textual_field = *# The
- *  Product.brands. * | "brands"; *# The Product.categories. * | "categories";
- *  *# The Audience.genders. * | "genders"; *# The Audience.age_groups. * |
- *  "ageGroups"; *# The Product.availability. Value is one of * *# "IN_STOCK",
- *  "OUT_OF_STOCK", PREORDER", "BACKORDER". * | "availability"; *# The
- *  ColorInfo.color_families. * | "colorFamilies"; *# The ColorInfo.colors. * |
- *  "colors"; *# The Product.sizes. * | "sizes"; *# The Product.materials. * |
- *  "materials"; *# The Product.patterns. * | "patterns"; *# The
- *  Product.conditions. * | "conditions"; *# The textual custom attribute in
- *  Product object. Key can * *# be any key in the Product.attributes map * *#
- *  if the attribute values are textual. * | "attributes.key"; *# The
- *  FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "pickup-in-store". *
- *  | "pickupInStore"; *# The FulfillmentInfo.place_ids for FulfillmentInfo.type
- *  * *# "ship-to-store". * | "shipToStore"; *# The FulfillmentInfo.place_ids
- *  for FulfillmentInfo.type * *# "same-day-delivery". * | "sameDayDelivery"; *#
- *  The FulfillmentInfo.place_ids for FulfillmentInfo.type * *#
- *  "next-day-delivery". * | "nextDayDelivery"; *# The FulfillmentInfo.place_ids
- *  for FulfillmentInfo.type * *# "custom-type-1". * | "customFulfillment1"; *#
- *  The FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "custom-type-2".
- *  * | "customFulfillment2"; *# The FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type * *# "custom-type-3". * | "customFulfillment3"; *# The
- *  FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "custom-type-4". * |
- *  "customFulfillment4"; *# The FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type * *# "custom-type-5". * | "customFulfillment5"; *
- *  numerical_field = *# The PriceInfo.price. * | "price"; *# The discount.
- *  Computed by (original_price-price)/price * | "discount"; *# The
- *  Rating.average_rating. * | "rating"; *# The Rating.rating_count. * |
- *  "ratingCount"; *# The numerical custom attribute in Product object. Key can
- *  * *# be any key in the Product.attributes map * *# if the attribute values
- *  are numerical. * | "attributes.key";
+ *  facet keys when FacetKey.query is not specified: * textual_field = *
+ *  "brands" * "categories" * "genders" * "ageGroups" * "availability" *
+ *  "colorFamilies" * "colors" * "sizes" * "materials" * "patterns" *
+ *  "conditions" * "attributes.key" * "pickupInStore" * "shipToStore" *
+ *  "sameDayDelivery" * "nextDayDelivery" * "customFulfillment1" *
+ *  "customFulfillment2" * "customFulfillment3" * "customFulfillment4" *
+ *  "customFulfillment5" * numerical_field = * "price" * "discount" * "rating" *
+ *  "ratingCount" * "attributes.key"
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -3500,8 +3477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Number of pinned results. This field will only be set when expansion happens
- *  and SearchRequest.query_expansion_spec.pin_unexpanded_results is set to
- *  true.
+ *  and SearchRequest.QueryExpansionSpec.pin_unexpanded_results is set to true.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3741,7 +3717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *attributionToken;
 
 /**
- *  The id or name of the associated shopping cart. This id is used to associate
+ *  The ID or name of the associated shopping cart. This ID is used to associate
  *  multiple items added or present in the cart before purchase. This can only
  *  be set for `add-to-cart`, `purchase-complete`, or `shopping-cart-page-view`
  *  events.
@@ -3826,7 +3802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
 /**
- *  A unique id of a web page view. This should be kept the same for all user
+ *  A unique ID of a web page view. This should be kept the same for all user
  *  events triggered from the same pageview. For example, an item detail page
  *  view could trigger multiple events as the user is browsing the page. The
  *  `pageViewId` property should be kept the same for all these events so that
@@ -3841,10 +3817,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  the following event types: * `add-to-cart` * `detail-page-view` *
  *  `purchase-complete` In a `search` event, this field represents the products
  *  returned to the end user on the current page (the end user may have not
- *  finished broswing the whole page yet). When a new page is returned to the
+ *  finished browsing the whole page yet). When a new page is returned to the
  *  end user, after pagination/filtering/ordering even for the same query, a new
  *  `search` event with different product_details is desired. The end user may
- *  have not finished broswing the whole page yet.
+ *  have not finished browsing the whole page yet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ProductDetail *> *productDetails;
 

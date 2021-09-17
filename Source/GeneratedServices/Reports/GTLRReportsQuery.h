@@ -66,8 +66,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
 /**
- *  The Chrome activity reports return information about unsafe events reported
- *  in the context of the WebProtect features of BeyondCorp.
+ *  The Chrome activity reports return information about Chrome browser and
+ *  Chrome OS events.
  *
  *  Value: "chrome"
  */
@@ -309,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
@@ -519,8 +519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
@@ -624,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
@@ -833,8 +833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")

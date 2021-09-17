@@ -44,6 +44,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
+@class GTLRContainer_GcpFilestoreCsiDriverConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
@@ -1131,6 +1132,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
+/**
+ *  Size of partitions to create on the GPU. Valid values are described in the
+ *  NVIDIA [mig user
+ *  guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
+ */
+@property(nonatomic, copy, nullable) NSString *gpuPartitionSize;
+
 @end
 
 
@@ -1157,6 +1165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for the Compute Engine Persistent Disk CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcePersistentDiskCsiDriverConfig *gcePersistentDiskCsiDriverConfig;
+
+/** Configuration for the GCP Filestore CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcpFilestoreCsiDriverConfig *gcpFilestoreCsiDriverConfig;
 
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
@@ -2321,6 +2332,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for the GCP Filestore CSI driver.
+ */
+@interface GTLRContainer_GcpFilestoreCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the GCP Filestore CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  GetJSONWebKeysResponse is a valid JSON Web Key Set as specififed in rfc 7517
  */
 @interface GTLRContainer_GetJSONWebKeysResponse : GTLRObject
@@ -3207,12 +3233,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "gci-update-strategy" - "instance-template" - "kube-env" - "startup-script"
  *  - "user-data" - "disable-address-manager" - "windows-startup-script-ps1" -
  *  "common-psm1" - "k8s-node-setup-psm1" - "install-ssh-psm1" -
- *  "user-profile-psm1" The following keys are reserved for Windows nodes: -
- *  "serial-port-logging-enable" Values are free-form strings, and only have
- *  meaning as interpreted by the image running in the instance. The only
- *  restriction placed on them is that each value's size must be less than or
- *  equal to 32 KB. The total size of all keys and values must be less than 512
- *  KB.
+ *  "user-profile-psm1" Values are free-form strings, and only have meaning as
+ *  interpreted by the image running in the instance. The only restriction
+ *  placed on them is that each value's size must be less than or equal to 32
+ *  KB. The total size of all keys and values must be less than 512 KB.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
 
@@ -3327,12 +3351,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "gci-update-strategy" - "instance-template" - "kube-env" - "startup-script"
  *  - "user-data" - "disable-address-manager" - "windows-startup-script-ps1" -
  *  "common-psm1" - "k8s-node-setup-psm1" - "install-ssh-psm1" -
- *  "user-profile-psm1" The following keys are reserved for Windows nodes: -
- *  "serial-port-logging-enable" Values are free-form strings, and only have
- *  meaning as interpreted by the image running in the instance. The only
- *  restriction placed on them is that each value's size must be less than or
- *  equal to 32 KB. The total size of all keys and values must be less than 512
- *  KB.
+ *  "user-profile-psm1" Values are free-form strings, and only have meaning as
+ *  interpreted by the image running in the instance. The only restriction
+ *  placed on them is that each value's size must be less than or equal to 32
+ *  KB. The total size of all keys and values must be less than 512 KB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

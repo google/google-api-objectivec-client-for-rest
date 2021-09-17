@@ -31,6 +31,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
 @class GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings;
@@ -2251,6 +2252,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the singleton data retention settings for this property.
+ *
+ *  Method: analyticsadmin.properties.getDataRetentionSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesGetDataRetentionSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the settings to lookup. Format:
+ *  properties/{property}/dataRetentionSettings Example:
+ *  "properties/1000/dataRetentionSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.
+ *
+ *  Returns the singleton data retention settings for this property.
+ *
+ *  @param name Required. The name of the settings to lookup. Format:
+ *    properties/{property}/dataRetentionSettings Example:
+ *    "properties/1000/dataRetentionSettings"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetDataRetentionSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lookup for Google Signals settings for a property.
  *
  *  Method: analyticsadmin.properties.getGoogleSignalsSettings
@@ -2905,6 +2939,49 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the singleton data retention settings for this property.
+ *
+ *  Method: analyticsadmin.properties.updateDataRetentionSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name for this DataRetentionSetting resource. Format:
+ *  properties/{property}/dataRetentionSettings
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.
+ *
+ *  Updates the singleton data retention settings for this property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings
+ *    to include in the query.
+ *  @param name Output only. Resource name for this DataRetentionSetting
+ *    resource. Format: properties/{property}/dataRetentionSettings
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings *)object
                            name:(NSString *)name;
 
 @end

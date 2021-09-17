@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Security API (networksecurity/v1beta1)
+//   Network Security API (networksecurity/v1)
 // Documentation:
 //   https://cloud.google.com/networking
 
@@ -161,20 +161,20 @@ NSString * const kGTLRNetworkSecurity_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider
+//   GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider
 //
 
-@implementation GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1CertificateProvider
+@implementation GTLRNetworkSecurity_GoogleCloudNetworksecurityV1CertificateProvider
 @dynamic certificateProviderInstance, grpcEndpoint;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint
+//   GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint
 //
 
-@implementation GTLRNetworkSecurity_GoogleCloudNetworksecurityV1beta1GrpcEndpoint
+@implementation GTLRNetworkSecurity_GoogleCloudNetworksecurityV1GrpcEndpoint
 @dynamic targetUri;
 @end
 

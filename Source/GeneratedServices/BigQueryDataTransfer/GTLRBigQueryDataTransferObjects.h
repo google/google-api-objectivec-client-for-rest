@@ -36,6 +36,7 @@
 @class GTLRBigQueryDataTransfer_TransferMessage;
 @class GTLRBigQueryDataTransfer_TransferRun;
 @class GTLRBigQueryDataTransfer_TransferRun_Params;
+@class GTLRBigQueryDataTransfer_UserInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -64,9 +65,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_Authoriz
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
 /**
- *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth doesn't
- *  require a refresh token to get an offline access token. Instead, it uses a
- *  client-signed JWT assertion to retrieve an access token.
+ *  Use First Party OAuth.
  *
  *  Value: "FIRST_PARTY_OAUTH"
  */
@@ -325,10 +324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified
  *        Type unspecified. (Value: "AUTHORIZATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth
- *        Use First Party OAuth based on Loas Owned Clients. First Party OAuth
- *        doesn't require a refresh token to get an offline access token.
- *        Instead, it uses a client-signed JWT assertion to retrieve an access
- *        token. (Value: "FIRST_PARTY_OAUTH")
+ *        Use First Party OAuth. (Value: "FIRST_PARTY_OAUTH")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode
  *        Return an authorization code for a given Google+ page that can then be
  *        exchanged for a refresh token on the backend. (Value:
@@ -595,6 +591,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigQueryDataTransfer_Empty : GTLRObject
+@end
+
+
+/**
+ *  A request to enroll a set of data sources so they are visible in the
+ *  BigQuery UI's `Transfer` tab.
+ */
+@interface GTLRBigQueryDataTransfer_EnrollDataSourcesRequest : GTLRObject
+
+/**
+ *  Data sources that are enrolled. It is required to provide at least one data
+ *  source id.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataSourceIds;
+
 @end
 
 
@@ -1019,9 +1030,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Pub/Sub topic where notifications will be sent after transfer runs
- *  associated with this transfer config finish.
+ *  associated with this transfer config finish. The format for specifying a
+ *  pubsub topic is: `projects/{project}/topics/{topic}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
+
+/**
+ *  Output only. Information about the user whose credentials are used to
+ *  transfer data. Populated only for `transferConfigs.get` requests. In case
+ *  the user information is not available, this field will not be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_UserInfo *ownerInfo;
 
 /**
  *  Parameters specific to each data source. For more information see the bq tab
@@ -1161,7 +1180,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Output only. Pub/Sub topic where a notification will be sent after this
- *  transfer run finishes
+ *  transfer run finishes. The format for specifying a pubsub topic is:
+ *  `projects/{project}/topics/{topic}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
@@ -1243,6 +1263,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryDataTransfer_TransferRun_Params : GTLRObject
+@end
+
+
+/**
+ *  Information about a user.
+ */
+@interface GTLRBigQueryDataTransfer_UserInfo : GTLRObject
+
+/** E-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
 @end
 
 NS_ASSUME_NONNULL_END

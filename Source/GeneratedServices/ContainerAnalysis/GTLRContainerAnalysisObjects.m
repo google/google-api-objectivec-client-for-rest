@@ -25,6 +25,18 @@ NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecifie
 NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored = @"PGP_ASCII_ARMORED";
 NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem = @"PKIX_PEM";
 
+// GTLRContainerAnalysis_BuildStep.status
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Expired = @"EXPIRED";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Failure = @"FAILURE";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Pending = @"PENDING";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Queued = @"QUEUED";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Success = @"SUCCESS";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Timeout = @"TIMEOUT";
+NSString * const kGTLRContainerAnalysis_BuildStep_Status_Working = @"WORKING";
+
 // GTLRContainerAnalysis_CVSSv3.attackComplexity
 NSString * const kGTLRContainerAnalysis_CVSSv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSSv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
@@ -531,6 +543,33 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 @implementation GTLRContainerAnalysis_BuildSignature
 @dynamic keyId, keyType, publicKey, signature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_BuildStep
+//
+
+@implementation GTLRContainerAnalysis_BuildStep
+@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"env" : [NSString class],
+    @"secretEnv" : [NSString class],
+    @"volumes" : [GTLRContainerAnalysis_Volume class],
+    @"waitFor" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1664,6 +1703,16 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_TimeSpan
+//
+
+@implementation GTLRContainerAnalysis_TimeSpan
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Version
 //
 
@@ -1676,6 +1725,16 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_Volume
+//
+
+@implementation GTLRContainerAnalysis_Volume
+@dynamic name, path;
 @end
 
 

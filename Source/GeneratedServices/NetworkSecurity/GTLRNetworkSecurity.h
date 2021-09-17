@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Security API (networksecurity/v1beta1)
+//   Network Security API (networksecurity/v1)
 // Documentation:
 //   https://cloud.google.com/networking
 

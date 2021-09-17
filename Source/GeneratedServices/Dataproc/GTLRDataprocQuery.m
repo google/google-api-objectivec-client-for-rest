@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// actionOnFailedPrimaryWorkers
+NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersDelete = @"DELETE";
+NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified = @"FAILURE_ACTION_UNSPECIFIED";
+NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersNoAction = @"NO_ACTION";
+
 // jobStateMatcher
 NSString * const kGTLRDataprocJobStateMatcherActive    = @"ACTIVE";
 NSString * const kGTLRDataprocJobStateMatcherAll       = @"ALL";
@@ -662,7 +667,7 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersCreate
 
-@dynamic projectId, region, requestId;
+@dynamic actionOnFailedPrimaryWorkers, projectId, region, requestId;
 
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
                       projectId:(NSString *)projectId

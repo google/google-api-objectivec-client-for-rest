@@ -182,6 +182,84 @@ NSString * const kGTLRMyBusinessLodging_Connectivity_WifiAvailableException_Depe
 NSString * const kGTLRMyBusinessLodging_Connectivity_WifiAvailableException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
 NSString * const kGTLRMyBusinessLodging_Connectivity_WifiAvailableException_UnderConstruction = @"UNDER_CONSTRUCTION";
 
+// GTLRMyBusinessLodging_EcoCertification.awardedException
+NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_AwardedException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EcoCertification.ecoCertificate
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_AsianEcotourism = @"ASIAN_ECOTOURISM";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BiosphereResposnibleTourism = @"BIOSPHERE_RESPOSNIBLE_TOURISM";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_BureauVeritas = @"BUREAU_VERITAS";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_ControlUnion = @"CONTROL_UNION";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Earthcheck = @"EARTHCHECK";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificateUnspecified = @"ECO_CERTIFICATE_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcoCertificationMalta = @"ECO_CERTIFICATION_MALTA";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_EcotourismAustraliasEco = @"ECOTOURISM_AUSTRALIAS_ECO";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreatGreenDeal = @"GREAT_GREEN_DEAL";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGlobe = @"GREEN_GLOBE";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenGrowth2050 = @"GREEN_GROWTH2050";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKey = @"GREEN_KEY";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenKeyEcoRating = @"GREEN_KEY_ECO_RATING";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenSeal = @"GREEN_SEAL";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenStar = @"GREEN_STAR";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_GreenTourismActive = @"GREEN_TOURISM_ACTIVE";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HiltonLightstay = @"HILTON_LIGHTSTAY";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HostellingInternationalsQualityAndSustainability = @"HOSTELLING_INTERNATIONALS_QUALITY_AND_SUSTAINABILITY";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_HotelesMasVerdes = @"HOTELES_MAS_VERDES";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso14001 = @"ISO14001";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Iso50001 = @"ISO50001";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_NordicSwanEcolabel = @"NORDIC_SWAN_ECOLABEL";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_PreferredByNatureSustainableTourism = @"PREFERRED_BY_NATURE_SUSTAINABLE_TOURISM";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_SustainableTravelIreland = @"SUSTAINABLE_TRAVEL_IRELAND";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_TofTigersInititivesPug = @"TOF_TIGERS_INITITIVES_PUG";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_Travelife = @"TRAVELIFE";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_UnitedCertificationSystemsLimited = @"UNITED_CERTIFICATION_SYSTEMS_LIMITED";
+NSString * const kGTLRMyBusinessLodging_EcoCertification_EcoCertificate_VireoSrl = @"VIREO_SRL";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.carbonFreeEnergySourcesException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_CarbonFreeEnergySourcesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.energyConservationProgramException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyConservationProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.energyEfficientHeatingAndCoolingSystemsException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientHeatingAndCoolingSystemsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.energyEfficientLightingException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergyEfficientLightingException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.energySavingThermostatsException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_EnergySavingThermostatsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.greenBuildingDesignException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_GreenBuildingDesignException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_EnergyEfficiency.independentOrganizationAuditsEnergyUseException
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_EnergyEfficiency_IndependentOrganizationAuditsEnergyUseException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
 // GTLRMyBusinessLodging_EnhancedCleaning.commercialGradeDisinfectantCleaningException
 NSString * const kGTLRMyBusinessLodging_EnhancedCleaning_CommercialGradeDisinfectantCleaningException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
 NSString * const kGTLRMyBusinessLodging_EnhancedCleaning_CommercialGradeDisinfectantCleaningException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
@@ -1225,6 +1303,83 @@ NSString * const kGTLRMyBusinessLodging_Services_WakeUpCallsException_DependentO
 NSString * const kGTLRMyBusinessLodging_Services_WakeUpCallsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
 NSString * const kGTLRMyBusinessLodging_Services_WakeUpCallsException_UnderConstruction = @"UNDER_CONSTRUCTION";
 
+// GTLRMyBusinessLodging_SustainabilityCertifications.breeamCertification
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamCertificationUnspecified = @"BREEAM_CERTIFICATION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamExcellent = @"BREEAM_EXCELLENT";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamGood = @"BREEAM_GOOD";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamOutstanding = @"BREEAM_OUTSTANDING";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamPass = @"BREEAM_PASS";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_BreeamVeryGood = @"BREEAM_VERY_GOOD";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertification_NoBreeamCertification = @"NO_BREEAM_CERTIFICATION";
+
+// GTLRMyBusinessLodging_SustainabilityCertifications.breeamCertificationException
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_BreeamCertificationException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainabilityCertifications.leedCertification
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertificationUnspecified = @"LEED_CERTIFICATION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedCertified = @"LEED_CERTIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedGold = @"LEED_GOLD";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedPlatinum = @"LEED_PLATINUM";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_LeedSilver = @"LEED_SILVER";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertification_NoLeedCertification = @"NO_LEED_CERTIFICATION";
+
+// GTLRMyBusinessLodging_SustainabilityCertifications.leedCertificationException
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainabilityCertifications_LeedCertificationException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.ecoFriendlyToiletriesException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_EcoFriendlyToiletriesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.locallySourcedFoodAndBeveragesException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_LocallySourcedFoodAndBeveragesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.organicCageFreeEggsException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicCageFreeEggsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.organicFoodAndBeveragesException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_OrganicFoodAndBeveragesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.responsiblePurchasingPolicyException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblePurchasingPolicyException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.responsiblySourcesSeafoodException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_ResponsiblySourcesSeafoodException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.veganMealsException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VeganMealsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_SustainableSourcing.vegetarianMealsException
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_SustainableSourcing_VegetarianMealsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
 // GTLRMyBusinessLodging_Transportation.airportShuttleException
 NSString * const kGTLRMyBusinessLodging_Transportation_AirportShuttleException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
 NSString * const kGTLRMyBusinessLodging_Transportation_AirportShuttleException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
@@ -1314,6 +1469,138 @@ NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyViewException_Depend
 NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyViewException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
 NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyViewException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
 NSString * const kGTLRMyBusinessLodging_ViewsFromUnit_ValleyViewException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.compostableFoodContainersAndCutleryException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostableFoodContainersAndCutleryException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.compostsExcessFoodException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_CompostsExcessFoodException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.donatesExcessFoodException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_DonatesExcessFoodException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.foodWasteReductionProgramException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_FoodWasteReductionProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.noSingleUsePlasticStrawsException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticStrawsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.noSingleUsePlasticWaterBottlesException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoSingleUsePlasticWaterBottlesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.noStyrofoamFoodContainersException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_NoStyrofoamFoodContainersException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.recyclingProgramException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RecyclingProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.refillableToiletryContainersException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_RefillableToiletryContainersException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesBatteriesException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesBatteriesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesElectronicsException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesElectronicsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.safelyDisposesLightbulbsException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyDisposesLightbulbsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.safelyHandlesHazardousSubstancesException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SafelyHandlesHazardousSubstancesException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.soapDonationProgramException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_SoapDonationProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.toiletryDonationProgramException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_ToiletryDonationProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WasteReduction.waterBottleFillingStationsException
+NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WasteReduction_WaterBottleFillingStationsException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.independentOrganizationAuditsWaterUseException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_IndependentOrganizationAuditsWaterUseException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.linenReuseProgramException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_LinenReuseProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.towelReuseProgramException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_TowelReuseProgramException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.waterSavingShowersException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingShowersException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.waterSavingSinksException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingSinksException_UnderConstruction = @"UNDER_CONSTRUCTION";
+
+// GTLRMyBusinessLodging_WaterConservation.waterSavingToiletsException
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_DependentOnSeason = @"DEPENDENT_ON_SEASON";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_ExceptionUnspecified = @"EXCEPTION_UNSPECIFIED";
+NSString * const kGTLRMyBusinessLodging_WaterConservation_WaterSavingToiletsException_UnderConstruction = @"UNDER_CONSTRUCTION";
 
 // GTLRMyBusinessLodging_Wellness.doctorOnCallException
 NSString * const kGTLRMyBusinessLodging_Wellness_DoctorOnCallException_DependentOnDayOfWeek = @"DEPENDENT_ON_DAY_OF_WEEK";
@@ -1433,6 +1720,34 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
 @dynamic freeWifi, freeWifiException, publicAreaWifiAvailable,
          publicAreaWifiAvailableException, publicInternetTerminal,
          publicInternetTerminalException, wifiAvailable, wifiAvailableException;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_EcoCertification
+//
+
+@implementation GTLRMyBusinessLodging_EcoCertification
+@dynamic awarded, awardedException, ecoCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_EnergyEfficiency
+//
+
+@implementation GTLRMyBusinessLodging_EnergyEfficiency
+@dynamic carbonFreeEnergySources, carbonFreeEnergySourcesException,
+         energyConservationProgram, energyConservationProgramException,
+         energyEfficientHeatingAndCoolingSystems,
+         energyEfficientHeatingAndCoolingSystemsException,
+         energyEfficientLighting, energyEfficientLightingException,
+         energySavingThermostats, energySavingThermostatsException,
+         greenBuildingDesign, greenBuildingDesignException,
+         independentOrganizationAuditsEnergyUse,
+         independentOrganizationAuditsEnergyUseException;
 @end
 
 
@@ -1678,7 +1993,7 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
 @dynamic accessibility, activities, allUnits, business, commonLivingArea,
          connectivity, families, foodAndDrink, guestUnits, healthAndSafety,
          housekeeping, metadata, name, parking, pets, policies, pools, property,
-         services, someUnits, transportation, wellness;
+         services, someUnits, sustainability, transportation, wellness;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1856,6 +2171,53 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMyBusinessLodging_Sustainability
+//
+
+@implementation GTLRMyBusinessLodging_Sustainability
+@dynamic energyEfficiency, sustainabilityCertifications, sustainableSourcing,
+         wasteReduction, waterConservation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_SustainabilityCertifications
+//
+
+@implementation GTLRMyBusinessLodging_SustainabilityCertifications
+@dynamic breeamCertification, breeamCertificationException, ecoCertifications,
+         leedCertification, leedCertificationException;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ecoCertifications" : [GTLRMyBusinessLodging_EcoCertification class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_SustainableSourcing
+//
+
+@implementation GTLRMyBusinessLodging_SustainableSourcing
+@dynamic ecoFriendlyToiletries, ecoFriendlyToiletriesException,
+         locallySourcedFoodAndBeverages,
+         locallySourcedFoodAndBeveragesException, organicCageFreeEggs,
+         organicCageFreeEggsException, organicFoodAndBeverages,
+         organicFoodAndBeveragesException, responsiblePurchasingPolicy,
+         responsiblePurchasingPolicyException, responsiblySourcesSeafood,
+         responsiblySourcesSeafoodException, veganMeals, veganMealsException,
+         vegetarianMeals, vegetarianMealsException;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMyBusinessLodging_TimeOfDay
 //
 
@@ -1889,6 +2251,48 @@ NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachineException_UnderCon
          gardenViewException, lakeView, lakeViewException, landmarkView,
          landmarkViewException, oceanView, oceanViewException, poolView,
          poolViewException, valleyView, valleyViewException;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_WasteReduction
+//
+
+@implementation GTLRMyBusinessLodging_WasteReduction
+@dynamic compostableFoodContainersAndCutlery,
+         compostableFoodContainersAndCutleryException, compostsExcessFood,
+         compostsExcessFoodException, donatesExcessFood,
+         donatesExcessFoodException, foodWasteReductionProgram,
+         foodWasteReductionProgramException, noSingleUsePlasticStraws,
+         noSingleUsePlasticStrawsException, noSingleUsePlasticWaterBottles,
+         noSingleUsePlasticWaterBottlesException, noStyrofoamFoodContainers,
+         noStyrofoamFoodContainersException, recyclingProgram,
+         recyclingProgramException, refillableToiletryContainers,
+         refillableToiletryContainersException, safelyDisposesBatteries,
+         safelyDisposesBatteriesException, safelyDisposesElectronics,
+         safelyDisposesElectronicsException, safelyDisposesLightbulbs,
+         safelyDisposesLightbulbsException, safelyHandlesHazardousSubstances,
+         safelyHandlesHazardousSubstancesException, soapDonationProgram,
+         soapDonationProgramException, toiletryDonationProgram,
+         toiletryDonationProgramException, waterBottleFillingStations,
+         waterBottleFillingStationsException;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessLodging_WaterConservation
+//
+
+@implementation GTLRMyBusinessLodging_WaterConservation
+@dynamic independentOrganizationAuditsWaterUse,
+         independentOrganizationAuditsWaterUseException, linenReuseProgram,
+         linenReuseProgramException, towelReuseProgram,
+         towelReuseProgramException, waterSavingShowers,
+         waterSavingShowersException, waterSavingSinks,
+         waterSavingSinksException, waterSavingToilets,
+         waterSavingToiletsException;
 @end
 
 

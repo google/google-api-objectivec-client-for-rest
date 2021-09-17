@@ -45,6 +45,13 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Maint
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready = @"READY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Connected = @"CONNECTED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Creating = @"CREATING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Disconnected = @"DISCONNECTED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule.day
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Friday = @"FRIDAY";
@@ -403,15 +410,7 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
-@dynamic exclusions, location, nodeId, perSliEligibility;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
-  };
-  return map;
-}
-
+@dynamic location, nodeId, perSliEligibility;
 @end
 
 
@@ -461,25 +460,14 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-//
-
-@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic duration, reason, sliName, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic exclusions, nodes, perSliEligibility, tier;
+@dynamic nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class],
     @"nodes" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata class]
   };
   return map;
@@ -561,6 +549,29 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse
+@dynamic nextPageToken, peerings, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peerings" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"peerings";
 }
 
 @end
@@ -713,6 +724,31 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering
+@dynamic authorizedNetwork, createTime, domainResource, labels, name, state,
+         statusMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

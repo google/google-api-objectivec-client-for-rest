@@ -525,6 +525,7 @@
 @class GTLRCompute_RouterAggregatedList_Warning_Data_Item;
 @class GTLRCompute_RouterBgp;
 @class GTLRCompute_RouterBgpPeer;
+@class GTLRCompute_RouterBgpPeerBfd;
 @class GTLRCompute_RouterInterface;
 @class GTLRCompute_RouterList_Warning;
 @class GTLRCompute_RouterList_Warning_Data_Item;
@@ -17880,6 +17881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_BackendServices;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_C2Cpus;
 /** Value: "C2D_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_C2dCpus;
+/** Value: "C3_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_C3Cpus;
 /** Value: "COMMITMENTS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Commitments;
 /** Value: "COMMITTED_A2_CPUS" */
@@ -17888,6 +17891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedA2Cpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2Cpus;
 /** Value: "COMMITTED_C2D_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC2dCpus;
+/** Value: "COMMITTED_C3_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedC3Cpus;
 /** Value: "COMMITTED_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedCpus;
 /** Value: "COMMITTED_E2_CPUS" */
@@ -21011,6 +21016,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_Man
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeer_ManagementType_ManagedByUser;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_RouterBgpPeerBfd.sessionInitializationMode
+
+/** Value: "ACTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Active;
+/** Value: "DISABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Disabled;
+/** Value: "PASSIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Passive;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_RouterInterface.managementType
 
 /**
@@ -23531,7 +23546,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_StatefulPolicyPreservedStateDisk
 // GTLRCompute_Subnetwork.ipv6AccessType
 
 /**
- *  VMs in this subnet can have external IPv6.
+ *  VMs on this subnet will be assigned IPv6 addresses that are accesible via
+ *  the Internet, as well as the VPC network.
  *
  *  Value: "EXTERNAL"
  */
@@ -30115,7 +30131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression [a-z]([-a-z0-9]*[a-z0-9])?. The first character must be a
+ *  expression `[a-z]([-a-z0-9]*[a-z0-9])?`. The first character must be a
  *  lowercase letter, and all following characters (except for the last
  *  character) must be a dash, lowercase letter, or digit. The last character
  *  must be a lowercase letter or digit.
@@ -30841,7 +30857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This reservation type allows to pre allocate specific instance
- *  configuration.
+ *  configuration. Next ID: 5
  */
 @interface GTLRCompute_AllocationSpecificSKUReservation : GTLRObject
 
@@ -32350,9 +32366,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies how to determine whether the backend of a load balancer can handle
  *  additional traffic or is fully loaded. For usage guidelines, see Connection
  *  balancing mode. Backends must use compatible balancing modes. For more
- *  information, see Restrictions and guidelines. Note: Currently, if you use
+ *  information, see Supported balancing modes and target capacity settings and
+ *  Restrictions and guidance for instance groups. Note: Currently, if you use
  *  the API to configure incompatible balancing modes, the configuration might
- *  be accepted even though it has no impact and will be ignored. Specifically,
+ *  be accepted even though it has no impact and is ignored. Specifically,
  *  Backend.maxUtilization is ignored when Backend.balancingMode is RATE. In the
  *  future, this incompatible combination will be rejected.
  *
@@ -35425,14 +35442,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Encrypts the disk using a customer-supplied encryption key. After you
- *  encrypt a disk with a customer-supplied key, you must provide the same key
- *  if you use the disk later (e.g. to create a disk snapshot, to create a disk
- *  image, to create a machine image, or to attach the disk to a virtual
- *  machine). Customer-supplied encryption keys do not protect access to
- *  metadata of the disk. If you do not provide an encryption key when creating
- *  the disk, then the disk will be encrypted using an automatically generated
- *  key and you do not need to provide a key to use the disk later.
+ *  Encrypts the disk using a customer-supplied encryption key or a
+ *  customer-managed encryption key. Encryption keys do not protect access to
+ *  metadata of the disk. After you encrypt a disk with a customer-supplied key,
+ *  you must provide the same key if you use the disk later. For example, to
+ *  create a disk snapshot, to create a disk image, to create a machine image,
+ *  or to attach the disk to a virtual machine. After you encrypt a disk with a
+ *  customer-managed key, the diskEncryptionKey.kmsKeyName is set to a key
+ *  *version* name once the disk is created. The disk is encrypted with this
+ *  version of the key. In the response, diskEncryptionKey.kmsKeyName appears in
+ *  the following format: "diskEncryptionKey.kmsKeyName":
+ *  "projects/kms_project_id/locations/region/keyRings/
+ *  key_region/cryptoKeys/key /cryptoKeysVersions/version If you do not provide
+ *  an encryption key when creating the disk, then the disk is encrypted using
+ *  an automatically generated key and you don't need to provide a key to use
+ *  the disk later.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *diskEncryptionKey;
 
@@ -38108,7 +38132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Deprecated, please use short name instead. User-provided name of the
- *  Organization firewall plicy. The name should be unique in the organization
+ *  Organization firewall policy. The name should be unique in the organization
  *  in which the firewall policy is created. This name must be set on creation
  *  and cannot be changed. The name must be 1-63 characters long, and comply
  *  with RFC1035. Specifically, the name must be 1-63 characters long and match
@@ -50348,7 +50372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Maximum Transmission Unit in bytes. The minimum value for this field is 1460
- *  and the maximum value is 1500 bytes.
+ *  and the maximum value is 1500 bytes. If unspecified, defaults to 1460.
  *
  *  Uses NSNumber of intValue.
  */
@@ -56315,7 +56339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -57665,6 +57689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_BackendServices Value "BACKEND_SERVICES"
  *    @arg @c kGTLRCompute_Quota_Metric_C2Cpus Value "C2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_C2dCpus Value "C2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_C3Cpus Value "C3_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_Commitments Value "COMMITMENTS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedA2Cpus Value
  *        "COMMITTED_A2_CPUS"
@@ -57672,6 +57697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_C2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedC2dCpus Value
  *        "COMMITTED_C2D_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedC3Cpus Value
+ *        "COMMITTED_C3_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedCpus Value "COMMITTED_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedE2Cpus Value
  *        "COMMITTED_E2_CPUS"
@@ -62019,6 +62046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *advertiseMode;
 
+/** BFD configuration for the BGP peering. */
+@property(nonatomic, strong, nullable) GTLRCompute_RouterBgpPeerBfd *bfd;
+
 /**
  *  The status of the BGP peer connection. If set to FALSE, any active session
  *  with the peer is terminated and all associated routing information is
@@ -62089,6 +62119,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *peerIpAddress;
 
+/**
+ *  URI of the VM instance that is used as third-party router appliances such as
+ *  Next Gen Firewalls, Virtual Routers, or Router Appliances. The VM instance
+ *  must be located in zones contained in the same region as this Cloud Router.
+ *  The VM instance is the peer side of the BGP session.
+ */
+@property(nonatomic, copy, nullable) NSString *routerApplianceInstance;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterBgpPeerBfd
+ */
+@interface GTLRCompute_RouterBgpPeerBfd : GTLRObject
+
+/**
+ *  The minimum interval, in milliseconds, between BFD control packets received
+ *  from the peer router. The actual value is negotiated between the two routers
+ *  and is equal to the greater of this value and the transmit interval of the
+ *  other router. If set, this value must be between 1000 and 30000. The default
+ *  is 1000.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minReceiveInterval;
+
+/**
+ *  The minimum interval, in milliseconds, between BFD control packets
+ *  transmitted to the peer router. The actual value is negotiated between the
+ *  two routers and is equal to the greater of this value and the corresponding
+ *  receive interval of the other router. If set, this value must be between
+ *  1000 and 30000. The default is 1000.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTransmitInterval;
+
+/**
+ *  The number of consecutive BFD packets that must be missed before BFD
+ *  declares that a peer is unavailable. If set, the value must be a value
+ *  between 5 and 16. The default is 5.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiplier;
+
+/**
+ *  The BFD session initialization mode for this BGP peer. If set to ACTIVE, the
+ *  Cloud Router will initiate the BFD session for this BGP peer. If set to
+ *  PASSIVE, the Cloud Router will wait for the peer router to initiate the BFD
+ *  session for this BGP peer. If set to DISABLED, BFD is disabled for this BGP
+ *  peer. The default is PASSIVE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Active
+ *        Value "ACTIVE"
+ *    @arg @c kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Disabled
+ *        Value "DISABLED"
+ *    @arg @c kGTLRCompute_RouterBgpPeerBfd_SessionInitializationMode_Passive
+ *        Value "PASSIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *sessionInitializationMode;
+
 @end
 
 
@@ -62150,6 +62244,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  cannot be a dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The regional private internal IP address that is used to establish BGP
+ *  sessions to a VM instance acting as a third-party Router Appliance, such as
+ *  a Next Gen Firewall, a Virtual Router, or an SD-WAN VM.
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpAddress;
+
+/**
+ *  Name of the interface that will be redundant with the current interface you
+ *  are creating. The redundantInterface must belong to the same Cloud Router as
+ *  the interface here. To establish the BGP session to a Router Appliance VM,
+ *  you must create two BGP peers. The two BGP peers must be attached to two
+ *  separate interfaces that are redundant with each other. The
+ *  redundant_interface must be 1-63 characters long, and comply with RFC1035.
+ *  Specifically, the redundant_interface must be 1-63 characters long and match
+ *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
+ */
+@property(nonatomic, copy, nullable) NSString *redundantInterface;
+
+/**
+ *  The URI of the subnetwork resource that this interface belongs to, which
+ *  must be in the same region as the Cloud Router. When you establish a BGP
+ *  session to a VM instance using this interface, the VM instance must belong
+ *  to the same subnetwork as the subnetwork specified here.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
 
@@ -62709,6 +62833,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** IP address of the remote BGP interface. */
 @property(nonatomic, copy, nullable) NSString *peerIpAddress;
+
+/**
+ *  [Output only] URI of the VM instance that is used as third-party router
+ *  appliances such as Next Gen Firewalls, Virtual Routers, or Router
+ *  Appliances. The VM instance is the peer side of the BGP session.
+ */
+@property(nonatomic, copy, nullable) NSString *routerApplianceInstance;
 
 /** BGP state as specified in RFC1771. */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -63567,7 +63698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Represents a ServiceAttachment resource. A service attachment represents a
  *  service that a producer has exposed. It encapsulates the load balancer which
  *  fronts the service runs and a list of NAT IP ranges that the producers uses
- *  to represent the consumers connecting to the service. next tag = 19
+ *  to represent the consumers connecting to the service. next tag = 20
  */
 @interface GTLRCompute_ServiceAttachment : GTLRObject
 
@@ -66094,8 +66225,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  cannot enable direct path.
  *
  *  Likely values:
- *    @arg @c kGTLRCompute_Subnetwork_Ipv6AccessType_External VMs in this subnet
- *        can have external IPv6. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCompute_Subnetwork_Ipv6AccessType_External VMs on this subnet
+ *        will be assigned IPv6 addresses that are accesible via the Internet,
+ *        as well as the VPC network. (Value: "EXTERNAL")
  *    @arg @c kGTLRCompute_Subnetwork_Ipv6AccessType_UnspecifiedIpv6AccessType
  *        IPv6 access type not set. Means this subnet hasn't been turned on IPv6
  *        yet. (Value: "UNSPECIFIED_IPV6_ACCESS_TYPE")
@@ -66133,8 +66265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URL of the network to which this subnetwork belongs, provided by the
- *  client when initially creating the subnetwork. Only networks that are in the
- *  distributed mode can have subnetworks. This field can be set only at
+ *  client when initially creating the subnetwork. This field can be set only at
  *  resource creation time.
  */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -68389,6 +68520,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        (Value: "NO_NAT")
  */
 @property(nonatomic, copy, nullable) NSString *natPolicy;
+
+/**
+ *  The URL of the network this target instance uses to forward traffic. If not
+ *  specified, the traffic will be forwarded to the network that the default
+ *  network interface belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;

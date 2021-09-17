@@ -29,6 +29,7 @@
 @class GTLRAnalyticsData_ConcatenateExpression;
 @class GTLRAnalyticsData_DateRange;
 @class GTLRAnalyticsData_Dimension;
+@class GTLRAnalyticsData_DimensionCompatibility;
 @class GTLRAnalyticsData_DimensionExpression;
 @class GTLRAnalyticsData_DimensionHeader;
 @class GTLRAnalyticsData_DimensionMetadata;
@@ -39,6 +40,7 @@
 @class GTLRAnalyticsData_FilterExpressionList;
 @class GTLRAnalyticsData_InListFilter;
 @class GTLRAnalyticsData_Metric;
+@class GTLRAnalyticsData_MetricCompatibility;
 @class GTLRAnalyticsData_MetricHeader;
 @class GTLRAnalyticsData_MetricMetadata;
 @class GTLRAnalyticsData_MetricOrderBy;
@@ -73,6 +75,30 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
+
+/**
+ *  Unspecified compatibility.
+ *
+ *  Value: "COMPATIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified;
+/**
+ *  The dimension or metric is compatible. This dimension or metric can be
+ *  successfully added to a report.
+ *
+ *  Value: "COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible;
+/**
+ *  The dimension or metric is incompatible. This dimension or metric cannot be
+ *  successfully added to a report.
+ *
+ *  Value: "INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Incompatible;
+
+// ----------------------------------------------------------------------------
 // GTLRAnalyticsData_CohortsRange.granularity
 
 /**
@@ -103,6 +129,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_M
  *  Value: "WEEKLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsData_DimensionCompatibility.compatibility
+
+/**
+ *  Unspecified compatibility.
+ *
+ *  Value: "COMPATIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_CompatibilityUnspecified;
+/**
+ *  The dimension or metric is compatible. This dimension or metric can be
+ *  successfully added to a report.
+ *
+ *  Value: "COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Compatible;
+/**
+ *  The dimension or metric is incompatible. This dimension or metric cannot be
+ *  successfully added to a report.
+ *
+ *  Value: "INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Incompatible;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_DimensionOrderBy.orderType
@@ -136,6 +186,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType
  *  Value: "ORDER_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_OrderTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsData_MetricCompatibility.compatibility
+
+/**
+ *  Unspecified compatibility.
+ *
+ *  Value: "COMPATIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_CompatibilityUnspecified;
+/**
+ *  The dimension or metric is compatible. This dimension or metric can be
+ *  successfully added to a report.
+ *
+ *  Value: "COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Compatible;
+/**
+ *  The dimension or metric is incompatible. This dimension or metric cannot be
+ *  successfully added to a report.
+ *
+ *  Value: "INCOMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Incompatible;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_MetricHeader.type
@@ -584,6 +658,73 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The request for compatibility information for a report's dimensions and
+ *  metrics. Check compatibility provides a preview of the compatibility of a
+ *  report; fields shared with the `runReport` request should be the same values
+ *  as in your `runReport` request.
+ */
+@interface GTLRAnalyticsData_CheckCompatibilityRequest : GTLRObject
+
+/**
+ *  Filters the dimensions and metrics in the response to just this
+ *  compatibility. Commonly used as `”compatibilityFilter”: “COMPATIBLE”` to
+ *  only return compatible dimensions & metrics.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified
+ *        Unspecified compatibility. (Value: "COMPATIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible
+ *        The dimension or metric is compatible. This dimension or metric can be
+ *        successfully added to a report. (Value: "COMPATIBLE")
+ *    @arg @c kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Incompatible
+ *        The dimension or metric is incompatible. This dimension or metric
+ *        cannot be successfully added to a report. (Value: "INCOMPATIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *compatibilityFilter;
+
+/**
+ *  The filter clause of dimensions. `dimensionFilter` should be the same value
+ *  as in your `runReport` request.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *dimensionFilter;
+
+/**
+ *  The dimensions in this report. `dimensions` should be the same value as in
+ *  your `runReport` request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
+
+/**
+ *  The filter clause of metrics. `metricFilter` should be the same value as in
+ *  your `runReport` request
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *metricFilter;
+
+/**
+ *  The metrics in this report. `metrics` should be the same value as in your
+ *  `runReport` request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
+
+@end
+
+
+/**
+ *  The compatibility response with the compatibility of each dimension &
+ *  metric.
+ */
+@interface GTLRAnalyticsData_CheckCompatibilityResponse : GTLRObject
+
+/** The compatibility of each dimension. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionCompatibility *> *dimensionCompatibilities;
+
+/** The compatibility of each metric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_MetricCompatibility *> *metricCompatibilities;
+
+@end
+
+
+/**
  *  Defines a cohort selection criteria. A cohort is a group of users who share
  *  a common characteristic. For example, users with the same `firstSessionDate`
  *  belong to the same cohort.
@@ -822,6 +963,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The compatibility for a single dimension.
+ */
+@interface GTLRAnalyticsData_DimensionCompatibility : GTLRObject
+
+/**
+ *  The compatibility of this dimension. If the compatibility is COMPATIBLE,
+ *  this dimension can be successfully added to the report.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsData_DimensionCompatibility_Compatibility_CompatibilityUnspecified
+ *        Unspecified compatibility. (Value: "COMPATIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Compatible
+ *        The dimension or metric is compatible. This dimension or metric can be
+ *        successfully added to a report. (Value: "COMPATIBLE")
+ *    @arg @c kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Incompatible
+ *        The dimension or metric is incompatible. This dimension or metric
+ *        cannot be successfully added to a report. (Value: "INCOMPATIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *compatibility;
+
+/**
+ *  The dimension metadata contains the API name for this compatibility
+ *  information. The dimension metadata also contains other helpful information
+ *  like the UI name and description.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_DimensionMetadata *dimensionMetadata;
+
+@end
+
+
+/**
  *  Used to express a dimension which is the result of a formula of multiple
  *  dimensions. Example usages: 1) lower_case(dimension) 2)
  *  concatenate(dimension1, symbol, dimension2).
@@ -867,6 +1039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  example, `eventName`.
  */
 @property(nonatomic, copy, nullable) NSString *apiName;
+
+/**
+ *  The display name of the category that this dimension belongs to. Similar
+ *  dimensions and metrics are categorized together.
+ */
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  True if the dimension is a custom dimension for this property.
@@ -1076,6 +1254,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The compatibility for a single metric.
+ */
+@interface GTLRAnalyticsData_MetricCompatibility : GTLRObject
+
+/**
+ *  The compatibility of this metric. If the compatibility is COMPATIBLE, this
+ *  metric can be successfully added to the report.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAnalyticsData_MetricCompatibility_Compatibility_CompatibilityUnspecified
+ *        Unspecified compatibility. (Value: "COMPATIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRAnalyticsData_MetricCompatibility_Compatibility_Compatible
+ *        The dimension or metric is compatible. This dimension or metric can be
+ *        successfully added to a report. (Value: "COMPATIBLE")
+ *    @arg @c kGTLRAnalyticsData_MetricCompatibility_Compatibility_Incompatible
+ *        The dimension or metric is incompatible. This dimension or metric
+ *        cannot be successfully added to a report. (Value: "INCOMPATIBLE")
+ */
+@property(nonatomic, copy, nullable) NSString *compatibility;
+
+/**
+ *  The metric metadata contains the API name for this compatibility
+ *  information. The metric metadata also contains other helpful information
+ *  like the UI name and description.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_MetricMetadata *metricMetadata;
+
+@end
+
+
+/**
  *  Describes a metric column in the report. Visible metrics requested in a
  *  report produce column entries within rows and MetricHeaders. However,
  *  metrics used exclusively within filters or expressions do not produce
@@ -1134,6 +1343,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  `eventCount`.
  */
 @property(nonatomic, copy, nullable) NSString *apiName;
+
+/**
+ *  The display name of the category that this metrics belongs to. Similar
+ *  dimensions and metrics are categorized together.
+ */
+@property(nonatomic, copy, nullable) NSString *category;
 
 /**
  *  True if the metric is a custom metric for this property.
@@ -1555,12 +1770,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @interface GTLRAnalyticsData_ResponseMetaData : GTLRObject
 
 /**
+ *  The currency code used in this report. Intended to be used in formatting
+ *  currency metrics like `purchaseRevenue` for visualization. If currency_code
+ *  was specified in the request, this response parameter will echo the request
+ *  parameter; otherwise, this response parameter is the property's current
+ *  currency_code. Currency codes are string encodings of currency types from
+ *  the ISO 4217 standard (https://en.wikipedia.org/wiki/ISO_4217); for example
+ *  "USD", "EUR", "JPY". To learn more, see
+ *  https://support.google.com/analytics/answer/9796179.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
  *  If true, indicates some buckets of dimension combinations are rolled into
  *  "(other)" row. This can happen for high cardinality reports.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataLossFromOtherRow;
+
+/**
+ *  The property's current timezone. Intended to be used to interpret time-based
+ *  dimensions like `hour` and `minute`. Formatted as strings from the IANA Time
+ *  Zone database (https://www.iana.org/time-zones); for example
+ *  "America/New_York" or "Asia/Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 

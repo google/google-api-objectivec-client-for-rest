@@ -123,6 +123,22 @@ NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaMod
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown = @"COMMON_CRITERIA_MODE_STATUS_UNKNOWN";
 
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed = @"COPY_FROM_WORK_TO_PERSONAL_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed = @"CROSS_PROFILE_COPY_PASTE_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified = @"CROSS_PROFILE_COPY_PASTE_UNSPECIFIED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileDataSharing
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed = @"CROSS_PROFILE_DATA_SHARING_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed = @"CROSS_PROFILE_DATA_SHARING_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified = @"CROSS_PROFILE_DATA_SHARING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed = @"DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED";
+
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Deleted = @"DELETED";
@@ -432,7 +448,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
 @dynamic commonCriteriaMode, developerSettings, googlePlayProtectVerifyApps,
-         untrustedAppsPolicy;
+         personalAppsThatCanReadWorkNotifications, untrustedAppsPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"personalAppsThatCanReadWorkNotifications" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -508,9 +532,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic accessibleTrackIds, autoUpdateMode, connectedWorkAndPersonalApp,
-         defaultPermissionPolicy, delegatedScopes, disabled, installType,
-         lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
-         minimumVersionCode, packageName, permissionGrants;
+         defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
+         installType, lockTaskAllowed, managedConfiguration,
+         managedConfigurationTemplate, minimumVersionCode, packageName,
+         permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -688,6 +713,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_CrossProfilePolicies
+//
+
+@implementation GTLRAndroidManagement_CrossProfilePolicies
+@dynamic crossProfileCopyPaste, crossProfileDataSharing,
+         showWorkContactsInPersonalProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Date
 //
 
@@ -800,6 +836,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"enabledNotificationTypes" : [NSString class],
     @"signinDetails" : [GTLRAndroidManagement_SigninDetail class],
     @"termsAndConditions" : [GTLRAndroidManagement_TermsAndConditions class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ExtensionConfig
+//
+
+@implementation GTLRAndroidManagement_ExtensionConfig
+@dynamic notificationReceiver, signingKeyFingerprintsSha256;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signingKeyFingerprintsSha256" : [NSString class]
   };
   return map;
 }
@@ -1308,7 +1362,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          bluetoothConfigDisabled, bluetoothContactSharingDisabled,
          bluetoothDisabled, cameraDisabled, cellBroadcastsConfigDisabled,
          choosePrivateKeyRules, complianceRules, createWindowsDisabled,
-         credentialsConfigDisabled, dataRoamingDisabled,
+         credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,

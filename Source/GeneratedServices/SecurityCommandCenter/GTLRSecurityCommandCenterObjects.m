@@ -25,6 +25,52 @@ NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_Cvssv3.attackComplexity
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.attackVector
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorAdjacent = @"ATTACK_VECTOR_ADJACENT";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorLocal = @"ATTACK_VECTOR_LOCAL";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorNetwork = @"ATTACK_VECTOR_NETWORK";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorPhysical = @"ATTACK_VECTOR_PHYSICAL";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorUnspecified = @"ATTACK_VECTOR_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.availabilityImpact
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.confidentialityImpact
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.integrityImpact
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.privilegesRequired
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredHigh = @"PRIVILEGES_REQUIRED_HIGH";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredLow = @"PRIVILEGES_REQUIRED_LOW";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredNone = @"PRIVILEGES_REQUIRED_NONE";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredUnspecified = @"PRIVILEGES_REQUIRED_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.scope
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeChanged = @"SCOPE_CHANGED";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnchanged = @"SCOPE_UNCHANGED";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Cvssv3.userInteraction
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionNone = @"USER_INTERACTION_NONE";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
+NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
@@ -192,6 +238,40 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Cve
+//
+
+@implementation GTLRSecurityCommandCenter_Cve
+@dynamic cvssv3, identifier, references;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLRSecurityCommandCenter_Reference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Cvssv3
+//
+
+@implementation GTLRSecurityCommandCenter_Cvssv3
+@dynamic attackComplexity, attackVector, availabilityImpact, baseScore,
+         confidentialityImpact, integrityImpact, privilegesRequired, scope,
+         userInteraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Empty
 //
 
@@ -222,7 +302,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 @implementation GTLRSecurityCommandCenter_Finding
 @dynamic canonicalName, category, createTime, eventTime, externalUri,
          findingClass, indicator, name, parent, resourceName, securityMarks,
-         severity, sourceProperties, state;
+         severity, sourceProperties, state, vulnerability;
 @end
 
 
@@ -752,6 +832,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Reference
+//
+
+@implementation GTLRSecurityCommandCenter_Reference
+@dynamic source, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Resource
 //
 
@@ -933,4 +1023,14 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Vulnerability
+//
+
+@implementation GTLRSecurityCommandCenter_Vulnerability
+@dynamic cve;
 @end

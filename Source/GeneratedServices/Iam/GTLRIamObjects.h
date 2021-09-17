@@ -764,6 +764,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
 
 
 /**
+ *  The service account key disable request.
+ */
+@interface GTLRIam_DisableServiceAccountKeyRequest : GTLRObject
+@end
+
+
+/**
  *  The service account disable request.
  */
 @interface GTLRIam_DisableServiceAccountRequest : GTLRObject
@@ -778,6 +785,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRIam_Empty : GTLRObject
+@end
+
+
+/**
+ *  The service account key enable request.
+ */
+@interface GTLRIam_EnableServiceAccountKeyRequest : GTLRObject
 @end
 
 
@@ -1701,6 +1715,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  *  service accounts are also published at the OAuth2 Service Account API.
  */
 @interface GTLRIam_ServiceAccountKey : GTLRObject
+
+/**
+ *  The key status.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
  *  Specifies the algorithm (and possibly key size) for the key.

@@ -837,11 +837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  location/BigQuery table. For Cloud Storage location destinations, the output
  *  format is newline-delimited JSON. Each line represents a
  *  google.cloud.asset.v1.Asset in the JSON format; for BigQuery table
- *  destinations, the output table stores the fields in asset proto as columns.
- *  This API implements the google.longrunning.Operation API , which allows you
- *  to keep track of the export. We recommend intervals of at least 2 seconds
- *  with exponential retry to poll the export operation result. For regular-size
- *  resource parent, the export operation usually finishes within 5 minutes.
+ *  destinations, the output table stores the fields in asset Protobuf as
+ *  columns. This API implements the google.longrunning.Operation API, which
+ *  allows you to keep track of the export. We recommend intervals of at least 2
+ *  seconds with exponential retry to poll the export operation result. For
+ *  regular-size resource parent, the export operation usually finishes within 5
+ *  minutes.
  *
  *  Method: cloudasset.exportAssets
  *
@@ -865,11 +866,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  location/BigQuery table. For Cloud Storage location destinations, the output
  *  format is newline-delimited JSON. Each line represents a
  *  google.cloud.asset.v1.Asset in the JSON format; for BigQuery table
- *  destinations, the output table stores the fields in asset proto as columns.
- *  This API implements the google.longrunning.Operation API , which allows you
- *  to keep track of the export. We recommend intervals of at least 2 seconds
- *  with exponential retry to poll the export operation result. For regular-size
- *  resource parent, the export operation usually finishes within 5 minutes.
+ *  destinations, the output table stores the fields in asset Protobuf as
+ *  columns. This API implements the google.longrunning.Operation API, which
+ *  allows you to keep track of the export. We recommend intervals of at least 2
+ *  seconds with exponential retry to poll the export operation result. For
+ *  regular-size resource parent, the export operation usually finishes within 5
+ *  minutes.
  *
  *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
  *    query.

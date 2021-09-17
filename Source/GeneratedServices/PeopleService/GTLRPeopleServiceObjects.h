@@ -1341,9 +1341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @interface GTLRPeopleService_Gender : GTLRObject
 
 /**
- *  The type of pronouns that should be used to address the person. The value
- *  can be custom or one of these predefined values: * `male` * `female` *
- *  `other`
+ *  Free form text field for pronouns that should be used to address the person.
+ *  Common values are: * `he`/`him` * `she`/`her` * `they`/`them`
  */
 @property(nonatomic, copy, nullable) NSString *addressMeAs;
 
@@ -1889,6 +1888,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  */
 @interface GTLRPeopleService_Organization : GTLRObject
 
+/** The person's cost center at the organization. */
+@property(nonatomic, copy, nullable) NSString *costCenter;
+
 /**
  *  True if the organization is the person's current organization; false if the
  *  organization is a past organization.
@@ -1913,6 +1915,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  viewer's account locale or the `Accept-Language` HTTP header locale.
  */
 @property(nonatomic, copy, nullable) NSString *formattedType;
+
+/**
+ *  The person's full-time equivalent millipercent within the organization
+ *  (100000 = 100%).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullTimeEquivalentMillipercent;
 
 /** The person's job description at the organization. */
 @property(nonatomic, copy, nullable) NSString *jobDescription;
