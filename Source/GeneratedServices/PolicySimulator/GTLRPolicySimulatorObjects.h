@@ -67,32 +67,33 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff.accessChange
 
 /**
- *  The access change is unspecified.
+ *  Default value. This value is unused.
  *
  *  Value: "ACCESS_CHANGE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessChangeTypeUnspecified;
 /**
- *  The member did not have access under the current policies (`NOT_GRANTED`),
- *  but will have access after the proposed changes (`GRANTED`).
+ *  The principal did not have access under the current policies
+ *  (`NOT_GRANTED`), but will have access after the proposed changes
+ *  (`GRANTED`).
  *
  *  Value: "ACCESS_GAINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessGained;
 /**
- *  This result can occur for the following reasons: * The member did not have
- *  access under the current policies (`NOT_GRANTED`), but their access after
- *  the proposed changes is `UNKNOWN`. * The member's access under the current
- *  policies is `UNKNOWN`, but they will have access after the proposed changes
- *  (`GRANTED`).
+ *  This result can occur for the following reasons: * The principal did not
+ *  have access under the current policies (`NOT_GRANTED`), but their access
+ *  after the proposed changes is `UNKNOWN`. * The principal's access under the
+ *  current policies is `UNKNOWN`, but they will have access after the proposed
+ *  changes (`GRANTED`).
  *
  *  Value: "ACCESS_MAYBE_GAINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeGained;
 /**
- *  This result can occur for the following reasons: * The member had access
+ *  This result can occur for the following reasons: * The principal had access
  *  under the current policies (`GRANTED`), but their access after the proposed
- *  changes is `UNKNOWN`. * The member's access under the current policies is
+ *  changes is `UNKNOWN`. * The principal's access under the current policies is
  *  `UNKNOWN`, but they will not have access after the proposed changes
  *  (`NOT_GRANTED`).
  *
@@ -100,14 +101,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeRevoked;
 /**
- *  The member had access under the current policies (`GRANTED`), but will no
+ *  The principal had access under the current policies (`GRANTED`), but will no
  *  longer have access after the proposed changes (`NOT_GRANTED`).
  *
  *  Value: "ACCESS_REVOKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessRevoked;
 /**
- *  The member's access did not change. This includes the case where both
+ *  The principal's access did not change. This includes the case where both
  *  baseline and simulated are UNKNOWN, but the unknown information is
  *  equivalent.
  *
@@ -115,7 +116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_NoChange;
 /**
- *  The member's access under both the current policies and the proposed
+ *  The principal's access under both the current policies and the proposed
  *  policies is `UNKNOWN`, but the unknown information differs between them.
  *
  *  Value: "UNKNOWN_CHANGE"
@@ -178,25 +179,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.access
 
 /**
- *  The access state is not specified.
+ *  Default value. This value is unused.
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_AccessStateUnspecified;
 /**
- *  The member has the permission.
+ *  The principal has the permission.
  *
  *  Value: "GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_Granted;
 /**
- *  The member does not have the permission.
+ *  The principal does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_NotGranted;
 /**
- *  The member has the permission only if a condition expression evaluates to
+ *  The principal has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
@@ -214,7 +215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.relevance
 
 /**
- *  Reserved for future use.
+ *  Default value. This value is unused.
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
@@ -256,7 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied;
 /**
- *  The inclusion of the permission is not specified.
+ *  Default value. This value is unused.
  *
  *  Value: "ROLE_PERMISSION_UNSPECIFIED"
  */
@@ -266,7 +267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.rolePermissionRelevance
 
 /**
- *  Reserved for future use.
+ *  Default value. This value is unused.
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
@@ -290,16 +291,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership.membership
 
 /**
- *  The binding includes the member. The member can be included directly or
- *  indirectly. For example: * A member is included directly if that member is
- *  listed in the binding. * A member is included indirectly if that member is
- *  in a Google group or Google Workspace domain that is listed in the binding.
+ *  The binding includes the principal. The principal can be included directly
+ *  or indirectly. For example: * A principal is included directly if that
+ *  principal is listed in the binding. * A principal is included indirectly if
+ *  that principal is in a Google group or Google Workspace domain that is
+ *  listed in the binding.
  *
  *  Value: "MEMBERSHIP_INCLUDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded;
 /**
- *  The binding does not include the member.
+ *  The binding does not include the principal.
  *
  *  Value: "MEMBERSHIP_NOT_INCLUDED"
  */
@@ -311,14 +313,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied;
 /**
- *  The member is an unsupported type. Only Google Accounts and service accounts
- *  are supported.
+ *  The principal is an unsupported type. Only Google Accounts and service
+ *  accounts are supported.
  *
  *  Value: "MEMBERSHIP_UNKNOWN_UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported;
 /**
- *  The membership is not specified.
+ *  Default value. This value is unused.
  *
  *  Value: "MEMBERSHIP_UNSPECIFIED"
  */
@@ -328,7 +330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership.relevance
 
 /**
- *  Reserved for future use.
+ *  Default value. This value is unused.
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
@@ -352,25 +354,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess.accessState
 
 /**
- *  The access state is not specified.
+ *  Default value. This value is unused.
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_AccessStateUnspecified;
 /**
- *  The member has the permission.
+ *  The principal has the permission.
  *
  *  Value: "GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_Granted;
 /**
- *  The member does not have the permission.
+ *  The principal does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_NotGranted;
 /**
- *  The member has the permission only if a condition expression evaluates to
+ *  The principal has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
@@ -388,25 +390,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy.access
 
 /**
- *  The access state is not specified.
+ *  Default value. This value is unused.
  *
  *  Value: "ACCESS_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_AccessStateUnspecified;
 /**
- *  The member has the permission.
+ *  The principal has the permission.
  *
  *  Value: "GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_Granted;
 /**
- *  The member does not have the permission.
+ *  The principal does not have the permission.
  *
  *  Value: "NOT_GRANTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_NotGranted;
 /**
- *  The member has the permission only if a condition expression evaluates to
+ *  The principal has the permission only if a condition expression evaluates to
  *  `true`.
  *
  *  Value: "UNKNOWN_CONDITIONAL"
@@ -424,7 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy.relevance
 
 /**
- *  Reserved for future use.
+ *  Default value. This value is unused.
  *
  *  Value: "HEURISTIC_RELEVANCE_UNSPECIFIED"
  */
@@ -466,7 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulat
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Running;
 /**
- *  The state is unspecified.
+ *  Default value. This value is unused.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
@@ -525,47 +527,49 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
 
 /**
- *  A summary and comparison of the member's access under the current (baseline)
- *  policies and the proposed (simulated) policies for a single access tuple.
+ *  A summary and comparison of the principal's access under the current
+ *  (baseline) policies and the proposed (simulated) policies for a single
+ *  access tuple.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff : GTLRObject
 
 /**
- *  How the member's access, specified in the AccessState field, changed between
- *  the current (baseline) policies and proposed (simulated) policies.
+ *  How the principal's access, specified in the AccessState field, changed
+ *  between the current (baseline) policies and proposed (simulated) policies.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessChangeTypeUnspecified
- *        The access change is unspecified. (Value:
+ *        Default value. This value is unused. (Value:
  *        "ACCESS_CHANGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessGained
- *        The member did not have access under the current policies
+ *        The principal did not have access under the current policies
  *        (`NOT_GRANTED`), but will have access after the proposed changes
  *        (`GRANTED`). (Value: "ACCESS_GAINED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeGained
- *        This result can occur for the following reasons: * The member did not
- *        have access under the current policies (`NOT_GRANTED`), but their
- *        access after the proposed changes is `UNKNOWN`. * The member's access
- *        under the current policies is `UNKNOWN`, but they will have access
- *        after the proposed changes (`GRANTED`). (Value: "ACCESS_MAYBE_GAINED")
+ *        This result can occur for the following reasons: * The principal did
+ *        not have access under the current policies (`NOT_GRANTED`), but their
+ *        access after the proposed changes is `UNKNOWN`. * The principal's
+ *        access under the current policies is `UNKNOWN`, but they will have
+ *        access after the proposed changes (`GRANTED`). (Value:
+ *        "ACCESS_MAYBE_GAINED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeRevoked
- *        This result can occur for the following reasons: * The member had
+ *        This result can occur for the following reasons: * The principal had
  *        access under the current policies (`GRANTED`), but their access after
- *        the proposed changes is `UNKNOWN`. * The member's access under the
+ *        the proposed changes is `UNKNOWN`. * The principal's access under the
  *        current policies is `UNKNOWN`, but they will not have access after the
  *        proposed changes (`NOT_GRANTED`). (Value: "ACCESS_MAYBE_REVOKED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessRevoked
- *        The member had access under the current policies (`GRANTED`), but will
- *        no longer have access after the proposed changes (`NOT_GRANTED`).
+ *        The principal had access under the current policies (`GRANTED`), but
+ *        will no longer have access after the proposed changes (`NOT_GRANTED`).
  *        (Value: "ACCESS_REVOKED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_NoChange
- *        The member's access did not change. This includes the case where both
- *        baseline and simulated are UNKNOWN, but the unknown information is
- *        equivalent. (Value: "NO_CHANGE")
+ *        The principal's access did not change. This includes the case where
+ *        both baseline and simulated are UNKNOWN, but the unknown information
+ *        is equivalent. (Value: "NO_CHANGE")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_UnknownChange
- *        The member's access under both the current policies and the proposed
- *        policies is `UNKNOWN`, but the unknown information differs between
- *        them. (Value: "UNKNOWN_CHANGE")
+ *        The principal's access under both the current policies and the
+ *        proposed policies is `UNKNOWN`, but the unknown information differs
+ *        between them. (Value: "UNKNOWN_CHANGE")
  */
 @property(nonatomic, copy, nullable) NSString *accessChange;
 
@@ -587,7 +591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Information about the member, resource, and permission to check.
+ *  Information about the principal, resource, and permission to check.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple : GTLRObject
 
@@ -600,8 +604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
 /**
- *  Required. The IAM permission to check for the specified member and resource.
- *  For a complete list of IAM permissions, see
+ *  Required. The IAM permission to check for the specified principal and
+ *  resource. For a complete list of IAM permissions, see
  *  https://cloud.google.com/iam/help/permissions/reference. For a complete list
  *  of predefined IAM roles and the permissions in each role, see
  *  https://cloud.google.com/iam/help/roles/reference.
@@ -609,11 +613,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
- *  Required. The member, or principal, whose access you want to check, in the
- *  form of the email address that represents that member. For example,
+ *  Required. The principal whose access you want to check, in the form of the
+ *  email address that represents that principal. For example,
  *  `alice\@example.com` or
- *  `my-service-account\@my-project.iam.gserviceaccount.com`. The member must be
- *  a Google Account or a service account. Other types of members are not
+ *  `my-service-account\@my-project.iam.gserviceaccount.com`. The principal must
+ *  be a Google Account or a service account. Other types of principals are not
  *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
@@ -775,29 +779,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Details about how a binding in a policy affects a member's ability to use a
- *  permission.
+ *  Details about how a binding in a policy affects a principal's ability to use
+ *  a permission.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation : GTLRObject
 
 /**
  *  Required. Indicates whether _this binding_ provides the specified permission
- *  to the specified member for the specified resource. This field does _not_
- *  indicate whether the member actually has the permission for the resource.
+ *  to the specified principal for the specified resource. This field does _not_
+ *  indicate whether the principal actually has the permission for the resource.
  *  There might be another binding that overrides this binding. To determine
- *  whether the member actually has the permission, use the `access` field in
+ *  whether the principal actually has the permission, use the `access` field in
  *  the TroubleshootIamPolicyResponse.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_AccessStateUnspecified
- *        The access state is not specified. (Value: "ACCESS_STATE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "ACCESS_STATE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_Granted
- *        The member has the permission. (Value: "GRANTED")
+ *        The principal has the permission. (Value: "GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_NotGranted
- *        The member does not have the permission. (Value: "NOT_GRANTED")
+ *        The principal does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_UnknownConditional
- *        The member has the permission only if a condition expression evaluates
- *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        The principal has the permission only if a condition expression
+ *        evaluates to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_UnknownInfoDenied
  *        The user who created the Replay does not have access to all of the
  *        policies that Policy Simulator needs to evaluate. (Value:
@@ -813,18 +818,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleTypeExpr *condition;
 
 /**
- *  Indicates whether each member in the binding includes the member specified
- *  in the request, either directly or indirectly. Each key identifies a member
- *  in the binding, and each value indicates whether the member in the binding
- *  includes the member in the request. For example, suppose that a binding
- *  includes the following members: * `user:alice\@example.com` *
- *  `group:product-eng\@example.com` The member in the replayed access tuple is
- *  `user:bob\@example.com`. This user is a member of the group
- *  `group:product-eng\@example.com`. For the first member in the binding, the
- *  key is `user:alice\@example.com`, and the `membership` field in the value is
- *  set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the
- *  key is `group:product-eng\@example.com`, and the `membership` field in the
- *  value is set to `MEMBERSHIP_INCLUDED`.
+ *  Indicates whether each principal in the binding includes the principal
+ *  specified in the request, either directly or indirectly. Each key identifies
+ *  a principal in the binding, and each value indicates whether the principal
+ *  in the binding includes the principal in the request. For example, suppose
+ *  that a binding includes the following principals: *
+ *  `user:alice\@example.com` * `group:product-eng\@example.com` The principal
+ *  in the replayed access tuple is `user:bob\@example.com`. This user is a
+ *  principal of the group `group:product-eng\@example.com`. For the first
+ *  principal in the binding, the key is `user:alice\@example.com`, and the
+ *  `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the
+ *  second principal in the binding, the key is
+ *  `group:product-eng\@example.com`, and the `membership` field in the value is
+ *  set to `MEMBERSHIP_INCLUDED`.
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Memberships *memberships;
 
@@ -834,7 +840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified
- *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
  *        point is likely to affect the overall determination. (Value: "HIGH")
@@ -868,7 +875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *        The user who created the Replay is not allowed to access the binding.
  *        (Value: "ROLE_PERMISSION_UNKNOWN_INFO_DENIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionUnspecified
- *        The inclusion of the permission is not specified. (Value:
+ *        Default value. This value is unused. (Value:
  *        "ROLE_PERMISSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *rolePermission;
@@ -879,7 +886,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified
- *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermissionRelevance_High
  *        The data point has a strong effect on the result. Changing the data
  *        point is likely to affect the overall determination. (Value: "HIGH")
@@ -894,18 +902,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Indicates whether each member in the binding includes the member specified
- *  in the request, either directly or indirectly. Each key identifies a member
- *  in the binding, and each value indicates whether the member in the binding
- *  includes the member in the request. For example, suppose that a binding
- *  includes the following members: * `user:alice\@example.com` *
- *  `group:product-eng\@example.com` The member in the replayed access tuple is
- *  `user:bob\@example.com`. This user is a member of the group
- *  `group:product-eng\@example.com`. For the first member in the binding, the
- *  key is `user:alice\@example.com`, and the `membership` field in the value is
- *  set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the
- *  key is `group:product-eng\@example.com`, and the `membership` field in the
- *  value is set to `MEMBERSHIP_INCLUDED`.
+ *  Indicates whether each principal in the binding includes the principal
+ *  specified in the request, either directly or indirectly. Each key identifies
+ *  a principal in the binding, and each value indicates whether the principal
+ *  in the binding includes the principal in the request. For example, suppose
+ *  that a binding includes the following principals: *
+ *  `user:alice\@example.com` * `group:product-eng\@example.com` The principal
+ *  in the replayed access tuple is `user:bob\@example.com`. This user is a
+ *  principal of the group `group:product-eng\@example.com`. For the first
+ *  principal in the binding, the key is `user:alice\@example.com`, and the
+ *  `membership` field in the value is set to `MEMBERSHIP_NOT_INCLUDED`. For the
+ *  second principal in the binding, the key is
+ *  `group:product-eng\@example.com`, and the `membership` field in the value is
+ *  set to `MEMBERSHIP_INCLUDED`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership.
@@ -918,41 +927,43 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Details about whether the binding includes the member.
+ *  Details about whether the binding includes the principal.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership : GTLRObject
 
 /**
- *  Indicates whether the binding includes the member.
+ *  Indicates whether the binding includes the principal.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded
- *        The binding includes the member. The member can be included directly
- *        or indirectly. For example: * A member is included directly if that
- *        member is listed in the binding. * A member is included indirectly if
- *        that member is in a Google group or Google Workspace domain that is
- *        listed in the binding. (Value: "MEMBERSHIP_INCLUDED")
+ *        The binding includes the principal. The principal can be included
+ *        directly or indirectly. For example: * A principal is included
+ *        directly if that principal is listed in the binding. * A principal is
+ *        included indirectly if that principal is in a Google group or Google
+ *        Workspace domain that is listed in the binding. (Value:
+ *        "MEMBERSHIP_INCLUDED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded
- *        The binding does not include the member. (Value:
+ *        The binding does not include the principal. (Value:
  *        "MEMBERSHIP_NOT_INCLUDED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied
  *        The user who created the Replay is not allowed to access the binding.
  *        (Value: "MEMBERSHIP_UNKNOWN_INFO_DENIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported
- *        The member is an unsupported type. Only Google Accounts and service
+ *        The principal is an unsupported type. Only Google Accounts and service
  *        accounts are supported. (Value: "MEMBERSHIP_UNKNOWN_UNSUPPORTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified
- *        The membership is not specified. (Value: "MEMBERSHIP_UNSPECIFIED")
+ *        Default value. This value is unused. (Value: "MEMBERSHIP_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *membership;
 
 /**
- *  The relevance of the member's status to the overall determination for the
+ *  The relevance of the principal's status to the overall determination for the
  *  binding.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified
- *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
  *        point is likely to affect the overall determination. (Value: "HIGH")
@@ -973,19 +984,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess : GTLRObject
 
 /**
- *  Whether the member in the access tuple has permission to access the resource
- *  in the access tuple under the given policies.
+ *  Whether the principal in the access tuple has permission to access the
+ *  resource in the access tuple under the given policies.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_AccessStateUnspecified
- *        The access state is not specified. (Value: "ACCESS_STATE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "ACCESS_STATE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_Granted
- *        The member has the permission. (Value: "GRANTED")
+ *        The principal has the permission. (Value: "GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_NotGranted
- *        The member does not have the permission. (Value: "NOT_GRANTED")
+ *        The principal does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_UnknownConditional
- *        The member has the permission only if a condition expression evaluates
- *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        The principal has the permission only if a condition expression
+ *        evaluates to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_UnknownInfoDenied
  *        The user who created the Replay does not have access to all of the
  *        policies that Policy Simulator needs to evaluate. (Value:
@@ -1017,22 +1029,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Indicates whether _this policy_ provides the specified permission to the
- *  specified member for the specified resource. This field does _not_ indicate
- *  whether the member actually has the permission for the resource. There might
- *  be another policy that overrides this policy. To determine whether the
- *  member actually has the permission, use the `access` field in the
- *  TroubleshootIamPolicyResponse.
+ *  specified principal for the specified resource. This field does _not_
+ *  indicate whether the principal actually has the permission for the resource.
+ *  There might be another policy that overrides this policy. To determine
+ *  whether the principal actually has the permission, use the `access` field in
+ *  the TroubleshootIamPolicyResponse.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_AccessStateUnspecified
- *        The access state is not specified. (Value: "ACCESS_STATE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "ACCESS_STATE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_Granted
- *        The member has the permission. (Value: "GRANTED")
+ *        The principal has the permission. (Value: "GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_NotGranted
- *        The member does not have the permission. (Value: "NOT_GRANTED")
+ *        The principal does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_UnknownConditional
- *        The member has the permission only if a condition expression evaluates
- *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        The principal has the permission only if a condition expression
+ *        evaluates to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_UnknownInfoDenied
  *        The user who created the Replay does not have access to all of the
  *        policies that Policy Simulator needs to evaluate. (Value:
@@ -1041,9 +1054,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, copy, nullable) NSString *access;
 
 /**
- *  Details about how each binding in the policy affects the member's ability,
- *  or inability, to use the permission for the resource. If the user who
- *  created the Replay does not have access to the policy, this field is
+ *  Details about how each binding in the policy affects the principal's
+ *  ability, or inability, to use the permission for the resource. If the user
+ *  who created the Replay does not have access to the policy, this field is
  *  omitted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation *> *bindingExplanations;
@@ -1071,7 +1084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified
- *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value:
+ *        "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
  *        point is likely to affect the overall determination. (Value: "HIGH")
@@ -1144,7 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Running
  *        The `Replay` is currently running. (Value: "RUNNING")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_StateUnspecified
- *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Succeeded
  *        The `Replay` has successfully completed. (Value: "SUCCEEDED")
  */
@@ -1213,15 +1227,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 /**
  *  The difference between the results of evaluating an access tuple under the
  *  current (baseline) policies and under the proposed (simulated) policies.
- *  This difference explains how a member's access could change if the proposed
- *  policies were applied.
+ *  This difference explains how a principal's access could change if the
+ *  proposed policies were applied.
  */
 @interface GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayDiff : GTLRObject
 
 /**
- *  A summary and comparison of the member's access under the current (baseline)
- *  policies and the proposed (simulated) policies for a single access tuple.
- *  The evaluation of the member's access is reported in the AccessState field.
+ *  A summary and comparison of the principal's access under the current
+ *  (baseline) policies and the proposed (simulated) policies for a single
+ *  access tuple. The evaluation of the principal's access is reported in the
+ *  AccessState field.
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff *accessDiff;
 
@@ -1246,14 +1261,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  The access tuple that was replayed. This field includes information about
- *  the member, resource, and permission that were involved in the access
+ *  the principal, resource, and permission that were involved in the access
  *  attempt.
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple *accessTuple;
 
 /**
- *  The difference between the member's access under the current (baseline)
- *  policies and the member's access under the proposed (simulated) policies.
+ *  The difference between the principal's access under the current (baseline)
+ *  policies and the principal's access under the proposed (simulated) policies.
  *  This field is only included for access tuples that were successfully
  *  replayed and had different results under the current policies and the
  *  proposed policies.
@@ -1395,7 +1410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRPolicySimulator_GoogleIamV1Binding : GTLRObject
 
@@ -1404,14 +1419,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRPolicySimulator_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1443,8 +1458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1454,15 +1469,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1488,9 +1503,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleIamV1AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleIamV1Binding *> *bindings;
 

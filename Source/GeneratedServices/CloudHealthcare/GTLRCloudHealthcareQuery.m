@@ -2363,6 +2363,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportMessagesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:export";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.export";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet
 
 @dynamic name;
@@ -2400,6 +2427,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
   query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ImportMessagesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:import";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.hl7V2Stores.import";
   return query;
 }
 

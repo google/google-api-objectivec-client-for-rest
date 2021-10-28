@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Container Analysis API (containeranalysis/v1beta1)
+//   Container Analysis API (containeranalysis/v1)
 // Description:
 //   An implementation of the Grafeas API, which stores, and enables querying
 //   and retrieval of critical metadata about all of your software artifacts.
@@ -19,6 +19,90 @@
 
 @end
 
+@implementation GTLRContainerAnalysisQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRContainerAnalysisQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Empty class];
+  query.loggingName = @"containeranalysis.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Empty class];
+  query.loggingName = @"containeranalysis.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_Operation class];
+  query.loggingName = @"containeranalysis.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContainerAnalysisQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContainerAnalysisQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContainerAnalysis_ListOperationsResponse class];
+  query.loggingName = @"containeranalysis.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRContainerAnalysisQuery_ProjectsNotesBatchCreate
 
 @dynamic parent;
@@ -32,7 +116,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/notes:batchCreate";
+  NSString *pathURITemplate = @"v1/{+parent}/notes:batchCreate";
   GTLRContainerAnalysisQuery_ProjectsNotesBatchCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -59,7 +143,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/notes";
+  NSString *pathURITemplate = @"v1/{+parent}/notes";
   GTLRContainerAnalysisQuery_ProjectsNotesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -79,7 +163,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsNotesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -98,7 +182,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsNotesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -124,7 +208,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRContainerAnalysisQuery_ProjectsNotesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -144,7 +228,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/notes";
+  NSString *pathURITemplate = @"v1/{+parent}/notes";
   GTLRContainerAnalysisQuery_ProjectsNotesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -163,7 +247,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/occurrences";
+  NSString *pathURITemplate = @"v1/{+name}/occurrences";
   GTLRContainerAnalysisQuery_ProjectsNotesOccurrencesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -189,7 +273,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsNotesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -216,7 +300,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRContainerAnalysisQuery_ProjectsNotesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -243,7 +327,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRContainerAnalysisQuery_ProjectsNotesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -270,7 +354,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/occurrences:batchCreate";
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences:batchCreate";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesBatchCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -297,7 +381,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/occurrences";
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -317,7 +401,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -336,7 +420,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -362,7 +446,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -382,7 +466,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/notes";
+  NSString *pathURITemplate = @"v1/{+name}/notes";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesGetNotes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -401,7 +485,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/occurrences:vulnerabilitySummary";
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences:vulnerabilitySummary";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesGetVulnerabilitySummary *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -420,7 +504,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/occurrences";
+  NSString *pathURITemplate = @"v1/{+parent}/occurrences";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -446,7 +530,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -473,7 +557,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -500,7 +584,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRContainerAnalysisQuery_ProjectsOccurrencesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -509,71 +593,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRContainerAnalysis_TestIamPermissionsResponse class];
   query.loggingName = @"containeranalysis.projects.occurrences.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRContainerAnalysisQuery_ProjectsScanConfigsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRContainerAnalysisQuery_ProjectsScanConfigsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRContainerAnalysis_ScanConfig class];
-  query.loggingName = @"containeranalysis.projects.scanConfigs.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRContainerAnalysisQuery_ProjectsScanConfigsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/scanConfigs";
-  GTLRContainerAnalysisQuery_ProjectsScanConfigsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContainerAnalysis_ListScanConfigsResponse class];
-  query.loggingName = @"containeranalysis.projects.scanConfigs.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRContainerAnalysisQuery_ProjectsScanConfigsUpdate
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRContainerAnalysis_ScanConfig *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRContainerAnalysisQuery_ProjectsScanConfigsUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRContainerAnalysis_ScanConfig class];
-  query.loggingName = @"containeranalysis.projects.scanConfigs.update";
   return query;
 }
 

@@ -64,6 +64,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimensi
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_Contains;
 /** Value: "EQUALS" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_Equals;
+/** Value: "EXCLUDING_REGEX" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_ExcludingRegex;
+/** Value: "INCLUDING_REGEX" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_IncludingRegex;
 /** Value: "NOT_CONTAINS" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotContains;
 /** Value: "NOT_EQUALS" */
@@ -201,14 +205,58 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.searchType
 
+/**
+ *  Discover.
+ *
+ *  Value: "DISCOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Discover;
+/**
+ *  Google News (news.google.com or mobile app).
+ *
+ *  Value: "GOOGLE_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_GoogleNews;
 /** Value: "IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image;
-/** Value: "NEWS" */
+/**
+ *  News tab in search.
+ *
+ *  Value: "NEWS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_News;
 /** Value: "VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video;
 /** Value: "WEB" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Web;
+
+// ----------------------------------------------------------------------------
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.type
+
+/**
+ *  Discover.
+ *
+ *  Value: "DISCOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Discover;
+/**
+ *  Google News (news.google.com or mobile app).
+ *
+ *  Value: "GOOGLE_NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_GoogleNews;
+/** Value: "IMAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Image;
+/**
+ *  News tab in search.
+ *
+ *  Value: "NEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_News;
+/** Value: "VIDEO" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Video;
+/** Value: "WEB" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSearchConsole_SearchAnalyticsQueryResponse.responseAggregationType
@@ -406,6 +454,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Value "CONTAINS"
  *    @arg @c kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_Equals
  *        Value "EQUALS"
+ *    @arg @c kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_ExcludingRegex
+ *        Value "EXCLUDING_REGEX"
+ *    @arg @c kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_IncludingRegex
+ *        Value "INCLUDING_REGEX"
  *    @arg @c kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotContains
  *        Value "NOT_CONTAINS"
  *    @arg @c kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotEquals
@@ -655,10 +707,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  [Optional; Default is \\"web\\"] The search type to filter for.
  *
  *  Likely values:
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Discover
+ *        Discover. (Value: "DISCOVER")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_GoogleNews
+ *        Google News (news.google.com or mobile app). (Value: "GOOGLE_NEWS")
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image
  *        Value "IMAGE"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_News
- *        Value "NEWS"
+ *        News tab in search. (Value: "NEWS")
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video
  *        Value "VIDEO"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Web
@@ -680,6 +736,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startRow;
+
+/**
+ *  Optional. [Optional; Default is \\"web\\"] Type of report: search type, or
+ *  either Discover or Gnews.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Discover
+ *        Discover. (Value: "DISCOVER")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_GoogleNews
+ *        Google News (news.google.com or mobile app). (Value: "GOOGLE_NEWS")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Image Value
+ *        "IMAGE"
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_News News tab
+ *        in search. (Value: "NEWS")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Video Value
+ *        "VIDEO"
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_Type_Web Value
+ *        "WEB"
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

@@ -1223,11 +1223,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource parent. Returns an operation which can be used to track the process
  *  of the project move workflow. Upon success, the `Operation.response` field
  *  will be populated with the moved project. The caller must have
- *  `resourcemanager.projects.update` permission on the project and have
- *  `resourcemanager.projects.move` permission on the project's current and
- *  proposed new parent. If project has no current parent, or it currently does
- *  not have an associated organization resource, you will also need the
- *  `resourcemanager.projects.setIamPolicy` permission in the project.
+ *  `resourcemanager.projects.move` permission on the project, on the project's
+ *  current and proposed new parent. If project has no current parent, or it
+ *  currently does not have an associated organization resource, you will also
+ *  need the `resourcemanager.projects.setIamPolicy` permission in the project.
  *
  *  Method: cloudresourcemanager.projects.move
  *
@@ -1246,11 +1245,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource parent. Returns an operation which can be used to track the process
  *  of the project move workflow. Upon success, the `Operation.response` field
  *  will be populated with the moved project. The caller must have
- *  `resourcemanager.projects.update` permission on the project and have
- *  `resourcemanager.projects.move` permission on the project's current and
- *  proposed new parent. If project has no current parent, or it currently does
- *  not have an associated organization resource, you will also need the
- *  `resourcemanager.projects.setIamPolicy` permission in the project.
+ *  `resourcemanager.projects.move` permission on the project, on the project's
+ *  current and proposed new parent. If project has no current parent, or it
+ *  currently does not have an associated organization resource, you will also
+ *  need the `resourcemanager.projects.setIamPolicy` permission in the project.
  *
  *  @param object The @c GTLRCloudResourceManager_MoveProjectRequest to include
  *    in the query.

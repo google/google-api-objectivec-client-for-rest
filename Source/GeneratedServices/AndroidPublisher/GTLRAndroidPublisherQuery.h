@@ -23,7 +23,9 @@
 @class GTLRAndroidPublisher_ApksAddExternallyHostedRequest;
 @class GTLRAndroidPublisher_AppDetails;
 @class GTLRAndroidPublisher_AppEdit;
+@class GTLRAndroidPublisher_ConvertRegionPricesRequest;
 @class GTLRAndroidPublisher_ExpansionFile;
+@class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest;
@@ -32,6 +34,7 @@
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
 @class GTLRAndroidPublisher_Testers;
 @class GTLRAndroidPublisher_Track;
+@class GTLRAndroidPublisher_User;
 @class GTLRAndroidPublisher_Variant;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1798,6 +1801,108 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Grant access for a user to the given package.
+ *
+ *  Method: androidpublisher.grants.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_GrantsCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The user which needs permission. Format:
+ *  developers/{developer}/users/{user}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Grant.
+ *
+ *  Grant access for a user to the given package.
+ *
+ *  @param object The @c GTLRAndroidPublisher_Grant to include in the query.
+ *  @param parent Required. The user which needs permission. Format:
+ *    developers/{developer}/users/{user}
+ *
+ *  @return GTLRAndroidPublisherQuery_GrantsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Grant *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes all access for the user to the given package or developer account.
+ *
+ *  Method: androidpublisher.grants.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_GrantsDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The name of the grant to delete. Format:
+ *  developers/{developer}/users/{email}/grants/{package_name}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes all access for the user to the given package or developer account.
+ *
+ *  @param name Required. The name of the grant to delete. Format:
+ *    developers/{developer}/users/{email}/grants/{package_name}
+ *
+ *  @return GTLRAndroidPublisherQuery_GrantsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates access for the user to the given package.
+ *
+ *  Method: androidpublisher.grants.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_GrantsPatch : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Resource name for this grant, following the pattern
+ *  "developers/{developer}/users/{email}/grants/{package_name}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_Grant.
+ *
+ *  Updates access for the user to the given package.
+ *
+ *  @param object The @c GTLRAndroidPublisher_Grant to include in the query.
+ *  @param name Required. Resource name for this grant, following the pattern
+ *    "developers/{developer}/users/{email}/grants/{package_name}".
+ *
+ *  @return GTLRAndroidPublisherQuery_GrantsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Grant *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes an in-app product (i.e. a managed product or a subscriptions).
  *
  *  Method: androidpublisher.inappproducts.delete
@@ -2105,6 +2210,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                     uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Calculates the region prices, using today's exchange rate and
+ *  country-specific pricing patterns, based on the price in the request for a
+ *  set of regions.
+ *
+ *  Method: androidpublisher.monetization.convertRegionPrices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_MonetizationConvertRegionPrices : GTLRAndroidPublisherQuery
+
+/** Required. The app package name. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ConvertRegionPricesResponse.
+ *
+ *  Calculates the region prices, using today's exchange rate and
+ *  country-specific pricing patterns, based on the price in the request for a
+ *  set of regions.
+ *
+ *  @param object The @c GTLRAndroidPublisher_ConvertRegionPricesRequest to
+ *    include in the query.
+ *  @param packageName Required. The app package name.
+ *
+ *  @return GTLRAndroidPublisherQuery_MonetizationConvertRegionPrices
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ConvertRegionPricesRequest *)object
+                    packageName:(NSString *)packageName;
 
 @end
 
@@ -2861,6 +2999,154 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                          versionCode:(long long)versionCode;
+
+@end
+
+/**
+ *  Grant access for a user to the given developer account.
+ *
+ *  Method: androidpublisher.users.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_UsersCreate : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The developer account to add the user to. Format:
+ *  developers/{developer}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_User.
+ *
+ *  Grant access for a user to the given developer account.
+ *
+ *  @param object The @c GTLRAndroidPublisher_User to include in the query.
+ *  @param parent Required. The developer account to add the user to. Format:
+ *    developers/{developer}
+ *
+ *  @return GTLRAndroidPublisherQuery_UsersCreate
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_User *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Removes all access for the user to the given developer account.
+ *
+ *  Method: androidpublisher.users.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_UsersDelete : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The name of the user to delete. Format:
+ *  developers/{developer}/users/{email}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes all access for the user to the given developer account.
+ *
+ *  @param name Required. The name of the user to delete. Format:
+ *    developers/{developer}/users/{email}
+ *
+ *  @return GTLRAndroidPublisherQuery_UsersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all users with access to a developer account.
+ *
+ *  Method: androidpublisher.users.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_UsersList : GTLRAndroidPublisherQuery
+
+/**
+ *  The maximum number of results to return. This must be set to -1 to disable
+ *  pagination.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token received from a previous call to this method, in order to retrieve
+ *  further results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The developer account to fetch users from. Format:
+ *  developers/{developer}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListUsersResponse.
+ *
+ *  Lists all users with access to a developer account.
+ *
+ *  @param parent Required. The developer account to fetch users from. Format:
+ *    developers/{developer}
+ *
+ *  @return GTLRAndroidPublisherQuery_UsersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates access for the user to the developer account.
+ *
+ *  Method: androidpublisher.users.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_UsersPatch : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. Resource name for this user, following the pattern
+ *  "developers/{developer}/users/{email}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_User.
+ *
+ *  Updates access for the user to the developer account.
+ *
+ *  @param object The @c GTLRAndroidPublisher_User to include in the query.
+ *  @param name Required. Resource name for this user, following the pattern
+ *    "developers/{developer}/users/{email}".
+ *
+ *  @return GTLRAndroidPublisherQuery_UsersPatch
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_User *)object
+                           name:(NSString *)name;
 
 @end
 

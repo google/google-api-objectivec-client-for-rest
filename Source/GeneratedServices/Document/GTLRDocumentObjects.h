@@ -1154,6 +1154,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorType.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
 
 /**
@@ -1324,6 +1396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
 
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The state of the operation.
@@ -4416,6 +4491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
 /**
  *  The state of the operation.
  *
@@ -4676,6 +4754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
 
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The state of the operation.
@@ -6220,7 +6301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
  *  have an 'invoice parsing' processor with 'available_locations' field only
  *  containing 'US'. So the user can try to create an 'invoice parsing'
  *  processor under the location 'US'. Such attempt of creating under the
- *  location 'EU' will fail. Next ID: 8.
+ *  location 'EU' will fail. Next ID: 9.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorType : GTLRObject
 
@@ -6239,12 +6320,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
 @property(nonatomic, copy, nullable) NSString *category;
 
 /**
+ *  Launch stage of the processor type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a Beta release. Products will be complete from a feature perspective,
+ *        but may have some open outstanding issues. Beta releases are suitable
+ *        for limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the “Deprecation Policy” section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
  *  The resource name of the processor type. Format:
  *  projects/{project}/processorTypes/{processor_type}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The type of the processor, e.g, "invoice_parsing". */
+/** The type of the processor, e.g., "invoice_parsing". */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -6467,7 +6595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
  *  entity is a date or time value. `money` - the entity represents a money
  *  value amount. `number` - the entity is a number - integer or floating point.
  *  `string` - the entity is a string value. `boolean` - the entity is a boolean
- *  value. `address` - the entity is a location address.
+ *  value. `address` - the entity is a location address. `duration` - the entity
+ *  is a duration.
  */
 @property(nonatomic, copy, nullable) NSString *baseType;
 
@@ -6528,7 +6657,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEn
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
-/** Name of the type. It must be unique within the set of same level types. */
+/**
+ *  Name of the type. It must satisfy the following constraints: 1. Must be
+ *  unique within the set of same level types (with case-insensitive match). 2.
+ *  Maximum 50 characters. 3. Must start with a letter. 4. Allowed characters:
+ *  ASCII letters [a-zA-Z], ASCII digits [0-9], or one of the following
+ *  punctuation characters: * underscore '_' (recommended) * hyphen '-'
+ *  (allowed, not recommended) * colon ':' (allowed, not recommended) NOTE:
+ *  Whitespace characters are not allowed. 5. Cannot end with a punctuation
+ *  character. 6. Cannot contain the following restricted strings: "google",
+ *  "DocumentAI" (case-insensitive match). 7. A slash character '/' is reserved
+ *  as a separator in flattened representations of nested entity types (e.g.,
+ *  "line_item/amount") in which case each part (e.g., "line_item", "amount")
+ *  must comply with the rules defined above. We recommend using the snake case
+ *  ("snake_case") in entity type names.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end

@@ -4,8 +4,9 @@
 // API:
 //   Display & Video 360 API (displayvideo/v1)
 // Description:
-//   Display & Video 360 API allows users to manage and create campaigns and
-//   reports.
+//   Display & Video 360 API allows users to automate complex Display & Video
+//   360 workflows, such as creating insertion orders and setting targeting
+//   options for individual line items.
 // Documentation:
 //   https://developers.google.com/display-video/
 
@@ -39,9 +40,12 @@
 @class GTLRDisplayVideo_CreateAssetRequest;
 @class GTLRDisplayVideo_CreateSdfDownloadTaskRequest;
 @class GTLRDisplayVideo_Creative;
+@class GTLRDisplayVideo_CustomBiddingAlgorithm;
+@class GTLRDisplayVideo_CustomBiddingScript;
 @class GTLRDisplayVideo_DeactivateManualTriggerRequest;
 @class GTLRDisplayVideo_FloodlightGroup;
 @class GTLRDisplayVideo_GenerateDefaultLineItemRequest;
+@class GTLRDisplayVideo_GoogleBytestreamMedia;
 @class GTLRDisplayVideo_InsertionOrder;
 @class GTLRDisplayVideo_InventorySourceGroup;
 @class GTLRDisplayVideo_LineItem;
@@ -7621,6 +7625,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a new custom bidding algorithm. Returns the newly created custom
+ *  bidding algorithm if successful.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsCreate : GTLRDisplayVideoQuery
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_CustomBiddingAlgorithm.
+ *
+ *  Creates a new custom bidding algorithm. Returns the newly created custom
+ *  bidding algorithm if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_CustomBiddingAlgorithm to include in
+ *    the query.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingAlgorithm *)object;
+
+@end
+
+/**
  *  Gets a custom bidding algorithm.
  *
  *  Method: displayvideo.customBiddingAlgorithms.get
@@ -7740,6 +7770,238 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Updates an existing custom bidding algorithm. Returns the updated custom
+ *  bidding algorithm if successful.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsPatch : GTLRDisplayVideoQuery
+
+/**
+ *  Output only. The unique ID of the custom bidding algorithm. Assigned by the
+ *  system.
+ */
+@property(nonatomic, assign) long long customBiddingAlgorithmId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_CustomBiddingAlgorithm.
+ *
+ *  Updates an existing custom bidding algorithm. Returns the updated custom
+ *  bidding algorithm if successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_CustomBiddingAlgorithm to include in
+ *    the query.
+ *  @param customBiddingAlgorithmId Output only. The unique ID of the custom
+ *    bidding algorithm. Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingAlgorithm *)object
+       customBiddingAlgorithmId:(long long)customBiddingAlgorithmId;
+
+@end
+
+/**
+ *  Creates a new custom bidding script. Returns the newly created script if
+ *  successful.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.scripts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsCreate : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that owns the parent custom bidding algorithm. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the custom bidding algorithm that owns the script. */
+@property(nonatomic, assign) long long customBiddingAlgorithmId;
+
+/**
+ *  The ID of the partner that owns the parent custom bidding algorithm. Only
+ *  this partner will have write access to this custom bidding script.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_CustomBiddingScript.
+ *
+ *  Creates a new custom bidding script. Returns the newly created script if
+ *  successful.
+ *
+ *  @param object The @c GTLRDisplayVideo_CustomBiddingScript to include in the
+ *    query.
+ *  @param customBiddingAlgorithmId Required. The ID of the custom bidding
+ *    algorithm that owns the script.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingScript *)object
+       customBiddingAlgorithmId:(long long)customBiddingAlgorithmId;
+
+@end
+
+/**
+ *  Gets a custom bidding script.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.scripts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsGet : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that owns the parent custom bidding algorithm. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the custom bidding algorithm owns the script. */
+@property(nonatomic, assign) long long customBiddingAlgorithmId;
+
+/** Required. The ID of the custom bidding script to fetch. */
+@property(nonatomic, assign) long long customBiddingScriptId;
+
+/**
+ *  The ID of the partner that owns the parent custom bidding algorithm. Only
+ *  this partner will have write access to this custom bidding script.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_CustomBiddingScript.
+ *
+ *  Gets a custom bidding script.
+ *
+ *  @param customBiddingAlgorithmId Required. The ID of the custom bidding
+ *    algorithm owns the script.
+ *  @param customBiddingScriptId Required. The ID of the custom bidding script
+ *    to fetch.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsGet
+ */
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId
+                            customBiddingScriptId:(long long)customBiddingScriptId;
+
+@end
+
+/**
+ *  Lists custom bidding scripts that belong to the given algorithm. The order
+ *  is defined by the order_by parameter.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.scripts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsList : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that owns the parent custom bidding algorithm. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the custom bidding algorithm owns the script. */
+@property(nonatomic, assign) long long customBiddingAlgorithmId;
+
+/**
+ *  Field by which to sort the list. Acceptable values are: * `createTime desc`
+ *  (default) The default sorting order is descending. To specify ascending
+ *  order for a field, the suffix "desc" should be removed. Example:
+ *  `createTime`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListCustomBiddingScripts` method. If not specified, the first page of
+ *  results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The ID of the partner that owns the parent custom bidding algorithm. Only
+ *  this partner will have write access to this custom bidding script.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListCustomBiddingScriptsResponse.
+ *
+ *  Lists custom bidding scripts that belong to the given algorithm. The order
+ *  is defined by the order_by parameter.
+ *
+ *  @param customBiddingAlgorithmId Required. The ID of the custom bidding
+ *    algorithm owns the script.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId;
+
+@end
+
+/**
+ *  Creates a custom bidding script reference object for a script file. The
+ *  resulting reference object provides a resource path to which the script file
+ *  should be uploaded. This reference object should be included in when
+ *  creating a new custom bidding script object.
+ *
+ *  Method: displayvideo.customBiddingAlgorithms.uploadScript
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadScript : GTLRDisplayVideoQuery
+
+/** The ID of the advertiser that owns the parent custom bidding algorithm. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** Required. The ID of the custom bidding algorithm owns the script. */
+@property(nonatomic, assign) long long customBiddingAlgorithmId;
+
+/**
+ *  The ID of the partner that owns the parent custom bidding algorithm. Only
+ *  this partner will have write access to this custom bidding script.
+ */
+@property(nonatomic, assign) long long partnerId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_CustomBiddingScriptRef.
+ *
+ *  Creates a custom bidding script reference object for a script file. The
+ *  resulting reference object provides a resource path to which the script file
+ *  should be uploaded. This reference object should be included in when
+ *  creating a new custom bidding script object.
+ *
+ *  @param customBiddingAlgorithmId Required. The ID of the custom bidding
+ *    algorithm owns the script.
+ *
+ *  @return GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadScript
+ */
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId;
 
 @end
 
@@ -8747,6 +9009,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  @return GTLRDisplayVideoQuery_MediaDownload
  */
 + (instancetype)queryForMediaWithResourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Uploads media. Upload is supported on the URI
+ *  `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload
+ *  requests will not be successful without including `upload_type=media` query
+ *  string.
+ *
+ *  Method: displayvideo.media.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ *    @c kGTLRAuthScopeDisplayVideoDoubleclickbidmanager
+ */
+@interface GTLRDisplayVideoQuery_MediaUpload : GTLRDisplayVideoQuery
+
+/**
+ *  Name of the media that is being downloaded. See ReadRequest.resource_name.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_GoogleBytestreamMedia.
+ *
+ *  Uploads media. Upload is supported on the URI
+ *  `/upload/media/{resource_name=**}?upload_type=media.` **Note**: Upload
+ *  requests will not be successful without including `upload_type=media` query
+ *  string.
+ *
+ *  @param object The @c GTLRDisplayVideo_GoogleBytestreamMedia to include in
+ *    the query.
+ *  @param resourceName Name of the media that is being downloaded. See
+ *    ReadRequest.resource_name.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRDisplayVideoQuery_MediaUpload
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GoogleBytestreamMedia *)object
+                   resourceName:(NSString *)resourceName
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 
@@ -10604,7 +10908,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
 /**
- *  Required. The type of targeting option to retrieve.
+ *  Required. The type of targeting option to retrieve. Accepted values are: *
+ *  `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AGE_RANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` *
+ *  `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+ *  `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_OMID`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -10744,6 +11063,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Gets a single targeting option.
  *
  *  @param targetingType Required. The type of targeting option to retrieve.
+ *    Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` *
+ *    `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS`
+ *    * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE`
+ *    * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+ *    `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE`
+ *    * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION`
+ *    * `TARGETING_TYPE_OMID`
  *  @param targetingOptionId Required. The ID of the of targeting option to
  *    retrieve.
  *
@@ -10938,7 +11273,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The type of targeting option to be listed.
+ *  Required. The type of targeting option to be listed. Accepted values are: *
+ *  `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AGE_RANGE` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_VIDEO_PLAYER_SIZE` *
+ *  `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *  `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE` *
+ *  `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *  `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+ *  `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+ *  `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE` *
+ *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION` *
+ *  `TARGETING_TYPE_OMID`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -11078,6 +11428,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Lists targeting options of a given type.
  *
  *  @param targetingType Required. The type of targeting option to be listed.
+ *    Accepted values are: * `TARGETING_TYPE_APP_CATEGORY` *
+ *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_GENDER` *
+ *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` *
+ *    `TARGETING_TYPE_USER_REWARDED_CONTENT` * `TARGETING_TYPE_PARENTAL_STATUS`
+ *    * `TARGETING_TYPE_CONTENT_INSTREAM_POSITION` *
+ *    `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION` * `TARGETING_TYPE_DEVICE_TYPE`
+ *    * `TARGETING_TYPE_BROWSER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_ON_SCREEN_POSITION` * `TARGETING_TYPE_CARRIER_AND_ISP` *
+ *    `TARGETING_TYPE_OPERATING_SYSTEM` * `TARGETING_TYPE_DEVICE_MAKE_MODEL` *
+ *    `TARGETING_TYPE_ENVIRONMENT` * `TARGETING_TYPE_CATEGORY` *
+ *    `TARGETING_TYPE_VIEWABILITY` * `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_EXCHANGE`
+ *    * `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_NATIVE_CONTENT_POSITION`
+ *    * `TARGETING_TYPE_OMID`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default

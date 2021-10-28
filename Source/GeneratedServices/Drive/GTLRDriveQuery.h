@@ -1142,8 +1142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Exports a Google Doc to the requested MIME type and returns the exported
- *  content. Please note that the exported content is limited to 10MB.
+ *  Exports a Google Workspace document to the requested MIME type and returns
+ *  exported byte content. Note that the exported content is limited to 10MB.
  *
  *  Method: drive.files.export
  *
@@ -1163,8 +1163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Exports a Google Doc to the requested MIME type and returns the exported
- *  content. Please note that the exported content is limited to 10MB.
+ *  Exports a Google Workspace document to the requested MIME type and returns
+ *  exported byte content. Note that the exported content is limited to 10MB.
  *
  *  @param fileId The ID of the file.
  *  @param mimeType The MIME type of the format requested for this export.
@@ -1435,8 +1435,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a file's metadata and/or content. This method supports patch
- *  semantics.
+ *  Updates a file's metadata and/or content. When calling this method, only
+ *  populate fields in the request that you want to modify. When updating
+ *  fields, some fields might change automatically, such as modifiedDate. This
+ *  method supports patch semantics.
  *
  *  Method: drive.files.update
  *
@@ -1512,8 +1514,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_File.
  *
- *  Updates a file's metadata and/or content. This method supports patch
- *  semantics.
+ *  Updates a file's metadata and/or content. When calling this method, only
+ *  populate fields in the request that you want to modify. When updating
+ *  fields, some fields might change automatically, such as modifiedDate. This
+ *  method supports patch semantics.
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.

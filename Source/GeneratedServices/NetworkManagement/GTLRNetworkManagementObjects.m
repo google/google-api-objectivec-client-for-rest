@@ -30,6 +30,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination = 
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp = @"UNKNOWN_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork = @"UNKNOWN_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject = @"UNKNOWN_PROJECT";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unsupported = @"UNSUPPORTED";
 
 // GTLRNetworkManagement_AuditLogConfig.logType
 NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";

@@ -35,6 +35,17 @@ NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime = @"REQUEST_TIME";
 NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified = @"SERVER_VALUE_UNSPECIFIED";
 
+// GTLRFirestore_GoogleFirestoreAdminV1Database.concurrencyMode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.type
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatastoreMode = @"DATASTORE_MODE";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_FirestoreNative = @"FIRESTORE_NATIVE";
+
 // GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata.operationState
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelled = @"CANCELLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata_OperationState_Cancelling = @"CANCELLING";
@@ -516,6 +527,21 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1Database
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1Database
+@dynamic concurrencyMode, earliestVersionTime, ETag, locationId, name, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata
 //
 
@@ -690,6 +716,24 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1IndexOperationMetadata
 @dynamic endTime, index, progressBytes, progressDocuments, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse
+@dynamic databases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databases" : [GTLRFirestore_GoogleFirestoreAdminV1Database class]
+  };
+  return map;
+}
+
 @end
 
 

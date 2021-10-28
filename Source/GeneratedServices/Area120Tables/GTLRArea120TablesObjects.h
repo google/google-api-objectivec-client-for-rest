@@ -20,6 +20,7 @@
 
 @class GTLRArea120Tables_ColumnDescription;
 @class GTLRArea120Tables_CreateRowRequest;
+@class GTLRArea120Tables_DateDetails;
 @class GTLRArea120Tables_LabeledItem;
 @class GTLRArea120Tables_LookupDetails;
 @class GTLRArea120Tables_RelationshipDetails;
@@ -151,6 +152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @property(nonatomic, copy, nullable) NSString *dataType;
 
+/** Optional. Additional details about a date column. */
+@property(nonatomic, strong, nullable) GTLRArea120Tables_DateDetails *dateDetails;
+
 /**
  *  Internal id for a column.
  *
@@ -184,6 +188,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 /** column name */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates that values for the column cannot be set by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readonly;
 
 /**
  *  Optional. Additional details about a relationship column. Specified when
@@ -220,6 +231,21 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *        to user entered text. (Value: "VIEW_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
+ *  Details about a date column.
+ */
+@interface GTLRArea120Tables_DateDetails : GTLRObject
+
+/**
+ *  Whether the date column includes time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasTime;
 
 @end
 
@@ -420,7 +446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 
 /**
- *  A single table. NextId: 7
+ *  A single table. NextId: 8
  */
 @interface GTLRArea120Tables_Table : GTLRObject
 
@@ -442,6 +468,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 /** Saved views for this table. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_SavedView *> *savedViews;
+
+/**
+ *  The time zone of the table. IANA Time Zone Database time zone, e.g.
+ *  "America/New_York".
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /**
  *  Time when the table was last updated excluding updates to individual rows

@@ -21,6 +21,11 @@
 @class GTLRNetworkServices_AuditConfig;
 @class GTLRNetworkServices_AuditLogConfig;
 @class GTLRNetworkServices_Binding;
+@class GTLRNetworkServices_EndpointMatcher;
+@class GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher;
+@class GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels;
+@class GTLRNetworkServices_EndpointPolicy;
+@class GTLRNetworkServices_EndpointPolicy_Labels;
 @class GTLRNetworkServices_Expr;
 @class GTLRNetworkServices_Location;
 @class GTLRNetworkServices_Location_Labels;
@@ -31,6 +36,7 @@
 @class GTLRNetworkServices_Policy;
 @class GTLRNetworkServices_Status;
 @class GTLRNetworkServices_Status_Details_Item;
+@class GTLRNetworkServices_TrafficPortSelector;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -69,6 +75,52 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_D
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher.metadataLabelMatchCriteria
+
+/**
+ *  The metadata presented by the xDS client should contain all of the labels
+ *  specified here.
+ *
+ *  Value: "MATCH_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll;
+/**
+ *  At least one of the Labels specified in the matcher should match the
+ *  metadata presented by xDS client.
+ *
+ *  Value: "MATCH_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAny;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MetadataLabelMatchCriteriaUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_EndpointPolicy.type
+
+/**
+ *  Default value. Must not be used.
+ *
+ *  Value: "ENDPOINT_POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_EndpointPolicyTypeUnspecified;
+/**
+ *  Represents a proxyless gRPC backend.
+ *
+ *  Value: "GRPC_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_GrpcServer;
+/**
+ *  Represents a proxy deployed as a sidecar.
+ *
+ *  Value: "SIDECAR_PROXY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -212,6 +264,182 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_L
 
 
 /**
+ *  A definition of a matcher that selects endpoints to which the policies
+ *  should be applied.
+ */
+@interface GTLRNetworkServices_EndpointMatcher : GTLRObject
+
+/** The matcher is based on node metadata presented by xDS clients. */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher *metadataLabelMatcher;
+
+@end
+
+
+/**
+ *  The matcher that is based on node metadata presented by xDS clients.
+ */
+@interface GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher : GTLRObject
+
+/**
+ *  Specifies how matching should be done. Supported values are: MATCH_ANY: At
+ *  least one of the Labels specified in the matcher should match the metadata
+ *  presented by xDS client. MATCH_ALL: The metadata presented by the xDS client
+ *  should contain all of the labels specified here. The selection is determined
+ *  based on the best match. For example, suppose there are three EndpointPolicy
+ *  resources P1, P2 and P3 and if P1 has a the matcher as MATCH_ANY , P2 has
+ *  MATCH_ALL , and P3 has MATCH_ALL . If a client with label connects, the
+ *  config from P1 will be selected. If a client with label connects, the config
+ *  from P2 will be selected. If a client with label connects, the config from
+ *  P3 will be selected. If there is more than one best match, (for example, if
+ *  a config P4 with selector exists and if a client with label connects), an
+ *  error will be thrown.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll
+ *        The metadata presented by the xDS client should contain all of the
+ *        labels specified here. (Value: "MATCH_ALL")
+ *    @arg @c kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAny
+ *        At least one of the Labels specified in the matcher should match the
+ *        metadata presented by xDS client. (Value: "MATCH_ANY")
+ *    @arg @c kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MetadataLabelMatchCriteriaUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *metadataLabelMatchCriteria;
+
+/**
+ *  The list of label value pairs that must match labels in the provided
+ *  metadata based on filterMatchCriteria This list can have at most 64 entries.
+ *  The list can be empty if the match criteria is MATCH_ANY, to specify a
+ *  wildcard match (i.e this matches any client).
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels *> *metadataLabels;
+
+@end
+
+
+/**
+ *  Defines a name-pair value for a single label.
+ */
+@interface GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels : GTLRObject
+
+/** Required. Label name presented as key in xDS Node Metadata. */
+@property(nonatomic, copy, nullable) NSString *labelName;
+
+/**
+ *  Required. Label value presented as value corresponding to the above key, in
+ *  xDS Node Metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *labelValue;
+
+@end
+
+
+/**
+ *  EndpointPolicy is a resource that helps apply desired configuration on the
+ *  endpoints that match specific criteria. For example, this resource can be
+ *  used to apply "authentication config" an all endpoints that serve on port
+ *  8080.
+ */
+@interface GTLRNetworkServices_EndpointPolicy : GTLRObject
+
+/**
+ *  Optional. This field specifies the URL of AuthorizationPolicy resource that
+ *  applies authorization policies to the inbound traffic at the matched
+ *  endpoints. Refer to Authorization. If this field is not specified,
+ *  authorization is disabled(no authz checks) for this endpoint. Applicable
+ *  only when EndpointPolicyType is SIDECAR_PROXY.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationPolicy;
+
+/**
+ *  Optional. A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can
+ *  be set to specify the authentication for traffic from the proxy to the
+ *  actual endpoints. More specifically, it is applied to the outgoing traffic
+ *  from the proxy to the endpoint. This is typically used for sidecar model
+ *  where the proxy identifies itself as endpoint to the control plane, with the
+ *  connection between sidecar and endpoint requiring authentication. If this
+ *  field is not set, authentication is disabled(open). Applicable only when
+ *  EndpointPolicyType is SIDECAR_PROXY.
+ */
+@property(nonatomic, copy, nullable) NSString *clientTlsPolicy;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A free-text description of the resource. Max length 1024
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. A matcher that selects endpoints to which the policies should be
+ *  applied.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_EndpointMatcher *endpointMatcher;
+
+/**
+ *  Optional. Set of label tags associated with the EndpointPolicy resource.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_EndpointPolicy_Labels *labels;
+
+/**
+ *  Required. Name of the EndpointPolicy resource. It matches pattern
+ *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is
+ *  used to determine the authentication policy to be applied to terminate the
+ *  inbound traffic at the identified backends. If this field is not set,
+ *  authentication is disabled(open) for this endpoint.
+ */
+@property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
+
+/**
+ *  Optional. Port selector for the (matched) endpoints. If no port selector is
+ *  provided, the matched config is applied to all ports.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_TrafficPortSelector *trafficPortSelector;
+
+/**
+ *  Required. The type of endpoint policy. This is primarily used to validate
+ *  the configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_EndpointPolicy_Type_EndpointPolicyTypeUnspecified
+ *        Default value. Must not be used. (Value:
+ *        "ENDPOINT_POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkServices_EndpointPolicy_Type_GrpcServer Represents a
+ *        proxyless gRPC backend. (Value: "GRPC_SERVER")
+ *    @arg @c kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy Represents a
+ *        proxy deployed as a sidecar. (Value: "SIDECAR_PROXY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of label tags associated with the EndpointPolicy resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_EndpointPolicy_Labels : GTLRObject
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -256,6 +484,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_L
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response returned by the ListEndpointPolicies method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "endpointPolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkServices_ListEndpointPoliciesResponse : GTLRCollectionObject
+
+/**
+ *  List of EndpointPolicy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_EndpointPolicy *> *endpointPolicies;
+
+/**
+ *  If there might be more results than those appearing in this response, then
+ *  `next_page_token` is included. To get the next set of results, call this
+ *  method again using the value of `next_page_token` as `page_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -665,6 +921,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_L
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Specification of a port-based selector.
+ */
+@interface GTLRNetworkServices_TrafficPortSelector : GTLRObject
+
+/**
+ *  Optional. A list of ports. Can be port numbers or port range (example,
+ *  [80-90] specifies all ports from 80 to 90, including 80 and 90) or named
+ *  ports or * to specify all ports. If the list is empty, all ports are
+ *  selected.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
 @end
 

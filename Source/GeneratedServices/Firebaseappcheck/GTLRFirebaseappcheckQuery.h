@@ -4,18 +4,8 @@
 // API:
 //   Firebase App Check API (firebaseappcheck/v1beta)
 // Description:
-//   App Check works alongside other Firebase services to help protect your
-//   backend resources from abuse, such as billing fraud or phishing. With App
-//   Check, devices running your app will use an app or device attestation
-//   provider that attests to one or both of the following: * Requests originate
-//   from your authentic app * Requests originate from an authentic, untampered
-//   device This attestation is attached to every request your app makes to your
-//   Firebase backend resources. The Firebase App Check REST API allows you to
-//   manage your App Check configurations programmatically. It also allows you
-//   to exchange attestation material for App Check tokens directly without
-//   using a Firebase SDK. Finally, it allows you to obtain the public key set
-//   necessary to validate an App Check token yourself. [Learn more about App
-//   Check](https://firebase.google.com/docs/app-check).
+//   Firebase App Check works alongside other Firebase services to help protect
+//   your backend resources from abuse, such as billing fraud or phishing.
 // Documentation:
 //   https://firebase.google.com/docs/app-check
 
@@ -413,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensPatch : GTLRFirebaseappcheckQuery
 
 /**
- *  The relative resource name of the debug token, in the format: ```
+ *  Required. The relative resource name of the debug token, in the format: ```
  *  projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ```
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -436,9 +426,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDebugToken to include in
  *    the query.
- *  @param name The relative resource name of the debug token, in the format:
- *    ``` projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id}
- *    ```
+ *  @param name Required. The relative resource name of the debug token, in the
+ *    format: ```
+ *    projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ```
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensPatch
  */
@@ -583,10 +573,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Accepts a AppAttest Artifact and Assertion, and uses the developer's
- *  preconfigured auth token to verify the token with Apple. Returns an
- *  AttestationToken with the App ID as specified by the `app` field included as
- *  attested claims.
+ *  Accepts an App Attest assertion and an artifact previously obtained from
+ *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
+ *  returns an App Check token encapsulated in an AttestationTokenResponse.
  *
  *  Method: firebaseappcheck.projects.apps.exchangeAppAttestAssertion
  *
@@ -597,8 +586,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAssertion : GTLRFirebaseappcheckQuery
 
 /**
- *  Required. The full resource name to the iOS App. Format:
- *  "projects/{project_id}/apps/{app_id}"
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
  */
 @property(nonatomic, copy, nullable) NSString *app;
 
@@ -606,16 +598,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
  *
- *  Accepts a AppAttest Artifact and Assertion, and uses the developer's
- *  preconfigured auth token to verify the token with Apple. Returns an
- *  AttestationToken with the App ID as specified by the `app` field included as
- *  attested claims.
+ *  Accepts an App Attest assertion and an artifact previously obtained from
+ *  ExchangeAppAttestAttestation and verifies those with Apple. If valid,
+ *  returns an App Check token encapsulated in an AttestationTokenResponse.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest
  *    to include in the query.
- *  @param app Required. The full resource name to the iOS App. Format:
- *    "projects/{project_id}/apps/{app_id}"
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAssertion
  */
@@ -625,10 +619,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Accepts a AppAttest CBOR Attestation, and uses the developer's preconfigured
- *  team and bundle IDs to verify the token with Apple. Returns an Attestation
- *  Artifact that can later be exchanged for an AttestationToken in
- *  ExchangeAppAttestAssertion.
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using the
+ *  developer's preconfigured team and bundle IDs. If valid, returns an
+ *  attestation artifact that can later be exchanged for an
+ *  AttestationTokenResponse using ExchangeAppAttestAssertion. For convenience
+ *  and performance, this method's response object will also contain an App
+ *  Check token encapsulated in an AttestationTokenResponse (if the verification
+ *  is successful).
  *
  *  Method: firebaseappcheck.projects.apps.exchangeAppAttestAttestation
  *
@@ -639,8 +636,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAttestation : GTLRFirebaseappcheckQuery
 
 /**
- *  Required. The full resource name to the iOS App. Format:
- *  "projects/{project_id}/apps/{app_id}"
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
  */
 @property(nonatomic, copy, nullable) NSString *app;
 
@@ -648,16 +648,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse.
  *
- *  Accepts a AppAttest CBOR Attestation, and uses the developer's preconfigured
- *  team and bundle IDs to verify the token with Apple. Returns an Attestation
- *  Artifact that can later be exchanged for an AttestationToken in
- *  ExchangeAppAttestAssertion.
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using the
+ *  developer's preconfigured team and bundle IDs. If valid, returns an
+ *  attestation artifact that can later be exchanged for an
+ *  AttestationTokenResponse using ExchangeAppAttestAssertion. For convenience
+ *  and performance, this method's response object will also contain an App
+ *  Check token encapsulated in an AttestationTokenResponse (if the verification
+ *  is successful).
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
  *    to include in the query.
- *  @param app Required. The full resource name to the iOS App. Format:
- *    "projects/{project_id}/apps/{app_id}"
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsExchangeAppAttestAttestation
  */
@@ -903,8 +909,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Initiates the App Attest flow by generating a challenge which will be used
- *  as a type of nonce for this attestation.
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following call to ExchangeAppAttestAttestation or
+ *  ExchangeAppAttestAssertion. A challenge should not be reused for multiple
+ *  calls.
  *
  *  Method: firebaseappcheck.projects.apps.generateAppAttestChallenge
  *
@@ -915,8 +923,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsGenerateAppAttestChallenge : GTLRFirebaseappcheckQuery
 
 /**
- *  Required. The full resource name to the iOS App. Format:
- *  "projects/{project_id}/apps/{app_id}"
+ *  Required. The relative resource name of the iOS app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
  */
 @property(nonatomic, copy, nullable) NSString *app;
 
@@ -924,14 +935,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse.
  *
- *  Initiates the App Attest flow by generating a challenge which will be used
- *  as a type of nonce for this attestation.
+ *  Generates a challenge that protects the integrity of an immediately
+ *  following call to ExchangeAppAttestAttestation or
+ *  ExchangeAppAttestAssertion. A challenge should not be reused for multiple
+ *  calls.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest
  *    to include in the query.
- *  @param app Required. The full resource name to the iOS App. Format:
- *    "projects/{project_id}/apps/{app_id}"
+ *  @param app Required. The relative resource name of the iOS app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsGenerateAppAttestChallenge
  */
@@ -1259,7 +1275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1273,7 +1289,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Note that the `service_id` element must be a supported service ID.
  *    Currently, the following service IDs are supported: *
  *    `firebasestorage.googleapis.com` (Cloud Storage for Firebase) *
- *    `firebasedatabase.googleapis.com` (Firebase Realtime Database)
+ *    `firebasedatabase.googleapis.com` (Firebase Realtime Database) *
+ *    `firestore.googleapis.com` (Cloud Firestore)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesGet
  */
@@ -1356,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  that the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1382,7 +1399,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    `service_id` element must be a supported service ID. Currently, the
  *    following service IDs are supported: * `firebasestorage.googleapis.com`
  *    (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *    Realtime Database)
+ *    Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  *
  *  @return GTLRFirebaseappcheckQuery_ProjectsServicesPatch
  */

@@ -56,6 +56,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Optional. Opaque thread identifier string that can be specified to group
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
@@ -98,6 +105,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Optional. Opaque thread identifier string that can be specified to group
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
@@ -138,6 +152,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Opaque thread identifier string that can be specified to group
@@ -223,6 +244,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Optional. Opaque thread identifier string that can be specified to group
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
@@ -263,6 +291,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Opaque thread identifier string that can be specified to group
@@ -307,6 +342,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Optional. Opaque thread identifier string that can be specified to group
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
@@ -343,7 +385,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the space, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -353,7 +395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a space.
  *
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_SpacesGet
  */
@@ -505,6 +547,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
  *  Optional. Opaque thread identifier string that can be specified to group
  *  messages into a single thread. If this is the first message with a given
  *  thread identifier, a new thread is created. Subsequent messages with the
@@ -595,11 +644,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
 
+/**
+ *  Resource name in the form `spaces/ * /messages/ *`. Example:
+ *  `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The field paths to be updated, comma separated if there are
- *  multiple. Currently supported field paths: * text * cards
+ *  multiple. Currently supported field paths: * text * cards *
+ *  gsuite_message_integration_render_data * attachment
  *
  *  String format is a comma-separated list of fields.
  */
@@ -611,7 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a message.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name NSString
+ *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
+ *    `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */
@@ -633,6 +688,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Opaque thread identifier string that can be specified to group

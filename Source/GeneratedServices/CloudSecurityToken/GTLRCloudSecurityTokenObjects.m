@@ -153,6 +153,31 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest
+@dynamic token, tokenTypeHint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse
+//
+
+@implementation GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse
+@dynamic active, clientId, exp, iat, iss, scope, sub, username;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"clientId" : @"client_id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSecurityToken_GoogleIdentityStsV1Options
 //
 

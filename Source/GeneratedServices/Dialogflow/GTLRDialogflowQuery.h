@@ -24,6 +24,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BatchRunTestCasesRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
@@ -148,6 +150,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Retrieves the specified Changelog.
+ *
+ *  Method: dialogflow.projects.locations.agents.changelogs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the changelog to get. Format:
+ *  `projects//locations//agents//changelogs/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog.
+ *
+ *  Retrieves the specified Changelog.
+ *
+ *  @param name Required. The name of the changelog to get. Format:
+ *    `projects//locations//agents//changelogs/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of Changelogs.
+ *
+ *  Method: dialogflow.projects.locations.agents.changelogs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList : GTLRDialogflowQuery
+
+/**
+ *  The filter string. Supports filter by user_email, resource, type and
+ *  create_time. Some examples: 1. By user email: user_email =
+ *  "someone\@google.com" 2. By resource name: resource =
+ *  "projects/123/locations/global/agents/456/flows/789" 3. By resource display
+ *  name: display_name = "my agent" 4. By action: action = "Create" 5. By type:
+ *  type = "flows" 6. By create time. Currently predicates on `create_time` and
+ *  `create_time_epoch_seconds` are supported: create_time_epoch_seconds >
+ *  1551790877 AND create_time <= 2017-01-15T01:30:15.01Z 7. Combination of
+ *  above filters: resource =
+ *  "projects/123/locations/global/agents/456/flows/789" AND user_email =
+ *  "someone\@google.com" AND create_time <= 2017-01-15T01:30:15.01Z
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent containing the changelogs. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListChangelogsResponse.
+ *
+ *  Returns the list of Changelogs.
+ *
+ *  @param parent Required. The agent containing the changelogs. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -590,6 +682,123 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deploys a flow to the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: DeployFlowMetadata - `response`: DeployFlowResponse
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployFlow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow : GTLRDialogflowQuery
+
+/**
+ *  Required. The environment to deploy the flow to. Format:
+ *  `projects//locations//agents// environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Deploys a flow to the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: DeployFlowMetadata - `response`: DeployFlowResponse
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest to include in
+ *    the query.
+ *  @param environment Required. The environment to deploy the flow to. Format:
+ *    `projects//locations//agents// environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
+ *  Retrieves the specified Deployment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the Deployment. Format:
+ *  `projects//locations//agents//environments//deployments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment.
+ *
+ *  Retrieves the specified Deployment.
+ *
+ *  @param name Required. The name of the Deployment. Format:
+ *    `projects//locations//agents//environments//deployments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all deployments in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 20 and at
+ *  most 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Environment to list all environments for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListDeploymentsResponse.
+ *
+ *  Returns the list of all deployments in the specified Environment.
+ *
+ *  @param parent Required. The Environment to list all environments for.
+ *    Format: `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2491,6 +2700,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ValidateFlowRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Compares the specified base version with target version.
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.versions.compareVersions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions : GTLRDialogflowQuery
+
+/**
+ *  Required. Name of the base flow version to compare with the target version.
+ *  Use version ID `0` to indicate the draft version of the specified flow.
+ *  Format: `projects//locations//agents/ /flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *baseVersion;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsResponse.
+ *
+ *  Compares the specified base version with target version.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest to include
+ *    in the query.
+ *  @param baseVersion Required. Name of the base flow version to compare with
+ *    the target version. Use version ID `0` to indicate the draft version of
+ *    the specified flow. Format: `projects//locations//agents/
+ *    /flows//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest *)object
+                    baseVersion:(NSString *)baseVersion;
 
 @end
 
@@ -4675,8 +4923,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsPatch : GTLRDialogflowQuery
 
 /**
- *  Required. Resource name of the settings. Format:
- *  `projects//locations//securitySettings/`.
+ *  Resource name of the settings. Required for the
+ *  SecuritySettingsService.UpdateSecuritySettings method.
+ *  SecuritySettingsService.CreateSecuritySettings populates the name
+ *  automatically. Format: `projects//locations//securitySettings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4696,8 +4946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings to include in the
  *    query.
- *  @param name Required. Resource name of the settings. Format:
- *    `projects//locations//securitySettings/`.
+ *  @param name Resource name of the settings. Required for the
+ *    SecuritySettingsService.UpdateSecuritySettings method.
+ *    SecuritySettingsService.CreateSecuritySettings populates the name
+ *    automatically. Format: `projects//locations//securitySettings/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsPatch
  */

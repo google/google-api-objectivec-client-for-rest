@@ -17,6 +17,12 @@ NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
 NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
 NSString * const kGTLRGKEHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.admissionWebhook
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Error = @"ERROR";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Installed = @"INSTALLED";
+NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled = @"NOT_INSTALLED";
+
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.gitSync
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_DeploymentStateUnspecified = @"DEPLOYMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Error = @"ERROR";
@@ -214,7 +220,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic git, sourceFormat;
+@dynamic enabled, git, sourceFormat;
 @end
 
 
@@ -224,7 +230,8 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSyncDeploymentState
-@dynamic gitSync, importer, monitor, reconcilerManager, rootReconciler, syncer;
+@dynamic admissionWebhook, gitSync, importer, monitor, reconcilerManager,
+         rootReconciler, syncer;
 @end
 
 
@@ -244,7 +251,8 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSyncVersion
-@dynamic gitSync, importer, monitor, reconcilerManager, rootReconciler, syncer;
+@dynamic admissionWebhook, gitSync, importer, monitor, reconcilerManager,
+         rootReconciler, syncer;
 @end
 
 

@@ -283,6 +283,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_AnalyticsProperty : GTLRObject
 
 /**
+ *  Output only. The ID of the [Google Analytics
+ *  account](https://www.google.com/analytics/) for the Google Analytics
+ *  property associated with the specified FirebaseProject.
+ */
+@property(nonatomic, copy, nullable) NSString *analyticsAccountId;
+
+/**
  *  The display name of the Google Analytics property associated with the
  *  specified `FirebaseProject`.
  */
@@ -614,6 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  for the `IosApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The Apple Developer Team ID associated with the App in the App Store. */
+@property(nonatomic, copy, nullable) NSString *teamId;
 
 @end
 
@@ -1178,7 +1188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  of the Google Analytics web stream associated with the Firebase Web App.
  *  Firebase SDKs use this ID to interact with Google Analytics APIs. Learn more
  *  about this ID and Google Analytics web streams in the [Analytics
- *  documentation](https://support.google.com/analytics/topic/9303475).
+ *  documentation](https://support.google.com/analytics/answer/9304153).
  */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 
@@ -1285,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  Google Analytics APIs. This field is only present if the `WebApp` is linked
  *  to a web stream in a Google Analytics App + Web property. Learn more about
  *  this ID and Google Analytics web streams in the [Analytics
- *  documentation](https://support.google.com/analytics/topic/9303475). To
+ *  documentation](https://support.google.com/analytics/answer/9304153). To
  *  generate a `measurementId` and link the `WebApp` with a Google Analytics web
  *  stream, call
  *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics). For apps

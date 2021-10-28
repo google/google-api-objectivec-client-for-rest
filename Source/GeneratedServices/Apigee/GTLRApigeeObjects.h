@@ -50,6 +50,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
 @class GTLRApigee_GoogleCloudApigeeV1CommonNameConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ConfigVersion;
+@class GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Credential;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReportMetric;
@@ -86,6 +87,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatus;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRevision;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute;
+@class GTLRApigee_GoogleCloudApigeeV1IntegrationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1KeyAliasReference;
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
@@ -1422,6 +1424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Configuration for the Advanced API Ops add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
 
+/** Configuration for the Connectors Platform add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig *connectorsPlatformConfig;
+
+/** Configuration for the Integration add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1IntegrationConfig *integrationConfig;
+
 /** Configuration for the Monetization add-on. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1MonetizationConfig *monetizationConfig;
 
@@ -1795,6 +1803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Metadata describing the API proxy revision as a key-value map. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision_EntityMetaDataAsProperties *entityMetaDataAsProperties;
+
+/**
+ *  List of IntegrationEndpoints in the '/integration-endpoints' directory of
+ *  the API proxy. This is a 'manifest' setting designed to provide visibility
+ *  into the contents of the API proxy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *integrationEndpoints;
 
 /**
  *  Time that the API proxy revision was last modified in milliseconds since
@@ -2371,6 +2386,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minorVersion;
+
+@end
+
+
+/**
+ *  Configuration for the Connectors Platform add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the Connectors Platform add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. Time at which the Connectors Platform add-on expires in in
+ *  milliseconds since epoch. If unspecified, the add-on will never expire.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresAt;
 
 @end
 
@@ -4331,6 +4369,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Configuration for the Integration add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1IntegrationConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the Integration add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1KeyAliasReference
  */
 @interface GTLRApigee_GoogleCloudApigeeV1KeyAliasReference : GTLRObject
@@ -5265,6 +5318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Display name for the Apigee organization. Unused, but reserved for future
+ *  use.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Output only. List of environments in the Apigee organization. */
@@ -5287,6 +5344,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Configuration for the Portals settings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *portalDisabled;
 
 /** Output only. Project ID associated with the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -5816,7 +5880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag that specifies the billing account type, prepaid or postpaid.
+ *  DEPRECATED: This field is no longer supported and will eventually be removed
+ *  when Apigee Hybrid 1.5/1.6 is no longer supported. Instead, use the
+ *  `billingType` field inside `DeveloperMonetizationConfig` resource. Flag that
+ *  specifies the billing account type, prepaid or postpaid.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_PaymentFundingModelUnspecified
@@ -7309,7 +7376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRApigee_GoogleIamV1Binding : GTLRObject
 
@@ -7318,14 +7385,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -7357,8 +7424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -7368,15 +7435,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -7402,9 +7469,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleIamV1AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleIamV1Binding *> *bindings;
 

@@ -4,18 +4,8 @@
 // API:
 //   Firebase App Check API (firebaseappcheck/v1beta)
 // Description:
-//   App Check works alongside other Firebase services to help protect your
-//   backend resources from abuse, such as billing fraud or phishing. With App
-//   Check, devices running your app will use an app or device attestation
-//   provider that attests to one or both of the following: * Requests originate
-//   from your authentic app * Requests originate from an authentic, untampered
-//   device This attestation is attached to every request your app makes to your
-//   Firebase backend resources. The Firebase App Check REST API allows you to
-//   manage your App Check configurations programmatically. It also allows you
-//   to exchange attestation material for App Check tokens directly without
-//   using a Firebase SDK. Finally, it allows you to obtain the public key set
-//   necessary to validate an App Check token yourself. [Learn more about App
-//   Check](https://firebase.google.com/docs/app-check).
+//   Firebase App Check works alongside other Firebase services to help protect
+//   your backend resources from abuse, such as billing fraud or phishing.
 // Documentation:
 //   https://firebase.google.com/docs/app-check
 
@@ -95,12 +85,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_EnforcementMode_Unenforced;
 
 /**
- *  Response object for GenerateAppAttestChallenge
+ *  Response message for the GenerateAppAttestChallenge method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestChallengeResponse : GTLRObject
 
 /**
- *  A one time use challenge for the client to pass to Apple's App Attest API.
+ *  A one-time use challenge for the client to pass to the App Attest API.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -108,12 +98,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @property(nonatomic, copy, nullable) NSString *challenge;
 
 /**
- *  The duration from the time this challenge is minted until it is expired.
+ *  The duration from the time this challenge is minted until its expiration.
  *  This field is intended to ease client-side token management, since the
- *  device may have clock skew, but is still able to accurately measure a
- *  duration. This expiration is intended to minimize the replay window within
- *  which a single challenge may be reused. See AIP 142 for naming of this
- *  field.
+ *  client may have clock skew, but is still able to accurately measure a
+ *  duration.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -123,7 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 /**
  *  An app's App Attest configuration object. This configuration controls
  *  certain properties of the App Check token returned by
- *  ExchangeAppAttestAttestation and ExchangeAppAttestAttestation, such as its
+ *  ExchangeAppAttestAttestation and ExchangeAppAttestAssertion, such as its
  *  ttl. Note that the Team ID registered with your app is used as part of the
  *  validation process. Please register it via the Firebase Console or
  *  programmatically via the [Firebase Management
@@ -265,17 +253,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The relative resource name of the debug token, in the format: ```
+ *  Required. The relative resource name of the debug token, in the format: ```
  *  projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ```
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Input only. Immutable. The secret token itself. Must be provided during
- *  creation, and must be a UUID4, case insensitive. This field is immutable
- *  once set, and cannot be provided during an UpdateDebugToken request. You
- *  can, however, delete this debug token using DeleteDebugToken to revoke it.
- *  For security reasons, this field will never be populated in any response.
+ *  Required. Input only. Immutable. The secret token itself. Must be provided
+ *  during creation, and must be a UUID4, case insensitive. This field is
+ *  immutable once set, and cannot be provided during an UpdateDebugToken
+ *  request. You can, however, delete this debug token using DeleteDebugToken to
+ *  revoke it. For security reasons, this field will never be populated in any
+ *  response.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -333,12 +322,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Request message for ExchangeAppAttestAssertion
+ *  Request message for the ExchangeAppAttestAssertion method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAssertionRequest : GTLRObject
 
 /**
- *  The artifact previously returned by ExchangeAppAttestAttestation.
+ *  Required. The artifact returned by a previous call to
+ *  ExchangeAppAttestAttestation.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -346,7 +336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @property(nonatomic, copy, nullable) NSString *artifact;
 
 /**
- *  The CBOR encoded assertion provided by the Apple App Attest SDK.
+ *  Required. The CBOR-encoded assertion returned by the client-side App Attest
+ *  API.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -354,7 +345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @property(nonatomic, copy, nullable) NSString *assertion;
 
 /**
- *  A one time challenge returned by GenerateAppAttestChallenge.
+ *  Required. A one-time challenge returned by an immediately prior call to
+ *  GenerateAppAttestChallenge.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -365,14 +357,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Request message for ExchangeAppAttestAttestation
+ *  Request message for the ExchangeAppAttestAttestation method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest : GTLRObject
 
 /**
- *  Required. The App Attest statement as returned by Apple's client-side App
- *  Attest API. This is the CBOR object returned by Apple, which will be Base64
- *  encoded in the JSON API.
+ *  Required. The App Attest statement returned by the client-side App Attest
+ *  API. This is a base64url encoded CBOR object in the JSON response.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -380,7 +371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 @property(nonatomic, copy, nullable) NSString *attestationStatement;
 
 /**
- *  Required. The challenge previously generated by the FAC backend.
+ *  Required. A one-time challenge returned by an immediately prior call to
+ *  GenerateAppAttestChallenge.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -399,20 +391,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Response message for ExchangeAppAttestAttestation and
- *  ExchangeAppAttestDebugAttestation
+ *  Response message for the ExchangeAppAttestAttestation method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse : GTLRObject
 
 /**
- *  An artifact that should be passed back during the Assertion flow.
+ *  An artifact that can be used in future calls to ExchangeAppAttestAssertion.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *artifact;
 
-/** An attestation token which can be used to access Firebase APIs. */
+/** Encapsulates an App Check token. */
 @property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse *attestationToken;
 
 @end
@@ -454,7 +445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 /**
  *  Required. The `device_token` as returned by Apple's client-side [DeviceCheck
  *  API](https://developer.apple.com/documentation/devicecheck/dcdevice). This
- *  is the Base64 encoded `Data` (Swift) or `NSData` (ObjC) object.
+ *  is the base64 encoded `Data` (Swift) or `NSData` (ObjC) object.
  */
 @property(nonatomic, copy, nullable) NSString *deviceToken;
 
@@ -491,7 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
- *  Request message for GenerateAppAttestChallenge
+ *  Request message for the GenerateAppAttestChallenge method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest : GTLRObject
 @end
@@ -607,7 +598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  The currently active set of public keys that can be used to verify App Check
  *  tokens. This object is a JWK set as specified by [section 5 of RFC
  *  7517](https://tools.ietf.org/html/rfc7517#section-5). For security, the
- *  response **must not** be cached for longer than one day.
+ *  response **must not** be cached for longer than six hours.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwkSet : GTLRObject
 
@@ -736,7 +727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  that the `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -756,7 +747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  `service_id` element must be a supported service ID. Currently, the
  *  following service IDs are supported: * `firebasestorage.googleapis.com`
  *  (Cloud Storage for Firebase) * `firebasedatabase.googleapis.com` (Firebase
- *  Realtime Database)
+ *  Realtime Database) * `firestore.googleapis.com` (Cloud Firestore)
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService *service;
 

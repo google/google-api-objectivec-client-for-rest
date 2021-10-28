@@ -864,6 +864,33 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRMonitoringQuery_ProjectsTimeSeriesCreateService
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries:createService";
+  GTLRMonitoringQuery_ProjectsTimeSeriesCreateService *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.timeSeries.createService";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsTimeSeriesList
 
 @dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,

@@ -740,6 +740,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_MultiClusterRoutingUseAny
+@dynamic clusterIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusterIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

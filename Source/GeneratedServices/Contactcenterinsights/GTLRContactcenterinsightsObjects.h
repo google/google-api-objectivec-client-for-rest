@@ -54,6 +54,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscript;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
@@ -164,7 +165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_Chat;
 /**
- *  Default value.
+ *  Default value, if unspecified will default to PHONE_CALL.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -214,7 +215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_Chat;
 /**
- *  Default value.
+ *  Default value, if unspecified will default to PHONE_CALL.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -429,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_Chat;
 /**
- *  Default value.
+ *  Default value, if unspecified will default to PHONE_CALL.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -774,14 +775,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig : GTLRObject
 
 /**
- *  Required.
+ *  A filter to reduce the conversations used for training the model to a
+ *  specific subset.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Medium of conversations used in training data. This field is being
+ *  deprecated. To specify the medium to be used in training a new issue model,
+ *  set the `medium` field on `filter`.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_MediumUnspecified
- *        Default value. (Value: "MEDIUM_UNSPECIFIED")
+ *        Default value, if unspecified will default to PHONE_CALL. (Value:
+ *        "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -1173,7 +1183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /**
  *  A map associating each issue resource name with its respective number of
  *  matches in the set of conversations. Key has the format:
- *  `projects//locations//issueModels//issues/`
+ *  `projects//locations//issueModels//issues/` Deprecated, use
+ *  `issue_matches_stats` field instead.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches *issueMatches;
 
@@ -1202,7 +1213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 /**
  *  A map associating each issue resource name with its respective number of
  *  matches in the set of conversations. Key has the format:
- *  `projects//locations//issueModels//issues/`
+ *  `projects//locations//issueModels//issues/` Deprecated, use
+ *  `issue_matches_stats` field instead.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
@@ -1356,14 +1368,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *latestAnalysis;
 
 /**
- *  Immutable. The conversation medium.
+ *  Immutable. The conversation medium, if unspecified will default to
+ *  PHONE_CALL.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_MediumUnspecified
- *        Default value. (Value: "MEDIUM_UNSPECIFIED")
+ *        Default value, if unspecified will default to PHONE_CALL. (Value:
+ *        "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -1509,6 +1523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *dialogflowParticipantName;
 
+/** Obfuscated user ID from Dialogflow. */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalUserId;
+
 /**
  *  The role of the participant.
  *
@@ -1569,6 +1586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
+/** CCAI metadata relating to the current transcript segment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata *dialogflowSegmentMetadata;
+
 /**
  *  The language code of this segment as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
@@ -1576,14 +1596,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
+/** The time that the message occurred, if provided. */
+@property(nonatomic, strong, nullable) GTLRDateTime *messageTime;
+
 /** The participant of this segment. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant *segmentParticipant;
+
+/** The sentiment for this transcript segment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData *sentiment;
 
 /** The text of this segment. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /** A list of the word-specific information for each word in the segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo *> *words;
+
+@end
+
+
+/**
+ *  Metadata from Dialogflow relating to the current transcript segment.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata : GTLRObject
+
+/**
+ *  Whether the transcript segment was covered under the configured smart reply
+ *  allowlist in Agent Assist.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *smartReplyAllowlistCovered;
 
 @end
 
@@ -2244,14 +2286,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig : GTLRObject
 
 /**
- *  Required.
+ *  A filter to reduce the conversations used for training the model to a
+ *  specific subset.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Medium of conversations used in training data. This field is being
+ *  deprecated. To specify the medium to be used in training a new issue model,
+ *  set the `medium` field on `filter`.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_MediumUnspecified
- *        Default value. (Value: "MEDIUM_UNSPECIFIED")
+ *        Default value, if unspecified will default to PHONE_CALL. (Value:
+ *        "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -2539,6 +2590,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        Unspecified. (Value: "PHRASE_MATCHER_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Output only. The most recent time at which the phrase matcher was updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  The customized version tag to use for the phrase matcher. If not specified,

@@ -27,6 +27,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission;
+@class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess;
 @class GTLRChromeManagement_GoogleChromeManagementV1Device;
 @class GTLRChromeManagement_GoogleChromeManagementV1InstalledApp;
@@ -548,6 +549,50 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Details of an app installation request.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest : GTLRObject
+
+/**
+ *  Output only. Format:
+ *  app_details=customers/{customer_id}/apps/chrome/{app_id}
+ */
+@property(nonatomic, copy, nullable) NSString *appDetails;
+
+/**
+ *  Output only. Unique store identifier for the app. Example:
+ *  "gmbmikajjgmnabiglmofipeabaddhgne" for the Save to Google Drive Chrome
+ *  extension.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** Output only. The uri for the detail page of the item. */
+@property(nonatomic, copy, nullable) NSString *detailUri;
+
+/** Output only. App's display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. A link to an image that can be used as an icon for the product.
+ */
+@property(nonatomic, copy, nullable) NSString *iconUri;
+
+/**
+ *  Output only. The timestamp of the most recently made request for this app.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestRequestTime;
+
+/**
+ *  Output only. Total count of requests for this app.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestCount;
+
+@end
+
+
+/**
  *  Represent one host permission.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess : GTLRObject
@@ -557,6 +602,37 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  for instance.
  */
 @property(nonatomic, copy, nullable) NSString *hostMatch;
+
+@end
+
+
+/**
+ *  Response containing summary of requested app installations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "requestedApps" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse : GTLRCollectionObject
+
+/** Token to specify the next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Count of requested apps matching request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest *> *requestedApps;
+
+/**
+ *  Total number of matching app requests.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 

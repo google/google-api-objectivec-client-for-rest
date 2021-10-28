@@ -25,7 +25,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
-NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi  = @"PYPI";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
@@ -46,15 +45,6 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRArtifactRegistry_CancelOperationRequest
-//
-
-@implementation GTLRArtifactRegistry_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRArtifactRegistry_DockerImage
 //
 
@@ -68,15 +58,6 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Empty
-//
-
-@implementation GTLRArtifactRegistry_Empty
 @end
 
 
@@ -191,28 +172,6 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 + (NSString *)collectionItemsKey {
   return @"dockerImages";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListOperationsResponse
-//
-
-@implementation GTLRArtifactRegistry_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRArtifactRegistry_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
 }
 
 @end

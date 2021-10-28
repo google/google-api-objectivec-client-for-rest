@@ -4,8 +4,9 @@
 // API:
 //   Display & Video 360 API (displayvideo/v1)
 // Description:
-//   Display & Video 360 API allows users to manage and create campaigns and
-//   reports.
+//   Display & Video 360 API allows users to automate complex Display & Video
+//   360 workflows, such as creating insertion orders and setting targeting
+//   options for individual line items.
 // Documentation:
 //   https://developers.google.com/display-video/
 
@@ -2173,6 +2174,28 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsCreate
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingAlgorithm *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDisplayVideo_CustomBiddingAlgorithm class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsGet
 
 @dynamic advertiserId, customBiddingAlgorithmId, partnerId;
@@ -2204,6 +2227,123 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDisplayVideo_ListCustomBiddingAlgorithmsResponse class];
   query.loggingName = @"displayvideo.customBiddingAlgorithms.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsPatch
+
+@dynamic customBiddingAlgorithmId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingAlgorithm *)object
+       customBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms/{+customBiddingAlgorithmId}";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customBiddingAlgorithmId = customBiddingAlgorithmId;
+  query.expectedObjectClass = [GTLRDisplayVideo_CustomBiddingAlgorithm class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsCreate
+
+@dynamic advertiserId, customBiddingAlgorithmId, partnerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CustomBiddingScript *)object
+       customBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customBiddingAlgorithmId = customBiddingAlgorithmId;
+  query.expectedObjectClass = [GTLRDisplayVideo_CustomBiddingScript class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.scripts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsGet
+
+@dynamic advertiserId, customBiddingAlgorithmId, customBiddingScriptId,
+         partnerId;
+
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId
+                            customBiddingScriptId:(long long)customBiddingScriptId {
+  NSArray *pathParams = @[
+    @"customBiddingAlgorithmId", @"customBiddingScriptId"
+  ];
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts/{+customBiddingScriptId}";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customBiddingAlgorithmId = customBiddingAlgorithmId;
+  query.customBiddingScriptId = customBiddingScriptId;
+  query.expectedObjectClass = [GTLRDisplayVideo_CustomBiddingScript class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.scripts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsList
+
+@dynamic advertiserId, customBiddingAlgorithmId, orderBy, pageSize, pageToken,
+         partnerId;
+
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
+  NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms/{+customBiddingAlgorithmId}/scripts";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsScriptsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customBiddingAlgorithmId = customBiddingAlgorithmId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListCustomBiddingScriptsResponse class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.scripts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadScript
+
+@dynamic advertiserId, customBiddingAlgorithmId, partnerId;
+
++ (instancetype)queryWithCustomBiddingAlgorithmId:(long long)customBiddingAlgorithmId {
+  NSArray *pathParams = @[ @"customBiddingAlgorithmId" ];
+  NSString *pathURITemplate = @"v1/customBiddingAlgorithms/{+customBiddingAlgorithmId}:uploadScript";
+  GTLRDisplayVideoQuery_CustomBiddingAlgorithmsUploadScript *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customBiddingAlgorithmId = customBiddingAlgorithmId;
+  query.expectedObjectClass = [GTLRDisplayVideo_CustomBiddingScriptRef class];
+  query.loggingName = @"displayvideo.customBiddingAlgorithms.uploadScript";
   return query;
 }
 
@@ -2625,6 +2765,35 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
     [self queryWithResourceName:resourceName];
   query.downloadAsDataObjectType = @"media";
   query.loggingName = @"Download displayvideo.media.download";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_MediaUpload
+
+@dynamic resourceName;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GoogleBytestreamMedia *)object
+                   resourceName:(NSString *)resourceName
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"media/{+resourceName}";
+  GTLRDisplayVideoQuery_MediaUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceName = resourceName;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRDisplayVideo_GoogleBytestreamMedia class];
+  query.loggingName = @"displayvideo.media.upload";
   return query;
 }
 

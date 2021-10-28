@@ -958,7 +958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_T
 
 /**
  *  1:1 Direct Message between a human and a Chat bot, where all messages are
- *  flat.
+ *  flat. Note that this does not include direct messages between two humans.
  *
  *  Value: "DM"
  */
@@ -3143,6 +3143,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
+/**
+ *  Resource name in the form `spaces/ * /messages/ *`. Example:
+ *  `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3283,7 +3287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Resource name of the space, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehYs
+ *  spaces/AAAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3307,7 +3311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
- *        and a Chat bot, where all messages are flat. (Value: "DM")
+ *        and a Chat bot, where all messages are flat. Note that this does not
+ *        include direct messages between two humans. (Value: "DM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_Room Conversations between two or
  *        more humans. (Value: "ROOM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value

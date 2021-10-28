@@ -31,6 +31,9 @@
 @class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item;
 @class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item;
 @class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_DeviceFiles_Item;
@@ -1025,6 +1028,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
+/** Information regarding CPU specs in the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item *> *cpuInfo;
+
 /** Reports of CPU utilization and temperature (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item *> *cpuStatusReports;
 
@@ -1209,6 +1215,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
+ *  CPU specs for a CPU.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item : GTLRObject
+
+/** The CPU architecture. */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/** Information for the Logical CPUs */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item *> *logicalCpus;
+
+/**
+ *  The max CPU clock speed in kHz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxClockSpeedKhz;
+
+/** The CPU model name. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item : GTLRObject
@@ -1362,6 +1392,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
+ *  Status of a single logical CPU.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item : GTLRObject
+
+/**
+ *  C-States indicate the power consumption state of the CPU. For more
+ *  information look at documentation published by the CPU maker.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item *> *cStates;
+
+/**
+ *  Current frequency the CPU is running at.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentScalingFrequencyKhz;
+
+/** Idle time since last boot. */
+@property(nonatomic, strong, nullable) GTLRDuration *idleDuration;
+
+/**
+ *  Maximum frequency the CPU is allowed to run at, by policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxScalingFrequencyKhz;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item : GTLRObject
@@ -1400,6 +1461,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 /** Volume id */
 @property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
+ *  Status of a single C-state. C-states are various modes the CPU can
+ *  transition to in order to use more or less power.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item : GTLRObject
+
+/** Name of the state. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Time spent in the state since the last reboot. */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionDuration;
 
 @end
 
@@ -2644,7 +2720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  Managing your account's organizational units allows you to configure your
  *  users' access to services and custom settings. For more information about
  *  common organizational unit tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html).
+ *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html). The customer's
+ *  organizational unit hierarchy is limited to 35 levels of depth.
  */
 @interface GTLRDirectory_OrgUnit : GTLRObject
 
@@ -3079,7 +3156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 /** The unique identifier of the schema (Read-only) */
 @property(nonatomic, copy, nullable) NSString *schemaId;
 
-/** The schema's name. */
+/**
+ *  The schema's name. Each `schema_name` must be unique within a customer.
+ *  Reusing a name results in a `409: Entity already exists` error.
+ */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
 @end
@@ -3321,7 +3401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Custom fields of the user. */
+/**
+ *  Custom fields of the user. The key is a `schema_name` and its values are
+ *  `'field_name': 'field_value'`.
+ */
 @property(nonatomic, strong, nullable) GTLRDirectory_User_CustomSchemas *customSchemas;
 
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
@@ -3596,7 +3679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
- *  Custom fields of the user.
+ *  Custom fields of the user. The key is a `schema_name` and its values are
+ *  `'field_name': 'field_value'`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDirectory_UserCustomProperties. Use @c -additionalJSONKeys and @c

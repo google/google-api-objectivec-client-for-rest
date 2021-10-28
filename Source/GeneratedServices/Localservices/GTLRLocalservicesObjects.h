@@ -20,6 +20,7 @@
 
 @class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AccountReport;
 @class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AggregatorInfo;
+@class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1BookingLead;
 @class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport;
 @class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1MessageLead;
 @class GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1PhoneLead;
@@ -60,6 +61,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 // ----------------------------------------------------------------------------
 // GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport.leadType
 
+/**
+ *  Booking lead.
+ *
+ *  Value: "BOOKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_Booking;
 /**
  *  Not specified.
  *
@@ -219,6 +226,29 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 
 
 /**
+ *  Container for booking lead specific information.
+ */
+@interface GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1BookingLead : GTLRObject
+
+/** Timestamp of when service is provided by advertiser. */
+@property(nonatomic, strong, nullable) GTLRDateTime *bookingAppointmentTimestamp;
+
+/** Consumer email associated with the booking lead. */
+@property(nonatomic, copy, nullable) NSString *consumerEmail;
+
+/** Consumer phone number associated with the booking lead. */
+@property(nonatomic, copy, nullable) NSString *consumerPhoneNumber;
+
+/** Name of the customer who created the lead. */
+@property(nonatomic, copy, nullable) NSString *customerName;
+
+/** The job type of the specified lead. */
+@property(nonatomic, copy, nullable) NSString *jobType;
+
+@end
+
+
+/**
  *  A Detailed Lead Report of a lead identified by their lead id and contains
  *  consumer, account, monetization, and lead data.
  */
@@ -233,6 +263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 
 /** Aggregator specific information related to the lead. */
 @property(nonatomic, strong, nullable) GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AggregatorInfo *aggregatorInfo;
+
+/** More information associated to only booking leads. */
+@property(nonatomic, strong, nullable) GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1BookingLead *bookingLead;
 
 /** Business name associated to the account. */
 @property(nonatomic, copy, nullable) NSString *businessName;
@@ -283,6 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
  *  Lead type.
  *
  *  Likely values:
+ *    @arg @c kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_Booking
+ *        Booking lead. (Value: "BOOKING")
  *    @arg @c kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_LeadTypeUnspecified
  *        Not specified. (Value: "LEAD_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_Message

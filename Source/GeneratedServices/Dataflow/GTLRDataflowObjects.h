@@ -3051,6 +3051,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
+ *  The machine type to use for launching the job. The default is n1-standard-1.
+ */
+@property(nonatomic, copy, nullable) NSString *launcherMachineType;
+
+/**
  *  The machine type to use for the job. Defaults to the value from the template
  *  if not specified.
  */

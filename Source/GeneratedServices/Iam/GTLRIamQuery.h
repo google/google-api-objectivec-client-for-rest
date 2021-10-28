@@ -191,6 +191,66 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.locations.workforcePools.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.locations.workforcePools.providers.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new custom Role.
  *
  *  Method: iam.organizations.roles.create
@@ -249,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -297,8 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Role.
  *
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -628,7 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Lists every permission that you can test on a resource. A permission is
- *  testable if you can check whether a member has that permission on the
+ *  testable if you can check whether a principal has that permission on the
  *  resource.
  *
  *  Method: iam.permissions.queryTestablePermissions
@@ -642,7 +702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_QueryTestablePermissionsResponse.
  *
  *  Lists every permission that you can test on a resource. A permission is
- *  testable if you can check whether a member has that permission on the
+ *  testable if you can check whether a principal has that permission on the
  *  resource.
  *
  *  @param object The @c GTLRIam_QueryTestablePermissionsRequest to include in
@@ -1209,8 +1269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -1257,8 +1317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Role.
  *
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -1813,11 +1873,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Gets the IAM policy that is attached to a ServiceAccount. This IAM policy
- *  specifies which members have access to the service account. This method does
- *  not tell you whether the service account has been granted any roles on other
- *  resources. To check whether a service account has role grants on a resource,
- *  use the `getIamPolicy` method for that resource. For example, to view the
- *  role grants for a project, call the Resource Manager API's
+ *  specifies which principals have access to the service account. This method
+ *  does not tell you whether the service account has been granted any roles on
+ *  other resources. To check whether a service account has role grants on a
+ *  resource, use the `getIamPolicy` method for that resource. For example, to
+ *  view the role grants for a project, call the Resource Manager API's
  *  [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy)
  *  method.
  *
@@ -1849,11 +1909,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Policy.
  *
  *  Gets the IAM policy that is attached to a ServiceAccount. This IAM policy
- *  specifies which members have access to the service account. This method does
- *  not tell you whether the service account has been granted any roles on other
- *  resources. To check whether a service account has role grants on a resource,
- *  use the `getIamPolicy` method for that resource. For example, to view the
- *  role grants for a project, call the Resource Manager API's
+ *  specifies which principals have access to the service account. This method
+ *  does not tell you whether the service account has been granted any roles on
+ *  other resources. To check whether a service account has role grants on a
+ *  resource, use the `getIamPolicy` method for that resource. For example, to
+ *  view the role grants for a project, call the Resource Manager API's
  *  [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy)
  *  method.
  *
@@ -1948,7 +2008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Disable a ServiceAccountKey. A disabled service account key can be enabled
- *  through EnableServiceAccountKey. The API is currently in preview phase.
+ *  through EnableServiceAccountKey.
  *
  *  Method: iam.projects.serviceAccounts.keys.disable
  *
@@ -1970,7 +2030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Empty.
  *
  *  Disable a ServiceAccountKey. A disabled service account key can be enabled
- *  through EnableServiceAccountKey. The API is currently in preview phase.
+ *  through EnableServiceAccountKey.
  *
  *  @param object The @c GTLRIam_DisableServiceAccountKeyRequest to include in
  *    the query.
@@ -1989,7 +2049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Enable a ServiceAccountKey. The API is currently in preview phase.
+ *  Enable a ServiceAccountKey.
  *
  *  Method: iam.projects.serviceAccounts.keys.enable
  *
@@ -2010,7 +2070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Empty.
  *
- *  Enable a ServiceAccountKey. The API is currently in preview phase.
+ *  Enable a ServiceAccountKey.
  *
  *  @param object The @c GTLRIam_EnableServiceAccountKeyRequest to include in
  *    the query.
@@ -2271,14 +2331,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Sets the IAM policy that is attached to a ServiceAccount. Use this method to
  *  grant or revoke access to the service account. For example, you could grant
- *  a member the ability to impersonate the service account. This method does
+ *  a principal the ability to impersonate the service account. This method does
  *  not enable the service account to access other resources. To grant roles to
  *  a service account on a resource, follow these steps: 1. Call the resource's
  *  `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so
  *  that it binds the service account to an IAM role for the resource. 3. Call
  *  the resource's `setIamPolicy` method to update its IAM policy. For detailed
- *  instructions, see [Granting roles to a service account for specific
- *  resources](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts).
+ *  instructions, see [Manage access to project, folders, and
+ *  organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts)
+ *  or [Manage access to other
+ *  resources](https://cloud.google.com/iam/help/access/manage-other-resources).
  *
  *  Method: iam.projects.serviceAccounts.setIamPolicy
  *
@@ -2298,14 +2360,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Sets the IAM policy that is attached to a ServiceAccount. Use this method to
  *  grant or revoke access to the service account. For example, you could grant
- *  a member the ability to impersonate the service account. This method does
+ *  a principal the ability to impersonate the service account. This method does
  *  not enable the service account to access other resources. To grant roles to
  *  a service account on a resource, follow these steps: 1. Call the resource's
  *  `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so
  *  that it binds the service account to an IAM role for the resource. 3. Call
  *  the resource's `setIamPolicy` method to update its IAM policy. For detailed
- *  instructions, see [Granting roles to a service account for specific
- *  resources](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts).
+ *  instructions, see [Manage access to project, folders, and
+ *  organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts)
+ *  or [Manage access to other
+ *  resources](https://cloud.google.com/iam/help/access/manage-other-resources).
  *
  *  @param object The @c GTLRIam_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being

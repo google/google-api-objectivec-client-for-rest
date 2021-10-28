@@ -76,6 +76,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_DynamicGroupQuery_Resource
 // GTLRCloudIdentity_DynamicGroupStatus.status
 
 /**
+ *  Group is in an unrecoverable state and its memberships can't be updated.
+ *
+ *  Value: "INVALID_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_InvalidQuery;
+/**
  *  Default.
  *
  *  Value: "STATUS_UNSPECIFIED"
@@ -697,7 +703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  `user.organizations.exists(org, org.department=='engineering')` All users
  *  with at least one location that has `area` of `foo` and `building_id` of
  *  `bar`. `user.locations.exists(loc, loc.area=='foo' &&
- *  loc.building_id=='bar')`
+ *  loc.building_id=='bar')` All users with any variation of the name John Doe
+ *  (case-insensitive queries add `equalsIgnoreCase()` to the value being
+ *  queried). `user.name.value.equalsIgnoreCase('jOhn DoE')`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -724,6 +732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Status of the dynamic group.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_DynamicGroupStatus_Status_InvalidQuery Group is
+ *        in an unrecoverable state and its memberships can't be updated.
+ *        (Value: "INVALID_QUERY")
  *    @arg @c kGTLRCloudIdentity_DynamicGroupStatus_Status_StatusUnspecified
  *        Default. (Value: "STATUS_UNSPECIFIED")
  *    @arg @c kGTLRCloudIdentity_DynamicGroupStatus_Status_UpdatingMemberships

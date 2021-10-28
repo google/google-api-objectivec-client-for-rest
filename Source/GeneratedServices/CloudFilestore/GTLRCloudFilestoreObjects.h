@@ -1737,7 +1737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 
 /**
- *  RestoreInstanceRequest restores an existing instances's file share from a
+ *  RestoreInstanceRequest restores an existing instance's file share from a
  *  backup.
  */
 @interface GTLRCloudFilestore_RestoreInstanceRequest : GTLRObject

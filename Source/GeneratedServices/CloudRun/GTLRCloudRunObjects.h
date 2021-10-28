@@ -267,7 +267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudRun_Binding : GTLRObject
 
@@ -276,14 +276,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -315,8 +315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -389,11 +389,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_ConfigMapVolumeSource : GTLRCollectionObject
 
 /**
- *  (Optional) Mode bits to use on created files by default. Must be a value
- *  between 0 and 0777. Defaults to 0644. Directories within the path are not
- *  affected by this setting. This might be in conflict with other options that
- *  affect the file mode, like fsGroup, and the result can be other mode bits
- *  set.
+ *  (Optional) Integer representation of mode bits to use on created files by
+ *  default. Must be a value between 01 and 0777 (octal). If 0 or not set, it
+ *  will default to 0644. Directories within the path are not affected by this
+ *  setting. Notes * Internally, a umask of 0222 will be applied to any non-zero
+ *  value. * This is an integer representation of the mode bits. So, the octal
+ *  integer value should look exactly as the chmod numeric notation with a
+ *  leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or
+ *  511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416
+ *  (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493
+ *  (base-10). * This might be in conflict with other options that affect the
+ *  file mode, like fsGroup, and the result can be other mode bits set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1004,10 +1010,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  (Optional) Mode bits to use on this file, must be a value between 0000 and
- *  0777. If not specified, the volume defaultMode will be used. This might be
- *  in conflict with other options that affect the file mode, like fsGroup, and
- *  the result can be other mode bits set.
+ *  (Optional) Mode bits to use on this file, must be a value between 01 and
+ *  0777 (octal). If 0 or not set, the Volume's default mode will be used. Notes
+ *  * Internally, a umask of 0222 will be applied to any non-zero value. * This
+ *  is an integer representation of the mode bits. So, the octal integer value
+ *  should look exactly as the chmod numeric notation with a leading zero. Some
+ *  examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For
+ *  chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
+ *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
+ *  conflict with other options that affect the file mode, like fsGroup, and the
+ *  result can be other mode bits set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1587,15 +1599,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1621,9 +1633,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_Binding *> *bindings;
 
@@ -2169,13 +2186,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_SecretVolumeSource : GTLRCollectionObject
 
 /**
- *  (Optional) Mode bits to use on created files by default. Must be a value
- *  between 0000 and 0777. Defaults to 0644. Directories within the path are not
- *  affected by this setting. This might be in conflict with other options that
- *  affect the file mode, like fsGroup, and the result can be other mode bits
- *  set. NOTE: This is an integer representation of the mode bits. So, the
- *  integer value should look exactly as the chmod numeric notation, i.e. Unix
- *  chmod "777" (a=rwx) should have the integer value 777.
+ *  Integer representation of mode bits to use on created files by default. Must
+ *  be a value between 01 and 0777 (octal). If 0 or not set, it will default to
+ *  0644. Directories within the path are not affected by this setting. Notes *
+ *  Internally, a umask of 0222 will be applied to any non-zero value. * This is
+ *  an integer representation of the mode bits. So, the octal integer value
+ *  should look exactly as the chmod numeric notation with a leading zero. Some
+ *  examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For
+ *  chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755
+ *  (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in
+ *  conflict with other options that affect the file mode, like fsGroup, and the
+ *  result can be other mode bits set.
  *
  *  Uses NSNumber of intValue.
  */

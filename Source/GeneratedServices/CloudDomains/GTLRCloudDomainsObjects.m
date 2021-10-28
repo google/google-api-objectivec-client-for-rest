@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Domains API (domains/v1beta1)
+//   Cloud Domains API (domains/v1)
 // Description:
 //   Enables management and configuration of domain names.
 // Documentation:
@@ -31,6 +31,7 @@ NSString * const kGTLRCloudDomains_ContactSettings_Privacy_RedactedContactData =
 
 // GTLRCloudDomains_DsRecord.algorithm
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_AlgorithmUnspecified = @"ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dh       = @"DH";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dsa      = @"DSA";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dsansec3sha1 = @"DSANSEC3SHA1";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ecc      = @"ECC";
@@ -39,6 +40,10 @@ NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ecdsap256sha256 = @"ECDSAP
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ecdsap384sha384 = @"ECDSAP384SHA384";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ed25519  = @"ED25519";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ed448    = @"ED448";
+NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Indirect = @"INDIRECT";
+NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Privatedns = @"PRIVATEDNS";
+NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Privateoid = @"PRIVATEOID";
+NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Rsamd5   = @"RSAMD5";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Rsasha1  = @"RSASHA1";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Rsasha1nsec3sha1 = @"RSASHA1NSEC3SHA1";
 NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Rsasha256 = @"RSASHA256";
@@ -103,12 +108,29 @@ NSString * const kGTLRCloudDomains_Registration_State_RegistrationFailed = @"REG
 NSString * const kGTLRCloudDomains_Registration_State_RegistrationPending = @"REGISTRATION_PENDING";
 NSString * const kGTLRCloudDomains_Registration_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_Registration_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRCloudDomains_Registration_State_TransferFailed = @"TRANSFER_FAILED";
+NSString * const kGTLRCloudDomains_Registration_State_TransferPending = @"TRANSFER_PENDING";
 
 // GTLRCloudDomains_Registration.supportedPrivacy
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_ContactPrivacyUnspecified = @"CONTACT_PRIVACY_UNSPECIFIED";
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PrivateContactData = @"PRIVATE_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_PublicContactData = @"PUBLIC_CONTACT_DATA";
 NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContactData = @"REDACTED_CONTACT_DATA";
+
+// GTLRCloudDomains_TransferDomainRequest.contactNotices
+NSString * const kGTLRCloudDomains_TransferDomainRequest_ContactNotices_ContactNoticeUnspecified = @"CONTACT_NOTICE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_TransferDomainRequest_ContactNotices_PublicContactDataAcknowledgement = @"PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT";
+
+// GTLRCloudDomains_TransferParameters.supportedPrivacy
+NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_ContactPrivacyUnspecified = @"CONTACT_PRIVACY_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PrivateContactData = @"PRIVATE_CONTACT_DATA";
+NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PublicContactData = @"PUBLIC_CONTACT_DATA";
+NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_RedactedContactData = @"REDACTED_CONTACT_DATA";
+
+// GTLRCloudDomains_TransferParameters.transferLockState
+NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Locked = @"LOCKED";
+NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_TransferLockStateUnspecified = @"TRANSFER_LOCK_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked = @"UNLOCKED";
 
 // ----------------------------------------------------------------------------
 //
@@ -650,6 +672,16 @@ NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContact
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDomains_RetrieveTransferParametersResponse
+//
+
+@implementation GTLRCloudDomains_RetrieveTransferParametersResponse
+@dynamic transferParameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDomains_SearchDomainsResponse
 //
 
@@ -737,6 +769,45 @@ NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContact
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_TransferDomainRequest
+//
+
+@implementation GTLRCloudDomains_TransferDomainRequest
+@dynamic authorizationCode, contactNotices, registration, validateOnly,
+         yearlyPrice;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contactNotices" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDomains_TransferParameters
+//
+
+@implementation GTLRCloudDomains_TransferParameters
+@dynamic currentRegistrar, domainName, nameServers, supportedPrivacy,
+         transferLockState, yearlyPrice;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nameServers" : [NSString class],
+    @"supportedPrivacy" : [NSString class]
   };
   return map;
 }

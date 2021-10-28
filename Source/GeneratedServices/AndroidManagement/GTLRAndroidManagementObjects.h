@@ -2317,9 +2317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_A
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
 /**
- *  Security policies set to the most secure values by default. To maintain the
- *  security posture of a device, we don't recommend overriding any of the
- *  default values.
+ *  Security policies set to secure values by default. To maintain the security
+ *  posture of a device, we don't recommend overriding any of the default
+ *  values.
  */
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
 
@@ -5230,9 +5230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *adjustVolumeDisabled;
 
 /**
- *  Security policies set to the most secure values by default. To maintain the
- *  security posture of a device, we don't recommend overriding any of the
- *  default values.
+ *  Security policies set to secure values by default. To maintain the security
+ *  posture of a device, we don't recommend overriding any of the default
+ *  values.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AdvancedSecurityOverrides *advancedSecurityOverrides;
 

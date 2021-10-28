@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Domains API (domains/v1beta1)
+//   Cloud Domains API (domains/v1)
 // Description:
 //   Enables management and configuration of domain names.
 // Documentation:
@@ -22,6 +22,7 @@
 
 @class GTLRCloudDomains_AuditConfig;
 @class GTLRCloudDomains_AuditLogConfig;
+@class GTLRCloudDomains_AuthorizationCode;
 @class GTLRCloudDomains_Binding;
 @class GTLRCloudDomains_Contact;
 @class GTLRCloudDomains_ContactSettings;
@@ -46,6 +47,7 @@
 @class GTLRCloudDomains_Registration_Labels;
 @class GTLRCloudDomains_Status;
 @class GTLRCloudDomains_Status_Details_Item;
+@class GTLRCloudDomains_TransferParameters;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -148,6 +150,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_ContactSettings_Privacy_Red
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_AlgorithmUnspecified;
 /**
+ *  Diffie-Hellman. Cannot be used for new deployments.
+ *
+ *  Value: "DH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Dh;
+/**
  *  DSA/SHA1. Not recommended for new deployments.
  *
  *  Value: "DSA"
@@ -195,6 +203,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ed25519;
  *  Value: "ED448"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Ed448;
+/**
+ *  Reserved for Indirect Keys. Cannot be used for new deployments.
+ *
+ *  Value: "INDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Indirect;
+/**
+ *  Private algorithm. Cannot be used for new deployments.
+ *
+ *  Value: "PRIVATEDNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Privatedns;
+/**
+ *  Private algorithm OID. Cannot be used for new deployments.
+ *
+ *  Value: "PRIVATEOID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Privateoid;
+/**
+ *  RSA/MD5. Cannot be used for new deployments.
+ *
+ *  Value: "RSAMD5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_DsRecord_Algorithm_Rsamd5;
 /**
  *  RSA/SHA-1. Not recommended for new deployments.
  *
@@ -285,7 +317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_GoogleDomainsDns_DsState_Ds
 
 /**
  *  The domain is automatically renewed each year . To disable automatic
- *  renewals, export the domain by calling `ExportRegistration` .
+ *  renewals, delete the resource by calling `DeleteRegistration` or export it
+ *  by calling `ExportRegistration`.
  *
  *  Value: "AUTOMATIC_RENEWAL"
  */
@@ -495,11 +528,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_Issues_Unverif
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Active;
 /**
- *  The domain has been exported from Cloud Domains to [Google
+ *  The domain is no longer managed with Cloud Domains. It may have been
+ *  transferred to another registrar or exported for management in [Google
  *  Domains](https://domains.google/). You can no longer update it with this
- *  API, and information shown about it may be stale. Without further action,
- *  domains in this state expire at their `expire_time`. You can delete the
- *  resource after the `expire_time` has passed.
+ *  API, and information shown about it may be stale. Domains in this state will
+ *  not be automatically renewed by Cloud Domains.
  *
  *  Value: "EXPORTED"
  */
@@ -530,6 +563,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_StateUns
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Suspended;
+/**
+ *  The attempt to transfer the domain from another registrar to Cloud Domains
+ *  failed. You can delete resources in this state to allow transfer to be
+ *  retried.
+ *
+ *  Value: "TRANSFER_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferFailed;
+/**
+ *  Domain transfer from another registrar to Cloud Domains is in progress. The
+ *  domain's current registrar may require action to complete the transfer.
+ *  Check emails from the domain's current registrar to the domain's current
+ *  registrant for instructions.
+ *
+ *  Value: "TRANSFER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferPending;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDomains_Registration.supportedPrivacy
@@ -566,6 +616,81 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  Value: "REDACTED_CONTACT_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPrivacy_RedactedContactData;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_TransferDomainRequest.contactNotices
+
+/**
+ *  The notice is undefined.
+ *
+ *  Value: "CONTACT_NOTICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferDomainRequest_ContactNotices_ContactNoticeUnspecified;
+/**
+ *  Required when setting the `privacy` field of `ContactSettings` to
+ *  `PUBLIC_CONTACT_DATA`, which exposes contact data publicly.
+ *
+ *  Value: "PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferDomainRequest_ContactNotices_PublicContactDataAcknowledgement;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_TransferParameters.supportedPrivacy
+
+/**
+ *  The contact privacy settings are undefined.
+ *
+ *  Value: "CONTACT_PRIVACY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_ContactPrivacyUnspecified;
+/**
+ *  None of the data from `ContactSettings` is publicly available. Instead,
+ *  proxy contact data is published for your domain. Email sent to the proxy
+ *  email address is forwarded to the registrant's email address. Cloud Domains
+ *  provides this privacy proxy service at no additional cost.
+ *
+ *  Value: "PRIVATE_CONTACT_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PrivateContactData;
+/**
+ *  All the data from `ContactSettings` is publicly available. When setting this
+ *  option, you must also provide a `PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT` in the
+ *  `contact_notices` field of the request.
+ *
+ *  Value: "PUBLIC_CONTACT_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_PublicContactData;
+/**
+ *  Some data from `ContactSettings` is publicly available. The actual
+ *  information redacted depends on the domain. For details, see [the
+ *  registration privacy
+ *  article](https://support.google.com/domains/answer/3251242).
+ *
+ *  Value: "REDACTED_CONTACT_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_SupportedPrivacy_RedactedContactData;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDomains_TransferParameters.transferLockState
+
+/**
+ *  The domain is locked and cannot be transferred to another registrar.
+ *
+ *  Value: "LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Locked;
+/**
+ *  The state is unspecified.
+ *
+ *  Value: "TRANSFER_LOCK_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_TransferLockStateUnspecified;
+/**
+ *  The domain is unlocked and can be transferred to another registrar.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked;
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -648,7 +773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudDomains_Binding : GTLRObject
 
@@ -657,14 +782,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -696,8 +821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -923,6 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_AlgorithmUnspecified The
  *        algorithm is unspecified. (Value: "ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Dh Diffie-Hellman. Cannot be
+ *        used for new deployments. (Value: "DH")
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Dsa DSA/SHA1. Not recommended
  *        for new deployments. (Value: "DSA")
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Dsansec3sha1 DSA-NSEC3-SHA1.
@@ -938,6 +1065,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Ed25519 Ed25519. (Value:
  *        "ED25519")
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Ed448 Ed448. (Value: "ED448")
+ *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Indirect Reserved for
+ *        Indirect Keys. Cannot be used for new deployments. (Value: "INDIRECT")
+ *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Privatedns Private algorithm.
+ *        Cannot be used for new deployments. (Value: "PRIVATEDNS")
+ *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Privateoid Private algorithm
+ *        OID. Cannot be used for new deployments. (Value: "PRIVATEOID")
+ *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Rsamd5 RSA/MD5. Cannot be
+ *        used for new deployments. (Value: "RSAMD5")
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Rsasha1 RSA/SHA-1. Not
  *        recommended for new deployments. (Value: "RSASHA1")
  *    @arg @c kGTLRCloudDomains_DsRecord_Algorithm_Rsasha1nsec3sha1
@@ -1257,7 +1392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  Likely values:
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_AutomaticRenewal
  *        The domain is automatically renewed each year . To disable automatic
- *        renewals, export the domain by calling `ExportRegistration` . (Value:
+ *        renewals, delete the resource by calling `DeleteRegistration` or
+ *        export it by calling `ExportRegistration`. (Value:
  *        "AUTOMATIC_RENEWAL")
  *    @arg @c kGTLRCloudDomains_ManagementSettings_RenewalMethod_ManualRenewal
  *        The domain must be explicitly renewed each year before its
@@ -1427,15 +1563,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1451,7 +1587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1461,9 +1597,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDomains_Binding *> *bindings;
 
@@ -1711,11 +1852,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 
 /**
  *  The `Registration` resource facilitates managing and configuring domain name
- *  registrations. To create a new `Registration` resource, find a suitable
- *  domain name by calling the `SearchDomains` method with a query to see
- *  available domain name options. After choosing a name, call
+ *  registrations. There are several ways to create a new `Registration`
+ *  resource: To create a new `Registration` resource, find a suitable domain
+ *  name by calling the `SearchDomains` method with a query to see available
+ *  domain name options. After choosing a name, call
  *  `RetrieveRegisterParameters` to ensure availability and obtain information
- *  like pricing, which is needed to build a call to `RegisterDomain`.
+ *  like pricing, which is needed to build a call to `RegisterDomain`. Another
+ *  way to create a new `Registration` is to transfer an existing domain from
+ *  another registrar. First, go to the current registrar to unlock the domain
+ *  for transfer and retrieve the domain's transfer authorization code. Then
+ *  call `RetrieveTransferParameters` to confirm that the domain is unlocked and
+ *  to get values needed to build a call to `TransferDomain`.
  */
 @interface GTLRCloudDomains_Registration : GTLRObject
 
@@ -1785,12 +1932,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *    @arg @c kGTLRCloudDomains_Registration_State_Active The domain is
  *        registered and operational. The domain renews automatically as long as
  *        it remains in this state. (Value: "ACTIVE")
- *    @arg @c kGTLRCloudDomains_Registration_State_Exported The domain has been
- *        exported from Cloud Domains to [Google
+ *    @arg @c kGTLRCloudDomains_Registration_State_Exported The domain is no
+ *        longer managed with Cloud Domains. It may have been transferred to
+ *        another registrar or exported for management in [Google
  *        Domains](https://domains.google/). You can no longer update it with
- *        this API, and information shown about it may be stale. Without further
- *        action, domains in this state expire at their `expire_time`. You can
- *        delete the resource after the `expire_time` has passed. (Value:
+ *        this API, and information shown about it may be stale. Domains in this
+ *        state will not be automatically renewed by Cloud Domains. (Value:
  *        "EXPORTED")
  *    @arg @c kGTLRCloudDomains_Registration_State_RegistrationFailed The domain
  *        registration failed. You can delete resources in this state to allow
@@ -1802,6 +1949,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *    @arg @c kGTLRCloudDomains_Registration_State_Suspended The domain is
  *        suspended and inoperative. For more details, see the `issues` field.
  *        (Value: "SUSPENDED")
+ *    @arg @c kGTLRCloudDomains_Registration_State_TransferFailed The attempt to
+ *        transfer the domain from another registrar to Cloud Domains failed.
+ *        You can delete resources in this state to allow transfer to be
+ *        retried. (Value: "TRANSFER_FAILED")
+ *    @arg @c kGTLRCloudDomains_Registration_State_TransferPending Domain
+ *        transfer from another registrar to Cloud Domains is in progress. The
+ *        domain's current registrar may require action to complete the
+ *        transfer. Check emails from the domain's current registrar to the
+ *        domain's current registrant for instructions. (Value:
+ *        "TRANSFER_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1840,6 +1997,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 
 /** Parameters to use when calling the `RegisterDomain` method. */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_RegisterParameters *registerParameters;
+
+@end
+
+
+/**
+ *  Response for the `RetrieveTransferParameters` method.
+ */
+@interface GTLRCloudDomains_RetrieveTransferParametersResponse : GTLRObject
+
+/** Parameters to use when calling the `TransferDomain` method. */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_TransferParameters *transferParameters;
 
 @end
 
@@ -1948,6 +2116,89 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Request for the `TransferDomain` method.
+ */
+@interface GTLRCloudDomains_TransferDomainRequest : GTLRObject
+
+/**
+ *  The domain's transfer authorization code. You can obtain this from the
+ *  domain's current registrar.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_AuthorizationCode *authorizationCode;
+
+/**
+ *  The list of contact notices that you acknowledge. The notices needed here
+ *  depend on the values specified in `registration.contact_settings`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contactNotices;
+
+/**
+ *  Required. The complete `Registration` resource to be created. You can leave
+ *  `registration.dns_settings` unset to import the domain's current DNS
+ *  configuration from its current registrar. Use this option only if you are
+ *  sure that the domain's current DNS service will not cease upon transfer, as
+ *  is often the case for DNS services provided for free by the registrar.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_Registration *registration;
+
+/**
+ *  Validate the request without actually transferring the domain.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+/**
+ *  Required. Acknowledgement of the price to transfer or renew the domain for
+ *  one year. Call `RetrieveTransferParameters` to obtain the price, which you
+ *  must acknowledge.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
+
+@end
+
+
+/**
+ *  Parameters required to transfer a domain from another registrar.
+ */
+@interface GTLRCloudDomains_TransferParameters : GTLRObject
+
+/** The registrar that currently manages the domain. */
+@property(nonatomic, copy, nullable) NSString *currentRegistrar;
+
+/** The domain name. Unicode domain names are expressed in Punycode format. */
+@property(nonatomic, copy, nullable) NSString *domainName;
+
+/** The name servers that currently store the configuration of the domain. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nameServers;
+
+/** Contact privacy options that the domain supports. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPrivacy;
+
+/**
+ *  Indicates whether the domain is protected by a transfer lock. For a transfer
+ *  to succeed, this must show `UNLOCKED`. To unlock a domain, go to its current
+ *  registrar.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDomains_TransferParameters_TransferLockState_Locked The
+ *        domain is locked and cannot be transferred to another registrar.
+ *        (Value: "LOCKED")
+ *    @arg @c kGTLRCloudDomains_TransferParameters_TransferLockState_TransferLockStateUnspecified
+ *        The state is unspecified. (Value: "TRANSFER_LOCK_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
+ *        The domain is unlocked and can be transferred to another registrar.
+ *        (Value: "UNLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *transferLockState;
+
+/** Price to transfer or renew the domain for one year. */
+@property(nonatomic, strong, nullable) GTLRCloudDomains_Money *yearlyPrice;
 
 @end
 

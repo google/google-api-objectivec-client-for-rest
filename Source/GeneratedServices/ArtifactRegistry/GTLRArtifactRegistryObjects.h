@@ -102,12 +102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Maven
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
 /**
- *  PyPI package format.
- *
- *  Value: "PYPI"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi;
-/**
  *  Python package format.
  *
  *  Value: "PYTHON"
@@ -186,13 +180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRArtifactRegistry_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
  *  DockerImage represents a docker artifact. The following fields are returned
  *  as untyped metadata in the Version resource, using camelcase keys (i.e.
  *  metadata.imageSizeBytes): - imageSizeBytes - mediaType - buildTime
@@ -203,9 +190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  The time this image was built. This field is returned as the
  *  'metadata.buildTime' field in the Version resource. The build time is
  *  returned to the client as an RFC 3339 string, which can be easily used with
- *  the JavaScript Date constructor and keeps the Version timestamps returned
- *  via OnePlatform consistent, as JSON marshals google.protobuf.Timestamp into
- *  an RFC 3339 string.
+ *  the JavaScript Date constructor.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *buildTime;
 
@@ -249,17 +234,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
-@end
-
-
-/**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
- */
-@interface GTLRArtifactRegistry_Empty : GTLRObject
 @end
 
 
@@ -378,30 +352,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  more artifacts to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRArtifactRegistry_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Operation *> *operations;
 
 @end
 
@@ -542,8 +492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        format. (Value: "MAVEN")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Npm NPM package format.
  *        (Value: "NPM")
- *    @arg @c kGTLRArtifactRegistry_Repository_Format_Pypi PyPI package format.
- *        (Value: "PYPI")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Python Python package
  *        format. (Value: "PYTHON")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Yum YUM package format.

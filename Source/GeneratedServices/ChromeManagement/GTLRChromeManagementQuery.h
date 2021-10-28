@@ -159,6 +159,59 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Generate summary of app installation requests.
+ *
+ *  Method: chromemanagement.customers.apps.countChromeAppRequests
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsCountChromeAppRequests : GTLRChromeManagementQuery
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Field used to order results. Supported fields: * request_count *
+ *  latest_request_time
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The ID of the organizational unit. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Maximum number of results to return. Maximum and default are 50, anything
+ *  above will be coerced to 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to specify the page of the request to be returned. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse.
+ *
+ *  Generate summary of app installation requests.
+ *
+ *  @param customer Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsCountChromeAppRequests
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Get a specific app for a customer by its resource name.
  *
  *  Method: chromemanagement.customers.apps.web.get

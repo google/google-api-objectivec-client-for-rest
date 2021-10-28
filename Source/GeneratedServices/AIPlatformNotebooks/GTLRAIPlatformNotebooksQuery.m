@@ -923,6 +923,29 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Policy class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesList
 
 @dynamic pageSize, pageToken, parent;
@@ -991,6 +1014,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
   query.loggingName = @"notebooks.projects.locations.runtimes.reset";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Policy class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.setIamPolicy";
   return query;
 }
 
@@ -1072,6 +1122,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
   query.loggingName = @"notebooks.projects.locations.runtimes.switch";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_TestIamPermissionsResponse class];
+  query.loggingName = @"notebooks.projects.locations.runtimes.testIamPermissions";
   return query;
 }
 

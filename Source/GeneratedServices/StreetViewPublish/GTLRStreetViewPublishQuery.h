@@ -355,8 +355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 
 /**
  *  Optional. The filter expression. For example:
- *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The only filter supported at the
- *  moment is `placeId`.
+ *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The filters supported at the moment
+ *  are: `placeId`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -474,7 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @interface GTLRStreetViewPublishQuery_PhotoUpdate : GTLRStreetViewPublishQuery
 
 /**
- *  Required. A unique identifier for a photo.
+ *  A unique identifier for a photo.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -510,7 +510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  still being indexed.
  *
  *  @param object The @c GTLRStreetViewPublish_Photo to include in the query.
- *  @param identifier Required. A unique identifier for a photo.
+ *  @param identifier A unique identifier for a photo.
  *
  *  @return GTLRStreetViewPublishQuery_PhotoUpdate
  */

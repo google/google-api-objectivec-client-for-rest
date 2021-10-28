@@ -33,6 +33,7 @@
 @class GTLRCloudRedis_Location_Metadata;
 @class GTLRCloudRedis_MaintenancePolicy;
 @class GTLRCloudRedis_MaintenanceSchedule;
+@class GTLRCloudRedis_NodeInfo;
 @class GTLRCloudRedis_Operation;
 @class GTLRCloudRedis_Operation_Metadata;
 @class GTLRCloudRedis_Operation_Response;
@@ -100,6 +101,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPe
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_Instance.readReplicasMode
+
+/**
+ *  If disabled, read endpoint will not be provided and the instance cannot
+ *  scale up or down the number of replicas.
+ *
+ *  Value: "READ_REPLICAS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled;
+/**
+ *  If enabled, read endpoint will be provided and the instance can scale up and
+ *  down the number of replicas.
+ *
+ *  Value: "READ_REPLICAS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasEnabled;
+/**
+ *  If not set, redis backend would pick the mode based on other fields in the
+ *  request.
+ *
+ *  Value: "READ_REPLICAS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.state
@@ -567,6 +593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. Info per node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_NodeInfo *> *nodes;
+
 /**
  *  Output only. Cloud IAM identity used by import / export operations to
  *  transfer data to/from Cloud Storage. Format is "serviceAccount:". The value
@@ -581,6 +610,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Output only. Hostname or IP address of the exposed readonly Redis endpoint.
+ *  Standard tier only. Targets all healthy replica nodes in instance.
+ *  Replication is asynchronous and replica nodes will exhibit some lag behind
+ *  the primary. Write requests must target 'host'.
+ */
+@property(nonatomic, copy, nullable) NSString *readEndpoint;
+
+/**
+ *  Output only. The port number of the exposed readonly redis endpoint.
+ *  Standard tier only. Write requests should target 'port'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readEndpointPort;
+
+/**
+ *  Optional. Read replica mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled If
+ *        disabled, read endpoint will not be provided and the instance cannot
+ *        scale up or down the number of replicas. (Value:
+ *        "READ_REPLICAS_DISABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasEnabled If
+ *        enabled, read endpoint will be provided and the instance can scale up
+ *        and down the number of replicas. (Value: "READ_REPLICAS_ENABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasModeUnspecified
+ *        If not set, redis backend would pick the mode based on other fields in
+ *        the request. (Value: "READ_REPLICAS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *readReplicasMode;
 
 /**
  *  Optional. Redis configuration parameters, according to
@@ -600,6 +662,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  compatibility
  */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
+
+/**
+ *  Optional. The number of replica nodes. Valid range for standard tier is
+ *  [1-5] and defaults to 1. Valid value for basic tier is 0 and defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicaCount;
 
 /**
  *  Optional. For DIRECT_PEERING mode, the CIDR range of internal addresses that
@@ -928,6 +998,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  *  instance.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Node specific properties.
+ */
+@interface GTLRCloudRedis_NodeInfo : GTLRObject
+
+/**
+ *  Output only. Output Only. Node identifying string. e.g. 'node-0', 'node-1'
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. Output Only. Location of the node.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 

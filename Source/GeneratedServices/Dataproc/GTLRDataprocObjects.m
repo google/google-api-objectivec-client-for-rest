@@ -158,10 +158,25 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_AutoscalingPolicy
-@dynamic basicAlgorithm, identifier, name, secondaryWorkerConfig, workerConfig;
+@dynamic basicAlgorithm, identifier, labels, name, secondaryWorkerConfig,
+         workerConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_AutoscalingPolicy_Labels
+//
+
+@implementation GTLRDataproc_AutoscalingPolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -173,7 +188,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_BasicAutoscalingAlgorithm
-@dynamic cooldownPeriod, yarnConfig;
+@dynamic cooldownPeriod, sparkStandaloneConfig, yarnConfig;
 @end
 
 
@@ -1616,6 +1631,17 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkStandaloneAutoscalingConfig
+//
+
+@implementation GTLRDataproc_SparkStandaloneAutoscalingConfig
+@dynamic gracefulDecommissionTimeout, scaleDownFactor,
+         scaleDownMinWorkerFraction, scaleUpFactor, scaleUpMinWorkerFraction;
 @end
 
 

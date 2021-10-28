@@ -90,6 +90,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "CANCELLATION_REASON_UPGRADE_DOWNGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUpgradeDowngrade;
+/**
+ *  Cancellation due to user delinquency
+ *
+ *  Value: "CANCELLATION_REASON_USER_DELINQUENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUserDelinquency;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration.unit
@@ -228,6 +234,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "CANCELLATION_REASON_UPGRADE_DOWNGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade;
+/**
+ *  Cancellation due to user delinquency
+ *
+ *  Value: "CANCELLATION_REASON_USER_DELINQUENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUserDelinquency;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails.billingCycleSpec
@@ -259,9 +271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 /**
  *  Optional. If true, the subscription will be cancelled immediately.
- *  Otherwise, the subscription will be cancelled at the end of the current
- *  cycle, and therefore no prorated refund will be issued for the rest of the
- *  cycle.
+ *  Otherwise, the subscription will be cancelled at renewal_time, and therefore
+ *  no prorated refund will be issued for the rest of the cycle.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -290,6 +301,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Used for notification only, do not use in Cancel API. Cancellation due
  *        to upgrade or downgrade. (Value:
  *        "CANCELLATION_REASON_UPGRADE_DOWNGRADE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest_CancellationReason_CancellationReasonUserDelinquency
+ *        Cancellation due to user delinquency (Value:
+ *        "CANCELLATION_REASON_USER_DELINQUENCY")
  */
 @property(nonatomic, copy, nullable) NSString *cancellationReason;
 
@@ -396,6 +410,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  the partner.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *freeTrialEndTime;
+
+/**
+ *  Output only. The time at which the subscription is expected to be renewed by
+ *  Google - a new charge will be incurred and the service entitlement will be
+ *  renewed. A non-immediate cancellation will take place at this time too,
+ *  before which, the service entitlement for the end user will remain valid.
+ *  UTC timezone in ISO 8061 format. For example: "2019-08-31T17:28:54.564Z"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *renewalTime;
 
 @end
 
@@ -530,7 +553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. Specifies the duration of the free trial of the subscription.
+ *  Optional. Specifies the duration of the free trial of the subscription when
+ *  promotion_type is PROMOTION_TYPE_FREE_TRIAL
  */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration *freeTrialDuration;
 
@@ -719,6 +743,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        Used for notification only, do not use in Cancel API. Cancellation due
  *        to upgrade or downgrade. (Value:
  *        "CANCELLATION_REASON_UPGRADE_DOWNGRADE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUserDelinquency
+ *        Cancellation due to user delinquency (Value:
+ *        "CANCELLATION_REASON_USER_DELINQUENCY")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 

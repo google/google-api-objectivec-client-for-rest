@@ -53,6 +53,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRChromePolicy_GoogleChromePolicyV1PolicySchema.validTargetResources
+
+/**
+ *  Group target resource.
+ *
+ *  Value: "GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_Group;
+/**
+ *  Organizational Unit target resource.
+ *
+ *  Value: "ORG_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_OrgUnit;
+/**
+ *  Unspecified target resource.
+ *
+ *  Value: "TARGET_RESOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_TargetResourceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 
 /**
@@ -269,7 +291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
- *  Resource representing a policy schema. Next ID: 10
+ *  Resource representing a policy schema. Next ID: 11
  */
 @interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchema : GTLRObject
 
@@ -305,14 +327,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @property(nonatomic, copy, nullable) NSString *policyDescription;
 
 /**
- *  Output only. The full qualified name of the policy schema. This value is
+ *  Output only. The fully qualified name of the policy schema. This value is
  *  used to fill the field `policy_schema` in PolicyValue when calling
- *  BatchInheritOrgUnitPolicies or BatchModifyOrgUnitPolicies.
+ *  BatchInheritOrgUnitPolicies or BatchModifyOrgUnitPolicies
  */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
 /** Output only. URI to related support article for this schema. */
 @property(nonatomic, copy, nullable) NSString *supportUri;
+
+/**
+ *  Output only. Information about applicable target resources for the policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validTargetResources;
 
 @end
 

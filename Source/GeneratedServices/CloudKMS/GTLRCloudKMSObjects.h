@@ -218,17 +218,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Goog
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256;
 /**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -289,6 +307,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaS
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
@@ -428,17 +464,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256;
 /**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -499,6 +553,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
@@ -659,17 +731,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256;
 /**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -730,6 +820,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportJob.importMethod
@@ -946,17 +1054,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymme
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256;
 /**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -1017,6 +1143,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_PublicKey.protectionLevel
@@ -1149,6 +1293,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @interface GTLRCloudKMS_AsymmetricSignRequest : GTLRObject
 
 /**
+ *  Optional. This field will only be honored for RAW_PKCS1 keys. The data to
+ *  sign. A digest is computed over the data that will be signed, PKCS #1
+ *  padding is applied to the digest directly and then encrypted.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Optional. An optional CRC32C checksum of the AsymmetricSignRequest.data. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  AsymmetricSignRequest.data using this checksum. KeyManagementService will
+ *  report an error if the checksum verification fails. If you receive a
+ *  checksum error, your client should verify that
+ *  CRC32C(AsymmetricSignRequest.data) is equal to
+ *  AsymmetricSignRequest.data_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
+
+/**
  *  Optional. The digest of the data to sign. The digest must be produced with
  *  the same digest algorithm as specified by the key version's algorithm.
  */
@@ -1225,6 +1397,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *signatureCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  AsymmetricSignRequest.data_crc32c was received by KeyManagementService and
+ *  used for the integrity verification of the data. A false value of this field
+ *  indicates either that AsymmetricSignRequest.data_crc32c was left unset or
+ *  that it was not delivered to KeyManagementService. If you've set
+ *  AsymmetricSignRequest.data_crc32c but this field is still false, discard the
+ *  response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedDataCrc32c;
 
 /**
  *  Integrity verification field. A flag indicating whether
@@ -1309,7 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
 
@@ -1318,14 +1503,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1357,8 +1542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1525,12 +1710,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256 HMAC-SHA256
  *        signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -1561,6 +1755,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -1724,12 +1927,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256
  *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -1760,6 +1972,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -2250,12 +2471,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256
  *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -2286,6 +2516,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -2986,15 +3225,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -3020,9 +3259,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Binding *> *bindings;
 
@@ -3094,12 +3338,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256 HMAC-SHA256 signing
  *        with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -3126,6 +3379,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        4096 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_4096_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 RSASSA-PSS
  *        4096 bit key with a SHA512 digest. (Value: "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 

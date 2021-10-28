@@ -1852,6 +1852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *dataLastRefreshed;
 
+/** If empty reason is specified, the report is empty for this reason. */
+@property(nonatomic, copy, nullable) NSString *emptyReason;
+
 /**
  *  Indicates if response to this request is golden or not. Data is golden when
  *  the exact same request will not produce any new results if asked at a later

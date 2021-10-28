@@ -3730,7 +3730,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  from the payment processsor. If this method succeeds, the merchant is
  *  guaranteed to receive funds for the order after shipment. If the request
  *  fails, it can be retried or the order may be cancelled. This method cannot
- *  be called after the entire order is already shipped.
+ *  be called after the entire order is already shipped. A rejected error code
+ *  is returned when the payment service provider has declined the charge. This
+ *  indicates a problem between the PSP and either the merchant's or customer's
+ *  account. Sometimes this error will be resolved by the customer. We recommend
+ *  retrying these errors once per day or cancelling the order with reason
+ *  `failedToCaptureFunds` if the items cannot be held.
  *
  *  Method: content.orders.captureOrder
  *
@@ -3757,7 +3762,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  from the payment processsor. If this method succeeds, the merchant is
  *  guaranteed to receive funds for the order after shipment. If the request
  *  fails, it can be retried or the order may be cancelled. This method cannot
- *  be called after the entire order is already shipped.
+ *  be called after the entire order is already shipped. A rejected error code
+ *  is returned when the payment service provider has declined the charge. This
+ *  indicates a problem between the PSP and either the merchant's or customer's
+ *  account. Sometimes this error will be resolved by the customer. We recommend
+ *  retrying these errors once per day or cancelling the order with reason
+ *  `failedToCaptureFunds` if the items cannot be held.
  *
  *  @param object The @c GTLRShoppingContent_CaptureOrderRequest to include in
  *    the query.
@@ -5216,6 +5226,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_Promotion *)object
                      merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Retrieves a promotion from your Merchant Center account.
+ *
+ *  Method: content.promotions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_PromotionsGet : GTLRShoppingContentQuery
+
+/**
+ *  Required. REST ID of the promotion to retrieve.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. The ID of the account that contains the collection. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Promotion.
+ *
+ *  Retrieves a promotion from your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection.
+ *  @param identifier Required. REST ID of the promotion to retrieve.
+ *
+ *  @return GTLRShoppingContentQuery_PromotionsGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                         identifier:(NSString *)identifier;
 
 @end
 

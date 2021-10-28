@@ -112,6 +112,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpu
  *  Value: "SPEEX_WITH_HEADER_BYTE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte;
+/**
+ *  Opus encoded audio frames in WebM container
+ *  ([OggOpus](https://wiki.xiph.org/OggOpus)). This is a Beta features and only
+ *  available in v1p1beta1. `sample_rate_hertz` must be one of 8000, 12000,
+ *  16000, 24000, or 48000.
+ *
+ *  Value: "WEBM_OPUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_WebmOpus;
 
 // ----------------------------------------------------------------------------
 // GTLRSpeech_RecognitionMetadata.interactionType
@@ -383,6 +392,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @interface GTLRSpeech_LongRunningRecognizeResponse : GTLRObject
 
+/** Original output config if present in the request. */
+@property(nonatomic, strong, nullable) GTLRSpeech_TranscriptOutputConfig *outputConfig;
+
+/** If the transcript output fails this field contains the relevant error. */
+@property(nonatomic, strong, nullable) GTLRSpeech_Status *outputError;
+
 /**
  *  Sequential list of transcription results corresponding to sequential
  *  portions of audio.
@@ -543,6 +558,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
+ *  A list of up to 3 additional
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tags,
+ *  listing possible alternative languages of the supplied audio. See [Language
+ *  Support](https://cloud.google.com/speech-to-text/docs/languages) for a list
+ *  of the currently supported language codes. If alternative languages are
+ *  listed, recognition result will contain recognition in the most likely
+ *  language detected including the main language_code. The recognition result
+ *  will include the language tag of the language detected in the audio. Note:
+ *  This feature is only supported for Voice Command and Voice Search use cases
+ *  and performance may vary for other use cases (e.g., phone call
+ *  transcription).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alternativeLanguageCodes;
+
+/**
  *  The number of channels in the input audio data. ONLY set this for
  *  MULTI-CHANNEL recognition. Valid values for LINEAR16 and FLAC are `1`-`8`.
  *  Valid values for OGG_OPUS are '1'-'254'. Valid value for MULAW, AMR, AMR_WB
@@ -588,6 +618,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableSeparateRecognitionPerChannel;
+
+/**
+ *  If `true`, the top result includes a list of words and the confidence for
+ *  those words. If `false`, no word-level confidence information is returned.
+ *  The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWordConfidence;
 
 /**
  *  If `true`, the top result includes a list of words and the start and end
@@ -638,6 +677,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        each RTP header is replaced with a single byte containing the block
  *        length. Only Speex wideband is supported. `sample_rate_hertz` must be
  *        16000. (Value: "SPEEX_WITH_HEADER_BYTE")
+ *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_WebmOpus Opus encoded audio
+ *        frames in WebM container ([OggOpus](https://wiki.xiph.org/OggOpus)).
+ *        This is a Beta features and only available in v1p1beta1.
+ *        `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or
+ *        48000. (Value: "WEBM_OPUS")
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
@@ -875,6 +919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @property(nonatomic, strong, nullable) NSNumber *channelTag;
 
+/**
+ *  Output only. The [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag of the language in this result. This language code was detected
+ *  to have the most likelihood of being spoken in the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
 @end
 
 
@@ -1020,6 +1071,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  Word-specific information for recognized words.
  */
 @interface GTLRSpeech_WordInfo : GTLRObject
+
+/**
+ *  The confidence estimate between 0.0 and 1.0. A higher number indicates an
+ *  estimated greater likelihood that the recognized words are correct. This
+ *  field is set only for the top alternative of a non-streaming result or, of a
+ *  streaming result where `is_final=true`. This field is not guaranteed to be
+ *  accurate and users should not rely on it to be always provided. The default
+ *  of 0.0 is a sentinel value indicating `confidence` was not set.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
  *  Time offset relative to the beginning of the audio, and corresponding to the

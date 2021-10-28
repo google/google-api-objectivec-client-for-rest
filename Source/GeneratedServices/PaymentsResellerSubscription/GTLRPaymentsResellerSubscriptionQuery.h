@@ -272,8 +272,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to extend a subscription service for their customers. It
- *  should be called directly by the partner using service accounts.
+ *  Used by partners to extend a subscription service for their customers on an
+ *  ongoing basis for the subscription to remain active and renewable. It should
+ *  be called directly by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.extend
  */
@@ -289,8 +290,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionResponse.
  *
- *  Used by partners to extend a subscription service for their customers. It
- *  should be called directly by the partner using service accounts.
+ *  Used by partners to extend a subscription service for their customers on an
+ *  ongoing basis for the subscription to remain active and renewable. It should
+ *  be called directly by the partner using service accounts.
  *
  *  @param object The @c
  *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1ExtendSubscriptionRequest

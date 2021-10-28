@@ -426,7 +426,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists entries.
+ *  Lists entries. Note: Currently, this method can list only custom entries. To
+ *  get a list of both custom and automatically created entries, use
+ *  SearchCatalog.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.list
  *
@@ -465,7 +467,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse.
  *
- *  Lists entries.
+ *  Lists entries. Note: Currently, this method can list only custom entries. To
+ *  get a list of both custom and automatically created entries, use
+ *  SearchCatalog.
  *
  *  @param parent Required. The name of the entry group that contains the
  *    entries to list. Can be provided in URL format.
@@ -1585,9 +1589,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Names of fields whose values to overwrite on a tag template. Currently, only
- *  `display_name` can be overwritten. If this parameter is absent or empty, all
- *  modifiable fields are overwritten. If such fields are non-required and
- *  omitted in the request body, their values are emptied.
+ *  `display_name` and `is_publicly_readable` can be overwritten. If this
+ *  parameter is absent or empty, all modifiable fields are overwritten. If such
+ *  fields are non-required and omitted in the request body, their values are
+ *  emptied. Note: Updating the ``is_publicly_readable`` field may require up to
+ *  12 hours to take effect in search results. Additionally, it also requires
+ *  the ``tagTemplates.getIamPolicy`` and ``tagTemplates.setIamPolicy``
+ *  permissions.
  *
  *  String format is a comma-separated list of fields.
  */

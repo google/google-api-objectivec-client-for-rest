@@ -203,6 +203,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling =
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed = @"FAILED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorType.launchStage
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Ga = @"GA";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating = @"CREATING";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting = @"DELETING";
@@ -273,7 +283,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Us
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata
-@dynamic createTime, state, stateMessage, updateTime;
+@dynamic createTime, resource, state, stateMessage, updateTime;
 @end
 
 
@@ -1878,7 +1888,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Us
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata
-@dynamic createTime, state, stateMessage, updateTime;
+@dynamic createTime, resource, state, stateMessage, updateTime;
 @end
 
 
@@ -2052,7 +2062,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Us
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata
-@dynamic createTime, state, stateMessage, updateTime;
+@dynamic createTime, resource, state, stateMessage, updateTime;
 @end
 
 
@@ -2835,7 +2845,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Us
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorType
-@dynamic allowCreation, availableLocations, category, name, type;
+@dynamic allowCreation, availableLocations, category, launchStage, name, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

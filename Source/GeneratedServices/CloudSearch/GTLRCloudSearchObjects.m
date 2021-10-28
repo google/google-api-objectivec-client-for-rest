@@ -944,6 +944,15 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_InitializeCustomerRequest
+//
+
+@implementation GTLRCloudSearch_InitializeCustomerRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_IntegerOperatorOptions
 //
 

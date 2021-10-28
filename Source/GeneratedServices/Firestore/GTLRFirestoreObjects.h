@@ -39,6 +39,7 @@
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
+@class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1Index;
 @class GTLRFirestore_GoogleFirestoreAdminV1IndexConfig;
@@ -199,6 +200,61 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValu
  *  Value: "SERVER_VALUE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.concurrencyMode
+
+/**
+ *  Not used.
+ *
+ *  Value: "CONCURRENCY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified;
+/**
+ *  Use optimistic concurrency control by default. This setting is available for
+ *  Cloud Firestore customers.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic;
+/**
+ *  Use optimistic concurrency control with entity groups by default. This is
+ *  the only available setting for Cloud Datastore customers. This is the
+ *  default setting for Cloud Datastore.
+ *
+ *  Value: "OPTIMISTIC_WITH_ENTITY_GROUPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups;
+/**
+ *  Use pessimistic concurrency control by default. This setting is available
+ *  for Cloud Firestore customers. This is the default setting for Cloud
+ *  Firestore.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.type
+
+/**
+ *  The default value. This value is used if the database type is omitted.
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified;
+/**
+ *  Firestore in Datastore Mode.
+ *
+ *  Value: "DATASTORE_MODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatastoreMode;
+/**
+ *  Firestore Native Mode
+ *
+ *  Value: "FIRESTORE_NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_FirestoreNative;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsMetadata.operationState
@@ -1341,6 +1397,83 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  A Cloud Firestore Database. Currently only one database is allowed per cloud
+ *  project; this database must have a `database_id` of '(default)'.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1Database : GTLRObject
+
+/**
+ *  The concurrency control mode to use for this database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified
+ *        Not used. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic
+ *        Use optimistic concurrency control by default. This setting is
+ *        available for Cloud Firestore customers. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups
+ *        Use optimistic concurrency control with entity groups by default. This
+ *        is the only available setting for Cloud Datastore customers. This is
+ *        the default setting for Cloud Datastore. (Value:
+ *        "OPTIMISTIC_WITH_ENTITY_GROUPS")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic
+ *        Use pessimistic concurrency control by default. This setting is
+ *        available for Cloud Firestore customers. This is the default setting
+ *        for Cloud Firestore. (Value: "PESSIMISTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *concurrencyMode;
+
+/**
+ *  Output only. The earliest timestamp at which older versions of the data can
+ *  be read from the database. See [version_retention_period] above; this field
+ *  is populated with `now - version_retention_period`. This value is
+ *  continuously updated, and becomes stale the moment it is queried. If you are
+ *  using this value to recover data, make sure to account for the time from the
+ *  moment when the value is queried to the moment when you initiate the
+ *  recovery. Note that you should not need to query this field: if you know the
+ *  `version_retention_period` then you can query within that time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The location of the database. Available databases are listed at
+ *  https://cloud.google.com/firestore/docs/locations.
+ */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  The resource name of the Database. Format:
+ *  `projects/{project}/databases/{database}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of the database. See
+ *  https://cloud.google.com/datastore/docs/firestore-or-datastore for
+ *  information about how to choose.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified
+ *        The default value. This value is used if the database type is omitted.
+ *        (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatastoreMode
+ *        Firestore in Datastore Mode. (Value: "DATASTORE_MODE")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_FirestoreNative
+ *        Firestore Native Mode (Value: "FIRESTORE_NATIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Metadata for google.longrunning.Operation results from
  *  FirestoreAdmin.ExportDocuments.
  */
@@ -1855,6 +1988,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        Request has completed successfully. (Value: "SUCCESSFUL")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The list of databases for a project.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse : GTLRObject
+
+/** The databases in the project. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1Database *> *databases;
 
 @end
 
@@ -2441,7 +2585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  When set, the target document must exist and have been last updated at that
- *  time.
+ *  time. Timestamp must be microsecond aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 

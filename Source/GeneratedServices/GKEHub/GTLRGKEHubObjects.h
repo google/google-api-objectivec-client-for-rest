@@ -114,6 +114,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataWrite;
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.admissionWebhook
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled;
+
+// ----------------------------------------------------------------------------
 // GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.gitSync
 
 /**
@@ -703,7 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRGKEHub_Binding : GTLRObject
 
@@ -712,14 +740,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -751,8 +779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -793,6 +821,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  */
 @interface GTLRGKEHub_ConfigManagementConfigSync : GTLRObject
 
+/**
+ *  Enables the installation of ConfigSync. If set to true, ConfigSync resources
+ *  will be created and the other ConfigSync fields will be applied if exist. If
+ *  set to false, all other ConfigSync fields will be ignored, ConfigSync
+ *  resources will be deleted. If omitted, ConfigSync resources will be managed
+ *  depends on the presence of git field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 /** Git repo configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
 
@@ -809,6 +848,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  The state of ConfigSync's deployment on a cluster
  */
 @interface GTLRGKEHub_ConfigManagementConfigSyncDeploymentState : GTLRObject
+
+/**
+ *  Deployment state of admission-webhook
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_AdmissionWebhook_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *admissionWebhook;
 
 /**
  *  Deployment state of the git-sync pod
@@ -939,6 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Specific versioning information pertaining to ConfigSync's Pods
  */
 @interface GTLRGKEHub_ConfigManagementConfigSyncVersion : GTLRObject
+
+/** Version of the deployed admission_webhook pod */
+@property(nonatomic, copy, nullable) NSString *admissionWebhook;
 
 /** Version of the deployed git-sync pod */
 @property(nonatomic, copy, nullable) NSString *gitSync;
@@ -2106,7 +2165,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 /** Optional. Specific information for a GKE Multi-Cloud cluster. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_MultiCloudCluster *multiCloudCluster;
 
-/** Optional. Specific information for a GKE On-Prem cluster. */
+/**
+ *  Optional. Specific information for a GKE On-Prem cluster. An onprem
+ *  user-cluster who has no resourceLink is not allowed to use this field, it
+ *  should have a nil "type" instead.
+ */
 @property(nonatomic, strong, nullable) GTLRGKEHub_OnPremCluster *onPremCluster;
 
 @end
@@ -2359,15 +2422,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -2393,9 +2456,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Binding *> *bindings;
 

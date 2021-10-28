@@ -117,6 +117,16 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Time = @"TIME";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified = @"TYPE_KIND_UNSPECIFIED";
 
+// GTLRBigquery_TrainingOptions.boosterType
+NSString * const kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified = @"BOOSTER_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dart = @"DART";
+NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree = @"GBTREE";
+
+// GTLRBigquery_TrainingOptions.dartNormalizeType
+NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_DartNormalizeTypeUnspecified = @"DART_NORMALIZE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Forest = @"FOREST";
+NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Tree = @"TREE";
+
 // GTLRBigquery_TrainingOptions.dataFrequency
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_AutoFrequency = @"AUTO_FREQUENCY";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Daily = @"DAILY";
@@ -237,6 +247,13 @@ NSString * const kGTLRBigquery_TrainingOptions_LossType_MeanSquaredLoss = @"MEAN
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_BatchGradientDescent = @"BATCH_GRADIENT_DESCENT";
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation = @"NORMAL_EQUATION";
 NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified = @"OPTIMIZATION_STRATEGY_UNSPECIFIED";
+
+// GTLRBigquery_TrainingOptions.treeMethod
+NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Approx = @"APPROX";
+NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Auto = @"AUTO";
+NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Exact = @"EXACT";
+NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Hist = @"HIST";
+NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified = @"TREE_METHOD_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -897,7 +914,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_DestinationTableProperties
-@dynamic descriptionProperty, friendlyName, labels;
+@dynamic descriptionProperty, expirationTime, friendlyName, labels;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1152,16 +1169,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_IterationResult
-@dynamic arimaResult, clusterInfos, durationMs, evalLoss, index, learnRate,
-         trainingLoss;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"clusterInfos" : [GTLRBigquery_ClusterInfo class]
-  };
-  return map;
-}
-
+@dynamic durationMs, evalLoss, index, learnRate, trainingLoss;
 @end
 
 
@@ -1438,12 +1446,12 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          ddlAffectedRowAccessPolicyCount, ddlDestinationTable,
          ddlOperationPerformed, ddlTargetDataset, ddlTargetRoutine,
          ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
-         estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
-         modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
-         referencedRoutines, referencedTables, reservationUsage, schema,
-         statementType, timeline, totalBytesBilled, totalBytesProcessed,
-         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
-         undeclaredQueryParameters;
+         estimatedBytesProcessed, mlStatistics, modelTraining,
+         modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
+         numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
+         reservationUsage, schema, statementType, timeline, totalBytesBilled,
+         totalBytesProcessed, totalBytesProcessedAccuracy,
+         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1613,6 +1621,24 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_MaterializedViewDefinition
 @dynamic enableRefresh, lastRefreshTime, query, refreshIntervalMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_MlStatistics
+//
+
+@implementation GTLRBigquery_MlStatistics
+@dynamic iterationResults, maxIterations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"iterationResults" : [GTLRBigquery_IterationResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2581,7 +2607,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_TrainingOptions
 @dynamic adjustStepChanges, autoArima, autoArimaMaxOrder, batchSize,
-         cleanSpikesAndDips, dataFrequency, dataSplitColumn,
+         boosterType, cleanSpikesAndDips, colsampleBylevel, colsampleBynode,
+         colsampleBytree, dartNormalizeType, dataFrequency, dataSplitColumn,
          dataSplitEvalFraction, dataSplitMethod, decomposeTimeSeries,
          distanceType, dropout, earlyStop, feedbackType, hiddenUnits,
          holidayRegion, horizon, includeDrift, initialLearnRate,
@@ -2589,10 +2616,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          kmeansInitializationMethod, l1Regularization, l2Regularization,
          labelClassWeights, learnRate, learnRateStrategy, lossType,
          maxIterations, maxTreeDepth, minRelativeProgress, minSplitLoss,
-         modelUri, nonSeasonalOrder, numClusters, numFactors,
-         optimizationStrategy, preserveInputStructs, subsample,
-         timeSeriesDataColumn, timeSeriesIdColumn, timeSeriesIdColumns,
-         timeSeriesTimestampColumn, userColumn, walsAlpha, warmStart;
+         minTreeChildWeight, modelUri, nonSeasonalOrder, numClusters,
+         numFactors, numParallelTree, optimizationStrategy,
+         preserveInputStructs, subsample, timeSeriesDataColumn,
+         timeSeriesIdColumn, timeSeriesIdColumns, timeSeriesTimestampColumn,
+         treeMethod, userColumn, walsAlpha, warmStart;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

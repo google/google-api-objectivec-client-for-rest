@@ -1232,6 +1232,37 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
+
+/**
+ *  The Stackdriver Basic tier, a free tier of service that provides basic
+ *  features, a moderate allotment of logs, and access to built-in metrics. A
+ *  number of features are not available in this tier. For more details, see the
+ *  service tiers documentation
+ *  (https://cloud.google.com/monitoring/workspaces/tiers).
+ *
+ *  Value: "SERVICE_TIER_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic;
+/**
+ *  The Stackdriver Premium tier, a higher, more expensive tier of service that
+ *  provides access to all Stackdriver features, lets you use Stackdriver with
+ *  AWS accounts, and has a larger allotments for logs and metrics. For more
+ *  details, see the service tiers documentation
+ *  (https://cloud.google.com/monitoring/workspaces/tiers).
+ *
+ *  Value: "SERVICE_TIER_PREMIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium;
+/**
+ *  An invalid sentinel value, used to indicate that a tier has not been
+ *  provided explicitly.
+ *
+ *  Value: "SERVICE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_OperationMetadata.state
 
 /**
@@ -2021,7 +2052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_AlertStrategy : GTLRObject
 
 /**
- *  If an alert policy that was active has no data for this log, any open
+ *  If an alert policy that was active has no data for this long, any open
  *  incidents will close
  */
 @property(nonatomic, strong, nullable) GTLRDuration *autoClose;
@@ -3906,7 +3937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Specifies the alignment of data points in individual time series as well as
  *  how to combine the retrieved time series together (such as when aggregating
  *  multiple streams on each resource to a single stream for each resource or
- *  when aggregating streams across all members of a group of resrouces).
+ *  when aggregating streams across all members of a group of resources).
  *  Multiple aggregations are applied in the order specified.This field is
  *  similar to the one in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
@@ -4245,7 +4276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Specifies the alignment of data points in individual time series as well as
  *  how to combine the retrieved time series together (such as when aggregating
  *  multiple streams on each resource to a single stream for each resource or
- *  when aggregating streams across all members of a group of resrouces).
+ *  when aggregating streams across all members of a group of resources).
  *  Multiple aggregations are applied in the order specified.This field is
  *  similar to the one in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
@@ -4796,6 +4827,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  above, [TYPE] is the value of the type field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The tiers that support this notification channel; the project service tier
+ *  must be one of the supported_tiers.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedTiers;
 
 /**
  *  The type of notification channel, such as "email" and "sms". To view the
@@ -5457,10 +5494,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  non-overlapping intervals. For DELTA metrics, the start time of the next
  *  interval must be at least a millisecond after the end time of the previous
  *  interval. For CUMULATIVE metrics, the start time and end time must specify a
- *  a non-zero interval, with subsequent points specifying the same start time
- *  and increasing end times, until an event resets the cumulative value to zero
- *  and sets a new start time for the following points. The new start time must
- *  be at least a millisecond after the end time of the previous interval. The
+ *  non-zero interval, with subsequent points specifying the same start time and
+ *  increasing end times, until an event resets the cumulative value to zero and
+ *  sets a new start time for the following points. The new start time must be
+ *  at least a millisecond after the end time of the previous interval. The
  *  start time of a new interval must be at least a millisecond after the end
  *  time of the previous interval because intervals are closed. If the start
  *  time of a new interval is the same as the end time of the previous interval,

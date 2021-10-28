@@ -4463,6 +4463,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksDelete : GTLRYouTubeQuery
 
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
+
 /** Delete the partner links with the given linking token. */
 @property(nonatomic, copy, nullable) NSString *linkingToken;
 
@@ -4511,6 +4514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksInsert : GTLRYouTubeQuery
 
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
+
 /**
  *  The *part* parameter specifies the thirdPartyLink resource parts that the
  *  API request and response will include. Supported values are linkingToken,
@@ -4541,6 +4547,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.list
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksList : GTLRYouTubeQuery
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /** Get a third party link with the given linking token. */
 @property(nonatomic, copy, nullable) NSString *linkingToken;
@@ -4585,6 +4594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.update
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksUpdate : GTLRYouTubeQuery
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /**
  *  The *part* parameter specifies the thirdPartyLink resource parts that the

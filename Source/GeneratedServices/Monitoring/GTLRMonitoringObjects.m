@@ -190,6 +190,11 @@ NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Launc
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic = @"SERVICE_TIER_BASIC";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium = @"SERVICE_TIER_PREMIUM";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified = @"SERVICE_TIER_UNSPECIFIED";
+
 // GTLRMonitoring_OperationMetadata.state
 NSString * const kGTLRMonitoring_OperationMetadata_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRMonitoring_OperationMetadata_State_Created = @"CREATED";
@@ -1425,7 +1430,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_NotificationChannelDescriptor
-@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name,
+         supportedTiers, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1433,7 +1439,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRMonitoring_LabelDescriptor class]
+    @"labels" : [GTLRMonitoring_LabelDescriptor class],
+    @"supportedTiers" : [NSString class]
   };
   return map;
 }

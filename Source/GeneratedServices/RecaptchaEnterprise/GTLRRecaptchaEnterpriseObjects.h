@@ -185,8 +185,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions.testingChallenge
 
 /**
- *  Challenge requests for this key will always return a nocaptcha, which does
- *  not require a solution.
+ *  Challenge requests for this key always return a nocaptcha, which does not
+ *  require a solution.
  *
  *  Value: "NOCAPTCHA"
  */
@@ -199,7 +199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_TestingChallengeUnspecified;
 /**
- *  Challenge requests for this key will always return an unsolvable challenge.
+ *  Challenge requests for this key always return an unsolvable challenge.
  *
  *  Value: "UNSOLVABLE_CHALLENGE"
  */
@@ -318,7 +318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings : GTLRObject
 
 /**
- *  If set to true, it means allowed_package_names will not be enforced.
+ *  If set to true, allowed_package_names are not enforced.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -489,7 +489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IOSKeySettings : GTLRObject
 
 /**
- *  If set to true, it means allowed_bundle_ids will not be enforced.
+ *  If set to true, allowed_bundle_ids are not enforced.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -708,15 +708,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_Nocaptcha
- *        Challenge requests for this key will always return a nocaptcha, which
- *        does not require a solution. (Value: "NOCAPTCHA")
+ *        Challenge requests for this key always return a nocaptcha, which does
+ *        not require a solution. (Value: "NOCAPTCHA")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_TestingChallengeUnspecified
  *        Perform the normal risk analysis and return either nocaptcha or a
  *        challenge depending on risk and trust factors. (Value:
  *        "TESTING_CHALLENGE_UNSPECIFIED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_UnsolvableChallenge
- *        Challenge requests for this key will always return an unsolvable
- *        challenge. (Value: "UNSOLVABLE_CHALLENGE")
+ *        Challenge requests for this key always return an unsolvable challenge.
+ *        (Value: "UNSOLVABLE_CHALLENGE")
  */
 @property(nonatomic, copy, nullable) NSString *testingChallenge;
 
@@ -796,8 +796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSNumber *allowAllDomains;
 
 /**
- *  Required. Whether this key can be used on AMP (Accelerated Mobile Pages)
- *  websites. This can only be set for the SCORE integration type.
+ *  If set to true, the key can be used on AMP (Accelerated Mobile Pages)
+ *  websites. This is supported only for the SCORE integration type.
  *
  *  Uses NSNumber of boolValue.
  */

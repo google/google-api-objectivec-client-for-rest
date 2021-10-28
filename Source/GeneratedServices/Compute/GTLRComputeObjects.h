@@ -516,6 +516,7 @@
 @class GTLRCompute_Route;
 @class GTLRCompute_Route_Warnings_Item;
 @class GTLRCompute_Route_Warnings_Item_Data_Item;
+@class GTLRCompute_RouteAsPath;
 @class GTLRCompute_RouteList_Warning;
 @class GTLRCompute_RouteList_Warning_Data_Item;
 @class GTLRCompute_Router;
@@ -531,6 +532,8 @@
 @class GTLRCompute_RouterList_Warning_Data_Item;
 @class GTLRCompute_RouterNat;
 @class GTLRCompute_RouterNatLogConfig;
+@class GTLRCompute_RouterNatRule;
+@class GTLRCompute_RouterNatRuleAction;
 @class GTLRCompute_RouterNatSubnetworkToNat;
 @class GTLRCompute_RoutersScopedList;
 @class GTLRCompute_RoutersScopedList_Warning;
@@ -538,6 +541,7 @@
 @class GTLRCompute_RouterStatus;
 @class GTLRCompute_RouterStatusBgpPeerStatus;
 @class GTLRCompute_RouterStatusNatStatus;
+@class GTLRCompute_RouterStatusNatStatusNatRuleStatus;
 @class GTLRCompute_Rule;
 @class GTLRCompute_ScalingScheduleStatus;
 @class GTLRCompute_Scheduling;
@@ -607,6 +611,7 @@
 @class GTLRCompute_SubnetworksScopedList;
 @class GTLRCompute_SubnetworksScopedList_Warning;
 @class GTLRCompute_SubnetworksScopedList_Warning_Data_Item;
+@class GTLRCompute_Subsetting;
 @class GTLRCompute_Tags;
 @class GTLRCompute_TargetGrpcProxy;
 @class GTLRCompute_TargetGrpcProxyList_Warning;
@@ -20461,6 +20466,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWe
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyWeeklyCycleDayOfWeek_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_Route.routeType
+
+/** Value: "BGP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_RouteType_Bgp;
+/** Value: "STATIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_RouteType_Static;
+/** Value: "SUBNET" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_RouteType_Subnet;
+/** Value: "TRANSIT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_RouteType_Transit;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Route_Warnings_Item.code
 
 /**
@@ -20622,6 +20639,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Undecla
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RouteAsPath.pathSegmentType
+
+/** Value: "AS_CONFED_SEQUENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteAsPath_PathSegmentType_AsConfedSequence;
+/** Value: "AS_CONFED_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteAsPath_PathSegmentType_AsConfedSet;
+/** Value: "AS_SEQUENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteAsPath_PathSegmentType_AsSequence;
+/** Value: "AS_SET" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteAsPath_PathSegmentType_AsSet;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RouteList_Warning.code
@@ -24173,6 +24202,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Subsetting.policy
+
+/**
+ *  Subsetting based on consistent hashing. For Traffic Director, the number of
+ *  backends per backend group (the subset size) is based on the `subset_size`
+ *  parameter. For Internal HTTP(S) load balancing, the number of backends per
+ *  backend group (the subset size) is dynamically adjusted in two cases: - As
+ *  the number of proxy instances participating in Internal HTTP(S) load
+ *  balancing increases, the subset size decreases. - When the total number of
+ *  backends in a network exceeds the capacity of a single proxy instance,
+ *  subset sizes are reduced automatically for each service that has backend
+ *  subsetting enabled.
+ *
+ *  Value: "CONSISTENT_HASH_SUBSETTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subsetting_Policy_ConsistentHashSubsetting;
+/**
+ *  No Subsetting. Clients may open connections and send traffic to all backends
+ *  of this backend service. This can lead to performance issues if there is
+ *  substantial imbalance in the count of clients and backends.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Subsetting_Policy_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_TargetGrpcProxyList_Warning.code
@@ -33315,6 +33370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *sessionAffinity;
 
+@property(nonatomic, strong, nullable) GTLRCompute_Subsetting *subsetting;
+
 /**
  *  Not supported when the backend service is referenced by a URL map that is
  *  bound to target gRPC proxy that has validateForProxyless field set to true.
@@ -35310,29 +35367,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_CustomerEncryptionKey : GTLRObject
 
-/** The name of the encryption key that is stored in Google Cloud KMS. */
+/**
+ *  The name of the encryption key that is stored in Google Cloud KMS. For
+ *  example: "kmsKeyName": "projects/kms_project_id/locations/region/keyRings/
+ *  key_region/cryptoKeys/key
+ */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
  *  The service account being used for the encryption request for the given KMS
- *  key. If absent, the Compute Engine default service account is used.
+ *  key. If absent, the Compute Engine default service account is used. For
+ *  example: "kmsKeyServiceAccount": "name\@project_id.iam.gserviceaccount.com/
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyServiceAccount;
 
 /**
  *  Specifies a 256-bit customer-supplied encryption key, encoded in RFC 4648
- *  base64 to either encrypt or decrypt this resource.
+ *  base64 to either encrypt or decrypt this resource. You can provide either
+ *  the rawKey or the rsaEncryptedKey. For example: "rawKey":
+ *  "SGVsbG8gZnJvbSBHb29nbGUgQ2xvdWQgUGxhdGZvcm0="
  */
 @property(nonatomic, copy, nullable) NSString *rawKey;
 
 /**
  *  Specifies an RFC 4648 base64 encoded, RSA-wrapped 2048-bit customer-supplied
- *  encryption key to either encrypt or decrypt this resource. The key must meet
- *  the following requirements before you can provide it to Compute Engine: 1.
- *  The key is wrapped using a RSA public key certificate provided by Google. 2.
- *  After being wrapped, the key must be encoded in RFC 4648 base64 encoding.
- *  Gets the RSA public key certificate provided by Google at:
- *  https://cloud-certs.storage.googleapis.com/google-cloud-csek-ingress.pem
+ *  encryption key to either encrypt or decrypt this resource. You can provide
+ *  either the rawKey or the rsaEncryptedKey. For example: "rsaEncryptedKey":
+ *  "ieCx/NcW06PcT7Ep1X6LUTc/hLvUDYyzSZPPVCVPTVEohpeHASqC8uw5TzyO9U+Fka9JFH
+ *  z0mBibXUInrC/jEk014kCK/NPjYgEMOyssZ4ZINPKxlUh2zn1bV+MCaTICrdmuSBTWlUUiFoD
+ *  D6PYznLwh8ZNdaheCeZ8ewEXgFQ8V+sDroLaN3Xs3MDTXQEMMoNUXMCZEIpg9Vtp9x2oe==" The
+ *  key must meet the following requirements before you can provide it to
+ *  Compute Engine: 1. The key is wrapped using a RSA public key certificate
+ *  provided by Google. 2. After being wrapped, the key must be encoded in RFC
+ *  4648 base64 encoding. Gets the RSA public key certificate provided by Google
+ *  at: https://cloud-certs.storage.googleapis.com/google-cloud-csek-ingress.pem
  */
 @property(nonatomic, copy, nullable) NSString *rsaEncryptedKey;
 
@@ -35358,7 +35426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Specifies a valid partial or full URL to an existing Persistent Disk
- *  resource. This field is only applicable for persistent disks.
+ *  resource. This field is only applicable for persistent disks. For example:
+ *  "source": "/compute/v1/projects/project_id/zones/zone/disks/ disk_name
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -37750,7 +37819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Name of the resource; provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression `[a-z]([-a-z0-9]*[a-z0-9])?. The first character must be a
+ *  expression [a-z]([-a-z0-9]*[a-z0-9])?. The first character must be a
  *  lowercase letter, and all following characters (except for the last
  *  character) must be a dash, lowercase letter, or digit. The last character
  *  must be a lowercase letter or digit.
@@ -47001,6 +47070,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *requestedLinkCount;
 
+/**
+ *  [Output Only] Set to true if the resource satisfies the zone separation
+ *  organization policy constraints and false otherwise. Defaults to false if
+ *  the field is not present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -47297,6 +47375,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  network & region within which the Cloud Router is configured.
  */
 @property(nonatomic, copy, nullable) NSString *router;
+
+/**
+ *  [Output Only] Set to true if the resource satisfies the zone separation
+ *  organization policy constraints and false otherwise. Defaults to false if
+ *  the field is not present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -48386,6 +48473,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        (Value: "CLOSED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  [Output Only] Set to true for locations that support physical zone
+ *  separation. Defaults to false if the field is not present.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsPzs;
 
 @end
 
@@ -61263,6 +61358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_Route : GTLRObject
 
+/** [Output Only] AS path. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouteAsPath *> *asPaths;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -61362,6 +61460,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  [Output Only] The type of this route, which can be one of the following
+ *  values: - 'TRANSIT' for a transit route that this router learned from
+ *  another Cloud Router and will readvertise to one of its BGP peers - 'SUBNET'
+ *  for a route from a subnet of the VPC - 'BGP' for a route learned from a BGP
+ *  peer of this router - 'STATIC' for a static route
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Route_RouteType_Bgp Value "BGP"
+ *    @arg @c kGTLRCompute_Route_RouteType_Static Value "STATIC"
+ *    @arg @c kGTLRCompute_Route_RouteType_Subnet Value "SUBNET"
+ *    @arg @c kGTLRCompute_Route_RouteType_Transit Value "TRANSIT"
+ */
+@property(nonatomic, copy, nullable) NSString *routeType;
 
 /** [Output Only] Server-defined fully-qualified URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -61496,6 +61609,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouteAsPath
+ */
+@interface GTLRCompute_RouteAsPath : GTLRObject
+
+/**
+ *  [Output Only] The AS numbers of the AS Path.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *asLists;
+
+/**
+ *  [Output Only] The type of the AS Path, which can be one of the following
+ *  values: - 'AS_SET': unordered set of autonomous systems that the route in
+ *  has traversed - 'AS_SEQUENCE': ordered set of autonomous systems that the
+ *  route has traversed - 'AS_CONFED_SEQUENCE': ordered set of Member Autonomous
+ *  Systems in the local confederation that the route has traversed -
+ *  'AS_CONFED_SET': unordered set of Member Autonomous Systems in the local
+ *  confederation that the route has traversed
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RouteAsPath_PathSegmentType_AsConfedSequence Value
+ *        "AS_CONFED_SEQUENCE"
+ *    @arg @c kGTLRCompute_RouteAsPath_PathSegmentType_AsConfedSet Value
+ *        "AS_CONFED_SET"
+ *    @arg @c kGTLRCompute_RouteAsPath_PathSegmentType_AsSequence Value
+ *        "AS_SEQUENCE"
+ *    @arg @c kGTLRCompute_RouteAsPath_PathSegmentType_AsSet Value "AS_SET"
+ */
+@property(nonatomic, copy, nullable) NSString *pathSegmentType;
 
 @end
 
@@ -62519,6 +62667,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *natIps;
 
+/** A list of rules associated with this NAT. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterNatRule *> *rules;
+
 /**
  *  Specify the Nat option, which can take one of the following values: -
  *  ALL_SUBNETWORKS_ALL_IP_RANGES: All of the IP ranges in every Subnetwork are
@@ -62557,6 +62708,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *tcpEstablishedIdleTimeoutSec;
+
+/**
+ *  Timeout (in seconds) for TCP connections that are in TIME_WAIT state.
+ *  Defaults to 120s if not set.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tcpTimeWaitTimeoutSec;
 
 /**
  *  Timeout (in seconds) for TCP transitory connections. Defaults to 30s if not
@@ -62604,6 +62763,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        logs for successful connections only. (Value: "TRANSLATIONS_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterNatRule
+ */
+@interface GTLRCompute_RouterNatRule : GTLRObject
+
+/** The action to be enforced for traffic that matches this rule. */
+@property(nonatomic, strong, nullable) GTLRCompute_RouterNatRuleAction *action;
+
+/**
+ *  An optional description of this rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  CEL expression that specifies the match condition that egress traffic from a
+ *  VM is evaluated against. If it evaluates to true, the corresponding `action`
+ *  is enforced. The following examples are valid match expressions for public
+ *  NAT: "inIpRange(destination.ip, '1.1.0.0/16') || inIpRange(destination.ip,
+ *  '2.2.0.0/16')" "destination.ip == '1.1.0.1' || destination.ip == '8.8.8.8'"
+ *  The following example is a valid match expression for private NAT:
+ *  "nexthop.hub == '/projects/my-project/global/hub/hub-1'"
+ */
+@property(nonatomic, copy, nullable) NSString *match;
+
+/**
+ *  An integer uniquely identifying a rule in the list. The rule number must be
+ *  a positive value between 0 and 65000, and must be unique among rules within
+ *  a NAT.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ruleNumber;
+
+@end
+
+
+/**
+ *  GTLRCompute_RouterNatRuleAction
+ */
+@interface GTLRCompute_RouterNatRuleAction : GTLRObject
+
+/**
+ *  A list of URLs of the IP resources used for this NAT rule. These IP
+ *  addresses must be valid static external IP addresses assigned to the
+ *  project. This field is used for public NAT.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatActiveIps;
+
+/**
+ *  A list of URLs of the IP resources to be drained. These IPs must be valid
+ *  static external IPs that have been assigned to the NAT. These IPs should be
+ *  used for updating/patching a NAT rule only. This field is used for public
+ *  NAT.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceNatDrainIps;
 
 @end
 
@@ -62908,6 +63128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *numVmEndpointsWithNatMappings;
 
+/** Status of rules in this NAT. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RouterStatusNatStatusNatRuleStatus *> *ruleStatus;
+
 /** A list of fully qualified URLs of reserved IP address resources. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userAllocatedNatIpResources;
 
@@ -62916,6 +63139,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  "179.12.26.133".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userAllocatedNatIps;
+
+@end
+
+
+/**
+ *  Status of a NAT Rule contained in this NAT.
+ */
+@interface GTLRCompute_RouterStatusNatStatusNatRuleStatus : GTLRObject
+
+/** A list of active IPs for NAT. Example: ["1.1.1.1", "179.12.26.133"]. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activeNatIps;
+
+/**
+ *  A list of IPs for NAT that are in drain mode. Example: ["1.1.1.1",
+ *  "179.12.26.133"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIps;
+
+/**
+ *  The number of extra IPs to allocate. This will be greater than 0 only if the
+ *  existing IPs in this NAT Rule are NOT enough to allow all configured VMs to
+ *  use NAT.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minExtraIpsNeeded;
+
+/**
+ *  Number of VM endpoints (i.e., NICs) that have NAT Mappings from this NAT
+ *  Rule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numVmEndpointsWithNatMappings;
+
+/**
+ *  Rule number of the rule.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ruleNumber;
 
 @end
 
@@ -67005,6 +67269,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *privateIpGoogleAccess;
+
+@end
+
+
+/**
+ *  Subsetting configuration for this BackendService. Currently this is
+ *  applicable only for Internal TCP/UDP load balancing, Internal HTTP(S) load
+ *  balancing and Traffic Director.
+ */
+@interface GTLRCompute_Subsetting : GTLRObject
+
+/**
+ *  policy
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Subsetting_Policy_ConsistentHashSubsetting Subsetting
+ *        based on consistent hashing. For Traffic Director, the number of
+ *        backends per backend group (the subset size) is based on the
+ *        `subset_size` parameter. For Internal HTTP(S) load balancing, the
+ *        number of backends per backend group (the subset size) is dynamically
+ *        adjusted in two cases: - As the number of proxy instances
+ *        participating in Internal HTTP(S) load balancing increases, the subset
+ *        size decreases. - When the total number of backends in a network
+ *        exceeds the capacity of a single proxy instance, subset sizes are
+ *        reduced automatically for each service that has backend subsetting
+ *        enabled. (Value: "CONSISTENT_HASH_SUBSETTING")
+ *    @arg @c kGTLRCompute_Subsetting_Policy_None No Subsetting. Clients may
+ *        open connections and send traffic to all backends of this backend
+ *        service. This can lead to performance issues if there is substantial
+ *        imbalance in the count of clients and backends. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
 
 @end
 

@@ -68,7 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSQLAdminQuery_BackupRunsDelete : GTLRSQLAdminQuery
 
 /**
- *  The ID of the backup run to delete. To find a backup run ID, use the list
+ *  The ID of the backup run to delete. To find a backup run ID, use the
+ *  [list](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/backupRuns/list)
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -89,7 +90,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *  @param identifier The ID of the backup run to delete. To find a backup run
- *    ID, use the list method.
+ *    ID, use the
+ *    [list](https://cloud.google.com/sql/docs/mysql/admin-api/rest/v1/backupRuns/list)
+ *    method.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsDelete
  */
@@ -752,10 +755,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Initiates a manual failover of a high availability (HA) primary instance to
  *  a standby instance, which becomes the primary instance. Users are then
- *  rerouted to the new primary. For more information, see the Overview of high
- *  availability page in the Cloud SQL documentation. If using Legacy HA (MySQL
- *  only), this causes the instance to failover to its failover replica
- *  instance.
+ *  rerouted to the new primary. For more information, see the [Overview of high
+ *  availability](https://cloud.google.com/sql/docs/mysql/high-availability)
+ *  page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this
+ *  causes the instance to failover to its failover replica instance.
  *
  *  Method: sql.instances.failover
  *
@@ -776,10 +779,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Initiates a manual failover of a high availability (HA) primary instance to
  *  a standby instance, which becomes the primary instance. Users are then
- *  rerouted to the new primary. For more information, see the Overview of high
- *  availability page in the Cloud SQL documentation. If using Legacy HA (MySQL
- *  only), this causes the instance to failover to its failover replica
- *  instance.
+ *  rerouted to the new primary. For more information, see the [Overview of high
+ *  availability](https://cloud.google.com/sql/docs/mysql/high-availability)
+ *  page in the Cloud SQL documentation. If using Legacy HA (MySQL only), this
+ *  causes the instance to failover to its failover replica instance.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesFailoverRequest to include in the
  *    query.

@@ -116,6 +116,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Assuredworkloads"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AuthorizedBuyersMarketplace",
+            targets: ["GoogleAPIClientForREST_AuthorizedBuyersMarketplace"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_BareMetalSolution",
             targets: ["GoogleAPIClientForREST_BareMetalSolution"]
         ),
@@ -328,6 +332,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Connectors",
+            targets: ["GoogleAPIClientForREST_Connectors"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Contactcenterinsights",
             targets: ["GoogleAPIClientForREST_Contactcenterinsights"]
         ),
@@ -364,6 +372,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DataLabeling"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Datapipelines",
+            targets: ["GoogleAPIClientForREST_Datapipelines"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Dataproc",
             targets: ["GoogleAPIClientForREST_Dataproc"]
         ),
@@ -374,6 +386,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Datastore",
             targets: ["GoogleAPIClientForREST_Datastore"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Datastream",
+            targets: ["GoogleAPIClientForREST_Datastream"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DataTransfer",
@@ -880,8 +896,16 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Verifiedaccess"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_VersionHistory",
+            targets: ["GoogleAPIClientForREST_VersionHistory"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Vision",
             targets: ["GoogleAPIClientForREST_Vision"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_VMMigrationService",
+            targets: ["GoogleAPIClientForREST_VMMigrationService"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Webfonts",
@@ -1119,6 +1143,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Assuredworkloads",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Assuredworkloads",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AuthorizedBuyersMarketplace",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/AuthorizedBuyersMarketplace",
             publicHeadersPath: "."
         ),
         .target(
@@ -1440,6 +1470,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Connectors",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Connectors",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Contactcenterinsights",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Contactcenterinsights",
@@ -1494,6 +1530,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Datapipelines",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Datapipelines",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Dataproc",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Dataproc",
@@ -1509,6 +1551,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Datastore",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Datastore",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Datastream",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Datastream",
             publicHeadersPath: "."
         ),
         .target(
@@ -2268,9 +2316,21 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_VersionHistory",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/VersionHistory",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Vision",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Vision",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_VMMigrationService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/VMMigrationService",
             publicHeadersPath: "."
         ),
         .target(

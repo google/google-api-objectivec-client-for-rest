@@ -174,7 +174,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec
-@dynamic dataset, shardCount, tablePrefix;
+@dynamic dataset, latestShardResource, shardCount, tablePrefix;
 @end
 
 
@@ -727,9 +727,14 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult
-@dynamic fullyQualifiedName, integratedSystem, linkedResource, modifyTime,
-         relativeResourceName, searchResultSubtype, searchResultType,
-         userSpecifiedSystem;
+@dynamic descriptionProperty, displayName, fullyQualifiedName, integratedSystem,
+         linkedResource, modifyTime, relativeResourceName, searchResultSubtype,
+         searchResultType, userSpecifiedSystem;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
