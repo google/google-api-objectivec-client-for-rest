@@ -542,6 +542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
+ *  Return devices from all child orgunits, as well as the specified org unit.
+ *  If this is set to true 'orgUnitPath' must be provided.
+ */
+@property(nonatomic, assign) BOOL includeChildOrgunits;
+
+/**
  *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 100.

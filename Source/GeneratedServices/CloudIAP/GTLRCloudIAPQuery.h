@@ -48,10 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Constructs a new OAuth brand for the project if one does not exist. The
  *  created brand is "internal only", meaning that OAuth clients created under
- *  it only accept requests from users who belong to the same G Suite
+ *  it only accept requests from users who belong to the same Google Workspace
  *  organization as the project. The brand is created in an un-reviewed status.
  *  NOTE: The "internal only" status can be manually changed in the Google Cloud
- *  console. Requires that a brand does not already exist for the project, and
+ *  Console. Requires that a brand does not already exist for the project, and
  *  that the specified support email is owned by the caller.
  *
  *  Method: iap.projects.brands.create
@@ -72,10 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Constructs a new OAuth brand for the project if one does not exist. The
  *  created brand is "internal only", meaning that OAuth clients created under
- *  it only accept requests from users who belong to the same G Suite
+ *  it only accept requests from users who belong to the same Google Workspace
  *  organization as the project. The brand is created in an un-reviewed status.
  *  NOTE: The "internal only" status can be manually changed in the Google Cloud
- *  console. Requires that a brand does not already exist for the project, and
+ *  Console. Requires that a brand does not already exist for the project, and
  *  that the specified support email is owned by the caller.
  *
  *  @param object The @c GTLRCloudIAP_Brand to include in the query.

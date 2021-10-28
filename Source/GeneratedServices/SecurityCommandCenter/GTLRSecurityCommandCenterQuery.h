@@ -404,7 +404,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
  *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
  *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
- *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:`
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1519,7 +1520,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
  *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
  *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
- *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:`
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2355,7 +2357,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
  *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
  *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
- *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:`
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

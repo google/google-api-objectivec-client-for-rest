@@ -361,7 +361,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1AddonsConfig
-@dynamic advancedApiOpsConfig, monetizationConfig;
+@dynamic advancedApiOpsConfig, connectorsPlatformConfig, integrationConfig,
+         monetizationConfig;
 @end
 
 
@@ -498,9 +499,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision
 @dynamic basepaths, configurationVersion, contextInfo, createdAt,
          descriptionProperty, displayName, entityMetaDataAsProperties,
-         lastModifiedAt, name, policies, proxies, proxyEndpoints, resourceFiles,
-         resources, revision, sharedFlows, spec, targetEndpoints, targets,
-         targetServers, teams, type;
+         integrationEndpoints, lastModifiedAt, name, policies, proxies,
+         proxyEndpoints, resourceFiles, resources, revision, sharedFlows, spec,
+         targetEndpoints, targets, targetServers, teams, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -509,6 +510,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"basepaths" : [NSString class],
+    @"integrationEndpoints" : [NSString class],
     @"policies" : [NSString class],
     @"proxies" : [NSString class],
     @"proxyEndpoints" : [NSString class],
@@ -754,6 +756,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ConfigVersion
 @dynamic majorVersion, minorVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ConnectorsPlatformConfig
+@dynamic enabled, expiresAt;
 @end
 
 
@@ -1572,6 +1584,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1KeyAliasReference
 //
 
@@ -2336,7 +2358,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @dynamic addonsConfig, analyticsRegion, attributes, authorizedNetwork,
          billingType, caCertificate, createdAt, customerName,
          descriptionProperty, displayName, environments, expiresAt,
-         lastModifiedAt, name, projectId, properties,
+         lastModifiedAt, name, portalDisabled, projectId, properties,
          runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,
          type;
 

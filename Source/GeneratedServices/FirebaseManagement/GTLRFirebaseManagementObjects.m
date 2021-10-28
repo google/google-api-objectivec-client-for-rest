@@ -96,7 +96,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_AnalyticsProperty
-@dynamic displayName, identifier;
+@dynamic analyticsAccountId, displayName, identifier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -185,7 +185,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_IosApp
-@dynamic appId, appStoreId, bundleId, displayName, name, projectId;
+@dynamic appId, appStoreId, bundleId, displayName, name, projectId, teamId;
 @end
 
 

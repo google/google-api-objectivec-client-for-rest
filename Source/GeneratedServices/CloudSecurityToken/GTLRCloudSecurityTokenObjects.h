@@ -35,7 +35,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudSecurityToken_GoogleIamV1Binding : GTLRObject
 
@@ -44,14 +44,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleTypeExpr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -83,8 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -407,6 +407,86 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The type of access token. Always has the value `Bearer`. */
 @property(nonatomic, copy, nullable) NSString *tokenType;
+
+@end
+
+
+/**
+ *  Request message for IntrospectToken.
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenRequest : GTLRObject
+
+/**
+ *  Required. The OAuth 2.0 security token issued by the Security Token Service
+ *  API.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Optional. The type of the given token. Supported values are
+ *  `urn:ietf:params:oauth:token-type:access_token` and `access_token`.
+ */
+@property(nonatomic, copy, nullable) NSString *tokenTypeHint;
+
+@end
+
+
+/**
+ *  Response message for IntrospectToken.
+ */
+@interface GTLRCloudSecurityToken_GoogleIdentityStsV1IntrospectTokenResponse : GTLRObject
+
+/**
+ *  A boolean value that indicates whether the provided access token is
+ *  currently active.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  The client identifier for the OAuth 2.0 client that requested the provided
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  The expiration timestamp, measured in the number of seconds since January 1
+ *  1970 UTC, indicating when this token will expire.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exp;
+
+/**
+ *  The issued timestamp, measured in the number of seconds since January 1 1970
+ *  UTC, indicating when this token was originally issued.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *iat;
+
+/** The issuer of the provided token. */
+@property(nonatomic, copy, nullable) NSString *iss;
+
+/** A list of scopes associated with the provided token. */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  The unique user ID associated with the provided token. For Google Accounts,
+ *  this value is based on the Google Account's user ID. For federated
+ *  identities, this value is based on the identity pool ID and the value of the
+ *  mapped `google.subject` attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *sub;
+
+/**
+ *  The human-readable identifier for the token principal subject. For example,
+ *  if the provided token is associated with a workload identity pool, this
+ *  field contains a value in the following format:
+ *  `principal://iam.googleapis.com/projects//locations/global/workloadIdentityPools//subject/`
+ */
+@property(nonatomic, copy, nullable) NSString *username;
 
 @end
 

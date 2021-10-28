@@ -112,6 +112,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_Abu
  *  Value: "TRAFFIC_PUMPING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping;
+/**
+ *  This account is being suspended for unwanted content.
+ *
+ *  Value: "UNWANTED_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnwantedContent;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_AccountSuspensionWarning.state
@@ -383,12 +389,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *    @arg @c kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping
  *        This account is being suspended for artificially boosting traffic to a
  *        website. (Value: "TRAFFIC_PUMPING")
+ *    @arg @c kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnwantedContent
+ *        This account is being suspended for unwanted content. (Value:
+ *        "UNWANTED_CONTENT")
  */
 @property(nonatomic, copy, nullable) NSString *abuseReason;
 
 /**
  *  The name of the product being abused. This is restricted to only the
- *  following values: "Gmail" "Payments" "Voice" "Workspace" "Other"
+ *  following values: "Gmail" "Google Workspace" "Payments" "Voice" "YouTube"
+ *  "Other"
  */
 @property(nonatomic, copy, nullable) NSString *productName;
 

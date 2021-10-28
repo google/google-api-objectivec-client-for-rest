@@ -65,6 +65,7 @@
 @class GTLRAppengine_Resources;
 @class GTLRAppengine_ScriptHandler;
 @class GTLRAppengine_Service;
+@class GTLRAppengine_Service_Labels;
 @class GTLRAppengine_SslSettings;
 @class GTLRAppengine_StandardSchedulerSettings;
 @class GTLRAppengine_StaticFilesHandler;
@@ -1733,100 +1734,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRAppengine_GoogleAppengineV2mainOperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Ephemeral message that may change every time the operation is
- *  polled.
- */
-@property(nonatomic, copy, nullable) NSString *ephemeralMessage;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  Code.CANCELLED.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-/** Output only. Durable messages that persist on every operation poll. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *warning;
-
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRAppengine_GoogleAppengineV2OperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Ephemeral message that may change every time the operation is
- *  polled.
- */
-@property(nonatomic, copy, nullable) NSString *ephemeralMessage;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have been cancelled successfully have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  Code.CANCELLED.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-/** Output only. Durable messages that persist on every operation poll. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *warning;
-
-@end
-
-
-/**
  *  Health checking configuration for VM instances. Unhealthy instances are
  *  killed and replaced with new instances. Only applicable for instances in App
  *  Engine flexible environment.
@@ -2984,6 +2891,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  A set of labels to apply to this service. Labels are key/value pairs that
+ *  describe the service and all resources that belong to it (e.g., versions).
+ *  The labels can be used to search and group resources, and are propagated to
+ *  the usage and billing reports, enabling fine-grain analysis of costs. An
+ *  example of using labels is to tag resources belonging to different
+ *  environments (e.g., "env=prod", "env=qa"). Label keys and values can be no
+ *  longer than 63 characters and can only contain lowercase letters, numeric
+ *  characters, underscores, dashes, and international characters. Label keys
+ *  must start with a lowercase letter or an international character. Each
+ *  service can have at most 32 labels.
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_Service_Labels *labels;
+
+/**
  *  Full path to the Service resource in the API. Example:
  *  apps/myapp/services/default.\@OutputOnly
  */
@@ -2998,6 +2919,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_TrafficSplit *split;
 
+@end
+
+
+/**
+ *  A set of labels to apply to this service. Labels are key/value pairs that
+ *  describe the service and all resources that belong to it (e.g., versions).
+ *  The labels can be used to search and group resources, and are propagated to
+ *  the usage and billing reports, enabling fine-grain analysis of costs. An
+ *  example of using labels is to tag resources belonging to different
+ *  environments (e.g., "env=prod", "env=qa"). Label keys and values can be no
+ *  longer than 63 characters and can only contain lowercase letters, numeric
+ *  characters, underscores, dashes, and international characters. Label keys
+ *  must start with a lowercase letter or an international character. Each
+ *  service can have at most 32 labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAppengine_Service_Labels : GTLRObject
 @end
 
 

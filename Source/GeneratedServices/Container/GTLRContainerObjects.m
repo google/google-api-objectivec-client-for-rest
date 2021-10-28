@@ -49,6 +49,15 @@ NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED
 NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
 
+// GTLRContainer_DNSConfig.clusterDns
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns  = @"CLOUD_DNS";
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault = @"PLATFORM_DEFAULT";
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
+
+// GTLRContainer_DNSConfig.clusterDnsScope
+NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
+NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope = @"VPC_SCOPE";
+
 // GTLRContainer_LoggingComponentConfig.enableComponents
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
@@ -356,13 +365,13 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          initialClusterVersion, initialNodeCount, instanceGroupUrls,
          ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
          loggingConfig, loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, monitoringConfig, monitoringService,
-         name, network, networkConfig, networkPolicy, nodeConfig,
-         nodeIpv4CidrSize, nodePools, notificationConfig, privateClusterConfig,
-         releaseChannel, resourceLabels, resourceUsageExportConfig, selfLink,
-         servicesIpv4Cidr, shieldedNodes, status, statusMessage, subnetwork,
-         tpuIpv4CidrBlock, verticalPodAutoscaling, workloadIdentityConfig,
-         zoneProperty;
+         masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
+         monitoringService, name, network, networkConfig, networkPolicy,
+         nodeConfig, nodeIpv4CidrSize, nodePoolDefaults, nodePools,
+         notificationConfig, privateClusterConfig, releaseChannel,
+         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -427,18 +436,19 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterUpdate
 @dynamic desiredAddonsConfig, desiredAuthenticatorGroupsConfig,
-         desiredAutopilot, desiredBinaryAuthorization,
-         desiredClusterAutoscaling, desiredDatabaseEncryption,
-         desiredDatapathProvider, desiredDefaultSnatStatus, desiredImageType,
-         desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
-         desiredLocations, desiredLoggingConfig, desiredLoggingService,
-         desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
-         desiredMonitoringConfig, desiredMonitoringService,
-         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredNotificationConfig, desiredPrivateClusterConfig,
-         desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredShieldedNodes,
-         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
+         desiredBinaryAuthorization, desiredClusterAutoscaling,
+         desiredDatabaseEncryption, desiredDatapathProvider,
+         desiredDefaultSnatStatus, desiredDnsConfig, desiredGcfsConfig,
+         desiredImageType, desiredIntraNodeVisibilityConfig,
+         desiredL4ilbSubsettingConfig, desiredLocations, desiredLoggingConfig,
+         desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
+         desiredMasterVersion, desiredMeshCertificates, desiredMonitoringConfig,
+         desiredMonitoringService, desiredNodePoolAutoscaling,
+         desiredNodePoolId, desiredNodeVersion, desiredNotificationConfig,
+         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredShieldedNodes, desiredVerticalPodAutoscaling,
+         desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -567,6 +577,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_DNSConfig
+//
+
+@implementation GTLRContainer_DNSConfig
+@dynamic clusterDns, clusterDnsDomain, clusterDnsScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Empty
 //
 
@@ -580,6 +600,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_GcePersistentDiskCsiDriverConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GcfsConfig
+//
+
+@implementation GTLRContainer_GcfsConfig
 @dynamic enabled;
 @end
 
@@ -946,6 +976,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_MeshCertificates
+//
+
+@implementation GTLRContainer_MeshCertificates
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Metric
 //
 
@@ -988,8 +1027,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic datapathProvider, defaultSnatStatus, enableIntraNodeVisibility,
-         enableL4ilbSubsetting, network, privateIpv6GoogleAccess, subnetwork;
+@dynamic datapathProvider, defaultSnatStatus, dnsConfig,
+         enableIntraNodeVisibility, enableL4ilbSubsetting, network,
+         privateIpv6GoogleAccess, subnetwork;
 @end
 
 
@@ -1019,10 +1059,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, gvnic, imageType,
-         kubeletConfig, labels, linuxNodeConfig, localSsdCount, machineType,
-         metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
-         reservationAffinity, sandboxConfig, serviceAccount,
+@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, gcfsConfig, gvnic,
+         imageType, kubeletConfig, labels, linuxNodeConfig, localSsdCount,
+         machineType, metadata, minCpuPlatform, nodeGroup, oauthScopes,
+         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
          shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1063,6 +1103,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeConfigDefaults
+//
+
+@implementation GTLRContainer_NodeConfigDefaults
+@dynamic gcfsConfig;
 @end
 
 
@@ -1126,6 +1176,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodePoolAutoscaling
 @dynamic autoprovisioned, enabled, maxNodeCount, minNodeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodePoolDefaults
+//
+
+@implementation GTLRContainer_NodePoolDefaults
+@dynamic nodeConfigDefaults;
 @end
 
 
@@ -1673,9 +1733,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, gvnic, imageType, kubeletConfig, linuxNodeConfig, locations,
-         name, nodePoolId, nodeVersion, projectId, upgradeSettings,
-         workloadMetadataConfig, zoneProperty;
+@dynamic clusterId, gcfsConfig, gvnic, imageType, kubeletConfig,
+         linuxNodeConfig, locations, name, nodePoolId, nodeVersion, projectId,
+         upgradeSettings, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

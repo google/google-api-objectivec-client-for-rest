@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Domains API (domains/v1beta1)
+//   Cloud Domains API (domains/v1)
 // Description:
 //   Enables management and configuration of domain names.
 // Documentation:
@@ -24,7 +24,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudDomainsQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -43,7 +43,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRCloudDomainsQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -62,7 +62,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudDomainsQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -81,7 +81,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRCloudDomainsQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -107,7 +107,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"registration" ];
-  NSString *pathURITemplate = @"v1beta1/{+registration}:configureContactSettings";
+  NSString *pathURITemplate = @"v1/{+registration}:configureContactSettings";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureContactSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -134,7 +134,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"registration" ];
-  NSString *pathURITemplate = @"v1beta1/{+registration}:configureDnsSettings";
+  NSString *pathURITemplate = @"v1/{+registration}:configureDnsSettings";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureDnsSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -161,7 +161,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"registration" ];
-  NSString *pathURITemplate = @"v1beta1/{+registration}:configureManagementSettings";
+  NSString *pathURITemplate = @"v1/{+registration}:configureManagementSettings";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureManagementSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -181,7 +181,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -207,7 +207,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:export";
+  NSString *pathURITemplate = @"v1/{+name}:export";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsExport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -227,7 +227,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -250,7 +250,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -269,7 +269,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/registrations";
+  NSString *pathURITemplate = @"v1/{+parent}/registrations";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -295,7 +295,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -322,7 +322,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/registrations:register";
+  NSString *pathURITemplate = @"v1/{+parent}/registrations:register";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRegister *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -349,7 +349,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"registration" ];
-  NSString *pathURITemplate = @"v1beta1/{+registration}:resetAuthorizationCode";
+  NSString *pathURITemplate = @"v1/{+registration}:resetAuthorizationCode";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsResetAuthorizationCode *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -369,7 +369,7 @@
 
 + (instancetype)queryWithRegistration:(NSString *)registration {
   NSArray *pathParams = @[ @"registration" ];
-  NSString *pathURITemplate = @"v1beta1/{+registration}:retrieveAuthorizationCode";
+  NSString *pathURITemplate = @"v1/{+registration}:retrieveAuthorizationCode";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveAuthorizationCode *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -388,7 +388,7 @@
 
 + (instancetype)queryWithLocation:(NSString *)location {
   NSArray *pathParams = @[ @"location" ];
-  NSString *pathURITemplate = @"v1beta1/{+location}/registrations:retrieveRegisterParameters";
+  NSString *pathURITemplate = @"v1/{+location}/registrations:retrieveRegisterParameters";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveRegisterParameters *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -401,13 +401,32 @@
 
 @end
 
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveTransferParameters
+
+@dynamic domainName, location;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}/registrations:retrieveTransferParameters";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveTransferParameters *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRCloudDomains_RetrieveTransferParametersResponse class];
+  query.loggingName = @"domains.projects.locations.registrations.retrieveTransferParameters";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSearchDomains
 
 @dynamic location, query;
 
 + (instancetype)queryWithLocation:(NSString *)location {
   NSArray *pathParams = @[ @"location" ];
-  NSString *pathURITemplate = @"v1beta1/{+location}/registrations:searchDomains";
+  NSString *pathURITemplate = @"v1/{+location}/registrations:searchDomains";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSearchDomains *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -433,7 +452,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -460,7 +479,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -469,6 +488,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudDomains_TestIamPermissionsResponse class];
   query.loggingName = @"domains.projects.locations.registrations.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTransfer
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudDomains_TransferDomainRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/registrations:transfer";
+  GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTransfer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDomains_Operation class];
+  query.loggingName = @"domains.projects.locations.registrations.transfer";
   return query;
 }
 

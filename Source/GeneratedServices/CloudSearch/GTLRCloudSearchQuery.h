@@ -26,6 +26,7 @@
 @class GTLRCloudSearch_DataSource;
 @class GTLRCloudSearch_DeleteQueueItemsRequest;
 @class GTLRCloudSearch_IndexItemRequest;
+@class GTLRCloudSearch_InitializeCustomerRequest;
 @class GTLRCloudSearch_Media;
 @class GTLRCloudSearch_PollItemsRequest;
 @class GTLRCloudSearch_Principal;
@@ -2089,6 +2090,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  @return GTLRCloudSearchQuery_StatsUserSearchapplicationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Initializes the customer. **Note:** This API requires an admin account to
+ *  execute.
+ *
+ *  Method: cloudsearch.initializeCustomer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettings
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing
+ */
+@interface GTLRCloudSearchQuery_V1InitializeCustomer : GTLRCloudSearchQuery
+
+/**
+ *  Fetches a @c GTLRCloudSearch_Operation.
+ *
+ *  Initializes the customer. **Note:** This API requires an admin account to
+ *  execute.
+ *
+ *  @param object The @c GTLRCloudSearch_InitializeCustomerRequest to include in
+ *    the query.
+ *
+ *  @return GTLRCloudSearchQuery_V1InitializeCustomer
+ */
++ (instancetype)queryWithObject:(GTLRCloudSearch_InitializeCustomerRequest *)object;
 
 @end
 

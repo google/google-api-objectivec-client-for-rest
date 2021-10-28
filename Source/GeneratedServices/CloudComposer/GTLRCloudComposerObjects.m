@@ -348,7 +348,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_SoftwareConfig
 @dynamic airflowConfigOverrides, envVariables, imageVersion, pypiPackages,
-         pythonVersion;
+         pythonVersion, schedulerCount;
 @end
 
 

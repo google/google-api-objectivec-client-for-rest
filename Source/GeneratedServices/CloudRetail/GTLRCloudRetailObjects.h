@@ -223,6 +223,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UserEventRejoinScopeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequest.searchMode
+
+/**
+ *  Only faceted search will be performed. The product search will be disabled.
+ *  When in this mode, one or both of SearchRequest.facet_spec and
+ *  SearchRequest.dynamic_facet_spec should be set. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. Only [SearchResponse.Facet] will be
+ *  returned. [SearchResponse.SearchResult] will not be returned.
+ *
+ *  Value: "FACETED_SEARCH_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_FacetedSearchOnly;
+/**
+ *  Only product search will be performed. The faceted search will be disabled.
+ *  Only [SearchResponse.SearchResult] will be returned. [SearchResponse.Facet]
+ *  will not be returned, even if SearchRequest.facet_specs or
+ *  SearchRequest.dynamic_facet_spec is set.
+ *
+ *  Value: "PRODUCT_SEARCH_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_ProductSearchOnly;
+/**
+ *  Default value. In this case both product search and faceted search will be
+ *  performed. Both [SearchResponse.SearchResult] and [SearchResponse.Facet]
+ *  will be returned.
+ *
+ *  Value: "SEARCH_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_SearchModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec.mode
 
 /**
@@ -516,8 +547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  If set to true, and the Product is not found, the fulfillment information
  *  will still be processed and retained for at most 1 day and processed once
- *  the Product is created. If set to false, an INVALID_ARGUMENT error is
- *  returned if the Product is not found.
+ *  the Product is created. If set to false, a NOT_FOUND error is returned if
+ *  the Product is not found.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -550,9 +581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the AddFulfillmentPlaces
- *  method.
+ *  Response of the AddFulfillmentPlacesRequest. Currently empty because there
+ *  is no meaningful response populated from the AddFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesResponse : GTLRObject
 @end
@@ -568,9 +598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the AddFulfillmentPlaces
- *  method.
+ *  Response of the AddFulfillmentPlacesRequest. Currently empty because there
+ *  is no meaningful response populated from the AddFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesResponse : GTLRObject
 @end
@@ -909,9 +938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Response of the RemoveFulfillmentPlacesRequest. Currently empty because
- *  there is no meaningful response populated from the AddFulfillmentPlaces
- *  method.
+ *  Response of the AddFulfillmentPlacesRequest. Currently empty because there
+ *  is no meaningful response populated from the AddFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2betaAddFulfillmentPlacesResponse : GTLRObject
 @end
@@ -1302,7 +1330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The color display names, which may be different from standard color family
  *  names, such as the color aliases used in the website frontend. Normally it
  *  is expected to have only 1 color. May consider using single "Mixed" instead
- *  of multiple values. A maximum of 5 colors are allowed. Each value must be a
+ *  of multiple values. A maximum of 25 colors are allowed. Each value must be a
  *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
  *  INVALID_ARGUMENT error is returned. Google Merchant Center property
  *  [color](https://support.google.com/merchants/answer/6324487). Schema.org
@@ -2334,7 +2362,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  SearchService.Search. If it is set, the Product is not available for
  *  SearchService.Search after expire_time. However, the product can still be
  *  retrieved by ProductService.GetProduct and ProductService.ListProducts.
- *  Google Merchant Center property
+ *  expire_time must be later than available_time and publish_time, otherwise an
+ *  INVALID_ARGUMENT error is thrown. Google Merchant Center property
  *  [expiration_date](https://support.google.com/merchants/answer/6324499).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -2406,7 +2435,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Immutable. Full resource name of the product, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`.
- *  The branch ID must be "default_branch".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2515,12 +2543,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Input only. The TTL (time to live) of the product. If it is set, expire_time
- *  is set as current timestamp plus ttl. The derived expire_time is returned in
- *  the output and ttl is left blank when retrieving the Product. If it is set,
- *  the product is not available for SearchService.Search after current
- *  timestamp plus ttl. However, the product can still be retrieved by
- *  ProductService.GetProduct and ProductService.ListProducts.
+ *  Input only. The TTL (time to live) of the product. If it is set, it must be
+ *  a non-negative value, and expire_time is set as current timestamp plus ttl.
+ *  The derived expire_time is returned in the output and ttl is left blank when
+ *  retrieving the Product. If it is set, the product is not available for
+ *  SearchService.Search after current timestamp plus ttl. However, the product
+ *  can still be retrieved by ProductService.GetProduct and
+ *  ProductService.ListProducts.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -2916,8 +2945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  If set to true, and the Product is not found, the fulfillment information
  *  will still be processed and retained for at most 1 day and processed once
- *  the Product is created. If set to false, an INVALID_ARGUMENT error is
- *  returned if the Product is not found.
+ *  the Product is created. If set to false, a NOT_FOUND error is returned if
+ *  the Product is not found.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2970,7 +2999,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Boost specification to boost certain products. See more details at this
- *  [user guide](https://cloud.google.com/retail/docs/boosting).
+ *  [user guide](https://cloud.google.com/retail/docs/boosting). Notice that if
+ *  both ServingConfig.boost_control_ids and [SearchRequest.boost_spec] are set,
+ *  the boost conditions from both places are evaluated. If a search request
+ *  matches multiple boost conditions, the final boost score is equal to the sum
+ *  of the boost scores from all matched boost conditions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec *boostSpec;
 
@@ -3075,6 +3108,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec *queryExpansionSpec;
 
+/**
+ *  The search mode of the search request. If not specified, a single search
+ *  request triggers both product search and faceted search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_FacetedSearchOnly
+ *        Only faceted search will be performed. The product search will be
+ *        disabled. When in this mode, one or both of SearchRequest.facet_spec
+ *        and SearchRequest.dynamic_facet_spec should be set. Otherwise, an
+ *        INVALID_ARGUMENT error is returned. Only [SearchResponse.Facet] will
+ *        be returned. [SearchResponse.SearchResult] will not be returned.
+ *        (Value: "FACETED_SEARCH_ONLY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_ProductSearchOnly
+ *        Only product search will be performed. The faceted search will be
+ *        disabled. Only [SearchResponse.SearchResult] will be returned.
+ *        [SearchResponse.Facet] will not be returned, even if
+ *        SearchRequest.facet_specs or SearchRequest.dynamic_facet_spec is set.
+ *        (Value: "PRODUCT_SEARCH_ONLY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_SearchModeUnspecified
+ *        Default value. In this case both product search and faceted search
+ *        will be performed. Both [SearchResponse.SearchResult] and
+ *        [SearchResponse.Facet] will be returned. (Value:
+ *        "SEARCH_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *searchMode;
+
 /** User information. */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserInfo *userInfo;
 
@@ -3087,22 +3146,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "fulfillmentType.fulfillmentId". E.g., in "pickupInStore.store123",
  *  "pickupInStore" is fulfillment type and "store123" is the store ID.
  *  Supported keys are: * colorFamilies * price * originalPrice * discount *
- *  attributes.key, where key is any key in the Product.attributes map. *
- *  pickupInStore.id, where id is any FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type "pickup-in-store". * shipToStore.id, where id is any
- *  FulfillmentInfo.place_ids for FulfillmentInfo.type "ship-to-store". *
- *  sameDayDelivery.id, where id is any FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type "same-day-delivery". * nextDayDelivery.id, where id is
- *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "next-day-delivery".
- *  * customFulfillment1.id, where id is any FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type "custom-type-1". * customFulfillment2.id, where id is
- *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-2". *
- *  customFulfillment3.id, where id is any FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type "custom-type-3". * customFulfillment4.id, where id is
- *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-4". *
- *  customFulfillment5.id, where id is any FulfillmentInfo.place_ids for
- *  FulfillmentInfo.type "custom-type-5". If this field is set to an invalid
- *  value other than these, an INVALID_ARGUMENT error is returned.
+ *  inventory(place_id,price) * attributes.key, where key is any key in the
+ *  Product.attributes map. * pickupInStore.id, where id is any
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type "pickup-in-store". *
+ *  shipToStore.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "ship-to-store". * sameDayDelivery.id, where id is any
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type "same-day-delivery". *
+ *  nextDayDelivery.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "next-day-delivery". * customFulfillment1.id, where id
+ *  is any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-1". *
+ *  customFulfillment2.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "custom-type-2". * customFulfillment3.id, where id is
+ *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-3". *
+ *  customFulfillment4.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "custom-type-4". * customFulfillment5.id, where id is
+ *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-5". If
+ *  this field is set to an invalid value other than these, an INVALID_ARGUMENT
+ *  error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *variantRollupKeys;
 
@@ -3279,7 +3339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "sameDayDelivery" * "nextDayDelivery" * "customFulfillment1" *
  *  "customFulfillment2" * "customFulfillment3" * "customFulfillment4" *
  *  "customFulfillment5" * numerical_field = * "price" * "discount" * "rating" *
- *  "ratingCount" * "attributes.key"
+ *  "ratingCount" * "attributes.key" * "inventory(place_id,price)"
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -3628,8 +3688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  If set to true, and the Product with name Product.name is not found, the
  *  inventory update will still be processed and retained for at most 1 day
- *  until the Product is created. If set to false, an INVALID_ARGUMENT error is
- *  returned if the Product is not found.
+ *  until the Product is created. If set to false, a NOT_FOUND error is returned
+ *  if the Product is not found.
  *
  *  Uses NSNumber of boolValue.
  */

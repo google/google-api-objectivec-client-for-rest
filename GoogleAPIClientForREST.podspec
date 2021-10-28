@@ -136,6 +136,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Assuredworkloads/*.{h,m}'
   end
+  s.subspec 'AuthorizedBuyersMarketplace' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AuthorizedBuyersMarketplace/*.{h,m}'
+  end
   s.subspec 'BareMetalSolution' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/BareMetalSolution/*.{h,m}'
@@ -348,6 +352,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Compute/*.{h,m}'
   end
+  s.subspec 'Connectors' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Connectors/*.{h,m}'
+  end
   s.subspec 'Contactcenterinsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Contactcenterinsights/*.{h,m}'
@@ -384,6 +392,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DataLabeling/*.{h,m}'
   end
+  s.subspec 'Datapipelines' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Datapipelines/*.{h,m}'
+  end
   s.subspec 'Dataproc' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dataproc/*.{h,m}'
@@ -395,6 +407,10 @@ Pod::Spec.new do |s|
   s.subspec 'Datastore' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Datastore/*.{h,m}'
+  end
+  s.subspec 'Datastream' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Datastream/*.{h,m}'
   end
   s.subspec 'DataTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -900,9 +916,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Verifiedaccess/*.{h,m}'
   end
+  s.subspec 'VersionHistory' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/VersionHistory/*.{h,m}'
+  end
   s.subspec 'Vision' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Vision/*.{h,m}'
+  end
+  s.subspec 'VMMigrationService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/VMMigrationService/*.{h,m}'
   end
   s.subspec 'Webfonts' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

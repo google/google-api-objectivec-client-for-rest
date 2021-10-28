@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Connectivity API (networkconnectivity/v1alpha1)
+//   Network Connectivity API (networkconnectivity/v1)
 // Description:
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
@@ -32,11 +32,15 @@
 @class GTLRNetworkconnectivity_GoogleRpcStatus_Details_Item;
 @class GTLRNetworkconnectivity_Hub;
 @class GTLRNetworkconnectivity_Hub_Labels;
+@class GTLRNetworkconnectivity_LinkedInterconnectAttachments;
+@class GTLRNetworkconnectivity_LinkedRouterApplianceInstances;
+@class GTLRNetworkconnectivity_LinkedVpnTunnels;
 @class GTLRNetworkconnectivity_Location;
 @class GTLRNetworkconnectivity_Location_Labels;
 @class GTLRNetworkconnectivity_Location_Metadata;
 @class GTLRNetworkconnectivity_Policy;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
+@class GTLRNetworkconnectivity_RoutingVPC;
 @class GTLRNetworkconnectivity_Spoke;
 @class GTLRNetworkconnectivity_Spoke_Labels;
 
@@ -474,38 +478,46 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  Network Connectivity Center is a hub-and-spoke abstraction for network
- *  connectivity management in Google Cloud. It reduces operational complexity
- *  through a simple, centralized connectivity management model. Following is
- *  the resource message of a hub.
+ *  A hub is a collection of spokes. A single hub can contain spokes from
+ *  multiple regions. However, all of a hub's spokes must be associated with
+ *  resources that reside in the same VPC network.
  */
 @interface GTLRNetworkconnectivity_Hub : GTLRObject
 
-/** Time when the Hub was created. */
+/** Output only. The time the hub was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Short description of the hub resource.
+ *  An optional description of the hub.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** User-defined labels. */
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Hub_Labels *labels;
 
-/** Immutable. The name of a Hub resource. */
+/**
+ *  Immutable. The name of the hub. Hub names must be unique. They use the
+ *  following form: `projects/{project_number}/locations/global/hubs/{hub_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. A list of the URIs of all attached spokes. This field is
- *  deprecated and will not be included in future API versions. Call ListSpokes
- *  on each region instead.
+ *  The VPC network associated with this hub's spokes. All of the VPN tunnels,
+ *  VLAN attachments, and router appliance instances referenced by this hub's
+ *  spokes must belong to this VPC network. This field is read-only. Network
+ *  Connectivity Center automatically populates it based on the set of spokes
+ *  attached to the hub.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *spokes;
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RoutingVPC *> *routingVpcs;
 
 /**
- *  Output only. The current lifecycle state of this Hub.
+ *  Output only. The current lifecycle state of this hub.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_Hub_State_Active The resource is active
@@ -520,20 +532,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. Google-generated UUID for this resource. This is unique across
- *  all Hub resources. If a Hub resource is deleted and another with the same
- *  name is created, it gets a different unique_id.
+ *  Output only. The Google-generated UUID for the hub. This value is unique
+ *  across all hub resources. If a hub is deleted and another with the same name
+ *  is created, the new hub is assigned a different unique_id.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
-/** Time when the Hub was updated. */
+/** Output only. The time the hub was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  User-defined labels.
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -541,6 +555,74 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *        fetch them all at once.
  */
 @interface GTLRNetworkconnectivity_Hub_Labels : GTLRObject
+@end
+
+
+/**
+ *  A collection of VLAN attachment resources. These resources should be
+ *  redundant attachments that all advertise the same prefixes to Google Cloud.
+ *  Alternatively, in active/passive configurations, all attachments should be
+ *  capable of advertising the same prefixes.
+ */
+@interface GTLRNetworkconnectivity_LinkedInterconnectAttachments : GTLRObject
+
+/**
+ *  A value that controls whether site-to-site data transfer is enabled for
+ *  these resources. This field is set to false by default, but you must set it
+ *  to true. Note that data transfer is available only in supported locations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+/** The URIs of linked interconnect attachment resources */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  A collection of router appliance instances. If you have multiple router
+ *  appliance instances connected to the same site, they should all be attached
+ *  to the same spoke.
+ */
+@interface GTLRNetworkconnectivity_LinkedRouterApplianceInstances : GTLRObject
+
+/** The list of router appliance instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RouterApplianceInstance *> *instances;
+
+/**
+ *  A value that controls whether site-to-site data transfer is enabled for
+ *  these resources. This field is set to false by default, but you must set it
+ *  to true. Note that data transfer is available only in supported locations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+@end
+
+
+/**
+ *  A collection of Cloud VPN tunnel resources. These resources should be
+ *  redundant HA VPN tunnels that all advertise the same prefixes to Google
+ *  Cloud. Alternatively, in a passive/active configuration, all tunnels should
+ *  be capable of advertising the same prefixes.
+ */
+@interface GTLRNetworkconnectivity_LinkedVpnTunnels : GTLRObject
+
+/**
+ *  A value that controls whether site-to-site data transfer is enabled for
+ *  these resources. This field is set to false by default, but you must set it
+ *  to true. Note that data transfer is available only in supported locations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *siteToSiteDataTransfer;
+
+/** The URIs of linked VPN tunnel resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
 @end
 
 
@@ -555,7 +637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 @interface GTLRNetworkconnectivity_ListHubsResponse : GTLRCollectionObject
 
 /**
- *  Hubs to be returned.
+ *  The requested hubs.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -615,7 +697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Spokes to be returned.
+ *  The requested spokes.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -705,7 +787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
@@ -813,18 +895,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  RouterAppliance represents a Router appliance which is specified by a VM URI
- *  and a NIC address.
+ *  A router appliance instance is a Compute Engine virtual machine (VM)
+ *  instance that acts as a BGP speaker. A router appliance instance is
+ *  specified by the URI of the VM and the internal IP address of one of the
+ *  VM's network interfaces.
  */
 @interface GTLRNetworkconnectivity_RouterApplianceInstance : GTLRObject
 
-/** The IP address of the network interface to use for peering. */
+/** The IP address on the VM to use for peering. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-@property(nonatomic, copy, nullable) NSString *networkInterface;
-
-/** The URI of the virtual machine resource */
+/** The URI of the VM. */
 @property(nonatomic, copy, nullable) NSString *virtualMachine;
+
+@end
+
+
+/**
+ *  RoutingVPC contains information about the VPC network that is associated
+ *  with a hub's spokes.
+ */
+@interface GTLRNetworkconnectivity_RoutingVPC : GTLRObject
+
+/** The URI of the VPC network. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -854,42 +948,52 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  A Spoke is an abstraction of a network attachment being attached to a Hub. A
- *  Spoke can be underlying a VPN tunnel, a VLAN (interconnect) attachment, a
- *  Router appliance, etc.
+ *  A spoke represents a connection between your Google Cloud network resources
+ *  and a non-Google-Cloud network. When you create a spoke, you associate it
+ *  with a hub. You must also identify a value for exactly one of the following
+ *  fields: * linked_vpn_tunnels * linked_interconnect_attachments *
+ *  linked_router_appliance_instances
  */
 @interface GTLRNetworkconnectivity_Spoke : GTLRObject
 
-/** The time when the Spoke was created. */
+/** Output only. The time the spoke was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Short description of the spoke resource
+ *  An optional description of the spoke.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The resource URL of the hub resource that the spoke is attached to */
+/** Immutable. The URI of the hub that this spoke is attached to. */
 @property(nonatomic, copy, nullable) NSString *hub;
 
-/** User-defined labels. */
+/**
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
+ */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Spoke_Labels *labels;
 
-/** The URIs of linked interconnect attachment resources */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedInterconnectAttachments;
+/** VLAN attachments that are associated with the spoke. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedInterconnectAttachments *linkedInterconnectAttachments;
 
-/** The URIs of linked Router appliance resources */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RouterApplianceInstance *> *linkedRouterApplianceInstances;
+/** Router appliance instances that are associated with the spoke. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedRouterApplianceInstances *linkedRouterApplianceInstances;
 
-/** The URIs of linked VPN tunnel resources */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *linkedVpnTunnels;
+/** VPN tunnels that are associated with the spoke. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_LinkedVpnTunnels *linkedVpnTunnels;
 
-/** Immutable. The name of a Spoke resource. */
+/**
+ *  Immutable. The name of the spoke. Spoke names must be unique. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/{region}/spokes/{spoke_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The current lifecycle state of this Hub.
+ *  Output only. The current lifecycle state of this spoke.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkconnectivity_Spoke_State_Active The resource is active
@@ -904,20 +1008,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. Google-generated UUID for this resource. This is unique across
- *  all Spoke resources. If a Spoke resource is deleted and another with the
- *  same name is created, it gets a different unique_id.
+ *  Output only. The Google-generated UUID for the spoke. This value is unique
+ *  across all spoke resources. If a spoke is deleted and another with the same
+ *  name is created, the new spoke is assigned a different unique_id.
  */
 @property(nonatomic, copy, nullable) NSString *uniqueId;
 
-/** The time when the Spoke was updated. */
+/** Output only. The time the spoke was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  User-defined labels.
+ *  Optional labels in key:value format. For more information about labels, see
+ *  [Requirements for
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

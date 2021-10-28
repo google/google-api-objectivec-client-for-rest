@@ -57,6 +57,8 @@
 @class GTLRCloudHealthcare_FhirStore_Labels;
 @class GTLRCloudHealthcare_Field;
 @class GTLRCloudHealthcare_FieldMetadata;
+@class GTLRCloudHealthcare_GcsDestination;
+@class GTLRCloudHealthcare_GcsSource;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1ConsentGcsDestination;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1ConsentPolicy;
 @class GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination;
@@ -430,6 +432,95 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Ins
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_GcsDestination.contentStructure
+
+/**
+ *  If the content structure is not specified, the default value `MESSAGE_JSON`
+ *  will be used.
+ *
+ *  Value: "CONTENT_STRUCTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_ContentStructure_ContentStructureUnspecified;
+/**
+ *  Messages are printed using the JSON format returned from the `GetMessage`
+ *  API. Messages are delimited with newlines.
+ *
+ *  Value: "MESSAGE_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_ContentStructure_MessageJson;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_GcsDestination.messageView
+
+/**
+ *  Server responses include only the name field.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_Basic;
+/**
+ *  Server responses include all the message fields.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_Full;
+/**
+ *  Not specified, equivalent to FULL.
+ *
+ *  Value: "MESSAGE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_MessageViewUnspecified;
+/**
+ *  Server responses include all the message fields except data field, and
+ *  schematized_data fields.
+ *
+ *  Value: "PARSED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_ParsedOnly;
+/**
+ *  Server responses include all the message fields except parsed_data field,
+ *  and schematized_data fields.
+ *
+ *  Value: "RAW_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_RawOnly;
+/**
+ *  Server responses include all the message fields except data and parsed_data
+ *  fields.
+ *
+ *  Value: "SCHEMATIZED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_SchematizedOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination.writeDisposition
+
+/**
+ *  Append data to the existing table.
+ *
+ *  Value: "WRITE_APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteAppend;
+/**
+ *  Default behavior is the same as WRITE_EMPTY.
+ *
+ *  Value: "WRITE_DISPOSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteDispositionUnspecified;
+/**
+ *  Only export data if the destination table is empty.
+ *
+ *  Value: "WRITE_EMPTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteEmpty;
+/**
+ *  Erase all existing data in a table before writing the instances.
+ *
+ *  Value: "WRITE_TRUNCATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteTruncate;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination.writeDisposition
 
 /**
@@ -764,7 +855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Required. Possible values for the attribute. The number of allowed values
- *  must not exceed 100. An empty list is invalid. The list can only be expanded
+ *  must not exceed 500. An empty list is invalid. The list can only be expanded
  *  after creation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
@@ -885,7 +976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudHealthcare_Binding : GTLRObject
 
@@ -894,14 +985,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -933,8 +1024,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1910,6 +2001,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Request to schedule an export.
+ */
+@interface GTLRCloudHealthcare_ExportMessagesRequest : GTLRObject
+
+/**
+ *  The end of the range in `send_time` (MSH.7,
+ *  https://www.hl7.org/documentcenter/public_temp_2E58C1F9-1C23-BA17-0C6126475344DA9D/wg/conf/HL7MSH.htm)
+ *  to process. If not specified, the time when the export is scheduled is used.
+ *  This value has to come after the `start_time` defined below. Only messages
+ *  whose `send_time` lies in the range `start_time` (inclusive) to `end_time`
+ *  (exclusive) are exported.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Export to a Cloud Storage destination. */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GcsDestination *gcsDestination;
+
+/**
+ *  The start of the range in `send_time` (MSH.7,
+ *  https://www.hl7.org/documentcenter/public_temp_2E58C1F9-1C23-BA17-0C6126475344DA9D/wg/conf/HL7MSH.htm)
+ *  to process. If not specified, the UNIX epoch (1970-01-01T00:00:00Z) is used.
+ *  This value has to come before the `end_time` defined below. Only messages
+ *  whose `send_time` lies in the range `start_time` (inclusive) to `end_time`
+ *  (exclusive) are exported.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Final response for the export operation. This structure is included in the
+ *  response to describe the detailed outcome.
+ */
+@interface GTLRCloudHealthcare_ExportMessagesResponse : GTLRObject
+@end
+
+
+/**
  *  Request to export resources.
  */
 @interface GTLRCloudHealthcare_ExportResourcesRequest : GTLRObject
@@ -2022,7 +2152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  Specifies FHIR paths to match and how to transform them. Any field that is
  *  not matched by a FieldMetadata is passed through to the output dataset
- *  unmodified. All extensions are removed in the output.
+ *  unmodified. All extensions will be processed according to
+ *  `default_keep_extensions`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
 
@@ -2261,6 +2392,85 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  The Cloud Storage output destination. The Cloud Healthcare Service Agent
+ *  requires the `roles/storage.objectAdmin` Cloud IAM roles on the Cloud
+ *  Storage location.
+ */
+@interface GTLRCloudHealthcare_GcsDestination : GTLRObject
+
+/**
+ *  The format of the exported HL7v2 message files.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_ContentStructure_ContentStructureUnspecified
+ *        If the content structure is not specified, the default value
+ *        `MESSAGE_JSON` will be used. (Value: "CONTENT_STRUCTURE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_ContentStructure_MessageJson
+ *        Messages are printed using the JSON format returned from the
+ *        `GetMessage` API. Messages are delimited with newlines. (Value:
+ *        "MESSAGE_JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *contentStructure;
+
+/**
+ *  Specifies the parts of the Message resource to include in the export. If not
+ *  specified, FULL is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_Basic Server
+ *        responses include only the name field. (Value: "BASIC")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_Full Server
+ *        responses include all the message fields. (Value: "FULL")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_MessageViewUnspecified
+ *        Not specified, equivalent to FULL. (Value: "MESSAGE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_ParsedOnly Server
+ *        responses include all the message fields except data field, and
+ *        schematized_data fields. (Value: "PARSED_ONLY")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_RawOnly Server
+ *        responses include all the message fields except parsed_data field, and
+ *        schematized_data fields. (Value: "RAW_ONLY")
+ *    @arg @c kGTLRCloudHealthcare_GcsDestination_MessageView_SchematizedOnly
+ *        Server responses include all the message fields except data and
+ *        parsed_data fields. (Value: "SCHEMATIZED_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *messageView;
+
+/**
+ *  URI of an existing Cloud Storage directory where the server writes result
+ *  files, in the format `gs://{bucket-id}/{path/to/destination/dir}`. If there
+ *  is no trailing slash, the service appends one when composing the object
+ *  path.
+ */
+@property(nonatomic, copy, nullable) NSString *uriPrefix;
+
+@end
+
+
+/**
+ *  Specifies the configuration for importing data from Cloud Storage.
+ */
+@interface GTLRCloudHealthcare_GcsSource : GTLRObject
+
+/**
+ *  Points to a Cloud Storage URI containing file(s) to import. The URI must be
+ *  in the following format: `gs://{bucket_id}/{object_id}`. The URI can include
+ *  wildcards in `object_id` and thus identify multiple files. Supported
+ *  wildcards: * `*` to match 0 or more non-separator characters * `**` to match
+ *  0 or more characters (including separators). Must be used at the end of a
+ *  path and with no other wildcards in the path. Can also be used with a file
+ *  extension (such as .ndjson), which imports all files with the extension in
+ *  the specified directory and its sub-directories. For example,
+ *  `gs://my-bucket/my-directory/ **.ndjson` imports all files with `.ndjson`
+ *  extensions in `my-directory/` and its sub-directories. * `?` to match 1
+ *  character Files matching the wildcard are expected to contain content only,
+ *  no metadata.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  The Cloud Storage location for export.
  */
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1ConsentGcsDestination : GTLRObject
@@ -2321,9 +2531,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination : GTLRObject
 
 /**
- *  If the destination table already exists and this flag is `TRUE`, the table
- *  is overwritten by the contents of the DICOM store. If the flag is not set
- *  and the destination table already exists, the export call returns an error.
+ *  Use `write_disposition` instead. If `write_disposition` is specified, this
+ *  parameter is ignored. force=false is equivalent to
+ *  write_disposition=WRITE_EMPTY and force=true is equivalent to
+ *  write_disposition=WRITE_TRUNCATE.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2334,6 +2545,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  `bq://projectId.bqDatasetId.tableId`
  */
 @property(nonatomic, copy, nullable) NSString *tableUri;
+
+/**
+ *  Determines whether the existing table in the destination is to be
+ *  overwritten or appended to. If a write_disposition is specified, the `force`
+ *  parameter is ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteAppend
+ *        Append data to the existing table. (Value: "WRITE_APPEND")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteDispositionUnspecified
+ *        Default behavior is the same as WRITE_EMPTY. (Value:
+ *        "WRITE_DISPOSITION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteEmpty
+ *        Only export data if the destination table is empty. (Value:
+ *        "WRITE_EMPTY")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteTruncate
+ *        Erase all existing data in a table before writing the instances.
+ *        (Value: "WRITE_TRUNCATE")
+ */
+@property(nonatomic, copy, nullable) NSString *writeDisposition;
 
 @end
 
@@ -2835,6 +3066,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Returns additional information in regards to a completed DICOM store import.
  */
 @interface GTLRCloudHealthcare_ImportDicomDataResponse : GTLRObject
+@end
+
+
+/**
+ *  Request to import messages.
+ */
+@interface GTLRCloudHealthcare_ImportMessagesRequest : GTLRObject
+
+/**
+ *  Cloud Storage source data location and import configuration. The Cloud
+ *  Healthcare Service Agent requires the `roles/storage.objectViewer` Cloud IAM
+ *  roles on the Cloud Storage location.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GcsSource *gcsSource;
+
+@end
+
+
+/**
+ *  Final response of importing messages. This structure is included in the
+ *  response to describe the detailed outcome. It is only included when the
+ *  operation finishes successfully.
+ */
+@interface GTLRCloudHealthcare_ImportMessagesResponse : GTLRObject
 @end
 
 
@@ -3687,15 +3942,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -3721,9 +3976,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Binding *> *bindings;
 
@@ -4346,22 +4606,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  generates more than 1 MB of BigQuery data is not streamed. One resolution in
  *  this case is to delete the incompatible table and let the server recreate
  *  one, though the newly created table only contains data after the table
- *  recreation. Results are appended to the corresponding BigQuery tables.
- *  Different versions of the same resource are distinguishable by the
- *  meta.versionId and meta.lastUpdated columns. The operation
- *  (CREATE/UPDATE/DELETE) that results in the new version is recorded in the
- *  meta.tag. The tables contain all historical resource versions since
- *  streaming was enabled. For query convenience, the server also creates one
- *  view per table of the same name containing only the current resource
- *  version. The streamed data in the BigQuery dataset is not guaranteed to be
- *  completely unique. The combination of the id and meta.versionId columns
- *  should ideally identify a single unique row. But in rare cases, duplicates
- *  may exist. At query time, users may use the SQL select statement to keep
- *  only one of the duplicate rows given an id and meta.versionId pair.
- *  Alternatively, the server created view mentioned above also filters out
- *  duplicates. If a resource mutation cannot be streamed to BigQuery, errors
- *  are logged to Cloud Logging. For more information, see [Viewing error logs
- *  in Cloud
+ *  recreation. Results are written to BigQuery tables according to the
+ *  parameters in BigQueryDestination.WriteDisposition. Different versions of
+ *  the same resource are distinguishable by the meta.versionId and
+ *  meta.lastUpdated columns. The operation (CREATE/UPDATE/DELETE) that results
+ *  in the new version is recorded in the meta.tag. The tables contain all
+ *  historical resource versions since streaming was enabled. For query
+ *  convenience, the server also creates one view per table of the same name
+ *  containing only the current resource version. The streamed data in the
+ *  BigQuery dataset is not guaranteed to be completely unique. The combination
+ *  of the id and meta.versionId columns should ideally identify a single unique
+ *  row. But in rare cases, duplicates may exist. At query time, users may use
+ *  the SQL select statement to keep only one of the duplicate rows given an id
+ *  and meta.versionId pair. Alternatively, the server created view mentioned
+ *  above also filters out duplicates. If a resource mutation cannot be streamed
+ *  to BigQuery, errors are logged to Cloud Logging. For more information, see
+ *  [Viewing error logs in Cloud
  *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;

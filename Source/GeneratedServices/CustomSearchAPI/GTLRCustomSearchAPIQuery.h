@@ -340,7 +340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 
 /**
  *  Enables or disables [Simplified and Traditional Chinese
- *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch).
+ *  Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch).
  *  The default value for this parameter is 0 (zero), meaning that the feature
  *  is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default)
  */
@@ -349,12 +349,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 /**
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
- *  operators](https://developers.google.com/custom-search/docs/xml_results_appendices#booleanOperators)
+ *  operators](https://developers.google.com/custom-search/docs/json_api_reference#booleanOperators)
  *  in the cr parameter's value. Google Search determines the country of a
  *  document by analyzing: * the top-level domain (TLD) of the document's URL *
  *  the geographic location of the Web server's IP address See the [Country
  *  Parameter
- *  Values](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCollections)
+ *  Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections)
  *  page for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
@@ -391,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 
 /**
  *  Controls turning on or off the duplicate content filter. * See [Automatic
- *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
+ *  Filtering](https://developers.google.com/custom-search/docs/json_api_reference#automaticFiltering)
  *  for more information about Google's search results filters. Note that host
  *  crowding filtering applies only to multi-site searches. * By default, Google
  *  applies filtering to all search results to improve the quality of those
@@ -404,7 +404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Geolocation of end user. * The `gl` parameter value is a two-letter country
  *  code. The `gl` parameter boosts search results whose country of origin
  *  matches the parameter value. See the [Country
- *  Codes](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes)
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  page for a list of valid values. * Specifying a `gl` parameter value should
  *  lead to more relevant results. This is particularly true for international
  *  customers and, even more specifically, for customers in English- speaking
@@ -430,11 +430,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Sets the user interface language. * Explicitly setting this parameter
  *  improves the performance and the quality of your search results. * See the
  *  [Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
- *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
- *  for more information, and (Supported Interface
- *  Languages)[https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages]
+ *  Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing)
+ *  for more information, and [Supported Interface
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *hl;
@@ -694,7 +694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 
 /**
  *  Enables or disables [Simplified and Traditional Chinese
- *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch).
+ *  Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch).
  *  The default value for this parameter is 0 (zero), meaning that the feature
  *  is enabled. Supported values are: * `1`: Disabled * `0`: Enabled (default)
  */
@@ -703,12 +703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 /**
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
- *  operators](https://developers.google.com/custom-search/docs/xml_results_appendices#booleanOperators)
+ *  operators](https://developers.google.com/custom-search/docs/json_api_reference#booleanOperators)
  *  in the cr parameter's value. Google Search determines the country of a
  *  document by analyzing: * the top-level domain (TLD) of the document's URL *
  *  the geographic location of the Web server's IP address See the [Country
  *  Parameter
- *  Values](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCollections)
+ *  Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections)
  *  page for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
@@ -745,7 +745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
 
 /**
  *  Controls turning on or off the duplicate content filter. * See [Automatic
- *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
+ *  Filtering](https://developers.google.com/custom-search/docs/json_api_reference#automaticFiltering)
  *  for more information about Google's search results filters. Note that host
  *  crowding filtering applies only to multi-site searches. * By default, Google
  *  applies filtering to all search results to improve the quality of those
@@ -758,7 +758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Geolocation of end user. * The `gl` parameter value is a two-letter country
  *  code. The `gl` parameter boosts search results whose country of origin
  *  matches the parameter value. See the [Country
- *  Codes](https://developers.google.com/custom-search/docs/xml_results_appendices#countryCodes)
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  page for a list of valid values. * Specifying a `gl` parameter value should
  *  lead to more relevant results. This is particularly true for international
  *  customers and, even more specifically, for customers in English- speaking
@@ -784,11 +784,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Sets the user interface language. * Explicitly setting this parameter
  *  improves the performance and the quality of your search results. * See the
  *  [Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
- *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
- *  for more information, and (Supported Interface
- *  Languages)[https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages]
+ *  Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing)
+ *  for more information, and [Supported Interface
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *hl;

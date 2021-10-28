@@ -63,7 +63,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
 FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket;
 /**
  *  The migration failed at some stage and it is not possible to continue
- *  retrying that stage. Manual recovery may be needed.
+ *  retrying that stage. Manual recovery may be needed. Rollback is either
+ *  impossible at this stage, or has been attempted and failed.
  *
  *  Value: "FAILED"
  */
@@ -75,6 +76,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Pending;
+/**
+ *  The migration has been successfully rolled back.
+ *
+ *  Value: "ROLLED_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RolledBack;
 /**
  *  The migration has encountered a permanent failure and is now being rolled
  *  back so that the source bucket is restored to its original state.
@@ -140,7 +147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
 FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket;
 /**
  *  The migration failed at some stage and it is not possible to continue
- *  retrying that stage. Manual recovery may be needed.
+ *  retrying that stage. Manual recovery may be needed. Rollback is either
+ *  impossible at this stage, or has been attempted and failed.
  *
  *  Value: "FAILED"
  */
@@ -152,6 +160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Pending;
+/**
+ *  The migration has been successfully rolled back.
+ *
+ *  Value: "ROLLED_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RolledBack;
 /**
  *  The migration has encountered a permanent failure and is now being rolled
  *  back so that the source bucket is restored to its original state.
@@ -258,10 +272,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  *        "DELETING_TEMP_BUCKET")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Failed
  *        The migration failed at some stage and it is not possible to continue
- *        retrying that stage. Manual recovery may be needed. (Value: "FAILED")
+ *        retrying that stage. Manual recovery may be needed. Rollback is either
+ *        impossible at this stage, or has been attempted and failed. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Pending
  *        The MigrateLocationDestructively request has passed precondition
  *        checks and the bucket migration will begin soon. (Value: "PENDING")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RolledBack
+ *        The migration has been successfully rolled back. (Value:
+ *        "ROLLED_BACK")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RollingBack
  *        The migration has encountered a permanent failure and is now being
  *        rolled back so that the source bucket is restored to its original
@@ -313,10 +332,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageCon
  *        "DELETING_TEMP_BUCKET")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Failed
  *        The migration failed at some stage and it is not possible to continue
- *        retrying that stage. Manual recovery may be needed. (Value: "FAILED")
+ *        retrying that stage. Manual recovery may be needed. Rollback is either
+ *        impossible at this stage, or has been attempted and failed. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Pending
  *        The MigrateLocationDestructively request has passed precondition
  *        checks and the bucket migration will begin soon. (Value: "PENDING")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RolledBack
+ *        The migration has been successfully rolled back. (Value:
+ *        "ROLLED_BACK")
  *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RollingBack
  *        The migration has encountered a permanent failure and is now being
  *        rolled back so that the source bucket is restored to its original

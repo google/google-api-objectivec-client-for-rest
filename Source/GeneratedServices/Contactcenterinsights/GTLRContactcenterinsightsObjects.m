@@ -235,7 +235,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig
-@dynamic medium, trainingConversationsCount;
+@dynamic filter, medium, trainingConversationsCount;
 @end
 
 
@@ -617,7 +617,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant
-@dynamic dialogflowParticipant, dialogflowParticipantName, role, userId;
+@dynamic dialogflowParticipant, dialogflowParticipantName,
+         obfuscatedExternalUserId, role, userId;
 @end
 
 
@@ -645,7 +646,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment
-@dynamic channelTag, confidence, languageCode, segmentParticipant, text, words;
+@dynamic channelTag, confidence, dialogflowSegmentMetadata, languageCode,
+         messageTime, segmentParticipant, sentiment, text, words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -654,6 +656,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata
+@dynamic smartReplyAllowlistCovered;
 @end
 
 
@@ -981,7 +993,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig
-@dynamic medium, trainingConversationsCount;
+@dynamic filter, medium, trainingConversationsCount;
 @end
 
 
@@ -1156,7 +1168,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher
 @dynamic activationUpdateTime, active, displayName, name, phraseMatchRuleGroups,
-         revisionCreateTime, revisionId, roleMatch, type, versionTag;
+         revisionCreateTime, revisionId, roleMatch, type, updateTime,
+         versionTag;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

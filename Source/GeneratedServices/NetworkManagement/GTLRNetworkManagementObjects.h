@@ -174,6 +174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unknow
  *  Value: "UNKNOWN_PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject;
+/**
+ *  Aborted because the test scenario is not supported.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_AuditLogConfig.logType
@@ -1008,6 +1014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject Aborted
  *        because no project information can be derived from the test input.
  *        (Value: "UNKNOWN_PROJECT")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_Unsupported Aborted because
+ *        the test scenario is not supported. (Value: "UNSUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 

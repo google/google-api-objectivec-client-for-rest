@@ -12,9 +12,10 @@
 #import "GTLRTexttospeech.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeTexttospeechCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeTexttospeechDialogflow    = @"https://www.googleapis.com/auth/dialogflow";
 
 // ----------------------------------------------------------------------------
 //   GTLRTexttospeechService

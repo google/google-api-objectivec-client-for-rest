@@ -139,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameKeep;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
 /**
- *  The Meet Audit activity report return information about different types of
+ *  The Meet Audit activity report returns information about different types of
  *  Meet Audit activity events.
  *
  *  Value: "meet"
@@ -286,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -496,7 +496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -601,7 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -810,7 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity

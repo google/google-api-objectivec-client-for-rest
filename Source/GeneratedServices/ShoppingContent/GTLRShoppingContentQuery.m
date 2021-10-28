@@ -3156,6 +3156,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_PromotionsGet
+
+@dynamic identifier, merchantId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                         identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"id", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/promotions/{id}";
+  GTLRShoppingContentQuery_PromotionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRShoppingContent_Promotion class];
+  query.loggingName = @"content.promotions.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_PubsubnotificationsettingsGet
 
 @dynamic merchantId;

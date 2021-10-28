@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Connectivity API (networkconnectivity/v1alpha1)
+//   Network Connectivity API (networkconnectivity/v1)
 // Description:
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
@@ -217,8 +217,8 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRNetworkconnectivity_Hub
-@dynamic createTime, descriptionProperty, labels, name, spokes, state, uniqueId,
-         updateTime;
+@dynamic createTime, descriptionProperty, labels, name, routingVpcs, state,
+         uniqueId, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -226,7 +226,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"spokes" : [NSString class]
+    @"routingVpcs" : [GTLRNetworkconnectivity_RoutingVPC class]
   };
   return map;
 }
@@ -243,6 +243,60 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_LinkedInterconnectAttachments
+//
+
+@implementation GTLRNetworkconnectivity_LinkedInterconnectAttachments
+@dynamic siteToSiteDataTransfer, uris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_LinkedRouterApplianceInstances
+//
+
+@implementation GTLRNetworkconnectivity_LinkedRouterApplianceInstances
+@dynamic instances, siteToSiteDataTransfer;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRNetworkconnectivity_RouterApplianceInstance class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_LinkedVpnTunnels
+//
+
+@implementation GTLRNetworkconnectivity_LinkedVpnTunnels
+@dynamic siteToSiteDataTransfer, uris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -394,7 +448,17 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRNetworkconnectivity_RouterApplianceInstance
-@dynamic ipAddress, networkInterface, virtualMachine;
+@dynamic ipAddress, virtualMachine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RoutingVPC
+//
+
+@implementation GTLRNetworkconnectivity_RoutingVPC
+@dynamic uri;
 @end
 
 
@@ -420,15 +484,6 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"linkedInterconnectAttachments" : [NSString class],
-    @"linkedRouterApplianceInstances" : [GTLRNetworkconnectivity_RouterApplianceInstance class],
-    @"linkedVpnTunnels" : [NSString class]
-  };
-  return map;
 }
 
 @end

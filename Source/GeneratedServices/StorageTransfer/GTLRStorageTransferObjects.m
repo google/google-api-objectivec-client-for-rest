@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRStorageTransfer_AgentPool.state
+NSString * const kGTLRStorageTransfer_AgentPool_State_Created  = @"CREATED";
+NSString * const kGTLRStorageTransfer_AgentPool_State_Creating = @"CREATING";
+NSString * const kGTLRStorageTransfer_AgentPool_State_Deleting = @"DELETING";
+NSString * const kGTLRStorageTransfer_AgentPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRStorageTransfer_ErrorSummary.errorCode
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted = @"ABORTED";
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists = @"ALREADY_EXISTS";
@@ -61,6 +67,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_AgentPool
+//
+
+@implementation GTLRStorageTransfer_AgentPool
+@dynamic bandwidthLimit, displayName, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_AwsAccessKey
 //
 
@@ -96,6 +112,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_AzureCredentials
 @dynamic sasToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_BandwidthLimit
+//
+
+@implementation GTLRStorageTransfer_BandwidthLimit
+@dynamic limitMbps;
 @end
 
 
@@ -190,6 +216,28 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_HttpData
 @dynamic listUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_ListAgentPoolsResponse
+//
+
+@implementation GTLRStorageTransfer_ListAgentPoolsResponse
+@dynamic agentPools, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentPools" : [GTLRStorageTransfer_AgentPool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"agentPools";
+}
+
 @end
 
 
@@ -426,6 +474,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
          bytesFoundOnlyFromSink, bytesFromSourceFailed,
          bytesFromSourceSkippedBySync, directoriesFailedToListFromSource,
          directoriesFoundFromSource, directoriesSuccessfullyListedFromSource,
+         intermediateObjectsCleanedUp, intermediateObjectsFailedCleanedUp,
          objectsCopiedToSink, objectsDeletedFromSink, objectsDeletedFromSource,
          objectsFailedToDeleteFromSink, objectsFoundFromSource,
          objectsFoundOnlyFromSink, objectsFromSourceFailed,

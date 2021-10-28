@@ -123,10 +123,10 @@ NSString * const kGTLRShoppingContent_Promotion_OfferType_OfferTypeUnspecified =
 // GTLRShoppingContent_Promotion.productApplicability
 NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_AllProducts = @"ALL_PRODUCTS";
 NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_ProductApplicabilityUnspecified = @"PRODUCT_APPLICABILITY_UNSPECIFIED";
-NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_ProductSpecific = @"PRODUCT_SPECIFIC";
+NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts = @"SPECIFIC_PRODUCTS";
 
 // GTLRShoppingContent_Promotion.redemptionChannel
-NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Local = @"LOCAL";
+NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore = @"IN_STORE";
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Online = @"ONLINE";
 NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified = @"REDEMPTION_CHANNEL_UNSPECIFIED";
 
@@ -287,7 +287,7 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountBusinessInformation
 @dynamic address, customerService, koreanBusinessRegistrationNumber,
-         phoneNumber;
+         phoneNumber, phoneVerificationStatus;
 @end
 
 
@@ -500,8 +500,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_AccountsLinkRequest
-@dynamic action, linkedAccountId, linkType, paymentServiceProviderLinkInfo,
-         services;
+@dynamic action, eCommercePlatformLinkInfo, linkedAccountId, linkType,
+         paymentServiceProviderLinkInfo, services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -962,6 +962,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_Address
+//
+
+@implementation GTLRShoppingContent_Address
+@dynamic administrativeArea, city, country, postalCode, streetAddress;
 @end
 
 
@@ -1571,6 +1581,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ECommercePlatformLinkInfo
+//
+
+@implementation GTLRShoppingContent_ECommercePlatformLinkInfo
+@dynamic externalAccountId;
 @end
 
 
@@ -3909,7 +3929,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_OrderTrackingSignalLineItemDetails
-@dynamic gtin, lineItemId, mpn, productId, quantity;
+@dynamic brand, gtin, lineItemId, mpn, productDescription, productId,
+         productTitle, quantity, sku, upc;
 @end
 
 
@@ -4717,9 +4738,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          itemGroupId, itemGroupIdExclusion, itemId, itemIdExclusion,
          limitQuantity, limitValue, longTitle, minimumPurchaseAmount,
          minimumPurchaseQuantity, moneyBudget, moneyOffAmount, offerType,
-         orderLimit, percentOff, productApplicability, promotionDestinationIds,
-         promotionDisplayDates, promotionEffectiveDates, promotionId,
-         redemptionChannel, shippingServiceNames, targetCountry;
+         orderLimit, percentOff, productApplicability, productType,
+         productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
+         promotionEffectiveDates, promotionId, redemptionChannel,
+         shippingServiceNames, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -4733,6 +4755,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
     @"itemGroupIdExclusion" : [NSString class],
     @"itemId" : [NSString class],
     @"itemIdExclusion" : [NSString class],
+    @"productType" : [NSString class],
+    @"productTypeExclusion" : [NSString class],
     @"promotionDestinationIds" : [NSString class],
     @"redemptionChannel" : [NSString class],
     @"shippingServiceNames" : [NSString class]
@@ -5846,12 +5870,13 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_ShippingSettings
-@dynamic accountId, postalCodeGroups, services;
+@dynamic accountId, postalCodeGroups, services, warehouses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"postalCodeGroups" : [GTLRShoppingContent_PostalCodeGroup class],
-    @"services" : [GTLRShoppingContent_Service class]
+    @"services" : [GTLRShoppingContent_Service class],
+    @"warehouses" : [GTLRShoppingContent_Warehouse class]
   };
   return map;
 }
@@ -6334,12 +6359,32 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Warehouse
+//
+
+@implementation GTLRShoppingContent_Warehouse
+@dynamic businessDayConfig, cutoffTime, handlingDays, name, shippingAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_WarehouseBasedDeliveryTime
 //
 
 @implementation GTLRShoppingContent_WarehouseBasedDeliveryTime
 @dynamic carrier, carrierService, originAdministrativeArea, originCity,
-         originCountry, originPostalCode, originStreetAddress;
+         originCountry, originPostalCode, originStreetAddress, warehouseName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_WarehouseCutoffTime
+//
+
+@implementation GTLRShoppingContent_WarehouseCutoffTime
+@dynamic hour, minute;
 @end
 
 

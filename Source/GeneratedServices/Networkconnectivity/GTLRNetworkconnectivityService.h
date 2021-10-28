@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Connectivity API (networkconnectivity/v1alpha1)
+//   Network Connectivity API (networkconnectivity/v1)
 // Description:
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.

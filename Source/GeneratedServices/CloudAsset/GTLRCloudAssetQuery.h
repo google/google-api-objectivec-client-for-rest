@@ -470,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, strong, nullable) GTLRDateTime *analysisQueryConditionContextAccessTime;
 
 /**
- *  Required. The identity appear in the form of members in [IAM policy
+ *  Required. The identity appear in the form of principals in [IAM policy
  *  binding](https://cloud.google.com/iam/reference/rest/v1/Binding). The
  *  examples of supported forms are: "user:mike\@example.com",
  *  "group:admins\@example.com", "domain:google.com",
@@ -540,15 +540,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, assign) BOOL analysisQueryOptionsExpandRoles;
 
 /**
- *  Optional. If true, the result will output group identity edges, starting
- *  from the binding's group members, to any expanded identities. Default is
- *  false.
+ *  Optional. If true, the result will output the relevant membership
+ *  relationships between groups and other groups, and between groups and
+ *  principals. Default is false.
  */
 @property(nonatomic, assign) BOOL analysisQueryOptionsOutputGroupEdges;
 
 /**
- *  Optional. If true, the result will output resource edges, starting from the
- *  policy attached resource, to any expanded resources. Default is false.
+ *  Optional. If true, the result will output the relevant parent/child
+ *  relationships between resources. Default is false.
  */
 @property(nonatomic, assign) BOOL analysisQueryOptionsOutputResourceEdges;
 
@@ -949,7 +949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  query](https://cloud.google.com/asset-inventory/docs/searching-iam-policies#how_to_construct_a_query)
  *  for more information. If not specified or empty, it will search all the IAM
  *  policies within the specified `scope`. Note that the query string is
- *  compared against each Cloud IAM policy binding, including its members,
+ *  compared against each Cloud IAM policy binding, including its principals,
  *  roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
  *  contain the bindings that match your query. To learn more about the IAM
  *  policy structure, see [IAM policy
@@ -976,7 +976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  that are set on resources "instance1" or "instance2" and also specify user
  *  "amy". * `roles:roles/compute.admin` to find IAM policy bindings that
  *  specify the Compute Admin role. * `memberTypes:user` to find IAM policy
- *  bindings that contain the "user" member type.
+ *  bindings that contain the principal type "user".
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

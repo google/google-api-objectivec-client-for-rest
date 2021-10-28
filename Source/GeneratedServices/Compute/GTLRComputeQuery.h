@@ -6280,8 +6280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a `list()` request.
+ *  Retrieves the specified Operations resource.
  *
  *  Method: compute.globalOperations.get
  *
@@ -6301,8 +6300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Retrieves the specified Operations resource. Gets a list of operations by
- *  making a `list()` request.
+ *  Retrieves the specified Operations resource.
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -9488,7 +9486,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listManagedInstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. If you update your group
+ *  to specify a new template or instance configuration, it's possible that your
+ *  intended specification for each VM in the group is different from the
+ *  current state of that VM. To learn how to apply an updated configuration to
+ *  the VMs in a MIG, see Updating instances in a MIG.
  *
  *  Method: compute.instanceGroupManagers.patch
  *
@@ -9532,7 +9534,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listManagedInstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. If you update your group
+ *  to specify a new template or instance configuration, it's possible that your
+ *  intended specification for each VM in the group is different from the
+ *  current state of that VM. To learn how to apply an updated configuration to
+ *  the VMs in a MIG, see Updating instances in a MIG.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -10764,8 +10770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves aggregated list of all of the instances in your project across all
- *  regions and zones.
+ *  Retrieves an aggregated list of all of the instances in your project across
+ *  all regions and zones. The performance of this method degrades when a filter
+ *  is specified on a project that has a very large number of instances.
  *
  *  Method: compute.instances.aggregatedList
  *
@@ -10848,8 +10855,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceAggregatedList.
  *
- *  Retrieves aggregated list of all of the instances in your project across all
- *  regions and zones.
+ *  Retrieves an aggregated list of all of the instances in your project across
+ *  all regions and zones. The performance of this method degrades when a filter
+ *  is specified on a project that has a very large number of instances.
  *
  *  @param project Project ID for this request.
  *
@@ -22790,7 +22798,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listmanagedinstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. If you update your group
+ *  to specify a new template or instance configuration, it's possible that your
+ *  intended specification for each VM in the group is different from the
+ *  current state of that VM. To learn how to apply an updated configuration to
+ *  the VMs in a MIG, see Updating instances in a MIG.
  *
  *  Method: compute.regionInstanceGroupManagers.patch
  *
@@ -22830,7 +22842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  if the instances in the group are still in the process of being patched. You
  *  must separately verify the status of the individual instances with the
  *  listmanagedinstances method. This method supports PATCH semantics and uses
- *  the JSON merge patch format and processing rules.
+ *  the JSON merge patch format and processing rules. If you update your group
+ *  to specify a new template or instance configuration, it's possible that your
+ *  intended specification for each VM in the group is different from the
+ *  current state of that VM. To learn how to apply an updated configuration to
+ *  the VMs in a MIG, see Updating instances in a MIG.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.

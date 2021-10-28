@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Network Connectivity API (networkconnectivity/v1alpha1)
+//   Network Connectivity API (networkconnectivity/v1)
 // Description:
 //   The Network Connectivity API provides access to Network Connectivity
 //   Center.
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Hub in a given project and location.
+ *  Creates a new hub in the specified project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.create
  *
@@ -80,34 +80,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsCreate : GTLRNetworkconnectivityQuery
 
-/** Optional. Unique id for the Hub to create. */
+/** Optional. A unique identifier for the hub. */
 @property(nonatomic, copy, nullable) NSString *hubId;
 
-/** Required. The parent resource's name of the Hub. */
+/** Required. The parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a new Hub in a given project and location.
+ *  Creates a new hub in the specified project.
  *
  *  @param object The @c GTLRNetworkconnectivity_Hub to include in the query.
- *  @param parent Required. The parent resource's name of the Hub.
+ *  @param parent Required. The parent resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsCreate
  */
@@ -117,7 +117,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Hub.
+ *  Deletes the specified hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.delete
  *
@@ -126,30 +126,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsDelete : GTLRNetworkconnectivityQuery
 
-/** Required. The name of the Hub to delete. */
+/** Required. The name of the hub to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes a single Hub.
+ *  Deletes the specified hub.
  *
- *  @param name Required. The name of the Hub to delete.
+ *  @param name Required. The name of the hub to delete.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsDelete
  */
@@ -158,7 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Hub.
+ *  Gets details about the specified hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.get
  *
@@ -167,15 +167,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGet : GTLRNetworkconnectivityQuery
 
-/** Required. Name of the Hub resource to get. */
+/** Required. The name of the hub resource to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_Hub.
  *
- *  Gets details of a single Hub.
+ *  Gets details about the specified hub.
  *
- *  @param name Required. Name of the Hub resource to get.
+ *  @param name Required. The name of the hub resource to get.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsGet
  */
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Hubs in a given project and location.
+ *  Lists hubs in a given project.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.list
  *
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsList : GTLRNetworkconnectivityQuery
 
-/** A filter expression that filters the results listed in the response. */
+/** An expression that filters the results listed in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Sort the results by a certain order. */
@@ -255,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListHubsResponse.
  *
- *  Lists Hubs in a given project and location.
+ *  Lists hubs in a given project.
  *
  *  @param parent Required. The parent resource's name.
  *
@@ -270,7 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single Hub.
+ *  Updates the description and/or labels of the specified hub.
  *
  *  Method: networkconnectivity.projects.locations.global.hubs.patch
  *
@@ -279,30 +279,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsPatch : GTLRNetworkconnectivityQuery
 
-/** Immutable. The name of a Hub resource. */
+/**
+ *  Immutable. The name of the hub. Hub names must be unique. They use the
+ *  following form: `projects/{project_number}/locations/global/hubs/{hub_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Field mask is used to specify the fields to be overwritten in the
- *  Hub resource by the update. The fields specified in the update_mask are
- *  relative to the resource, not the full request. A field will be overwritten
- *  if it is in the mask. If the user does not provide a mask then all fields
- *  will be overwritten.
+ *  Optional. In the case of an update to an existing hub, field mask is used to
+ *  specify the fields to be overwritten. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields are overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -311,10 +314,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Updates the parameters of a single Hub.
+ *  Updates the description and/or labels of the specified hub.
  *
  *  @param object The @c GTLRNetworkconnectivity_Hub to include in the query.
- *  @param name Immutable. The name of a Hub resource.
+ *  @param name Immutable. The name of the hub. Hub names must be unique. They
+ *    use the following form:
+ *    `projects/{project_number}/locations/global/hubs/{hub_id}`
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalHubsPatch
  */
@@ -407,12 +412,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
- *  Method: networkconnectivity.projects.locations.internalRanges.getIamPolicy
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.getIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
  */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy : GTLRNetworkconnectivityQuery
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy : GTLRNetworkconnectivityQuery
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -441,7 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -452,12 +457,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
  *
- *  Method: networkconnectivity.projects.locations.internalRanges.setIamPolicy
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.setIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
  */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy : GTLRNetworkconnectivityQuery
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesSetIamPolicy : GTLRNetworkconnectivityQuery
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -478,7 +483,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -492,12 +497,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
  *
- *  Method: networkconnectivity.projects.locations.internalRanges.testIamPermissions
+ *  Method: networkconnectivity.projects.locations.global.policyBasedRoutes.testIamPermissions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
  */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions : GTLRNetworkconnectivityQuery
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesTestIamPermissions : GTLRNetworkconnectivityQuery
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -520,7 +525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsGlobalPolicyBasedRoutesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -741,7 +746,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Spoke in a given project and location.
+ *  Creates a spoke in the specified project and location.
  *
  *  Method: networkconnectivity.projects.locations.spokes.create
  *
@@ -750,34 +755,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesCreate : GTLRNetworkconnectivityQuery
 
-/** Required. The parent's resource name of the Spoke. */
+/** Required. The parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Optional. Unique id for the Spoke to create. */
+/** Optional. Unique id for the spoke to create. */
 @property(nonatomic, copy, nullable) NSString *spokeId;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Creates a new Spoke in a given project and location.
+ *  Creates a spoke in the specified project and location.
  *
  *  @param object The @c GTLRNetworkconnectivity_Spoke to include in the query.
- *  @param parent Required. The parent's resource name of the Spoke.
+ *  @param parent Required. The parent resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesCreate
  */
@@ -787,7 +792,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Spoke.
+ *  Deletes the specified spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.delete
  *
@@ -796,30 +801,30 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesDelete : GTLRNetworkconnectivityQuery
 
-/** Required. The name of the Spoke to delete. */
+/** Required. The name of the spoke to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes after the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Deletes a single Spoke.
+ *  Deletes the specified spoke.
  *
- *  @param name Required. The name of the Spoke to delete.
+ *  @param name Required. The name of the spoke to delete.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesDelete
  */
@@ -828,7 +833,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Spoke.
+ *  Gets details about the specified spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.get
  *
@@ -837,15 +842,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGet : GTLRNetworkconnectivityQuery
 
-/** Required. The name of Spoke resource. */
+/** Required. The name of the spoke resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_Spoke.
  *
- *  Gets details of a single Spoke.
+ *  Gets details about the specified spoke.
  *
- *  @param name Required. The name of Spoke resource.
+ *  @param name Required. The name of the spoke resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesGet
  */
@@ -898,7 +903,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Spokes in a given project and location.
+ *  Lists the spokes in the specified project and location.
  *
  *  Method: networkconnectivity.projects.locations.spokes.list
  *
@@ -907,7 +912,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesList : GTLRNetworkconnectivityQuery
 
-/** A filter expression that filters the results listed in the response. */
+/** An expression that filters the results listed in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Sort the results by a certain order. */
@@ -919,15 +924,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** The page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. The parent's resource name. */
+/** Required. The parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListSpokesResponse.
  *
- *  Lists Spokes in a given project and location.
+ *  Lists the spokes in the specified project and location.
  *
- *  @param parent Required. The parent's resource name.
+ *  @param parent Required. The parent resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesList
  *
@@ -940,7 +945,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the parameters of a single Spoke.
+ *  Updates the parameters of the specified spoke.
  *
  *  Method: networkconnectivity.projects.locations.spokes.patch
  *
@@ -949,30 +954,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesPatch : GTLRNetworkconnectivityQuery
 
-/** Immutable. The name of a Spoke resource. */
+/**
+ *  Immutable. The name of the spoke. Spoke names must be unique. They use the
+ *  following form:
+ *  `projects/{project_number}/locations/{region}/spokes/{spoke_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. An optional request ID to identify requests. Specify a unique
- *  request ID so that if you must retry your request, the server will know to
- *  ignore the request if it has already been completed. The server will
- *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  Optional. A unique request ID (optional). If you specify this ID, you can
+ *  use it in cases when you need to retry your request. When you need to retry,
+ *  this ID lets the server know that it can ignore the request if it has
+ *  already been completed. The server guarantees that for at least 60 minutes
+ *  after the first request. For example, consider a situation where you make an
+ *  initial request and the request times out. If you make the request again
+ *  with the same request ID, the server can check to see whether the original
+ *  operation was received. If it was, the server ignores the second request.
+ *  This behavior prevents clients from mistakenly creating duplicate
+ *  commitments. The request ID must be a valid UUID, with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. Field mask is used to specify the fields to be overwritten in the
- *  Spoke resource by the update. The fields specified in the update_mask are
- *  relative to the resource, not the full request. A field will be overwritten
- *  if it is in the mask. If the user does not provide a mask then all fields
- *  will be overwritten.
+ *  Optional. In the case of an update to an existing spoke, field mask is used
+ *  to specify the fields to be overwritten. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not provide a mask, then
+ *  all fields are overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -981,10 +990,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
  *
- *  Updates the parameters of a single Spoke.
+ *  Updates the parameters of the specified spoke.
  *
  *  @param object The @c GTLRNetworkconnectivity_Spoke to include in the query.
- *  @param name Immutable. The name of a Spoke resource.
+ *  @param name Immutable. The name of the spoke. Spoke names must be unique.
+ *    They use the following form:
+ *    `projects/{project_number}/locations/{region}/spokes/{spoke_id}`
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsSpokesPatch
  */

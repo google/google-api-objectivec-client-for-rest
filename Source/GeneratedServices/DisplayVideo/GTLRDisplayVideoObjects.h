@@ -4,8 +4,9 @@
 // API:
 //   Display & Video 360 API (displayvideo/v1)
 // Description:
-//   Display & Video 360 API allows users to manage and create campaigns and
-//   reports.
+//   Display & Video 360 API allows users to automate complex Display & Video
+//   360 workflows, such as creating insertion orders and setting targeting
+//   options for individual line items.
 // Documentation:
 //   https://developers.google.com/display-video/
 
@@ -77,6 +78,8 @@
 @class GTLRDisplayVideo_Creative;
 @class GTLRDisplayVideo_CreativeConfig;
 @class GTLRDisplayVideo_CustomBiddingAlgorithm;
+@class GTLRDisplayVideo_CustomBiddingScript;
+@class GTLRDisplayVideo_CustomBiddingScriptRef;
 @class GTLRDisplayVideo_CustomList;
 @class GTLRDisplayVideo_CustomListGroup;
 @class GTLRDisplayVideo_CustomListTargetingSetting;
@@ -185,6 +188,7 @@
 @class GTLRDisplayVideo_RateDetails;
 @class GTLRDisplayVideo_RegionalLocationListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ReviewStatusInfo;
+@class GTLRDisplayVideo_ScriptError;
 @class GTLRDisplayVideo_SdfConfig;
 @class GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_SensitiveCategoryTargetingOptionDetails;
@@ -2221,6 +2225,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53;
 /**
+ *  SDF version 5.4
+ *
+ *  Value: "SDF_VERSION_5_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -2746,6 +2756,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_Enti
  *  Value: "ENTITY_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CustomBiddingScript.state
+
+/**
+ *  The script has been accepted for scoring impressions.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Accepted;
+/**
+ *  The script is being processed for backend pipelines.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Pending;
+/**
+ *  The script has been rejected by backend pipelines. It may have errors.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Rejected;
+/**
+ *  The script state is not specified or is unknown in this version.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails.dayOfWeek
@@ -8797,6 +8835,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ReviewStatusInfo_CreativeAn
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ReviewStatusInfo_CreativeAndLandingPageReviewStatus_ReviewStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ScriptError.errorCode
+
+/**
+ *  The script uses deprecated syntax.
+ *
+ *  Value: "DEPRECATED_SYNTAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_DeprecatedSyntax;
+/**
+ *  The script error is not specified or is unknown in this version.
+ *
+ *  Value: "ERROR_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_ErrorCodeUnspecified;
+/**
+ *  Internal errors were thrown while processing the script.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_InternalError;
+/**
+ *  The script has a syntax error.
+ *
+ *  Value: "SYNTAX_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_SyntaxError;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_SdfConfig.version
 
 /**
@@ -8847,6 +8913,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *  Value: "SDF_VERSION_5_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53;
+/**
+ *  SDF version 5.4
+ *
+ *  Value: "SDF_VERSION_5_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -8905,6 +8977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_5_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53;
+/**
+ *  SDF version 5.4
+ *
+ *  Value: "SDF_VERSION_5_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -12040,7 +12118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Required. The targeting_option_id of a TargetingOption of type
- *  `TARGETING_TYPE_BUSINESS_CHAIN`.
+ *  `TARGETING_TYPE_BUSINESS_CHAIN`. Accepted business chain targeting option
+ *  IDs can be retrieved using SearchTargetingOptions.
  */
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
@@ -13212,6 +13291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SDF version 5.2 (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53
  *        SDF version 5.3 (Value: "SDF_VERSION_5_3")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54
+ *        SDF version 5.4 (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -13971,13 +14052,94 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *partnerId;
 
 /**
- *  The IDs of the advertisers who have access to this algorithm. This field
- *  will not be set if the algorithm owner is a partner and is being retrieved
- *  using an advertiser accessor.
+ *  The IDs of the advertisers who have access to this algorithm. If
+ *  advertiser_id is set, this field will only consist of that value. This field
+ *  will not be set if the algorithm
+ *  [`owner`](/display-video/api/reference/rest/v1/customBiddingAlgorithms#CustomBiddingAlgorithm.FIELDS.oneof_owner)
+ *  is a partner and is being retrieved using an advertiser
+ *  [`accessor`](/display-video/api/reference/rest/v1/customBiddingAlgorithms/list#body.QUERY_PARAMETERS.oneof_accessor).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *sharedAdvertiserIds;
+
+@end
+
+
+/**
+ *  A single custom bidding script.
+ */
+@interface GTLRDisplayVideo_CustomBiddingScript : GTLRObject
+
+/**
+ *  Output only. Whether the script is currently being used for scoring by the
+ *  parent algorithm.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/** Output only. The time when the script was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The unique ID of the custom bidding algorithm the script
+ *  belongs to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customBiddingAlgorithmId;
+
+/**
+ *  Output only. The unique ID of the custom bidding script.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customBiddingScriptId;
+
+/**
+ *  Output only. Error details of a rejected custom bidding script. This field
+ *  will only be populated when Script.state is REJECTED.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ScriptError *> *errors;
+
+/** Output only. The resource name of the custom bidding script. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The reference to the uploaded script file. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_CustomBiddingScriptRef *script;
+
+/**
+ *  Output only. The state of the custom bidding script.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingScript_State_Accepted The script
+ *        has been accepted for scoring impressions. (Value: "ACCEPTED")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingScript_State_Pending The script is
+ *        being processed for backend pipelines. (Value: "PENDING")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingScript_State_Rejected The script
+ *        has been rejected by backend pipelines. It may have errors. (Value:
+ *        "REJECTED")
+ *    @arg @c kGTLRDisplayVideo_CustomBiddingScript_State_StateUnspecified The
+ *        script state is not specified or is unknown in this version. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The reference to the uploaded custom bidding script file.
+ */
+@interface GTLRDisplayVideo_CustomBiddingScriptRef : GTLRObject
+
+/**
+ *  A resource name to be used in media.download to Download the script files.
+ *  Or media.upload to Upload the script files. Resource names have the format
+ *  `customBiddingAlgorithms/{custom_bidding_algorithm_id}/scriptRef/{ref_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
 
 @end
 
@@ -18211,6 +18373,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  GTLRDisplayVideo_ListCustomBiddingScriptsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customBiddingScripts" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListCustomBiddingScriptsResponse : GTLRCollectionObject
+
+/**
+ *  The list of custom bidding scripts. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CustomBiddingScript *> *customBiddingScripts;
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `ListCustomBiddingScriptsRequest`
+ *  method to retrieve the next page of results. If this field is null, it means
+ *  this is the last page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_ListCustomListsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -20279,7 +20470,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Required. The targeting_option_id of a TargetingOption of type
- *  `TARGETING_TYPE_POI` or reuse an existing assigned_targeting_option_id.
+ *  `TARGETING_TYPE_POI`. Accepted POI targeting option IDs can be retrieved
+ *  using SearchTargetingOptions. If targeting a specific latitude/longitude
+ *  coordinate removed from an address or POI name, you can generate the
+ *  necessary targeting option ID by rounding the desired coordinate values to
+ *  the 6th decimal place, removing the decimals, and concatenating the string
+ *  values separated by a semicolon. For example, you can target the
+ *  latitude/longitude pair of 40.7414691, -74.003387 using the targeting option
+ *  ID "40741469;-74003387".
  */
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
@@ -20672,6 +20870,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  An error message for a custom bidding script.
+ */
+@interface GTLRDisplayVideo_ScriptError : GTLRObject
+
+/**
+ *  The column number in the script where the error was thrown.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *column;
+
+/**
+ *  The type of error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ScriptError_ErrorCode_DeprecatedSyntax The
+ *        script uses deprecated syntax. (Value: "DEPRECATED_SYNTAX")
+ *    @arg @c kGTLRDisplayVideo_ScriptError_ErrorCode_ErrorCodeUnspecified The
+ *        script error is not specified or is unknown in this version. (Value:
+ *        "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ScriptError_ErrorCode_InternalError Internal
+ *        errors were thrown while processing the script. (Value:
+ *        "INTERNAL_ERROR")
+ *    @arg @c kGTLRDisplayVideo_ScriptError_ErrorCode_SyntaxError The script has
+ *        a syntax error. (Value: "SYNTAX_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** The detailed error message. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The line number in the script where the error was thrown.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
  *  Structured Data File (SDF) related settings.
  */
 @interface GTLRDisplayVideo_SdfConfig : GTLRObject
@@ -20702,6 +20942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 SDF version 5.3
  *        (Value: "SDF_VERSION_5_3")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 SDF version 5.4
+ *        (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -20760,6 +21002,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        version 5.2 (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 SDF
  *        version 5.3 (Value: "SDF_VERSION_5_3")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 SDF
+ *        version 5.4 (Value: "SDF_VERSION_5_4")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

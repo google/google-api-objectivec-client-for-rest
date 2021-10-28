@@ -22,6 +22,7 @@ NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear16 = @"LINEAR16";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw  = @"MULAW";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus = @"OGG_OPUS";
 NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte = @"SPEEX_WITH_HEADER_BYTE";
+NSString * const kGTLRSpeech_RecognitionConfig_Encoding_WebmOpus = @"WEBM_OPUS";
 
 // GTLRSpeech_RecognitionMetadata.interactionType
 NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation = @"DICTATION";
@@ -120,7 +121,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_LongRunningRecognizeResponse
-@dynamic results, totalBilledTime;
+@dynamic outputConfig, outputError, results, totalBilledTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -204,13 +205,15 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic audioChannelCount, diarizationConfig, enableAutomaticPunctuation,
-         enableSeparateRecognitionPerChannel, enableWordTimeOffsets, encoding,
-         languageCode, maxAlternatives, metadata, model, profanityFilter,
-         sampleRateHertz, speechContexts, useEnhanced;
+@dynamic alternativeLanguageCodes, audioChannelCount, diarizationConfig,
+         enableAutomaticPunctuation, enableSeparateRecognitionPerChannel,
+         enableWordConfidence, enableWordTimeOffsets, encoding, languageCode,
+         maxAlternatives, metadata, model, profanityFilter, sampleRateHertz,
+         speechContexts, useEnhanced;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"alternativeLanguageCodes" : [NSString class],
     @"speechContexts" : [GTLRSpeech_Context class]
   };
   return map;
@@ -237,7 +240,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognitionResult
-@dynamic alternatives, channelTag;
+@dynamic alternatives, channelTag, languageCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -335,5 +338,5 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_WordInfo
-@dynamic endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerTag, startTime, word;
 @end

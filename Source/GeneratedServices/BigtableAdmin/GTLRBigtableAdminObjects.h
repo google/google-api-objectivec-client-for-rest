@@ -1699,6 +1699,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  availability.
  */
 @interface GTLRBigtableAdmin_MultiClusterRoutingUseAny : GTLRObject
+
+/**
+ *  The set of clusters to route to. The order is ignored; clusters will be
+ *  tried in order of distance. If left empty, all clusters are eligible.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clusterIds;
+
 @end
 
 

@@ -473,8 +473,8 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
-@dynamic folders, name, parent, parentDisplayName, project, projectDisplayName,
-         type;
+@dynamic displayName, folders, name, parent, parentDisplayName, project,
+         projectDisplayName, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -846,8 +846,8 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Resource
-@dynamic folders, name, parentDisplayName, parentName, projectDisplayName,
-         projectName;
+@dynamic displayName, folders, name, parentDisplayName, parentName,
+         projectDisplayName, projectName, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

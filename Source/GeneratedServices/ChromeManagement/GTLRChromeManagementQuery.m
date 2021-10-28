@@ -73,6 +73,25 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersAppsCountChromeAppRequests
+
+@dynamic customer, orderBy, orgUnitId, pageSize, pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/apps:countChromeAppRequests";
+  GTLRChromeManagementQuery_CustomersAppsCountChromeAppRequests *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse class];
+  query.loggingName = @"chromemanagement.customers.apps.countChromeAppRequests";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersAppsWebGet
 
 @dynamic name;

@@ -73,6 +73,24 @@ NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform = @"DO
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform = @"INSPECT_AND_TRANSFORM";
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform = @"TRANSFORM";
 
+// GTLRCloudHealthcare_GcsDestination.contentStructure
+NSString * const kGTLRCloudHealthcare_GcsDestination_ContentStructure_ContentStructureUnspecified = @"CONTENT_STRUCTURE_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_GcsDestination_ContentStructure_MessageJson = @"MESSAGE_JSON";
+
+// GTLRCloudHealthcare_GcsDestination.messageView
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_Basic = @"BASIC";
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_Full = @"FULL";
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_MessageViewUnspecified = @"MESSAGE_VIEW_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_ParsedOnly = @"PARSED_ONLY";
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_RawOnly = @"RAW_ONLY";
+NSString * const kGTLRCloudHealthcare_GcsDestination_MessageView_SchematizedOnly = @"SCHEMATIZED_ONLY";
+
+// GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination.writeDisposition
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteAppend = @"WRITE_APPEND";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteEmpty = @"WRITE_EMPTY";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
+
 // GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination.writeDisposition
 NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend = @"WRITE_APPEND";
 NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
@@ -736,6 +754,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_ExportMessagesRequest
+//
+
+@implementation GTLRCloudHealthcare_ExportMessagesRequest
+@dynamic endTime, gcsDestination, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ExportMessagesResponse
+//
+
+@implementation GTLRCloudHealthcare_ExportMessagesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_ExportResourcesRequest
 //
 
@@ -870,6 +907,26 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_GcsDestination
+//
+
+@implementation GTLRCloudHealthcare_GcsDestination
+@dynamic contentStructure, messageView, uriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_GcsSource
+//
+
+@implementation GTLRCloudHealthcare_GcsSource
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_GoogleCloudHealthcareV1ConsentGcsDestination
 //
 
@@ -920,7 +977,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination
-@dynamic force, tableUri;
+@dynamic force, tableUri, writeDisposition;
 @end
 
 
@@ -1146,6 +1203,25 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ImportDicomDataResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ImportMessagesRequest
+//
+
+@implementation GTLRCloudHealthcare_ImportMessagesRequest
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ImportMessagesResponse
+//
+
+@implementation GTLRCloudHealthcare_ImportMessagesResponse
 @end
 
 

@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRNetworkServices_CancelOperationRequest;
+@class GTLRNetworkServices_EndpointPolicy;
 @class GTLRNetworkServices_SetIamPolicyRequest;
 @class GTLRNetworkServices_TestIamPermissionsRequest;
 
@@ -405,6 +406,319 @@ NS_ASSUME_NONNULL_BEGIN
  *    this field.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEdgeCacheServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new EndpointPolicy in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Short name of the EndpointPolicy resource to be created. E.g.
+ *  "CustomECS".
+ */
+@property(nonatomic, copy, nullable) NSString *endpointPolicyId;
+
+/**
+ *  Required. The parent resource of the EndpointPolicy. Must be in the format
+ *  `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new EndpointPolicy in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_EndpointPolicy to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the EndpointPolicy. Must be
+ *    in the format `projects/ * /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_EndpointPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single EndpointPolicy.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the EndpointPolicy to delete. Must be in the format
+ *  `projects/ * /locations/global/endpointPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes a single EndpointPolicy.
+ *
+ *  @param name Required. A name of the EndpointPolicy to delete. Must be in the
+ *    format `projects/ * /locations/global/endpointPolicies/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single EndpointPolicy.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the EndpointPolicy to get. Must be in the format
+ *  `projects/ * /locations/global/endpointPolicies/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_EndpointPolicy.
+ *
+ *  Gets details of a single EndpointPolicy.
+ *
+ *  @param name Required. A name of the EndpointPolicy to get. Must be in the
+ *    format `projects/ * /locations/global/endpointPolicies/ *`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists EndpointPolicies in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesList : GTLRNetworkServicesQuery
+
+/** Maximum number of EndpointPolicies to return per call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListEndpointPoliciesResponse` Indicates that
+ *  this is a continuation of a prior `ListEndpointPolicies` call, and that the
+ *  system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the EndpointPolicies should be
+ *  listed, specified in the format `projects/ * /locations/global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListEndpointPoliciesResponse.
+ *
+ *  Lists EndpointPolicies in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    EndpointPolicies should be listed, specified in the format `projects/ *
+ *    /locations/global`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single EndpointPolicy.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Name of the EndpointPolicy resource. It matches pattern
+ *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  EndpointPolicy resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of a single EndpointPolicy.
+ *
+ *  @param object The @c GTLRNetworkServices_EndpointPolicy to include in the
+ *    query.
+ *  @param name Required. Name of the EndpointPolicy resource. It matches
+ *    pattern
+ *    `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_EndpointPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRNetworkServices_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: networkservices.projects.locations.endpointPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions : GTLRNetworkServicesQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRNetworkServices_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRNetworkServices_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;

@@ -45,6 +45,7 @@
 @class GTLRShoppingContent_AccountTaxTaxRule;
 @class GTLRShoppingContent_AccountUser;
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
+@class GTLRShoppingContent_Address;
 @class GTLRShoppingContent_Amount;
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
@@ -72,6 +73,7 @@
 @class GTLRShoppingContent_Date;
 @class GTLRShoppingContent_DateTime;
 @class GTLRShoppingContent_DeliveryTime;
+@class GTLRShoppingContent_ECommercePlatformLinkInfo;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
 @class GTLRShoppingContent_FreeListingsProgramStatusRegionStatus;
@@ -253,7 +255,9 @@
 @class GTLRShoppingContent_UnitInvoiceAdditionalCharge;
 @class GTLRShoppingContent_UnitInvoiceTaxLine;
 @class GTLRShoppingContent_Value;
+@class GTLRShoppingContent_Warehouse;
 @class GTLRShoppingContent_WarehouseBasedDeliveryTime;
+@class GTLRShoppingContent_WarehouseCutoffTime;
 @class GTLRShoppingContent_Weight;
 
 // Generated comments include content from the discovery document; avoid them
@@ -827,19 +831,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplica
 /**
  *  Applicable to only a single product or list of products.
  *
- *  Value: "PRODUCT_SPECIFIC"
+ *  Value: "SPECIFIC_PRODUCTS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_ProductSpecific;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_Promotion.redemptionChannel
 
 /**
- *  Indicates that the channel is local.
+ *  Indicates that the channel is in store.
  *
- *  Value: "LOCAL"
+ *  Value: "IN_STORE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Local;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore;
 /**
  *  Indicates that the channel is online.
  *
@@ -1507,8 +1511,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *koreanBusinessRegistrationNumber;
 
-/** The phone number of the business. */
+/**
+ *  The phone number of the business. This can only be updated if a verified
+ *  phone number is not already set. To replace a verified phone number use the
+ *  `Accounts.requestphoneverification` and `Accounts.verifyphonenumber`.
+ */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Verification status of the phone number of the business. This status is read
+ *  only and can be updated only by successful phone verification. Acceptable
+ *  values are: - "`verified`" - "`unverified`"
+ */
+@property(nonatomic, copy, nullable) NSString *phoneVerificationStatus;
 
 @end
 
@@ -1904,6 +1919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`request`"
  */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/** Additional information required for `eCommercePlatform` link type. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ECommercePlatformLinkInfo *eCommercePlatformLinkInfo;
 
 /** The ID of the linked account. */
 @property(nonatomic, copy, nullable) NSString *linkedAccountId;
@@ -2590,6 +2608,39 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Request message for the ActivateProgram method.
  */
 @interface GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRShoppingContent_Address
+ */
+@interface GTLRShoppingContent_Address : GTLRObject
+
+/**
+ *  Required. Top-level administrative subdivision of the country. For example,
+ *  a state like California ("CA") or a province like Quebec ("QC").
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Required. City, town or commune. May also include dependent localities or
+ *  sublocalities (e.g. neighborhoods or suburbs).
+ */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/**
+ *  Required. [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  (e.g. "US").
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** Required. Postal code or ZIP (e.g. "94043"). */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/** Street-level part of the address. */
+@property(nonatomic, copy, nullable) NSString *streetAddress;
+
 @end
 
 
@@ -3912,6 +3963,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  Additional information required for E_COMMERCE_PLATFORM link type.
+ */
+@interface GTLRShoppingContent_ECommercePlatformLinkInfo : GTLRObject
+
+/**
+ *  The id used by the third party service provider to identify the merchant.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountId;
+
+@end
+
+
+/**
  *  An error returned by the API.
  */
 @interface GTLRShoppingContent_Error : GTLRObject
@@ -5076,7 +5140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Supported pickup method for this offer. Unless the value is "not supported",
  *  this field must be submitted together with `pickupSla`. For accepted
- *  attribute values, see the local product inventory feed // specification.
+ *  attribute values, see the local product inventory feed specification.
  */
 @property(nonatomic, copy, nullable) NSString *pickupMethod;
 
@@ -5810,7 +5874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`noInventory`" - "`orderTimeout`" - "`other`" - "`paymentAbuse`" -
  *  "`paymentDeclined`" - "`priceError`" - "`returnRefundAbuse`" -
  *  "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -7134,7 +7198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`customerInitiatedCancel`" - "`invalidCoupon`" -
  *  "`malformedShippingAddress`" - "`noInventory`" - "`other`" - "`priceError`"
  *  - "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -7179,7 +7243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`customerInitiatedCancel`" - "`invalidCoupon`" -
  *  "`malformedShippingAddress`" - "`noInventory`" - "`other`" - "`priceError`"
  *  - "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -8309,6 +8373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_OrderTrackingSignalLineItemDetails : GTLRObject
 
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
 /** The Global Trade Item Number. */
 @property(nonatomic, copy, nullable) NSString *gtin;
 
@@ -8319,10 +8386,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *mpn;
 
 /**
+ *  Plain text description of this product (deprecated: Please use product_title
+ *  instead).
+ */
+@property(nonatomic, copy, nullable) NSString *productDescription;
+
+/**
  *  Required. The Content API REST ID of the product, in the form
  *  channel:contentLanguage:targetCountry:offerId.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+/** Plain text title of this product. */
+@property(nonatomic, copy, nullable) NSString *productTitle;
 
 /**
  *  Required. The quantity of the line item in the order.
@@ -8330,6 +8406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/** Merchant SKU for this item (deprecated). */
+@property(nonatomic, copy, nullable) NSString *sku;
+
+/**
+ *  Universal product code for this item (deprecated: Please use GTIN instead).
+ */
+@property(nonatomic, copy, nullable) NSString *upc;
 
 @end
 
@@ -10149,10 +10233,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Represents a promotion. (1)
- *  https://support.google.com/merchants/answer/2906014 (2)
- *  https://support.google.com/merchants/answer/10146130 (3)
- *  https://support.google.com/merchants/answer/9173673
+ *  The Promotions feature is currently in alpha and is not yet publicly
+ *  available via Content API for Shopping. This documentation is provided for
+ *  reference only may be subject to change. Represents a promotion. See the
+ *  following articles for more details. * [Promotions feed
+ *  specification](https://support.google.com/merchants/answer/2906014) * [Local
+ *  promotions feed
+ *  specification](https://support.google.com/merchants/answer/10146130) *
+ *  [Promotions on Buy on Google product data
+ *  specification](https://support.google.com/merchants/answer/9173673)
  */
 @interface GTLRShoppingContent_Promotion : GTLRObject
 
@@ -10235,7 +10324,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Required. Output only. The REST promotion id to uniquely identify the
  *  promotion. Content API methods that operate on promotions take this as their
- *  promotionId parameter.
+ *  promotionId parameter. The REST ID for a promotion is of the form
+ *  channel:contentLanguage:targetCountry:promotionId The channel field will
+ *  have a value of "online", "in_store", or "online_in_store".
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -10319,11 +10410,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_ProductApplicabilityUnspecified
  *        Unknown product applicability. (Value:
  *        "PRODUCT_APPLICABILITY_UNSPECIFIED")
- *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_ProductSpecific
+ *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts
  *        Applicable to only a single product or list of products. (Value:
- *        "PRODUCT_SPECIFIC")
+ *        "SPECIFIC_PRODUCTS")
  */
 @property(nonatomic, copy, nullable) NSString *productApplicability;
+
+/** Product filter by product type for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productType;
+
+/** Product filter by product type exclusion for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productTypeExclusion;
 
 /** Destination ID for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *promotionDestinationIds;
@@ -12640,6 +12737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The target account's list of services. Optional. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Service *> *services;
 
+/** Optional. A list of warehouses which can be referred to in `services`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Warehouse *> *warehouses;
+
 @end
 
 
@@ -13438,6 +13538,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
+ *  A fulfillment warehouse, which stores and handles inventory.
+ */
+@interface GTLRShoppingContent_Warehouse : GTLRObject
+
+/**
+ *  Business days of the warehouse. If not set, will be Monday to Friday by
+ *  default.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BusinessDayConfig *businessDayConfig;
+
+/**
+ *  Required. The latest time of day that an order can be accepted and begin
+ *  processing. Later orders will be processed in the next day. The time is
+ *  based on the warehouse postal code.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_WarehouseCutoffTime *cutoffTime;
+
+/**
+ *  Required. The number of days it takes for this warehouse to pack up and ship
+ *  an item. This is on the warehouse level, but can be overridden on the offer
+ *  level based on the attributes of an item.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *handlingDays;
+
+/** Required. The name of the warehouse. Must be unique within account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Shipping address of the warehouse. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Address *shippingAddress;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_WarehouseBasedDeliveryTime
  */
 @interface GTLRShoppingContent_WarehouseBasedDeliveryTime : GTLRObject
@@ -13456,23 +13592,56 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *carrierService;
 
-/** Required. Shipping origin's state. */
+/** Shipping origin's state. */
 @property(nonatomic, copy, nullable) NSString *originAdministrativeArea;
 
-/** Required. Shipping origin's city. */
+/** Shipping origin's city. */
 @property(nonatomic, copy, nullable) NSString *originCity;
 
 /**
- *  Required. Shipping origin's country represented as a [CLDR territory
+ *  Shipping origin's country represented as a [CLDR territory
  *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml).
  */
 @property(nonatomic, copy, nullable) NSString *originCountry;
 
-/** Required. Shipping origin. */
+/** Shipping origin. */
 @property(nonatomic, copy, nullable) NSString *originPostalCode;
 
 /** Shipping origin's street address. */
 @property(nonatomic, copy, nullable) NSString *originStreetAddress;
+
+/**
+ *  The name of the warehouse. Warehouse name need to be matched with name. If
+ *  warehouseName is set, the below fields will be ignored. The warehouse info
+ *  will be read from warehouse.
+ */
+@property(nonatomic, copy, nullable) NSString *warehouseName;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_WarehouseCutoffTime
+ */
+@interface GTLRShoppingContent_WarehouseCutoffTime : GTLRObject
+
+/**
+ *  Required. Hour (24-hour clock) of the cutoff time until which an order has
+ *  to be placed to be processed in the same day by the warehouse. Hour is based
+ *  on the timezone of warehouse.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hour;
+
+/**
+ *  Required. Minute of the cutoff time until which an order has to be placed to
+ *  be processed in the same day by the warehouse. Minute is based on the
+ *  timezone of warehouse.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minute;
 
 @end
 

@@ -37,11 +37,13 @@
 @class GTLRCloudHealthcare_DicomStore;
 @class GTLRCloudHealthcare_EvaluateUserConsentsRequest;
 @class GTLRCloudHealthcare_ExportDicomDataRequest;
+@class GTLRCloudHealthcare_ExportMessagesRequest;
 @class GTLRCloudHealthcare_ExportResourcesRequest;
 @class GTLRCloudHealthcare_FhirStore;
 @class GTLRCloudHealthcare_Hl7V2Store;
 @class GTLRCloudHealthcare_HttpBody;
 @class GTLRCloudHealthcare_ImportDicomDataRequest;
+@class GTLRCloudHealthcare_ImportMessagesRequest;
 @class GTLRCloudHealthcare_ImportResourcesRequest;
 @class GTLRCloudHealthcare_IngestMessageRequest;
 @class GTLRCloudHealthcare_Message;
@@ -4993,6 +4995,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Exports the messages to a destination. To filter messages to be exported,
+ *  define a filter using the start and end time, relative to the message
+ *  generation time (MSH.7). This API returns an Operation that can be used to
+ *  track the status of the job by calling GetOperation. Immediate fatal errors
+ *  appear in the error field. Otherwise, when the operation finishes, a
+ *  detailed response of type ExportMessagesResponse is returned in the response
+ *  field. The metadata field type for this operation is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.hl7V2Stores.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport : GTLRCloudHealthcareQuery
+
+/**
+ *  The name of the source HL7v2 store, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Exports the messages to a destination. To filter messages to be exported,
+ *  define a filter using the start and end time, relative to the message
+ *  generation time (MSH.7). This API returns an Operation that can be used to
+ *  track the status of the job by calling GetOperation. Immediate fatal errors
+ *  appear in the error field. Otherwise, when the operation finishes, a
+ *  detailed response of type ExportMessagesResponse is returned in the response
+ *  field. The metadata field type for this operation is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ExportMessagesRequest to include in
+ *    the query.
+ *  @param name The name of the source HL7v2 store, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresExport
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ExportMessagesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the specified HL7v2 store.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.get
@@ -5059,6 +5106,85 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Import messages to the HL7v2 store by loading data from the specified
+ *  sources. This method is optimized to load large quantities of data using
+ *  import semantics that ignore some HL7v2 store configuration options and are
+ *  not suitable for all use cases. It is primarily intended to load data into
+ *  an empty HL7v2 store that is not being used by other clients. An existing
+ *  message will be overwritten if a duplicate message is imported. A duplicate
+ *  message is a message with the same raw bytes as a message that already
+ *  exists in this HL7v2 store. When a message is overwritten, its labels will
+ *  also be overwritten. The import operation is idempotent unless the input
+ *  data contains multiple valid messages with the same raw bytes but different
+ *  labels. In that case, after the import completes, the store contains exactly
+ *  one message with those raw bytes but there is no ordering guarantee on which
+ *  version of the labels it has. The operation result counters do not count
+ *  duplicated raw bytes as an error and count one success for each message in
+ *  the input, which might result in a success count larger than the number of
+ *  messages in the HL7v2 store. If some messages fail to import, for example
+ *  due to parsing errors, successfully imported messages are not rolled back.
+ *  This method returns an Operation that can be used to track the status of the
+ *  import by calling GetOperation. Immediate fatal errors appear in the error
+ *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a response of type
+ *  ImportMessagesResponse is returned in the response field. The metadata field
+ *  type for this operation is OperationMetadata.
+ *
+ *  Method: healthcare.projects.locations.datasets.hl7V2Stores.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport : GTLRCloudHealthcareQuery
+
+/**
+ *  The name of the target HL7v2 store, in the format
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Import messages to the HL7v2 store by loading data from the specified
+ *  sources. This method is optimized to load large quantities of data using
+ *  import semantics that ignore some HL7v2 store configuration options and are
+ *  not suitable for all use cases. It is primarily intended to load data into
+ *  an empty HL7v2 store that is not being used by other clients. An existing
+ *  message will be overwritten if a duplicate message is imported. A duplicate
+ *  message is a message with the same raw bytes as a message that already
+ *  exists in this HL7v2 store. When a message is overwritten, its labels will
+ *  also be overwritten. The import operation is idempotent unless the input
+ *  data contains multiple valid messages with the same raw bytes but different
+ *  labels. In that case, after the import completes, the store contains exactly
+ *  one message with those raw bytes but there is no ordering guarantee on which
+ *  version of the labels it has. The operation result counters do not count
+ *  duplicated raw bytes as an error and count one success for each message in
+ *  the input, which might result in a success count larger than the number of
+ *  messages in the HL7v2 store. If some messages fail to import, for example
+ *  due to parsing errors, successfully imported messages are not rolled back.
+ *  This method returns an Operation that can be used to track the status of the
+ *  import by calling GetOperation. Immediate fatal errors appear in the error
+ *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a response of type
+ *  ImportMessagesResponse is returned in the response field. The metadata field
+ *  type for this operation is OperationMetadata.
+ *
+ *  @param object The @c GTLRCloudHealthcare_ImportMessagesRequest to include in
+ *    the query.
+ *  @param name The name of the target HL7v2 store, in the format
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/hl7v2Stores/{hl7v2_store_id}`
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ImportMessagesRequest *)object
+                           name:(NSString *)name;
 
 @end
 

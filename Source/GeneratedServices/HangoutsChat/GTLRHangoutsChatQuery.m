@@ -22,7 +22,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsConversationsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -49,7 +49,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -76,7 +76,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -130,7 +130,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsConversationsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -157,7 +157,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -184,7 +184,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -304,7 +304,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesCreate
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -396,7 +396,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {

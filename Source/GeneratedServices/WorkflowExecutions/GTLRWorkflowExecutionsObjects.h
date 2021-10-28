@@ -105,7 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_Error : GTLRObject
 
-/** Human readable stack trace string. */
+/** Human-readable stack trace string. */
 @property(nonatomic, copy, nullable) NSString *context;
 
 /** Error message and data returned represented as a JSON string. */
@@ -235,8 +235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 @property(nonatomic, strong, nullable) NSNumber *column;
 
 /**
- *  The length in bytes of text in this character group, e.g. digits of a
- *  number, string length, or AST (abstract syntax tree) node.
+ *  The number of bytes of source code making up this stack trace element.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -257,7 +256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_StackTrace : GTLRObject
 
-/** An array of Stack elements. */
+/** An array of stack elements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StackTraceElement *> *elements;
 
 @end
@@ -268,7 +267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_StackTraceElement : GTLRObject
 
-/** The source position information of the stacktrace element. */
+/** The source position information of the stack trace element. */
 @property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Position *position;
 
 /** The routine where the error occurred. */

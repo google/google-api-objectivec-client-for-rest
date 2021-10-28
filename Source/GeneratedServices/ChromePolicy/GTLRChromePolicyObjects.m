@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRChromePolicy_GoogleChromePolicyV1PolicySchema.validTargetResources
+NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_Group = @"GROUP";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_OrgUnit = @"ORG_UNIT";
+NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_TargetResourceUnspecified = @"TARGET_RESOURCE_UNSPECIFIED";
+
 // GTLRChromePolicy_Proto2FieldDescriptorProto.label
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelOptional = @"LABEL_OPTIONAL";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Label_LabelRepeated = @"LABEL_REPEATED";
@@ -136,14 +141,15 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchema
 @dynamic accessRestrictions, additionalTargetKeyNames, definition,
          fieldDescriptions, name, notices, policyDescription, schemaName,
-         supportUri;
+         supportUri, validTargetResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessRestrictions" : [NSString class],
     @"additionalTargetKeyNames" : [GTLRChromePolicy_GoogleChromePolicyV1AdditionalTargetKeyName class],
     @"fieldDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription class],
-    @"notices" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription class]
+    @"notices" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription class],
+    @"validTargetResources" : [NSString class]
   };
   return map;
 }

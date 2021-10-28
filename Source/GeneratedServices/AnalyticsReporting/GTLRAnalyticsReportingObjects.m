@@ -643,8 +643,8 @@ NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified = @"USE
 //
 
 @implementation GTLRAnalyticsReporting_ReportData
-@dynamic dataLastRefreshed, isDataGolden, maximums, minimums, rowCount, rows,
-         samplesReadCounts, samplingSpaceSizes, totals;
+@dynamic dataLastRefreshed, emptyReason, isDataGolden, maximums, minimums,
+         rowCount, rows, samplesReadCounts, samplingSpaceSizes, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAnalyticsData_ActiveMetricRestriction.restrictedMetricTypes
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_CostData = @"COST_DATA";
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RevenueData = @"REVENUE_DATA";
+
 // GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
 NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible = @"COMPATIBLE";
@@ -54,6 +59,11 @@ NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMilliseconds = @"TYPE_
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMinutes = @"TYPE_MINUTES";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeSeconds = @"TYPE_SECONDS";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeStandard = @"TYPE_STANDARD";
+
+// GTLRAnalyticsData_MetricMetadata.blockedReasons
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_BlockedReasonUnspecified = @"BLOCKED_REASON_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_NoCostMetrics = @"NO_COST_METRICS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_NoRevenueMetrics = @"NO_REVENUE_METRICS";
 
 // GTLRAnalyticsData_MetricMetadata.type
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
@@ -107,6 +117,24 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Exact = @"EXACT";
 NSString * const kGTLRAnalyticsData_StringFilter_MatchType_FullRegexp = @"FULL_REGEXP";
 NSString * const kGTLRAnalyticsData_StringFilter_MatchType_MatchTypeUnspecified = @"MATCH_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PARTIAL_REGEXP";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_ActiveMetricRestriction
+//
+
+@implementation GTLRAnalyticsData_ActiveMetricRestriction
+@dynamic metricName, restrictedMetricTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictedMetricTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -521,8 +549,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_MetricMetadata
-@dynamic apiName, category, customDefinition, deprecatedApiNames,
-         descriptionProperty, expression, type, uiName;
+@dynamic apiName, blockedReasons, category, customDefinition,
+         deprecatedApiNames, descriptionProperty, expression, type, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -530,6 +558,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"blockedReasons" : [NSString class],
     @"deprecatedApiNames" : [NSString class]
   };
   return map;
@@ -709,7 +738,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_ResponseMetaData
-@dynamic currencyCode, dataLossFromOtherRow, timeZone;
+@dynamic currencyCode, dataLossFromOtherRow, emptyReason,
+         schemaRestrictionResponse, timeZone;
 @end
 
 
@@ -886,6 +916,24 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_SchemaRestrictionResponse
+//
+
+@implementation GTLRAnalyticsData_SchemaRestrictionResponse
+@dynamic activeMetricRestrictions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeMetricRestrictions" : [GTLRAnalyticsData_ActiveMetricRestriction class]
+  };
+  return map;
 }
 
 @end

@@ -405,7 +405,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Create an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.githubEnterpriseConfigs.create
  *
@@ -413,6 +412,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate : GTLRCloudBuildQuery
+
+/**
+ *  Optional. The ID to use for the GithubEnterpriseConfig, which will become
+ *  the final component of the GithubEnterpriseConfig’s resource name.
+ *  ghe_config_id must meet the following requirements: + They must contain only
+ *  alphanumeric characters and dashes. + They can be 1-64 characters long. +
+ *  They must begin and end with an alphanumeric character
+ */
+@property(nonatomic, copy, nullable) NSString *gheConfigId;
 
 /**
  *  Name of the parent project. For example: projects/{$project_number} or
@@ -427,7 +435,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Create an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
@@ -443,7 +450,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Delete an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.githubEnterpriseConfigs.delete
  *
@@ -468,7 +474,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Delete an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
@@ -481,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve a GitHubEnterpriseConfig. This API is experimental.
+ *  Retrieve a GitHubEnterpriseConfig.
  *
  *  Method: cloudbuild.projects.githubEnterpriseConfigs.get
  *
@@ -505,7 +510,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
  *
- *  Retrieve a GitHubEnterpriseConfig. This API is experimental.
+ *  Retrieve a GitHubEnterpriseConfig.
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
@@ -518,8 +523,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all GitHubEnterpriseConfigs for a given project. This API is
- *  experimental.
+ *  List all GitHubEnterpriseConfigs for a given project.
  *
  *  Method: cloudbuild.projects.githubEnterpriseConfigs.list
  *
@@ -540,8 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.
  *
- *  List all GitHubEnterpriseConfigs for a given project. This API is
- *  experimental.
+ *  List all GitHubEnterpriseConfigs for a given project.
  *
  *  @param parent Name of the parent project. For example:
  *    projects/{$project_number} or projects/{$project_id}
@@ -554,7 +557,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Update an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.githubEnterpriseConfigs.patch
  *
@@ -582,7 +584,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Update an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
@@ -868,7 +869,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Create an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.create
  *
@@ -876,6 +876,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate : GTLRCloudBuildQuery
+
+/**
+ *  Optional. The ID to use for the GithubEnterpriseConfig, which will become
+ *  the final component of the GithubEnterpriseConfig’s resource name.
+ *  ghe_config_id must meet the following requirements: + They must contain only
+ *  alphanumeric characters and dashes. + They can be 1-64 characters long. +
+ *  They must begin and end with an alphanumeric character
+ */
+@property(nonatomic, copy, nullable) NSString *gheConfigId;
 
 /**
  *  Name of the parent project. For example: projects/{$project_number} or
@@ -890,7 +899,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Create an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.
@@ -906,7 +914,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Delete an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.delete
  *
@@ -931,7 +938,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Delete an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
@@ -944,7 +950,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve a GitHubEnterpriseConfig. This API is experimental.
+ *  Retrieve a GitHubEnterpriseConfig.
  *
  *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.get
  *
@@ -968,7 +974,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_GitHubEnterpriseConfig.
  *
- *  Retrieve a GitHubEnterpriseConfig. This API is experimental.
+ *  Retrieve a GitHubEnterpriseConfig.
  *
  *  @param name This field should contain the name of the enterprise config
  *    resource. For example:
@@ -981,8 +987,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List all GitHubEnterpriseConfigs for a given project. This API is
- *  experimental.
+ *  List all GitHubEnterpriseConfigs for a given project.
  *
  *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.list
  *
@@ -1003,8 +1008,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_ListGithubEnterpriseConfigsResponse.
  *
- *  List all GitHubEnterpriseConfigs for a given project. This API is
- *  experimental.
+ *  List all GitHubEnterpriseConfigs for a given project.
  *
  *  @param parent Name of the parent project. For example:
  *    projects/{$project_number} or projects/{$project_id}
@@ -1017,7 +1021,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Update an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  Method: cloudbuild.projects.locations.githubEnterpriseConfigs.patch
  *
@@ -1045,7 +1048,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
  *  Update an association between a GCP project and a GitHub Enterprise server.
- *  This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_GitHubEnterpriseConfig to include in the
  *    query.

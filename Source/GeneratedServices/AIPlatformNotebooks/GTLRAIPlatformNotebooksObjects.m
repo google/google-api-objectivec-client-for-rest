@@ -96,6 +96,8 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_State_Starting = @"STARTING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopped = @"STOPPED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopping = @"STOPPING";
+NSString * const kGTLRAIPlatformNotebooks_Instance_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRAIPlatformNotebooks_Instance_State_Suspending = @"SUSPENDING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading = @"UPGRADING";
 
 // GTLRAIPlatformNotebooks_LocalDiskInitializeParams.diskType
@@ -154,6 +156,7 @@ NSString * const kGTLRAIPlatformNotebooks_Schedule_State_StateUnspecified = @"ST
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_UpdateFailed = @"UPDATE_FAILED";
 
 // GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig.type
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
@@ -344,8 +347,9 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 @implementation GTLRAIPlatformNotebooks_ExecutionTemplate
 @dynamic acceleratorConfig, containerImageUri, dataprocParameters,
-         inputNotebookFile, jobType, labels, masterType, outputNotebookFolder,
-         parameters, paramsYamlFile, scaleTier, serviceAccount;
+         inputNotebookFile, jobType, kernelSpec, labels, masterType,
+         outputNotebookFolder, parameters, paramsYamlFile, scaleTier,
+         serviceAccount, vertexAiParameters;
 @end
 
 
@@ -1256,6 +1260,30 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VertexAIParameters
+//
+
+@implementation GTLRAIPlatformNotebooks_VertexAIParameters
+@dynamic env, network;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VertexAIParameters_Env
+//
+
+@implementation GTLRAIPlatformNotebooks_VertexAIParameters_Env
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

@@ -29,6 +29,7 @@
 @class GTLRRealTimeBidding_AddTargetedSitesRequest;
 @class GTLRRealTimeBidding_CloseUserListRequest;
 @class GTLRRealTimeBidding_Creative;
+@class GTLRRealTimeBidding_Endpoint;
 @class GTLRRealTimeBidding_OpenUserListRequest;
 @class GTLRRealTimeBidding_PretargetingConfig;
 @class GTLRRealTimeBidding_RemoveTargetedAppsRequest;
@@ -114,7 +115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListCreativesResponse.nextPageToken returned from the
- *  previous call to the 'ListCreatives' method.
+ *  previous call to the 'ListCreatives' method. Page tokens for continued pages
+ *  are valid for up to five hours, counting from the call to 'ListCreatives'
+ *  for the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -301,6 +304,49 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bidder's endpoint.
+ *
+ *  Method: realtimebidding.bidders.endpoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsPatch : GTLRRealTimeBiddingQuery
+
+/**
+ *  Output only. Name of the endpoint resource that must follow the pattern
+ *  `bidders/{bidderAccountId}/endpoints/{endpointId}`, where {bidderAccountId}
+ *  is the account ID of the bidder who operates this endpoint, and {endpointId}
+ *  is a unique ID assigned by the server.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask to use for partial in-place updates.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Endpoint.
+ *
+ *  Updates a bidder's endpoint.
+ *
+ *  @param object The @c GTLRRealTimeBidding_Endpoint to include in the query.
+ *  @param name Output only. Name of the endpoint resource that must follow the
+ *    pattern `bidders/{bidderAccountId}/endpoints/{endpointId}`, where
+ *    {bidderAccountId} is the account ID of the bidder who operates this
+ *    endpoint, and {endpointId} is a unique ID assigned by the server.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsPatch
+ */
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_Endpoint *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -945,7 +991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListCreativesResponse.nextPageToken returned from the
- *  previous call to the 'ListCreatives' method.
+ *  previous call to the 'ListCreatives' method. Page tokens for continued pages
+ *  are valid for up to five hours, counting from the call to 'ListCreatives'
+ *  for the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

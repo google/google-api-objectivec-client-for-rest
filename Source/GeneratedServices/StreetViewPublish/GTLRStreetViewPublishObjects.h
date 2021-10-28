@@ -484,7 +484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_PhotoId : GTLRObject
 
 /**
- *  Required. A unique identifier for a photo.
+ *  A unique identifier for a photo.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

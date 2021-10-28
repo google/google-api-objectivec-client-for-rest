@@ -54,6 +54,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51 = @"MYSQL
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -80,6 +81,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -129,6 +131,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51          = @"MYSQL_5_1";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55          = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56          = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -250,6 +253,7 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRON
 
 // GTLRSQLAdmin_SqlExternalSyncSettingError.type
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled = @"BINLOG_NOT_ENABLED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting = @"BINLOG_RETENTION_SETTING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
@@ -268,6 +272,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySe
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat = @"UNSUPPORTED_BINLOG_FORMAT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
@@ -815,7 +820,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_GenerateEphemeralCertRequest
-@dynamic accessToken, publicKey, readTime;
+@dynamic accessToken, publicKey, readTime, validDuration;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

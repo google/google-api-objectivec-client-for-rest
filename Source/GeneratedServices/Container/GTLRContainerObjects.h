@@ -43,7 +43,9 @@
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
+@class GTLRContainer_DNSConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
+@class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
@@ -64,6 +66,7 @@
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
+@class GTLRContainer_MeshCertificates;
 @class GTLRContainer_Metric;
 @class GTLRContainer_MonitoringComponentConfig;
 @class GTLRContainer_MonitoringConfig;
@@ -73,11 +76,13 @@
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
+@class GTLRContainer_NodeConfigDefaults;
 @class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeManagement;
 @class GTLRContainer_NodeNetworkConfig;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
+@class GTLRContainer_NodePoolDefaults;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
@@ -287,6 +292,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DNSConfig.clusterDns
+
+/**
+ *  Use CloudDNS for DNS resolution.
+ *
+ *  Value: "CLOUD_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns;
+/**
+ *  Use GKE default DNS provider(kube-dns) for DNS resolution.
+ *
+ *  Value: "PLATFORM_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault;
+/**
+ *  Default value
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DNSConfig.clusterDnsScope
+
+/**
+ *  Default value, will be inferred as cluster scope.
+ *
+ *  Value: "DNS_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified;
+/**
+ *  DNS records are accessible from within the VPC.
+ *
+ *  Value: "VPC_SCOPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
@@ -1651,6 +1694,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The configuration options for master authorized networks feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
 
+/**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MeshCertificates *meshCertificates;
+
 /** Monitoring configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *monitoringConfig;
 
@@ -1708,6 +1756,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeIpv4CidrSize;
+
+/**
+ *  Default NodePool settings for the entire cluster. These settings are
+ *  overridden if specified on the specific NodePool object.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolDefaults *nodePoolDefaults;
 
 /**
  *  The node pools associated with this cluster. This field should not be set if
@@ -1894,9 +1948,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired authenticator groups config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
 
-/** The desired Autopilot configuration for the cluster. */
-@property(nonatomic, strong, nullable) GTLRContainer_Autopilot *desiredAutopilot;
-
 /** The desired configuration options for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
 
@@ -1925,6 +1976,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired status of whether to disable default sNAT for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *desiredDefaultSnatStatus;
+
+/** DNSConfig contains clusterDNS config for this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
+
+/** The desired GCFS config for the cluster */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *desiredGcfsConfig;
 
 /**
  *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
@@ -1977,6 +2034,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *desiredMasterVersion;
+
+/**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MeshCertificates *desiredMeshCertificates;
 
 /** The desired monitoring configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *desiredMonitoringConfig;
@@ -2306,6 +2368,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  DNSConfig contains the desired set of options for configuring clusterDNS.
+ */
+@interface GTLRContainer_DNSConfig : GTLRObject
+
+/**
+ *  cluster_dns indicates which in-cluster DNS provider should be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_CloudDns Use CloudDNS for DNS
+ *        resolution. (Value: "CLOUD_DNS")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault Use GKE
+ *        default DNS provider(kube-dns) for DNS resolution. (Value:
+ *        "PLATFORM_DEFAULT")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified Default
+ *        value (Value: "PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterDns;
+
+/** cluster_dns_domain is the suffix used for all cluster service records. */
+@property(nonatomic, copy, nullable) NSString *clusterDnsDomain;
+
+/**
+ *  cluster_dns_scope indicates the scope of access to cluster DNS records.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified
+ *        Default value, will be inferred as cluster scope. (Value:
+ *        "DNS_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope DNS records are
+ *        accessible from within the VPC. (Value: "VPC_SCOPE")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterDnsScope;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -2323,6 +2422,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Whether the Compute Engine PD CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GcfsConfig contains configurations of Google Container File System (image
+ *  streaming).
+ */
+@interface GTLRContainer_GcfsConfig : GTLRObject
+
+/**
+ *  Whether to use GCFS.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2963,6 +3078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@interface GTLRContainer_MeshCertificates : GTLRObject
+@end
+
+
+/**
  *  Progress metric is (string, int|float|string) pair.
  */
 @interface GTLRContainer_Metric : GTLRObject
@@ -3045,6 +3167,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  prevent sNAT on cluster internal traffic.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *defaultSnatStatus;
+
+/** DNSConfig contains clusterDNS config for this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *dnsConfig;
 
 /**
  *  Whether Intra-node visibility is enabled for this cluster. This makes same
@@ -3178,6 +3303,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** Google Container File System (image streaming) configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
 /** Enable or disable gvnic in the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
@@ -3362,6 +3490,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        fetch them all at once.
  */
 @interface GTLRContainer_NodeConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Subset of NodeConfig message that has defaults.
+ */
+@interface GTLRContainer_NodeConfigDefaults : GTLRObject
+
+/** GCFS (Google Container File System, a.k.a Riptide) options. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
 @end
 
 
@@ -3617,19 +3756,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Maximum number of nodes in the NodePool. Must be >= min_node_count. There
- *  has to be enough quota to scale up the cluster.
+ *  Maximum number of nodes for one location in the NodePool. Must be >=
+ *  min_node_count. There has to be enough quota to scale up the cluster.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
 
 /**
- *  Minimum number of nodes in the NodePool. Must be >= 1 and <= max_node_count.
+ *  Minimum number of nodes for one location in the NodePool. Must be >= 1 and
+ *  <= max_node_count.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+@end
+
+
+/**
+ *  Subset of Nodepool message that has defaults.
+ */
+@interface GTLRContainer_NodePoolDefaults : GTLRObject
+
+/** Subset of NodeConfig message that has defaults. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfigDefaults *nodeConfigDefaults;
 
 @end
 
@@ -5180,6 +5331,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
+
+/** GCFS config. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
 
 /** Enable or disable gvnic on the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;

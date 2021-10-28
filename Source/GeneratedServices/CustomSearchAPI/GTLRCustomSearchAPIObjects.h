@@ -48,11 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCustomSearchAPI_Promotion : GTLRObject
 
-/**
- *  An array of block objects for this promotion. See [Google WebSearch Protocol
- *  reference](https://developers.google.com/custom-search/docs/xml_results) for
- *  more information.
- */
+/** An array of block objects for this promotion. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomSearchAPI_Promotion_BodyLines_Item *> *bodyLines;
 
 /** An abridged version of this search's result URL, e.g. www.example.com. */
@@ -155,10 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  Encapsulates all information about [refinement
- *  labels](https://developers.google.com/custom-search/docs/xml_results).
- */
+/** Encapsulates all information about refinement labels. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomSearchAPI_Result_Labels_Item *> *labels;
 
 /**
@@ -439,12 +432,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
- *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
+ *  operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  in the `cr` parameter's value. Google WebSearch determines the country of a
  *  document by analyzing the following: * The top-level domain (TLD) of the
  *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
- *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
+ *  Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections)
  *  for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
@@ -468,7 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
- *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
+ *  Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch)
  *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
@@ -500,7 +493,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Activates or deactivates the automatic filtering of Google search results.
  *  See [Automatic
- *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
+ *  Filtering](https://developers.google.com/custom-search/docs/json_api_reference#automaticFiltering)
  *  for more information about Google's search results filters. Valid values for
  *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
  *  default, Google applies filtering to all search results to improve the
@@ -511,7 +504,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Boosts search results whose country of origin matches the parameter value.
  *  See [Country
- *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
  *  requests should improve the relevance of results. This is particularly true
  *  for international customers and, even more specifically, for customers in
@@ -536,11 +529,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies the interface language (host language) of your user interface.
  *  Explicitly setting this parameter improves the performance and the quality
  *  of your search results. See the [Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
- *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
+ *  Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing)
  *  for more information, and [Supported Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *hl;
@@ -598,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Provides additional search terms to check for in a document, where each
  *  document in the search results must contain at least one of the additional
  *  search terms. You can also use the [Boolean
- *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
+ *  OR](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  query term for this type of query.
  */
 @property(nonatomic, copy, nullable) NSString *orTerms;
@@ -620,7 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the [SafeSearch
- *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
+ *  level](https://developers.google.com/custom-search/docs/json_api_reference#safeSearchLevels)
  *  used for filtering out adult results. This is a custom property not defined
  *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
  *  SafeSearch * `"active"`: Enable SafeSearch
@@ -696,12 +689,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
- *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
+ *  operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  in the `cr` parameter's value. Google WebSearch determines the country of a
  *  document by analyzing the following: * The top-level domain (TLD) of the
  *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
- *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
+ *  Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections)
  *  for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
@@ -725,7 +718,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
- *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
+ *  Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch)
  *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
@@ -757,7 +750,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Activates or deactivates the automatic filtering of Google search results.
  *  See [Automatic
- *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
+ *  Filtering](https://developers.google.com/custom-search/docs/json_api_reference#automaticFiltering)
  *  for more information about Google's search results filters. Valid values for
  *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
  *  default, Google applies filtering to all search results to improve the
@@ -768,7 +761,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Boosts search results whose country of origin matches the parameter value.
  *  See [Country
- *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
  *  requests should improve the relevance of results. This is particularly true
  *  for international customers and, even more specifically, for customers in
@@ -793,11 +786,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies the interface language (host language) of your user interface.
  *  Explicitly setting this parameter improves the performance and the quality
  *  of your search results. See the [Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
- *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
+ *  Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing)
  *  for more information, and [Supported Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *hl;
@@ -855,7 +848,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Provides additional search terms to check for in a document, where each
  *  document in the search results must contain at least one of the additional
  *  search terms. You can also use the [Boolean
- *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
+ *  OR](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  query term for this type of query.
  */
 @property(nonatomic, copy, nullable) NSString *orTerms;
@@ -877,7 +870,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the [SafeSearch
- *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
+ *  level](https://developers.google.com/custom-search/docs/json_api_reference#safeSearchLevels)
  *  used for filtering out adult results. This is a custom property not defined
  *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
  *  SafeSearch * `"active"`: Enable SafeSearch
@@ -953,12 +946,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Restricts search results to documents originating in a particular country.
  *  You may use [Boolean
- *  operators](https://developers.google.com/custom-search/docs/xml_results#booleanOperators)
+ *  operators](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  in the `cr` parameter's value. Google WebSearch determines the country of a
  *  document by analyzing the following: * The top-level domain (TLD) of the
  *  document's URL. * The geographic location of the web server's IP address.
  *  See [Country (cr) Parameter
- *  Values](https://developers.google.com/custom-search/docs/xml_results#countryCollections)
+ *  Values](https://developers.google.com/custom-search/docs/json_api_reference#countryCollections)
  *  for a list of valid values for this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *cr;
@@ -982,7 +975,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Enables or disables the [Simplified and Traditional Chinese
- *  Search](https://developers.google.com/custom-search/docs/xml_results#chineseSearch)
+ *  Search](https://developers.google.com/custom-search/docs/json_api_reference#chineseSearch)
  *  feature. Supported values are: * `0`: enabled (default) * `1`: disabled
  */
 @property(nonatomic, copy, nullable) NSString *disableCnTwTranslation;
@@ -1014,7 +1007,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Activates or deactivates the automatic filtering of Google search results.
  *  See [Automatic
- *  Filtering](https://developers.google.com/custom-search/docs/xml_results#automaticFiltering)
+ *  Filtering](https://developers.google.com/custom-search/docs/json_api_reference#automaticFiltering)
  *  for more information about Google's search results filters. Valid values for
  *  this parameter are: * `0`: Disabled * `1`: Enabled (default) **Note**: By
  *  default, Google applies filtering to all search results to improve the
@@ -1025,7 +1018,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Boosts search results whose country of origin matches the parameter value.
  *  See [Country
- *  Codes](https://developers.google.com/custom-search/docs/xml_results#countryCodes)
+ *  Codes](https://developers.google.com/custom-search/docs/json_api_reference#countryCodes)
  *  for a list of valid values. Specifying a `gl` parameter value in WebSearch
  *  requests should improve the relevance of results. This is particularly true
  *  for international customers and, even more specifically, for customers in
@@ -1050,11 +1043,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Specifies the interface language (host language) of your user interface.
  *  Explicitly setting this parameter improves the performance and the quality
  *  of your search results. See the [Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results#wsInterfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#wsInterfaceLanguages)
  *  section of [Internationalizing Queries and Results
- *  Presentation](https://developers.google.com/custom-search/docs/xml_results#wsInternationalizing)
+ *  Presentation](https://developers.google.com/custom-search/docs/json_api_reference#wsInternationalizing)
  *  for more information, and [Supported Interface
- *  Languages](https://developers.google.com/custom-search/docs/xml_results_appendices#interfaceLanguages)
+ *  Languages](https://developers.google.com/custom-search/docs/json_api_reference#interfaceLanguages)
  *  for a list of supported languages.
  */
 @property(nonatomic, copy, nullable) NSString *hl;
@@ -1112,7 +1105,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Provides additional search terms to check for in a document, where each
  *  document in the search results must contain at least one of the additional
  *  search terms. You can also use the [Boolean
- *  OR](https://developers.google.com/custom-search/docs/xml_results#BooleanOrqt)
+ *  OR](https://developers.google.com/custom-search/docs/json_api_reference#BooleanOrSearch)
  *  query term for this type of query.
  */
 @property(nonatomic, copy, nullable) NSString *orTerms;
@@ -1134,7 +1127,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Specifies the [SafeSearch
- *  level](https://developers.google.com/custom-search/docs/xml_results#safeSearchLevels)
+ *  level](https://developers.google.com/custom-search/docs/json_api_reference#safeSearchLevels)
  *  used for filtering out adult results. This is a custom property not defined
  *  in the OpenSearch spec. Valid parameter values are: * `"off"`: Disable
  *  SafeSearch * `"active"`: Enable SafeSearch

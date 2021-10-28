@@ -26,6 +26,7 @@
 @class GTLRFirestore_BeginTransactionRequest;
 @class GTLRFirestore_CommitRequest;
 @class GTLRFirestore_Document;
+@class GTLRFirestore_GoogleFirestoreAdminV1Database;
 @class GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest;
 @class GTLRFirestore_GoogleFirestoreAdminV1Field;
 @class GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest;
@@ -606,7 +607,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  When set, the target document must exist and have been last updated at that
- *  time.
+ *  time. Timestamp must be microsecond aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentDocumentUpdateTime;
 
@@ -904,7 +905,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  When set, the target document must exist and have been last updated at that
- *  time.
+ *  time. Timestamp must be microsecond aligned.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentDocumentUpdateTime;
 
@@ -1101,6 +1102,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets information about a database.
+ *
+ *  Method: firestore.projects.databases.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesGet : GTLRFirestoreQuery
+
+/**
+ *  Required. A name of the form `projects/{project_id}/databases/{database_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1Database.
+ *
+ *  Gets information about a database.
+ *
+ *  @param name Required. A name of the form
+ *    `projects/{project_id}/databases/{database_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Imports documents into Google Cloud Firestore. Existing documents with the
  *  same name are overwritten. The import occurs in the background and its
  *  progress can be monitored and managed via the Operation resource that is
@@ -1140,6 +1171,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  List all the databases in the project.
+ *
+ *  Method: firestore.projects.databases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesList : GTLRFirestoreQuery
+
+/** Required. A parent name of the form `projects/{project_id}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse.
+ *
+ *  List all the databases in the project.
+ *
+ *  @param parent Required. A parent name of the form `projects/{project_id}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1306,6 +1364,47 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a database.
+ *
+ *  Method: firestore.projects.databases.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesPatch : GTLRFirestoreQuery
+
+/**
+ *  The resource name of the Database. Format:
+ *  `projects/{project}/databases/{database}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
+ *
+ *  Updates a database.
+ *
+ *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Database to include
+ *    in the query.
+ *  @param name The resource name of the Database. Format:
+ *    `projects/{project}/databases/{database}`
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Database *)object
+                           name:(NSString *)name;
 
 @end
 

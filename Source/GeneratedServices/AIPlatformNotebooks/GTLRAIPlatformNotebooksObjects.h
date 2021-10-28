@@ -65,6 +65,8 @@
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
 @class GTLRAIPlatformNotebooks_UpgradeHistoryEntry;
+@class GTLRAIPlatformNotebooks_VertexAIParameters;
+@class GTLRAIPlatformNotebooks_VertexAIParameters_Env;
 @class GTLRAIPlatformNotebooks_VirtualMachine;
 @class GTLRAIPlatformNotebooks_VirtualMachineConfig;
 @class GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes;
@@ -192,7 +194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Canc
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling;
 /**
- *  The jobs has become expired (added for uCAIP jobs)
+ *  The job has become expired (relevant to Vertex AI jobs)
  *  https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState
  *
  *  Value: "EXPIRED"
@@ -290,18 +292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_Sc
  *  The CUSTOM tier is not a set tier, but rather enables you to use your own
  *  cluster specification. When you use this tier, set values to configure your
  *  processing cluster according to these guidelines: * You _must_ set
- *  `TrainingInput.masterType` to specify the type of machine to use for your
- *  master node. This is the only required setting. * You _may_ set
- *  `TrainingInput.workerCount` to specify the number of workers to use. If you
- *  specify one or more workers, you _must_ also set `TrainingInput.workerType`
- *  to specify the type of machine to use for your worker nodes. * You _may_ set
- *  `TrainingInput.parameterServerCount` to specify the number of parameter
- *  servers to use. If you specify one or more parameter servers, you _must_
- *  also set `TrainingInput.parameterServerType` to specify the type of machine
- *  to use for your parameter servers. Note that all of your workers must use
- *  the same machine type, which can be different from your parameter server
- *  type and master type. Your parameter servers must likewise use the same
- *  machine type, which can be different from your worker type and master type.
+ *  `ExecutionTemplate.masterType` to specify the type of machine to use for
+ *  your master node. This is the only required setting.
  *
  *  Value: "CUSTOM"
  */
@@ -521,6 +513,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopp
  *  Value: "STOPPING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopping;
+/**
+ *  The instance is suspended.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Suspended;
+/**
+ *  The instance is suspending.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Suspending;
 /**
  *  The instance is upgrading.
  *
@@ -814,6 +818,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Updat
 // GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig.type
 
 /**
+ *  Nvidia Tesla A100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_A100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaA100;
+/**
  *  Nvidia Tesla K80 GPU.
  *
  *  Value: "NVIDIA_TESLA_K80"
@@ -1064,7 +1074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRAIPlatformNotebooks_Binding : GTLRObject
 
@@ -1073,14 +1083,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1112,8 +1122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1155,7 +1165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  URI for cluster used to run Dataproc execution. Format:
- *  'projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}
+ *  `projects/{PROJECT_ID}/regions/{REGION}/clusters/{CLUSTER_NAME}`
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
 
@@ -1223,7 +1233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  the request will fail if you attempt to attach a persistent disk in any
  *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
  *  performance characteristics of SCSI over NVMe, see Local SSD performance.
- *  Valid values: NVME SCSI
+ *  Valid values: * NVME * SCSI
  */
 @property(nonatomic, copy, nullable) NSString *interface;
 
@@ -1240,7 +1250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
  *  not specified, the default is to attach the disk in READ_WRITE mode. Valid
- *  values: READ_ONLY READ_WRITE
+ *  values: * READ_ONLY * READ_WRITE
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -1252,7 +1262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Indicates the type of the disk, either SCRATCH or PERSISTENT. Valid values:
- *  PERSISTENT SCRATCH
+ *  * PERSISTENT * SCRATCH
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1378,7 +1388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Output only. The resource name of the execute. Format:
- *  `projects/{project_id}/locations/{location}/execution/{execution_id}
+ *  `projects/{project_id}/locations/{location}/executions/{execution_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1395,8 +1405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Cancelling The job is
  *        being cancelled. `error_message` should describe the reason for the
  *        cancellation. (Value: "CANCELLING")
- *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Expired The jobs has
- *        become expired (added for uCAIP jobs)
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Expired The job has
+ *        become expired (relevant to Vertex AI jobs)
  *        https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState
  *        (Value: "EXPIRED")
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Failed The job failed.
@@ -1447,8 +1457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Path to the notebook file to execute. Must be in a Google Cloud Storage
- *  bucket. Format: gs://{project_id}/{folder}/{notebook_file_name} Ex:
- *  gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb
+ *  bucket. Format: `gs://{bucket_name}/{folder}/{notebook_file_name}` Ex:
+ *  `gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb`
  */
 @property(nonatomic, copy, nullable) NSString *inputNotebookFile;
 
@@ -1467,6 +1477,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        (Value: "VERTEX_AI")
  */
 @property(nonatomic, copy, nullable) NSString *jobType;
+
+/**
+ *  Name of the kernel spec to use. This must be specified if the kernel spec
+ *  name on the execution target does not match the name in the input notebook
+ *  file.
+ */
+@property(nonatomic, copy, nullable) NSString *kernelSpec;
 
 /**
  *  Labels for execution. If execution is scheduled, a field included will be
@@ -1491,14 +1508,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  `complex_model_m_p100` - `standard_v100` - `large_model_v100` -
  *  `complex_model_m_v100` - `complex_model_l_v100` Finally, if you want to use
  *  a TPU for training, specify `cloud_tpu` in this field. Learn more about the
- *  [special configuration options for training with TPU.
+ *  [special configuration options for training with
+ *  TPU](https://cloud.google.com/ai-platform/training/docs/using-tpus#configuring_a_custom_tpu_machine).
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
 
 /**
  *  Path to the notebook folder to write to. Must be in a Google Cloud Storage
- *  bucket path. Format: gs://{project_id}/{folder} Ex:
- *  gs://notebook_user/scheduled_notebooks
+ *  bucket path. Format: `gs://{bucket_name}/{folder}` Ex:
+ *  `gs://notebook_user/scheduled_notebooks`
  */
 @property(nonatomic, copy, nullable) NSString *outputNotebookFolder;
 
@@ -1510,7 +1528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  https://papermill.readthedocs.io/en/latest/usage-parameterize.html on how to
  *  specifying parameters in the input notebook and pass them here in an YAML
  *  file. Ex:
- *  gs://notebook_user/scheduled_notebooks/sentiment_notebook_params.yaml
+ *  `gs://notebook_user/scheduled_notebooks/sentiment_notebook_params.yaml`
  */
 @property(nonatomic, copy, nullable) NSString *paramsYamlFile;
 
@@ -1531,20 +1549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        CUSTOM tier is not a set tier, but rather enables you to use your own
  *        cluster specification. When you use this tier, set values to configure
  *        your processing cluster according to these guidelines: * You _must_
- *        set `TrainingInput.masterType` to specify the type of machine to use
- *        for your master node. This is the only required setting. * You _may_
- *        set `TrainingInput.workerCount` to specify the number of workers to
- *        use. If you specify one or more workers, you _must_ also set
- *        `TrainingInput.workerType` to specify the type of machine to use for
- *        your worker nodes. * You _may_ set
- *        `TrainingInput.parameterServerCount` to specify the number of
- *        parameter servers to use. If you specify one or more parameter
- *        servers, you _must_ also set `TrainingInput.parameterServerType` to
- *        specify the type of machine to use for your parameter servers. Note
- *        that all of your workers must use the same machine type, which can be
- *        different from your parameter server type and master type. Your
- *        parameter servers must likewise use the same machine type, which can
- *        be different from your worker type and master type. (Value: "CUSTOM")
+ *        set `ExecutionTemplate.masterType` to specify the type of machine to
+ *        use for your master node. This is the only required setting. (Value:
+ *        "CUSTOM")
  *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Premium1 A
  *        large number of workers with many parameter servers. (Value:
  *        "PREMIUM_1")
@@ -1561,6 +1568,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Parameters used in Vertex AI JobType executions. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VertexAIParameters *vertexAiParameters;
 
 @end
 
@@ -1689,8 +1699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  The ID of a supported feature. Read Enabling guest operating system features
- *  to see a list of available options. Valid values: FEATURE_TYPE_UNSPECIFIED
- *  MULTI_IP_SUBNET SECURE_BOOT UEFI_COMPATIBLE VIRTIO_SCSI_MULTIQUEUE WINDOWS
+ *  to see a list of available options. Valid values: * FEATURE_TYPE_UNSPECIFIED
+ *  * MULTI_IP_SUBNET * SECURE_BOOT * UEFI_COMPATIBLE * VIRTIO_SCSI_MULTIQUEUE *
+ *  WINDOWS
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1881,7 +1892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  Path to a Bash script that automatically runs after a notebook instance
  *  fully boots up. The path must be a URL or Cloud Storage path
- *  (gs://path-to-file/file-name).
+ *  (`gs://path-to-file/file-name`).
  */
 @property(nonatomic, copy, nullable) NSString *postStartupScript;
 
@@ -1920,8 +1931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Optional. Shielded VM configuration. [Images using supported Shielded VM
- *  features]
- *  (https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
+ *  features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
 
@@ -1948,6 +1958,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        stopped. (Value: "STOPPED")
  *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Stopping The control logic
  *        is stopping the instance. (Value: "STOPPING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Suspended The instance is
+ *        suspended. (Value: "SUSPENDED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Suspending The instance is
+ *        suspending. (Value: "SUSPENDING")
  *    @arg @c kGTLRAIPlatformNotebooks_Instance_State_Upgrading The instance is
  *        upgrading. (Value: "UPGRADING")
  */
@@ -2008,7 +2022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @interface GTLRAIPlatformNotebooks_InstanceConfig : GTLRObject
 
 /**
- *  Verifies core internal services are running. More info: go/notebooks-health
+ *  Verifies core internal services are running.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2109,9 +2123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Executions IDs that could not be reached. For example,
+ *  Executions IDs that could not be reached. For example:
  *  ['projects/{project_id}/location/{location}/executions/imagenet_test1',
- *  'projects/{project_id}/location/{location}/executions/classifier_train1'].
+ *  'projects/{project_id}/location/{location}/executions/classifier_train1']
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2259,9 +2273,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Schedule *> *schedules;
 
 /**
- *  Schedules that could not be reached. For example,
+ *  Schedules that could not be reached. For example:
  *  ['projects/{project_id}/location/{location}/schedules/monthly_digest',
- *  'projects/{project_id}/location/{location}/schedules/weekly_sentiment'].
+ *  'projects/{project_id}/location/{location}/schedules/weekly_sentiment']
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2269,7 +2283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  An Local attached disk resource.
+ *  A Local attached disk resource.
  */
 @interface GTLRAIPlatformNotebooks_LocalDisk : GTLRObject
 
@@ -2332,7 +2346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  the request will fail if you attempt to attach a persistent disk in any
  *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
  *  performance characteristics of SCSI over NVMe, see Local SSD performance.
- *  Valid values: NVME SCSI
+ *  Valid values: * NVME * SCSI
  */
 @property(nonatomic, copy, nullable) NSString *interface;
 
@@ -2348,7 +2362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
  *  not specified, the default is to attach the disk in READ_WRITE mode. Valid
- *  values: READ_ONLY READ_WRITE
+ *  values: * READ_ONLY * READ_WRITE
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -2360,7 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Specifies the type of the disk, either SCRATCH or PERSISTENT. If not
- *  specified, the default is PERSISTENT. Valid values: PERSISTENT SCRATCH
+ *  specified, the default is PERSISTENT. Valid values: * PERSISTENT * SCRATCH
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2619,15 +2633,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -2650,9 +2664,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @interface GTLRAIPlatformNotebooks_Policy : GTLRObject
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Binding *> *bindings;
 
@@ -3094,7 +3113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSNumber *idleShutdown;
 
 /**
- *  Time in minutes to wait before shuting down runtime. Default: 180 minutes
+ *  Time in minutes to wait before shutting down runtime. Default: 180 minutes
  *
  *  Uses NSNumber of intValue.
  */
@@ -3116,7 +3135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 /**
  *  Path to a Bash script that automatically runs after a notebook instance
  *  fully boots up. The path must be a URL or Cloud Storage path
- *  (gs://path-to-file/file-name).
+ *  (`gs://path-to-file/file-name`).
  */
 @property(nonatomic, copy, nullable) NSString *postStartupScript;
 
@@ -3132,8 +3151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Cron-tab formatted schedule by which the job will execute Format: minute,
- *  hour, day of month, month, day of week e.g. 0 0 * * WED = every Wednesday
+ *  Cron-tab formatted schedule by which the job will execute. Format: minute,
+ *  hour, day of month, month, day of week, e.g. 0 0 * * WED = every Wednesday
  *  More examples: https://crontab.guru/examples.html
  */
 @property(nonatomic, copy, nullable) NSString *cronSchedule;
@@ -3210,8 +3229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Definition of a hardware accelerator. Note that not all combinations of
- *  `type` and `core_count` are valid. Check GPUs on Compute Engine to find a
- *  valid combination. TPUs are not supported.
+ *  `type` and `core_count` are valid. Check [GPUs on Compute
+ *  Engine](https://cloud.google.com/compute/docs/gpus) to find a valid
+ *  combination. TPUs are not supported.
  */
 @interface GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig : GTLRObject
 
@@ -3226,6 +3246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Type of this accelerator.
  *
  *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaA100
+ *        Nvidia Tesla A100 GPU. (Value: "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaK80
  *        Nvidia Tesla K80 GPU. (Value: "NVIDIA_TESLA_K80")
  *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP100
@@ -3618,6 +3640,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for upgrading a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_UpgradeInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  Parameters used in Vertex AI JobType executions.
+ */
+@interface GTLRAIPlatformNotebooks_VertexAIParameters : GTLRObject
+
+/**
+ *  Environment variables. At most 100 environment variables can be specified
+ *  and unique. Example: GCP_BUCKET=gs://my-bucket/samples/
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VertexAIParameters_Env *env;
+
+/**
+ *  The full name of the Compute Engine
+ *  [network](/compute/docs/networks-and-firewalls#networks) to which the Job
+ *  should be peered. For example, `projects/12345/global/networks/myVPC`.
+ *  [Format](https://cloud.google.com/compute/docs/reference/rest/v1/networks/insert)
+ *  is of the form `projects/{project}/global/networks/{network}`. Where
+ *  {project} is a project number, as in `12345`, and {network} is a network
+ *  name. Private services access must already be configured for the network. If
+ *  left unspecified, the job is not peered with any network.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+@end
+
+
+/**
+ *  Environment variables. At most 100 environment variables can be specified
+ *  and unique. Example: GCP_BUCKET=gs://my-bucket/samples/
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_VertexAIParameters_Env : GTLRObject
 @end
 
 

@@ -4,8 +4,9 @@
 // API:
 //   Display & Video 360 API (displayvideo/v1)
 // Description:
-//   Display & Video 360 API allows users to manage and create campaigns and
-//   reports.
+//   Display & Video 360 API allows users to automate complex Display & Video
+//   360 workflows, such as creating insertion orders and setting targeting
+//   options for individual line items.
 // Documentation:
 //   https://developers.google.com/display-video/
 
@@ -364,6 +365,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51 = @"SDF_VERSION_5_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52 = @"SDF_VERSION_5_2";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53 = @"SDF_VERSION_5_3";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -455,6 +457,12 @@ NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntitySta
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusPaused = @"ENTITY_STATUS_PAUSED";
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusScheduledForDeletion = @"ENTITY_STATUS_SCHEDULED_FOR_DELETION";
 NSString * const kGTLRDisplayVideo_CustomBiddingAlgorithm_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
+
+// GTLRDisplayVideo_CustomBiddingScript.state
+NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Accepted = @"ACCEPTED";
+NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Pending = @"PENDING";
+NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_Rejected = @"REJECTED";
+NSString * const kGTLRDisplayVideo_CustomBiddingScript_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails.dayOfWeek
 NSString * const kGTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -1575,6 +1583,12 @@ NSString * const kGTLRDisplayVideo_ReviewStatusInfo_CreativeAndLandingPageReview
 NSString * const kGTLRDisplayVideo_ReviewStatusInfo_CreativeAndLandingPageReviewStatus_ReviewStatusRejected = @"REVIEW_STATUS_REJECTED";
 NSString * const kGTLRDisplayVideo_ReviewStatusInfo_CreativeAndLandingPageReviewStatus_ReviewStatusUnspecified = @"REVIEW_STATUS_UNSPECIFIED";
 
+// GTLRDisplayVideo_ScriptError.errorCode
+NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_DeprecatedSyntax = @"DEPRECATED_SYNTAX";
+NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRDisplayVideo_ScriptError_ErrorCode_SyntaxError = @"SYNTAX_ERROR";
+
 // GTLRDisplayVideo_SdfConfig.version
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion31 = @"SDF_VERSION_3_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion4 = @"SDF_VERSION_4";
@@ -1584,6 +1598,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion5 = @"SDF_VERSION
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51 = @"SDF_VERSION_5_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 = @"SDF_VERSION_5_2";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 = @"SDF_VERSION_5_3";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -1595,6 +1610,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion5 =
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51 = @"SDF_VERSION_5_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52 = @"SDF_VERSION_5_2";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 = @"SDF_VERSION_5_3";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion54 = @"SDF_VERSION_5_4";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.sensitiveCategory
@@ -2886,6 +2902,35 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_CustomBiddingScript
+//
+
+@implementation GTLRDisplayVideo_CustomBiddingScript
+@dynamic active, createTime, customBiddingAlgorithmId, customBiddingScriptId,
+         errors, name, script, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDisplayVideo_ScriptError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_CustomBiddingScriptRef
+//
+
+@implementation GTLRDisplayVideo_CustomBiddingScriptRef
+@dynamic resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_CustomList
 //
 
@@ -3978,6 +4023,28 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ListCustomBiddingScriptsResponse
+//
+
+@implementation GTLRDisplayVideo_ListCustomBiddingScriptsResponse
+@dynamic customBiddingScripts, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customBiddingScripts" : [GTLRDisplayVideo_CustomBiddingScript class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customBiddingScripts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ListCustomListsResponse
 //
 
@@ -4949,6 +5016,16 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ScriptError
+//
+
+@implementation GTLRDisplayVideo_ScriptError
+@dynamic column, errorCode, errorMessage, line;
 @end
 
 

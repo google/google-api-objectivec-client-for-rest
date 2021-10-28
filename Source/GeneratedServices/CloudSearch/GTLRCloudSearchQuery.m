@@ -1159,3 +1159,25 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 }
 
 @end
+
+@implementation GTLRCloudSearchQuery_V1InitializeCustomer
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_InitializeCustomerRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1:initializeCustomer";
+  GTLRCloudSearchQuery_V1InitializeCustomer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudSearch_Operation class];
+  query.loggingName = @"cloudsearch.initializeCustomer";
+  return query;
+}
+
+@end

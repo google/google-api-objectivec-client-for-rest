@@ -27,7 +27,6 @@
 @class GTLRBigquery_ArimaForecastingMetrics;
 @class GTLRBigquery_ArimaModelInfo;
 @class GTLRBigquery_ArimaOrder;
-@class GTLRBigquery_ArimaResult;
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
@@ -46,7 +45,6 @@
 @class GTLRBigquery_CategoricalValue;
 @class GTLRBigquery_CategoryCount;
 @class GTLRBigquery_Cluster;
-@class GTLRBigquery_ClusterInfo;
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_ClusteringMetrics;
 @class GTLRBigquery_ConfusionMatrix;
@@ -95,6 +93,7 @@
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
 @class GTLRBigquery_MaterializedViewDefinition;
+@class GTLRBigquery_MlStatistics;
 @class GTLRBigquery_Model;
 @class GTLRBigquery_Model_Labels;
 @class GTLRBigquery_ModelDefinition;
@@ -234,7 +233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_Seasona
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -276,7 +279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -318,7 +325,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_NoS
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -360,7 +371,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetr
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -659,6 +674,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ti
  *  Value: "TYPE_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.boosterType
+
+/**
+ *  Unspecified booster type.
+ *
+ *  Value: "BOOSTER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified;
+/**
+ *  Dart booster.
+ *
+ *  Value: "DART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dart;
+/**
+ *  Gbtree booster.
+ *
+ *  Value: "GBTREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.dartNormalizeType
+
+/**
+ *  Unspecified dart normalize type.
+ *
+ *  Value: "DART_NORMALIZE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_DartNormalizeTypeUnspecified;
+/**
+ *  New trees have the same weight of sum of dropped trees.
+ *
+ *  Value: "FOREST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Forest;
+/**
+ *  New trees have the same weight of each of dropped trees.
+ *
+ *  Value: "TREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Tree;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.dataFrequency
@@ -1288,6 +1347,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_NormalEquation;
 /** Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.treeMethod
+
+/**
+ *  Approximate greedy algorithm using quantile sketch and gradient histogram.
+ *
+ *  Value: "APPROX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Approx;
+/**
+ *  Use heuristic to choose the fastest method.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Auto;
+/**
+ *  Exact greedy algorithm.
+ *
+ *  Value: "EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Exact;
+/**
+ *  Fast histogram optimized approximate greedy algorithm.
+ *
+ *  Value: "HIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Hist;
+/**
+ *  Unspecified tree method.
+ *
+ *  Value: "TREE_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified;
 
 /**
  *  Aggregate metrics for classification/classifier models. For multi-class
@@ -2048,7 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRBigquery_Binding : GTLRObject
 
@@ -2057,14 +2150,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -2096,8 +2189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2902,6 +2995,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  [Optional] The destination table expiration time. If this field is set: For
+ *  a new table, it will set the table's expiration time (even if there is a
+ *  dataset level default table expiration time). For an existing table, it will
+ *  update the table's expiration time. If this field is not set: For a new
+ *  table, if dataset level default table expiration time is present, that will
+ *  be applied. For an existing table, no change is made to the table's
+ *  expiration time. Additionally this field is only applied when data is
+ *  written to an empty table (WRITE_EMPTY) or data is overwritten to a table
+ *  (WRITE_TRUNCATE).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/**
  *  [Optional] The friendly name for the destination table. This will only be
  *  used if the destination table is newly created. If the table already exists
  *  and a value different than the current friendly name is provided, the job
@@ -3684,14 +3790,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Information about a single iteration of the training run.
+ *  GTLRBigquery_IterationResult
  */
 @interface GTLRBigquery_IterationResult : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRBigquery_ArimaResult *arimaResult;
-
-/** Information about top clusters for clustering models. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ClusterInfo *> *clusterInfos;
 
 /**
  *  Time taken to run the iteration in milliseconds.
@@ -4777,6 +4878,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
 
+/** [Output-only] Statistics of a BigQuery ML training job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_MlStatistics *mlStatistics;
+
 /** [Output-only, Beta] Information about create model query job progress. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelTraining *modelTraining;
 
@@ -5155,6 +5259,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_MlStatistics
+ */
+@interface GTLRBigquery_MlStatistics : GTLRObject
+
+/** Results for all completed iterations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
+
+/**
+ *  Maximum number of iterations specified as max_iterations in the 'CREATE
+ *  MODEL' query. The actual number of iterations may be less than this number
+ *  due to early stop.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+@end
+
+
+/**
  *  GTLRBigquery_Model
  */
 @interface GTLRBigquery_Model : GTLRObject
@@ -5425,15 +5549,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -5459,9 +5583,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Binding *> *bindings;
 
@@ -7388,11 +7517,60 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *batchSize;
 
 /**
+ *  Booster type for boosted tree models.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified
+ *        Unspecified booster type. (Value: "BOOSTER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_Dart Dart booster.
+ *        (Value: "DART")
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_Gbtree Gbtree booster.
+ *        (Value: "GBTREE")
+ */
+@property(nonatomic, copy, nullable) NSString *boosterType;
+
+/**
  *  If true, clean spikes and dips in the input time series.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cleanSpikesAndDips;
+
+/**
+ *  Subsample ratio of columns for each level for boosted tree models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBylevel;
+
+/**
+ *  Subsample ratio of columns for each node(split) for boosted tree models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBynode;
+
+/**
+ *  Subsample ratio of columns when constructing each tree for boosted tree
+ *  models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBytree;
+
+/**
+ *  Type of normalization algorithm for boosted tree models using dart booster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_DartNormalizeTypeUnspecified
+ *        Unspecified dart normalize type. (Value:
+ *        "DART_NORMALIZE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_Forest New trees
+ *        have the same weight of sum of dropped trees. (Value: "FOREST")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_Tree New trees
+ *        have the same weight of each of dropped trees. (Value: "TREE")
+ */
+@property(nonatomic, copy, nullable) NSString *dartNormalizeType;
 
 /**
  *  The data frequency of a time series.
@@ -7790,6 +7968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *minSplitLoss;
 
 /**
+ *  Minimum sum of instance weight needed in a child for boosted tree models.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTreeChildWeight;
+
+/**
  *  Google Cloud Storage URI from which the model was imported. Only applicable
  *  for imported models.
  */
@@ -7815,6 +8000,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numFactors;
+
+/**
+ *  Number of parallel trees constructed during each iteration for boosted tree
+ *  models.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numParallelTree;
 
 /**
  *  Optimization strategy for training linear regression models.
@@ -7859,6 +8052,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Column to be designated as time series timestamp for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesTimestampColumn;
+
+/**
+ *  Tree construction algorithm for boosted tree models.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Approx Approximate greedy
+ *        algorithm using quantile sketch and gradient histogram. (Value:
+ *        "APPROX")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Auto Use heuristic to
+ *        choose the fastest method. (Value: "AUTO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Exact Exact greedy
+ *        algorithm. (Value: "EXACT")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Hist Fast histogram
+ *        optimized approximate greedy algorithm. (Value: "HIST")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified
+ *        Unspecified tree method. (Value: "TREE_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *treeMethod;
 
 /** User column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *userColumn;

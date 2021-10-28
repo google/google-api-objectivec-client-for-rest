@@ -407,7 +407,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Immutable. Full resource name of the product, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`.
- *  The branch ID must be "default_branch".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -432,7 +431,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Immutable. Full resource name of the product, such as `projects/
  *    *
  *    /locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`.
- *    The branch ID must be "default_branch".
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPatch
  */
@@ -526,7 +524,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Immutable. Full resource name of the product, such as `projects/ *
  *  /locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`.
- *  The branch ID must be "default_branch".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -558,7 +555,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Immutable. Full resource name of the product, such as `projects/
  *    *
  *    /locations/global/catalogs/default_catalog/branches/default_branch/products/product_id`.
- *    The branch ID must be "default_branch".
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsSetInventory
  */
@@ -975,9 +971,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The resource name of the search engine placement, such as
  *  `projects/ *
  *  /locations/global/catalogs/default_catalog/placements/default_search`. This
- *  field is used to identify the set of models that will be used to make the
- *  search. We currently support one placement with the following ID: *
- *  `default_search`.
+ *  field is used to identify the serving configuration name and the set of
+ *  models that will be used to make the search.
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
@@ -994,9 +989,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param placement Required. The resource name of the search engine placement,
  *    such as `projects/ *
  *    /locations/global/catalogs/default_catalog/placements/default_search`.
- *    This field is used to identify the set of models that will be used to make
- *    the search. We currently support one placement with the following ID: *
- *    `default_search`.
+ *    This field is used to identify the serving configuration name and the set
+ *    of models that will be used to make the search.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsSearch
  */

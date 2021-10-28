@@ -172,6 +172,25 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest
+@dynamic acknowledgement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream
 //
 
@@ -537,19 +556,6 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 @dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
          campaignDataSharingEnabled, costDataSharingEnabled,
          linkProposalStatusDetails, name, validationEmail;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings
-//
-
-@implementation GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings
-@dynamic fileDownloadsEnabled, name, outboundClicksEnabled, pageChangesEnabled,
-         pageLoadsEnabled, pageViewsEnabled, scrollsEnabled,
-         searchQueryParameter, siteSearchEnabled, streamEnabled,
-         uriQueryParameter, videoEngagementEnabled;
 @end
 
 
@@ -960,7 +966,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaProperty
-@dynamic createTime, currencyCode, deleteTime, displayName, expireTime,
+@dynamic account, createTime, currencyCode, deleteTime, displayName, expireTime,
          industryCategory, name, parent, serviceLevel, timeZone, updateTime;
 @end
 

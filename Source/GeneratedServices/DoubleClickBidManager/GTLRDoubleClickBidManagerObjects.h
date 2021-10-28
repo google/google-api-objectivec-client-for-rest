@@ -563,10 +563,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVariantVersion;
 /** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
@@ -1133,10 +1149,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVariantVersion;
 /** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
@@ -2041,6 +2073,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackedAds;
 /** Value: "METRIC_TRACKING_UNCONSENTED_CLICKS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackingUnconsentedClicks;
+/** Value: "METRIC_TRUEVIEW_ALL_AD_SEQUENCE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAllAdSequenceImpressions;
 /** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpeAdvertiser;
 /** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_PARTNER" */
@@ -2119,6 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVendorBlockedAds;
 /** Value: "METRIC_VERIFIABLE_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVerifiableImpressions;
+/** Value: "METRIC_VERIFICATION_VIDEO_PLAYER_SIZE_MEASURABLE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVerificationVideoPlayerSizeMeasurableImpressions;
 /** Value: "METRIC_VIDEO_CLIENT_COST_ECPCV_ADVERTISER_CURRENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoClientCostEcpcvAdvertiserCurrency;
 /** Value: "METRIC_VIDEO_COMPANION_CLICKS" */
@@ -2759,10 +2795,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVariantVersion;
 /** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
@@ -3574,10 +3626,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_VARIANT_VERSION"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVendorMeasurementMode
  *        Value "FILTER_VENDOR_MEASUREMENT_MODE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityComplete
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityStart
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_START"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSize
  *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeComplete
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeFirstQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeMidPoint
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeStart
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeThirdQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPosition
  *        Value "FILTER_VERIFICATION_VIDEO_POSITION"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoResized
+ *        Value "FILTER_VERIFICATION_VIDEO_RESIZED"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream
  *        Value "FILTER_VIDEO_AD_POSITION_IN_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionCreativeSize
@@ -4385,10 +4453,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_VARIANT_VERSION"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVendorMeasurementMode
  *        Value "FILTER_VENDOR_MEASUREMENT_MODE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityComplete
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityStart
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_START"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSize
  *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeComplete
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeFirstQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeMidPoint
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeStart
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeThirdQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPosition
  *        Value "FILTER_VERIFICATION_VIDEO_POSITION"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoResized
+ *        Value "FILTER_VERIFICATION_VIDEO_RESIZED"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoAdPositionInStream
  *        Value "FILTER_VIDEO_AD_POSITION_IN_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoCompanionCreativeSize

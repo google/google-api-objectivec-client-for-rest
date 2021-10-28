@@ -375,8 +375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
- *  Requests that a job is deleted. This call will return when the job is
- *  deleted. This method is available in limited preview.
+ *  Requests the deletion of the metadata of a job. This call returns when the
+ *  job's metadata is deleted.
  *
  *  Method: bigquery.jobs.delete
  *
@@ -387,9 +387,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @interface GTLRBigqueryQuery_JobsDelete : GTLRBigqueryQuery
 
 /**
- *  Required. Job ID of the job to be deleted. If this is a parent job which has
- *  child jobs, all child jobs will be deleted as well. Deletion of child jobs
- *  directly is not allowed.
+ *  Required. Job ID of the job for which metadata is to be deleted. If this is
+ *  a parent job which has child jobs, the metadata from all child jobs will be
+ *  deleted as well. Direct deletion of the metadata of child jobs is not
+ *  allowed.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
@@ -399,20 +400,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Required. Project ID of the job to be deleted. */
+/** Required. Project ID of the job for which metadata is to be deleted. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Requests that a job is deleted. This call will return when the job is
- *  deleted. This method is available in limited preview.
+ *  Requests the deletion of the metadata of a job. This call returns when the
+ *  job's metadata is deleted.
  *
- *  @param projectId Required. Project ID of the job to be deleted.
- *  @param jobId Required. Job ID of the job to be deleted. If this is a parent
- *    job which has child jobs, all child jobs will be deleted as well. Deletion
- *    of child jobs directly is not allowed.
+ *  @param projectId Required. Project ID of the job for which metadata is to be
+ *    deleted.
+ *  @param jobId Required. Job ID of the job for which metadata is to be
+ *    deleted. If this is a parent job which has child jobs, the metadata from
+ *    all child jobs will be deleted as well. Direct deletion of the metadata of
+ *    child jobs is not allowed.
  *
  *  @return GTLRBigqueryQuery_JobsDelete
  */

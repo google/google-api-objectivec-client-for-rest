@@ -117,6 +117,33 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
 
 @end
 
+@implementation GTLRRealTimeBiddingQuery_BiddersEndpointsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_Endpoint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersEndpointsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Endpoint class];
+  query.loggingName = @"realtimebidding.bidders.endpoints.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRRealTimeBiddingQuery_BiddersGet
 
 @dynamic name;

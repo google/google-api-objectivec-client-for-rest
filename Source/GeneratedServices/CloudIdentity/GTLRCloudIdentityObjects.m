@@ -18,6 +18,7 @@ NSString * const kGTLRCloudIdentity_DynamicGroupQuery_ResourceType_ResourceTypeU
 NSString * const kGTLRCloudIdentity_DynamicGroupQuery_ResourceType_User = @"USER";
 
 // GTLRCloudIdentity_DynamicGroupStatus.status
+NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_InvalidQuery = @"INVALID_QUERY";
 NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_UpdatingMemberships = @"UPDATING_MEMBERSHIPS";
 NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_UpToDate = @"UP_TO_DATE";

@@ -3303,6 +3303,55 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
+ *  Creates or adds data to one or more service time series. A service time
+ *  series is a time series for a metric from a Google Cloud service. The
+ *  response is empty if all time series in the request were written. If any
+ *  time series could not be written, a corresponding failure message is
+ *  included in the error response. This endpoint rejects writes to user-defined
+ *  metrics. This method is only for use by Google Cloud services. Use
+ *  projects.timeSeries.create instead.
+ *
+ *  Method: monitoring.projects.timeSeries.createService
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringWrite
+ */
+@interface GTLRMonitoringQuery_ProjectsTimeSeriesCreateService : GTLRMonitoringQuery
+
+/**
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Empty.
+ *
+ *  Creates or adds data to one or more service time series. A service time
+ *  series is a time series for a metric from a Google Cloud service. The
+ *  response is empty if all time series in the request were written. If any
+ *  time series could not be written, a corresponding failure message is
+ *  included in the error response. This endpoint rejects writes to user-defined
+ *  metrics. This method is only for use by Google Cloud services. Use
+ *  projects.timeSeries.create instead.
+ *
+ *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
+ *    the query.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreateService
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists time series that match a filter. This method does not require a
  *  Workspace.
  *

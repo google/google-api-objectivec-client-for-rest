@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Container Analysis API (containeranalysis/v1beta1)
+//   Container Analysis API (containeranalysis/v1)
 // Description:
 //   An implementation of the Grafeas API, which stores, and enables querying
 //   and retrieval of critical metadata about all of your software artifacts.
@@ -23,91 +23,89 @@
 
 @class GTLRContainerAnalysis_AliasContext;
 @class GTLRContainerAnalysis_Artifact;
-@class GTLRContainerAnalysis_ArtifactHashes;
-@class GTLRContainerAnalysis_ArtifactRule;
-@class GTLRContainerAnalysis_Attestation;
-@class GTLRContainerAnalysis_Authority;
-@class GTLRContainerAnalysis_Basis;
+@class GTLRContainerAnalysis_AttestationNote;
+@class GTLRContainerAnalysis_AttestationOccurrence;
 @class GTLRContainerAnalysis_BatchCreateNotesRequest_Notes;
 @class GTLRContainerAnalysis_Binding;
-@class GTLRContainerAnalysis_Build;
+@class GTLRContainerAnalysis_BuilderConfig;
+@class GTLRContainerAnalysis_BuildNote;
+@class GTLRContainerAnalysis_BuildOccurrence;
 @class GTLRContainerAnalysis_BuildProvenance;
 @class GTLRContainerAnalysis_BuildProvenance_BuildOptions;
-@class GTLRContainerAnalysis_BuildSignature;
-@class GTLRContainerAnalysis_ByProducts;
-@class GTLRContainerAnalysis_ByProducts_CustomValues;
+@class GTLRContainerAnalysis_Category;
+@class GTLRContainerAnalysis_CisBenchmark;
 @class GTLRContainerAnalysis_CloudRepoSourceContext;
 @class GTLRContainerAnalysis_Command;
+@class GTLRContainerAnalysis_Completeness;
+@class GTLRContainerAnalysis_ComplianceNote;
+@class GTLRContainerAnalysis_ComplianceOccurrence;
+@class GTLRContainerAnalysis_ComplianceVersion;
 @class GTLRContainerAnalysis_CVSSv3;
-@class GTLRContainerAnalysis_Deployable;
-@class GTLRContainerAnalysis_Deployment;
-@class GTLRContainerAnalysis_Derived;
+@class GTLRContainerAnalysis_DeploymentNote;
+@class GTLRContainerAnalysis_DeploymentOccurrence;
 @class GTLRContainerAnalysis_Detail;
-@class GTLRContainerAnalysis_Details;
-@class GTLRContainerAnalysis_Discovered;
-@class GTLRContainerAnalysis_Discovery;
+@class GTLRContainerAnalysis_DiscoveryNote;
+@class GTLRContainerAnalysis_DiscoveryOccurrence;
 @class GTLRContainerAnalysis_Distribution;
-@class GTLRContainerAnalysis_DocumentNote;
-@class GTLRContainerAnalysis_DocumentOccurrence;
-@class GTLRContainerAnalysis_Environment;
-@class GTLRContainerAnalysis_Environment_CustomValues;
+@class GTLRContainerAnalysis_DSSEAttestationNote;
+@class GTLRContainerAnalysis_DSSEAttestationOccurrence;
+@class GTLRContainerAnalysis_DSSEHint;
+@class GTLRContainerAnalysis_Envelope;
+@class GTLRContainerAnalysis_EnvelopeSignature;
 @class GTLRContainerAnalysis_Expr;
-@class GTLRContainerAnalysis_ExternalRef;
 @class GTLRContainerAnalysis_FileHashes;
-@class GTLRContainerAnalysis_FileNote;
-@class GTLRContainerAnalysis_FileOccurrence;
 @class GTLRContainerAnalysis_Fingerprint;
 @class GTLRContainerAnalysis_FixableTotalByDigest;
-@class GTLRContainerAnalysis_GenericSignedAttestation;
 @class GTLRContainerAnalysis_GerritSourceContext;
 @class GTLRContainerAnalysis_GetPolicyOptions;
 @class GTLRContainerAnalysis_GitSourceContext;
-@class GTLRContainerAnalysis_GrafeasV1beta1BuildDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1DeploymentDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1DiscoveryDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1ImageDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1IntotoArtifact;
-@class GTLRContainerAnalysis_GrafeasV1beta1IntotoDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1IntotoSignature;
-@class GTLRContainerAnalysis_GrafeasV1beta1PackageDetails;
-@class GTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails;
 @class GTLRContainerAnalysis_Hash;
 @class GTLRContainerAnalysis_Hint;
-@class GTLRContainerAnalysis_Installation;
-@class GTLRContainerAnalysis_InToto;
+@class GTLRContainerAnalysis_Identity;
+@class GTLRContainerAnalysis_ImageNote;
+@class GTLRContainerAnalysis_ImageOccurrence;
+@class GTLRContainerAnalysis_InTotoProvenance;
+@class GTLRContainerAnalysis_InTotoStatement;
+@class GTLRContainerAnalysis_Jwt;
 @class GTLRContainerAnalysis_KnowledgeBase;
 @class GTLRContainerAnalysis_Layer;
-@class GTLRContainerAnalysis_Link;
 @class GTLRContainerAnalysis_Location;
+@class GTLRContainerAnalysis_Metadata;
+@class GTLRContainerAnalysis_NonCompliantFile;
 @class GTLRContainerAnalysis_Note;
 @class GTLRContainerAnalysis_Occurrence;
-@class GTLRContainerAnalysis_Package;
+@class GTLRContainerAnalysis_Operation;
+@class GTLRContainerAnalysis_Operation_Metadata;
+@class GTLRContainerAnalysis_Operation_Response;
 @class GTLRContainerAnalysis_PackageIssue;
 @class GTLRContainerAnalysis_PackageNote;
 @class GTLRContainerAnalysis_PackageOccurrence;
-@class GTLRContainerAnalysis_PgpSignedAttestation;
 @class GTLRContainerAnalysis_Policy;
 @class GTLRContainerAnalysis_ProjectRepoId;
+@class GTLRContainerAnalysis_Recipe;
+@class GTLRContainerAnalysis_Recipe_Arguments_Item;
+@class GTLRContainerAnalysis_Recipe_Environment_Item;
 @class GTLRContainerAnalysis_RelatedUrl;
-@class GTLRContainerAnalysis_RelationshipNote;
-@class GTLRContainerAnalysis_RelationshipOccurrence;
 @class GTLRContainerAnalysis_RepoId;
-@class GTLRContainerAnalysis_Resource;
-@class GTLRContainerAnalysis_ScanConfig;
 @class GTLRContainerAnalysis_Signature;
-@class GTLRContainerAnalysis_SigningKey;
 @class GTLRContainerAnalysis_Source;
 @class GTLRContainerAnalysis_Source_FileHashes;
 @class GTLRContainerAnalysis_SourceContext;
 @class GTLRContainerAnalysis_SourceContext_Labels;
 @class GTLRContainerAnalysis_Status;
 @class GTLRContainerAnalysis_Status_Details_Item;
+@class GTLRContainerAnalysis_Subject;
+@class GTLRContainerAnalysis_Subject_Digest;
 @class GTLRContainerAnalysis_TimeSpan;
+@class GTLRContainerAnalysis_UpgradeDistribution;
+@class GTLRContainerAnalysis_UpgradeNote;
+@class GTLRContainerAnalysis_UpgradeOccurrence;
 @class GTLRContainerAnalysis_Version;
 @class GTLRContainerAnalysis_Volume;
-@class GTLRContainerAnalysis_Vulnerability;
-@class GTLRContainerAnalysis_VulnerabilityLocation;
+@class GTLRContainerAnalysis_VulnerabilityNote;
+@class GTLRContainerAnalysis_VulnerabilityOccurrence;
 @class GTLRContainerAnalysis_WindowsDetail;
+@class GTLRContainerAnalysis_WindowsUpdate;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -147,28 +145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Mova
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Other;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_BuildSignature.keyType
-
-/**
- *  `KeyType` is not set.
- *
- *  Value: "KEY_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified;
-/**
- *  `PGP ASCII Armored` public key.
- *
- *  Value: "PGP_ASCII_ARMORED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored;
-/**
- *  `PKIX PEM` public key.
- *
- *  Value: "PKIX_PEM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_BuildStep.status
@@ -234,6 +210,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Timeo
  *  Value: "WORKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_BuildStep_Status_Working;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CisBenchmark.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Medium;
+/**
+ *  Minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Minimal;
+/**
+ *  Unknown.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_CVSSv3.attackComplexity
@@ -328,170 +344,164 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSSv3_UserInteraction
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSSv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Deployment.platform
+// GTLRContainerAnalysis_DeploymentOccurrence.platform
 
 /**
  *  Custom user-defined platform.
  *
  *  Value: "CUSTOM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Custom;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Custom;
 /**
  *  Google App Engine: Flexible Environment.
  *
  *  Value: "FLEX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Flex;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Flex;
 /**
  *  Google Container Engine.
  *
  *  Value: "GKE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Gke;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Gke;
 /**
  *  Unknown.
  *
  *  Value: "PLATFORM_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_PlatformUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DeploymentOccurrence_Platform_PlatformUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Discovered.analysisStatus
-
-/**
- *  Unknown.
- *
- *  Value: "ANALYSIS_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_AnalysisStatusUnspecified;
-/**
- *  Analysis has finished unsuccessfully, the analysis itself is in a bad state.
- *
- *  Value: "FINISHED_FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedFailed;
-/**
- *  Analysis has finished successfully.
- *
- *  Value: "FINISHED_SUCCESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedSuccess;
-/**
- *  The resource is known not to be supported
- *
- *  Value: "FINISHED_UNSUPPORTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedUnsupported;
-/**
- *  Resource is known but no action has been taken yet.
- *
- *  Value: "PENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Pending;
-/**
- *  Resource is being analyzed.
- *
- *  Value: "SCANNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_Scanning;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Discovered.continuousAnalysis
-
-/**
- *  The resource is continuously analyzed.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Active;
-/**
- *  Unknown.
- *
- *  Value: "CONTINUOUS_ANALYSIS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_ContinuousAnalysisUnspecified;
-/**
- *  The resource is ignored for continuous analysis.
- *
- *  Value: "INACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Inactive;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Discovery.analysisKind
+// GTLRContainerAnalysis_DiscoveryNote.analysisKind
 
 /**
  *  This represents a logical "role" that can attest to artifacts.
  *
  *  Value: "ATTESTATION"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Attestation;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Attestation;
 /**
  *  The note and occurrence assert build provenance.
  *
  *  Value: "BUILD"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Build;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Build;
+/**
+ *  This represents a Compliance Note
+ *
+ *  Value: "COMPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Compliance;
 /**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYMENT"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Deployment;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Deployment;
 /**
  *  The note and occurrence track the initial discovery status of a resource.
  *
  *  Value: "DISCOVERY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Discovery;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Discovery;
+/**
+ *  This represents a DSSE attestation Note
+ *
+ *  Value: "DSSE_ATTESTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_DsseAttestation;
 /**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Image;
-/**
- *  This represents an in-toto link.
- *
- *  Value: "INTOTO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Intoto;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Image;
 /**
  *  Default value. This value is unused.
  *
  *  Value: "NOTE_KIND_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_NoteKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_NoteKindUnspecified;
 /**
  *  This represents a package installed via a package manager.
  *
  *  Value: "PACKAGE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Package;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Package;
 /**
- *  This represents a software bill of materials.
+ *  This represents an available package upgrade.
  *
- *  Value: "SBOM"
+ *  Value: "UPGRADE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Sbom;
-/**
- *  This represents an SPDX File.
- *
- *  Value: "SPDX_FILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxFile;
-/**
- *  This represents an SPDX Package.
- *
- *  Value: "SPDX_PACKAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxPackage;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "VULNERABILITY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Vulnerability;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_DiscoveryOccurrence.analysisStatus
+
+/**
+ *  Unknown.
+ *
+ *  Value: "ANALYSIS_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified;
+/**
+ *  Analysis has finished unsuccessfully, the analysis itself is in a bad state.
+ *
+ *  Value: "FINISHED_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedFailed;
+/**
+ *  Analysis has finished successfully.
+ *
+ *  Value: "FINISHED_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess;
+/**
+ *  The resource is known not to be supported
+ *
+ *  Value: "FINISHED_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedUnsupported;
+/**
+ *  Resource is known but no action has been taken yet.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Pending;
+/**
+ *  Resource is being analyzed.
+ *
+ *  Value: "SCANNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Scanning;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_DiscoveryOccurrence.continuousAnalysis
+
+/**
+ *  The resource is continuously analyzed.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_Active;
+/**
+ *  Unknown.
+ *
+ *  Value: "CONTINUOUS_ANALYSIS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_ContinuousAnalysisUnspecified;
+/**
+ *  The resource is ignored for continuous analysis.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_Inactive;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Distribution.architecture
@@ -514,121 +524,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architect
  *  Value: "X86"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_ExternalRef.category
-
-/**
- *  Unspecified
- *
- *  Value: "CATEGORY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_CategoryUnspecified;
-/**
- *  Other
- *
- *  Value: "OTHER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Other;
-/**
- *  Package Manager (e.g. maven-central, npm, nuget, bower, purl)
- *
- *  Value: "PACKAGE_MANAGER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PackageManager;
-/**
- *  Persistent-Id (e.g. swh)
- *
- *  Value: "PERSISTENT_ID"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PersistentId;
-/**
- *  Security (e.g. cpe22Type, cpe23Type)
- *
- *  Value: "SECURITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Security;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_FileNote.fileType
-
-/**
- *  The file is associated with a specific application type (MIME type of
- *  application/ *)
- *
- *  Value: "APPLICATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Application;
-/**
- *  The file represents an archive (.tar, .jar, etc.)
- *
- *  Value: "ARCHIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Archive;
-/**
- *  The file is associated with an audio file (MIME type of audio/ * , e.g.
- *  .mp3)
- *
- *  Value: "AUDIO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Audio;
-/**
- *  The file is a compiled object, target image or binary executable (.o, .a,
- *  etc.)
- *
- *  Value: "BINARY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Binary;
-/**
- *  The file serves as documentation
- *
- *  Value: "DOCUMENTATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Documentation;
-/**
- *  Unspecified
- *
- *  Value: "FILE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_FileTypeUnspecified;
-/**
- *  The file is associated with an picture image file (MIME type of image/ *,
- *  e.g., .jpg, .gif)
- *
- *  Value: "IMAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Image;
-/**
- *  The file doesn't fit into the above categories (generated artifacts, data
- *  files, etc.)
- *
- *  Value: "OTHER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Other;
-/**
- *  The file is human readable source code (.c, .html, etc.)
- *
- *  Value: "SOURCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Source;
-/**
- *  The file is an SPDX document
- *
- *  Value: "SPDX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Spdx;
-/**
- *  The file is human readable text file (MIME type of text/ *)
- *
- *  Value: "TEXT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Text;
-/**
- *  The file is associated with a video file type (MIME type of video/ *)
- *
- *  Value: "VIDEO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_FixableTotalByDigest.severity
@@ -671,233 +566,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_S
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_GenericSignedAttestation.contentType
-
-/**
- *  `ContentType` is not set.
- *
- *  Value: "CONTENT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GenericSignedAttestation_ContentType_ContentTypeUnspecified;
-/**
- *  Atomic format attestation signature. See
- *  https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
- *  The payload extracted in `plaintext` is a JSON blob conforming to the linked
- *  schema.
- *
- *  Value: "SIMPLE_SIGNING_JSON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GenericSignedAttestation_ContentType_SimpleSigningJson;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails.effectiveSeverity
-
-/**
- *  Critical severity.
- *
- *  Value: "CRITICAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Critical;
-/**
- *  High severity.
- *
- *  Value: "HIGH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_High;
-/**
- *  Low severity.
- *
- *  Value: "LOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Low;
-/**
- *  Medium severity.
- *
- *  Value: "MEDIUM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Medium;
-/**
- *  Minimal severity.
- *
- *  Value: "MINIMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Minimal;
-/**
- *  Unknown.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails.severity
-
-/**
- *  Critical severity.
- *
- *  Value: "CRITICAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Critical;
-/**
- *  High severity.
- *
- *  Value: "HIGH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_High;
-/**
- *  Low severity.
- *
- *  Value: "LOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Low;
-/**
- *  Medium severity.
- *
- *  Value: "MEDIUM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Medium;
-/**
- *  Minimal severity.
- *
- *  Value: "MINIMAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Minimal;
-/**
- *  Unknown.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_SeverityUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Hash.type
-
-/**
- *  Unknown.
- *
- *  Value: "HASH_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_HashTypeUnspecified;
-/**
- *  A SHA-256 hash.
- *
- *  Value: "SHA256"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Hash_Type_Sha256;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Layer.directive
-
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "ADD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Add;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "ARG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Arg;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "CMD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Cmd;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "COPY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Copy;
-/**
- *  Default value for unsupported/missing directive.
- *
- *  Value: "DIRECTIVE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "ENTRYPOINT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Entrypoint;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "ENV"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Env;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "EXPOSE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Expose;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "HEALTHCHECK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Healthcheck;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "LABEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Label;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "MAINTAINER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Maintainer;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "ONBUILD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Onbuild;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "RUN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Run;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "SHELL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Shell;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "STOPSIGNAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Stopsignal;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "USER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_User;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "VOLUME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Volume;
-/**
- *  https://docs.docker.com/engine/reference/builder/
- *
- *  Value: "WORKDIR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Layer_Directive_Workdir;
-
-// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Note.kind
 
 /**
@@ -913,6 +581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Attestation;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Build;
 /**
+ *  This represents a Compliance Note
+ *
+ *  Value: "COMPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Compliance;
+/**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYMENT"
@@ -925,17 +599,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Deployment;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Discovery;
 /**
+ *  This represents a DSSE attestation Note
+ *
+ *  Value: "DSSE_ATTESTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_DsseAttestation;
+/**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Image;
-/**
- *  This represents an in-toto link.
- *
- *  Value: "INTOTO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Intoto;
 /**
  *  Default value. This value is unused.
  *
@@ -949,23 +623,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_NoteKindUnsp
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Package;
 /**
- *  This represents a software bill of materials.
+ *  This represents an available package upgrade.
  *
- *  Value: "SBOM"
+ *  Value: "UPGRADE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Sbom;
-/**
- *  This represents an SPDX File.
- *
- *  Value: "SPDX_FILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxFile;
-/**
- *  This represents an SPDX Package.
- *
- *  Value: "SPDX_PACKAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxPackage;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Upgrade;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
@@ -989,6 +651,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Attest
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Build;
 /**
+ *  This represents a Compliance Note
+ *
+ *  Value: "COMPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Compliance;
+/**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYMENT"
@@ -1001,17 +669,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Deploy
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Discovery;
 /**
+ *  This represents a DSSE attestation Note
+ *
+ *  Value: "DSSE_ATTESTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_DsseAttestation;
+/**
  *  This represents an image basis relationship.
  *
  *  Value: "IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Image;
-/**
- *  This represents an in-toto link.
- *
- *  Value: "INTOTO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Intoto;
 /**
  *  Default value. This value is unused.
  *
@@ -1025,23 +693,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_NoteKi
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Package;
 /**
- *  This represents a software bill of materials.
+ *  This represents an available package upgrade.
  *
- *  Value: "SBOM"
+ *  Value: "UPGRADE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Sbom;
-/**
- *  This represents an SPDX File.
- *
- *  Value: "SPDX_FILE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile;
-/**
- *  This represents an SPDX Package.
- *
- *  Value: "SPDX_PACKAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Upgrade;
 /**
  *  The note and occurrence represent a package vulnerability.
  *
@@ -1090,304 +746,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_Effective
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PackageIssue_EffectiveSeverity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_PgpSignedAttestation.contentType
-
-/**
- *  `ContentType` is not set.
- *
- *  Value: "CONTENT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified;
-/**
- *  Atomic format attestation signature. See
- *  https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
- *  The payload extracted from `signature` is a JSON blob conforming to the
- *  linked schema.
- *
- *  Value: "SIMPLE_SIGNING_JSON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson;
-
-// ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_RelationshipOccurrence.type
-
-/**
- *  Is to be used when (current) SPDXRef-DOCUMENT amends the SPDX information in
- *  SPDXRef-B
- *
- *  Value: "AMENDS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Amends;
-/**
- *  Is to be used when SPDXRef-A is an ancestor (same lineage but pre-dates)
- *  SPDXRef-B
- *
- *  Value: "ANCESTOR_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_AncestorOf;
-/**
- *  Is to be used when SPDXRef-A is a build dependency of SPDXRef-B
- *
- *  Value: "BUILD_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildDependencyOf;
-/**
- *  Is to be used when SPDXRef-A is used to build SPDXRef-B
- *
- *  Value: "BUILD_TOOL_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildToolOf;
-/**
- *  Is to be used when SPDXRef-A is contained by SPDXRef-B
- *
- *  Value: "CONTAINED_BY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ContainedBy;
-/**
- *  Is to be used when SPDXRef-A contains SPDXRef-B
- *
- *  Value: "CONTAINS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Contains;
-/**
- *  Is to be used when SPDXRef-A is an exact copy of SPDXRef-B
- *
- *  Value: "COPY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_CopyOf;
-/**
- *  Is to be used when SPDXRef-A is a data file used in SPDXRef-B
- *
- *  Value: "DATA_FILE_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DataFileOf;
-/**
- *  Is to be used when SPDXRef-A is a manifest file that lists a set of
- *  dependencies for SPDXRef-B
- *
- *  Value: "DEPENDENCY_MANIFEST_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyManifestOf;
-/**
- *  Is to be used when SPDXRef-A is dependency of SPDXRef-B
- *
- *  Value: "DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyOf;
-/**
- *  Is to be used when SPDXRef-A depends on SPDXRef-B
- *
- *  Value: "DEPENDS_ON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependsOn;
-/**
- *  Is to be used when SPDXRef-A is a descendant of (same lineage but postdates)
- *  SPDXRef-B
- *
- *  Value: "DESCENDANT_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescendantOf;
-/**
- *  Is to be used when SPDXRef-A is described by SPDXREF-Document
- *
- *  Value: "DESCRIBED_BY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescribedBy;
-/**
- *  Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A
- *
- *  Value: "DESCRIBES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Describes;
-/**
- *  Is to be used when SPDXRef-A is a development dependency of SPDXRef-B
- *
- *  Value: "DEV_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevDependencyOf;
-/**
- *  Is to be used when SPDXRef-A is used as a development tool for SPDXRef-B
- *
- *  Value: "DEV_TOOL_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevToolOf;
-/**
- *  Is to be used when distributing SPDXRef-A requires that SPDXRef-B also be
- *  distributed
- *
- *  Value: "DISTRIBUTION_ARTIFACT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DistributionArtifact;
-/**
- *  Is to be used when SPDXRef-A provides documentation of SPDXRef-B
- *
- *  Value: "DOCUMENTATION_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DocumentationOf;
-/**
- *  Is to be used when SPDXRef-A dynamically links to SPDXRef-B
- *
- *  Value: "DYNAMIC_LINK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DynamicLink;
-/**
- *  Is to be used when SPDXRef-A is an example of SPDXRef-B
- *
- *  Value: "EXAMPLE_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExampleOf;
-/**
- *  Is to be used when SPDXRef-A is expanded from the archive SPDXRef-B
- *
- *  Value: "EXPANDED_FROM_ARCHIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExpandedFromArchive;
-/**
- *  Is to be used when SPDXRef-A is a file that was added to SPDXRef-B
- *
- *  Value: "FILE_ADDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileAdded;
-/**
- *  Is to be used when SPDXRef-A is a file that was deleted from SPDXRef-B
- *
- *  Value: "FILE_DELETED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileDeleted;
-/**
- *  Is to be used when SPDXRef-A is a file that was modified from SPDXRef-B
- *
- *  Value: "FILE_MODIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileModified;
-/**
- *  Is to be used when SPDXRef-A was generated from SPDXRef-B
- *
- *  Value: "GENERATED_FROM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_GeneratedFrom;
-/**
- *  Is to be used when SPDXRef-A generates SPDXRef-B
- *
- *  Value: "GENERATES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Generates;
-/**
- *  Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B
- *
- *  Value: "HAS_PREREQUISITE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_HasPrerequisite;
-/**
- *  Is to be used when SPDXRef-A is a metafile of SPDXRef-B
- *
- *  Value: "METAFILE_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_MetafileOf;
-/**
- *  Is to be used when SPDXRef-A is an optional component of SPDXRef-B
- *
- *  Value: "OPTIONAL_COMPONENT_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalComponentOf;
-/**
- *  Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B
- *
- *  Value: "OPTIONAL_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalDependencyOf;
-/**
- *  Is to be used for a relationship which has not been defined in the formal
- *  SPDX specification. A description of the relationship should be included in
- *  the Relationship comments field
- *
- *  Value: "OTHER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Other;
-/**
- *  Is to be used when SPDXRef-A is used as a package as part of SPDXRef-B
- *
- *  Value: "PACKAGE_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PackageOf;
-/**
- *  Is to be used when SPDXRef-A is a patch file that has been applied to
- *  SPDXRef-B
- *
- *  Value: "PATCH_APPLIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchApplied;
-/**
- *  Is to be used when SPDXRef-A is a patch file for (to be applied to)
- *  SPDXRef-B
- *
- *  Value: "PATCH_FOR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchFor;
-/**
- *  Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B
- *
- *  Value: "PREREQUISITE_FOR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PrerequisiteFor;
-/**
- *  Is to be used when SPDXRef-A is a to be provided dependency of SPDXRef-B
- *
- *  Value: "PROVIDED_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ProvidedDependencyOf;
-/**
- *  Is to be used when SPDXRef-A is a dependency required for the execution of
- *  SPDXRef-B
- *
- *  Value: "RUNTIME_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_RuntimeDependencyOf;
-/**
- *  Is to be used when SPDXRef-A statically links to SPDXRef-B
- *
- *  Value: "STATIC_LINK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_StaticLink;
-/**
- *  Is to be used when SPDXRef-A is a test case used in testing SPDXRef-B
- *
- *  Value: "TEST_CASE_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestCaseOf;
-/**
- *  Is to be used when SPDXRef-A is a test dependency of SPDXRef-B
- *
- *  Value: "TEST_DEPENDENCY_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestDependencyOf;
-/**
- *  Is to be used when SPDXRef-A is used for testing SPDXRef-B
- *
- *  Value: "TEST_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestOf;
-/**
- *  Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B
- *
- *  Value: "TEST_TOOL_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestToolOf;
-/**
- *  Unspecified
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TypeUnspecified;
-/**
- *  Is to be used when SPDXRef-A is a variant of (same lineage but not clear
- *  which came first) SPDXRef-B
- *
- *  Value: "VARIANT_OF"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_VariantOf;
-
-// ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
 
 /**
@@ -1416,44 +774,124 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Normal;
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_VersionKindUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRContainerAnalysis_Vulnerability.severity
+// GTLRContainerAnalysis_VulnerabilityNote.severity
 
 /**
  *  Critical severity.
  *
  *  Value: "CRITICAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Critical;
 /**
  *  High severity.
  *
  *  Value: "HIGH"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_High;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_High;
 /**
  *  Low severity.
  *
  *  Value: "LOW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_Low;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Low;
 /**
  *  Medium severity.
  *
  *  Value: "MEDIUM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_Medium;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Medium;
 /**
  *  Minimal severity.
  *
  *  Value: "MINIMAL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_Minimal;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_Minimal;
 /**
  *  Unknown.
  *
  *  Value: "SEVERITY_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityNote_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityOccurrence.effectiveSeverity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Medium;
+/**
+ *  Minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Minimal;
+/**
+ *  Unknown.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_VulnerabilityOccurrence.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Medium;
+/**
+ *  Minimal severity.
+ *
+ *  Value: "MINIMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Minimal;
+/**
+ *  Unknown.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_SeverityUnspecified;
 
 /**
  *  An alias to a repo revision.
@@ -1514,46 +952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Defines a hash object for use in Materials and Products.
- */
-@interface GTLRContainerAnalysis_ArtifactHashes : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *sha256;
-
-@end
-
-
-/**
- *  Defines an object to declare an in-toto artifact rule
- */
-@interface GTLRContainerAnalysis_ArtifactRule : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *artifactRule;
-
-@end
-
-
-/**
- *  Occurrence that represents a single "attestation". The authenticity of an
- *  attestation can be verified using the attached signature. If the verifier
- *  trusts the public key of the signer, then verifying the signature is
- *  sufficient to establish trust. In this circumstance, the authority to which
- *  this attestation is attached is primarily useful for look-up (how to find
- *  this attestation if you already know the authority and artifact to be
- *  verified) and intent (which authority was this attestation intended to sign
- *  for).
- */
-@interface GTLRContainerAnalysis_Attestation : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GenericSignedAttestation *genericSignedAttestation;
-
-/** A PGP signed attestation. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PgpSignedAttestation *pgpSignedAttestation;
-
-@end
-
-
-/**
  *  Note kind that represents a logical attestation "role" or "authority". For
  *  example, an organization might have one `Authority` for "QA" and one for
  *  "build". This note is intended to act strictly as a grouping mechanism for
@@ -1563,7 +961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  point of lookup to find all attached attestation occurrences, even if they
  *  don't all live in the same project.
  */
-@interface GTLRContainerAnalysis_Authority : GTLRObject
+@interface GTLRContainerAnalysis_AttestationNote : GTLRObject
 
 /** Hint hints at the purpose of the attestation authority. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Hint *hint;
@@ -1572,20 +970,45 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Basis describes the base image portion (Note) of the DockerImage
- *  relationship. Linked occurrences are derived from this or an equivalent
- *  image via: FROM Or an equivalent reference, e.g. a tag of the resource_url.
+ *  Occurrence that represents a single "attestation". The authenticity of an
+ *  attestation can be verified using the attached signature. If the verifier
+ *  trusts the public key of the signer, then verifying the signature is
+ *  sufficient to establish trust. In this circumstance, the authority to which
+ *  this attestation is attached is primarily useful for lookup (how to find
+ *  this attestation if you already know the authority and artifact to be
+ *  verified) and intent (for which authority this attestation was intended to
+ *  sign.
  */
-@interface GTLRContainerAnalysis_Basis : GTLRObject
-
-/** Required. Immutable. The fingerprint of the base image. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
+@interface GTLRContainerAnalysis_AttestationOccurrence : GTLRObject
 
 /**
- *  Required. Immutable. The resource_url for the resource representing the
- *  basis of associated occurrence images.
+ *  One or more JWTs encoding a self-contained attestation. Each JWT encodes the
+ *  payload that it verifies within the JWT itself. Verifier implementation
+ *  SHOULD ignore the `serialized_payload` field when verifying these JWTs. If
+ *  only JWTs are present on this AttestationOccurrence, then the
+ *  `serialized_payload` SHOULD be left empty. Each JWT SHOULD encode a claim
+ *  specific to the `resource_uri` of this Occurrence, but this is not validated
+ *  by Grafeas metadata API implementations. The JWT itself is opaque to
+ *  Grafeas.
  */
-@property(nonatomic, copy, nullable) NSString *resourceUrl;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Jwt *> *jwts;
+
+/**
+ *  Required. The serialized payload that is verified by one or more
+ *  `signatures`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *serializedPayload;
+
+/**
+ *  One or more signatures over `serialized_payload`. Verifier implementations
+ *  should consider this attestation message verified if at least one
+ *  `signature` verifies `serialized_payload`. See `Signature` in common.proto
+ *  for more details on signature structure and verification.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Signature *> *signatures;
 
 @end
 
@@ -1595,18 +1018,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @interface GTLRContainerAnalysis_BatchCreateNotesRequest : GTLRObject
 
-/**
- *  Required. The notes to create, the key is expected to be the note ID. Max
- *  allowed length is 1000.
- */
+/** Required. The notes to create. Max allowed length is 1000. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_BatchCreateNotesRequest_Notes *notes;
 
 @end
 
 
 /**
- *  Required. The notes to create, the key is expected to be the note ID. Max
- *  allowed length is 1000.
+ *  Required. The notes to create. Max allowed length is 1000.
  *
  *  @note This class is documented as having more properties of
  *        GTLRContainerAnalysis_Note. Use @c -additionalJSONKeys and @c
@@ -1651,7 +1070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRContainerAnalysis_Binding : GTLRObject
 
@@ -1660,14 +1079,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1699,10 +1118,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_BuilderConfig
+ */
+@interface GTLRContainerAnalysis_BuilderConfig : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -1711,16 +1145,37 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Note holding the version of the provider's builder and the signature of the
  *  provenance message in the build details occurrence.
  */
-@interface GTLRContainerAnalysis_Build : GTLRObject
+@interface GTLRContainerAnalysis_BuildNote : GTLRObject
 
 /** Required. Immutable. Version of the builder which produced this build. */
 @property(nonatomic, copy, nullable) NSString *builderVersion;
 
+@end
+
+
 /**
- *  Signature of the build in occurrences pointing to this build note containing
- *  build details.
+ *  Details of a build occurrence.
  */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildSignature *signature;
+@interface GTLRContainerAnalysis_BuildOccurrence : GTLRObject
+
+/** In-toto Provenance representation as defined in spec. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoProvenance *intotoProvenance;
+
+/** Required. The actual provenance for the build. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildProvenance *provenance;
+
+/**
+ *  Serialized JSON representation of the provenance, used in generating the
+ *  build signature in the corresponding build note. After verifying the
+ *  signature, `provenance_bytes` can be unmarshalled and compared to the
+ *  provenance to confirm that it is unchanged. A base64-encoded string
+ *  representation of the provenance bytes is used for the signature in order to
+ *  interoperate with openssl which expects this format for signature
+ *  verification. The serialized form is captured both to avoid ambiguity in how
+ *  the provenance is marshalled to json as well to prevent incompatibilities
+ *  with future changes.
+ */
+@property(nonatomic, copy, nullable) NSString *provenanceBytes;
 
 @end
 
@@ -1796,59 +1251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        fetch them all at once.
  */
 @interface GTLRContainerAnalysis_BuildProvenance_BuildOptions : GTLRObject
-@end
-
-
-/**
- *  Message encapsulating the signature of the verified build.
- */
-@interface GTLRContainerAnalysis_BuildSignature : GTLRObject
-
-/**
- *  An ID for the key used to sign. This could be either an ID for the key
- *  stored in `public_key` (such as the ID or fingerprint for a PGP key, or the
- *  CN for a cert), or a reference to an external key (such as a reference to a
- *  key in Cloud Key Management Service).
- */
-@property(nonatomic, copy, nullable) NSString *keyId;
-
-/**
- *  The type of the key, either stored in `public_key` or referenced in
- *  `key_id`.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified
- *        `KeyType` is not set. (Value: "KEY_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_BuildSignature_KeyType_PgpAsciiArmored `PGP
- *        ASCII Armored` public key. (Value: "PGP_ASCII_ARMORED")
- *    @arg @c kGTLRContainerAnalysis_BuildSignature_KeyType_PkixPem `PKIX PEM`
- *        public key. (Value: "PKIX_PEM")
- */
-@property(nonatomic, copy, nullable) NSString *keyType;
-
-/**
- *  Public key of the builder which can be used to verify that the related
- *  findings are valid and unchanged. If `key_type` is empty, this defaults to
- *  PEM encoded public keys. This field may be empty if `key_id` references an
- *  external key. For Cloud Build based signatures, this is a PEM encoded public
- *  key. To verify the Cloud Build signature, place the contents of this field
- *  into a file (public.pem). The signature field is base64-decoded into its
- *  binary representation in signature.bin, and the provenance bytes from
- *  `BuildDetails` are base64-decoded into a binary representation in
- *  signed.bin. OpenSSL can then verify the signature: `openssl sha256 -verify
- *  public.pem -signature signature.bin signed.bin`
- */
-@property(nonatomic, copy, nullable) NSString *publicKey;
-
-/**
- *  Required. Signature of the related `BuildProvenance`. In JSON, this is
- *  base-64 encoded.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *signature;
-
 @end
 
 
@@ -1995,25 +1397,57 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Defines an object for the byproducts field in in-toto links. The suggested
- *  fields are "stderr", "stdout", and "return-value".
+ *  The request message for Operations.CancelOperation.
  */
-@interface GTLRContainerAnalysis_ByProducts : GTLRObject
+@interface GTLRContainerAnalysis_CancelOperationRequest : GTLRObject
+@end
 
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ByProducts_CustomValues *customValues;
+
+/**
+ *  The category to which the update belongs.
+ */
+@interface GTLRContainerAnalysis_Category : GTLRObject
+
+/** The identifier of the category. */
+@property(nonatomic, copy, nullable) NSString *categoryId;
+
+/** The localized name of the category. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  GTLRContainerAnalysis_ByProducts_CustomValues
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *  A compliance check that is a CIS benchmark.
  */
-@interface GTLRContainerAnalysis_ByProducts_CustomValues : GTLRObject
+@interface GTLRContainerAnalysis_CisBenchmark : GTLRObject
+
+/**
+ *  profileLevel
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *profileLevel;
+
+/**
+ *  severity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_Critical Critical
+ *        severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_High High severity.
+ *        (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_Low Low severity.
+ *        (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_Medium Medium
+ *        severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_Minimal Minimal
+ *        severity. (Value: "MINIMAL")
+ *    @arg @c kGTLRContainerAnalysis_CisBenchmark_Severity_SeverityUnspecified
+ *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
 @end
 
 
@@ -2068,6 +1502,109 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** The ID(s) of the command(s) that this command depends on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *waitFor;
+
+@end
+
+
+/**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@interface GTLRContainerAnalysis_Completeness : GTLRObject
+
+/**
+ *  If true, the builder claims that recipe.arguments is complete, meaning that
+ *  all external inputs are properly captured in the recipe.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *arguments;
+
+/**
+ *  If true, the builder claims that recipe.environment is claimed to be
+ *  complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *environment;
+
+/**
+ *  If true, the builder claims that materials are complete, usually through
+ *  some controls to prevent network access. Sometimes called "hermetic".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *materials;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_ComplianceNote
+ */
+@interface GTLRContainerAnalysis_ComplianceNote : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CisBenchmark *cisBenchmark;
+
+/**
+ *  A description about this compliance check.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** A rationale for the existence of this compliance check. */
+@property(nonatomic, copy, nullable) NSString *rationale;
+
+/** A description of remediation steps if the compliance check fails. */
+@property(nonatomic, copy, nullable) NSString *remediation;
+
+/**
+ *  Serialized scan instructions with a predefined format.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *scanInstructions;
+
+/** The title that identifies this compliance check. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The OS and config versions the benchmark applies to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ComplianceVersion *> *version;
+
+@end
+
+
+/**
+ *  An indication that the compliance checks in the associated ComplianceNote
+ *  were not satisfied for particular resources or a specified reason.
+ */
+@interface GTLRContainerAnalysis_ComplianceOccurrence : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *nonComplianceReason;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_NonCompliantFile *> *nonCompliantFiles;
+
+@end
+
+
+/**
+ *  Describes the CIS benchmark version that is applicable to a given OS and os
+ *  version.
+ */
+@interface GTLRContainerAnalysis_ComplianceVersion : GTLRObject
+
+/**
+ *  The CPE URI (https://cpe.mitre.org/specification/) this benchmark is
+ *  applicable to.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/**
+ *  The version of the benchmark. This is set to the version of the OS-specific
+ *  CIS document the benchmark is defined in.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -2222,7 +1759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  An artifact that can be deployed in some runtime.
  */
-@interface GTLRContainerAnalysis_Deployable : GTLRObject
+@interface GTLRContainerAnalysis_DeploymentNote : GTLRObject
 
 /** Required. Resource URI for the artifact being deployed. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceUri;
@@ -2233,7 +1770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  The period during which some deployable was active in a runtime.
  */
-@interface GTLRContainerAnalysis_Deployment : GTLRObject
+@interface GTLRContainerAnalysis_DeploymentOccurrence : GTLRObject
 
 /** Address of the runtime element hosting this deployment. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -2248,13 +1785,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Platform hosting this deployment.
  *
  *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Deployment_Platform_Custom Custom
+ *    @arg @c kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Custom Custom
  *        user-defined platform. (Value: "CUSTOM")
- *    @arg @c kGTLRContainerAnalysis_Deployment_Platform_Flex Google App Engine:
- *        Flexible Environment. (Value: "FLEX")
- *    @arg @c kGTLRContainerAnalysis_Deployment_Platform_Gke Google Container
- *        Engine. (Value: "GKE")
- *    @arg @c kGTLRContainerAnalysis_Deployment_Platform_PlatformUnspecified
+ *    @arg @c kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Flex Google
+ *        App Engine: Flexible Environment. (Value: "FLEX")
+ *    @arg @c kGTLRContainerAnalysis_DeploymentOccurrence_Platform_Gke Google
+ *        Container Engine. (Value: "GKE")
+ *    @arg @c kGTLRContainerAnalysis_DeploymentOccurrence_Platform_PlatformUnspecified
  *        Unknown. (Value: "PLATFORM_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *platform;
@@ -2275,61 +1812,69 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Derived describes the derived image portion (Occurrence) of the DockerImage
- *  relationship. This image would be produced from a Dockerfile with FROM .
- */
-@interface GTLRContainerAnalysis_Derived : GTLRObject
-
-/**
- *  Output only. This contains the base image URL for the derived image
- *  occurrence.
- */
-@property(nonatomic, copy, nullable) NSString *baseResourceUrl;
-
-/**
- *  Output only. The number of layers by which this image differs from the
- *  associated image basis.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *distance;
-
-/** Required. The fingerprint of the derived image. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
-
-/**
- *  This contains layer-specific metadata, if populated it has length "distance"
- *  and is ordered with [distance] being the layer immediately following the
- *  base image and [1] being the final layer.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Layer *> *layerInfo;
-
-@end
-
-
-/**
- *  Identifies all appearances of this vulnerability in the package for a
- *  specific distro/location. For example: glibc in cpe:/o:debian:debian_linux:8
- *  for versions 2.1 - 2.2
+ *  A detail for a distro and package affected by this vulnerability and its
+ *  associated fix (if one is available).
  */
 @interface GTLRContainerAnalysis_Detail : GTLRObject
 
 /**
- *  Required. The CPE URI in [cpe format](https://cpe.mitre.org/specification/)
- *  in which the vulnerability manifests. Examples include distro or storage
- *  location for vulnerable jar.
+ *  Required. The [CPE URI](https://cpe.mitre.org/specification/) this
+ *  vulnerability affects.
  */
-@property(nonatomic, copy, nullable) NSString *cpeUri;
+@property(nonatomic, copy, nullable) NSString *affectedCpeUri;
+
+/** Required. The package this vulnerability affects. */
+@property(nonatomic, copy, nullable) NSString *affectedPackage;
 
 /**
- *  A vendor-specific description of this note.
+ *  The version number at the end of an interval in which this vulnerability
+ *  exists. A vulnerability can affect a package between version numbers that
+ *  are disjoint sets of intervals (example: [1.0.0-1.1.0], [2.4.6-2.4.8] and
+ *  [4.5.6-4.6.8]) each of which will be represented in its own Detail. If a
+ *  specific affected version is provided by a vulnerability database,
+ *  affected_version_start and affected_version_end will be the same in that
+ *  Detail.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *affectedVersionEnd;
+
+/**
+ *  The version number at the start of an interval in which this vulnerability
+ *  exists. A vulnerability can affect a package between version numbers that
+ *  are disjoint sets of intervals (example: [1.0.0-1.1.0], [2.4.6-2.4.8] and
+ *  [4.5.6-4.6.8]) each of which will be represented in its own Detail. If a
+ *  specific affected version is provided by a vulnerability database,
+ *  affected_version_start and affected_version_end will be the same in that
+ *  Detail.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *affectedVersionStart;
+
+/**
+ *  A vendor-specific description of this vulnerability.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The fix for this specific package version. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *fixedLocation;
+/**
+ *  The distro recommended [CPE URI](https://cpe.mitre.org/specification/) to
+ *  update to that contains a fix for this vulnerability. It is possible for
+ *  this to be different from the affected_cpe_uri.
+ */
+@property(nonatomic, copy, nullable) NSString *fixedCpeUri;
+
+/**
+ *  The distro recommended package to update to that contains a fix for this
+ *  vulnerability. It is possible for this to be different from the
+ *  affected_package.
+ */
+@property(nonatomic, copy, nullable) NSString *fixedPackage;
+
+/**
+ *  The distro recommended version to update to that contains a fix for this
+ *  vulnerability. Setting this to VersionKind.MAXIMUM means no such version is
+ *  yet available.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *fixedVersion;
 
 /**
  *  Whether this detail is obsolete. Occurrences are expected not to point to
@@ -2339,22 +1884,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @property(nonatomic, strong, nullable) NSNumber *isObsolete;
 
-/** The max version of the package in which the vulnerability exists. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *maxAffectedVersion;
-
-/** The min version of the package in which the vulnerability exists. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *minAffectedVersion;
-
-/** Required. The name of the package where the vulnerability was found. */
-@property(nonatomic, copy, nullable) NSString *package;
-
 /**
- *  The type of package; whether native or non native(ruby gems, node.js
- *  packages etc).
+ *  The type of package; whether native or non native (e.g., ruby gems, node.js
+ *  packages, etc.).
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 
-/** The severity (eg: distro assigned severity) for this vulnerability. */
+/** The distro assigned severity of this vulnerability. */
 @property(nonatomic, copy, nullable) NSString *severityName;
 
 /** The source from which the information in this Detail was obtained. */
@@ -2374,12 +1910,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Details of an attestation occurrence.
+ *  A note that indicates a type of analysis a provider would perform. This note
+ *  exists in a provider's project. A `Discovery` occurrence is created in a
+ *  consumer's project at the start of analysis.
  */
-@interface GTLRContainerAnalysis_Details : GTLRObject
+@interface GTLRContainerAnalysis_DiscoveryNote : GTLRObject
 
-/** Required. Attestation for the resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Attestation *attestation;
+/**
+ *  Required. Immutable. The kind of analysis that is handled by this discovery.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Attestation This
+ *        represents a logical "role" that can attest to artifacts. (Value:
+ *        "ATTESTATION")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Build The note
+ *        and occurrence assert build provenance. (Value: "BUILD")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Compliance This
+ *        represents a Compliance Note (Value: "COMPLIANCE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Deployment The
+ *        note and occurrence track deployment events. (Value: "DEPLOYMENT")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Discovery The
+ *        note and occurrence track the initial discovery status of a resource.
+ *        (Value: "DISCOVERY")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_DsseAttestation
+ *        This represents a DSSE attestation Note (Value: "DSSE_ATTESTATION")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Image This
+ *        represents an image basis relationship. (Value: "IMAGE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_NoteKindUnspecified
+ *        Default value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Package This
+ *        represents a package installed via a package manager. (Value:
+ *        "PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Upgrade This
+ *        represents an available package upgrade. (Value: "UPGRADE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryNote_AnalysisKind_Vulnerability
+ *        The note and occurrence represent a package vulnerability. (Value:
+ *        "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *analysisKind;
 
 @end
 
@@ -2387,26 +1955,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  Provides information about the analysis status of a discovered resource.
  */
-@interface GTLRContainerAnalysis_Discovered : GTLRObject
+@interface GTLRContainerAnalysis_DiscoveryOccurrence : GTLRObject
 
 /**
  *  The status of discovery for the resource.
  *
  *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_AnalysisStatusUnspecified
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_AnalysisStatusUnspecified
  *        Unknown. (Value: "ANALYSIS_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedFailed
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedFailed
  *        Analysis has finished unsuccessfully, the analysis itself is in a bad
  *        state. (Value: "FINISHED_FAILED")
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedSuccess
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedSuccess
  *        Analysis has finished successfully. (Value: "FINISHED_SUCCESS")
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_FinishedUnsupported
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_FinishedUnsupported
  *        The resource is known not to be supported (Value:
  *        "FINISHED_UNSUPPORTED")
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_Pending Resource
- *        is known but no action has been taken yet. (Value: "PENDING")
- *    @arg @c kGTLRContainerAnalysis_Discovered_AnalysisStatus_Scanning Resource
- *        is being analyzed. (Value: "SCANNING")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Pending
+ *        Resource is known but no action has been taken yet. (Value: "PENDING")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_AnalysisStatus_Scanning
+ *        Resource is being analyzed. (Value: "SCANNING")
  */
 @property(nonatomic, copy, nullable) NSString *analysisStatus;
 
@@ -2421,65 +1989,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Whether the resource is continuously analyzed.
  *
  *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Active The
- *        resource is continuously analyzed. (Value: "ACTIVE")
- *    @arg @c kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_ContinuousAnalysisUnspecified
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_Active
+ *        The resource is continuously analyzed. (Value: "ACTIVE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_ContinuousAnalysisUnspecified
  *        Unknown. (Value: "CONTINUOUS_ANALYSIS_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_Discovered_ContinuousAnalysis_Inactive The
- *        resource is ignored for continuous analysis. (Value: "INACTIVE")
+ *    @arg @c kGTLRContainerAnalysis_DiscoveryOccurrence_ContinuousAnalysis_Inactive
+ *        The resource is ignored for continuous analysis. (Value: "INACTIVE")
  */
 @property(nonatomic, copy, nullable) NSString *continuousAnalysis;
 
-/**
- *  The last time continuous analysis was done for this resource. Deprecated, do
- *  not use.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastAnalysisTime;
+/** The CPE of the resource being scanned. */
+@property(nonatomic, copy, nullable) NSString *cpe;
 
-@end
-
-
-/**
- *  A note that indicates a type of analysis a provider would perform. This note
- *  exists in a provider's project. A `Discovery` occurrence is created in a
- *  consumer's project at the start of analysis.
- */
-@interface GTLRContainerAnalysis_Discovery : GTLRObject
-
-/**
- *  Required. Immutable. The kind of analysis that is handled by this discovery.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Attestation This
- *        represents a logical "role" that can attest to artifacts. (Value:
- *        "ATTESTATION")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Build The note and
- *        occurrence assert build provenance. (Value: "BUILD")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Deployment The note
- *        and occurrence track deployment events. (Value: "DEPLOYMENT")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Discovery The note
- *        and occurrence track the initial discovery status of a resource.
- *        (Value: "DISCOVERY")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Image This
- *        represents an image basis relationship. (Value: "IMAGE")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Intoto This
- *        represents an in-toto link. (Value: "INTOTO")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_NoteKindUnspecified
- *        Default value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Package This
- *        represents a package installed via a package manager. (Value:
- *        "PACKAGE")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Sbom This represents
- *        a software bill of materials. (Value: "SBOM")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxFile This
- *        represents an SPDX File. (Value: "SPDX_FILE")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxPackage This
- *        represents an SPDX Package. (Value: "SPDX_PACKAGE")
- *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Vulnerability The
- *        note and occurrence represent a package vulnerability. (Value:
- *        "VULNERABILITY")
- */
-@property(nonatomic, copy, nullable) NSString *analysisKind;
+/** The last time this resource was scanned. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
 @end
 
@@ -2532,88 +2055,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  DocumentNote represents an SPDX Document Creation Infromation section:
- *  https://spdx.github.io/spdx-spec/2-document-creation-information/
+ *  GTLRContainerAnalysis_DSSEAttestationNote
  */
-@interface GTLRContainerAnalysis_DocumentNote : GTLRObject
+@interface GTLRContainerAnalysis_DSSEAttestationNote : GTLRObject
 
-/**
- *  Compliance with the SPDX specification includes populating the SPDX fields
- *  therein with data related to such fields ("SPDX-Metadata")
- */
-@property(nonatomic, copy, nullable) NSString *dataLicence;
-
-/**
- *  Provide a reference number that can be used to understand how to parse and
- *  interpret the rest of the file
- */
-@property(nonatomic, copy, nullable) NSString *spdxVersion;
+/** DSSEHint hints at the purpose of the attestation authority. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DSSEHint *hint;
 
 @end
 
 
 /**
- *  DocumentOccurrence represents an SPDX Document Creation Information section:
- *  https://spdx.github.io/spdx-spec/2-document-creation-information/
+ *  GTLRContainerAnalysis_DSSEAttestationOccurrence
  */
-@interface GTLRContainerAnalysis_DocumentOccurrence : GTLRObject
+@interface GTLRContainerAnalysis_DSSEAttestationOccurrence : GTLRObject
 
 /**
- *  Identify when the SPDX file was originally created. The date is to be
- *  specified according to combined date and time in UTC format as specified in
- *  ISO 8601 standard
+ *  If doing something security critical, make sure to verify the signatures in
+ *  this metadata.
  */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Envelope *envelope;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoStatement *statement;
+
+@end
+
 
 /**
- *  A field for creators of the SPDX file to provide general comments about the
- *  creation of the SPDX file or any other relevant comment not included in the
- *  other fields
+ *  This submessage provides human-readable hints about the purpose of the
+ *  authority. Because the name of a note acts as its resource reference, it is
+ *  important to disambiguate the canonical name of the Note (which might be a
+ *  UUID for security purposes) from "readable" names more suitable for debug
+ *  output. Note that these hints should not be used to look up authorities in
+ *  security sensitive contexts, such as when looking up attestations to verify.
  */
-@property(nonatomic, copy, nullable) NSString *creatorComment;
+@interface GTLRContainerAnalysis_DSSEHint : GTLRObject
 
 /**
- *  Identify who (or what, in the case of a tool) created the SPDX file. If the
- *  SPDX file was created by an individual, indicate the person's name
+ *  Required. The human readable name of this attestation authority, for example
+ *  "cloudbuild-prod".
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *creators;
-
-/**
- *  A field for creators of the SPDX file content to provide comments to the
- *  consumers of the SPDX document
- */
-@property(nonatomic, copy, nullable) NSString *documentComment;
-
-/**
- *  Identify any external SPDX documents referenced within this SPDX document
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *externalDocumentRefs;
-
-/**
- *  Identify the current SPDX document which may be referenced in relationships
- *  by other files, packages internally and documents externally
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  A field for creators of the SPDX file to provide the version of the SPDX
- *  License List used when the SPDX file was created
- */
-@property(nonatomic, copy, nullable) NSString *licenseListVersion;
-
-/**
- *  Provide an SPDX document specific namespace as a unique absolute Uniform
- *  Resource Identifier (URI) as specified in RFC-3986, with the exception of
- *  the ‘#’ delimiter
- *
- *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
- */
-@property(nonatomic, copy, nullable) NSString *namespaceProperty;
-
-/** Identify name of this document as designated by creator */
-@property(nonatomic, copy, nullable) NSString *title;
+@property(nonatomic, copy, nullable) NSString *humanReadableName;
 
 @end
 
@@ -2630,25 +2112,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Defines an object for the environment field in in-toto links. The suggested
- *  fields are "variables", "filesystem", and "workdir".
+ *  MUST match
+ *  https://github.com/secure-systems-lab/dsse/blob/master/envelope.proto. An
+ *  authenticated message of arbitrary type.
  */
-@interface GTLRContainerAnalysis_Environment : GTLRObject
+@interface GTLRContainerAnalysis_Envelope : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Environment_CustomValues *customValues;
+/**
+ *  payload
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *payload;
+
+@property(nonatomic, copy, nullable) NSString *payloadType;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_EnvelopeSignature *> *signatures;
 
 @end
 
 
 /**
- *  GTLRContainerAnalysis_Environment_CustomValues
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
+ *  GTLRContainerAnalysis_EnvelopeSignature
  */
-@interface GTLRContainerAnalysis_Environment_CustomValues : GTLRObject
+@interface GTLRContainerAnalysis_EnvelopeSignature : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *keyid;
+
+/**
+ *  sig
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sig;
+
 @end
 
 
@@ -2702,50 +2200,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  An External Reference allows a Package to reference an external source of
- *  additional information, metadata, enumerations, asset identifiers, or
- *  downloadable content believed to be relevant to the Package
- */
-@interface GTLRContainerAnalysis_ExternalRef : GTLRObject
-
-/**
- *  An External Reference allows a Package to reference an external source of
- *  additional information, metadata, enumerations, asset identifiers, or
- *  downloadable content believed to be relevant to the Package
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_CategoryUnspecified
- *        Unspecified (Value: "CATEGORY_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_Other Other (Value:
- *        "OTHER")
- *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_PackageManager Package
- *        Manager (e.g. maven-central, npm, nuget, bower, purl) (Value:
- *        "PACKAGE_MANAGER")
- *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_PersistentId
- *        Persistent-Id (e.g. swh) (Value: "PERSISTENT_ID")
- *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_Security Security
- *        (e.g. cpe22Type, cpe23Type) (Value: "SECURITY")
- */
-@property(nonatomic, copy, nullable) NSString *category;
-
-/**
- *  Human-readable information about the purpose and target of the reference
- */
-@property(nonatomic, copy, nullable) NSString *comment;
-
-/**
- *  The unique string with no spaces necessary to access the package-specific
- *  information, metadata, or content within the target location
- */
-@property(nonatomic, copy, nullable) NSString *locator;
-
-/** Type of category (e.g. 'npm' for the PACKAGE_MANAGER category) */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  Container message for hashes of byte content of files, used in source
  *  messages to verify integrity of source input to the build.
  */
@@ -2753,129 +2207,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** Required. Collection of file hashes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Hash *> *fileHash;
-
-@end
-
-
-/**
- *  FileNote represents an SPDX File Information section:
- *  https://spdx.github.io/spdx-spec/4-file-information/
- */
-@interface GTLRContainerAnalysis_FileNote : GTLRObject
-
-/**
- *  Provide a unique identifier to match analysis information on each specific
- *  file in a package
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *checksum;
-
-/**
- *  This field provides information about the type of file identified
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Application The file is
- *        associated with a specific application type (MIME type of application/
- *        *) (Value: "APPLICATION")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Archive The file
- *        represents an archive (.tar, .jar, etc.) (Value: "ARCHIVE")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Audio The file is
- *        associated with an audio file (MIME type of audio/ * , e.g. .mp3)
- *        (Value: "AUDIO")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Binary The file is a
- *        compiled object, target image or binary executable (.o, .a, etc.)
- *        (Value: "BINARY")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Documentation The file
- *        serves as documentation (Value: "DOCUMENTATION")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_FileTypeUnspecified
- *        Unspecified (Value: "FILE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Image The file is
- *        associated with an picture image file (MIME type of image/ *, e.g.,
- *        .jpg, .gif) (Value: "IMAGE")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Other The file doesn't
- *        fit into the above categories (generated artifacts, data files, etc.)
- *        (Value: "OTHER")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Source The file is human
- *        readable source code (.c, .html, etc.) (Value: "SOURCE")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Spdx The file is an SPDX
- *        document (Value: "SPDX")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Text The file is human
- *        readable text file (MIME type of text/ *) (Value: "TEXT")
- *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Video The file is
- *        associated with a video file type (MIME type of video/ *) (Value:
- *        "VIDEO")
- */
-@property(nonatomic, copy, nullable) NSString *fileType;
-
-/**
- *  Identify the full path and filename that corresponds to the file information
- *  in this section
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  FileOccurrence represents an SPDX File Information section:
- *  https://spdx.github.io/spdx-spec/4-file-information/
- */
-@interface GTLRContainerAnalysis_FileOccurrence : GTLRObject
-
-/**
- *  This field provides a place for the SPDX data creator to record, at the file
- *  level, acknowledgements that may be needed to be communicated in some
- *  contexts
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *attributions;
-
-/**
- *  This field provides a place for the SPDX file creator to record any general
- *  comments about the file
- */
-@property(nonatomic, copy, nullable) NSString *comment;
-
-/**
- *  This field provides a place for the SPDX file creator to record file
- *  contributors
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *contributors;
-
-/** Identify the copyright holder of the file, as well as any dates present */
-@property(nonatomic, copy, nullable) NSString *copyright;
-
-/**
- *  This field contains the license information actually found in the file, if
- *  any
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *filesLicenseInfo;
-
-/**
- *  Uniquely identify any element in an SPDX document which may be referenced by
- *  other elements
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  This field provides a place for the SPDX file creator to record any relevant
- *  background references or analysis that went in to arriving at the Concluded
- *  License for a file
- */
-@property(nonatomic, copy, nullable) NSString *licenseComments;
-
-/**
- *  This field contains the license the SPDX file creator has concluded as
- *  governing the file or alternative values if the governing license cannot be
- *  determined
- */
-@property(nonatomic, copy, nullable) NSString *licenseConcluded;
-
-/**
- *  This field provides a place for the SPDX file creator to record license
- *  notices or other such related notices found in the file
- */
-@property(nonatomic, copy, nullable) NSString *notice;
 
 @end
 
@@ -2917,7 +2248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @property(nonatomic, strong, nullable) NSNumber *fixableCount;
 
 /** The affected resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Resource *resource;
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /**
  *  The severity for this count. SEVERITY_UNSPECIFIED indicates total across all
@@ -2945,52 +2276,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCount;
-
-@end
-
-
-/**
- *  An attestation wrapper that uses the Grafeas `Signature` message. This
- *  attestation must define the `serialized_payload` that the `signatures`
- *  verify and any metadata necessary to interpret that plaintext. The
- *  signatures should always be over the `serialized_payload` bytestring.
- */
-@interface GTLRContainerAnalysis_GenericSignedAttestation : GTLRObject
-
-/**
- *  Type (for example schema) of the attestation payload that was signed. The
- *  verifier must ensure that the provided type is one that the verifier
- *  supports, and that the attestation payload is a valid instantiation of that
- *  type (for example by validating a JSON schema).
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_GenericSignedAttestation_ContentType_ContentTypeUnspecified
- *        `ContentType` is not set. (Value: "CONTENT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_GenericSignedAttestation_ContentType_SimpleSigningJson
- *        Atomic format attestation signature. See
- *        https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
- *        The payload extracted in `plaintext` is a JSON blob conforming to the
- *        linked schema. (Value: "SIMPLE_SIGNING_JSON")
- */
-@property(nonatomic, copy, nullable) NSString *contentType;
-
-/**
- *  The serialized payload that is verified by one or more `signatures`. The
- *  encoding and semantic meaning of this payload must match what is set in
- *  `content_type`.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *serializedPayload;
-
-/**
- *  One or more signatures over `serialized_payload`. Verifier implementations
- *  should consider this attestation message verified if at least one
- *  `signature` verifies `serialized_payload`. See `Signature` in common.proto
- *  for more details on signature structure and verification.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Signature *> *signatures;
 
 @end
 
@@ -3087,211 +2372,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Details of a build occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1BuildDetails : GTLRObject
-
-/** Required. The actual provenance for the build. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildProvenance *provenance;
-
-/**
- *  Serialized JSON representation of the provenance, used in generating the
- *  build signature in the corresponding build note. After verifying the
- *  signature, `provenance_bytes` can be unmarshalled and compared to the
- *  provenance to confirm that it is unchanged. A base64-encoded string
- *  representation of the provenance bytes is used for the signature in order to
- *  interoperate with openssl which expects this format for signature
- *  verification. The serialized form is captured both to avoid ambiguity in how
- *  the provenance is marshalled to json as well to prevent incompatibilities
- *  with future changes.
- */
-@property(nonatomic, copy, nullable) NSString *provenanceBytes;
-
-@end
-
-
-/**
- *  Details of a deployment occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1DeploymentDetails : GTLRObject
-
-/** Required. Deployment history for the resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Deployment *deployment;
-
-@end
-
-
-/**
- *  Details of a discovery occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1DiscoveryDetails : GTLRObject
-
-/** Required. Analysis status for the discovered resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Discovered *discovered;
-
-@end
-
-
-/**
- *  Details of an image occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1ImageDetails : GTLRObject
-
-/** Required. Immutable. The child image derived from the base image. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Derived *derivedImage;
-
-@end
-
-
-/**
- *  GTLRContainerAnalysis_GrafeasV1beta1IntotoArtifact
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1IntotoArtifact : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ArtifactHashes *hashes;
-@property(nonatomic, copy, nullable) NSString *resourceUri;
-
-@end
-
-
-/**
- *  This corresponds to a signed in-toto link - it is made up of one or more
- *  signatures and the in-toto link itself. This is used for occurrences of a
- *  Grafeas in-toto note.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1IntotoDetails : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GrafeasV1beta1IntotoSignature *> *signatures;
-
-/**
- *  signedProperty
- *
- *  Remapped to 'signedProperty' to avoid language reserved word 'signed'.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Link *signedProperty;
-
-@end
-
-
-/**
- *  A signature object consists of the KeyID used and the signature itself.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1IntotoSignature : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *keyid;
-@property(nonatomic, copy, nullable) NSString *sig;
-
-@end
-
-
-/**
- *  Details of a package occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1PackageDetails : GTLRObject
-
-/** Required. Where the package was installed. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Installation *installation;
-
-@end
-
-
-/**
- *  Details of a vulnerability Occurrence.
- */
-@interface GTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails : GTLRObject
-
-/**
- *  Output only. The CVSS score of this vulnerability. CVSS score is on a scale
- *  of 0-10 where 0 indicates low severity and 10 indicates high severity.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cvssScore;
-
-/**
- *  The distro assigned severity for this vulnerability when it is available,
- *  and note provider assigned severity when distro has not yet assigned a
- *  severity for this vulnerability. When there are multiple PackageIssues for
- *  this vulnerability, they can have different effective severities because
- *  some might be provided by the distro while others are provided by the
- *  language ecosystem for a language pack. For this reason, it is advised to
- *  use the effective severity on the PackageIssue level. In the case where
- *  multiple PackageIssues have differing effective severities, this field
- *  should be the highest severity for any of the PackageIssues.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Critical
- *        Critical severity. (Value: "CRITICAL")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_High
- *        High severity. (Value: "HIGH")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Low
- *        Low severity. (Value: "LOW")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Medium
- *        Medium severity. (Value: "MEDIUM")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_Minimal
- *        Minimal severity. (Value: "MINIMAL")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_EffectiveSeverity_SeverityUnspecified
- *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *effectiveSeverity;
-
-/** Output only. A detailed description of this vulnerability. */
-@property(nonatomic, copy, nullable) NSString *longDescription;
-
-/**
- *  Required. The set of affected locations and their fixes (if available)
- *  within the associated resource.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_PackageIssue *> *packageIssue;
-
-/** Output only. URLs related to this vulnerability. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUrls;
-
-/**
- *  Output only. The note provider assigned Severity of the vulnerability.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Critical
- *        Critical severity. (Value: "CRITICAL")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_High
- *        High severity. (Value: "HIGH")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Low
- *        Low severity. (Value: "LOW")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Medium
- *        Medium severity. (Value: "MEDIUM")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_Minimal
- *        Minimal severity. (Value: "MINIMAL")
- *    @arg @c kGTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails_Severity_SeverityUnspecified
- *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/** Output only. A one sentence description of this vulnerability. */
-@property(nonatomic, copy, nullable) NSString *shortDescription;
-
-/**
- *  The type of package; whether native or non native(ruby gems, node.js
- *  packages etc)
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  Container message for hash values.
  */
 @interface GTLRContainerAnalysis_Hash : GTLRObject
 
-/**
- *  Required. The type of hash that was performed.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Hash_Type_HashTypeUnspecified Unknown.
- *        (Value: "HASH_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_Hash_Type_Sha256 A SHA-256 hash. (Value:
- *        "SHA256")
- */
+/** Required. The type of hash that was performed, e.g. "SHA-256". */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
@@ -3325,58 +2410,135 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  This represents how a particular software package may be installed on a
- *  system.
+ *  The unique identifier of the update.
  */
-@interface GTLRContainerAnalysis_Installation : GTLRObject
+@interface GTLRContainerAnalysis_Identity : GTLRObject
 
 /**
- *  Required. All of the places within the filesystem versions of this package
- *  have been found.
+ *  The revision number of the update.
+ *
+ *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Location *> *location;
+@property(nonatomic, strong, nullable) NSNumber *revision;
 
-/** Output only. The name of the installed package. */
-@property(nonatomic, copy, nullable) NSString *name;
+/** The revision independent identifier of the update. */
+@property(nonatomic, copy, nullable) NSString *updateId;
 
 @end
 
 
 /**
- *  This contains the fields corresponding to the definition of a software
- *  supply chain step in an in-toto layout. This information goes into a Grafeas
- *  note.
+ *  Basis describes the base image portion (Note) of the DockerImage
+ *  relationship. Linked occurrences are derived from this or an equivalent
+ *  image via: FROM Or an equivalent reference, e.g., a tag of the resource_url.
  */
-@interface GTLRContainerAnalysis_InToto : GTLRObject
+@interface GTLRContainerAnalysis_ImageNote : GTLRObject
 
-/** This field contains the expected command used to perform the step. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *expectedCommand;
+/** Required. Immutable. The fingerprint of the base image. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
 
 /**
- *  The following fields contain in-toto artifact rules identifying the
- *  artifacts that enter this supply chain step, and exit the supply chain step,
- *  i.e. materials and products of the step.
+ *  Required. Immutable. The resource_url for the resource representing the
+ *  basis of associated occurrence images.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ArtifactRule *> *expectedMaterials;
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ArtifactRule *> *expectedProducts;
+@end
+
 
 /**
- *  This field contains the public keys that can be used to verify the
- *  signatures on the step metadata.
+ *  Details of the derived image portion of the DockerImage relationship. This
+ *  image would be produced from a Dockerfile with FROM .
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_SigningKey *> *signingKeys;
-
-/** This field identifies the name of the step in the supply chain. */
-@property(nonatomic, copy, nullable) NSString *stepName;
+@interface GTLRContainerAnalysis_ImageOccurrence : GTLRObject
 
 /**
- *  This field contains a value that indicates the minimum number of keys that
- *  need to be used to sign the step's in-toto link.
+ *  Output only. This contains the base image URL for the derived image
+ *  occurrence.
+ */
+@property(nonatomic, copy, nullable) NSString *baseResourceUrl;
+
+/**
+ *  Output only. The number of layers by which this image differs from the
+ *  associated image basis.
  *
- *  Uses NSNumber of longLongValue.
+ *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *threshold;
+@property(nonatomic, strong, nullable) NSNumber *distance;
+
+/** Required. The fingerprint of the derived image. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
+
+/**
+ *  This contains layer-specific metadata, if populated it has length "distance"
+ *  and is ordered with [distance] being the layer immediately following the
+ *  base image and [1] being the final layer.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Layer *> *layerInfo;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_InTotoProvenance
+ */
+@interface GTLRContainerAnalysis_InTotoProvenance : GTLRObject
+
+/** required */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuilderConfig *builderConfig;
+
+/**
+ *  The collection of artifacts that influenced the build including sources,
+ *  dependencies, build tools, base images, and so on. This is considered to be
+ *  incomplete unless metadata.completeness.materials is true. Unset or null is
+ *  equivalent to empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *materials;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Metadata *metadata;
+
+/**
+ *  Identifies the configuration used for the build. When combined with
+ *  materials, this SHOULD fully describe the build, such that re-running this
+ *  recipe results in bit-for-bit identical output (if the build is
+ *  reproducible). required
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Recipe *recipe;
+
+@end
+
+
+/**
+ *  Spec defined at
+ *  https://github.com/in-toto/attestation/tree/main/spec#statement The
+ *  serialized InTotoStatement will be stored as Envelope.payload.
+ *  Envelope.payloadType is always "application/vnd.in-toto+json".
+ */
+@interface GTLRContainerAnalysis_InTotoStatement : GTLRObject
+
+/** "https://in-toto.io/Provenance/v0.1" for InTotoProvenance. */
+@property(nonatomic, copy, nullable) NSString *predicateType;
+
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_InTotoProvenance *provenance;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Subject *> *subject;
+
+/** Always "https://in-toto.io/Statement/v0.1". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_Jwt
+ */
+@interface GTLRContainerAnalysis_Jwt : GTLRObject
+
+/**
+ *  The compact encoding of a JWS, which is always three base64 encoded strings
+ *  joined by periods. For details, see:
+ *  https://tools.ietf.org/html/rfc7515.html#section-3.1
+ */
+@property(nonatomic, copy, nullable) NSString *compactJwt;
 
 @end
 
@@ -3386,12 +2548,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @interface GTLRContainerAnalysis_KnowledgeBase : GTLRObject
 
-/** The KB name (generally of the form KB[0-9]+ i.e. KB123456). */
+/** The KB name (generally of the form KB[0-9]+ (e.g., KB123456)). */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A link to the KB in the Windows update catalog -
- *  https://www.catalog.update.microsoft.com/
+ *  A link to the KB in the [Windows update catalog]
+ *  (https://www.catalog.update.microsoft.com/).
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -3408,99 +2570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /**
  *  Required. The recovered Dockerfile directive used to construct this layer.
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Add
- *        https://docs.docker.com/engine/reference/builder/ (Value: "ADD")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Arg
- *        https://docs.docker.com/engine/reference/builder/ (Value: "ARG")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Cmd
- *        https://docs.docker.com/engine/reference/builder/ (Value: "CMD")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Copy
- *        https://docs.docker.com/engine/reference/builder/ (Value: "COPY")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_DirectiveUnspecified
- *        Default value for unsupported/missing directive. (Value:
- *        "DIRECTIVE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Entrypoint
- *        https://docs.docker.com/engine/reference/builder/ (Value:
- *        "ENTRYPOINT")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Env
- *        https://docs.docker.com/engine/reference/builder/ (Value: "ENV")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Expose
- *        https://docs.docker.com/engine/reference/builder/ (Value: "EXPOSE")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Healthcheck
- *        https://docs.docker.com/engine/reference/builder/ (Value:
- *        "HEALTHCHECK")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Label
- *        https://docs.docker.com/engine/reference/builder/ (Value: "LABEL")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Maintainer
- *        https://docs.docker.com/engine/reference/builder/ (Value:
- *        "MAINTAINER")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Onbuild
- *        https://docs.docker.com/engine/reference/builder/ (Value: "ONBUILD")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Run
- *        https://docs.docker.com/engine/reference/builder/ (Value: "RUN")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Shell
- *        https://docs.docker.com/engine/reference/builder/ (Value: "SHELL")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Stopsignal
- *        https://docs.docker.com/engine/reference/builder/ (Value:
- *        "STOPSIGNAL")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_User
- *        https://docs.docker.com/engine/reference/builder/ (Value: "USER")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Volume
- *        https://docs.docker.com/engine/reference/builder/ (Value: "VOLUME")
- *    @arg @c kGTLRContainerAnalysis_Layer_Directive_Workdir
- *        https://docs.docker.com/engine/reference/builder/ (Value: "WORKDIR")
+ *  See https://docs.docker.com/engine/reference/builder/ for more information.
  */
 @property(nonatomic, copy, nullable) NSString *directive;
-
-@end
-
-
-/**
- *  This corresponds to an in-toto link.
- */
-@interface GTLRContainerAnalysis_Link : GTLRObject
-
-/**
- *  ByProducts are data generated as part of a software supply chain step, but
- *  are not the actual result of the step.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ByProducts *byproducts;
-
-/**
- *  This field contains the full command executed for the step. This can also be
- *  empty if links are generated for operations that aren't directly mapped to a
- *  specific command. Each term in the command is an independent string in the
- *  list. An example of a command in the in-toto metadata field is: "command":
- *  ["git", "clone", "https://github.com/in-toto/demo-project.git"]
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
-
-/**
- *  This is a field that can be used to capture information about the
- *  environment. It is suggested for this field to contain information that
- *  details environment variables, filesystem information, and the present
- *  working directory. The recommended structure of this field is:
- *  "environment": { "custom_values": { "variables": "", "filesystem": "",
- *  "workdir": "", "": "..." } }
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Environment *environment;
-
-/**
- *  Materials are the supply chain artifacts that go into the step and are used
- *  for the operation performed. The key of the map is the path of the artifact
- *  and the structure contains the recorded hash information. An example is:
- *  "materials": [ { "resource_uri": "foo/bar", "hashes": { "sha256":
- *  "ebebf...", : } } ]
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GrafeasV1beta1IntotoArtifact *> *materials;
-
-/**
- *  Products are the supply chain artifacts generated as a result of the step.
- *  The structure is identical to that of materials.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_GrafeasV1beta1IntotoArtifact *> *products;
 
 @end
 
@@ -3586,29 +2658,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Response for listing scan configurations.
+ *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "scanConfigs" property. If returned as the result of a query, it
+ *        its "operations" property. If returned as the result of a query, it
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRContainerAnalysis_ListScanConfigsResponse : GTLRCollectionObject
+@interface GTLRContainerAnalysis_ListOperationsResponse : GTLRCollectionObject
 
-/**
- *  The next pagination token in the list response. It should be used as
- *  `page_token` for the following request. An empty value means no more
- *  results.
- */
+/** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The scan configurations requested.
+ *  A list of operations that matches the specified filter in the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ScanConfig *> *scanConfigs;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Operation *> *operations;
 
 @end
 
@@ -3635,18 +2703,74 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  Other properties of the build.
+ */
+@interface GTLRContainerAnalysis_Metadata : GTLRObject
+
+/** The timestamp of when the build completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildFinishedOn;
+
+/**
+ *  Identifies the particular build invocation, which can be useful for finding
+ *  associated logs or other ad-hoc analysis. The value SHOULD be globally
+ *  unique, per in-toto Provenance spec.
+ */
+@property(nonatomic, copy, nullable) NSString *buildInvocationId;
+
+/** The timestamp of when the build started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildStartedOn;
+
+/**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Completeness *completeness;
+
+/**
+ *  If true, the builder claims that running the recipe on materials will
+ *  produce bit-for-bit identical output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reproducible;
+
+@end
+
+
+/**
+ *  Details about files that caused a compliance check to fail.
+ */
+@interface GTLRContainerAnalysis_NonCompliantFile : GTLRObject
+
+/** Command to display the non-compliant files. */
+@property(nonatomic, copy, nullable) NSString *displayCommand;
+
+/**
+ *  display_command is a single command that can be used to display a list of
+ *  non compliant files. When there is no such command, we can also iterate a
+ *  list of non compliant file using 'path'. Empty if `display_command` is set.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Explains why a file is non compliant for a CIS check. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  A type of analysis that can be done for a resource.
  */
 @interface GTLRContainerAnalysis_Note : GTLRObject
 
 /** A note describing an attestation role. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Authority *attestationAuthority;
-
-/** A note describing a base image. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Basis *baseImage;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_AttestationNote *attestation;
 
 /** A note describing build provenance for a verifiable build. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Build *build;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildNote *build;
+
+/** A note describing a compliance check. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ComplianceNote *compliance;
 
 /**
  *  Output only. The time this note was created. This field can be used as a
@@ -3655,16 +2779,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** A note describing something that can be deployed. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Deployable *deployable;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DeploymentNote *deployment;
 
 /** A note describing the initial analysis of a resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Discovery *discovery;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DiscoveryNote *discovery;
+
+/** A note describing a dsse attestation note. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DSSEAttestationNote *dsseAttestation;
 
 /** Time of expiration for this note. Empty if note does not expire. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
-/** A note describing an in-toto link. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_InToto *intoto;
+/** A note describing a base image. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ImageNote *image;
 
 /**
  *  Output only. The type of analysis. This field can be used as a filter in
@@ -3675,24 +2802,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        logical "role" that can attest to artifacts. (Value: "ATTESTATION")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Build The note and occurrence
  *        assert build provenance. (Value: "BUILD")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Compliance This represents a
+ *        Compliance Note (Value: "COMPLIANCE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Deployment The note and
  *        occurrence track deployment events. (Value: "DEPLOYMENT")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Discovery The note and occurrence
  *        track the initial discovery status of a resource. (Value: "DISCOVERY")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_DsseAttestation This represents a
+ *        DSSE attestation Note (Value: "DSSE_ATTESTATION")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Image This represents an image
  *        basis relationship. (Value: "IMAGE")
- *    @arg @c kGTLRContainerAnalysis_Note_Kind_Intoto This represents an in-toto
- *        link. (Value: "INTOTO")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified Default
  *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Package This represents a package
  *        installed via a package manager. (Value: "PACKAGE")
- *    @arg @c kGTLRContainerAnalysis_Note_Kind_Sbom This represents a software
- *        bill of materials. (Value: "SBOM")
- *    @arg @c kGTLRContainerAnalysis_Note_Kind_SpdxFile This represents an SPDX
- *        File. (Value: "SPDX_FILE")
- *    @arg @c kGTLRContainerAnalysis_Note_Kind_SpdxPackage This represents an
- *        SPDX Package. (Value: "SPDX_PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Upgrade This represents an
+ *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
  */
@@ -3708,7 +2833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** A note describing a package hosted by various package managers. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Package *package;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageNote *package;
 
 /** Other notes related to this note. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedNoteNames;
@@ -3716,20 +2841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /** URLs associated with this note. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUrl;
 
-/** A note describing SPDX Document which represents SBOM. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DocumentNote *sbom;
-
 /** A one sentence description of this note. */
 @property(nonatomic, copy, nullable) NSString *shortDescription;
-
-/** A note describing SPDX File. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_FileNote *spdxFile;
-
-/** A note describing SPDX Package. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageNote *spdxPackage;
-
-/** A note describing SPDX Relationship. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RelationshipNote *spdxRelationship;
 
 /**
  *  Output only. The time this note was last updated. This field can be used as
@@ -3737,8 +2850,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** A note describing available package upgrades. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeNote *upgrade;
+
 /** A note describing a package vulnerability. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Vulnerability *vulnerability;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityNote *vulnerability;
 
 @end
 
@@ -3749,30 +2865,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @interface GTLRContainerAnalysis_Occurrence : GTLRObject
 
 /** Describes an attestation of an artifact. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Details *attestation;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_AttestationOccurrence *attestation;
 
 /** Describes a verifiable build. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1BuildDetails *build;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildOccurrence *build;
+
+/** Describes a compliance violation on a linked resource. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ComplianceOccurrence *compliance;
 
 /** Output only. The time this occurrence was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Describes the deployment of an artifact on a runtime. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1DeploymentDetails *deployment;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DeploymentOccurrence *deployment;
+
+/** Describes when a resource was discovered. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DiscoveryOccurrence *discovery;
+
+/** Describes an attestation of an artifact using dsse. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DSSEAttestationOccurrence *dsseAttestation;
+
+/** https://github.com/secure-systems-lab/dsse */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Envelope *envelope;
 
 /**
  *  Describes how this resource derives from the basis in the associated note.
  */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1ImageDetails *derivedImage;
-
-/** Describes when a resource was discovered. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1DiscoveryDetails *discovered;
-
-/** Describes the installation of a package on the linked resource. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1PackageDetails *installation;
-
-/** Describes a specific in-toto link. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1IntotoDetails *intoto;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_ImageOccurrence *image;
 
 /**
  *  Output only. This explicitly denotes which of the occurrence details are
@@ -3783,25 +2902,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        a logical "role" that can attest to artifacts. (Value: "ATTESTATION")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Build The note and
  *        occurrence assert build provenance. (Value: "BUILD")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Compliance This represents
+ *        a Compliance Note (Value: "COMPLIANCE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Deployment The note and
  *        occurrence track deployment events. (Value: "DEPLOYMENT")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Discovery The note and
  *        occurrence track the initial discovery status of a resource. (Value:
  *        "DISCOVERY")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_DsseAttestation This
+ *        represents a DSSE attestation Note (Value: "DSSE_ATTESTATION")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Image This represents an
  *        image basis relationship. (Value: "IMAGE")
- *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Intoto This represents an
- *        in-toto link. (Value: "INTOTO")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified Default
  *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Package This represents a
  *        package installed via a package manager. (Value: "PACKAGE")
- *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Sbom This represents a
- *        software bill of materials. (Value: "SBOM")
- *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile This represents an
- *        SPDX File. (Value: "SPDX_FILE")
- *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage This represents
- *        an SPDX Package. (Value: "SPDX_PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Upgrade This represents an
+ *        available package upgrade. (Value: "UPGRADE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
  */
@@ -3820,57 +2937,131 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @property(nonatomic, copy, nullable) NSString *noteName;
 
+/** Describes the installation of a package on the linked resource. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageOccurrence *package;
+
 /** A description of actions that can be taken to remedy the note. */
 @property(nonatomic, copy, nullable) NSString *remediation;
 
-/** Required. Immutable. The resource for which the occurrence applies. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Resource *resource;
-
-/** Describes a specific SPDX Document. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DocumentOccurrence *sbom;
-
-/** Describes a specific SPDX File. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_FileOccurrence *spdxFile;
-
-/** Describes a specific SPDX Package. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageOccurrence *spdxPackage;
-
-/** Describes a specific SPDX Relationship. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RelationshipOccurrence *spdxRelationship;
+/**
+ *  Required. Immutable. A URI that represents the resource for which the
+ *  occurrence applies. For example,
+ *  `https://gcr.io/project/image\@sha256:123abc` for a Docker image.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceUri;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Describes an available package upgrade on the linked resource. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeOccurrence *upgrade;
+
 /** Describes a security vulnerability. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_GrafeasV1beta1VulnerabilityDetails *vulnerability;
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityOccurrence *vulnerability;
 
 @end
 
 
 /**
- *  This represents a particular package that is distributed over various
- *  channels. E.g., glibc (aka libc6) is distributed by many, at various
- *  versions.
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
  */
-@interface GTLRContainerAnalysis_Package : GTLRObject
+@interface GTLRContainerAnalysis_Operation : GTLRObject
 
-/** The various channels by which a package is distributed. */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Distribution *> *distribution;
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
 
-/** Required. Immutable. The name of the package. */
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Response *response;
+
 @end
 
 
 /**
- *  This message wraps a location affected by a vulnerability and its associated
- *  fix (if one is available).
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  A detail for a distro and package this vulnerability occurrence was found in
+ *  and its associated fix (if one is available).
  */
 @interface GTLRContainerAnalysis_PackageIssue : GTLRObject
 
-/** Required. The location of the vulnerability. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *affectedLocation;
+/**
+ *  Required. The [CPE URI](https://cpe.mitre.org/specification/) this
+ *  vulnerability was found in.
+ */
+@property(nonatomic, copy, nullable) NSString *affectedCpeUri;
+
+/** Required. The package this vulnerability was found in. */
+@property(nonatomic, copy, nullable) NSString *affectedPackage;
+
+/**
+ *  Required. The version of the package that is installed on the resource
+ *  affected by this vulnerability.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *affectedVersion;
 
 /**
  *  Output only. The distro or language system assigned severity for this
@@ -3893,217 +3084,66 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
 
-/** The location of the available fix for vulnerability. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityLocation *fixedLocation;
+/**
+ *  Output only. Whether a fix is available for this package.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fixAvailable;
+
+/**
+ *  The [CPE URI](https://cpe.mitre.org/specification/) this vulnerability was
+ *  fixed in. It is possible for this to be different from the affected_cpe_uri.
+ */
+@property(nonatomic, copy, nullable) NSString *fixedCpeUri;
+
+/**
+ *  The package this vulnerability was fixed in. It is possible for this to be
+ *  different from the affected_package.
+ */
+@property(nonatomic, copy, nullable) NSString *fixedPackage;
+
+/**
+ *  Required. The version of the package this vulnerability was fixed in.
+ *  Setting this to VersionKind.MAXIMUM means no fix is yet available.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *fixedVersion;
 
 /** The type of package (e.g. OS, MAVEN, GO). */
 @property(nonatomic, copy, nullable) NSString *packageType;
 
-/**
- *  Deprecated, use Details.effective_severity instead The severity (e.g.,
- *  distro assigned severity) for this vulnerability.
- */
-@property(nonatomic, copy, nullable) NSString *severityName;
-
 @end
 
 
 /**
- *  PackageNote represents an SPDX Package Information section:
- *  https://spdx.github.io/spdx-spec/3-package-information/
+ *  This represents a particular package that is distributed over various
+ *  channels. E.g., glibc (aka libc6) is distributed by many, at various
+ *  versions.
  */
 @interface GTLRContainerAnalysis_PackageNote : GTLRObject
 
-/**
- *  Indicates whether the file content of this package has been available for or
- *  subjected to analysis when creating the SPDX document
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *analyzed;
+/** The various channels by which a package is distributed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Distribution *> *distribution;
 
-/**
- *  A place for the SPDX data creator to record, at the package level,
- *  acknowledgements that may be needed to be communicated in some contexts
- */
-@property(nonatomic, copy, nullable) NSString *attribution;
-
-/**
- *  Provide an independently reproducible mechanism that permits unique
- *  identification of a specific package that correlates to the data in this
- *  SPDX file
- */
-@property(nonatomic, copy, nullable) NSString *checksum;
-
-/**
- *  Identify the copyright holders of the package, as well as any dates present
- */
-@property(nonatomic, copy, nullable) NSString *copyright;
-
-/** A more detailed description of the package */
-@property(nonatomic, copy, nullable) NSString *detailedDescription;
-
-/**
- *  This section identifies the download Universal Resource Locator (URL), or a
- *  specific location within a version control system (VCS) for the package at
- *  the time that the SPDX file was created
- */
-@property(nonatomic, copy, nullable) NSString *downloadLocation;
-
-/** ExternalRef */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ExternalRef *> *externalRefs;
-
-/**
- *  Contain the license the SPDX file creator has concluded as governing the
- *  This field is to contain a list of all licenses found in the package. The
- *  relationship between licenses (i.e., conjunctive, disjunctive) is not
- *  specified in this field – it is simply a listing of all licenses found
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *filesLicenseInfo;
-
-/**
- *  Provide a place for the SPDX file creator to record a web site that serves
- *  as the package's home page
- */
-@property(nonatomic, copy, nullable) NSString *homePage;
-
-/** List the licenses that have been declared by the authors of the package */
-@property(nonatomic, copy, nullable) NSString *licenseDeclared;
-
-/**
- *  If the package identified in the SPDX file originated from a different
- *  person or organization than identified as Package Supplier, this field
- *  identifies from where or whom the package originally came
- */
-@property(nonatomic, copy, nullable) NSString *originator;
-
-/** A short description of the package */
-@property(nonatomic, copy, nullable) NSString *summaryDescription;
-
-/**
- *  Identify the actual distribution source for the package/directory identified
- *  in the SPDX file
- */
-@property(nonatomic, copy, nullable) NSString *supplier;
-
-/**
- *  Identify the full name of the package as given by the Package Originator
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/**
- *  This field provides an independently reproducible mechanism identifying
- *  specific contents of a package based on the actual files (except the SPDX
- *  file itself, if it is included in the package) that make up each package and
- *  that correlates to the data in this SPDX file
- */
-@property(nonatomic, copy, nullable) NSString *verificationCode;
-
-/** Identify the version of the package */
-@property(nonatomic, copy, nullable) NSString *version;
+/** Required. Immutable. The name of the package. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
 
 /**
- *  PackageOccurrence represents an SPDX Package Information section:
- *  https://spdx.github.io/spdx-spec/3-package-information/
+ *  Details on how a particular software package was installed on a system.
  */
 @interface GTLRContainerAnalysis_PackageOccurrence : GTLRObject
 
 /**
- *  A place for the SPDX file creator to record any general comments about the
- *  package being described
+ *  Required. All of the places within the filesystem versions of this package
+ *  have been found.
  */
-@property(nonatomic, copy, nullable) NSString *comment;
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Location *> *location;
 
-/**
- *  Provide the actual file name of the package, or path of the directory being
- *  treated as a package
- */
-@property(nonatomic, copy, nullable) NSString *filename;
-
-/**
- *  Uniquely identify any element in an SPDX document which may be referenced by
- *  other elements
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  This field provides a place for the SPDX file creator to record any relevant
- *  background information or analysis that went in to arriving at the Concluded
- *  License for a package
- */
-@property(nonatomic, copy, nullable) NSString *licenseComments;
-
-/**
- *  package or alternative values, if the governing license cannot be determined
- */
-@property(nonatomic, copy, nullable) NSString *licenseConcluded;
-
-/**
- *  Provide a place for the SPDX file creator to record any relevant background
- *  information or additional comments about the origin of the package
- */
-@property(nonatomic, copy, nullable) NSString *sourceInfo;
-
-@end
-
-
-/**
- *  An attestation wrapper with a PGP-compatible signature. This message only
- *  supports `ATTACHED` signatures, where the payload that is signed is included
- *  alongside the signature itself in the same file.
- */
-@interface GTLRContainerAnalysis_PgpSignedAttestation : GTLRObject
-
-/**
- *  Type (for example schema) of the attestation payload that was signed. The
- *  verifier must ensure that the provided type is one that the verifier
- *  supports, and that the attestation payload is a valid instantiation of that
- *  type (for example by validating a JSON schema).
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified
- *        `ContentType` is not set. (Value: "CONTENT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson
- *        Atomic format attestation signature. See
- *        https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
- *        The payload extracted from `signature` is a JSON blob conforming to
- *        the linked schema. (Value: "SIMPLE_SIGNING_JSON")
- */
-@property(nonatomic, copy, nullable) NSString *contentType;
-
-/**
- *  The cryptographic fingerprint of the key used to generate the signature, as
- *  output by, e.g. `gpg --list-keys`. This should be the version 4, full
- *  160-bit fingerprint, expressed as a 40 character hexidecimal string. See
- *  https://tools.ietf.org/html/rfc4880#section-12.2 for details.
- *  Implementations may choose to acknowledge "LONG", "SHORT", or other
- *  abbreviated key IDs, but only the full fingerprint is guaranteed to work. In
- *  gpg, the full fingerprint can be retrieved from the `fpr` field returned
- *  when calling --list-keys with --with-colons. For example: ``` gpg
- *  --with-colons --with-fingerprint --force-v4-certs \\ --list-keys
- *  attester\@example.com tru::1:1513631572:0:3:1:5 pub:......
- *  fpr:::::::::24FF6481B76AC91E66A00AC657A93A81EF3AE6FB: ``` Above, the
- *  fingerprint is `24FF6481B76AC91E66A00AC657A93A81EF3AE6FB`.
- */
-@property(nonatomic, copy, nullable) NSString *pgpKeyId;
-
-/**
- *  Required. The raw content of the signature, as output by GNU Privacy Guard
- *  (GPG) or equivalent. Since this message only supports attached signatures,
- *  the payload that was signed must be attached. While the signature format
- *  supported is dependent on the verification implementation, currently only
- *  ASCII-armored (`--armor` to gpg), non-clearsigned (`--sign` rather than
- *  `--clearsign` to gpg) are supported. Concretely, `gpg --sign --armor
- *  --output=signature.gpg payload.json` will create the signature content
- *  expected in this field in `signature.gpg` for the `payload.json` attestation
- *  payload.
- */
-@property(nonatomic, copy, nullable) NSString *signature;
+/** Output only. The name of the installed package. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -4111,15 +3151,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -4142,9 +3182,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @interface GTLRContainerAnalysis_Policy : GTLRObject
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Binding *> *bindings;
 
@@ -4206,6 +3251,83 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  Steps taken to build the artifact. For a TaskRun, typically each container
+ *  corresponds to one step in the recipe.
+ */
+@interface GTLRContainerAnalysis_Recipe : GTLRObject
+
+/**
+ *  Collection of all external inputs that influenced the build on top of
+ *  recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe
+ *  type were "make", then this might be the flags passed to make aside from the
+ *  target, which is captured in recipe.entryPoint. Since the arguments field
+ *  can greatly vary in structure, depending on the builder and recipe type,
+ *  this is of form "Any".
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Recipe_Arguments_Item *> *arguments;
+
+/**
+ *  Index in materials containing the recipe steps that are not implied by
+ *  recipe.type. For example, if the recipe type were "make", then this would
+ *  point to the source containing the Makefile, not the make program itself.
+ *  Set to -1 if the recipe doesn't come from a material, as zero is default
+ *  unset value for int64.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *definedInMaterial;
+
+/**
+ *  String identifying the entry point into the build. This is often a path to a
+ *  configuration file and/or a target label within that file. The syntax and
+ *  meaning are defined by recipe.type. For example, if the recipe type were
+ *  "make", then this would reference the directory in which to run make as well
+ *  as which target to use.
+ */
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+
+/**
+ *  Any other builder-controlled inputs necessary for correctly evaluating the
+ *  recipe. Usually only needed for reproducing the build but not evaluated as
+ *  part of policy. Since the environment field can greatly vary in structure,
+ *  depending on the builder and recipe type, this is of form "Any".
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Recipe_Environment_Item *> *environment;
+
+/**
+ *  URI indicating what type of recipe was performed. It determines the meaning
+ *  of recipe.entryPoint, recipe.arguments, recipe.environment, and materials.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_Recipe_Arguments_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_Recipe_Arguments_Item : GTLRObject
+@end
+
+
+/**
+ *  GTLRContainerAnalysis_Recipe_Environment_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_Recipe_Environment_Item : GTLRObject
+@end
+
+
+/**
  *  Metadata for any related URL information.
  */
 @interface GTLRContainerAnalysis_RelatedUrl : GTLRObject
@@ -4220,176 +3342,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  RelationshipNote represents an SPDX Relationship section:
- *  https://spdx.github.io/spdx-spec/7-relationships-between-SPDX-elements/
- */
-@interface GTLRContainerAnalysis_RelationshipNote : GTLRObject
-@end
-
-
-/**
- *  RelationshipOccurrence represents an SPDX Relationship section:
- *  https://spdx.github.io/spdx-spec/7-relationships-between-SPDX-elements/
- */
-@interface GTLRContainerAnalysis_RelationshipOccurrence : GTLRObject
-
-/**
- *  A place for the SPDX file creator to record any general comments about the
- *  relationship
- */
-@property(nonatomic, copy, nullable) NSString *comment;
-
-/**
- *  Also referred to as SPDXRef-A The source SPDX element (file, package, etc)
- */
-@property(nonatomic, copy, nullable) NSString *source;
-
-/**
- *  Also referred to as SPDXRef-B The target SPDC element (file, package, etc)
- *  In cases where there are "known unknowns", the use of the keyword
- *  NOASSERTION can be used The keywords NONE can be used to indicate that an
- *  SPDX element (package/file/snippet) has no other elements connected by some
- *  relationship to it
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/**
- *  The type of relationship between the source and target SPDX elements
- *
- *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Amends Is to be
- *        used when (current) SPDXRef-DOCUMENT amends the SPDX information in
- *        SPDXRef-B (Value: "AMENDS")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_AncestorOf Is
- *        to be used when SPDXRef-A is an ancestor (same lineage but pre-dates)
- *        SPDXRef-B (Value: "ANCESTOR_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildDependencyOf
- *        Is to be used when SPDXRef-A is a build dependency of SPDXRef-B
- *        (Value: "BUILD_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildToolOf Is
- *        to be used when SPDXRef-A is used to build SPDXRef-B (Value:
- *        "BUILD_TOOL_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ContainedBy Is
- *        to be used when SPDXRef-A is contained by SPDXRef-B (Value:
- *        "CONTAINED_BY")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Contains Is to
- *        be used when SPDXRef-A contains SPDXRef-B (Value: "CONTAINS")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_CopyOf Is to be
- *        used when SPDXRef-A is an exact copy of SPDXRef-B (Value: "COPY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DataFileOf Is
- *        to be used when SPDXRef-A is a data file used in SPDXRef-B (Value:
- *        "DATA_FILE_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyManifestOf
- *        Is to be used when SPDXRef-A is a manifest file that lists a set of
- *        dependencies for SPDXRef-B (Value: "DEPENDENCY_MANIFEST_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyOf Is
- *        to be used when SPDXRef-A is dependency of SPDXRef-B (Value:
- *        "DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependsOn Is to
- *        be used when SPDXRef-A depends on SPDXRef-B (Value: "DEPENDS_ON")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescendantOf Is
- *        to be used when SPDXRef-A is a descendant of (same lineage but
- *        postdates) SPDXRef-B (Value: "DESCENDANT_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescribedBy Is
- *        to be used when SPDXRef-A is described by SPDXREF-Document (Value:
- *        "DESCRIBED_BY")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Describes Is to
- *        be used when SPDXRef-DOCUMENT describes SPDXRef-A (Value: "DESCRIBES")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevDependencyOf
- *        Is to be used when SPDXRef-A is a development dependency of SPDXRef-B
- *        (Value: "DEV_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevToolOf Is to
- *        be used when SPDXRef-A is used as a development tool for SPDXRef-B
- *        (Value: "DEV_TOOL_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DistributionArtifact
- *        Is to be used when distributing SPDXRef-A requires that SPDXRef-B also
- *        be distributed (Value: "DISTRIBUTION_ARTIFACT")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DocumentationOf
- *        Is to be used when SPDXRef-A provides documentation of SPDXRef-B
- *        (Value: "DOCUMENTATION_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DynamicLink Is
- *        to be used when SPDXRef-A dynamically links to SPDXRef-B (Value:
- *        "DYNAMIC_LINK")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExampleOf Is to
- *        be used when SPDXRef-A is an example of SPDXRef-B (Value:
- *        "EXAMPLE_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExpandedFromArchive
- *        Is to be used when SPDXRef-A is expanded from the archive SPDXRef-B
- *        (Value: "EXPANDED_FROM_ARCHIVE")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileAdded Is to
- *        be used when SPDXRef-A is a file that was added to SPDXRef-B (Value:
- *        "FILE_ADDED")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileDeleted Is
- *        to be used when SPDXRef-A is a file that was deleted from SPDXRef-B
- *        (Value: "FILE_DELETED")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileModified Is
- *        to be used when SPDXRef-A is a file that was modified from SPDXRef-B
- *        (Value: "FILE_MODIFIED")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_GeneratedFrom
- *        Is to be used when SPDXRef-A was generated from SPDXRef-B (Value:
- *        "GENERATED_FROM")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Generates Is to
- *        be used when SPDXRef-A generates SPDXRef-B (Value: "GENERATES")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_HasPrerequisite
- *        Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B (Value:
- *        "HAS_PREREQUISITE")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_MetafileOf Is
- *        to be used when SPDXRef-A is a metafile of SPDXRef-B (Value:
- *        "METAFILE_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalComponentOf
- *        Is to be used when SPDXRef-A is an optional component of SPDXRef-B
- *        (Value: "OPTIONAL_COMPONENT_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalDependencyOf
- *        Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B
- *        (Value: "OPTIONAL_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Other Is to be
- *        used for a relationship which has not been defined in the formal SPDX
- *        specification. A description of the relationship should be included in
- *        the Relationship comments field (Value: "OTHER")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PackageOf Is to
- *        be used when SPDXRef-A is used as a package as part of SPDXRef-B
- *        (Value: "PACKAGE_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchApplied Is
- *        to be used when SPDXRef-A is a patch file that has been applied to
- *        SPDXRef-B (Value: "PATCH_APPLIED")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchFor Is to
- *        be used when SPDXRef-A is a patch file for (to be applied to)
- *        SPDXRef-B (Value: "PATCH_FOR")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PrerequisiteFor
- *        Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B (Value:
- *        "PREREQUISITE_FOR")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ProvidedDependencyOf
- *        Is to be used when SPDXRef-A is a to be provided dependency of
- *        SPDXRef-B (Value: "PROVIDED_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_RuntimeDependencyOf
- *        Is to be used when SPDXRef-A is a dependency required for the
- *        execution of SPDXRef-B (Value: "RUNTIME_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_StaticLink Is
- *        to be used when SPDXRef-A statically links to SPDXRef-B (Value:
- *        "STATIC_LINK")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestCaseOf Is
- *        to be used when SPDXRef-A is a test case used in testing SPDXRef-B
- *        (Value: "TEST_CASE_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestDependencyOf
- *        Is to be used when SPDXRef-A is a test dependency of SPDXRef-B (Value:
- *        "TEST_DEPENDENCY_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestOf Is to be
- *        used when SPDXRef-A is used for testing SPDXRef-B (Value: "TEST_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestToolOf Is
- *        to be used when SPDXRef-A is used as a test tool for SPDXRef-B (Value:
- *        "TEST_TOOL_OF")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TypeUnspecified
- *        Unspecified (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_VariantOf Is to
- *        be used when SPDXRef-A is a variant of (same lineage but not clear
- *        which came first) SPDXRef-B (Value: "VARIANT_OF")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  A unique identifier for a Cloud Repo.
  */
 @interface GTLRContainerAnalysis_RepoId : GTLRObject
@@ -4399,69 +3351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** A server-assigned, globally unique identifier. */
 @property(nonatomic, copy, nullable) NSString *uid;
-
-@end
-
-
-/**
- *  An entity that can have metadata. For example, a Docker image.
- */
-@interface GTLRContainerAnalysis_Resource : GTLRObject
-
-/**
- *  Deprecated, do not use. Use uri instead. The hash of the resource content.
- *  For example, the Docker digest.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Hash *contentHash;
-
-/**
- *  Deprecated, do not use. Use uri instead. The name of the resource. For
- *  example, the name of a Docker image - "Debian".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The unique URI of the resource. For example,
- *  `https://gcr.io/project/image\@sha256:foo` for a Docker image.
- */
-@property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  A scan configuration specifies whether Cloud components in a project have a
- *  particular type of analysis being run. For example, it can configure whether
- *  vulnerability scanning is being done on Docker images or not.
- */
-@interface GTLRContainerAnalysis_ScanConfig : GTLRObject
-
-/** Output only. The time this scan config was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. A human-readable description of what the scan configuration
- *  does.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Whether the scan is enabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Output only. The name of the scan configuration in the form of
- *  `projects/[PROJECT_ID]/scanConfigs/[SCAN_CONFIG_ID]`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The time this scan config was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -4529,39 +3418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *signature;
-
-@end
-
-
-/**
- *  This defines the format used to record keys used in the software supply
- *  chain. An in-toto link is attested using one or more keys defined in the
- *  in-toto layout. An example of this is: { "key_id":
- *  "776a00e29f3559e0141b3b096f696abc6cfb0c657ab40f441132b345b0...", "key_type":
- *  "rsa", "public_key_value": "-----BEGIN PUBLIC
- *  KEY-----\\nMIIBojANBgkqhkiG9w0B...", "key_scheme": "rsassa-pss-sha256" } The
- *  format for in-toto's key definition can be found in section 4.2 of the
- *  in-toto specification.
- */
-@interface GTLRContainerAnalysis_SigningKey : GTLRObject
-
-/** key_id is an identifier for the signing key. */
-@property(nonatomic, copy, nullable) NSString *keyId;
-
-/**
- *  This field contains the corresponding signature scheme. Eg:
- *  "rsassa-pss-sha256".
- */
-@property(nonatomic, copy, nullable) NSString *keyScheme;
-
-/**
- *  This field identifies the specific signing method. Eg: "rsa", "ed25519", and
- *  "ecdsa".
- */
-@property(nonatomic, copy, nullable) NSString *keyType;
-
-/** This field contains the actual public key. */
-@property(nonatomic, copy, nullable) NSString *publicKeyValue;
 
 @end
 
@@ -4697,6 +3553,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  GTLRContainerAnalysis_Subject
+ */
+@interface GTLRContainerAnalysis_Subject : GTLRObject
+
+/** "": "" */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Subject_Digest *digest;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  "": ""
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainerAnalysis_Subject_Digest : GTLRObject
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRContainerAnalysis_TestIamPermissionsRequest : GTLRObject
@@ -4739,6 +3620,97 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  The Upgrade Distribution represents metadata about the Upgrade for each
+ *  operating system (CPE). Some distributions have additional metadata around
+ *  updates, classifying them into various categories and severities.
+ */
+@interface GTLRContainerAnalysis_UpgradeDistribution : GTLRObject
+
+/**
+ *  The operating system classification of this Upgrade, as specified by the
+ *  upstream operating system upgrade feed. For Windows the classification is
+ *  one of the category_ids listed at
+ *  https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ff357803(v=vs.85)
+ */
+@property(nonatomic, copy, nullable) NSString *classification;
+
+/**
+ *  Required - The specific operating system this metadata applies to. See
+ *  https://cpe.mitre.org/specification/.
+ */
+@property(nonatomic, copy, nullable) NSString *cpeUri;
+
+/** The cve tied to this Upgrade. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cve;
+
+/** The severity as specified by the upstream operating system. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  An Upgrade Note represents a potential upgrade of a package to a given
+ *  version. For each package version combination (i.e. bash 4.0, bash 4.1, bash
+ *  4.1.2), there will be an Upgrade Note. For Windows, windows_update field
+ *  represents the information related to the update.
+ */
+@interface GTLRContainerAnalysis_UpgradeNote : GTLRObject
+
+/** Metadata about the upgrade for each specific operating system. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_UpgradeDistribution *> *distributions;
+
+/** Required for non-Windows OS. The package this Upgrade is for. */
+@property(nonatomic, copy, nullable) NSString *package;
+
+/**
+ *  Required for non-Windows OS. The version of the package in machine + human
+ *  readable form.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
+
+/**
+ *  Required for Windows OS. Represents the metadata about the Windows update.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_WindowsUpdate *windowsUpdate;
+
+@end
+
+
+/**
+ *  An Upgrade Occurrence represents that a specific resource_url could install
+ *  a specific upgrade. This presence is supplied via local sources (i.e. it is
+ *  present in the mirror and the running system has noticed its availability).
+ *  For Windows, both distribution and windows_update contain information for
+ *  the Windows update.
+ */
+@interface GTLRContainerAnalysis_UpgradeOccurrence : GTLRObject
+
+/**
+ *  Metadata about the upgrade for available for the specific operating system
+ *  for the resource_url. This allows efficient filtering, as well as making it
+ *  easier to use the occurrence.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeDistribution *distribution;
+
+/** Required for non-Windows OS. The package this Upgrade is for. */
+@property(nonatomic, copy, nullable) NSString *package;
+
+/**
+ *  Required for non-Windows OS. The version of the package in a machine + human
+ *  readable form.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *parsedVersion;
+
+/**
+ *  Required for Windows OS. Represents the metadata about the Windows update.
+ */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_WindowsUpdate *windowsUpdate;
+
+@end
+
+
+/**
  *  Version contains structured information about the version of a package.
  */
 @interface GTLRContainerAnalysis_Version : GTLRObject
@@ -4749,6 +3721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *epoch;
+
+/**
+ *  Human readable version string. This string is of the form :- and is only set
+ *  when kind is NORMAL.
+ */
+@property(nonatomic, copy, nullable) NSString *fullName;
 
 /**
  *  Whether this version is specifying part of an inclusive range. Grafeas does
@@ -4814,42 +3792,41 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  Vulnerability provides metadata about a security vulnerability in a Note.
+ *  A security vulnerability that can be found in resources.
  */
-@interface GTLRContainerAnalysis_Vulnerability : GTLRObject
+@interface GTLRContainerAnalysis_VulnerabilityNote : GTLRObject
 
 /**
- *  The CVSS score for this vulnerability.
+ *  The CVSS score of this vulnerability. CVSS score is on a scale of 0 - 10
+ *  where 0 indicates low severity and 10 indicates high severity.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
 
-/** The full description of the CVSSv3. */
+/** The full description of the CVSSv3 for this vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSSv3 *cvssV3;
 
 /**
- *  All information about the package to specifically identify this
- *  vulnerability. One entry per (version range and cpe_uri) the package
- *  vulnerability has manifested in.
+ *  Details of all known distros and packages affected by this vulnerability.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Detail *> *details;
 
 /**
- *  Note provider assigned impact of the vulnerability.
+ *  The note provider assigned severity of this vulnerability.
  *
  *  Likely values:
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_Critical Critical
- *        severity. (Value: "CRITICAL")
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_High High severity.
- *        (Value: "HIGH")
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_Low Low severity.
- *        (Value: "LOW")
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_Medium Medium
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_High High
+ *        severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_Low Low
+ *        severity. (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_Medium Medium
  *        severity. (Value: "MEDIUM")
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_Minimal Minimal
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_Minimal Minimal
  *        severity. (Value: "MINIMAL")
- *    @arg @c kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecified
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityNote_Severity_SeverityUnspecified
  *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
@@ -4873,21 +3850,92 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
- *  The location of the vulnerability.
+ *  An occurrence of a severity vulnerability on a resource.
  */
-@interface GTLRContainerAnalysis_VulnerabilityLocation : GTLRObject
+@interface GTLRContainerAnalysis_VulnerabilityOccurrence : GTLRObject
 
 /**
- *  Required. The CPE URI in [cpe format](https://cpe.mitre.org/specification/)
- *  format. Examples include distro or storage location for vulnerable jar.
+ *  Output only. The CVSS score of this vulnerability. CVSS score is on a scale
+ *  of 0 - 10 where 0 indicates low severity and 10 indicates high severity.
+ *
+ *  Uses NSNumber of floatValue.
  */
-@property(nonatomic, copy, nullable) NSString *cpeUri;
+@property(nonatomic, strong, nullable) NSNumber *cvssScore;
 
-/** Required. The package being described. */
-@property(nonatomic, copy, nullable) NSString *package;
+/**
+ *  The distro assigned severity for this vulnerability when it is available,
+ *  otherwise this is the note provider assigned severity. When there are
+ *  multiple PackageIssues for this vulnerability, they can have different
+ *  effective severities because some might be provided by the distro while
+ *  others are provided by the language ecosystem for a language pack. For this
+ *  reason, it is advised to use the effective severity on the PackageIssue
+ *  level. In the case where multiple PackageIssues have differing effective
+ *  severities, this field should be the highest severity for any of the
+ *  PackageIssues.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_High
+ *        High severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Low
+ *        Low severity. (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Medium
+ *        Medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_Minimal
+ *        Minimal severity. (Value: "MINIMAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_EffectiveSeverity_SeverityUnspecified
+ *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveSeverity;
 
-/** Required. The version of the package being described. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *version;
+/**
+ *  Output only. Whether at least one of the affected packages has a fix
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fixAvailable;
+
+/** Output only. A detailed description of this vulnerability. */
+@property(nonatomic, copy, nullable) NSString *longDescription;
+
+/**
+ *  Required. The set of affected locations and their fixes (if available)
+ *  within the associated resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_PackageIssue *> *packageIssue;
+
+/** Output only. URLs related to this vulnerability. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUrls;
+
+/**
+ *  Output only. The note provider assigned severity of this vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_High High
+ *        severity. (Value: "HIGH")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Low Low
+ *        severity. (Value: "LOW")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Medium
+ *        Medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Minimal
+ *        Minimal severity. (Value: "MINIMAL")
+ *    @arg @c kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_SeverityUnspecified
+ *        Unknown. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** Output only. A one sentence description of this vulnerability. */
+@property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/**
+ *  The type of package; whether native or non native (e.g., ruby gems, node.js
+ *  packages, etc.).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4912,14 +3960,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 @interface GTLRContainerAnalysis_WindowsDetail : GTLRObject
 
 /**
- *  Required. The CPE URI in [cpe format](https://cpe.mitre.org/specification/)
- *  in which the vulnerability manifests. Examples include distro or storage
- *  location for vulnerable jar.
+ *  Required. The [CPE URI](https://cpe.mitre.org/specification/) this
+ *  vulnerability affects.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
 /**
- *  The description of the vulnerability.
+ *  The description of this vulnerability.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -4928,13 +3975,52 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /**
  *  Required. The names of the KBs which have hotfixes to mitigate this
  *  vulnerability. Note that there may be multiple hotfixes (and thus multiple
- *  KBs) that mitigate a given vulnerability. Currently any listed kb's presence
+ *  KBs) that mitigate a given vulnerability. Currently any listed KBs presence
  *  is considered a fix.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_KnowledgeBase *> *fixingKbs;
 
-/** Required. The name of the vulnerability. */
+/** Required. The name of this vulnerability. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Windows Update represents the metadata about the update for the Windows
+ *  operating system. The fields in this message come from the Windows Update
+ *  API documented at
+ *  https://docs.microsoft.com/en-us/windows/win32/api/wuapi/nn-wuapi-iupdate.
+ */
+@interface GTLRContainerAnalysis_WindowsUpdate : GTLRObject
+
+/** The list of categories to which the update belongs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Category *> *categories;
+
+/**
+ *  The localized description of the update.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required - The unique identifier for the update. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Identity *identity;
+
+/**
+ *  The Microsoft Knowledge Base article IDs that are associated with the
+ *  update.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kbArticleIds;
+
+/** The last published timestamp of the update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastPublishedTimestamp;
+
+/** The hyperlink to the support information for the update. */
+@property(nonatomic, copy, nullable) NSString *supportUrl;
+
+/** The localized title of the update. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

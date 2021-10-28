@@ -87,7 +87,7 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Destination
-@dynamic cloudRun;
+@dynamic cloudRun, gke;
 @end
 
 
@@ -120,6 +120,21 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GKE
+//
+
+@implementation GTLREventarc_GKE
+@dynamic cluster, location, namespaceProperty, path, service;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
 }
 
 @end

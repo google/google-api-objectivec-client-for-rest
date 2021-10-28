@@ -148,11 +148,44 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest
+@dynamic appDetails, appId, detailUri, displayName, iconUri, latestRequestTime,
+         requestCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess
 @dynamic hostMatch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse
+@dynamic nextPageToken, requestedApps, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestedApps" : [GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"requestedApps";
+}
+
 @end
 
 

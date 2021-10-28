@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccount;
+@class GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest;
@@ -34,7 +35,6 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
-@class GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
@@ -731,6 +731,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Acknowledges the terms of user data collection for the specified property.
+ *  This acknowledgement must be completed (either in the Google Analytics UI or
+ *  via this API) before MeasurementProtocolSecret resources may be created.
+ *
+ *  Method: analyticsadmin.properties.acknowledgeUserDataCollection
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. The property for which to acknowledge user data collection. */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse.
+ *
+ *  Acknowledges the terms of user data collection for the specified property.
+ *  This acknowledgement must be completed (either in the Google Analytics UI or
+ *  via this API) before MeasurementProtocolSecret resources may be created.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest to
+ *    include in the query.
+ *  @param property Required. The property for which to acknowledge user data
+ *    collection.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest *)object
+                       property:(NSString *)property;
 
 @end
 
@@ -3494,43 +3530,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the singleton enhanced measurement settings for this web stream.
- *  Note that the stream must enable enhanced measurement for these settings to
- *  take effect.
- *
- *  Method: analyticsadmin.properties.webDataStreams.getEnhancedMeasurementSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The name of the settings to lookup. Format:
- *  properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *  Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings.
- *
- *  Returns the singleton enhanced measurement settings for this web stream.
- *  Note that the stream must enable enhanced measurement for these settings to
- *  take effect.
- *
- *  @param name Required. The name of the settings to lookup. Format:
- *    properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *    Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Returns the Site Tag for the specified web stream. Site Tags are immutable
  *  singletons.
  *
@@ -3871,56 +3870,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Updates the singleton enhanced measurement settings for this web stream.
- *  Note that the stream must enable enhanced measurement for these settings to
- *  take effect.
- *
- *  Method: analyticsadmin.properties.webDataStreams.updateEnhancedMeasurementSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsUpdateEnhancedMeasurementSettings : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Output only. Resource name of this Data Stream. Format:
- *  properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *  Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
- *  fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings.
- *
- *  Updates the singleton enhanced measurement settings for this web stream.
- *  Note that the stream must enable enhanced measurement for these settings to
- *  take effect.
- *
- *  @param object The @c
- *    GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings to include in
- *    the query.
- *  @param name Output only. Resource name of this Data Stream. Format:
- *    properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *    Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsUpdateEnhancedMeasurementSettings
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings *)object
                            name:(NSString *)name;
 
 @end

@@ -132,9 +132,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  Method: logging.billingAccounts.exclusions.create
  *
@@ -155,9 +155,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
@@ -173,7 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  Method: logging.billingAccounts.exclusions.delete
  *
@@ -196,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion to delete:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -212,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  Method: logging.billingAccounts.exclusions.get
  *
@@ -237,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -253,7 +253,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  Method: logging.billingAccounts.exclusions.list
  *
@@ -290,7 +290,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListExclusionsResponse.
  *
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
  *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
@@ -307,7 +307,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  Method: logging.billingAccounts.exclusions.patch
  *
@@ -342,7 +343,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param name Required. The resource name of the exclusion to update:
@@ -656,7 +658,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  Method: logging.billingAccounts.locations.buckets.views.delete
  *
@@ -677,7 +681,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  @param name Required. The full resource name of the view to delete:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -744,7 +750,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  Method: logging.billingAccounts.locations.buckets.views.patch
  *
@@ -778,7 +786,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -1583,9 +1593,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  Method: logging.exclusions.create
  *
@@ -1606,9 +1616,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
@@ -1624,7 +1634,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  Method: logging.exclusions.delete
  *
@@ -1647,7 +1657,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion to delete:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -1663,7 +1673,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  Method: logging.exclusions.get
  *
@@ -1688,7 +1698,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -1704,7 +1714,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  Method: logging.exclusions.list
  *
@@ -1741,7 +1751,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListExclusionsResponse.
  *
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
  *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
@@ -1758,7 +1768,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  Method: logging.exclusions.patch
  *
@@ -1793,7 +1804,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param name Required. The resource name of the exclusion to update:
@@ -1811,9 +1823,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  Method: logging.folders.exclusions.create
  *
@@ -1834,9 +1846,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
@@ -1852,7 +1864,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  Method: logging.folders.exclusions.delete
  *
@@ -1875,7 +1887,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion to delete:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -1891,7 +1903,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  Method: logging.folders.exclusions.get
  *
@@ -1916,7 +1928,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -1932,7 +1944,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  Method: logging.folders.exclusions.list
  *
@@ -1969,7 +1981,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListExclusionsResponse.
  *
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
  *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
@@ -1986,7 +1998,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  Method: logging.folders.exclusions.patch
  *
@@ -2021,7 +2034,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param name Required. The resource name of the exclusion to update:
@@ -2376,7 +2390,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  Method: logging.folders.locations.buckets.views.delete
  *
@@ -2397,7 +2413,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  @param name Required. The full resource name of the view to delete:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -2501,7 +2519,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  Method: logging.folders.locations.buckets.views.patch
  *
@@ -2535,7 +2555,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -3558,7 +3580,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  Method: logging.locations.buckets.views.delete
  *
@@ -3579,7 +3603,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  @param name Required. The full resource name of the view to delete:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -3683,7 +3709,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  Method: logging.locations.buckets.views.patch
  *
@@ -3717,7 +3745,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -4107,9 +4137,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  Method: logging.organizations.exclusions.create
  *
@@ -4130,9 +4160,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
@@ -4148,7 +4178,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  Method: logging.organizations.exclusions.delete
  *
@@ -4171,7 +4201,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion to delete:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -4187,7 +4217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  Method: logging.organizations.exclusions.get
  *
@@ -4212,7 +4242,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -4228,7 +4258,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  Method: logging.organizations.exclusions.list
  *
@@ -4265,7 +4295,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListExclusionsResponse.
  *
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
  *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
@@ -4282,7 +4312,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  Method: logging.organizations.exclusions.patch
  *
@@ -4317,7 +4348,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param name Required. The resource name of the exclusion to update:
@@ -4336,8 +4368,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
+ *  Logs Router can currently only be configured for Google Cloud organizations.
+ *  Once configured, it applies to all projects and folders in the Google Cloud
  *  organization.See Enabling CMEK for Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
@@ -4359,8 +4391,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for GCP organizations. Once configured, it
- *  applies to all projects and folders in the GCP organization.
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4368,8 +4401,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
+ *  Logs Router can currently only be configured for Google Cloud organizations.
+ *  Once configured, it applies to all projects and folders in the Google Cloud
  *  organization.See Enabling CMEK for Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
@@ -4380,8 +4413,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
  *
  *  @return GTLRLoggingQuery_OrganizationsGetCmekSettings
  */
@@ -4727,7 +4761,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  Method: logging.organizations.locations.buckets.views.delete
  *
@@ -4748,7 +4784,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  @param name Required. The full resource name of the view to delete:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -4852,7 +4890,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  Method: logging.organizations.locations.buckets.views.patch
  *
@@ -4886,7 +4926,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -5573,14 +5615,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
- *  organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or
- *  2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled.See Enabling CMEK for Logs Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  the Logs Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
+ *  kms_key_name is invalid, or 2) the associated service account does not have
+ *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
  *
  *  Method: logging.organizations.updateCmekSettings
  *
@@ -5597,8 +5639,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for GCP organizations. Once configured, it
- *  applies to all projects and folders in the GCP organization.
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5616,14 +5659,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
- *  organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or
- *  2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled.See Enabling CMEK for Logs Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  the Logs Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
+ *  kms_key_name is invalid, or 2) the associated service account does not have
+ *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -5632,8 +5675,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
  *
  *  @return GTLRLoggingQuery_OrganizationsUpdateCmekSettings
  */
@@ -5643,9 +5687,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  Method: logging.projects.exclusions.create
  *
@@ -5666,9 +5710,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Creates a new exclusion in a specified parent resource. Only log entries
- *  belonging to that resource can be excluded. You can have up to 10 exclusions
- *  in a resource.
+ *  Creates a new exclusion in the _Default sink in a specified parent resource.
+ *  Only log entries belonging to that resource can be excluded. You can have up
+ *  to 10 exclusions in a resource.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
@@ -5684,7 +5728,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  Method: logging.projects.exclusions.delete
  *
@@ -5707,7 +5751,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes an exclusion.
+ *  Deletes an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion to delete:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -5723,7 +5767,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  Method: logging.projects.exclusions.get
  *
@@ -5748,7 +5792,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Gets the description of an exclusion.
+ *  Gets the description of an exclusion in the _Default sink.
  *
  *  @param name Required. The resource name of an existing exclusion:
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
@@ -5764,7 +5808,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  Method: logging.projects.exclusions.list
  *
@@ -5801,7 +5845,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListExclusionsResponse.
  *
- *  Lists all the exclusions in a parent resource.
+ *  Lists all the exclusions on the _Default sink in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
  *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
@@ -5818,7 +5862,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  Method: logging.projects.exclusions.patch
  *
@@ -5853,7 +5898,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogExclusion.
  *
- *  Changes one or more properties of an existing exclusion.
+ *  Changes one or more properties of an existing exclusion in the _Default
+ *  sink.
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param name Required. The resource name of the exclusion to update:
@@ -6208,7 +6254,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  Method: logging.projects.locations.buckets.views.delete
  *
@@ -6229,7 +6277,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_Empty.
  *
- *  Deletes a view on a log bucket.
+ *  Deletes a view on a log bucket. If an UNAVAILABLE error is returned, this
+ *  indicates that system is not in a state where it can delete the view. If
+ *  this occurs, please try again in a few minutes.
  *
  *  @param name Required. The full resource name of the view to delete:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
@@ -6333,7 +6383,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  Method: logging.projects.locations.buckets.views.patch
  *
@@ -6367,7 +6419,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_LogView.
  *
  *  Updates a view on a log bucket. This method replaces the following fields in
- *  the existing view with values from the new view: filter.
+ *  the existing view with values from the new view: filter. If an UNAVAILABLE
+ *  error is returned, this indicates that system is not in a state where it can
+ *  update the view. If this occurs, please try again in a few minutes.
  *
  *  @param object The @c GTLRLogging_LogView to include in the query.
  *  @param name Required. The full resource name of the view to update
@@ -7511,8 +7565,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
+ *  Logs Router can currently only be configured for Google Cloud organizations.
+ *  Once configured, it applies to all projects and folders in the Google Cloud
  *  organization.See Enabling CMEK for Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
@@ -7534,8 +7588,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for GCP organizations. Once configured, it
- *  applies to all projects and folders in the GCP organization.
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7543,8 +7598,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
+ *  Logs Router can currently only be configured for Google Cloud organizations.
+ *  Once configured, it applies to all projects and folders in the Google Cloud
  *  organization.See Enabling CMEK for Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
@@ -7555,8 +7610,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
  *
  *  @return GTLRLoggingQuery_V2GetCmekSettings
  */
@@ -7566,14 +7622,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
- *  organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or
- *  2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled.See Enabling CMEK for Logs Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  the Logs Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
+ *  kms_key_name is invalid, or 2) the associated service account does not have
+ *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
  *
  *  Method: logging.updateCmekSettings
  *
@@ -7590,8 +7646,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
  *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for GCP organizations. Once configured, it
- *  applies to all projects and folders in the GCP organization.
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7609,14 +7666,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
  *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for GCP organizations. Once
- *  configured, it applies to all projects and folders in the GCP
- *  organization.UpdateCmekSettings will fail if 1) kms_key_name is invalid, or
- *  2) the associated service account does not have the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
- *  access to the key is disabled.See Enabling CMEK for Logs Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  the Logs Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
+ *  kms_key_name is invalid, or 2) the associated service account does not have
+ *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -7625,8 +7682,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
  *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
  *
  *  @return GTLRLoggingQuery_V2UpdateCmekSettings
  */

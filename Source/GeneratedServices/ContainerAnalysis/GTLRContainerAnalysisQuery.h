@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Container Analysis API (containeranalysis/v1beta1)
+//   Container Analysis API (containeranalysis/v1)
 // Description:
 //   An implementation of the Grafeas API, which stores, and enables querying
 //   and retrieval of critical metadata about all of your software artifacts.
@@ -23,10 +23,10 @@
 
 @class GTLRContainerAnalysis_BatchCreateNotesRequest;
 @class GTLRContainerAnalysis_BatchCreateOccurrencesRequest;
+@class GTLRContainerAnalysis_CancelOperationRequest;
 @class GTLRContainerAnalysis_GetIamPolicyRequest;
 @class GTLRContainerAnalysis_Note;
 @class GTLRContainerAnalysis_Occurrence;
-@class GTLRContainerAnalysis_ScanConfig;
 @class GTLRContainerAnalysis_SetIamPolicyRequest;
 @class GTLRContainerAnalysis_TestIamPermissionsRequest;
 
@@ -44,6 +44,168 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: containeranalysis.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_OperationsCancel : GTLRContainerAnalysisQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRContainerAnalysis_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRContainerAnalysisQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRContainerAnalysis_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: containeranalysis.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_OperationsDelete : GTLRContainerAnalysisQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRContainerAnalysisQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: containeranalysis.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_OperationsGet : GTLRContainerAnalysisQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRContainerAnalysisQuery_OperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: containeranalysis.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
+ */
+@interface GTLRContainerAnalysisQuery_OperationsList : GTLRContainerAnalysisQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRContainerAnalysis_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRContainerAnalysisQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -845,112 +1007,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRContainerAnalysis_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Gets the specified scan configuration.
- *
- *  Method: containeranalysis.projects.scanConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
- */
-@interface GTLRContainerAnalysisQuery_ProjectsScanConfigsGet : GTLRContainerAnalysisQuery
-
-/**
- *  Required. The name of the scan configuration in the form of
- *  `projects/[PROJECT_ID]/scanConfigs/[SCAN_CONFIG_ID]`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRContainerAnalysis_ScanConfig.
- *
- *  Gets the specified scan configuration.
- *
- *  @param name Required. The name of the scan configuration in the form of
- *    `projects/[PROJECT_ID]/scanConfigs/[SCAN_CONFIG_ID]`.
- *
- *  @return GTLRContainerAnalysisQuery_ProjectsScanConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists scan configurations for the specified project.
- *
- *  Method: containeranalysis.projects.scanConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
- */
-@interface GTLRContainerAnalysisQuery_ProjectsScanConfigsList : GTLRContainerAnalysisQuery
-
-/** Required. The filter expression. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The number of scan configs to return in the list. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** Token to provide to skip to a particular spot in the list. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The name of the project to list scan configurations for in the
- *  form of `projects/[PROJECT_ID]`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRContainerAnalysis_ListScanConfigsResponse.
- *
- *  Lists scan configurations for the specified project.
- *
- *  @param parent Required. The name of the project to list scan configurations
- *    for in the form of `projects/[PROJECT_ID]`.
- *
- *  @return GTLRContainerAnalysisQuery_ProjectsScanConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Updates the specified scan configuration.
- *
- *  Method: containeranalysis.projects.scanConfigs.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
- */
-@interface GTLRContainerAnalysisQuery_ProjectsScanConfigsUpdate : GTLRContainerAnalysisQuery
-
-/**
- *  Required. The name of the scan configuration in the form of
- *  `projects/[PROJECT_ID]/scanConfigs/[SCAN_CONFIG_ID]`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRContainerAnalysis_ScanConfig.
- *
- *  Updates the specified scan configuration.
- *
- *  @param object The @c GTLRContainerAnalysis_ScanConfig to include in the
- *    query.
- *  @param name Required. The name of the scan configuration in the form of
- *    `projects/[PROJECT_ID]/scanConfigs/[SCAN_CONFIG_ID]`.
- *
- *  @return GTLRContainerAnalysisQuery_ProjectsScanConfigsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRContainerAnalysis_ScanConfig *)object
-                           name:(NSString *)name;
 
 @end
 

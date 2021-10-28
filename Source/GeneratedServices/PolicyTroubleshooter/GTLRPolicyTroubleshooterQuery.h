@@ -38,8 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks whether a member has a specific permission for a specific resource,
- *  and explains why the member does or does not have that permission.
+ *  Checks whether a principal has a specific permission for a specific
+ *  resource, and explains why the principal does or does not have that
+ *  permission.
  *
  *  Method: policytroubleshooter.iam.troubleshoot
  *
@@ -52,8 +53,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse.
  *
- *  Checks whether a member has a specific permission for a specific resource,
- *  and explains why the member does or does not have that permission.
+ *  Checks whether a principal has a specific permission for a specific
+ *  resource, and explains why the principal does or does not have that
+ *  permission.
  *
  *  @param object The @c
  *    GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest

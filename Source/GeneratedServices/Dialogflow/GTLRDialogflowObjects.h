@@ -34,6 +34,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput_SessionParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DtmfInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentTestCasesConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EventHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Form;
@@ -87,6 +90,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput;
@@ -94,11 +98,14 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput_SessionParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3DeploymentResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DtmfInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityTypeExcludedPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventInput;
@@ -653,6 +660,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Cont
  *  Value: "PASSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Passed;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment.state
+
+/**
+ *  The deployment failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Failed;
+/**
+ *  The deployment is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Running;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_StateUnspecified;
+/**
+ *  The deployment succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.responseType
@@ -3124,6 +3159,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Environments.DeployFlow long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DeployFlowMetadata : GTLRObject
+
+/** Errors of running deployment tests. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestError *> *testErrors;
+
+@end
+
+
+/**
+ *  The response message for Environments.DeployFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DeployFlowResponse : GTLRObject
+
+/**
+ *  The name of the flow version deployment. Format:
+ *  `projects//locations//agents// environments//deployments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/** The updated environment where the flow is deployed. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment *environment;
+
+@end
+
+
+/**
  *  Represents the input for dtmf event.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1DtmfInput : GTLRObject
@@ -3133,6 +3196,95 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The finish digit (if any). */
 @property(nonatomic, copy, nullable) NSString *finishDigit;
+
+@end
+
+
+/**
+ *  Represents an environment for an agent. You can create multiple versions of
+ *  your agent and publish them to separate environments. When you edit an
+ *  agent, you are editing the draft agent. At any point, you can save the draft
+ *  agent as an agent version, which is an immutable snapshot of your agent.
+ *  When you save the draft agent, it is published to the default environment.
+ *  When you create agent versions, you can publish them to custom environments.
+ *  You can create a variety of custom environments for testing, development,
+ *  production, etc.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Environment : GTLRObject
+
+/**
+ *  The human-readable description of the environment. The maximum length is 500
+ *  characters. If exceeded, the request is rejected.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The human-readable name of the environment (unique in an agent).
+ *  Limit of 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the environment. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The test cases config for continuous tests of this environment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentTestCasesConfig *testCasesConfig;
+
+/** Output only. Update time of this environment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Required. A list of configurations for flow versions. You should include
+ *  version configs for all flows that are reachable from `Start Flow` in the
+ *  agent. Otherwise, an error will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig *> *versionConfigs;
+
+@end
+
+
+/**
+ *  The configuration for continuous tests.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentTestCasesConfig : GTLRObject
+
+/**
+ *  Whether to run test cases in TestCasesConfig.test_cases periodically.
+ *  Default false. If set to true, run once a day.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableContinuousRun;
+
+/**
+ *  Whether to run test cases in TestCasesConfig.test_cases before deploying a
+ *  flow version to the environment. Default false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePredeploymentRun;
+
+/**
+ *  A list of test case names to run. They should be under the same agent.
+ *  Format of each test case name: `projects//locations/ /agents//testCases/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *testCases;
+
+@end
+
+
+/**
+ *  Configuration for the version.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1EnvironmentVersionConfig : GTLRObject
+
+/** Required. Format: projects//locations//agents//flows//versions/. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -5011,6 +5163,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Changelogs represents a change made to a given agent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog : GTLRObject
+
+/** The action of the change. */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** The timestamp of the change. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The affected resource display name of the change. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The unique identifier of the changelog. Format:
+ *  `projects//locations//agents//changelogs/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The affected resource name of the change. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/** The affected resource type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Email address of the authenticated user. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
+ *  The request message for Versions.CompareVersions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest : GTLRObject
+
+/**
+ *  The language to compare the flow versions for. If not specified, the agent's
+ *  default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
+ *  supported. Note: languages must be enabled in the agent before they can be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Required. Name of the target flow version to compare with the base version.
+ *  Use version ID `0` to indicate the draft version of the specified flow.
+ *  Format: `projects//locations//agents//flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetVersion;
+
+@end
+
+
+/**
+ *  The response message for Versions.CompareVersions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsResponse : GTLRObject
+
+/** JSON representation of the base version content. */
+@property(nonatomic, copy, nullable) NSString *baseVersionContentJson;
+
+/** The timestamp when the two version compares. */
+@property(nonatomic, strong, nullable) GTLRDateTime *compareTime;
+
+/** JSON representation of the target version content. */
+@property(nonatomic, copy, nullable) NSString *targetVersionContentJson;
+
+@end
+
+
+/**
  *  Represents a result from running a test case in an agent environment.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult : GTLRObject
@@ -5209,6 +5434,115 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The generic information of the operation. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata *genericMetadata;
+
+@end
+
+
+/**
+ *  Metadata returned for the Environments.DeployFlow long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowMetadata : GTLRObject
+
+/** Errors of running deployment tests. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TestError *> *testErrors;
+
+@end
+
+
+/**
+ *  The request message for Environments.DeployFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest : GTLRObject
+
+/**
+ *  Required. The flow version to deploy. Format: `projects//locations//agents//
+ *  flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *flowVersion;
+
+@end
+
+
+/**
+ *  The response message for Environments.DeployFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowResponse : GTLRObject
+
+/**
+ *  The name of the flow version Deployment. Format:
+ *  `projects//locations//agents// environments//deployments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/** The updated environment where the flow is deployed. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Environment *environment;
+
+@end
+
+
+/**
+ *  Represents an deployment in an environment. A deployment happens when a flow
+ *  version configured to be active in the environment. You can configure
+ *  running pre-deployment steps, e.g. running validation test cases, experiment
+ *  auto-rollout, etc.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment : GTLRObject
+
+/** End time of this deployment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The name of the flow version for this deployment. Format:
+ *  projects//locations//agents//flows//versions/.
+ */
+@property(nonatomic, copy, nullable) NSString *flowVersion;
+
+/**
+ *  The name of the deployment. Format:
+ *  projects//locations//agents//environments//deployments/.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Result of the deployment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DeploymentResult *result;
+
+/** Start time of this deployment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The current state of the deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Failed
+ *        The deployment failed. (Value: "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Running
+ *        The deployment is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Succeeded
+ *        The deployment succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Result of the deployment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3DeploymentResult : GTLRObject
+
+/**
+ *  Results of test cases running before the deployment. Format:
+ *  `projects//locations//agents//testCases//results/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *deploymentTestResults;
+
+/**
+ *  The name of the experiment triggered by this deployment. Format:
+ *  projects//locations//agents//environments//experiments/.
+ */
+@property(nonatomic, copy, nullable) NSString *experiment;
 
 @end
 
@@ -5472,6 +5806,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The test cases config for continuous tests of this environment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig *testCasesConfig;
+
 /** Output only. Update time of this environment. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -5481,6 +5818,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  agent. Otherwise, an error will be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig *> *versionConfigs;
+
+@end
+
+
+/**
+ *  The configuration for continuous tests.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentTestCasesConfig : GTLRObject
+
+/**
+ *  Whether to run test cases in TestCasesConfig.test_cases periodically.
+ *  Default false. If set to ture, run once a day.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableContinuousRun;
+
+/**
+ *  Whether to run test cases in TestCasesConfig.test_cases before deploying a
+ *  flow version to the environment. Default false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePredeploymentRun;
+
+/**
+ *  A list of test case names to run. They should be under the same agent.
+ *  Format of each test case name: `projects//locations/ /agents//testCases/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *testCases;
 
 @end
 
@@ -6888,6 +7255,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The response message for Changelogs.ListChangelogs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "changelogs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListChangelogsResponse : GTLRCollectionObject
+
+/**
+ *  The list of changelogs. There will be a maximum number of items returned
+ *  based on the page_size field in the request. The changelogs will be ordered
+ *  by timestamp.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog *> *changelogs;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Environments.ListTestCaseResults.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6904,6 +7300,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult *> *continuousTestResults;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Deployments.ListDeployments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deployments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListDeploymentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of deployments. There will be a maximum number of items returned
+ *  based on the page_size field in the request. The list may in some cases be
+ *  empty or contain fewer entries than page_size even if this isn't the last
+ *  page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment *> *deployments;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no more
@@ -7952,6 +8378,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult_DiagnosticInfo *diagnosticInfo;
 
 /**
+ *  If a DTMF was provided as input, this field will contain a copy of the
+ *  DTMFInput.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3DtmfInput *dtmf;
+
+/**
  *  The Intent that matched the conversational query. Some, not all fields are
  *  filled in this message, including but not limited to: `name` and
  *  `display_name`. This field is deprecated, please use QueryResult.match
@@ -8564,9 +8996,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  [DLP](https://cloud.google.com/dlp/docs) deidentify template name. Use this
- *  template to define de-identification configuration for the content. If
- *  empty, Dialogflow replaces sensitive info with `[redacted]` text. The
- *  template name will have one of the following formats:
+ *  template to define de-identification configuration for the content. The `DLP
+ *  De-identify Templates Reader` role is needed on the Dialogflow service
+ *  identity service account (has the form
+ *  `service-PROJECT_NUMBER\@gcp-sa-dialogflow.iam.gserviceaccount.com`) for
+ *  your agent's project. If empty, Dialogflow replaces sensitive info with
+ *  `[redacted]` text. The template name will have one of the following formats:
  *  `projects//locations//deidentifyTemplates/` OR
  *  `organizations//locations//deidentifyTemplates/` Note: `deidentify_template`
  *  must be located in the same region as the `SecuritySettings`.
@@ -8588,8 +9023,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  [DLP](https://cloud.google.com/dlp/docs) inspect template name. Use this
- *  template to define inspect base settings. If empty, we use the default DLP
- *  inspect config. The template name will have one of the following formats:
+ *  template to define inspect base settings. The `DLP Inspect Templates Reader`
+ *  role is needed on the Dialogflow service identity service account (has the
+ *  form `service-PROJECT_NUMBER\@gcp-sa-dialogflow.iam.gserviceaccount.com`)
+ *  for your agent's project. If empty, we use the default DLP inspect config.
+ *  The template name will have one of the following formats:
  *  `projects//locations//inspectTemplates/` OR
  *  `organizations//locations//inspectTemplates/` Note: `inspect_template` must
  *  be located in the same region as the `SecuritySettings`.
@@ -8597,8 +9035,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *inspectTemplate;
 
 /**
- *  Required. Resource name of the settings. Format:
- *  `projects//locations//securitySettings/`.
+ *  Resource name of the settings. Required for the
+ *  SecuritySettingsService.UpdateSecuritySettings method.
+ *  SecuritySettingsService.CreateSecuritySettings populates the name
+ *  automatically. Format: `projects//locations//securitySettings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8634,7 +9074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Retains data in interaction logging for the specified number of days. This
  *  does not apply to Cloud logging, which is owned by the user - not
- *  Dialogflow. User must Set a value lower than Dialogflow's default 30d TTL.
+ *  Dialogflow. User must set a value lower than Dialogflow's default 365d TTL.
  *  Setting a value higher than that has no effect. A missing value or setting
  *  to 0 also means we use Dialogflow's default TTL. Note: Interaction logging
  *  is a limited access feature. Talk to your Google representative to check

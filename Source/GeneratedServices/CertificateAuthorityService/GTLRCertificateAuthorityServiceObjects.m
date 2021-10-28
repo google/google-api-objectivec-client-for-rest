@@ -239,7 +239,8 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_CaPool
-@dynamic issuancePolicy, labels, name, publishingOptions, tier;
+@dynamic createTime, issuancePolicy, labels, name, publishingOptions, tier,
+         updateTime;
 @end
 
 

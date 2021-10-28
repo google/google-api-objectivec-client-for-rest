@@ -23,6 +23,7 @@
 
 @class GTLROSConfig_AptSettings;
 @class GTLROSConfig_CVSSv3;
+@class GTLROSConfig_Date;
 @class GTLROSConfig_ExecStep;
 @class GTLROSConfig_ExecStepConfig;
 @class GTLROSConfig_FixedOrPercent;
@@ -34,12 +35,49 @@
 @class GTLROSConfig_InventoryOsInfo;
 @class GTLROSConfig_InventorySoftwarePackage;
 @class GTLROSConfig_InventoryVersionedPackage;
+@class GTLROSConfig_InventoryWindowsApplication;
 @class GTLROSConfig_InventoryWindowsQuickFixEngineeringPackage;
 @class GTLROSConfig_InventoryWindowsUpdatePackage;
 @class GTLROSConfig_InventoryWindowsUpdatePackageWindowsUpdateCategory;
 @class GTLROSConfig_InventoryZypperPatch;
 @class GTLROSConfig_MonthlySchedule;
 @class GTLROSConfig_OneTimeSchedule;
+@class GTLROSConfig_Operation_Metadata;
+@class GTLROSConfig_Operation_Response;
+@class GTLROSConfig_OSPolicy;
+@class GTLROSConfig_OSPolicyAssignment;
+@class GTLROSConfig_OSPolicyAssignmentInstanceFilter;
+@class GTLROSConfig_OSPolicyAssignmentInstanceFilterInventory;
+@class GTLROSConfig_OSPolicyAssignmentLabelSet;
+@class GTLROSConfig_OSPolicyAssignmentLabelSet_Labels;
+@class GTLROSConfig_OSPolicyAssignmentReport;
+@class GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance;
+@class GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance;
+@class GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceExecResourceOutput;
+@class GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep;
+@class GTLROSConfig_OSPolicyAssignmentRollout;
+@class GTLROSConfig_OSPolicyInventoryFilter;
+@class GTLROSConfig_OSPolicyResource;
+@class GTLROSConfig_OSPolicyResourceExecResource;
+@class GTLROSConfig_OSPolicyResourceExecResourceExec;
+@class GTLROSConfig_OSPolicyResourceFile;
+@class GTLROSConfig_OSPolicyResourceFileGcs;
+@class GTLROSConfig_OSPolicyResourceFileRemote;
+@class GTLROSConfig_OSPolicyResourceFileResource;
+@class GTLROSConfig_OSPolicyResourceGroup;
+@class GTLROSConfig_OSPolicyResourcePackageResource;
+@class GTLROSConfig_OSPolicyResourcePackageResourceAPT;
+@class GTLROSConfig_OSPolicyResourcePackageResourceDeb;
+@class GTLROSConfig_OSPolicyResourcePackageResourceGooGet;
+@class GTLROSConfig_OSPolicyResourcePackageResourceMSI;
+@class GTLROSConfig_OSPolicyResourcePackageResourceRPM;
+@class GTLROSConfig_OSPolicyResourcePackageResourceYUM;
+@class GTLROSConfig_OSPolicyResourcePackageResourceZypper;
+@class GTLROSConfig_OSPolicyResourceRepositoryResource;
+@class GTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository;
+@class GTLROSConfig_OSPolicyResourceRepositoryResourceGooRepository;
+@class GTLROSConfig_OSPolicyResourceRepositoryResourceYumRepository;
+@class GTLROSConfig_OSPolicyResourceRepositoryResourceZypperRepository;
 @class GTLROSConfig_PatchConfig;
 @class GTLROSConfig_PatchDeployment;
 @class GTLROSConfig_PatchInstanceFilter;
@@ -50,6 +88,8 @@
 @class GTLROSConfig_PatchJobInstanceDetailsSummary;
 @class GTLROSConfig_PatchRollout;
 @class GTLROSConfig_RecurringSchedule;
+@class GTLROSConfig_Status;
+@class GTLROSConfig_Status_Details_Item;
 @class GTLROSConfig_TimeOfDay;
 @class GTLROSConfig_TimeZone;
 @class GTLROSConfig_VulnerabilityReport;
@@ -393,6 +433,65 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_InstalledPac
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicy.mode
+
+/**
+ *  This mode checks if the configuration resources in the policy are in their
+ *  desired state, and if not, enforces the desired state.
+ *
+ *  Value: "ENFORCEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicy_Mode_Enforcement;
+/**
+ *  Invalid mode
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicy_Mode_ModeUnspecified;
+/**
+ *  This mode checks if the configuration resources in the policy are in their
+ *  desired state. No actions are performed if they are not in the desired
+ *  state. This mode is used for reporting purposes.
+ *
+ *  Value: "VALIDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicy_Mode_Validation;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignment.rolloutState
+
+/**
+ *  The rollout is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignment_RolloutState_Cancelled;
+/**
+ *  The rollout is being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignment_RolloutState_Cancelling;
+/**
+ *  The rollout is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignment_RolloutState_InProgress;
+/**
+ *  Invalid value
+ *
+ *  Value: "ROLLOUT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignment_RolloutState_RolloutStateUnspecified;
+/**
+ *  The rollout has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignment_RolloutState_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLROSConfig_OSPolicyAssignmentOperationMetadata.apiMethod
 
 /**
@@ -453,6 +552,199 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMeta
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance.complianceState
+
+/**
+ *  Policy is compliant. The policy is compliant if all the underlying resources
+ *  are also compliant.
+ *
+ *  Value: "COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Compliant;
+/**
+ *  Policy is non-compliant. The policy is non-compliant if one or more
+ *  underlying resources are non-compliant.
+ *
+ *  Value: "NON_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_NonCompliant;
+/**
+ *  The policy is in an unknown compliance state. Refer to the field
+ *  `compliance_state_reason` to learn the exact reason for the policy to be in
+ *  this compliance state.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance.complianceState
+
+/**
+ *  Resource is compliant.
+ *
+ *  Value: "COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Compliant;
+/**
+ *  Resource is non-compliant.
+ *
+ *  Value: "NON_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_NonCompliant;
+/**
+ *  The resource is in an unknown compliance state. To get more details about
+ *  why the policy is in this state, review the output of the
+ *  `compliance_state_reason` field.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep.type
+
+/**
+ *  Checks the current status of the desired state for a resource.
+ *
+ *  Value: "DESIRED_STATE_CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheck;
+/**
+ *  Re-checks the status of the desired state. This check is done for a resource
+ *  after the enforcement of all OS policies. This step is used to determine the
+ *  final desired state status for the resource. It accounts for any resources
+ *  that might have drifted from their desired state due to side effects from
+ *  executing other resources.
+ *
+ *  Value: "DESIRED_STATE_CHECK_POST_ENFORCEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheckPostEnforcement;
+/**
+ *  Enforces the desired state for a resource that is not in desired state.
+ *
+ *  Value: "DESIRED_STATE_ENFORCEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateEnforcement;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_TypeUnspecified;
+/**
+ *  Checks for resource conflicts such as schema errors.
+ *
+ *  Value: "VALIDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_Validation;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyResourceExecResourceExec.interpreter
+
+/**
+ *  Defaults to NONE.
+ *
+ *  Value: "INTERPRETER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_InterpreterUnspecified;
+/**
+ *  If an interpreter is not specified, the source is executed directly. This
+ *  execution, without an interpreter, only succeeds for executables and scripts
+ *  that have shebang lines.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_None;
+/**
+ *  Indicates that the script runs with PowerShell.
+ *
+ *  Value: "POWERSHELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_Powershell;
+/**
+ *  Indicates that the script runs with `/bin/sh` on Linux and `cmd.exe` on
+ *  Windows.
+ *
+ *  Value: "SHELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_Shell;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyResourceFileResource.state
+
+/**
+ *  Ensure file at path is absent.
+ *
+ *  Value: "ABSENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceFileResource_State_Absent;
+/**
+ *  Ensure the contents of the file at path matches. If the file does not exist
+ *  it will be created.
+ *
+ *  Value: "CONTENTS_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceFileResource_State_ContentsMatch;
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "DESIRED_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceFileResource_State_DesiredStateUnspecified;
+/**
+ *  Ensure file at path is present.
+ *
+ *  Value: "PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceFileResource_State_Present;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyResourcePackageResource.desiredState
+
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "DESIRED_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_DesiredStateUnspecified;
+/**
+ *  Ensure that the package is installed.
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_Installed;
+/**
+ *  The agent ensures that the package is not installed and uninstalls it if
+ *  detected.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_Removed;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository.archiveType
+
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "ARCHIVE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_ArchiveTypeUnspecified;
+/**
+ *  Deb indicates that the archive contains binary files.
+ *
+ *  Value: "DEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_Deb;
+/**
+ *  Deb-src indicates that the archive contains source files.
+ *
+ *  Value: "DEB_SRC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_DebSrc;
 
 // ----------------------------------------------------------------------------
 // GTLROSConfig_PatchConfig.rebootConfig
@@ -667,6 +959,12 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchRollout_Mode_ZoneByZone;
 // ----------------------------------------------------------------------------
 // GTLROSConfig_RecurringSchedule.frequency
 
+/**
+ *  Indicates that the frequency should be expressed in terms of days.
+ *
+ *  Value: "DAILY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Daily;
 /**
  *  Invalid. A frequency must be specified.
  *
@@ -908,6 +1206,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLROSConfig_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  Message for canceling a patch job.
  */
 @interface GTLROSConfig_CancelPatchJobRequest : GTLRObject
@@ -1095,6 +1400,46 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *        Invalid value. (Value: "USER_INTERACTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *userInteraction;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLROSConfig_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -1429,6 +1774,9 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  */
 @property(nonatomic, strong, nullable) GTLROSConfig_InventoryWindowsQuickFixEngineeringPackage *qfePackage;
 
+/** Details of Windows Application. */
+@property(nonatomic, strong, nullable) GTLROSConfig_InventoryWindowsApplication *windowsApplication;
+
 /**
  *  Details of a Windows Update package. See
  *  https://docs.microsoft.com/en-us/windows/win32/api/_wua/ for information
@@ -1471,6 +1819,35 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 /** The version of the package. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Contains information about a Windows application that is retrieved from the
+ *  Windows Registry. For more information about these fields, see:
+ *  https://docs.microsoft.com/en-us/windows/win32/msi/uninstall-registry-key
+ */
+@interface GTLROSConfig_InventoryWindowsApplication : GTLRObject
+
+/** The name of the application or product. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The version of the product or application in string format. */
+@property(nonatomic, copy, nullable) NSString *displayVersion;
+
+/** The internet address for technical support. */
+@property(nonatomic, copy, nullable) NSString *helpLink;
+
+/**
+ *  The last time this product received service. The value of this property is
+ *  replaced each time a patch is applied or removed from the product or the
+ *  command-line option is used to repair the product.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_Date *installDate;
+
+/** The name of the manufacturer for the product or application. */
+@property(nonatomic, copy, nullable) NSString *publisher;
 
 @end
 
@@ -1621,6 +1998,87 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  A response message for listing OS Policy assignment reports including the
+ *  page of results and page token.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "osPolicyAssignmentReports" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROSConfig_ListOSPolicyAssignmentReportsResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of OS policy assignment
+ *  report objects.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of OS policy assignment reports.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentReport *> *osPolicyAssignmentReports;
+
+@end
+
+
+/**
+ *  A response message for listing all revisions for a OS policy assignment.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "osPolicyAssignments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROSConfig_ListOSPolicyAssignmentRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of OS policy assignment
+ *  revisions.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The OS policy assignment revisions
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignment *> *osPolicyAssignments;
+
+@end
+
+
+/**
+ *  A response message for listing all assignments under given parent.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "osPolicyAssignments" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROSConfig_ListOSPolicyAssignmentsResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of OS policy assignments.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of assignments
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignment *> *osPolicyAssignments;
+
+@end
+
+
+/**
  *  A response message for listing patch deployments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1758,6 +2216,343 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLROSConfig_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLROSConfig_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROSConfig_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROSConfig_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  An OS policy defines the desired state configuration for a VM.
+ */
+@interface GTLROSConfig_OSPolicy : GTLRObject
+
+/**
+ *  This flag determines the OS policy compliance status when none of the
+ *  resource groups within the policy are applicable for a VM. Set this value to
+ *  `true` if the policy needs to be reported as compliant even if the policy
+ *  has nothing to validate or enforce.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowNoResourceGroupMatch;
+
+/**
+ *  Policy description. Length of the description is limited to 1024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The id of the OS policy with the following restrictions: * Must
+ *  contain only lowercase letters, numbers, and hyphens. * Must start with a
+ *  letter. * Must be between 1-63 characters. * Must end with a number or a
+ *  letter. * Must be unique within the assignment.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. Policy mode
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicy_Mode_Enforcement This mode checks if the
+ *        configuration resources in the policy are in their desired state, and
+ *        if not, enforces the desired state. (Value: "ENFORCEMENT")
+ *    @arg @c kGTLROSConfig_OSPolicy_Mode_ModeUnspecified Invalid mode (Value:
+ *        "MODE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicy_Mode_Validation This mode checks if the
+ *        configuration resources in the policy are in their desired state. No
+ *        actions are performed if they are not in the desired state. This mode
+ *        is used for reporting purposes. (Value: "VALIDATION")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Required. List of resource groups for the policy. For a particular VM,
+ *  resource groups are evaluated in the order specified and the first resource
+ *  group that is applicable is selected and the rest are ignored. If none of
+ *  the resource groups are applicable for a VM, the VM is considered to be
+ *  non-compliant w.r.t this policy. This behavior can be toggled by the flag
+ *  `allow_no_resource_group_match`
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyResourceGroup *> *resourceGroups;
+
+@end
+
+
+/**
+ *  OS policy assignment is an API resource that is used to apply a set of OS
+ *  policies to a dynamically targeted group of Compute Engine VM instances. An
+ *  OS policy is used to define the desired state configuration for a Compute
+ *  Engine VM instance through a set of configuration resources that provide
+ *  capabilities such as installing or removing software packages, or executing
+ *  a script. For more information, see [OS policy and OS policy
+ *  assignment](https://cloud.google.com/compute/docs/os-configuration-management/working-with-os-policies).
+ */
+@interface GTLROSConfig_OSPolicyAssignment : GTLRObject
+
+/**
+ *  Output only. Indicates that this revision has been successfully rolled out
+ *  in this zone and new VMs will be assigned OS policies from this revision.
+ *  For a given OS policy assignment, there is only one revision with a value of
+ *  `true` for this field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseline;
+
+/**
+ *  Output only. Indicates that this revision deletes the OS policy assignment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleted;
+
+/**
+ *  OS policy assignment description. Length of the description is limited to
+ *  1024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The etag for this OS policy assignment. If this is provided on update, it
+ *  must match the server's etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. Filter to select VMs. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyAssignmentInstanceFilter *instanceFilter;
+
+/**
+ *  Resource name. Format:
+ *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id}`
+ *  This field is ignored when you create an OS policy assignment.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. List of OS policies to be applied to the VMs. */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicy *> *osPolicies;
+
+/**
+ *  Output only. Indicates that reconciliation is in progress for the revision.
+ *  This value is `true` when the `rollout_state` is one of: * IN_PROGRESS *
+ *  CANCELLING
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/** Output only. The timestamp that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
+/**
+ *  Output only. The assignment revision ID A new revision is committed whenever
+ *  a rollout is triggered for a OS policy assignment
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Required. Rollout to deploy the OS policy assignment. A rollout is triggered
+ *  in the following situations: 1) OSPolicyAssignment is created. 2)
+ *  OSPolicyAssignment is updated and the update contains changes to one of the
+ *  following fields: - instance_filter - os_policies 3) OSPolicyAssignment is
+ *  deleted.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyAssignmentRollout *rollout;
+
+/**
+ *  Output only. OS policy assignment rollout state
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignment_RolloutState_Cancelled The
+ *        rollout is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignment_RolloutState_Cancelling The
+ *        rollout is being cancelled. (Value: "CANCELLING")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignment_RolloutState_InProgress The
+ *        rollout is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignment_RolloutState_RolloutStateUnspecified
+ *        Invalid value (Value: "ROLLOUT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignment_RolloutState_Succeeded The
+ *        rollout has completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutState;
+
+/**
+ *  Output only. Server generated unique id for the OS policy assignment
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  Filters to select target VMs for an assignment. If more than one filter
+ *  criteria is specified below, a VM will be selected if and only if it
+ *  satisfies all of them.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentInstanceFilter : GTLRObject
+
+/**
+ *  Target all VMs in the project. If true, no other criteria is permitted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *all;
+
+/**
+ *  List of label sets used for VM exclusion. If the list has more than one
+ *  label set, the VM is excluded if any of the label sets are applicable for
+ *  the VM.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentLabelSet *> *exclusionLabels;
+
+/**
+ *  List of label sets used for VM inclusion. If the list has more than one
+ *  `LabelSet`, the VM is included if any of the label sets are applicable for
+ *  the VM.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentLabelSet *> *inclusionLabels;
+
+/**
+ *  List of inventories to select VMs. A VM is selected if its inventory data
+ *  matches at least one of the following inventories.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentInstanceFilterInventory *> *inventories;
+
+@end
+
+
+/**
+ *  VM inventory details.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentInstanceFilterInventory : GTLRObject
+
+/** Required. The OS short name */
+@property(nonatomic, copy, nullable) NSString *osShortName;
+
+/**
+ *  The OS version Prefix matches are supported if asterisk(*) is provided as
+ *  the last character. For example, to match all versions with a major version
+ *  of `7`, specify the following value for this field `7.*` An empty string
+ *  matches all OS versions.
+ */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+@end
+
+
+/**
+ *  Message representing label set. * A label is a key value pair set for a VM.
+ *  * A LabelSet is a set of labels. * Labels within a LabelSet are ANDed. In
+ *  other words, a LabelSet is applicable for a VM only if it matches all the
+ *  labels in the LabelSet. * Example: A LabelSet with 2 labels: `env=prod` and
+ *  `type=webserver` will only be applicable for those VMs with both labels
+ *  present.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentLabelSet : GTLRObject
+
+/**
+ *  Labels are identified by key/value pairs in this map. A VM should contain
+ *  all the key/value pairs specified in this map to be selected.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyAssignmentLabelSet_Labels *labels;
+
+@end
+
+
+/**
+ *  Labels are identified by key/value pairs in this map. A VM should contain
+ *  all the key/value pairs specified in this map to be selected.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentLabelSet_Labels : GTLRObject
+@end
+
+
+/**
  *  OS policy assignment operation metadata provided by OS policy assignment API
  *  methods that return long running operations.
  */
@@ -1806,6 +2601,790 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 /** Rollout update time */
 @property(nonatomic, strong, nullable) GTLRDateTime *rolloutUpdateTime;
+
+@end
+
+
+/**
+ *  A report of the OS policy assignment status for a given instance.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentReport : GTLRObject
+
+/** The Compute Engine VM instance name. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Unique identifier of the last attempted run to apply the OS policies
+ *  associated with this assignment on the VM. This ID is logged by the OS
+ *  Config agent while applying the OS policies associated with this assignment
+ *  on the VM. NOTE: If the service is unable to successfully connect to the
+ *  agent for this run, then this id will not be available in the agent logs.
+ */
+@property(nonatomic, copy, nullable) NSString *lastRunId;
+
+/**
+ *  The `OSPolicyAssignmentReport` API resource name. Format:
+ *  `projects/{project_number}/locations/{location}/instances/{instance_id}/osPolicyAssignments/{os_policy_assignment_id}/report`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Reference to the `OSPolicyAssignment` API resource that the `OSPolicy`
+ *  belongs to. Format:
+ *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id\@revision_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *osPolicyAssignment;
+
+/** Compliance data for each `OSPolicy` that is applied to the VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance *> *osPolicyCompliances;
+
+/** Timestamp for when the report was last generated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Compliance data for an OS policy
+ */
+@interface GTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance : GTLRObject
+
+/**
+ *  The compliance state of the OS policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Compliant
+ *        Policy is compliant. The policy is compliant if all the underlying
+ *        resources are also compliant. (Value: "COMPLIANT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_NonCompliant
+ *        Policy is non-compliant. The policy is non-compliant if one or more
+ *        underlying resources are non-compliant. (Value: "NON_COMPLIANT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyCompliance_ComplianceState_Unknown
+ *        The policy is in an unknown compliance state. Refer to the field
+ *        `compliance_state_reason` to learn the exact reason for the policy to
+ *        be in this compliance state. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *complianceState;
+
+/**
+ *  The reason for the OS policy to be in an unknown compliance state. This
+ *  field is always populated when `compliance_state` is `UNKNOWN`. If
+ *  populated, the field can contain one of the following values: *
+ *  `vm-not-running`: The VM was not running. *
+ *  `os-policies-not-supported-by-agent`: The version of the OS Config agent
+ *  running on the VM does not support running OS policies. *
+ *  `no-agent-detected`: The OS Config agent is not detected for the VM. *
+ *  `resource-execution-errors`: The OS Config agent encountered errors while
+ *  executing one or more resources in the policy. See
+ *  `os_policy_resource_compliances` for details. * `task-timeout`: The task
+ *  sent to the agent to apply the policy timed out. * `unexpected-agent-state`:
+ *  The OS Config agent did not report the final status of the task that
+ *  attempted to apply the policy. Instead, the agent unexpectedly started
+ *  working on a different task. This mostly happens when the agent or VM
+ *  unexpectedly restarts while applying OS policies. *
+ *  `internal-service-errors`: Internal service errors were encountered while
+ *  attempting to apply the policy.
+ */
+@property(nonatomic, copy, nullable) NSString *complianceStateReason;
+
+/** The OS policy id */
+@property(nonatomic, copy, nullable) NSString *osPolicyId;
+
+/**
+ *  Compliance data for each resource within the policy that is applied to the
+ *  VM.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance *> *osPolicyResourceCompliances;
+
+@end
+
+
+/**
+ *  Compliance data for an OS policy resource.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance : GTLRObject
+
+/**
+ *  The compliance state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Compliant
+ *        Resource is compliant. (Value: "COMPLIANT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_NonCompliant
+ *        Resource is non-compliant. (Value: "NON_COMPLIANT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceCompliance_ComplianceState_Unknown
+ *        The resource is in an unknown compliance state. To get more details
+ *        about why the policy is in this state, review the output of the
+ *        `compliance_state_reason` field. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *complianceState;
+
+/**
+ *  A reason for the resource to be in the given compliance state. This field is
+ *  always populated when `compliance_state` is `UNKNOWN`. The following values
+ *  are supported when `compliance_state == UNKNOWN` * `execution-errors`:
+ *  Errors were encountered by the agent while executing the resource and the
+ *  compliance state couldn't be determined. * `execution-skipped-by-agent`:
+ *  Resource execution was skipped by the agent because errors were encountered
+ *  while executing prior resources in the OS policy. *
+ *  `os-policy-execution-attempt-failed`: The execution of the OS policy
+ *  containing this resource failed and the compliance state couldn't be
+ *  determined.
+ */
+@property(nonatomic, copy, nullable) NSString *complianceStateReason;
+
+/**
+ *  Ordered list of configuration completed by the agent for the OS policy
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep *> *configSteps;
+
+/** ExecResource specific output. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceExecResourceOutput *execResourceOutput;
+
+/** The ID of the OS policy resource. */
+@property(nonatomic, copy, nullable) NSString *osPolicyResourceId;
+
+@end
+
+
+/**
+ *  ExecResource specific output.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceExecResourceOutput : GTLRObject
+
+/**
+ *  Output from enforcement phase output file (if run). Output size is limited
+ *  to 100K bytes.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *enforcementOutput;
+
+@end
+
+
+/**
+ *  Step performed by the OS Config agent for configuring an `OSPolicy` resource
+ *  to its desired state.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep : GTLRObject
+
+/**
+ *  An error message recorded during the execution of this step. Only populated
+ *  if errors were encountered during this step execution.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  Configuration step type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheck
+ *        Checks the current status of the desired state for a resource. (Value:
+ *        "DESIRED_STATE_CHECK")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateCheckPostEnforcement
+ *        Re-checks the status of the desired state. This check is done for a
+ *        resource after the enforcement of all OS policies. This step is used
+ *        to determine the final desired state status for the resource. It
+ *        accounts for any resources that might have drifted from their desired
+ *        state due to side effects from executing other resources. (Value:
+ *        "DESIRED_STATE_CHECK_POST_ENFORCEMENT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_DesiredStateEnforcement
+ *        Enforces the desired state for a resource that is not in desired
+ *        state. (Value: "DESIRED_STATE_ENFORCEMENT")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentReportOSPolicyComplianceOSPolicyResourceComplianceOSPolicyResourceConfigStep_Type_Validation
+ *        Checks for resource conflicts such as schema errors. (Value:
+ *        "VALIDATION")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Message to configure the rollout at the zonal level for the OS policy
+ *  assignment.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentRollout : GTLRObject
+
+/**
+ *  Required. The maximum number (or percentage) of VMs per zone to disrupt at
+ *  any given moment.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_FixedOrPercent *disruptionBudget;
+
+/**
+ *  Required. This determines the minimum duration of time to wait after the
+ *  configuration changes are applied through the current rollout. A VM
+ *  continues to count towards the `disruption_budget` at least until this
+ *  duration of time has passed after configuration changes are applied.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minWaitDuration;
+
+@end
+
+
+/**
+ *  Filtering criteria to select VMs based on inventory details.
+ */
+@interface GTLROSConfig_OSPolicyInventoryFilter : GTLRObject
+
+/** Required. The OS short name */
+@property(nonatomic, copy, nullable) NSString *osShortName;
+
+/**
+ *  The OS version Prefix matches are supported if asterisk(*) is provided as
+ *  the last character. For example, to match all versions with a major version
+ *  of `7`, specify the following value for this field `7.*` An empty string
+ *  matches all OS versions.
+ */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+@end
+
+
+/**
+ *  An OS policy resource is used to define the desired state configuration and
+ *  provides a specific functionality like installing/removing packages,
+ *  executing a script etc. The system ensures that resources are always in
+ *  their desired state by taking necessary actions if they have drifted from
+ *  their desired state.
+ */
+@interface GTLROSConfig_OSPolicyResource : GTLRObject
+
+/** Exec resource */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceExecResource *exec;
+
+/** File resource */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFileResource *file;
+
+/**
+ *  Required. The id of the resource with the following restrictions: * Must
+ *  contain only lowercase letters, numbers, and hyphens. * Must start with a
+ *  letter. * Must be between 1-63 characters. * Must end with a number or a
+ *  letter. * Must be unique within the OS policy.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Package resource */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResource *pkg;
+
+/** Package repository resource */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceRepositoryResource *repository;
+
+@end
+
+
+/**
+ *  A resource that allows executing scripts on the VM. The `ExecResource` has 2
+ *  stages: `validate` and `enforce` and both stages accept a script as an
+ *  argument to execute. When the `ExecResource` is applied by the agent, it
+ *  first executes the script in the `validate` stage. The `validate` stage can
+ *  signal that the `ExecResource` is already in the desired state by returning
+ *  an exit code of `100`. If the `ExecResource` is not in the desired state, it
+ *  should return an exit code of `101`. Any other exit code returned by this
+ *  stage is considered an error. If the `ExecResource` is not in the desired
+ *  state based on the exit code from the `validate` stage, the agent proceeds
+ *  to execute the script from the `enforce` stage. If the `ExecResource` is
+ *  already in the desired state, the `enforce` stage will not be run. Similar
+ *  to `validate` stage, the `enforce` stage should return an exit code of `100`
+ *  to indicate that the resource in now in its desired state. Any other exit
+ *  code is considered an error. NOTE: An exit code of `100` was chosen over `0`
+ *  (and `101` vs `1`) to have an explicit indicator of `in desired state`, `not
+ *  in desired state` and errors. Because, for example, Powershell will always
+ *  return an exit code of `0` unless an `exit` statement is provided in the
+ *  script. So, for reasons of consistency and being explicit, exit codes `100`
+ *  and `101` were chosen.
+ */
+@interface GTLROSConfig_OSPolicyResourceExecResource : GTLRObject
+
+/**
+ *  What to run to bring this resource into the desired state. An exit code of
+ *  100 indicates "success", any other exit code indicates a failure running
+ *  enforce.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceExecResourceExec *enforce;
+
+/**
+ *  Required. What to run to validate this resource is in the desired state. An
+ *  exit code of 100 indicates "in desired state", and exit code of 101
+ *  indicates "not in desired state". Any other exit code indicates a failure
+ *  running validate.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceExecResourceExec *validate;
+
+@end
+
+
+/**
+ *  A file or script to execute.
+ */
+@interface GTLROSConfig_OSPolicyResourceExecResourceExec : GTLRObject
+
+/** Optional arguments to pass to the source during execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/** A remote or local file. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFile *file;
+
+/**
+ *  Required. The script interpreter to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_InterpreterUnspecified
+ *        Defaults to NONE. (Value: "INTERPRETER_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_None If
+ *        an interpreter is not specified, the source is executed directly. This
+ *        execution, without an interpreter, only succeeds for executables and
+ *        scripts that have shebang lines. (Value: "NONE")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_Powershell
+ *        Indicates that the script runs with PowerShell. (Value: "POWERSHELL")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_Shell
+ *        Indicates that the script runs with `/bin/sh` on Linux and `cmd.exe`
+ *        on Windows. (Value: "SHELL")
+ */
+@property(nonatomic, copy, nullable) NSString *interpreter;
+
+/**
+ *  Only recorded for enforce Exec. Path to an output file (that is created by
+ *  this Exec) whose content will be recorded in OSPolicyResourceCompliance
+ *  after a successful run. Absence or failure to read this file will result in
+ *  this ExecResource being non-compliant. Output file size is limited to 100K
+ *  bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *outputFilePath;
+
+/** An inline script. The size of the script is limited to 1024 characters. */
+@property(nonatomic, copy, nullable) NSString *script;
+
+@end
+
+
+/**
+ *  A remote or local file.
+ */
+@interface GTLROSConfig_OSPolicyResourceFile : GTLRObject
+
+/**
+ *  Defaults to false. When false, files are subject to validations based on the
+ *  file type: Remote: A checksum must be specified. Cloud Storage: An object
+ *  generation number must be specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInsecure;
+
+/** A Cloud Storage object. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFileGcs *gcs;
+
+/** A local path within the VM to use. */
+@property(nonatomic, copy, nullable) NSString *localPath;
+
+/** A generic remote file. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFileRemote *remote;
+
+@end
+
+
+/**
+ *  Specifies a file available as a Cloud Storage Object.
+ */
+@interface GTLROSConfig_OSPolicyResourceFileGcs : GTLRObject
+
+/** Required. Bucket of the Cloud Storage object. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Generation number of the Cloud Storage object.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** Required. Name of the Cloud Storage object. */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Specifies a file available via some URI.
+ */
+@interface GTLROSConfig_OSPolicyResourceFileRemote : GTLRObject
+
+/** SHA256 checksum of the remote file. */
+@property(nonatomic, copy, nullable) NSString *sha256Checksum;
+
+/**
+ *  Required. URI from which to fetch the object. It should contain both the
+ *  protocol and path following the format `{protocol}://{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A resource that manages the state of a file.
+ */
+@interface GTLROSConfig_OSPolicyResourceFileResource : GTLRObject
+
+/**
+ *  A a file with this content. The size of the content is limited to 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** A remote or local source. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFile *file;
+
+/** Required. The absolute path of the file within the VM. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Consists of three octal digits which represent, in order, the permissions of
+ *  the owner, group, and other users for the file (similarly to the numeric
+ *  mode used in the linux chmod utility). Each digit represents a three bit
+ *  number with the 4 bit corresponding to the read permissions, the 2 bit
+ *  corresponds to the write bit, and the one bit corresponds to the execute
+ *  permission. Default behavior is 755. Below are some examples of permissions
+ *  and their associated values: read, write, and execute: 7 read and execute: 5
+ *  read and write: 6 read only: 4
+ */
+@property(nonatomic, copy, nullable) NSString *permissions;
+
+/**
+ *  Required. Desired state of the file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyResourceFileResource_State_Absent Ensure
+ *        file at path is absent. (Value: "ABSENT")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceFileResource_State_ContentsMatch
+ *        Ensure the contents of the file at path matches. If the file does not
+ *        exist it will be created. (Value: "CONTENTS_MATCH")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceFileResource_State_DesiredStateUnspecified
+ *        Unspecified is invalid. (Value: "DESIRED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceFileResource_State_Present Ensure
+ *        file at path is present. (Value: "PRESENT")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Resource groups provide a mechanism to group OS policy resources. Resource
+ *  groups enable OS policy authors to create a single OS policy to be applied
+ *  to VMs running different operating Systems. When the OS policy is applied to
+ *  a target VM, the appropriate resource group within the OS policy is selected
+ *  based on the `OSFilter` specified within the resource group.
+ */
+@interface GTLROSConfig_OSPolicyResourceGroup : GTLRObject
+
+/**
+ *  List of inventory filters for the resource group. The resources in this
+ *  resource group are applied to the target VM if it satisfies at least one of
+ *  the following inventory filters. For example, to apply this resource group
+ *  to VMs running either `RHEL` or `CentOS` operating systems, specify 2 items
+ *  for the list with following values:
+ *  inventory_filters[0].os_short_name='rhel' and
+ *  inventory_filters[1].os_short_name='centos' If the list is empty, this
+ *  resource group will be applied to the target VM unconditionally.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyInventoryFilter *> *inventoryFilters;
+
+/**
+ *  Required. List of resources configured for this resource group. The
+ *  resources are executed in the exact order specified here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_OSPolicyResource *> *resources;
+
+@end
+
+
+/**
+ *  A resource that manages a system package.
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResource : GTLRObject
+
+/** A package managed by Apt. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceAPT *apt;
+
+/** A deb package file. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceDeb *deb;
+
+/**
+ *  Required. The desired state the agent should maintain for this package.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_DesiredStateUnspecified
+ *        Unspecified is invalid. (Value: "DESIRED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_Installed
+ *        Ensure that the package is installed. (Value: "INSTALLED")
+ *    @arg @c kGTLROSConfig_OSPolicyResourcePackageResource_DesiredState_Removed
+ *        The agent ensures that the package is not installed and uninstalls it
+ *        if detected. (Value: "REMOVED")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredState;
+
+/** A package managed by GooGet. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceGooGet *googet;
+
+/** An MSI package. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceMSI *msi;
+
+/** An rpm package file. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceRPM *rpm;
+
+/** A package managed by YUM. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceYUM *yum;
+
+/** A package managed by Zypper. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourcePackageResourceZypper *zypper;
+
+@end
+
+
+/**
+ *  A package managed by APT. - install: `apt-get update && apt-get -y install
+ *  [name]` - remove: `apt-get -y remove [name]`
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceAPT : GTLRObject
+
+/** Required. Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A deb package file. dpkg packages only support INSTALLED state.
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceDeb : GTLRObject
+
+/**
+ *  Whether dependencies should also be installed. - install when false: `dpkg
+ *  -i package` - install when true: `apt-get update && apt-get -y install
+ *  package.deb`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pullDeps;
+
+/** Required. A deb package. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFile *source;
+
+@end
+
+
+/**
+ *  A package managed by GooGet. - install: `googet -noconfirm install package`
+ *  - remove: `googet -noconfirm remove package`
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceGooGet : GTLRObject
+
+/** Required. Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  An MSI package. MSI packages only support INSTALLED state.
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceMSI : GTLRObject
+
+/**
+ *  Additional properties to use during installation. This should be in the
+ *  format of Property=Setting. Appended to the defaults of `ACTION=INSTALL
+ *  REBOOT=ReallySuppress`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *properties;
+
+/** Required. The MSI package. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFile *source;
+
+@end
+
+
+/**
+ *  An RPM package file. RPM packages only support INSTALLED state.
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceRPM : GTLRObject
+
+/**
+ *  Whether dependencies should also be installed. - install when false: `rpm
+ *  --upgrade --replacepkgs package.rpm` - install when true: `yum -y install
+ *  package.rpm` or `zypper -y install package.rpm`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pullDeps;
+
+/** Required. An rpm package. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceFile *source;
+
+@end
+
+
+/**
+ *  A package managed by YUM. - install: `yum -y install package` - remove: `yum
+ *  -y remove package`
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceYUM : GTLRObject
+
+/** Required. Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A package managed by Zypper. - install: `zypper -y install package` -
+ *  remove: `zypper -y rm package`
+ */
+@interface GTLROSConfig_OSPolicyResourcePackageResourceZypper : GTLRObject
+
+/** Required. Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A resource that manages a package repository.
+ */
+@interface GTLROSConfig_OSPolicyResourceRepositoryResource : GTLRObject
+
+/** An Apt Repository. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository *apt;
+
+/** A Goo Repository. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceRepositoryResourceGooRepository *goo;
+
+/** A Yum Repository. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceRepositoryResourceYumRepository *yum;
+
+/** A Zypper Repository. */
+@property(nonatomic, strong, nullable) GTLROSConfig_OSPolicyResourceRepositoryResourceZypperRepository *zypper;
+
+@end
+
+
+/**
+ *  Represents a single apt package repository. These will be added to a repo
+ *  file that will be managed at `/etc/apt/sources.list.d/google_osconfig.list`.
+ */
+@interface GTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository : GTLRObject
+
+/**
+ *  Required. Type of archive files in this repository.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_ArchiveTypeUnspecified
+ *        Unspecified is invalid. (Value: "ARCHIVE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_Deb
+ *        Deb indicates that the archive contains binary files. (Value: "DEB")
+ *    @arg @c kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_ArchiveType_DebSrc
+ *        Deb-src indicates that the archive contains source files. (Value:
+ *        "DEB_SRC")
+ */
+@property(nonatomic, copy, nullable) NSString *archiveType;
+
+/**
+ *  Required. List of components for this repository. Must contain at least one
+ *  item.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *components;
+
+/** Required. Distribution of this repository. */
+@property(nonatomic, copy, nullable) NSString *distribution;
+
+/**
+ *  URI of the key file for this repository. The agent maintains a keyring at
+ *  `/etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg`.
+ */
+@property(nonatomic, copy, nullable) NSString *gpgKey;
+
+/** Required. URI for this repository. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents a Goo package repository. These are added to a repo file that is
+ *  managed at `C:/ProgramData/GooGet/repos/google_osconfig.repo`.
+ */
+@interface GTLROSConfig_OSPolicyResourceRepositoryResourceGooRepository : GTLRObject
+
+/** Required. The name of the repository. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The url of the repository. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents a single yum package repository. These are added to a repo file
+ *  that is managed at `/etc/yum.repos.d/google_osconfig.repo`.
+ */
+@interface GTLROSConfig_OSPolicyResourceRepositoryResourceYumRepository : GTLRObject
+
+/** Required. The location of the repository directory. */
+@property(nonatomic, copy, nullable) NSString *baseUrl;
+
+/** The display name of the repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** URIs of GPG keys. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpgKeys;
+
+/**
+ *  Required. A one word, unique name for this repository. This is the `repo id`
+ *  in the yum config file and also the `display_name` if `display_name` is
+ *  omitted. This id is also used as the unique identifier when checking for
+ *  resource conflicts.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Represents a single zypper package repository. These are added to a repo
+ *  file that is managed at `/etc/zypp/repos.d/google_osconfig.repo`.
+ */
+@interface GTLROSConfig_OSPolicyResourceRepositoryResourceZypperRepository : GTLRObject
+
+/** Required. The location of the repository directory. */
+@property(nonatomic, copy, nullable) NSString *baseUrl;
+
+/** The display name of the repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** URIs of GPG keys. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpgKeys;
+
+/**
+ *  Required. A one word, unique name for this repository. This is the `repo id`
+ *  in the zypper config file and also the `display_name` if `display_name` is
+ *  omitted. This id is also used as the unique identifier when checking for
+ *  GuestPolicy conflicts.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 @end
 
@@ -2372,6 +3951,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  Required. The frequency unit of this recurring schedule.
  *
  *  Likely values:
+ *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_Daily Indicates that the
+ *        frequency should be expressed in terms of days. (Value: "DAILY")
  *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_FrequencyUnspecified
  *        Invalid. A frequency must be specified. (Value:
  *        "FREQUENCY_UNSPECIFIED")
@@ -2410,6 +3991,51 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 /** Required. Schedule with weekly executions. */
 @property(nonatomic, strong, nullable) GTLROSConfig_WeeklySchedule *weekly;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLROSConfig_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLROSConfig_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLROSConfig_Status_Details_Item : GTLRObject
 @end
 
 

@@ -38,11 +38,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatform;
 /**
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly;
+/**
  *  Authorization scope: View and manage your Google Compute Engine resources
  *
  *  Value "https://www.googleapis.com/auth/compute"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginCompute;
+/**
+ *  Authorization scope: View your Google Compute Engine resources
+ *
+ *  Value "https://www.googleapis.com/auth/compute.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudOSLoginComputeReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudOSLoginService

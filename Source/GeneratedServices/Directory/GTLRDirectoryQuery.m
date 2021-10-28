@@ -213,8 +213,8 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_ChromeosdevicesList
 
-@dynamic customerId, maxResults, orderBy, orgUnitPath, pageToken, projection,
-         query, sortOrder;
+@dynamic customerId, includeChildOrgunits, maxResults, orderBy, orgUnitPath,
+         pageToken, projection, query, sortOrder;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];

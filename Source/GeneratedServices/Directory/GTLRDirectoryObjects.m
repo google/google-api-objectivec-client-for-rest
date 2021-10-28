@@ -383,7 +383,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
+         autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
          ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
          lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
@@ -398,6 +398,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
+    @"cpuInfo" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item class],
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
@@ -419,6 +420,24 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 @implementation GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item
 @dynamic activeTime, date;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item
+@dynamic architecture, logicalCpus, maxClockSpeedKhz, model;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logicalCpus" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -530,6 +549,25 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item
+@dynamic cStates, currentScalingFrequencyKhz, idleDuration,
+         maxScalingFrequencyKhz;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cStates" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
 //
 
@@ -545,6 +583,16 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 @implementation GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item
 @dynamic storageFree, storageTotal, volumeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item
+@dynamic displayName, sessionDuration;
 @end
 
 

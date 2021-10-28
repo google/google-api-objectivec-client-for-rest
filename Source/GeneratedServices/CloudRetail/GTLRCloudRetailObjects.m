@@ -38,6 +38,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UnjoinedEvents = @"UNJOINED_EVENTS";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UserEventRejoinScopeUnspecified = @"USER_EVENT_REJOIN_SCOPE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequest.searchMode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_FacetedSearchOnly = @"FACETED_SEARCH_ONLY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_ProductSearchOnly = @"PRODUCT_SEARCH_ONLY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_SearchModeUnspecified = @"SEARCH_MODE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec.mode
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_Disabled = @"DISABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_Enabled = @"ENABLED";
@@ -1394,7 +1399,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
 @dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
          filter, offset, orderBy, pageCategories, pageSize, pageToken, query,
-         queryExpansionSpec, userInfo, variantRollupKeys, visitorId;
+         queryExpansionSpec, searchMode, userInfo, variantRollupKeys, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

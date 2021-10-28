@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Domains API (domains/v1beta1)
+//   Cloud Domains API (domains/v1)
 // Description:
 //   Enables management and configuration of domain names.
 // Documentation:
@@ -29,6 +29,7 @@
 @class GTLRCloudDomains_ResetAuthorizationCodeRequest;
 @class GTLRCloudDomains_SetIamPolicyRequest;
 @class GTLRCloudDomains_TestIamPermissionsRequest;
+@class GTLRCloudDomains_TransferDomainRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -312,9 +313,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a `Registration` resource. This method only works on resources in
- *  one of the following states: * `state` is `EXPORTED` with `expire_time` in
- *  the past * `state` is `REGISTRATION_FAILED`
+ *  Deletes a `Registration` resource. For `Registration` resources using usage
+ *  billing, this method works if: * `state` is `EXPORTED` with `expire_time` in
+ *  the past * `state` is `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED`
+ *  This method works on any `Registration` resource using subscription billing,
+ *  provided that the resource was created at least 1 day in the past. When an
+ *  active domain is successfully deleted, you can continue to use the domain in
+ *  [Google Domains](https://domains.google/) until it expires. The calling user
+ *  becomes the domain's sole owner in Google Domains, and permissions for the
+ *  domain are subsequently managed there. The domain will not renew
+ *  automatically unless the new owner sets up billing in Google Domains.
  *
  *  Method: domains.projects.locations.registrations.delete
  *
@@ -332,9 +340,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
- *  Deletes a `Registration` resource. This method only works on resources in
- *  one of the following states: * `state` is `EXPORTED` with `expire_time` in
- *  the past * `state` is `REGISTRATION_FAILED`
+ *  Deletes a `Registration` resource. For `Registration` resources using usage
+ *  billing, this method works if: * `state` is `EXPORTED` with `expire_time` in
+ *  the past * `state` is `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED`
+ *  This method works on any `Registration` resource using subscription billing,
+ *  provided that the resource was created at least 1 day in the past. When an
+ *  active domain is successfully deleted, you can continue to use the domain in
+ *  [Google Domains](https://domains.google/) until it expires. The calling user
+ *  becomes the domain's sole owner in Google Domains, and permissions for the
+ *  domain are subsequently managed there. The domain will not renew
+ *  automatically unless the new owner sets up billing in Google Domains.
  *
  *  @param name Required. The name of the `Registration` to delete, in the
  *    format `projects/ * /locations/ * /registrations/ *`.
@@ -346,15 +361,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Exports a `Registration` that you no longer want to use with Cloud Domains.
- *  You can continue to use the domain in [Google
- *  Domains](https://domains.google/) until it expires. If the export is
- *  successful: * The resource's `state` becomes `EXPORTED`, meaning that it is
- *  no longer managed by Cloud Domains * Because individual users can own
- *  domains in Google Domains, the calling user becomes the domain's sole owner.
- *  Permissions for the domain are subsequently managed in Google Domains. *
- *  Without further action, the domain does not renew automatically. The new
- *  owner can set up billing in Google Domains to renew the domain if needed.
+ *  Exports a `Registration` resource, such that it is no longer managed by
+ *  Cloud Domains. When an active domain is successfully exported, you can
+ *  continue to use the domain in [Google Domains](https://domains.google/)
+ *  until it expires. The calling user becomes the domain's sole owner in Google
+ *  Domains, and permissions for the domain are subsequently managed there. The
+ *  domain will not renew automatically unless the new owner sets up billing in
+ *  Google Domains.
  *
  *  Method: domains.projects.locations.registrations.export
  *
@@ -372,15 +385,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
- *  Exports a `Registration` that you no longer want to use with Cloud Domains.
- *  You can continue to use the domain in [Google
- *  Domains](https://domains.google/) until it expires. If the export is
- *  successful: * The resource's `state` becomes `EXPORTED`, meaning that it is
- *  no longer managed by Cloud Domains * Because individual users can own
- *  domains in Google Domains, the calling user becomes the domain's sole owner.
- *  Permissions for the domain are subsequently managed in Google Domains. *
- *  Without further action, the domain does not renew automatically. The new
- *  owner can set up billing in Google Domains to renew the domain if needed.
+ *  Exports a `Registration` resource, such that it is no longer managed by
+ *  Cloud Domains. When an active domain is successfully exported, you can
+ *  continue to use the domain in [Google Domains](https://domains.google/)
+ *  until it expires. The calling user becomes the domain's sole owner in Google
+ *  Domains, and permissions for the domain are subsequently managed there. The
+ *  domain will not renew automatically unless the new owner sets up billing in
+ *  Google Domains.
  *
  *  @param object The @c GTLRCloudDomains_ExportRegistrationRequest to include
  *    in the query.
@@ -736,6 +747,47 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets parameters needed to transfer a domain name from another registrar to
+ *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
+ *  Domains is not yet supported. Use the returned values to call
+ *  `TransferDomain`.
+ *
+ *  Method: domains.projects.locations.registrations.retrieveTransferParameters
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveTransferParameters : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The domain name. Unicode domain names must be expressed in
+ *  Punycode format.
+ */
+@property(nonatomic, copy, nullable) NSString *domainName;
+
+/**
+ *  Required. The location. Must be in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_RetrieveTransferParametersResponse.
+ *
+ *  Gets parameters needed to transfer a domain name from another registrar to
+ *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
+ *  Domains is not yet supported. Use the returned values to call
+ *  `TransferDomain`.
+ *
+ *  @param location Required. The location. Must be in the format `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveTransferParameters
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
  *  Searches for available domain names similar to the provided query.
  *  Availability results from this method are approximate; call
  *  `RetrieveRegisterParameters` on a domain before registering to confirm
@@ -850,6 +902,69 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudDomains_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Transfers a domain name from another registrar to Cloud Domains. For domains
+ *  managed by Google Domains, transferring to Cloud Domains is not yet
+ *  supported. Before calling this method, go to the domain's current registrar
+ *  to unlock the domain for transfer and retrieve the domain's transfer
+ *  authorization code. Then call `RetrieveTransferParameters` to confirm that
+ *  the domain is unlocked and to get values needed to build a call to this
+ *  method. A successful call creates a `Registration` resource in state
+ *  `TRANSFER_PENDING`. It can take several days to complete the transfer
+ *  process. The registrant can often speed up this process by approving the
+ *  transfer through the current registrar, either by clicking a link in an
+ *  email from the registrar or by visiting the registrar's website. A few
+ *  minutes after transfer approval, the resource transitions to state `ACTIVE`,
+ *  indicating that the transfer was successful. If the transfer is rejected or
+ *  the request expires without being approved, the resource can end up in state
+ *  `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and
+ *  retry the transfer.
+ *
+ *  Method: domains.projects.locations.registrations.transfer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
+ */
+@interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTransfer : GTLRCloudDomainsQuery
+
+/**
+ *  Required. The parent resource of the `Registration`. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDomains_Operation.
+ *
+ *  Transfers a domain name from another registrar to Cloud Domains. For domains
+ *  managed by Google Domains, transferring to Cloud Domains is not yet
+ *  supported. Before calling this method, go to the domain's current registrar
+ *  to unlock the domain for transfer and retrieve the domain's transfer
+ *  authorization code. Then call `RetrieveTransferParameters` to confirm that
+ *  the domain is unlocked and to get values needed to build a call to this
+ *  method. A successful call creates a `Registration` resource in state
+ *  `TRANSFER_PENDING`. It can take several days to complete the transfer
+ *  process. The registrant can often speed up this process by approving the
+ *  transfer through the current registrar, either by clicking a link in an
+ *  email from the registrar or by visiting the registrar's website. A few
+ *  minutes after transfer approval, the resource transitions to state `ACTIVE`,
+ *  indicating that the transfer was successful. If the transfer is rejected or
+ *  the request expires without being approved, the resource can end up in state
+ *  `TRANSFER_FAILED`. If transfer fails, you can safely delete the resource and
+ *  retry the transfer.
+ *
+ *  @param object The @c GTLRCloudDomains_TransferDomainRequest to include in
+ *    the query.
+ *  @param parent Required. The parent resource of the `Registration`. Must be
+ *    in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTransfer
+ */
++ (instancetype)queryWithObject:(GTLRCloudDomains_TransferDomainRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

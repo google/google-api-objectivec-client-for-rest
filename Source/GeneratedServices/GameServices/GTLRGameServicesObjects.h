@@ -237,14 +237,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
  *  clients that are in the same security realm, which is currently but not
  *  guaranteed to be campus-sized) - 'self:metro' (i.e., clients that are in the
  *  same metro) - 'self:cloud-region' (i.e., allow connections from clients that
- *  are in the same cloud region) - 'guardians' (i.e., allow connections from
- *  its guardian realms. See go/security-realms-glossary#guardian for more
- *  information.) - a realm (e.g., 'campus-abc') - a realm group (e.g.,
- *  'realms-for-borg-cell-xx', see: go/realm-groups) A match is determined by a
- *  realm group membership check performed by a RealmAclRep object
- *  (go/realm-acl-howto). It is not permitted to grant access based on the
- *  *absence* of a realm, so realm conditions can only be used in a "positive"
- *  context (e.g., ALLOW/IN or DENY/NOT_IN).
+ *  are in the same cloud region) - 'self:prod-region' (i.e., allow connections
+ *  from clients that are in the same prod region) - 'guardians' (i.e., allow
+ *  connections from its guardian realms. See
+ *  go/security-realms-glossary#guardian for more information.) - a realm (e.g.,
+ *  'campus-abc') - a realm group (e.g., 'realms-for-borg-cell-xx', see:
+ *  go/realm-groups) A match is determined by a realm group membership check
+ *  performed by a RealmAclRep object (go/realm-acl-howto). It is not permitted
+ *  to grant access based on the *absence* of a realm, so realm conditions can
+ *  only be used in a "positive" context (e.g., ALLOW/IN or DENY/NOT_IN).
  *
  *  Value: "SECURITY_REALM"
  */
@@ -707,11 +708,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        but not guaranteed to be campus-sized) - 'self:metro' (i.e., clients
  *        that are in the same metro) - 'self:cloud-region' (i.e., allow
  *        connections from clients that are in the same cloud region) -
- *        'guardians' (i.e., allow connections from its guardian realms. See
- *        go/security-realms-glossary#guardian for more information.) - a realm
- *        (e.g., 'campus-abc') - a realm group (e.g., 'realms-for-borg-cell-xx',
- *        see: go/realm-groups) A match is determined by a realm group
- *        membership check performed by a RealmAclRep object
+ *        'self:prod-region' (i.e., allow connections from clients that are in
+ *        the same prod region) - 'guardians' (i.e., allow connections from its
+ *        guardian realms. See go/security-realms-glossary#guardian for more
+ *        information.) - a realm (e.g., 'campus-abc') - a realm group (e.g.,
+ *        'realms-for-borg-cell-xx', see: go/realm-groups) A match is determined
+ *        by a realm group membership check performed by a RealmAclRep object
  *        (go/realm-acl-howto). It is not permitted to grant access based on the
  *        *absence* of a realm, so realm conditions can only be used in a
  *        "positive" context (e.g., ALLOW/IN or DENY/NOT_IN). (Value:
@@ -2146,8 +2148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inProperty;
 
 /**
- *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
- *  that match the LOG action.
+ *  The config returned to callers of CheckPolicy for any entries that match the
+ *  LOG action.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_LogConfig *> *logConfig;
 

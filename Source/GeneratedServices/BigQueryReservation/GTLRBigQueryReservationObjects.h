@@ -182,7 +182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
 
 /**
  *  Once slots are provisioned, capacity commitment becomes active. slot_count
- *  is added to the parent's slot_capacity.
+ *  is added to the project's slot_capacity.
  *
  *  Value: "ACTIVE"
  */
@@ -195,7 +195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_Failed;
 /**
  *  Capacity commitment is pending provisioning. Pending capacity commitment
- *  does not contribute to the parent's slot_capacity.
+ *  does not contribute to the project's slot_capacity.
  *
  *  Value: "PENDING"
  */
@@ -392,12 +392,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Active Once
  *        slots are provisioned, capacity commitment becomes active. slot_count
- *        is added to the parent's slot_capacity. (Value: "ACTIVE")
+ *        is added to the project's slot_capacity. (Value: "ACTIVE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Failed Capacity
  *        commitment is failed to be activated by the backend. (Value: "FAILED")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Pending Capacity
  *        commitment is pending provisioning. Pending capacity commitment does
- *        not contribute to the parent's slot_capacity. (Value: "PENDING")
+ *        not contribute to the project's slot_capacity. (Value: "PENDING")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified
  *        Invalid state value. (Value: "STATE_UNSPECIFIED")
  */
@@ -561,9 +561,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
  *  ignore_idle_slots is set to false. If the new reservation's slot capacity
- *  exceed the parent's slot capacity or if total slot capacity of the new
- *  reservation and its siblings exceeds the parent's slot capacity, the request
- *  will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`.
+ *  exceed the project's slot capacity or if total slot capacity of the new
+ *  reservation and its siblings exceeds the project's slot capacity, the
+ *  request will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`. NOTE: for
+ *  reservations in US or EU multi-regions slot capacity constraints are checked
+ *  separately for default and auxiliary regions. See multi_region_auxiliary
+ *  flag for more details.
  *
  *  Uses NSNumber of longLongValue.
  */

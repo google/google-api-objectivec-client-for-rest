@@ -47,7 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCloudPlatformReadOnly
  *    @c kGTLRAuthScopeCloudOSLoginCompute
+ *    @c kGTLRAuthScopeCloudOSLoginComputeReadonly
  */
 @interface GTLRCloudOSLoginQuery_UsersGetLoginProfile : GTLRCloudOSLoginQuery
 

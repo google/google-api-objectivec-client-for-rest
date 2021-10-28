@@ -761,6 +761,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Request message for AcknowledgeUserDataCollection RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest : GTLRObject
+
+/**
+ *  Required. An acknowledgement that the caller of this method understands the
+ *  terms of user data collection. This field must contain the exact value: "I
+ *  acknowledge that I have the necessary privacy disclosures and rights from my
+ *  end users for the collection and processing of their data, including the
+ *  association of such data with the visitation information Google Analytics
+ *  collects from my site and/or app property."
+ */
+@property(nonatomic, copy, nullable) NSString *acknowledgement;
+
+@end
+
+
+/**
+ *  Response message for AcknowledgeUserDataCollection RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse : GTLRObject
+@end
+
+
+/**
  *  A resource message representing a Google Analytics Android app stream.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream : GTLRObject
@@ -841,7 +866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Roles directly assigned to this user for this entity. Format:
- *  predefinedRoles/read Excludes roles that are inherited from an account (if
+ *  predefinedRoles/viewer Excludes roles that are inherited from an account (if
  *  this is for a property), group, or organization admin role.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
@@ -849,7 +874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /**
  *  Union of all permissions a user has at this account or property (includes
  *  direct permissions, group-inherited permissions, etc.). Format:
- *  predefinedRoles/read
+ *  predefinedRoles/viewer
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveRoles;
 
@@ -1520,7 +1545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Immutable. Enables the import of cost data from Display & Video 360 into the
- *  GA4 property. This can only be enabled if campaign_data_import_enabled is
+ *  GA4 property. This can only be enabled if campaign_data_sharing_enabled is
  *  enabled. After link creation, this can only be updated from the Display &
  *  Video 360 product. If this field is not set on create, it will be defaulted
  *  to true.
@@ -1541,7 +1566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
- *  A proposal for a link between an GA4 property and a Display & Video 360
+ *  A proposal for a link between a GA4 property and a Display & Video 360
  *  advertiser. A proposal is converted to a DisplayVideo360AdvertiserLink once
  *  approved. Google Analytics admins approve inbound proposals while Display &
  *  Video 360 admins approve outbound proposals.
@@ -1575,7 +1600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Immutable. Enables the import of cost data from Display & Video 360. This
- *  can only be enabled if campaign_data_import_enabled is enabled. If this
+ *  can only be enabled if campaign_data_sharing_enabled is enabled. If this
  *  field is not set on create, it will be defaulted to true.
  *
  *  Uses NSNumber of boolValue.
@@ -1607,105 +1632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
- *  Singleton resource under a WebDataStream, configuring measurement of
- *  additional site interactions and content.
- */
-@interface GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings : GTLRObject
-
-/**
- *  If enabled, capture a file download event each time a link is clicked with a
- *  common document, compressed file, application, video, or audio extension.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *fileDownloadsEnabled;
-
-/**
- *  Output only. Resource name of this Data Stream. Format:
- *  properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *  Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If enabled, capture an outbound click event each time a visitor clicks a
- *  link that leads them away from your domain.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *outboundClicksEnabled;
-
-/**
- *  If enabled, capture a page view event each time the website changes the
- *  browser history state.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageChangesEnabled;
-
-/**
- *  Output only. If enabled, capture a page view event each time a page loads.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageLoadsEnabled;
-
-/**
- *  Output only. If enabled, capture a page view event each time a page loads or
- *  the website changes the browser history state.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageViewsEnabled;
-
-/**
- *  If enabled, capture scroll events each time a visitor gets to the bottom of
- *  a page.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *scrollsEnabled;
-
-/**
- *  Required. URL query parameters to interpret as site search parameters. Max
- *  length is 1024 characters. Must not be empty.
- */
-@property(nonatomic, copy, nullable) NSString *searchQueryParameter;
-
-/**
- *  If enabled, capture a view search results event each time a visitor performs
- *  a search on your site (based on a query parameter).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *siteSearchEnabled;
-
-/**
- *  Indicates whether Enhanced Measurement Settings will be used to
- *  automatically measure interactions and content on this web stream. Changing
- *  this value does not affect the settings themselves, but determines whether
- *  they are respected.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *streamEnabled;
-
-/** Additional URL query parameters. Max length is 1024 characters. */
-@property(nonatomic, copy, nullable) NSString *uriQueryParameter;
-
-/**
- *  If enabled, capture video play, progress, and complete events as visitors
- *  view embedded videos on your site.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoEngagementEnabled;
-
-@end
-
-
-/**
- *  A link between an GA4 property and a Firebase project.
+ *  A link between a GA4 property and a Firebase project.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink : GTLRObject
 
@@ -1749,7 +1676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
- *  A link between an GA4 property and a Google Ads account.
+ *  A link between a GA4 property and a Google Ads account.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink : GTLRObject
 
@@ -2380,6 +2307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaProperty : GTLRObject
 
+/**
+ *  Immutable. The resource name of the parent account Format:
+ *  accounts/{account_id} Example: "accounts/123"
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
 /** Output only. Time when the entity was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2516,7 +2449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
- *  A virtual resource representing metadata for an GA4 property.
+ *  A virtual resource representing metadata for a GA4 property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary : GTLRObject
 
@@ -2664,10 +2597,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Roles directly assigned to this user for this account or property. Valid
- *  values: predefinedRoles/read predefinedRoles/collaborate
- *  predefinedRoles/edit predefinedRoles/admin Excludes roles that are inherited
- *  from a higher-level entity, group, or organization admin role. A UserLink
- *  that is updated to have an empty list of direct_roles will be deleted.
+ *  values: predefinedRoles/viewer predefinedRoles/analyst
+ *  predefinedRoles/editor predefinedRoles/admin predefinedRoles/no-cost-data
+ *  predefinedRoles/no-revenue-data Excludes roles that are inherited from a
+ *  higher-level entity, group, or organization admin role. A UserLink that is
+ *  updated to have an empty list of direct_roles will be deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
 

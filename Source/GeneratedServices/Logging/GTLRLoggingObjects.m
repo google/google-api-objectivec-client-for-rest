@@ -721,7 +721,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogView
-@dynamic createTime, descriptionProperty, filter, name, schema, updateTime;
+@dynamic createTime, descriptionProperty, filter, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -969,46 +969,6 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_SuppressionInfo
 @dynamic reason, suppressedCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLogging_TableFieldSchema
-//
-
-@implementation GTLRLogging_TableFieldSchema
-@dynamic descriptionProperty, fields, mode, name, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRLogging_TableFieldSchema class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRLogging_TableSchema
-//
-
-@implementation GTLRLogging_TableSchema
-@dynamic fields;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"fields" : [GTLRLogging_TableFieldSchema class]
-  };
-  return map;
-}
-
 @end
 
 

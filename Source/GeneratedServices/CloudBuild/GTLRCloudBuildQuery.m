@@ -236,7 +236,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate
 
-@dynamic parent, projectId;
+@dynamic gheConfigId, parent, projectId;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
                          parent:(NSString *)parent {
@@ -497,7 +497,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate
 
-@dynamic parent, projectId;
+@dynamic gheConfigId, parent, projectId;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
                          parent:(NSString *)parent {

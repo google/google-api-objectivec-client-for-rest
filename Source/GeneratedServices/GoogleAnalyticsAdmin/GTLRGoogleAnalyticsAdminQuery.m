@@ -428,6 +428,33 @@
 
 @end
 
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1alpha/{+property}:acknowledgeUserDataCollection";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAcknowledgeUserDataCollection *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse class];
+  query.loggingName = @"analyticsadmin.properties.acknowledgeUserDataCollection";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsDelete
 
 @dynamic name;
@@ -2052,25 +2079,6 @@
 
 @end
 
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings class];
-  query.loggingName = @"analyticsadmin.properties.webDataStreams.getEnhancedMeasurementSettings";
-  return query;
-}
-
-@end
-
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetGlobalSiteTag
 
 @dynamic name;
@@ -2242,33 +2250,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream class];
   query.loggingName = @"analyticsadmin.properties.webDataStreams.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsUpdateEnhancedMeasurementSettings
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsUpdateEnhancedMeasurementSettings *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings class];
-  query.loggingName = @"analyticsadmin.properties.webDataStreams.updateEnhancedMeasurementSettings";
   return query;
 }
 

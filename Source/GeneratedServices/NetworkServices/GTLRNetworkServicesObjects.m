@@ -17,6 +17,16 @@ NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_DataRead = @"DATA_R
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher.metadataLabelMatchCriteria
+NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAll = @"MATCH_ALL";
+NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MatchAny = @"MATCH_ANY";
+NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_MetadataLabelMatchCriteria_MetadataLabelMatchCriteriaUnspecified = @"METADATA_LABEL_MATCH_CRITERIA_UNSPECIFIED";
+
+// GTLRNetworkServices_EndpointPolicy.type
+NSString * const kGTLRNetworkServices_EndpointPolicy_Type_EndpointPolicyTypeUnspecified = @"ENDPOINT_POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkServices_EndpointPolicy_Type_GrpcServer = @"GRPC_SERVER";
+NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDECAR_PROXY";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRNetworkServices_AuditConfig
@@ -91,6 +101,75 @@ NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_EndpointMatcher
+//
+
+@implementation GTLRNetworkServices_EndpointMatcher
+@dynamic metadataLabelMatcher;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher
+//
+
+@implementation GTLRNetworkServices_EndpointMatcherMetadataLabelMatcher
+@dynamic metadataLabelMatchCriteria, metadataLabels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataLabels" : [GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels
+//
+
+@implementation GTLRNetworkServices_EndpointMatcherMetadataLabelMatcherMetadataLabels
+@dynamic labelName, labelValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EndpointPolicy
+//
+
+@implementation GTLRNetworkServices_EndpointPolicy
+@dynamic authorizationPolicy, clientTlsPolicy, createTime, descriptionProperty,
+         endpointMatcher, labels, name, serverTlsPolicy, trafficPortSelector,
+         type, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_EndpointPolicy_Labels
+//
+
+@implementation GTLRNetworkServices_EndpointPolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_Expr
 //
 
@@ -99,6 +178,28 @@ NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified 
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_ListEndpointPoliciesResponse
+//
+
+@implementation GTLRNetworkServices_ListEndpointPoliciesResponse
+@dynamic endpointPolicies, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpointPolicies" : [GTLRNetworkServices_EndpointPolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"endpointPolicies";
 }
 
 @end
@@ -329,6 +430,24 @@ NSString * const kGTLRNetworkServices_AuditLogConfig_LogType_LogTypeUnspecified 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_TrafficPortSelector
+//
+
+@implementation GTLRNetworkServices_TrafficPortSelector
+@dynamic ports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ports" : [NSString class]
   };
   return map;
 }

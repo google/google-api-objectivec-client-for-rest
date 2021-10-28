@@ -23,6 +23,11 @@ NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified = @
 NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering = @"DIRECT_PEERING";
 NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess = @"PRIVATE_SERVICE_ACCESS";
 
+// GTLRCloudRedis_Instance.readReplicasMode
+NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled = @"READ_REPLICAS_DISABLED";
+NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasEnabled = @"READ_REPLICAS_ENABLED";
+NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasModeUnspecified = @"READ_REPLICAS_MODE_UNSPECIFIED";
+
 // GTLRCloudRedis_Instance.state
 NSString * const kGTLRCloudRedis_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRCloudRedis_Instance_State_Deleting       = @"DELETING";
@@ -181,13 +186,15 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 @implementation GTLRCloudRedis_Instance
 @dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
          createTime, currentLocationId, displayName, host, labels, locationId,
-         maintenancePolicy, maintenanceSchedule, memorySizeGb, name,
-         persistenceIamIdentity, port, redisConfigs, redisVersion,
+         maintenancePolicy, maintenanceSchedule, memorySizeGb, name, nodes,
+         persistenceIamIdentity, port, readEndpoint, readEndpointPort,
+         readReplicasMode, redisConfigs, redisVersion, replicaCount,
          reservedIpRange, serverCaCerts, state, statusMessage, tier,
          transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"nodes" : [GTLRCloudRedis_NodeInfo class],
     @"serverCaCerts" : [GTLRCloudRedis_TlsCertificate class]
   };
   return map;
@@ -368,6 +375,25 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_MaintenanceSchedule
 @dynamic canReschedule, endTime, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_NodeInfo
+//
+
+@implementation GTLRCloudRedis_NodeInfo
+@dynamic identifier, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
+}
+
 @end
 
 

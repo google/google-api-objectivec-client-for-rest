@@ -115,8 +115,8 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 //
 
 @implementation GTLRArea120Tables_ColumnDescription
-@dynamic dataType, identifier, labels, lookupDetails, multipleValuesDisallowed,
-         name, relationshipDetails;
+@dynamic dataType, dateDetails, identifier, labels, lookupDetails,
+         multipleValuesDisallowed, name, readonly, relationshipDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -139,6 +139,16 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 
 @implementation GTLRArea120Tables_CreateRowRequest
 @dynamic parent, row, view;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArea120Tables_DateDetails
+//
+
+@implementation GTLRArea120Tables_DateDetails
+@dynamic hasTime;
 @end
 
 
@@ -297,7 +307,8 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 //
 
 @implementation GTLRArea120Tables_Table
-@dynamic columns, createTime, displayName, name, savedViews, updateTime;
+@dynamic columns, createTime, displayName, name, savedViews, timeZone,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

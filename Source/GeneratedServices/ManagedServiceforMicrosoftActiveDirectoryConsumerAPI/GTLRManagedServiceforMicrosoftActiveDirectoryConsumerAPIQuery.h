@@ -953,7 +953,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. Peering Id, unique name to identify peering. */
+/**
+ *  Required. Peering Id, unique name to identify peering. It should follow the
+ *  regex format "^(?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)$"
+ */
 @property(nonatomic, copy, nullable) NSString *peeringId;
 
 /**

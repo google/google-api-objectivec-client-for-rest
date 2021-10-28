@@ -1940,10 +1940,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  GTLRCloudSearch_GetSearchApplicationQueryStatsResponse
+ *  Response format for getting query stats for a search application between
+ *  given dates.
  */
 @interface GTLRCloudSearch_GetSearchApplicationQueryStatsResponse : GTLRObject
 
+/** Query stats per date for a search application. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SearchApplicationQueryStats *> *stats;
 
 @end
@@ -2090,6 +2092,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+@end
+
+
+/**
+ *  Request message for `InitializeCustomer` method.
+ */
+@interface GTLRCloudSearch_InitializeCustomerRequest : GTLRObject
 @end
 
 
@@ -3323,8 +3332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  Indicates that the property can be used for sorting. Cannot be true for
  *  properties that are repeatable. Cannot be true for properties whose type is
- *  object or user identifier. IsReturnable must be true to set this option.
- *  Only supported for Boolean, Date, Double, Integer, and Timestamp properties.
+ *  object. IsReturnable must be true to set this option. Only supported for
+ *  Boolean, Date, Double, Integer, and Timestamp properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4098,7 +4107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  GTLRCloudSearch_SearchApplicationQueryStats
+ *  Search application level query stats per date
  */
 @interface GTLRCloudSearch_SearchApplicationQueryStats : GTLRObject
 
@@ -4487,8 +4496,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SourceCrowdingConfig : GTLRObject
 
 /**
- *  Maximum number of results allowed from a source. No limits will be set on
- *  results if this value is less than or equal to 0.
+ *  Maximum number of results allowed from a datasource in a result page as long
+ *  as results from other sources are not exhausted. Value specified must not be
+ *  negative. A default value is used if this value is equal to 0. To disable
+ *  crowding, set the value greater than 100.
  *
  *  Uses NSNumber of intValue.
  */
