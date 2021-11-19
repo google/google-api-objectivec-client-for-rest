@@ -268,8 +268,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -461,6 +461,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_CreateAdminQuotaPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_CreateAdminQuotaPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_CustomError
 //
 
@@ -502,6 +511,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_DeleteAdminQuotaPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_DeleteAdminQuotaPolicyMetadata
 @end
 
 
@@ -603,15 +621,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_Endpoint
-@dynamic aliases, allowCors, name, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic allowCors, name, target;
 @end
 
 
@@ -674,6 +684,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GetServiceIdentityMetadata
+//
+
+@implementation GTLRServiceUsage_GetServiceIdentityMetadata
 @end
 
 
@@ -832,6 +851,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ImportAdminOverridesMetadata
+//
+
+@implementation GTLRServiceUsage_ImportAdminOverridesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_ImportAdminOverridesResponse
 //
 
@@ -850,6 +878,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ImportAdminQuotaPoliciesMetadata
+//
+
+@implementation GTLRServiceUsage_ImportAdminQuotaPoliciesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_ImportAdminQuotaPoliciesResponse
 //
 
@@ -863,6 +900,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ImportConsumerOverridesMetadata
+//
+
+@implementation GTLRServiceUsage_ImportConsumerOverridesMetadata
 @end
 
 
@@ -1486,6 +1532,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_UpdateAdminQuotaPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_UpdateAdminQuotaPolicyMetadata
 @end
 
 

@@ -194,24 +194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/**
- *  Deprecated. Instead, to link a Project with a Google Analytics account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
- *  add Firebase resources to the GCP `Project`. The region code (CLDR) that the
- *  account will use for Google Analytics data For example: US, GB, or DE In
- *  Java, use `com.google.i18n.identifiers.RegionCode`.
- */
-@property(nonatomic, copy, nullable) NSString *regionCode;
-
-/**
- *  Deprecated. Instead, to link a Project with a Google Analytics account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
- *  add Firebase resources to the GCP `Project`. The time zone that the account
- *  will use for Google Analytics data. For example: America/Los_Angeles or
- *  Africa/Abidjan
- */
-@property(nonatomic, copy, nullable) NSString *timeZone;
-
 @end
 
 
@@ -299,6 +281,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  Details of a Google Analytics property
  */
 @interface GTLRFirebaseManagement_AnalyticsProperty : GTLRObject
+
+/**
+ *  Output only. The ID of the [Google Analytics
+ *  account](https://www.google.com/analytics/) for the Google Analytics
+ *  property associated with the specified FirebaseProject.
+ */
+@property(nonatomic, copy, nullable) NSString *analyticsAccountId;
 
 /**
  *  The display name of the Google Analytics property associated with the
@@ -632,6 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  for the `IosApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The Apple Developer Team ID associated with the App in the App Store. */
+@property(nonatomic, copy, nullable) NSString *teamId;
 
 @end
 
@@ -1196,7 +1188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  of the Google Analytics web stream associated with the Firebase Web App.
  *  Firebase SDKs use this ID to interact with Google Analytics APIs. Learn more
  *  about this ID and Google Analytics web streams in the [Analytics
- *  documentation](https://support.google.com/analytics/topic/9303475).
+ *  documentation](https://support.google.com/analytics/answer/9304153).
  */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 
@@ -1303,7 +1295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  Google Analytics APIs. This field is only present if the `WebApp` is linked
  *  to a web stream in a Google Analytics App + Web property. Learn more about
  *  this ID and Google Analytics web streams in the [Analytics
- *  documentation](https://support.google.com/analytics/topic/9303475). To
+ *  documentation](https://support.google.com/analytics/answer/9304153). To
  *  generate a `measurementId` and link the `WebApp` with a Google Analytics web
  *  stream, call
  *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics). For apps

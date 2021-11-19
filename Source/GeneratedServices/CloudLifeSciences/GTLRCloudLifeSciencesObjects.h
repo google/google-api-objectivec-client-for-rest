@@ -123,10 +123,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Deadl
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -339,6 +339,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableFuse;
+
+/**
+ *  The encrypted environment to pass into the container. This environment is
+ *  merged with values specified in the
+ *  google.cloud.lifesciences.v2beta.Pipeline message, overwriting any duplicate
+ *  values. The secret must decrypt to a JSON-encoded dictionary where key-value
+ *  pairs serve as environment variable names and their values. The decoded
+ *  environment variables can overwrite the values specified by the
+ *  `environment` field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Secret *encryptedEnvironment;
 
 /** If specified, overrides the `ENTRYPOINT` specified in the container. */
 @property(nonatomic, copy, nullable) NSString *entrypoint;
@@ -784,13 +795,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Internal Internal errors.
  *        This means that some invariants expected by the underlying system have
@@ -996,6 +1007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Pipeline *pipeline;
 
 /**
+ *  The name of the Cloud Pub/Sub topic where notifications of operation status
+ *  changes are sent.
+ */
+@property(nonatomic, copy, nullable) NSString *pubSubTopic;
+
+/**
  *  The first time at which resources were allocated to execute the pipeline.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -1178,6 +1195,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Action *> *actions;
 
 /**
+ *  The encrypted environment to pass into every action. Each action can also
+ *  specify its own encrypted environment. The secret must decrypt to a
+ *  JSON-encoded dictionary where key-value pairs serve as environment variable
+ *  names and their values. The decoded environment variables can overwrite the
+ *  values specified by the `environment` field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Secret *encryptedEnvironment;
+
+/**
  *  The environment to pass into every action. Each action can also specify
  *  additional environment variables but cannot delete an entry from this map
  *  (though they can overwrite it with a different value).
@@ -1276,6 +1302,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /** Required. The description of the pipeline to run. */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Pipeline *pipeline;
+
+/**
+ *  The name of an existing Pub/Sub topic. The server will publish messages to
+ *  this topic whenever the status of the operation changes. The Life Sciences
+ *  Service Agent account must have publisher permissions to the specified topic
+ *  or notifications will not be sent.
+ */
+@property(nonatomic, copy, nullable) NSString *pubSubTopic;
 
 @end
 
@@ -1521,6 +1555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
+
+/**
+ *  If specified, the VM will only be allocated inside the matching reservation.
+ *  It will fail if the VM parameters don't match the reservation.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
 
 /**
  *  The service account to install on the VM. This account does not need any

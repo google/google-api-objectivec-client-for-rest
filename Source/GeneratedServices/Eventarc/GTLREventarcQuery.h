@@ -41,6 +41,130 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: eventarc.projects.locations.channels.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelsGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.channels.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelsSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.channels.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelsTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: eventarc.projects.locations.get
@@ -49,8 +173,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -77,19 +199,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -126,8 +256,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsCancel : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -168,8 +296,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsDelete : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -201,8 +327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -239,8 +363,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -288,8 +410,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersCreate : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersCreateWithObject:parent:]
 
 /** Required. The parent collection in which to add this trigger. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -327,8 +447,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersDelete : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersDeleteWithname:]
 
 /**
  *  If set to true, and the trigger is not found, the request will succeed but
@@ -373,8 +491,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersGetWithname:]
 
 /** Required. The name of the trigger to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -402,8 +518,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -447,8 +561,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersListWithparent:]
 
 /**
  *  The sorting order of the resources returned. Value should be a comma
@@ -501,8 +613,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersPatch : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersPatchWithObject:name:]
 
 /**
  *  If set to true, and the trigger is not found, a new trigger will be created.
@@ -560,8 +670,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersSetIamPolicy : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -602,8 +710,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersTestIamPermissions : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

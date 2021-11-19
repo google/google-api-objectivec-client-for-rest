@@ -75,7 +75,12 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Get a customer account.
+ *  Gets a customer account. Use this operation to see a customer account
+ *  already in your reseller management, or to see the minimal account
+ *  information for an existing customer that you do not manage. For more
+ *  information about the API response for existing customers, see [retrieving a
+ *  customer
+ *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#get_customer).
  *
  *  Method: reseller.customers.get
  *
@@ -84,26 +89,32 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_CustomersGet : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersGetWithcustomerId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
  *
- *  Get a customer account.
+ *  Gets a customer account. Use this operation to see a customer account
+ *  already in your reseller management, or to see the minimal account
+ *  information for an existing customer that you do not manage. For more
+ *  information about the API response for existing customers, see [retrieving a
+ *  customer
+ *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#get_customer).
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
  *
  *  @return GTLRResellerQuery_CustomersGet
  */
@@ -112,7 +123,22 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Order a new customer's account.
+ *  Orders a new customer's account. Before ordering a new customer account,
+ *  establish whether the customer account already exists using the
+ *  [`customers.get`](/admin-sdk/reseller/v1/reference/customers/get) If the
+ *  customer account exists as a direct Google account or as a resold customer
+ *  account from another reseller, use the `customerAuthToken\\` as described in
+ *  [order a resold account for an existing
+ *  customer](/admin-sdk/reseller/v1/how-tos/manage_customers#create_existing_customer).
+ *  For more information about ordering a new customer account, see [order a new
+ *  customer
+ *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#create_customer).
+ *  After creating a new customer account, you must provision a user as an
+ *  administrator. The customer's administrator is required to sign in to the
+ *  Admin console and sign the G Suite via Reseller agreement to activate the
+ *  account. Resellers are prohibited from signing the G Suite via Reseller
+ *  agreement on the customer's behalf. For more information, see [order a new
+ *  customer account](/admin-sdk/reseller/v1/how-tos/manage_customers#tos).
  *
  *  Method: reseller.customers.insert
  *
@@ -120,11 +146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersInsert : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersInsertWithObject:]
 
 /**
- *  The customerAuthToken query string is required when creating a resold
+ *  The `customerAuthToken` query string is required when creating a resold
  *  account that transfers a direct customer's subscription or transfers another
  *  reseller customer's subscription to your reseller management. This is a
  *  hexadecimal authentication token needed to complete the subscription
@@ -135,7 +159,22 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Fetches a @c GTLRReseller_Customer.
  *
- *  Order a new customer's account.
+ *  Orders a new customer's account. Before ordering a new customer account,
+ *  establish whether the customer account already exists using the
+ *  [`customers.get`](/admin-sdk/reseller/v1/reference/customers/get) If the
+ *  customer account exists as a direct Google account or as a resold customer
+ *  account from another reseller, use the `customerAuthToken\\` as described in
+ *  [order a resold account for an existing
+ *  customer](/admin-sdk/reseller/v1/how-tos/manage_customers#create_existing_customer).
+ *  For more information about ordering a new customer account, see [order a new
+ *  customer
+ *  account](/admin-sdk/reseller/v1/how-tos/manage_customers#create_customer).
+ *  After creating a new customer account, you must provision a user as an
+ *  administrator. The customer's administrator is required to sign in to the
+ *  Admin console and sign the G Suite via Reseller agreement to activate the
+ *  account. Resellers are prohibited from signing the G Suite via Reseller
+ *  agreement on the customer's behalf. For more information, see [order a new
+ *  customer account](/admin-sdk/reseller/v1/how-tos/manage_customers#tos).
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
  *
@@ -146,7 +185,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Patch a customer account's settings via Apiary Patch Orchestration
+ *  Updates a customer account's settings. This method supports patch semantics.
+ *  You cannot update `customerType` via the Reseller API, but a `"team"`
+ *  customer can verify their domain and become `customerType = "domain"`. For
+ *  more information, see [Verify your domain to unlock Essentials
+ *  features](https://support.google.com/a/answer/9122284).
  *
  *  Method: reseller.customers.patch
  *
@@ -154,27 +197,32 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersPatch : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersPatchWithObject:customerId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
  *
- *  Patch a customer account's settings via Apiary Patch Orchestration
+ *  Updates a customer account's settings. This method supports patch semantics.
+ *  You cannot update `customerType` via the Reseller API, but a `"team"`
+ *  customer can verify their domain and become `customerType = "domain"`. For
+ *  more information, see [Verify your domain to unlock Essentials
+ *  features](https://support.google.com/a/answer/9122284).
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
  *
  *  @return GTLRResellerQuery_CustomersPatch
  */
@@ -184,7 +232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Update a customer account's settings.
+ *  Updates a customer account's settings. You cannot update `customerType` via
+ *  the Reseller API, but a `"team"` customer can verify their domain and become
+ *  `customerType = "domain"`. For more information, see [update a customer's
+ *  settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer).
  *
  *  Method: reseller.customers.update
  *
@@ -192,27 +243,31 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersUpdate : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersUpdateWithObject:customerId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Customer.
  *
- *  Update a customer account's settings.
+ *  Updates a customer account's settings. You cannot update `customerType` via
+ *  the Reseller API, but a `"team"` customer can verify their domain and become
+ *  `customerType = "domain"`. For more information, see [update a customer's
+ *  settings](/admin-sdk/reseller/v1/how-tos/manage_customers#update_customer).
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
  *
  *  @return GTLRResellerQuery_CustomersUpdate
  */
@@ -231,8 +286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_ResellernotifyGetwatchdetails : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyGetwatchdetails]
 
 /**
  *  Fetches a @c GTLRReseller_NotifyGetwatchdetailsResponse.
@@ -254,8 +307,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_ResellernotifyRegister : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyRegister]
 
 /** The service account which will own the created Cloud-PubSub topic. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
@@ -280,8 +331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_ResellernotifyUnregister : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyUnregister]
 
 /** The service account which owns the Cloud-PubSub topic. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
@@ -298,7 +347,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Activates a subscription previously suspended by the reseller
+ *  Activates a subscription previously suspended by the reseller. If you did
+ *  not suspend the customer subscription and it is suspended for any other
+ *  reason, such as for abuse or a pending ToS acceptance, this call will not
+ *  reactivate the customer subscription.
  *
  *  Method: reseller.subscriptions.activate
  *
@@ -306,40 +358,44 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsActivate : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsActivateWithcustomerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Activates a subscription previously suspended by the reseller
+ *  Activates a subscription previously suspended by the reseller. If you did
+ *  not suspend the customer subscription and it is suspended for any other
+ *  reason, such as for abuse or a pending ToS acceptance, this call will not
+ *  reactivate the customer subscription.
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsActivate
  */
@@ -349,9 +405,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Update a subscription plan. Use this method to update a plan for a 30-day
+ *  Updates a subscription plan. Use this method to update a plan for a 30-day
  *  trial or a flexible plan subscription to an annual commitment plan with
- *  monthly or yearly payments.
+ *  monthly or yearly payments. How a plan is updated differs depending on the
+ *  plan and the products. For more information, see the description in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
  *
  *  Method: reseller.subscriptions.changePlan
  *
@@ -359,43 +417,46 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangePlan : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangePlanWithObject:customerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Update a subscription plan. Use this method to update a plan for a 30-day
+ *  Updates a subscription plan. Use this method to update a plan for a 30-day
  *  trial or a flexible plan subscription to an annual commitment plan with
- *  monthly or yearly payments.
+ *  monthly or yearly payments. How a plan is updated differs depending on the
+ *  plan and the products. For more information, see the description in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_plan).
  *
  *  @param object The @c GTLRReseller_ChangePlanRequest to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsChangePlan
  */
@@ -406,8 +467,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Update a user license's renewal settings. This is applicable for accounts
- *  with annual commitment plans only.
+ *  Updates a user license's renewal settings. This is applicable for accounts
+ *  with annual commitment plans only. For more information, see the description
+ *  in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal).
  *
  *  Method: reseller.subscriptions.changeRenewalSettings
  *
@@ -415,42 +478,45 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangeRenewalSettings : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangeRenewalSettingsWithObject:customerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Update a user license's renewal settings. This is applicable for accounts
- *  with annual commitment plans only.
+ *  Updates a user license's renewal settings. This is applicable for accounts
+ *  with annual commitment plans only. For more information, see the description
+ *  in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_renewal).
  *
  *  @param object The @c GTLRReseller_RenewalSettings to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsChangeRenewalSettings
  */
@@ -461,7 +527,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Update a subscription's user license settings.
+ *  Updates a subscription's user license settings. For more information about
+ *  updating an annual commitment plan or a flexible plan subscription’s
+ *  licenses, see [Manage
+ *  Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
  *
  *  Method: reseller.subscriptions.changeSeats
  *
@@ -469,41 +538,45 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangeSeats : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangeSeatsWithObject:customerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Update a subscription's user license settings.
+ *  Updates a subscription's user license settings. For more information about
+ *  updating an annual commitment plan or a flexible plan subscription’s
+ *  licenses, see [Manage
+ *  Subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#update_subscription_seat).
  *
  *  @param object The @c GTLRReseller_Seats to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsChangeSeats
  */
@@ -514,7 +587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Cancel, suspend, or transfer a subscription to direct.
+ *  Cancels, suspends, or transfers a subscription to direct.
  *
  *  Method: reseller.subscriptions.delete
  *
@@ -522,19 +595,18 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsDelete : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsDeleteWithcustomerId:subscriptionId:deletionType:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  The deletionType query string enables the cancellation, downgrade, or
+ *  The `deletionType` query string enables the cancellation, downgrade, or
  *  suspension of a subscription.
  *
  *  Likely values:
@@ -553,11 +625,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @property(nonatomic, copy, nullable) NSString *deletionType;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
@@ -565,19 +637,21 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Cancel, suspend, or transfer a subscription to direct.
+ *  Cancels, suspends, or transfers a subscription to direct.
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
- *  @param deletionType The deletionType query string enables the cancellation,
- *    downgrade, or suspension of a subscription.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
+ *  @param deletionType The `deletionType` query string enables the
+ *    cancellation, downgrade, or suspension of a subscription.
  *
  *  Likely values for @c deletionType:
  *    @arg @c kGTLRResellerDeletionTypeDeletionTypeUndefined Value
@@ -601,7 +675,12 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Get a specific subscription.
+ *  Gets a specific subscription. The `subscriptionId` can be found using the
+ *  [Retrieve all reseller
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
+ *  method. For more information about retrieving a specific subscription, see
+ *  the information descrived in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_subscription).
  *
  *  Method: reseller.subscriptions.get
  *
@@ -610,40 +689,46 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_SubscriptionsGet : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsGetWithcustomerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Get a specific subscription.
+ *  Gets a specific subscription. The `subscriptionId` can be found using the
+ *  [Retrieve all reseller
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_all_subscriptions)
+ *  method. For more information about retrieving a specific subscription, see
+ *  the information descrived in [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#get_subscription).
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsGet
  */
@@ -653,7 +738,19 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Create or transfer a subscription.
+ *  Creates or transfer a subscription. Create a subscription for a customer's
+ *  account that you ordered using the [Order a new customer
+ *  account](/admin-sdk/reseller/v1/reference/customers/insert.html) method. For
+ *  more information about creating a subscription for different payment plans,
+ *  see [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
+ *  If you did not order the customer's account using the customer insert
+ *  method, use the customer's `customerAuthToken` when creating a subscription
+ *  for that customer. If transferring a G Suite subscription with an associated
+ *  Google Drive or Google Vault subscription, use the [batch
+ *  operation](/admin-sdk/reseller/v1/how-tos/batch.html) to transfer all of
+ *  these subscriptions. For more information, see how to [transfer
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
  *
  *  Method: reseller.subscriptions.insert
  *
@@ -661,11 +758,9 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsInsert : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsInsertWithObject:customerId:]
 
 /**
- *  The customerAuthToken query string is required when creating a resold
+ *  The `customerAuthToken` query string is required when creating a resold
  *  account that transfers a direct customer's subscription or transfers another
  *  reseller customer's subscription to your reseller management. This is a
  *  hexadecimal authentication token needed to complete the subscription
@@ -674,23 +769,38 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @property(nonatomic, copy, nullable) NSString *customerAuthToken;
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Create or transfer a subscription.
+ *  Creates or transfer a subscription. Create a subscription for a customer's
+ *  account that you ordered using the [Order a new customer
+ *  account](/admin-sdk/reseller/v1/reference/customers/insert.html) method. For
+ *  more information about creating a subscription for different payment plans,
+ *  see [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#create_subscription).\\
+ *  If you did not order the customer's account using the customer insert
+ *  method, use the customer's `customerAuthToken` when creating a subscription
+ *  for that customer. If transferring a G Suite subscription with an associated
+ *  Google Drive or Google Vault subscription, use the [batch
+ *  operation](/admin-sdk/reseller/v1/how-tos/batch.html) to transfer all of
+ *  these subscriptions. For more information, see how to [transfer
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#transfer_a_subscription).
  *
  *  @param object The @c GTLRReseller_Subscription to include in the query.
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
  *
  *  @return GTLRResellerQuery_SubscriptionsInsert
  */
@@ -700,9 +810,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  List of subscriptions managed by the reseller. The list can be all
+ *  Lists of subscriptions managed by the reseller. The list can be all
  *  subscriptions, all of a customer's subscriptions, or all of a customer's
- *  transferable subscriptions.
+ *  transferable subscriptions. Optionally, this method can filter the response
+ *  by a `customerNamePrefix`. For more information, see [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions).
  *
  *  Method: reseller.subscriptions.list
  *
@@ -711,11 +823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_SubscriptionsList : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsList]
 
 /**
- *  The customerAuthToken query string is required when creating a resold
+ *  The `customerAuthToken` query string is required when creating a resold
  *  account that transfers a direct customer's subscription or transfers another
  *  reseller customer's subscription to your reseller management. This is a
  *  hexadecimal authentication token needed to complete the subscription
@@ -724,27 +834,28 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @property(nonatomic, copy, nullable) NSString *customerAuthToken;
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  When retrieving all of your subscriptions and filtering for specific
  *  customers, you can enter a prefix for a customer name. Using an example
- *  customer group that includes exam.com, example20.com and example.com: - exa
- *  -- Returns all customer names that start with 'exa' which could include
- *  exam.com, example20.com, and example.com. A name prefix is similar to using
- *  a regular expression's asterisk, exa*. - example -- Returns example20.com
- *  and example.com.
+ *  customer group that includes `exam.com`, `example20.com` and `example.com`:
+ *  - `exa` -- Returns all customer names that start with 'exa' which could
+ *  include `exam.com`, `example20.com`, and `example.com`. A name prefix is
+ *  similar to using a regular expression's asterisk, exa*. - `example` --
+ *  Returns `example20.com` and `example.com`.
  */
 @property(nonatomic, copy, nullable) NSString *customerNamePrefix;
 
 /**
- *  When retrieving a large list, the maxResults is the maximum number of
- *  results per page. The nextPageToken value takes you to the next page. The
+ *  When retrieving a large list, the `maxResults` is the maximum number of
+ *  results per page. The `nextPageToken` value takes you to the next page. The
  *  default is 20.
  *
  *  @note The documented range is 1..100.
@@ -757,9 +868,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Fetches a @c GTLRReseller_Subscriptions.
  *
- *  List of subscriptions managed by the reseller. The list can be all
+ *  Lists of subscriptions managed by the reseller. The list can be all
  *  subscriptions, all of a customer's subscriptions, or all of a customer's
- *  transferable subscriptions.
+ *  transferable subscriptions. Optionally, this method can filter the response
+ *  by a `customerNamePrefix`. For more information, see [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions).
  *
  *  @return GTLRResellerQuery_SubscriptionsList
  *
@@ -773,7 +886,10 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 
 /**
  *  Immediately move a 30-day free trial subscription to a paid service
- *  subscription.
+ *  subscription. This method is only applicable if a payment plan has already
+ *  been set up for the 30-day trial subscription. For more information, see
+ *  [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#paid_service).
  *
  *  Method: reseller.subscriptions.startPaidService
  *
@@ -781,23 +897,22 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsStartPaidService : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsStartPaidServiceWithcustomerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
@@ -805,17 +920,22 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  Fetches a @c GTLRReseller_Subscription.
  *
  *  Immediately move a 30-day free trial subscription to a paid service
- *  subscription.
+ *  subscription. This method is only applicable if a payment plan has already
+ *  been set up for the 30-day trial subscription. For more information, see
+ *  [manage
+ *  subscriptions](/admin-sdk/reseller/v1/how-tos/manage_subscriptions#paid_service).
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsStartPaidService
  */
@@ -825,7 +945,16 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Suspends an active subscription.
+ *  Suspends an active subscription. You can use this method to suspend a paid
+ *  subscription that is currently in the `ACTIVE` state. * For `FLEXIBLE`
+ *  subscriptions, billing is paused. * For `ANNUAL_MONTHLY_PAY` or
+ *  `ANNUAL_YEARLY_PAY` subscriptions: * Suspending the subscription does not
+ *  change the renewal date that was originally committed to. * A suspended
+ *  subscription does not renew. If you activate the subscription after the
+ *  original renewal date, a new annual subscription will be created, starting
+ *  on the day of activation. We strongly encourage you to suspend subscriptions
+ *  only for short periods of time as suspensions over 60 days may result in the
+ *  subscription being cancelled.
  *
  *  Method: reseller.subscriptions.suspend
  *
@@ -833,40 +962,50 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsSuspend : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsSuspendWithcustomerId:subscriptionId:]
 
 /**
- *  Either the customer's primary domain name or the customer's unique
- *  identifier. If using the domain name, we do not recommend using a customerId
- *  as a key for persistent data. If the domain name for a customerId is
- *  changed, the Google system automatically updates.
+ *  This can be either the customer's primary domain name or the customer's
+ *  unique identifier. If the domain name for a customer changes, the old domain
+ *  name cannot be used to access the customer, but the customer's unique
+ *  identifier (as returned by the API) can always be used. We recommend storing
+ *  the unique identifier in your systems where applicable.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  This is a required property. The subscriptionId is the subscription
- *  identifier and is unique for each customer. Since a subscriptionId changes
+ *  This is a required property. The `subscriptionId` is the subscription
+ *  identifier and is unique for each customer. Since a `subscriptionId` changes
  *  when a subscription is updated, we recommend to not use this ID as a key for
- *  persistent data. And the subscriptionId can be found using the retrieve all
- *  reseller subscriptions method.
+ *  persistent data. And the `subscriptionId` can be found using the retrieve
+ *  all reseller subscriptions method.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
  *  Fetches a @c GTLRReseller_Subscription.
  *
- *  Suspends an active subscription.
+ *  Suspends an active subscription. You can use this method to suspend a paid
+ *  subscription that is currently in the `ACTIVE` state. * For `FLEXIBLE`
+ *  subscriptions, billing is paused. * For `ANNUAL_MONTHLY_PAY` or
+ *  `ANNUAL_YEARLY_PAY` subscriptions: * Suspending the subscription does not
+ *  change the renewal date that was originally committed to. * A suspended
+ *  subscription does not renew. If you activate the subscription after the
+ *  original renewal date, a new annual subscription will be created, starting
+ *  on the day of activation. We strongly encourage you to suspend subscriptions
+ *  only for short periods of time as suspensions over 60 days may result in the
+ *  subscription being cancelled.
  *
- *  @param customerId Either the customer's primary domain name or the
- *    customer's unique identifier. If using the domain name, we do not
- *    recommend using a customerId as a key for persistent data. If the domain
- *    name for a customerId is changed, the Google system automatically updates.
- *  @param subscriptionId This is a required property. The subscriptionId is the
- *    subscription identifier and is unique for each customer. Since a
- *    subscriptionId changes when a subscription is updated, we recommend to not
- *    use this ID as a key for persistent data. And the subscriptionId can be
- *    found using the retrieve all reseller subscriptions method.
+ *  @param customerId This can be either the customer's primary domain name or
+ *    the customer's unique identifier. If the domain name for a customer
+ *    changes, the old domain name cannot be used to access the customer, but
+ *    the customer's unique identifier (as returned by the API) can always be
+ *    used. We recommend storing the unique identifier in your systems where
+ *    applicable.
+ *  @param subscriptionId This is a required property. The `subscriptionId` is
+ *    the subscription identifier and is unique for each customer. Since a
+ *    `subscriptionId` changes when a subscription is updated, we recommend to
+ *    not use this ID as a key for persistent data. And the `subscriptionId` can
+ *    be found using the retrieve all reseller subscriptions method.
  *
  *  @return GTLRResellerQuery_SubscriptionsSuspend
  */

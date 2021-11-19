@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict = @"CONFLICT";
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified = @"CONFLICT_RESULT_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict = @"NO_CONFLICT";
+
 // GTLRCloudComposer_Environment.state
 NSString * const kGTLRCloudComposer_Environment_State_Creating = @"CREATING";
 NSString * const kGTLRCloudComposer_Environment_State_Deleting = @"DELETING";
@@ -22,6 +27,7 @@ NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified = @"STATE
 NSString * const kGTLRCloudComposer_Environment_State_Updating = @"UPDATING";
 
 // GTLRCloudComposer_OperationMetadata.operationType
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -45,6 +51,31 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_CheckUpgradeResponse
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeResponse
+@dynamic buildLogUri, containsPypiModulesConflict, imageVersion,
+         pypiConflictBuildLogExtract, pypiDependencies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -81,6 +112,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_EncryptionConfig
+//
+
+@implementation GTLRCloudComposer_EncryptionConfig
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_Environment
 //
 
@@ -109,9 +150,9 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_EnvironmentConfig
-@dynamic airflowUri, dagGcsPrefix, databaseConfig, gkeCluster, nodeConfig,
-         nodeCount, privateEnvironmentConfig, softwareConfig, webServerConfig,
-         webServerNetworkAccessControl;
+@dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig, gkeCluster,
+         nodeConfig, nodeCount, privateEnvironmentConfig, softwareConfig,
+         webServerConfig, webServerNetworkAccessControl;
 @end
 
 
@@ -307,7 +348,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_SoftwareConfig
 @dynamic airflowConfigOverrides, envVariables, imageVersion, pypiPackages,
-         pythonVersion;
+         pythonVersion, schedulerCount;
 @end
 
 

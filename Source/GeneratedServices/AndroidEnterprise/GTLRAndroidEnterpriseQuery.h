@@ -108,8 +108,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesForceReportUpload : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesForceReportUploadWithenterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -150,8 +148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesGetWithenterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -192,8 +188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesGetState : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesGetStateWithenterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -234,8 +228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesListWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -271,8 +263,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesSetState : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesSetStateWithObject:enterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -311,7 +301,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Updates the device policy. To ensure the policy is properly enforced, you
  *  need to prevent unmanaged accounts from accessing Google Play by setting the
  *  allowed_accounts in the managed configuration for the Google Play package.
- *  See restrict accounts in Google Play.
+ *  See restrict accounts in Google Play. When provisioning a new device, you
+ *  should set the device policy using this method before adding the managed
+ *  Google Play Account to the device, otherwise the policy will not be applied
+ *  for a short period of time after adding the account to the device.
  *
  *  Method: androidenterprise.devices.update
  *
@@ -319,8 +312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_DevicesUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForDevicesUpdateWithObject:enterpriseId:userId:deviceId:]
 
 /** The ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -344,7 +335,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *  Updates the device policy. To ensure the policy is properly enforced, you
  *  need to prevent unmanaged accounts from accessing Google Play by setting the
  *  allowed_accounts in the managed configuration for the Google Play package.
- *  See restrict accounts in Google Play.
+ *  See restrict accounts in Google Play. When provisioning a new device, you
+ *  should set the device policy using this method before adding the managed
+ *  Google Play Account to the device, otherwise the policy will not be applied
+ *  for a short period of time after adding the account to the device.
  *
  *  @param object The @c GTLRAndroidEnterprise_Device to include in the query.
  *  @param enterpriseId The ID of the enterprise.
@@ -371,8 +365,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesAcknowledgeNotificationSet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesAcknowledgeNotificationSet]
 
 /**
  *  The notification set ID as returned by Enterprises.PullNotificationSet. This
@@ -405,8 +397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesCompleteSignup : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesCompleteSignup]
 
 /** The Completion token initially returned by GenerateSignupUrl. */
 @property(nonatomic, copy, nullable) NSString *completionToken;
@@ -439,8 +429,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesCreateWebToken : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesCreateWebTokenWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -473,8 +461,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesEnroll : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesEnrollWithObject:token:]
 
 /** Required. The token provided by the enterprise to register the EMM. */
 @property(nonatomic, copy, nullable) NSString *token;
@@ -505,8 +491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesGenerateSignupUrl : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesGenerateSignupUrl]
 
 /**
  *  The callback URL to which the Admin will be redirected after successfully
@@ -539,8 +523,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -576,8 +558,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesGetServiceAccount : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetServiceAccountWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -628,8 +608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesGetStoreLayout : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesGetStoreLayoutWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -661,8 +639,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesListWithdomain:]
 
 /** Required. The exact primary domain name of the enterprise to look up. */
 @property(nonatomic, copy, nullable) NSString *domain;
@@ -707,8 +683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesPullNotificationSet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesPullNotificationSet]
 
 /**
  *  The request mode for pulling notifications. Specifying waitForNotifications
@@ -761,8 +735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesSendTestPushNotification : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesSendTestPushNotificationWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -792,8 +764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesSetAccount : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesSetAccountWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -830,8 +800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesSetStoreLayout : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesSetStoreLayoutWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -867,8 +835,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EnterprisesUnenroll : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEnterprisesUnenrollWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -896,8 +862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EntitlementsDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEntitlementsDeleteWithenterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -938,8 +902,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EntitlementsGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEntitlementsGetWithenterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -979,8 +941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EntitlementsList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEntitlementsListWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1012,8 +972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_EntitlementsUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForEntitlementsUpdateWithObject:enterpriseId:userId:entitlementId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1064,8 +1022,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_GrouplicensesGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForGrouplicensesGetWithenterpriseId:groupLicenseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1101,8 +1057,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_GrouplicensesList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForGrouplicensesListWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1130,8 +1084,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_GrouplicenseusersList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForGrouplicenseusersListWithenterpriseId:groupLicenseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1169,8 +1121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_InstallsDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForInstallsDeleteWithenterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1218,8 +1168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_InstallsGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForInstallsGetWithenterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1265,8 +1213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_InstallsList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForInstallsListWithenterpriseId:userId:deviceId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1304,8 +1250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_InstallsUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForInstallsUpdateWithObject:enterpriseId:userId:deviceId:installId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1355,8 +1299,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceDeleteWithenterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1404,8 +1346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceGetWithenterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1452,8 +1392,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceListWithenterpriseId:userId:deviceId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1493,8 +1431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsfordeviceUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsfordeviceUpdateWithObject:enterpriseId:userId:deviceId:managedConfigurationForDeviceId:]
 
 /** The Android ID of the device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
@@ -1544,8 +1480,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserDeleteWithenterpriseId:userId:managedConfigurationForUserId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1588,8 +1522,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserGetWithenterpriseId:userId:managedConfigurationForUserId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1632,8 +1564,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserListWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1671,8 +1601,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationsforuserUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationsforuserUpdateWithObject:enterpriseId:userId:managedConfigurationForUserId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1721,8 +1649,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ManagedconfigurationssettingsList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForManagedconfigurationssettingsListWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1760,8 +1686,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_PermissionsGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForPermissionsGetWithpermissionId:]
 
 /** The BCP47 tag for the user's preferred language (e.g. "en-US", "de") */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1795,8 +1719,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsApprove : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsApproveWithObject:enterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1842,8 +1764,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsGenerateApprovalUrl : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsGenerateApprovalUrlWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1888,8 +1808,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsGetWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1929,8 +1847,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsGetAppRestrictionsSchema : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsGetAppRestrictionsSchemaWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -1970,8 +1886,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsGetPermissions : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsGetPermissionsWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2004,8 +1918,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsListWithenterpriseId:]
 
 /**
  *  Specifies whether to search among all products (false) or among only
@@ -2065,8 +1977,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ProductsUnapprove : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForProductsUnapproveWithenterpriseId:productId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2102,8 +2012,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysDeleteWithenterpriseId:keyId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2143,8 +2051,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2182,8 +2088,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_ServiceaccountkeysList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForServiceaccountkeysListWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2214,8 +2118,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutclustersDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersDeleteWithenterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
@@ -2253,8 +2155,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutclustersGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersGetWithenterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
@@ -2291,8 +2191,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutclustersInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersInsertWithObject:enterpriseId:pageId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2327,8 +2225,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutclustersList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersListWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2360,8 +2256,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutclustersUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutclustersUpdateWithObject:enterpriseId:pageId:clusterId:]
 
 /** The ID of the cluster. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
@@ -2401,8 +2295,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutpagesDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesDeleteWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2435,8 +2327,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutpagesGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesGetWithenterpriseId:pageId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2468,8 +2358,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutpagesInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2499,8 +2387,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutpagesList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesListWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2527,8 +2413,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_StorelayoutpagesUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForStorelayoutpagesUpdateWithObject:enterpriseId:pageId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2563,8 +2447,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersDeleteWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2601,8 +2483,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersGenerateAuthenticationToken : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersGenerateAuthenticationTokenWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2638,8 +2518,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersGetWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2671,8 +2549,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersGetAvailableProductSet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersGetAvailableProductSetWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2708,8 +2584,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2744,8 +2618,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersListWithenterpriseId:email:]
 
 /** Required. The exact primary email address of the user to look up. */
 @property(nonatomic, copy, nullable) NSString *email;
@@ -2782,8 +2654,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersRevokeDeviceAccess : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersRevokeDeviceAccessWithenterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2821,8 +2691,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersSetAvailableProductSet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersSetAvailableProductSetWithObject:enterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2863,8 +2731,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_UsersUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForUsersUpdateWithObject:enterpriseId:userId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2901,8 +2767,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_WebappsDelete : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsDeleteWithenterpriseId:webAppId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2935,8 +2799,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_WebappsGet : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsGetWithenterpriseId:webAppId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2968,8 +2830,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_WebappsInsert : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsInsertWithObject:enterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -2998,8 +2858,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_WebappsList : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsListWithenterpriseId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;
@@ -3026,8 +2884,6 @@ managedConfigurationForDeviceId:(NSString *)managedConfigurationForDeviceId;
  *    @c kGTLRAuthScopeAndroidEnterprise
  */
 @interface GTLRAndroidEnterpriseQuery_WebappsUpdate : GTLRAndroidEnterpriseQuery
-// Previous library name was
-//   +[GTLQueryAndroidEnterprise queryForWebappsUpdateWithObject:enterpriseId:webAppId:]
 
 /** The ID of the enterprise. */
 @property(nonatomic, copy, nullable) NSString *enterpriseId;

@@ -61,8 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersAssetsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the organization to groupBy. Its format is
@@ -99,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersAssetsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListAssetsResult's "state_change"
@@ -242,8 +238,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersAssetsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -302,8 +296,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesFindingsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the source to groupBy. Its format is
@@ -353,8 +345,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesFindingsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListFindingsResult's "state_change"
@@ -402,15 +392,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  boolean literals `true` and `false` without quotes. The following field and
  *  operator combinations are supported: * name: `=` * parent: `=`, `:` *
  *  resource_name: `=`, `:` * state: `=`, `:` * category: `=`, `:` *
- *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` * severity:
- *  `=`, `:` Usage: This should be milliseconds since epoch or an RFC3339
- *  string. Examples: `event_time = "2019-06-10T16:07:18-07:00"` `event_time =
- *  1560208038000` security_marks.marks: `=`, `:` source_properties: `=`, `:`,
- *  `>`, `<`, `>=`, `<=` For example, `source_properties.size = 100` is a valid
- *  filter string. Use a partial match on the empty string to filter based on a
- *  property existing: `source_properties.my_property : ""` Use a negated
- *  partial match on the empty string to filter based on a property not
- *  existing: `-source_properties.my_property : ""`
+ *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This
+ *  should be milliseconds since epoch or an RFC3339 string. Examples:
+ *  `event_time = "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000` *
+ *  severity: `=`, `:` * workflow_state: `=`, `:` * security_marks.marks: `=`,
+ *  `:` * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=` For example,
+ *  `source_properties.size = 100` is a valid filter string. Use a partial match
+ *  on the empty string to filter based on a property existing:
+ *  `source_properties.my_property : ""` Use a negated partial match on the
+ *  empty string to filter based on a property not existing:
+ *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
+ *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
+ *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -495,8 +490,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesFindingsPatchWithObject:name:]
 
 /**
  *  The relative resource name of this finding. See:
@@ -546,8 +539,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesFindingsSetStateWithObject:name:]
 
 /**
  *  Required. The relative resource name of the finding. See:
@@ -585,8 +576,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesFindingsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -641,8 +630,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_FoldersSourcesList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForFoldersSourcesListWithparent:]
 
 /**
  *  The maximum number of results to return in a single response. Default is 10,
@@ -693,8 +680,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the organization to groupBy. Its format is
@@ -731,8 +716,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListAssetsResult's "state_change"
@@ -877,8 +860,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsRunDiscovery : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsRunDiscoveryWithObject:parent:]
 
 /**
  *  Required. Name of the organization to run asset discovery for. Its format is
@@ -915,8 +896,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsAssetsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -971,8 +950,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsGetOrganizationSettingsWithname:]
 
 /**
  *  Required. Name of the organization to get organization settings for. Its
@@ -1003,8 +980,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsCreateWithObject:parent:]
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
@@ -1045,8 +1020,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsDeleteWithname:]
 
 /**
  *  Required. Name of the notification config to delete. Its format is
@@ -1077,8 +1050,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsGet : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsGetWithname:]
 
 /**
  *  Required. Name of the notification config to get. Its format is
@@ -1109,8 +1080,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsListWithparent:]
 
 /**
  *  The maximum number of results to return in a single response. Default is 10,
@@ -1159,8 +1128,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsPatch : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsPatchWithObject:name:]
 
 /**
  *  The relative resource name of this notification config. See:
@@ -1215,8 +1182,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsCancel : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1254,8 +1219,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsDelete : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1287,8 +1250,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsGet : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1325,8 +1286,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsOperationsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1374,8 +1333,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesCreate : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the new source's parent. Its format should be
@@ -1410,8 +1367,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsCreate : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsCreateWithObject:parent:]
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
@@ -1457,8 +1412,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the source to groupBy. Its format is
@@ -1508,8 +1461,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListFindingsResult's "state_change"
@@ -1557,15 +1508,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  boolean literals `true` and `false` without quotes. The following field and
  *  operator combinations are supported: * name: `=` * parent: `=`, `:` *
  *  resource_name: `=`, `:` * state: `=`, `:` * category: `=`, `:` *
- *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` * severity:
- *  `=`, `:` Usage: This should be milliseconds since epoch or an RFC3339
- *  string. Examples: `event_time = "2019-06-10T16:07:18-07:00"` `event_time =
- *  1560208038000` security_marks.marks: `=`, `:` source_properties: `=`, `:`,
- *  `>`, `<`, `>=`, `<=` For example, `source_properties.size = 100` is a valid
- *  filter string. Use a partial match on the empty string to filter based on a
- *  property existing: `source_properties.my_property : ""` Use a negated
- *  partial match on the empty string to filter based on a property not
- *  existing: `-source_properties.my_property : ""`
+ *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This
+ *  should be milliseconds since epoch or an RFC3339 string. Examples:
+ *  `event_time = "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000` *
+ *  severity: `=`, `:` * workflow_state: `=`, `:` * security_marks.marks: `=`,
+ *  `:` * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=` For example,
+ *  `source_properties.size = 100` is a valid filter string. Use a partial match
+ *  on the empty string to filter based on a property existing:
+ *  `source_properties.my_property : ""` Use a negated partial match on the
+ *  empty string to filter based on a property not existing:
+ *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
+ *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
+ *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1650,8 +1606,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsPatchWithObject:name:]
 
 /**
  *  The relative resource name of this finding. See:
@@ -1701,8 +1655,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsSetStateWithObject:name:]
 
 /**
  *  Required. The relative resource name of the finding. See:
@@ -1740,8 +1692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesFindingsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -1796,8 +1746,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesGet : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesGetWithname:]
 
 /**
  *  Required. Relative resource name of the source. Its format is
@@ -1828,8 +1776,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesGetIamPolicy : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1864,8 +1810,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesListWithparent:]
 
 /**
  *  The maximum number of results to return in a single response. Default is 10,
@@ -1915,8 +1859,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesPatch : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesPatchWithObject:name:]
 
 /**
  *  The relative resource name of this source. See:
@@ -1960,8 +1902,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesSetIamPolicy : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1996,8 +1936,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsSourcesTestIamPermissions : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2032,8 +1970,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_OrganizationsUpdateOrganizationSettings : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForOrganizationsUpdateOrganizationSettingsWithObject:name:]
 
 /**
  *  The relative resource name of the settings. See:
@@ -2078,8 +2014,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsAssetsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the organization to groupBy. Its format is
@@ -2116,8 +2050,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsAssetsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListAssetsResult's "state_change"
@@ -2259,8 +2191,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsAssetsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsAssetsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -2319,8 +2249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsGroup : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesFindingsGroupWithObject:parent:]
 
 /**
  *  Required. Name of the source to groupBy. Its format is
@@ -2370,8 +2298,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesFindingsListWithparent:]
 
 /**
  *  When compare_duration is set, the ListFindingsResult's "state_change"
@@ -2419,15 +2345,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  boolean literals `true` and `false` without quotes. The following field and
  *  operator combinations are supported: * name: `=` * parent: `=`, `:` *
  *  resource_name: `=`, `:` * state: `=`, `:` * category: `=`, `:` *
- *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` * severity:
- *  `=`, `:` Usage: This should be milliseconds since epoch or an RFC3339
- *  string. Examples: `event_time = "2019-06-10T16:07:18-07:00"` `event_time =
- *  1560208038000` security_marks.marks: `=`, `:` source_properties: `=`, `:`,
- *  `>`, `<`, `>=`, `<=` For example, `source_properties.size = 100` is a valid
- *  filter string. Use a partial match on the empty string to filter based on a
- *  property existing: `source_properties.my_property : ""` Use a negated
- *  partial match on the empty string to filter based on a property not
- *  existing: `-source_properties.my_property : ""`
+ *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This
+ *  should be milliseconds since epoch or an RFC3339 string. Examples:
+ *  `event_time = "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000` *
+ *  severity: `=`, `:` * workflow_state: `=`, `:` * security_marks.marks: `=`,
+ *  `:` * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=` For example,
+ *  `source_properties.size = 100` is a valid filter string. Use a partial match
+ *  on the empty string to filter based on a property existing:
+ *  `source_properties.my_property : ""` Use a negated partial match on the
+ *  empty string to filter based on a property not existing:
+ *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
+ *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
+ *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
+ *  resource.type: `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.display_name: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2512,8 +2443,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsPatch : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesFindingsPatchWithObject:name:]
 
 /**
  *  The relative resource name of this finding. See:
@@ -2563,8 +2492,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetState : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesFindingsSetStateWithObject:name:]
 
 /**
  *  Required. The relative resource name of the finding. See:
@@ -2602,8 +2529,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsUpdateSecurityMarks : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesFindingsUpdateSecurityMarksWithObject:name:]
 
 /**
  *  The relative resource name of the SecurityMarks. See:
@@ -2658,8 +2583,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecurityCommandCenterCloudPlatform
  */
 @interface GTLRSecurityCommandCenterQuery_ProjectsSourcesList : GTLRSecurityCommandCenterQuery
-// Previous library name was
-//   +[GTLQuerySecurityCommandCenter queryForProjectsSourcesListWithparent:]
 
 /**
  *  The maximum number of results to return in a single response. Default is 10,

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomics;
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

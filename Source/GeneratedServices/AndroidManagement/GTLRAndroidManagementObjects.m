@@ -19,6 +19,16 @@ NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteria
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified = @"COMMON_CRITERIA_MODE_UNSPECIFIED";
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed = @"DEVELOPER_SETTINGS_ALLOWED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled = @"DEVELOPER_SETTINGS_DISABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified = @"DEVELOPER_SETTINGS_UNSPECIFIED";
+
+// GTLRAndroidManagement_AdvancedSecurityOverrides.googlePlayProtectVerifyApps
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified = @"GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced = @"VERIFY_APPS_ENFORCED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice = @"VERIFY_APPS_USER_CHOICE";
+
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide = @"ALLOW_INSTALL_DEVICE_WIDE";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly = @"ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY";
@@ -112,6 +122,22 @@ NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword = @"RESET_PAS
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown = @"COMMON_CRITERIA_MODE_STATUS_UNKNOWN";
+
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed = @"COPY_FROM_WORK_TO_PERSONAL_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed = @"CROSS_PROFILE_COPY_PASTE_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified = @"CROSS_PROFILE_COPY_PASTE_UNSPECIFIED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileDataSharing
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed = @"CROSS_PROFILE_DATA_SHARING_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed = @"CROSS_PROFILE_DATA_SHARING_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified = @"CROSS_PROFILE_DATA_SHARING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed = @"DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED";
+
+// GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED";
+NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified = @"SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED";
 
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
@@ -260,6 +286,9 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alp
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric = @"ALPHANUMERIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak = @"BIOMETRIC_WEAK";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex = @"COMPLEX";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh = @"COMPLEXITY_HIGH";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow = @"COMPLEXITY_LOW";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium = @"COMPLEXITY_MEDIUM";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric = @"NUMERIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex = @"NUMERIC_COMPLEX";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified = @"PASSWORD_QUALITY_UNSPECIFIED";
@@ -406,6 +435,7 @@ NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch = @"
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps = @"PRIVATE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder = @"STORE_BUILDER";
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps = @"WEB_APPS";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustomerManagement = @"ZERO_TOUCH_CUSTOMER_MANAGEMENT";
 
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
@@ -417,7 +447,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
-@dynamic commonCriteriaMode, untrustedAppsPolicy;
+@dynamic commonCriteriaMode, developerSettings, googlePlayProtectVerifyApps,
+         personalAppsThatCanReadWorkNotifications, untrustedAppsPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"personalAppsThatCanReadWorkNotifications" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -493,9 +532,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
 @dynamic accessibleTrackIds, autoUpdateMode, connectedWorkAndPersonalApp,
-         defaultPermissionPolicy, delegatedScopes, disabled, installType,
-         lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
-         minimumVersionCode, packageName, permissionGrants;
+         defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
+         installType, lockTaskAllowed, managedConfiguration,
+         managedConfigurationTemplate, minimumVersionCode, packageName,
+         permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -643,6 +683,47 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_ContactInfo
+//
+
+@implementation GTLRAndroidManagement_ContactInfo
+@dynamic contactEmail, dataProtectionOfficerEmail, dataProtectionOfficerName,
+         dataProtectionOfficerPhone, euRepresentativeEmail,
+         euRepresentativeName, euRepresentativePhone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ContentProviderEndpoint
+//
+
+@implementation GTLRAndroidManagement_ContentProviderEndpoint
+@dynamic packageName, signingCertsSha256, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signingCertsSha256" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_CrossProfilePolicies
+//
+
+@implementation GTLRAndroidManagement_CrossProfilePolicies
+@dynamic crossProfileCopyPaste, crossProfileDataSharing,
+         showWorkContactsInPersonalProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Date
 //
 
@@ -657,10 +738,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Device
-@dynamic apiLevel, applicationReports, appliedPolicyName, appliedPolicyVersion,
-         appliedState, commonCriteriaModeInfo, deviceSettings, disabledReason,
-         displays, enrollmentTime, enrollmentTokenData, enrollmentTokenName,
-         hardwareInfo, hardwareStatusSamples, lastPolicyComplianceReportTime,
+@dynamic apiLevel, applicationReports, appliedPasswordPolicies,
+         appliedPolicyName, appliedPolicyVersion, appliedState,
+         commonCriteriaModeInfo, deviceSettings, disabledReason, displays,
+         enrollmentTime, enrollmentTokenData, enrollmentTokenName, hardwareInfo,
+         hardwareStatusSamples, lastPolicyComplianceReportTime,
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
          policyCompliant, policyName, powerManagementEvents,
@@ -670,6 +752,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"applicationReports" : [GTLRAndroidManagement_ApplicationReport class],
+    @"appliedPasswordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"displays" : [GTLRAndroidManagement_Display class],
     @"hardwareStatusSamples" : [GTLRAndroidManagement_HardwareStatus class],
     @"memoryEvents" : [GTLRAndroidManagement_MemoryEvent class],
@@ -744,7 +827,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Enterprise
-@dynamic appAutoApprovalEnabled, enabledNotificationTypes,
+@dynamic appAutoApprovalEnabled, contactInfo, enabledNotificationTypes,
          enterpriseDisplayName, logo, name, primaryColor, pubsubTopic,
          signinDetails, termsAndConditions;
 
@@ -753,6 +836,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"enabledNotificationTypes" : [NSString class],
     @"signinDetails" : [GTLRAndroidManagement_SigninDetail class],
     @"termsAndConditions" : [GTLRAndroidManagement_TermsAndConditions class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ExtensionConfig
+//
+
+@implementation GTLRAndroidManagement_ExtensionConfig
+@dynamic notificationReceiver, signingKeyFingerprintsSha256;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signingKeyFingerprintsSha256" : [NSString class]
   };
   return map;
 }
@@ -835,6 +936,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_IssueCommandResponse
+//
+
+@implementation GTLRAndroidManagement_IssueCommandResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_KeyedAppState
 //
 
@@ -881,6 +991,28 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 + (NSString *)collectionItemsKey {
   return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ListEnterprisesResponse
+//
+
+@implementation GTLRAndroidManagement_ListEnterprisesResponse
+@dynamic enterprises, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enterprises" : [GTLRAndroidManagement_Enterprise class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"enterprises";
 }
 
 @end
@@ -1071,6 +1203,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_OncCertificateProvider
+//
+
+@implementation GTLRAndroidManagement_OncCertificateProvider
+@dynamic certificateReferences, contentProviderEndpoint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificateReferences" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Operation
 //
 
@@ -1212,7 +1362,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          bluetoothConfigDisabled, bluetoothContactSharingDisabled,
          bluetoothDisabled, cameraDisabled, cellBroadcastsConfigDisabled,
          choosePrivateKeyRules, complianceRules, createWindowsDisabled,
-         credentialsConfigDisabled, dataRoamingDisabled,
+         credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
@@ -1222,17 +1372,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          maximumTimeToLock, minimumApiLevel, mobileNetworksConfigDisabled,
          modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
          networkEscapeHatchEnabled, networkResetDisabled,
-         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
-         passwordPolicies, passwordRequirements, permissionGrants,
-         permittedAccessibilityServices, permittedInputMethods,
-         persistentPreferredActivities, personalUsagePolicies, playStoreMode,
-         policyEnforcementRules, privateKeySelectionEnabled,
-         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, setupActions, setUserIconDisabled,
-         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
-         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
-         statusReportingSettings, stayOnPluggedModes, systemUpdate,
-         tetheringConfigDisabled, uninstallAppsDisabled,
+         oncCertificateProviders, openNetworkConfiguration,
+         outgoingBeamDisabled, outgoingCallsDisabled, passwordPolicies,
+         passwordRequirements, permissionGrants, permittedAccessibilityServices,
+         permittedInputMethods, persistentPreferredActivities,
+         personalUsagePolicies, playStoreMode, policyEnforcementRules,
+         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
+         safeBootDisabled, screenCaptureDisabled, setupActions,
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -1246,6 +1396,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"complianceRules" : [GTLRAndroidManagement_ComplianceRule class],
     @"frpAdminEmails" : [NSString class],
     @"keyguardDisabledFeatures" : [NSString class],
+    @"oncCertificateProviders" : [GTLRAndroidManagement_OncCertificateProvider class],
     @"passwordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],

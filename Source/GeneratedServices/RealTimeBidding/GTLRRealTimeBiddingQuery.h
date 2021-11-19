@@ -29,6 +29,7 @@
 @class GTLRRealTimeBidding_AddTargetedSitesRequest;
 @class GTLRRealTimeBidding_CloseUserListRequest;
 @class GTLRRealTimeBidding_Creative;
+@class GTLRRealTimeBidding_Endpoint;
 @class GTLRRealTimeBidding_OpenUserListRequest;
 @class GTLRRealTimeBidding_PretargetingConfig;
 @class GTLRRealTimeBidding_RemoveTargetedAppsRequest;
@@ -94,8 +95,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersCreativesList : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersCreativesListWithparent:]
 
 /**
  *  Query string to filter creatives. If no filter is specified, all active
@@ -116,7 +115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListCreativesResponse.nextPageToken returned from the
- *  previous call to the 'ListCreatives' method.
+ *  previous call to the 'ListCreatives' method. Page tokens for continued pages
+ *  are valid for up to five hours, counting from the call to 'ListCreatives'
+ *  for the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -197,8 +198,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersCreativesWatch : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersCreativesWatchWithObject:parent:]
 
 /**
  *  Required. To watch all creatives pertaining to the bidder and all its child
@@ -231,6 +230,195 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Gets a bidder endpoint by its name.
+ *
+ *  Method: realtimebidding.bidders.endpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsGet : GTLRRealTimeBiddingQuery
+
+/**
+ *  Required. Name of the bidder endpoint to get. Format:
+ *  `bidders/{bidderAccountId}/endpoints/{endpointId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Endpoint.
+ *
+ *  Gets a bidder endpoint by its name.
+ *
+ *  @param name Required. Name of the bidder endpoint to get. Format:
+ *    `bidders/{bidderAccountId}/endpoints/{endpointId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the bidder's endpoints.
+ *
+ *  Method: realtimebidding.bidders.endpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsList : GTLRRealTimeBiddingQuery
+
+/**
+ *  The maximum number of endpoints to return. If unspecified, at most 100
+ *  endpoints will be returned. The maximum value is 500; values above 500 will
+ *  be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListEndpoints` call in
+ *  ListEndpointsResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the bidder whose endpoints will be listed. Format:
+ *  `bidders/{bidderAccountId}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListEndpointsResponse.
+ *
+ *  Lists all the bidder's endpoints.
+ *
+ *  @param parent Required. Name of the bidder whose endpoints will be listed.
+ *    Format: `bidders/{bidderAccountId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a bidder's endpoint.
+ *
+ *  Method: realtimebidding.bidders.endpoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsPatch : GTLRRealTimeBiddingQuery
+
+/**
+ *  Output only. Name of the endpoint resource that must follow the pattern
+ *  `bidders/{bidderAccountId}/endpoints/{endpointId}`, where {bidderAccountId}
+ *  is the account ID of the bidder who operates this endpoint, and {endpointId}
+ *  is a unique ID assigned by the server.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field mask to use for partial in-place updates.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Endpoint.
+ *
+ *  Updates a bidder's endpoint.
+ *
+ *  @param object The @c GTLRRealTimeBidding_Endpoint to include in the query.
+ *  @param name Output only. Name of the endpoint resource that must follow the
+ *    pattern `bidders/{bidderAccountId}/endpoints/{endpointId}`, where
+ *    {bidderAccountId} is the account ID of the bidder who operates this
+ *    endpoint, and {endpointId} is a unique ID assigned by the server.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsPatch
+ */
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_Endpoint *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a bidder account by its name.
+ *
+ *  Method: realtimebidding.bidders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersGet : GTLRRealTimeBiddingQuery
+
+/**
+ *  Required. Name of the bidder to get. Format: `bidders/{bidderAccountId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Bidder.
+ *
+ *  Gets a bidder account by its name.
+ *
+ *  @param name Required. Name of the bidder to get. Format:
+ *    `bidders/{bidderAccountId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the bidder accounts that belong to the caller.
+ *
+ *  Method: realtimebidding.bidders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersList : GTLRRealTimeBiddingQuery
+
+/**
+ *  The maximum number of bidders to return. If unspecified, at most 100 bidders
+ *  will be returned. The maximum value is 500; values above 500 will be coerced
+ *  to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListBidders` call in
+ *  ListBiddersResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListBiddersResponse.
+ *
+ *  Lists all the bidder accounts that belong to the caller.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Activates a pretargeting configuration.
  *
  *  Method: realtimebidding.bidders.pretargetingConfigs.activate
@@ -239,8 +427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsActivate : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsActivateWithObject:name:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -274,8 +460,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedApps : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsAddTargetedAppsWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -310,8 +494,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedPublishers : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsAddTargetedPublishersWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -346,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedSites : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsAddTargetedSitesWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -386,8 +566,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsCreate : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the bidder to create the pretargeting configuration for.
@@ -425,8 +603,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsDelete : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsDeleteWithname:]
 
 /**
  *  Required. The name of the pretargeting configuration to delete. Format:
@@ -457,8 +633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsGet : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsGetWithname:]
 
 /**
  *  Required. Name of the pretargeting configuration to get. Format:
@@ -489,8 +663,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsList : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsListWithparent:]
 
 /**
  *  The maximum number of pretargeting configurations to return. If unspecified,
@@ -539,8 +711,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsPatch : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsPatchWithObject:name:]
 
 /**
  *  Output only. Name of the pretargeting configuration that must follow the
@@ -582,8 +752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedApps : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsRemoveTargetedAppsWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -618,8 +786,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedPublishers : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsRemoveTargetedPublishersWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -654,8 +820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedSites : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsRemoveTargetedSitesWithObject:pretargetingConfig:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -690,8 +854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsSuspend : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBiddersPretargetingConfigsSuspendWithObject:name:]
 
 /**
  *  Required. The name of the pretargeting configuration. Format:
@@ -725,8 +887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesCreate : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersCreativesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the parent buyer that the new creative belongs to that
@@ -766,8 +926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesGet : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersCreativesGetWithname:]
 
 /** Required. Name of the creative to retrieve. See creative.name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -813,8 +971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesList : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersCreativesListWithparent:]
 
 /**
  *  Query string to filter creatives. If no filter is specified, all active
@@ -835,7 +991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 /**
  *  A token identifying a page of results the server should return. Typically,
  *  this is the value of ListCreativesResponse.nextPageToken returned from the
- *  previous call to the 'ListCreatives' method.
+ *  previous call to the 'ListCreatives' method. Page tokens for continued pages
+ *  are valid for up to five hours, counting from the call to 'ListCreatives'
+ *  for the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -911,8 +1069,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersCreativesPatch : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersCreativesPatchWithObject:name:]
 
 /**
  *  Output only. Name of the creative. Follows the pattern
@@ -950,6 +1106,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Gets a buyer account by its name.
+ *
+ *  Method: realtimebidding.buyers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BuyersGet : GTLRRealTimeBiddingQuery
+
+/** Required. Name of the buyer to get. Format: `buyers/{buyerId}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Buyer.
+ *
+ *  Gets a buyer account by its name.
+ *
+ *  @param name Required. Name of the buyer to get. Format: `buyers/{buyerId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BuyersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
@@ -960,8 +1142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersGetRemarketingTagWithname:]
 
 /**
  *  Required. To fetch remarketing tag for an account, name must follow the
@@ -996,6 +1176,47 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Lists all buyer account information the calling buyer user or service
+ *  account is permissioned to manage.
+ *
+ *  Method: realtimebidding.buyers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BuyersList : GTLRRealTimeBiddingQuery
+
+/**
+ *  The maximum number of buyers to return. If unspecified, at most 100 buyers
+ *  will be returned. The maximum value is 500; values above 500 will be coerced
+ *  to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListBuyers` call in
+ *  ListBuyersResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListBuyersResponse.
+ *
+ *  Lists all buyer account information the calling buyer user or service
+ *  account is permissioned to manage.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BuyersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Change the status of a user list to CLOSED. This prevents new users from
  *  being added to the user list.
  *
@@ -1005,8 +1226,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsClose : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsCloseWithObject:name:]
 
 /** Required. The name of the user list to close. See UserList.name */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1037,8 +1256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsCreate : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the parent buyer of the user list to be retrieved that
@@ -1078,8 +1295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsGet : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsGetWithname:]
 
 /** Required. The name of the user list to be retrieved. See UserList.name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1109,8 +1324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsGetRemarketingTag : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsGetRemarketingTagWithname:]
 
 /**
  *  Required. To fetch remarketing tag for an account, name must follow the
@@ -1153,8 +1366,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsList : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsListWithparent:]
 
 /** The number of results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1203,8 +1414,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsOpen : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsOpenWithObject:name:]
 
 /** Required. The name of the user list to open. See UserList.name */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1236,8 +1445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
  */
 @interface GTLRRealTimeBiddingQuery_BuyersUserListsUpdate : GTLRRealTimeBiddingQuery
-// Previous library name was
-//   +[GTLQueryRealTimeBidding queryForBuyersUserListsUpdateWithObject:name:]
 
 /**
  *  Output only. Name of the user list that must follow the pattern

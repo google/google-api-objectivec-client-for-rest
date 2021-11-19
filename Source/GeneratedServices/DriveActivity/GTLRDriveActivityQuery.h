@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDriveActivityDriveActivityReadonly
  */
 @interface GTLRDriveActivityQuery_ActivityQuery : GTLRDriveActivityQuery
-// Previous library name was
-//   +[GTLQueryDriveActivity queryForActivityQueryWithObject:]
 
 /**
  *  Fetches a @c GTLRDriveActivity_QueryDriveActivityResponse.

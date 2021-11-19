@@ -26,6 +26,8 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DetachTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ReconfigureTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ResetAdminPasswordRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest;
@@ -59,8 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -88,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsAttachTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsAttachTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name and location using the
@@ -126,15 +124,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCreate : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsCreateWithObject:parent:]
 
 /**
  *  Required. The fully qualified domain name. e.g. mydomain.myorganization.com,
  *  with the following restrictions: * Must contain only lowercase letters,
  *  numbers, periods and hyphens. * Must start with a letter. * Must contain
  *  between 2-64 characters. * Must end with a number or a letter. * Must not
- *  start with period. * First segement length (mydomain form example above)
+ *  start with period. * First segment length (mydomain for example above)
  *  shouldn't exceed 15 chars. * The last segment cannot be fully numeric. *
  *  Must be unique within the customer project.
  */
@@ -174,8 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsDeleteWithname:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -207,8 +201,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsDetachTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsDetachTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name, and location using the
@@ -245,8 +237,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsGetWithname:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -279,8 +269,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -317,6 +305,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the domain ldaps settings.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.getLdapssettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings.
+ *
+ *  Gets the domain ldaps settings.
+ *
+ *  @param name Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists domains in a project.
  *
  *  Method: managedidentities.projects.locations.global.domains.list
@@ -325,8 +344,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsListWithparent:]
 
 /**
  *  Optional. A filter specifying constraints of a list operation. For example,
@@ -389,8 +406,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsPatch : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsPatchWithObject:name:]
 
 /**
  *  Required. The unique name of the domain using the form:
@@ -401,7 +416,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
  *  this field. The elements of the repeated paths field may only include fields
- *  from Domain: * `labels` * `locations` * `authorized_networks`
+ *  from Domain: * `labels` * `locations` * `authorized_networks` *
+ *  `audit_logs_enabled`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -435,8 +451,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsReconfigureTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsReconfigureTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name and location using the
@@ -473,8 +487,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsResetAdminPassword : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsResetAdminPasswordWithObject:name:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -512,8 +524,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -544,6 +554,99 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single sqlIntegration.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.sqlIntegrations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. SQLIntegration resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain}/sqlIntegrations/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.
+ *
+ *  Gets details of a single sqlIntegration.
+ *
+ *  @param name Required. SQLIntegration resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain}/sqlIntegrations/{name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SqlIntegrations in a given domain.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.sqlIntegrations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Optional. Filter specifying constraints of a list operation. For example,
+ *  `SqlIntegration.name="sql"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results following syntax at
+ *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response'ANIZATIONs next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the SqlIntegrations using the form:
+ *  `projects/{project_id}/locations/global/domains/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse.
+ *
+ *  Lists SqlIntegrations in a given domain.
+ *
+ *  @param parent Required. The resource name of the SqlIntegrations using the
+ *    form: `projects/{project_id}/locations/global/domains/ *`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
@@ -556,8 +659,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsTestIamPermissions : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -590,6 +691,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Patches a single ldaps settings.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.updateLdapssettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  The resource name of the LDAPS settings. Uses the form:
+ *  `projects/{project}/locations/{location}/domains/{domain}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Patches a single ldaps settings.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings to
+ *    include in the query.
+ *  @param name The resource name of the LDAPS settings. Uses the form:
+ *    `projects/{project}/locations/{location}/domains/{domain}`.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Validates a trust state, that the target domain is reachable, and that the
  *  target domain is able to accept incoming trust requests.
  *
@@ -599,8 +744,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsValidateTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsValidateTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name, and location using the
@@ -646,8 +789,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsCancel : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -689,8 +830,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -722,8 +861,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -761,8 +898,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -803,6 +938,346 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a Peering for Managed AD instance.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsCreate : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. Resource project name and location using the form:
+ *  `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Peering Id, unique name to identify peering. It should follow the
+ *  regex format "^(?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)$"
+ */
+@property(nonatomic, copy, nullable) NSString *peeringId;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Creates a Peering for Managed AD instance.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering to
+ *    include in the query.
+ *  @param parent Required. Resource project name and location using the form:
+ *    `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsCreate
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes identified Peering.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. Peering resource name using the form:
+ *  `projects/{project_id}/locations/global/peerings/{peering_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Deletes identified Peering.
+ *
+ *  @param name Required. Peering resource name using the form:
+ *    `projects/{project_id}/locations/global/peerings/{peering_id}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Peering.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. Peering resource name using the form:
+ *  `projects/{project_id}/locations/global/peerings/{peering_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.
+ *
+ *  Gets details of a single Peering.
+ *
+ *  @param name Required. Peering resource name using the form:
+ *    `projects/{project_id}/locations/global/peerings/{peering_id}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsGetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Peerings in a given project.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Optional. Filter specifying constraints of a list operation. For example,
+ *  `peering.authorized_network="projects/myprojectid/global/networks/mynetwork"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results following syntax at
+ *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's next_page_token to determine if there are more instances left
+ *  to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the peering location using the form:
+ *  `projects/{project_id}/locations/global`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse.
+ *
+ *  Lists Peerings in a given project.
+ *
+ *  @param parent Required. The resource name of the peering location using the
+ *    form: `projects/{project_id}/locations/global`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the labels for specified Peering.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsPatch : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Output only. Unique name of the peering in this scope including projects and
+ *  location using the form:
+ *  `projects/{project_id}/locations/global/peerings/{peering_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. The elements of the repeated paths field may only include these
+ *  fields from Peering: * `labels`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Updates the labels for specified Peering.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering to
+ *    include in the query.
+ *  @param name Output only. Unique name of the peering in this scope including
+ *    projects and location using the form:
+ *    `projects/{project_id}/locations/global/peerings/{peering_id}`.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsPatch
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsSetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: managedidentities.projects.locations.global.peerings.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsTestIamPermissions : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalPeeringsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: managedidentities.projects.locations.list
@@ -811,19 +1286,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

@@ -523,7 +523,7 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @implementation GTLRDriveQuery_FilesGenerateIds
 
-@dynamic count, space;
+@dynamic count, space, type;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"files/generateIds";

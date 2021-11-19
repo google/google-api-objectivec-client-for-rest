@@ -146,6 +146,11 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Serving  = @"SERVING";
 NSString * const kGTLRAppengine_Version_ServingStatus_ServingStatusUnspecified = @"SERVING_STATUS_UNSPECIFIED";
 NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
+// GTLRAppengine_VpcAccessConnector.egressSetting
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified = @"EGRESS_SETTING_UNSPECIFIED";
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges = @"PRIVATE_IP_RANGES";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAppengine_ApiConfigHandler
@@ -175,7 +180,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 @dynamic authDomain, codeBucket, databaseType, defaultBucket,
          defaultCookieExpiration, defaultHostname, dispatchRules,
          featureSettings, gcrDomain, iap, identifier, locationId, name,
-         servingStatus;
+         serviceAccount, servingStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -503,6 +508,17 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_GoogleAppengineV1betaLocationMetadata
+//
+
+@implementation GTLRAppengine_GoogleAppengineV1betaLocationMetadata
+@dynamic flexibleEnvironmentAvailable, searchApiAvailable,
+         standardEnvironmentAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_HealthCheck
 //
 
@@ -802,7 +818,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_LocationMetadata
-@dynamic flexibleEnvironmentAvailable, standardEnvironmentAvailable;
+@dynamic flexibleEnvironmentAvailable, searchApiAvailable,
+         standardEnvironmentAvailable;
 @end
 
 
@@ -1034,10 +1051,24 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Service
-@dynamic identifier, name, networkSettings, split;
+@dynamic identifier, labels, name, networkSettings, split;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Service_Labels
+//
+
+@implementation GTLRAppengine_Service_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1179,8 +1210,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
          inboundServices, instanceClass, libraries, livenessCheck,
          manualScaling, name, network, nobuildFilesRegex, readinessCheck,
          resources, runtime, runtimeApiVersion, runtimeChannel,
-         runtimeMainExecutablePath, servingStatus, threadsafe, versionUrl, vm,
-         vpcAccessConnector, zones;
+         runtimeMainExecutablePath, serviceAccount, servingStatus, threadsafe,
+         versionUrl, vm, vpcAccessConnector, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1258,7 +1289,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_VpcAccessConnector
-@dynamic name;
+@dynamic egressSetting, name;
 @end
 
 

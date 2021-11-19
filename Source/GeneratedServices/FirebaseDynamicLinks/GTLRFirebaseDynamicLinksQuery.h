@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
 @interface GTLRFirebaseDynamicLinksQuery_ManagedShortLinksCreate : GTLRFirebaseDynamicLinksQuery
-// Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForManagedShortLinksCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_CreateManagedShortLinkResponse.
@@ -98,8 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
 @interface GTLRFirebaseDynamicLinksQuery_ShortLinksCreate : GTLRFirebaseDynamicLinksQuery
-// Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForShortLinksCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkResponse.
@@ -131,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
 @interface GTLRFirebaseDynamicLinksQuery_V1GetLinkStats : GTLRFirebaseDynamicLinksQuery
-// Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForGetLinkStatsWithdynamicLink:]
 
 /** The span of time requested in days. */
 @property(nonatomic, assign) long long durationDays;
@@ -167,8 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
 @interface GTLRFirebaseDynamicLinksQuery_V1InstallAttribution : GTLRFirebaseDynamicLinksQuery
-// Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForInstallAttributionWithObject:]
 
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse.
@@ -194,8 +186,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseDynamicLinksFirebase
  */
 @interface GTLRFirebaseDynamicLinksQuery_V1ReopenAttribution : GTLRFirebaseDynamicLinksQuery
-// Previous library name was
-//   +[GTLQueryFirebaseDynamicLinks queryForReopenAttributionWithObject:]
 
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse.

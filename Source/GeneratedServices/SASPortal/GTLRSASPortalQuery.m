@@ -156,7 +156,7 @@
 
 @implementation GTLRSASPortalQuery_CustomersDeploymentsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -557,7 +557,7 @@
 
 @implementation GTLRSASPortalQuery_CustomersNodesDeploymentsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -668,7 +668,7 @@
 
 @implementation GTLRSASPortalQuery_CustomersNodesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -741,7 +741,7 @@
 
 @implementation GTLRSASPortalQuery_CustomersNodesNodesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1134,7 +1134,7 @@
 
 @implementation GTLRSASPortalQuery_NodesDeploymentsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1518,7 +1518,7 @@
 
 @implementation GTLRSASPortalQuery_NodesNodesDeploymentsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1629,7 +1629,7 @@
 
 @implementation GTLRSASPortalQuery_NodesNodesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -1702,7 +1702,7 @@
 
 @implementation GTLRSASPortalQuery_NodesNodesNodesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

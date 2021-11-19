@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Document AI API (documentai/v1beta3)
+//   Cloud Document AI API (documentai/v1)
 // Description:
 //   Service to parse structured information from unstructured or
 //   semi-structured documents using state-of-the-art Google AI such as natural
@@ -23,9 +23,8 @@
 #endif
 
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
+@class GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity;
@@ -59,7 +58,6 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextChange;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTranslation;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1GcsDestination;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1GcsSource;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1InputConfig;
@@ -100,7 +98,6 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextChange;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTranslation;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2GcsDestination;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2GcsSource;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2InputConfig;
@@ -109,51 +106,63 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2ProcessDocumentResponse;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2Vertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3Document;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntity;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityNormalizedValue;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityRelation;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPage;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchor;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageBlock;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDimension;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageFormField;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageImage;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLine;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageMatrix;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageParagraph;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTable;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableCell;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableRow;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageToken;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageVisualElement;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenanceParent;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevision;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevisionHumanReview;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentShardInfo;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyle;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyleFontSize;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchorTextSegment;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextChange;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3Vertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
+@class GTLRDocument_GoogleCloudDocumentaiV1Document;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPage;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchor;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageBlock;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDimension;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableCell;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment;
+@class GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference;
+@class GTLRDocument_GoogleCloudDocumentaiV1GcsDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments;
+@class GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix;
 @class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
+@class GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1Processor;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorType;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo;
+@class GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion;
+@class GTLRDocument_GoogleCloudDocumentaiV1RawDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1Schema;
+@class GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType;
+@class GTLRDocument_GoogleCloudDocumentaiV1Vertex;
 @class GTLRDocument_GoogleCloudLocationLocation;
 @class GTLRDocument_GoogleCloudLocationLocation_Labels;
 @class GTLRDocument_GoogleCloudLocationLocation_Metadata;
+@class GTLRDocument_GoogleLongrunningOperation;
 @class GTLRDocument_GoogleLongrunningOperation_Metadata;
 @class GTLRDocument_GoogleLongrunningOperation_Response;
 @class GTLRDocument_GoogleRpcStatus;
@@ -214,117 +223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3C
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Succeeded;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion.state
-
-/**
- *  The processor version is being created.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Creating;
-/**
- *  The processor version is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deleting;
-/**
- *  The processor version is deployed and can be used for processing.
- *
- *  Value: "DEPLOYED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deployed;
-/**
- *  The processor version is being deployed.
- *
- *  Value: "DEPLOYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deploying;
-/**
- *  The processor version failed and is in an indeterminate state.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Failed;
-/**
- *  The processor version is in an unspecified state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_StateUnspecified;
-/**
- *  The processor version is not deployed and cannot be used for processing.
- *
- *  Value: "UNDEPLOYED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeployed;
-/**
- *  The processor version is being undeployed.
- *
- *  Value: "UNDEPLOYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeploying;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.occurrenceType
-
-/**
- *  Unspecified occurrence type.
- *
- *  Value: "OCCURRENCE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified;
-/**
- *  The entity type will appear zero or multiple times.
- *
- *  Value: "OPTIONAL_MULTIPLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalMultiple;
-/**
- *  The entity type will appear zero times or once.
- *
- *  Value: "OPTIONAL_ONCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalOnce;
-/**
- *  The entity type will appear once or more times.
- *
- *  Value: "REQUIRED_MULTIPLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredMultiple;
-/**
- *  The entity type will only appear exactly once.
- *
- *  Value: "REQUIRED_ONCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredOnce;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.source
-
-/**
- *  The entity type is in the predefined schema of a pretrained version of a
- *  processor.
- *
- *  Value: "PREDEFINED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_Predefined;
-/**
- *  Unspecified source.
- *
- *  Value: "SOURCE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_SourceUnspecified;
-/**
- *  The entity type is added by the users either: - during an uptraining of an
- *  existing processor, or - during the process of creating a customized
- *  processor.
- *
- *  Value: "USER_INPUT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_UserInput;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
@@ -499,8 +397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Add;
 /**
- *  Element is review and approved at human review, confidence will be set to
- *  1.0
+ *  Element is reviewed and approved at human review, confidence will be set to
+ *  1.0.
  *
  *  Value: "EVAL_APPROVED"
  */
@@ -511,6 +409,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  *  Value: "EVAL_REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested;
+/**
+ *  Element is skipped in the validation process.
+ *
+ *  Value: "EVAL_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped;
 /**
  *  Operation type unspecified.
  *
@@ -703,8 +607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Add;
 /**
- *  Element is review and approved at human review, confidence will be set to
- *  1.0
+ *  Element is reviewed and approved at human review, confidence will be set to
+ *  1.0.
  *
  *  Value: "EVAL_APPROVED"
  */
@@ -715,6 +619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  *  Value: "EVAL_REQUESTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested;
+/**
+ *  Element is skipped in the validation process.
+ *
+ *  Value: "EVAL_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped;
 /**
  *  Operation type unspecified.
  *
@@ -867,199 +777,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Com
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef.layoutType
-
-/**
- *  References a Page.blocks element.
- *
- *  Value: "BLOCK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Block;
-/**
- *  References a Page.form_fields element.
- *
- *  Value: "FORM_FIELD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_FormField;
-/**
- *  Layout Unspecified.
- *
- *  Value: "LAYOUT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_LayoutTypeUnspecified;
-/**
- *  References a Page.lines element.
- *
- *  Value: "LINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Line;
-/**
- *  References a Page.paragraphs element.
- *
- *  Value: "PARAGRAPH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Paragraph;
-/**
- *  Refrrences a Page.tables element.
- *
- *  Value: "TABLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Table;
-/**
- *  References a Page.tokens element.
- *
- *  Value: "TOKEN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Token;
-/**
- *  References a Page.visual_elements element.
- *
- *  Value: "VISUAL_ELEMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_VisualElement;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout.orientation
-
-/**
- *  Unspecified orientation.
- *
- *  Value: "ORIENTATION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_OrientationUnspecified;
-/**
- *  Orientation is aligned with page down. Turn the head 180 degrees from
- *  upright to read.
- *
- *  Value: "PAGE_DOWN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageDown;
-/**
- *  Orientation is aligned with page left. Turn the head 90 degrees
- *  counterclockwise from upright to read.
- *
- *  Value: "PAGE_LEFT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageLeft;
-/**
- *  Orientation is aligned with page right. Turn the head 90 degrees clockwise
- *  from upright to read.
- *
- *  Value: "PAGE_RIGHT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageRight;
-/**
- *  Orientation is aligned with page up.
- *
- *  Value: "PAGE_UP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageUp;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak.type
-
-/**
- *  A hyphen that indicates that a token has been split across lines.
- *
- *  Value: "HYPHEN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_Hyphen;
-/**
- *  A single whitespace.
- *
- *  Value: "SPACE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_Space;
-/**
- *  Unspecified break type.
- *
- *  Value: "TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_TypeUnspecified;
-/**
- *  A wider whitespace.
- *
- *  Value: "WIDE_SPACE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_WideSpace;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance.type
-
-/**
- *  Add an element. Implicit if no `parents` are set for the provenance.
- *
- *  Value: "ADD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Add;
-/**
- *  Element is review and approved at human review, confidence will be set to
- *  1.0
- *
- *  Value: "EVAL_APPROVED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_EvalApproved;
-/**
- *  Element is requested for human review.
- *
- *  Value: "EVAL_REQUESTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_EvalRequested;
-/**
- *  Operation type unspecified.
- *
- *  Value: "OPERATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_OperationTypeUnspecified;
-/**
- *  The element is removed. No `parents` should be set.
- *
- *  Value: "REMOVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Remove;
-/**
- *  Explicitly replaces the element(s) identified by `parents`.
- *
- *  Value: "REPLACE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Replace;
-
-// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
 
 /**
  *  Some error happened during triggering human review, see the [state_message]
  *  for details.
  *
- *  Value: "HUMAN_REVIEW_ERROR"
+ *  Value: "ERROR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error;
 /**
  *  Human review validation is triggered and the document is under review.
  *
- *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ *  Value: "IN_PROGRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress;
 /**
- *  Human review is skipped for the document, it's either due to the human
- *  review is not enabled on the processor or the processing request sets to
- *  skip it.
+ *  Human review is skipped for the document. This can happen because human
+ *  review is not enabled on the processor or the processing request has been
+ *  set to skip this document.
  *
- *  Value: "HUMAN_REVIEW_SKIPPED"
+ *  Value: "SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped;
 /**
- *  Human review validation is triggered and passed, so no review is needed.
- *
- *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed;
-/**
- *  State unspecified.
+ *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_ValidationPassed;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata.state
@@ -1142,41 +894,500 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef.layoutType
+
+/**
+ *  References a Page.blocks element.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Block;
+/**
+ *  References a Page.form_fields element.
+ *
+ *  Value: "FORM_FIELD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_FormField;
+/**
+ *  Layout Unspecified.
+ *
+ *  Value: "LAYOUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_LayoutTypeUnspecified;
+/**
+ *  References a Page.lines element.
+ *
+ *  Value: "LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Line;
+/**
+ *  References a Page.paragraphs element.
+ *
+ *  Value: "PARAGRAPH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Paragraph;
+/**
+ *  Refrrences a Page.tables element.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Table;
+/**
+ *  References a Page.tokens element.
+ *
+ *  Value: "TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Token;
+/**
+ *  References a Page.visual_elements element.
+ *
+ *  Value: "VISUAL_ELEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_VisualElement;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout.orientation
+
+/**
+ *  Unspecified orientation.
+ *
+ *  Value: "ORIENTATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_OrientationUnspecified;
+/**
+ *  Orientation is aligned with page down. Turn the head 180 degrees from
+ *  upright to read.
+ *
+ *  Value: "PAGE_DOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageDown;
+/**
+ *  Orientation is aligned with page left. Turn the head 90 degrees
+ *  counterclockwise from upright to read.
+ *
+ *  Value: "PAGE_LEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageLeft;
+/**
+ *  Orientation is aligned with page right. Turn the head 90 degrees clockwise
+ *  from upright to read.
+ *
+ *  Value: "PAGE_RIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageRight;
+/**
+ *  Orientation is aligned with page up.
+ *
+ *  Value: "PAGE_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageUp;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak.type
+
+/**
+ *  A hyphen that indicates that a token has been split across lines.
+ *
+ *  Value: "HYPHEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_Hyphen;
+/**
+ *  A single whitespace.
+ *
+ *  Value: "SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_Space;
+/**
+ *  Unspecified break type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_TypeUnspecified;
+/**
+ *  A wider whitespace.
+ *
+ *  Value: "WIDE_SPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_WideSpace;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance.type
+
+/**
+ *  Add an element. Implicit if no `parents` are set for the provenance.
+ *
+ *  Value: "ADD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Add;
+/**
+ *  Element is reviewed and approved at human review, confidence will be set to
+ *  1.0.
+ *
+ *  Value: "EVAL_APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved;
+/**
+ *  Element is requested for human review.
+ *
+ *  Value: "EVAL_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested;
+/**
+ *  Element is skipped in the validation process.
+ *
+ *  Value: "EVAL_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped;
+/**
+ *  Operation type unspecified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified;
+/**
+ *  The element is removed. No `parents` should be set.
+ *
+ *  Value: "REMOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove;
+/**
+ *  Explicitly replaces the element(s) identified by `parents`.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
 
 /**
  *  Some error happened during triggering human review, see the [state_message]
  *  for details.
  *
- *  Value: "HUMAN_REVIEW_ERROR"
+ *  Value: "ERROR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error;
 /**
  *  Human review validation is triggered and the document is under review.
  *
- *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ *  Value: "IN_PROGRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress;
 /**
- *  Human review is skipped for the document, it's either due to the human
- *  review is not enabled on the processor or the processing request sets to
- *  skip it.
+ *  Human review is skipped for the document. This can happen because human
+ *  review is not enabled on the processor or the processing request has been
+ *  set to skip this document.
  *
- *  Value: "HUMAN_REVIEW_SKIPPED"
+ *  Value: "SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped;
 /**
- *  Human review validation is triggered and passed, so no review is needed.
- *
- *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed;
-/**
- *  State unspecified.
+ *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1Processor.state
+
+/**
+ *  The processor is being created, will become either ENABLED (for successful
+ *  creation) or FAILED (for failed ones). Once a processor is in this state, it
+ *  can then be used for document processing, but the feature dependencies of
+ *  the processor might not be fully created yet.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Creating;
+/**
+ *  The processor is being deleted, will be removed if successful.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Deleting;
+/**
+ *  The processor is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled;
+/**
+ *  The processor is being disabled, will become DISABLED if successful.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling;
+/**
+ *  The processor is enabled, i.e, has an enabled version which can currently
+ *  serve processing requests and all the feature dependencies have been
+ *  successfully initialized.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled;
+/**
+ *  The processor is being enabled, will become ENABLED if successful.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling;
+/**
+ *  The processor failed during creation or initialization of feature
+ *  dependencies. The user should delete the processor and recreate one as all
+ *  the functionalities of the processor are disabled.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed;
+/**
+ *  The processor is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorType.launchStage
+
+/**
+ *  Alpha is a limited availability test for releases before they are cleared
+ *  for widespread use. By Alpha, all significant design issues are resolved and
+ *  we are in the process of verifying functionality. Alpha customers need to
+ *  apply for access, agree to applicable terms, and have their projects
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  provided, and there are no technical support obligations, but they will be
+ *  far enough along that customers can actually use them in test environments
+ *  or for limited-use tests -- just like they would in normal production cases.
+ *
+ *  Value: "ALPHA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Alpha;
+/**
+ *  Beta is the point at which we are ready to open a release for any customer
+ *  to use. There are no SLA or technical support obligations in a Beta release.
+ *  Products will be complete from a feature perspective, but may have some open
+ *  outstanding issues. Beta releases are suitable for limited production use
+ *  cases.
+ *
+ *  Value: "BETA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta;
+/**
+ *  Deprecated features are scheduled to be shut down and removed. For more
+ *  information, see the “Deprecation Policy” section of our [Terms of
+ *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
+ *  Subject to the Deprecation
+ *  Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated;
+/**
+ *  Early Access features are limited to a closed group of testers. To use these
+ *  features, you must sign up in advance and sign a Trusted Tester agreement
+ *  (which includes confidentiality provisions). These features may be unstable,
+ *  changed in backward-incompatible ways, and are not guaranteed to be
+ *  released.
+ *
+ *  Value: "EARLY_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_EarlyAccess;
+/**
+ *  GA features are open to all developers and are considered stable and fully
+ *  qualified for production use.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Ga;
+/**
+ *  Do not use this default value.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_LaunchStageUnspecified;
+/**
+ *  Prelaunch features are hidden from users and are only visible internally.
+ *
+ *  Value: "PRELAUNCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch;
+/**
+ *  The feature is not yet implemented. Users can not use it.
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion.state
+
+/**
+ *  The processor version is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating;
+/**
+ *  The processor version is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting;
+/**
+ *  The processor version is deployed and can be used for processing.
+ *
+ *  Value: "DEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deployed;
+/**
+ *  The processor version is being deployed.
+ *
+ *  Value: "DEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deploying;
+/**
+ *  The processor version failed and is in an indeterminate state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Failed;
+/**
+ *  The processor version is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_StateUnspecified;
+/**
+ *  The processor version is not deployed and cannot be used for processing.
+ *
+ *  Value: "UNDEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed;
+/**
+ *  The processor version is being undeployed.
+ *
+ *  Value: "UNDEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
+
+/**
+ *  The default priority level.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default;
+/**
+ *  The urgent priority level. The labeling manager should allocate labeler
+ *  resource to the urgent task queue to respect this priority level.
+ *
+ *  Value: "URGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType.occurrenceType
+
+/**
+ *  Unspecified occurrence type.
+ *
+ *  Value: "OCCURRENCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified;
+/**
+ *  The entity type will appear zero or multiple times.
+ *
+ *  Value: "OPTIONAL_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalMultiple;
+/**
+ *  The entity type will appear zero times or once.
+ *
+ *  Value: "OPTIONAL_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalOnce;
+/**
+ *  The entity type will appear once or more times.
+ *
+ *  Value: "REQUIRED_MULTIPLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredMultiple;
+/**
+ *  The entity type will only appear exactly once.
+ *
+ *  Value: "REQUIRED_ONCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredOnce;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType.source
+
+/**
+ *  The entity type is in the predefined schema of a pretrained version of a
+ *  processor.
+ *
+ *  Value: "PREDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Predefined;
+/**
+ *  Unspecified source.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_SourceUnspecified;
+/**
+ *  The entity type is added by the users either: - during an uptraining of an
+ *  existing processor, or - during the process of creating a customized
+ *  processor.
+ *
+ *  Value: "USER_INPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_UserInput;
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response of the delete documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchDeleteDocumentsResponse : GTLRObject
+@end
+
+
+/**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response of the batch move documents operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3BatchMoveDocumentsResponse : GTLRObject
+@end
+
 
 /**
  *  The common metadata for long running operations.
@@ -1185,6 +1396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The state of the operation.
@@ -1315,151 +1529,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A processor version is an implementation of a processor. Each processor can
- *  have multiple versions, pre-trained by Google internally or up-trained by
- *  the customer. At a time, a processor can only have one default version
- *  version. So the processor's behavior (when processing documents) is defined
- *  by a default version.
+ *  Metadata of the EvaluateProcessorVersion method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionMetadata : GTLRObject
 
-/** The time the processor version was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** The display name of the processor version. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  The resource name of the processor version. Format:
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The schema of the processor version. Describes the output. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema *schema;
-
-/**
- *  The state of the processor version.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Creating
- *        The processor version is being created. (Value: "CREATING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deleting
- *        The processor version is being deleted. (Value: "DELETING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deployed
- *        The processor version is deployed and can be used for processing.
- *        (Value: "DEPLOYED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deploying
- *        The processor version is being deployed. (Value: "DEPLOYING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Failed
- *        The processor version failed and is in an indeterminate state. (Value:
- *        "FAILED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_StateUnspecified
- *        The processor version is in an unspecified state. (Value:
- *        "STATE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeployed
- *        The processor version is not deployed and cannot be used for
- *        processing. (Value: "UNDEPLOYED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeploying
- *        The processor version is being undeployed. (Value: "UNDEPLOYING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The schema defines the output of the processed document by a processor.
+ *  Metadata of the EvaluateProcessorVersion method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionResponse : GTLRObject
 
-/**
- *  Description of the schema.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Display name to show to users. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Entity types of the schema. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType *> *entityTypes;
+/** The resource name of the created evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
 
 @end
 
 
 /**
- *  EntityType is the wrapper of a label of the corresponding model with
- *  detailed attributes and limitations for entity-based processors. Multiple
- *  types can also compose a dependency tree to represent nested types.
+ *  Metadata message associated with the ExportProcessorVersion operation.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionMetadata : GTLRObject
+
+/** The common metadata about the operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
 
 /**
- *  Type of the entity. It can be either a value type (such as "text",
- *  "numeric", "date" and "address"), or an object type which may contain nested
- *  entities (such as "document" and "table").
+ *  Response message associated with the ExportProcessorVersion operation.
  */
-@property(nonatomic, copy, nullable) NSString *baseType;
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionResponse : GTLRObject
+
+/** The Cloud Storage URI containing the output artifacts. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
 
 /**
- *  Description of the entity type.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ *  Metadata of the import document operation.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
 
 /**
- *  Occurrence type limits the number of times an entity type appears in the
- *  document.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified
- *        Unspecified occurrence type. (Value: "OCCURRENCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalMultiple
- *        The entity type will appear zero or multiple times. (Value:
- *        "OPTIONAL_MULTIPLE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalOnce
- *        The entity type will appear zero times or once. (Value:
- *        "OPTIONAL_ONCE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredMultiple
- *        The entity type will appear once or more times. (Value:
- *        "REQUIRED_MULTIPLE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredOnce
- *        The entity type will only appear exactly once. (Value:
- *        "REQUIRED_ONCE")
+ *  Response of the import document operation.
  */
-@property(nonatomic, copy, nullable) NSString *occurrenceType;
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsResponse : GTLRObject
+@end
+
 
 /**
- *  Describing the nested structure of an entity. An EntityType may consist of
- *  several other EntityTypes. For example, in a document there can be an
- *  EntityType 'ID', which consists of EntityType 'name' and 'address', with
- *  corresponding attributes, such as TEXT for both types and ONCE for
- *  occurrence types.
+ *  The long running operation metadata for set default processor version
+ *  method.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType *> *properties;
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
 
 /**
- *  Source of this entity type.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_Predefined
- *        The entity type is in the predefined schema of a pretrained version of
- *        a processor. (Value: "PREDEFINED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_SourceUnspecified
- *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_UserInput
- *        The entity type is added by the users either: - during an uptraining
- *        of an existing processor, or - during the process of creating a
- *        customized processor. (Value: "USER_INPUT")
+ *  Response message for set default processor version method.
  */
-@property(nonatomic, copy, nullable) NSString *source;
-
-/** Name of the type. It must be unique within the set of same level types. */
-@property(nonatomic, copy, nullable) NSString *type;
-
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse : GTLRObject
 @end
 
 
@@ -1471,6 +1617,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
+/** The test dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation *testDatasetValidation;
+
+/** The training dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation *trainingDatasetValidation;
+
+@end
+
+
+/**
+ *  The dataset validation information. This includes any and all errors with
+ *  documents and the dataset.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation : GTLRObject
+
+/**
+ *  The total number of dataset errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetErrorCount;
+
+/**
+ *  Error information for the dataset as a whole. A maximum of 10 dataset errors
+ *  will be returned. A single dataset error is terminal for training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *datasetErrors;
+
+/**
+ *  The total number of document errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentErrorCount;
+
+/**
+ *  Error information pertaining to specific documents. A maximum of 10 document
+ *  errors will be returned. Any document with errors will not be used
+ *  throughout training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *documentErrors;
+
 @end
 
 
@@ -1479,8 +1667,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionResponse : GTLRObject
 
-/** The processor version produced by training. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion *processorVersion;
+/** The resource name of the processor version produced by training. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
 
 @end
 
@@ -1505,6 +1693,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateDatasetOperationMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
  *  The long running operation metadata for updating the human review
  *  configuration.
  */
@@ -1523,6 +1722,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The common config to specify a set of documents used as input.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig : GTLRObject
+
+/** The set of documents individually specified on Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments *gcsDocuments;
+
+/**
+ *  The set of documents that match the specified Cloud Storage [gcs_prefix].
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix *gcsPrefix;
 
 @end
 
@@ -1601,6 +1816,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  Request message for batch process document method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest : GTLRObject
+
+/** The overall output config for batch process. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfig *documentOutputConfig;
+
+/** The input documents for batch process. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig *inputDocuments;
+
+/**
+ *  Whether Human Review feature should be skipped for this request. Default to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
+
+@end
+
+
+/**
  *  Response message for batch process document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessResponse : GTLRObject
@@ -1642,9 +1879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1Document : GTLRObject
 
 /**
- *  Inline document content, represented as a stream of bytes. Note: As with all
- *  `bytes` fields, protobuffers use a pure binary representation, whereas JSON
- *  representations use base64.
+ *  Optional. Inline document content, represented as a stream of bytes. Note:
+ *  As with all `bytes` fields, protobuffers use a pure binary representation,
+ *  whereas JSON representations use base64.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1682,7 +1919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentShardInfo *shardInfo;
 
-/** UTF-8 encoded text in reading order from the document. */
+/** Optional. UTF-8 encoded text in reading order from the document. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
@@ -1696,13 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentStyle *> *textStyles;
 
 /**
- *  A list of translations on Document.text. For document shards, translations
- *  in this list may cross shard boundaries.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTranslation *> *translations;
-
-/**
- *  Currently supports Google Cloud Storage URI of the form
+ *  Optional. Currently supports Google Cloud Storage URI of the form
  *  `gs://bucket_name/object_name`. Object versioning is not supported. See
  *  [Google Cloud Storage Request
  *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
@@ -1713,8 +1944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity : GTLRObject
 
@@ -1733,10 +1965,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Deprecated. Use `id` field instead. */
+/** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -1770,7 +2005,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSNumber *redacted;
 
-/** Provenance of the entity. Text anchor indexing into the Document.text. */
+/**
+ *  Optional. Provenance of the entity. Text anchor indexing into the
+ *  Document.text.
+ */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchor *textAnchor;
 
 /** Entity type from a schema e.g. `Address`. */
@@ -1791,6 +2029,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
 
 /**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+/**
  *  DateTime value. Includes date, time, and timezone. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto
  */
@@ -1803,15 +2049,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
 
 /**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
  *  Money value. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -1889,6 +2151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph *> *paragraphs;
 
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable *> *tables;
 
@@ -1933,6 +2198,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly *boundingPoly;
 
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
 @property(nonatomic, copy, nullable) NSString *layoutId;
 
@@ -1961,7 +2233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2041,6 +2315,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField : GTLRObject
 
 /**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
+
+/**
  *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
  *  `Phone number`, etc.
  */
@@ -2051,6 +2339,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** A list of detected languages for name together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
 
 /** A list of detected languages for value together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage *> *valueDetectedLanguages;
@@ -2371,10 +2662,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        Add an element. Implicit if no `parents` are set for the provenance.
  *        (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved
- *        Element is review and approved at human review, confidence will be set
- *        to 1.0 (Value: "EVAL_APPROVED")
+ *        Element is reviewed and approved at human review, confidence will be
+ *        set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested
  *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped
+ *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_OperationTypeUnspecified
  *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Remove
@@ -2403,6 +2696,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The index of the [Document.revisions] identifying the parent revision.
@@ -2624,35 +2925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A translation of the text segment.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTranslation : GTLRObject
-
-/**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
- *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *> *provenance;
-
-/**
- *  Provenance of the translation. Text anchor indexing into the Document.text.
- *  There can only be a single `TextAnchor.text_segments` element. If the start
- *  and end index of the text segment are the same, the text change is inserted
- *  before that index.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentTextAnchor *textAnchor;
-
-/** Text translated into the target language. */
-@property(nonatomic, copy, nullable) NSString *translatedText;
-
-@end
-
-
-/**
  *  The Google Cloud Storage location where the output file will be written to.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1GcsDestination : GTLRObject
@@ -2708,7 +2980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
- *  Y coordinate.
+ *  Y coordinate (starts from the top of the image).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2816,7 +3088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
- *  Y coordinate.
+ *  Y coordinate (starts from the top of the image).
  *
  *  Uses NSNumber of intValue.
  */
@@ -2860,9 +3132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2Document : GTLRObject
 
 /**
- *  Inline document content, represented as a stream of bytes. Note: As with all
- *  `bytes` fields, protobuffers use a pure binary representation, whereas JSON
- *  representations use base64.
+ *  Optional. Inline document content, represented as a stream of bytes. Note:
+ *  As with all `bytes` fields, protobuffers use a pure binary representation,
+ *  whereas JSON representations use base64.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2903,7 +3175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentShardInfo *shardInfo;
 
-/** UTF-8 encoded text in reading order from the document. */
+/** Optional. UTF-8 encoded text in reading order from the document. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
@@ -2917,13 +3189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentStyle *> *textStyles;
 
 /**
- *  A list of translations on Document.text. For document shards, translations
- *  in this list may cross shard boundaries.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTranslation *> *translations;
-
-/**
- *  Currently supports Google Cloud Storage URI of the form
+ *  Optional. Currently supports Google Cloud Storage URI of the form
  *  `gs://bucket_name/object_name`. Object versioning is not supported. See
  *  [Google Cloud Storage Request
  *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
@@ -2934,8 +3200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity : GTLRObject
 
@@ -2954,10 +3221,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Deprecated. Use `id` field instead. */
+/** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -2991,7 +3261,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSNumber *redacted;
 
-/** Provenance of the entity. Text anchor indexing into the Document.text. */
+/**
+ *  Optional. Provenance of the entity. Text anchor indexing into the
+ *  Document.text.
+ */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchor *textAnchor;
 
 /** Entity type from a schema e.g. `Address`. */
@@ -3012,6 +3285,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
 
 /**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+/**
  *  DateTime value. Includes date, time, and timezone. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto
  */
@@ -3024,15 +3305,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
 
 /**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
  *  Money value. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
 
 /**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
  *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
  *  (`datetime_value`) is in the ISO 8601 text format.
@@ -3141,6 +3438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph *> *paragraphs;
 
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable *> *tables;
 
@@ -3185,6 +3485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2BoundingPoly *boundingPoly;
 
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
 @property(nonatomic, copy, nullable) NSString *layoutId;
 
@@ -3213,7 +3520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3293,6 +3602,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField : GTLRObject
 
 /**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
+
+/**
  *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
  *  `Phone number`, etc.
  */
@@ -3303,6 +3626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** A list of detected languages for name together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
 
 /** A list of detected languages for value together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage *> *valueDetectedLanguages;
@@ -3623,10 +3949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        Add an element. Implicit if no `parents` are set for the provenance.
  *        (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved
- *        Element is review and approved at human review, confidence will be set
- *        to 1.0 (Value: "EVAL_APPROVED")
+ *        Element is reviewed and approved at human review, confidence will be
+ *        set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested
  *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped
+ *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_OperationTypeUnspecified
  *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Remove
@@ -3655,6 +3983,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The index of the [Document.revisions] identifying the parent revision.
@@ -3876,35 +4212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A translation of the text segment.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTranslation : GTLRObject
-
-/**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
- *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *> *provenance;
-
-/**
- *  Provenance of the translation. Text anchor indexing into the Document.text.
- *  There can only be a single `TextAnchor.text_segments` element. If the start
- *  and end index of the text segment are the same, the text change is inserted
- *  before that index.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentTextAnchor *textAnchor;
-
-/** Text translated into the target language. */
-@property(nonatomic, copy, nullable) NSString *translatedText;
-
-@end
-
-
-/**
  *  The Google Cloud Storage location where the output file will be written to.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2GcsDestination : GTLRObject
@@ -3971,7 +4278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
- *  Y coordinate.
+ *  Y coordinate (starts from the top of the image).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4079,7 +4386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSNumber *x;
 
 /**
- *  Y coordinate.
+ *  Y coordinate (starts from the top of the image).
  *
  *  Uses NSNumber of intValue.
  */
@@ -4142,7 +4449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The name of the operation triggered by the processed document. If the human
  *  review process is not triggered, this field will be empty. It has the same
  *  response type and metadata as the long running operation returned by
- *  ReviewDocument method. .
+ *  ReviewDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
 
@@ -4170,74 +4477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  Request message for batch process document method.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequest : GTLRObject
-
-/** The input config for each single document in the batch process. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig *> *inputConfigs;
-
-/** The overall output config for batch process. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig *outputConfig;
-
-/**
- *  Whether Human Review feature should be skipped for this request. Default to
- *  false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
-
-@end
-
-
-/**
- *  The message for input config in batch process.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig : GTLRObject
-
-/** The Cloud Storage location as the source of the document. */
-@property(nonatomic, copy, nullable) NSString *gcsSource;
-
-/**
- *  Mimetype of the input. If the input is a raw document, the supported
- *  mimetypes are application/pdf, image/tiff, and image/gif. If the input is a
- *  [Document] proto, the type should be application/json.
- */
-@property(nonatomic, copy, nullable) NSString *mimeType;
-
-@end
-
-
-/**
- *  The message for output config in batch process.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig : GTLRObject
-
-/** The output Cloud Storage directory to put the processed documents. */
-@property(nonatomic, copy, nullable) NSString *gcsDestination;
-
-@end
-
-
-/**
  *  Response message for batch process document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessResponse : GTLRObject
-@end
-
-
-/**
- *  A bounding polygon for the detected image annotation.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BoundingPoly : GTLRObject
-
-/** The bounding polygon normalized vertices. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex *> *normalizedVertices;
-
-/** The bounding polygon vertices. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3Vertex *> *vertices;
-
 @end
 
 
@@ -4248,6 +4490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The state of the operation.
@@ -4278,1021 +4523,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  Document represents the canonical document resource in Document
- *  Understanding AI. It is an interchange format that provides insights into
- *  documents and allows for collaboration between users and Document
- *  Understanding AI to iterate and optimize for quality.
+ *  The long running operation metadata for delete processor method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3Document : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata : GTLRObject
 
-/**
- *  Inline document content, represented as a stream of bytes. Note: As with all
- *  `bytes` fields, protobuffers use a pure binary representation, whereas JSON
- *  representations use base64.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *content;
-
-/**
- *  A list of entities detected on Document.text. For document shards, entities
- *  in this list may cross shard boundaries.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntity *> *entities;
-
-/** Relationship among Document.entities. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityRelation *> *entityRelations;
-
-/** Any error that occurred while processing this document. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *error;
-
-/**
- *  An IANA published MIME type (also referred to as media type). For more
- *  information, see
- *  https://www.iana.org/assignments/media-types/media-types.xhtml.
- */
-@property(nonatomic, copy, nullable) NSString *mimeType;
-
-/** Visual page layout for the Document. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPage *> *pages;
-
-/** Revision history of this document. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevision *> *revisions;
-
-/**
- *  Information about the sharding if this document is sharded part of a larger
- *  document. If the document is not sharded, this message is not specified.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentShardInfo *shardInfo;
-
-/** UTF-8 encoded text in reading order from the document. */
-@property(nonatomic, copy, nullable) NSString *text;
-
-/**
- *  A list of text corrections made to [Document.text]. This is usually used for
- *  annotating corrections to OCR mistakes. Text changes for a given revision
- *  may not overlap with each other.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextChange *> *textChanges;
-
-/** Styles for the Document.text. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyle *> *textStyles;
-
-/**
- *  A list of translations on Document.text. For document shards, translations
- *  in this list may cross shard boundaries.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation *> *translations;
-
-/**
- *  Currently supports Google Cloud Storage URI of the form
- *  `gs://bucket_name/object_name`. Object versioning is not supported. See
- *  [Google Cloud Storage Request
- *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
- */
-@property(nonatomic, copy, nullable) NSString *uri;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  A phrase in the text that is a known entity type, such as a person, an
- *  organization, or location.
+ *  The long running operation metadata for delete processor version method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntity : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorVersionMetadata : GTLRObject
 
-/**
- *  Optional. Confidence of detected Schema entity. Range [0, 1].
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
-
-/**
- *  Optional. Canonical id. This will be a unique value in the entity list for
- *  this document.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Deprecated. Use `id` field instead. */
-@property(nonatomic, copy, nullable) NSString *mentionId;
-
-/** Text value in the document e.g. `1600 Amphitheatre Pkwy`. */
-@property(nonatomic, copy, nullable) NSString *mentionText;
-
-/**
- *  Optional. Normalized entity value. Absent if the extracted value could not
- *  be converted or the type (e.g. address) is not supported for certain
- *  parsers. This field is also only populated for certain supported document
- *  types.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityNormalizedValue *normalizedValue;
-
-/**
- *  Optional. Represents the provenance of this entity wrt. the location on the
- *  page where it was found.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchor *pageAnchor;
-
-/**
- *  Optional. Entities can be nested to form a hierarchical data structure
- *  representing the content in the document.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntity *> *properties;
-
-/** Optional. The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *provenance;
-
-/**
- *  Optional. Whether the entity will be redacted for de-identification
- *  purposes.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *redacted;
-
-/** Provenance of the entity. Text anchor indexing into the Document.text. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor *textAnchor;
-
-/** Entity type from a schema e.g. `Address`. */
-@property(nonatomic, copy, nullable) NSString *type;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Parsed and normalized entity value.
+ *  The long running operation metadata for deploy processor version method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityNormalizedValue : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionMetadata : GTLRObject
 
-/**
- *  Postal address. See also:
- *  https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
-
-/**
- *  DateTime value. Includes date, time, and timezone. See also:
- *  https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDateTime *datetimeValue;
-
-/**
- *  Date value. Includes year, month, day. See also:
- *  https://github.com/googleapis/googleapis/blob/master/google/type/date.proto
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
-
-/**
- *  Money value. See also:
- *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
-
-/**
- *  Required. Normalized entity value stored as a string. This field is
- *  populated for supported document type (e.g. Invoice). For some entity types,
- *  one of respective 'structured_value' fields may also be populated. -
- *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
- *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
- *  (`datetime_value`) is in the ISO 8601 text format.
- */
-@property(nonatomic, copy, nullable) NSString *text;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Relationship between Entities.
+ *  Response message for the deploy processor version method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityRelation : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeployProcessorVersionResponse : GTLRObject
+@end
 
-/** Object entity id. */
-@property(nonatomic, copy, nullable) NSString *objectId;
 
-/** Relationship description. */
-@property(nonatomic, copy, nullable) NSString *relation;
+/**
+ *  The long running operation metadata for disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata : GTLRObject
 
-/** Subject entity id. */
-@property(nonatomic, copy, nullable) NSString *subjectId;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  A page in a Document.
+ *  Response message for the disable processor method. Intentionally empty proto
+ *  for adding fields in future.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPage : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorResponse : GTLRObject
+@end
+
 
 /**
- *  A list of visually detected text blocks on the page. A block has a set of
- *  lines (collected into paragraphs) that have a common line-spacing and
- *  orientation.
+ *  The long running operation metadata for enable processor method.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageBlock *> *blocks;
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata : GTLRObject
 
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Physical dimension of the page. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDimension *dimension;
-
-/** A list of visually detected form fields on the page. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageFormField *> *formFields;
-
-/**
- *  Rendered image for this page. This image is preprocessed to remove any skew,
- *  rotation, and distortions such that the annotation bounding boxes can be
- *  upright and axis-aligned.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageImage *image;
-
-/** Layout for the page. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/**
- *  A list of visually detected text lines on the page. A collection of tokens
- *  that a human would perceive as a line.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLine *> *lines;
-
-/**
- *  1-based index for current Page in a parent Document. Useful when a page is
- *  taken out of a Document for individual processing.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageNumber;
-
-/**
- *  A list of visually detected text paragraphs on the page. A collection of
- *  lines that a human would perceive as a paragraph.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageParagraph *> *paragraphs;
-
-/** A list of visually detected tables on the page. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTable *> *tables;
-
-/** A list of visually detected tokens on the page. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageToken *> *tokens;
-
-/**
- *  Transformation matrices that were applied to the original document image to
- *  produce Page.image.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageMatrix *> *transforms;
-
-/**
- *  A list of detected non-text visual elements e.g. checkbox, signature etc. on
- *  the page.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageVisualElement *> *visualElements;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  Referencing the visual context of the entity in the Document.pages. Page
- *  anchors can be cross-page, consist of multiple bounding polygons and
- *  optionally reference specific layout element types.
+ *  Response message for the enable processor method. Intentionally empty proto
+ *  for adding fields in future.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchor : GTLRObject
-
-/** One or more references to visual page elements */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef *> *pageRefs;
-
-@end
-
-
-/**
- *  Represents a weak reference to a page element within a document.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef : GTLRObject
-
-/**
- *  Optional. Identifies the bounding polygon of a layout element on the page.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BoundingPoly *boundingPoly;
-
-/** Optional. Deprecated. Use PageRef.bounding_poly instead. */
-@property(nonatomic, copy, nullable) NSString *layoutId;
-
-/**
- *  Optional. The type of the layout element that is being referenced if any.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Block
- *        References a Page.blocks element. (Value: "BLOCK")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_FormField
- *        References a Page.form_fields element. (Value: "FORM_FIELD")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_LayoutTypeUnspecified
- *        Layout Unspecified. (Value: "LAYOUT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Line
- *        References a Page.lines element. (Value: "LINE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Paragraph
- *        References a Page.paragraphs element. (Value: "PARAGRAPH")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Table
- *        Refrrences a Page.tables element. (Value: "TABLE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_Token
- *        References a Page.tokens element. (Value: "TOKEN")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef_LayoutType_VisualElement
- *        References a Page.visual_elements element. (Value: "VISUAL_ELEMENT")
- */
-@property(nonatomic, copy, nullable) NSString *layoutType;
-
-/**
- *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *page;
-
-@end
-
-
-/**
- *  A block has a set of lines (collected into paragraphs) that have a common
- *  line-spacing and orientation.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageBlock : GTLRObject
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for Block. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *provenance;
-
-@end
-
-
-/**
- *  Detected language for a structural component.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage : GTLRObject
-
-/**
- *  Confidence of detected language. Range [0, 1].
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
-
-/**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
- *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-@end
-
-
-/**
- *  Dimension for the page.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDimension : GTLRObject
-
-/**
- *  Page height.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *height;
-
-/** Dimension unit. */
-@property(nonatomic, copy, nullable) NSString *unit;
-
-/**
- *  Page width.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *width;
-
-@end
-
-
-/**
- *  A form field detected on the page.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageFormField : GTLRObject
-
-/**
- *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
- *  `Phone number`, etc.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *fieldName;
-
-/** Layout for the FormField value. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *fieldValue;
-
-/** A list of detected languages for name together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *nameDetectedLanguages;
-
-/** A list of detected languages for value together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *valueDetectedLanguages;
-
-/**
- *  If the value is non-textual, this field represents the type. Current valid
- *  values are: - blank (this indicates the field_value is normal text) -
- *  "unfilled_checkbox" - "filled_checkbox"
- */
-@property(nonatomic, copy, nullable) NSString *valueType;
-
-@end
-
-
-/**
- *  Rendered image contents for this page.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageImage : GTLRObject
-
-/**
- *  Raw byte content of the image.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *content;
-
-/**
- *  Height of the image in pixels.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *height;
-
-/** Encoding mime type for the image. */
-@property(nonatomic, copy, nullable) NSString *mimeType;
-
-/**
- *  Width of the image in pixels.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *width;
-
-@end
-
-
-/**
- *  Visual element describing a layout unit on a page.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout : GTLRObject
-
-/** The bounding polygon for the Layout. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BoundingPoly *boundingPoly;
-
-/**
- *  Confidence of the current Layout within context of the object this layout is
- *  for. e.g. confidence can be for a single token, a table, a visual element,
- *  etc. depending on context. Range [0, 1].
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *confidence;
-
-/**
- *  Detected orientation for the Layout.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_OrientationUnspecified
- *        Unspecified orientation. (Value: "ORIENTATION_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageDown
- *        Orientation is aligned with page down. Turn the head 180 degrees from
- *        upright to read. (Value: "PAGE_DOWN")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageLeft
- *        Orientation is aligned with page left. Turn the head 90 degrees
- *        counterclockwise from upright to read. (Value: "PAGE_LEFT")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageRight
- *        Orientation is aligned with page right. Turn the head 90 degrees
- *        clockwise from upright to read. (Value: "PAGE_RIGHT")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout_Orientation_PageUp
- *        Orientation is aligned with page up. (Value: "PAGE_UP")
- */
-@property(nonatomic, copy, nullable) NSString *orientation;
-
-/** Text anchor indexing into the Document.text. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor *textAnchor;
-
-@end
-
-
-/**
- *  A collection of tokens that a human would perceive as a line. Does not cross
- *  column boundaries, can be horizontal, vertical, etc.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLine : GTLRObject
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for Line. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *provenance;
-
-@end
-
-
-/**
- *  Representation for transformation matrix, intended to be compatible and used
- *  with OpenCV format for image manipulation.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageMatrix : GTLRObject
-
-/**
- *  Number of columns in the matrix.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cols;
-
-/**
- *  The matrix data.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *data;
-
-/**
- *  Number of rows in the matrix.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rows;
-
-/**
- *  This encodes information about what data type the matrix uses. For example,
- *  0 (CV_8U) is an unsigned 8-bit image. For the full list of OpenCV primitive
- *  data types, please refer to
- *  https://docs.opencv.org/4.3.0/d1/d1b/group__core__hal__interface.html
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *type;
-
-@end
-
-
-/**
- *  A collection of lines that a human would perceive as a paragraph.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageParagraph : GTLRObject
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for Paragraph. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *provenance;
-
-@end
-
-
-/**
- *  A table representation similar to HTML table structure.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTable : GTLRObject
-
-/** Body rows of the table. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableRow *> *bodyRows;
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Header rows of the table. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableRow *> *headerRows;
-
-/** Layout for Table. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-@end
-
-
-/**
- *  A cell representation inside the table.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableCell : GTLRObject
-
-/**
- *  How many columns this cell spans.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *colSpan;
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for TableCell. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/**
- *  How many rows this cell spans.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rowSpan;
-
-@end
-
-
-/**
- *  A row of table cells.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableRow : GTLRObject
-
-/** Cells that make up this row. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTableTableCell *> *cells;
-
-@end
-
-
-/**
- *  A detected token.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageToken : GTLRObject
-
-/** Detected break at the end of a Token. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak *detectedBreak;
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for Token. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *provenance;
-
-@end
-
-
-/**
- *  Detected break at the end of a Token.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak : GTLRObject
-
-/**
- *  Detected break type.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_Hyphen
- *        A hyphen that indicates that a token has been split across lines.
- *        (Value: "HYPHEN")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_Space
- *        A single whitespace. (Value: "SPACE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_TypeUnspecified
- *        Unspecified break type. (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageTokenDetectedBreak_Type_WideSpace
- *        A wider whitespace. (Value: "WIDE_SPACE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Detected non-text visual elements e.g. checkbox, signature etc. on the page.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageVisualElement : GTLRObject
-
-/** A list of detected languages together with confidence. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageDetectedLanguage *> *detectedLanguages;
-
-/** Layout for VisualElement. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageLayout *layout;
-
-/** Type of the VisualElement. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Structure to identify provenance relationships between annotations in
- *  different revisions.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance : GTLRObject
-
-/**
- *  The Id of this operation. Needs to be unique within the scope of the
- *  revision.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/** References to the original elements that are replaced. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenanceParent *> *parents;
-
-/**
- *  The index of the revision that produced this element.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *revision;
-
-/**
- *  The type of provenance operation.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Add
- *        Add an element. Implicit if no `parents` are set for the provenance.
- *        (Value: "ADD")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_EvalApproved
- *        Element is review and approved at human review, confidence will be set
- *        to 1.0 (Value: "EVAL_APPROVED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_EvalRequested
- *        Element is requested for human review. (Value: "EVAL_REQUESTED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_OperationTypeUnspecified
- *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Remove
- *        The element is removed. No `parents` should be set. (Value: "REMOVE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Replace
- *        Explicitly replaces the element(s) identified by `parents`. (Value:
- *        "REPLACE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Structure for referencing parent provenances. When an element replaces one
- *  of more other elements parent references identify the elements that are
- *  replaced.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenanceParent : GTLRObject
-
-/**
- *  The id of the parent provenance.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *identifier;
-
-/**
- *  The index of the [Document.revisions] identifying the parent revision.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *revision;
-
-@end
-
-
-/**
- *  Contains past or forward revisions of this document.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevision : GTLRObject
-
-/**
- *  If the change was made by a person specify the name or id of that person.
- */
-@property(nonatomic, copy, nullable) NSString *agent;
-
-/** The time that the revision was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Human Review information of this revision. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevisionHumanReview *humanReview;
-
-/**
- *  Id of the revision. Unique within the context of the document.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  The revisions that this revision is based on. This can include one or more
- *  parent (when documents are merged.) This field represents the index into the
- *  `revisions` field.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
-
-/**
- *  If the annotation was made by processor identify the processor by its
- *  resource name.
- */
-@property(nonatomic, copy, nullable) NSString *processor;
-
-@end
-
-
-/**
- *  Human Review information of the document.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentRevisionHumanReview : GTLRObject
-
-/** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  A message providing more details about the current state of processing. For
- *  example, the rejection reason when the state is `rejected`.
- */
-@property(nonatomic, copy, nullable) NSString *stateMessage;
-
-@end
-
-
-/**
- *  For a large document, sharding may be performed to produce several document
- *  shards. Each document shard contains this field to detail which shard it is.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentShardInfo : GTLRObject
-
-/**
- *  Total number of shards.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shardCount;
-
-/**
- *  The 0-based index of this shard.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *shardIndex;
-
-/**
- *  The index of the first character in Document.text in the overall document
- *  global text.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *textOffset;
-
-@end
-
-
-/**
- *  Annotation for common text style attributes. This adheres to CSS conventions
- *  as much as possible.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyle : GTLRObject
-
-/** Text background color. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *backgroundColor;
-
-/** Text color. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
-
-/** Font size. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyleFontSize *fontSize;
-
-/**
- *  Font weight. Possible values are normal, bold, bolder, and lighter.
- *  https://www.w3schools.com/cssref/pr_font_weight.asp
- */
-@property(nonatomic, copy, nullable) NSString *fontWeight;
-
-/** Text anchor indexing into the Document.text. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor *textAnchor;
-
-/**
- *  Text decoration. Follows CSS standard.
- *  https://www.w3schools.com/cssref/pr_text_text-decoration.asp
- */
-@property(nonatomic, copy, nullable) NSString *textDecoration;
-
-/**
- *  Text style. Possible values are normal, italic, and oblique.
- *  https://www.w3schools.com/cssref/pr_font_font-style.asp
- */
-@property(nonatomic, copy, nullable) NSString *textStyle;
-
-@end
-
-
-/**
- *  Font size with unit.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentStyleFontSize : GTLRObject
-
-/**
- *  Font size for the text.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *size;
-
-/** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
-@property(nonatomic, copy, nullable) NSString *unit;
-
-@end
-
-
-/**
- *  Text reference indexing into the Document.text.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor : GTLRObject
-
-/**
- *  Contains the content of the text span so that users do not have to look it
- *  up in the text_segments.
- */
-@property(nonatomic, copy, nullable) NSString *content;
-
-/** The text segments from the Document.text. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchorTextSegment *> *textSegments;
-
-@end
-
-
-/**
- *  A text segment in the Document.text. The indices may be out of bounds which
- *  indicate that the text extends into another document shard for large sharded
- *  documents. See ShardInfo.text_offset
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchorTextSegment : GTLRObject
-
-/**
- *  TextSegment half open end UTF-8 char index in the Document.text.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *endIndex;
-
-/**
- *  TextSegment start UTF-8 char index in the Document.text.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *startIndex;
-
-@end
-
-
-/**
- *  This message is used for text changes aka. OCR corrections.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextChange : GTLRObject
-
-/** The text that replaces the text identified in the `text_anchor`. */
-@property(nonatomic, copy, nullable) NSString *changedText;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *> *provenance;
-
-/**
- *  Provenance of the correction. Text anchor indexing into the Document.text.
- *  There can only be a single `TextAnchor.text_segments` element. If the start
- *  and end index of the text segment are the same, the text change is inserted
- *  before that index.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor *textAnchor;
-
-@end
-
-
-/**
- *  A translation of the text segment.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation : GTLRObject
-
-/**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
- *  information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/** The history of this annotation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance *> *provenance;
-
-/**
- *  Provenance of the translation. Text anchor indexing into the Document.text.
- *  There can only be a single `TextAnchor.text_segments` element. If the start
- *  and end index of the text segment are the same, the text change is inserted
- *  before that index.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchor *textAnchor;
-
-/** Text translated into the target language. */
-@property(nonatomic, copy, nullable) NSString *translatedText;
-
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorResponse : GTLRObject
 @end
 
 
@@ -5302,9 +4606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
 
 /**
- *  The name of the operation triggered by the processed document. Non-empty
- *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
- *  response type and metadata as the long running operation returned by
+ *  The name of the operation triggered by the processed document. This field is
+ *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
+ *  same response type and metadata as the long running operation returned by
  *  [ReviewDocument] method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
@@ -5313,93 +4617,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The state of human review on the processing request.
  *
  *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress
+ *        [state_message] for details. (Value: "ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
- *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped
- *        Human review is skipped for the document, it's either due to the human
- *        review is not enabled on the processor or the processing request sets
- *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed
- *        Human review validation is triggered and passed, so no review is
- *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped
+ *        Human review is skipped for the document. This can happen because
+ *        human review is not enabled on the processor or the processing request
+ *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ *        Human review state is unspecified. Most likely due to an internal
+ *        error. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_ValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "VALIDATION_PASSED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /** A message providing more details about the human review state. */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
-
-@end
-
-
-/**
- *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
- *  coordinates are relative to the original image and range from 0 to 1.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex : GTLRObject
-
-/**
- *  X coordinate.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *x;
-
-/**
- *  Y coordinate.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *y;
-
-@end
-
-
-/**
- *  Request message for the process document method.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessRequest : GTLRObject
-
-/** The document payload, the [content] and [mime_type] fields must be set. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *document;
-
-/**
- *  Whether Human Review feature should be skipped for this request. Default to
- *  false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
-
-@end
-
-
-/**
- *  Response message for the process document method.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessResponse : GTLRObject
-
-/**
- *  The document payload, will populate fields based on the processor's
- *  behavior.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *document;
-
-/**
- *  The name of the operation triggered by the processed document. If the human
- *  review process is not triggered, this field will be empty. It has the same
- *  response type and metadata as the long running operation returned by
- *  ReviewDocument method. .
- */
-@property(nonatomic, copy, nullable) NSString *humanReviewOperation;
-
-/** The status of human review on the processed document. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
 
 @end
 
@@ -5447,17 +4685,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  Request message for review document method.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentRequest : GTLRObject
-
-/** The document that needs human review. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *document;
-
-@end
-
-
-/**
  *  Response message for review document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentResponse : GTLRObject
@@ -5469,24 +4696,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
- *  are in the same scale as the original image.
+ *  The long running operation metadata for set default processor version
+ *  method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3Vertex : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
 
 /**
- *  X coordinate.
- *
- *  Uses NSNumber of intValue.
+ *  Response message for set default processor version method.
  */
-@property(nonatomic, strong, nullable) NSNumber *x;
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
 
 /**
- *  Y coordinate.
- *
- *  Uses NSNumber of intValue.
+ *  The long running operation metadata for the undeploy processor version
+ *  method.
  */
-@property(nonatomic, strong, nullable) NSNumber *y;
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3UndeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  A bounding polygon for the detected image annotation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly : GTLRObject
+
+/** The bounding polygon normalized vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex *> *normalizedVertices;
+
+/** The bounding polygon vertices. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1Vertex *> *vertices;
 
 @end
 
@@ -5498,6 +4754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  The state of the operation.
@@ -5528,14 +4787,1325 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  The long running operation metadata for delete processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for delete processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeleteProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the deploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the disable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DisableProcessorResponse : GTLRObject
+@end
+
+
+/**
+ *  Document represents the canonical document resource in Document
+ *  Understanding AI. It is an interchange format that provides insights into
+ *  documents and allows for collaboration between users and Document
+ *  Understanding AI to iterate and optimize for quality.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Document : GTLRObject
+
+/**
+ *  Optional. Inline document content, represented as a stream of bytes. Note:
+ *  As with all `bytes` fields, protobuffers use a pure binary representation,
+ *  whereas JSON representations use base64.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  A list of entities detected on Document.text. For document shards, entities
+ *  in this list may cross shard boundaries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity *> *entities;
+
+/** Relationship among Document.entities. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation *> *entityRelations;
+
+/** Any error that occurred while processing this document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleRpcStatus *error;
+
+/**
+ *  An IANA published MIME type (also referred to as media type). For more
+ *  information, see
+ *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Visual page layout for the Document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPage *> *pages;
+
+/** Revision history of this document. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision *> *revisions;
+
+/**
+ *  Information about the sharding if this document is sharded part of a larger
+ *  document. If the document is not sharded, this message is not specified.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo *shardInfo;
+
+/** Optional. UTF-8 encoded text in reading order from the document. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  A list of text corrections made to [Document.text]. This is usually used for
+ *  annotating corrections to OCR mistakes. Text changes for a given revision
+ *  may not overlap with each other.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange *> *textChanges;
+
+/** Styles for the Document.text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle *> *textStyles;
+
+/**
+ *  Optional. Currently supports Google Cloud Storage URI of the form
+ *  `gs://bucket_name/object_name`. Object versioning is not supported. See
+ *  [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  An entity that could be a phrase in the text or a property belongs to the
+ *  document. It is a known entity type, such as a person, an organization, or
+ *  location.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity : GTLRObject
+
+/**
+ *  Optional. Confidence of detected Schema entity. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Optional. Canonical id. This will be a unique value in the entity list for
+ *  this document.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. Deprecated. Use `id` field instead. */
+@property(nonatomic, copy, nullable) NSString *mentionId;
+
+/**
+ *  Optional. Text value in the document e.g. `1600 Amphitheatre Pkwy`. If the
+ *  entity is not present in the document, this field will be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *mentionText;
+
+/**
+ *  Optional. Normalized entity value. Absent if the extracted value could not
+ *  be converted or the type (e.g. address) is not supported for certain
+ *  parsers. This field is also only populated for certain supported document
+ *  types.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue *normalizedValue;
+
+/**
+ *  Optional. Represents the provenance of this entity wrt. the location on the
+ *  page where it was found.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchor *pageAnchor;
+
+/**
+ *  Optional. Entities can be nested to form a hierarchical data structure
+ *  representing the content in the document.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity *> *properties;
+
+/** Optional. The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+/**
+ *  Optional. Whether the entity will be redacted for de-identification
+ *  purposes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *redacted;
+
+/**
+ *  Optional. Provenance of the entity. Text anchor indexing into the
+ *  Document.text.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
+
+/** Entity type from a schema e.g. `Address`. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Parsed and normalized entity value.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityNormalizedValue : GTLRObject
+
+/**
+ *  Postal address. See also:
+ *  https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
+
+/**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+/**
+ *  DateTime value. Includes date, time, and timezone. See also:
+ *  https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDateTime *datetimeValue;
+
+/**
+ *  Date value. Includes year, month, day. See also:
+ *  https://github.com/googleapis/googleapis/blob/master/google/type/date.proto
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeDate *dateValue;
+
+/**
+ *  Float value.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+/**
+ *  Integer value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *integerValue;
+
+/**
+ *  Money value. See also:
+ *  https://github.com/googleapis/googleapis/blob/master/google/type/money.proto
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeMoney *moneyValue;
+
+/**
+ *  Optional. An optional field to store a normalized string. For some entity
+ *  types, one of respective 'structured_value' fields may also be populated.
+ *  Also not all the types of 'structured_value' will be normalized. For
+ *  example, some processors may not generate float or int normalized text by
+ *  default. Below are sample formats mapped to structured values. -
+ *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
+ *  type (`date_value`) is in the ISO 8601 text format. - Datetime type
+ *  (`datetime_value`) is in the ISO 8601 text format.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Relationship between Entities.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityRelation : GTLRObject
+
+/** Object entity id. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/** Relationship description. */
+@property(nonatomic, copy, nullable) NSString *relation;
+
+/** Subject entity id. */
+@property(nonatomic, copy, nullable) NSString *subjectId;
+
+@end
+
+
+/**
+ *  Config that controls the output of documents. All documents will be written
+ *  as a JSON file.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfig : GTLRObject
+
+/** Output config to write the results to Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig *gcsOutputConfig;
+
+@end
+
+
+/**
+ *  The configuration used when outputting documents.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentOutputConfigGcsOutputConfig : GTLRObject
+
+/** The Cloud Storage uri (a directory) of the output. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
+
+/**
+ *  A page in a Document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPage : GTLRObject
+
+/**
+ *  A list of visually detected text blocks on the page. A block has a set of
+ *  lines (collected into paragraphs) that have a common line-spacing and
+ *  orientation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageBlock *> *blocks;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Physical dimension of the page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDimension *dimension;
+
+/** A list of visually detected form fields on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField *> *formFields;
+
+/**
+ *  Rendered image for this page. This image is preprocessed to remove any skew,
+ *  rotation, and distortions such that the annotation bounding boxes can be
+ *  upright and axis-aligned.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage *image;
+
+/** Layout for the page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/**
+ *  A list of visually detected text lines on the page. A collection of tokens
+ *  that a human would perceive as a line.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine *> *lines;
+
+/**
+ *  1-based index for current Page in a parent Document. Useful when a page is
+ *  taken out of a Document for individual processing.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageNumber;
+
+/**
+ *  A list of visually detected text paragraphs on the page. A collection of
+ *  lines that a human would perceive as a paragraph.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph *> *paragraphs;
+
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+/** A list of visually detected tables on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable *> *tables;
+
+/** A list of visually detected tokens on the page. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken *> *tokens;
+
+/**
+ *  Transformation matrices that were applied to the original document image to
+ *  produce Page.image.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix *> *transforms;
+
+/**
+ *  A list of detected non-text visual elements e.g. checkbox, signature etc. on
+ *  the page.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement *> *visualElements;
+
+@end
+
+
+/**
+ *  Referencing the visual context of the entity in the Document.pages. Page
+ *  anchors can be cross-page, consist of multiple bounding polygons and
+ *  optionally reference specific layout element types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchor : GTLRObject
+
+/** One or more references to visual page elements */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef *> *pageRefs;
+
+@end
+
+
+/**
+ *  Represents a weak reference to a page element within a document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef : GTLRObject
+
+/**
+ *  Optional. Identifies the bounding polygon of a layout element on the page.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingPoly;
+
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Optional. Deprecated. Use PageRef.bounding_poly instead. */
+@property(nonatomic, copy, nullable) NSString *layoutId;
+
+/**
+ *  Optional. The type of the layout element that is being referenced if any.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Block
+ *        References a Page.blocks element. (Value: "BLOCK")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_FormField
+ *        References a Page.form_fields element. (Value: "FORM_FIELD")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_LayoutTypeUnspecified
+ *        Layout Unspecified. (Value: "LAYOUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Line
+ *        References a Page.lines element. (Value: "LINE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Paragraph
+ *        References a Page.paragraphs element. (Value: "PARAGRAPH")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Table
+ *        Refrrences a Page.tables element. (Value: "TABLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_Token
+ *        References a Page.tokens element. (Value: "TOKEN")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef_LayoutType_VisualElement
+ *        References a Page.visual_elements element. (Value: "VISUAL_ELEMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *layoutType;
+
+/**
+ *  Required. Index into the Document.pages element, for example using
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *page;
+
+@end
+
+
+/**
+ *  A block has a set of lines (collected into paragraphs) that have a common
+ *  line-spacing and orientation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageBlock : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Block. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  Detected language for a structural component.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage : GTLRObject
+
+/**
+ *  Confidence of detected language. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  Dimension for the page.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDimension : GTLRObject
+
+/**
+ *  Page height.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** Dimension unit. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  Page width.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  A form field detected on the page.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField : GTLRObject
+
+/**
+ *  Created for Labeling UI to export key text. If corrections were made to the
+ *  text identified by the `field_name.text_anchor`, this field will contain the
+ *  correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedKeyText;
+
+/**
+ *  Created for Labeling UI to export value text. If corrections were made to
+ *  the text identified by the `field_value.text_anchor`, this field will
+ *  contain the correction.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedValueText;
+
+/**
+ *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
+ *  `Phone number`, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *fieldName;
+
+/** Layout for the FormField value. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *fieldValue;
+
+/** A list of detected languages for name together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+/** A list of detected languages for value together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *valueDetectedLanguages;
+
+/**
+ *  If the value is non-textual, this field represents the type. Current valid
+ *  values are: - blank (this indicates the field_value is normal text) -
+ *  "unfilled_checkbox" - "filled_checkbox"
+ */
+@property(nonatomic, copy, nullable) NSString *valueType;
+
+@end
+
+
+/**
+ *  Rendered image contents for this page.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageImage : GTLRObject
+
+/**
+ *  Raw byte content of the image.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Height of the image in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** Encoding mime type for the image. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Width of the image in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  Visual element describing a layout unit on a page.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout : GTLRObject
+
+/** The bounding polygon for the Layout. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingPoly;
+
+/**
+ *  Confidence of the current Layout within context of the object this layout is
+ *  for. e.g. confidence can be for a single token, a table, a visual element,
+ *  etc. depending on context. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  Detected orientation for the Layout.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_OrientationUnspecified
+ *        Unspecified orientation. (Value: "ORIENTATION_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageDown
+ *        Orientation is aligned with page down. Turn the head 180 degrees from
+ *        upright to read. (Value: "PAGE_DOWN")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageLeft
+ *        Orientation is aligned with page left. Turn the head 90 degrees
+ *        counterclockwise from upright to read. (Value: "PAGE_LEFT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageRight
+ *        Orientation is aligned with page right. Turn the head 90 degrees
+ *        clockwise from upright to read. (Value: "PAGE_RIGHT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout_Orientation_PageUp
+ *        Orientation is aligned with page up. (Value: "PAGE_UP")
+ */
+@property(nonatomic, copy, nullable) NSString *orientation;
+
+/** Text anchor indexing into the Document.text. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
+
+@end
+
+
+/**
+ *  A collection of tokens that a human would perceive as a line. Does not cross
+ *  column boundaries, can be horizontal, vertical, etc.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Line. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  Representation for transformation matrix, intended to be compatible and used
+ *  with OpenCV format for image manipulation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix : GTLRObject
+
+/**
+ *  Number of columns in the matrix.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cols;
+
+/**
+ *  The matrix data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Number of rows in the matrix.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rows;
+
+/**
+ *  This encodes information about what data type the matrix uses. For example,
+ *  0 (CV_8U) is an unsigned 8-bit image. For the full list of OpenCV primitive
+ *  data types, please refer to
+ *  https://docs.opencv.org/4.3.0/d1/d1b/group__core__hal__interface.html
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *type;
+
+@end
+
+
+/**
+ *  A collection of lines that a human would perceive as a paragraph.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Paragraph. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  A table representation similar to HTML table structure.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable : GTLRObject
+
+/** Body rows of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow *> *bodyRows;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Header rows of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow *> *headerRows;
+
+/** Layout for Table. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+@end
+
+
+/**
+ *  A cell representation inside the table.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableCell : GTLRObject
+
+/**
+ *  How many columns this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colSpan;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for TableCell. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/**
+ *  How many rows this cell spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowSpan;
+
+@end
+
+
+/**
+ *  A row of table cells.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableRow : GTLRObject
+
+/** Cells that make up this row. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTableTableCell *> *cells;
+
+@end
+
+
+/**
+ *  A detected token.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken : GTLRObject
+
+/** Detected break at the end of a Token. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak *detectedBreak;
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for Token. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
+@end
+
+
+/**
+ *  Detected break at the end of a Token.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak : GTLRObject
+
+/**
+ *  Detected break type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_Hyphen
+ *        A hyphen that indicates that a token has been split across lines.
+ *        (Value: "HYPHEN")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_Space
+ *        A single whitespace. (Value: "SPACE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_TypeUnspecified
+ *        Unspecified break type. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreak_Type_WideSpace
+ *        A wider whitespace. (Value: "WIDE_SPACE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Detected non-text visual elements e.g. checkbox, signature etc. on the page.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement : GTLRObject
+
+/** A list of detected languages together with confidence. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *detectedLanguages;
+
+/** Layout for VisualElement. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *layout;
+
+/** Type of the VisualElement. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Structure to identify provenance relationships between annotations in
+ *  different revisions.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance : GTLRObject
+
+/**
+ *  The Id of this operation. Needs to be unique within the scope of the
+ *  revision.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/** References to the original elements that are replaced. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent *> *parents;
+
+/**
+ *  The index of the revision that produced this element.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revision;
+
+/**
+ *  The type of provenance operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Add
+ *        Add an element. Implicit if no `parents` are set for the provenance.
+ *        (Value: "ADD")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved
+ *        Element is reviewed and approved at human review, confidence will be
+ *        set to 1.0. (Value: "EVAL_APPROVED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested
+ *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped
+ *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified
+ *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove
+ *        The element is removed. No `parents` should be set. (Value: "REMOVE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace
+ *        Explicitly replaces the element(s) identified by `parents`. (Value:
+ *        "REPLACE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Structure for referencing parent provenances. When an element replaces one
+ *  of more other elements parent references identify the elements that are
+ *  replaced.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent : GTLRObject
+
+/**
+ *  The id of the parent provenance.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  The index of the [Document.revisions] identifying the parent revision.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revision;
+
+@end
+
+
+/**
+ *  Contains past or forward revisions of this document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision : GTLRObject
+
+/**
+ *  If the change was made by a person specify the name or id of that person.
+ */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+/** The time that the revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Human Review information of this revision. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview *humanReview;
+
+/**
+ *  Id of the revision. Unique within the context of the document.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The revisions that this revision is based on. This can include one or more
+ *  parent (when documents are merged.) This field represents the index into the
+ *  `revisions` field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+
+/**
+ *  If the annotation was made by processor identify the processor by its
+ *  resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *processor;
+
+@end
+
+
+/**
+ *  Human Review information of the document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview : GTLRObject
+
+/** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  A message providing more details about the current state of processing. For
+ *  example, the rejection reason when the state is `rejected`.
+ */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
+ *  For a large document, sharding may be performed to produce several document
+ *  shards. Each document shard contains this field to detail which shard it is.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo : GTLRObject
+
+/**
+ *  Total number of shards.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardCount;
+
+/**
+ *  The 0-based index of this shard.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shardIndex;
+
+/**
+ *  The index of the first character in Document.text in the overall document
+ *  global text.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *textOffset;
+
+@end
+
+
+/**
+ *  Annotation for common text style attributes. This adheres to CSS conventions
+ *  as much as possible.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentStyle : GTLRObject
+
+/** Text background color. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *backgroundColor;
+
+/** Text color. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleTypeColor *color;
+
+/** Font size. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize *fontSize;
+
+/**
+ *  Font weight. Possible values are normal, bold, bolder, and lighter.
+ *  https://www.w3schools.com/cssref/pr_font_weight.asp
+ */
+@property(nonatomic, copy, nullable) NSString *fontWeight;
+
+/** Text anchor indexing into the Document.text. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
+
+/**
+ *  Text decoration. Follows CSS standard.
+ *  https://www.w3schools.com/cssref/pr_text_text-decoration.asp
+ */
+@property(nonatomic, copy, nullable) NSString *textDecoration;
+
+/**
+ *  Text style. Possible values are normal, italic, and oblique.
+ *  https://www.w3schools.com/cssref/pr_font_font-style.asp
+ */
+@property(nonatomic, copy, nullable) NSString *textStyle;
+
+@end
+
+
+/**
+ *  Font size with unit.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentStyleFontSize : GTLRObject
+
+/**
+ *  Font size for the text.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+/** Unit for the font size. Follows CSS naming (in, px, pt, etc.). */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+@end
+
+
+/**
+ *  Text reference indexing into the Document.text.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor : GTLRObject
+
+/**
+ *  Contains the content of the text span so that users do not have to look it
+ *  up in the text_segments.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** The text segments from the Document.text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment *> *textSegments;
+
+@end
+
+
+/**
+ *  A text segment in the Document.text. The indices may be out of bounds which
+ *  indicate that the text extends into another document shard for large sharded
+ *  documents. See ShardInfo.text_offset
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchorTextSegment : GTLRObject
+
+/**
+ *  TextSegment half open end UTF-8 char index in the Document.text.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  TextSegment start UTF-8 char index in the Document.text.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+@end
+
+
+/**
+ *  This message is used for text changes aka. OCR corrections.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1DocumentTextChange : GTLRObject
+
+/** The text that replaces the text identified in the `text_anchor`. */
+@property(nonatomic, copy, nullable) NSString *changedText;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *> *provenance;
+
+/**
+ *  Provenance of the correction. Text anchor indexing into the Document.text.
+ *  There can only be a single `TextAnchor.text_segments` element. If the start
+ *  and end index of the text segment are the same, the text change is inserted
+ *  before that index.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
+
+@end
+
+
+/**
+ *  The long running operation metadata for enable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the enable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the enable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EnableProcessorResponse : GTLRObject
+@end
+
+
+/**
+ *  Evaluation metrics, either in aggregate or about a specific entity.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics : GTLRObject
+
+/**
+ *  The calculated f1 score.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *f1Score;
+
+/**
+ *  The amount of false negatives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falseNegativesCount;
+
+/**
+ *  The amount of false positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *falsePositivesCount;
+
+/**
+ *  The amount of occurrences in ground truth documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundTruthOccurrencesCount;
+
+/**
+ *  The calculated precision.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  The amount of occurrences in predicted documents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *predictedOccurrencesCount;
+
+/**
+ *  The calculated recall.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recall;
+
+/**
+ *  The amount of documents that had an occurrence of this label.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDocumentsCount;
+
+/**
+ *  The amount of true positives.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *truePositivesCount;
+
+@end
+
+
+/**
+ *  Gives a short summary of an evaluation, and links to the evaluation itself.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference : GTLRObject
+
+/** An aggregate of the statistics for the evaluation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics *aggregateMetrics;
+
+/** The resource name of the evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
+
+/** The resource name of the Long Running Operation for the evaluation. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+@end
+
+
+/**
+ *  Response message for fetch processor types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse : GTLRObject
+
+/** The list of processor types. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorType *> *processorTypes;
+
+@end
+
+
+/**
+ *  Specifies a document stored on Cloud Storage.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1GcsDocument : GTLRObject
+
+/** The Cloud Storage object uri. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** An IANA MIME type (RFC6838) of the content. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Specifies a set of documents on Cloud Storage.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1GcsDocuments : GTLRObject
+
+/** The list of documents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1GcsDocument *> *documents;
+
+@end
+
+
+/**
+ *  Specifies all documents on Cloud Storage with a common prefix.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1GcsPrefix : GTLRObject
+
+/** The URI prefix. */
+@property(nonatomic, copy, nullable) NSString *gcsUriPrefix;
+
+@end
+
+
+/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus : GTLRObject
 
 /**
- *  The name of the operation triggered by the processed document. Non-empty
- *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
- *  response type and metadata as the long running operation returned by
+ *  The name of the operation triggered by the processed document. This field is
+ *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
+ *  same response type and metadata as the long running operation returned by
  *  [ReviewDocument] method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
@@ -5544,26 +6114,395 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The state of human review on the processing request.
  *
  *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress
+ *        [state_message] for details. (Value: "ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
- *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped
- *        Human review is skipped for the document, it's either due to the human
- *        review is not enabled on the processor or the processing request sets
- *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed
- *        Human review validation is triggered and passed, so no review is
- *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped
+ *        Human review is skipped for the document. This can happen because
+ *        human review is not enabled on the processor or the processing request
+ *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ *        Human review state is unspecified. Most likely due to an internal
+ *        error. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "VALIDATION_PASSED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /** A message providing more details about the human review state. */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
+ *  Response message for list processors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "processors" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ListProcessorsResponse : GTLRCollectionObject
+
+/** Points to the next processor, otherwise empty. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of processors.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1Processor *> *processors;
+
+@end
+
+
+/**
+ *  Response message for list processors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "processorVersions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ListProcessorVersionsResponse : GTLRCollectionObject
+
+/** Points to the next processor, otherwise empty. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of processors.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion *> *processorVersions;
+
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1NormalizedVertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate (starts from the top of the image).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  The first-class citizen for DAI. Each processor defines how to extract
+ *  structural information from a document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Processor : GTLRObject
+
+/** The time the processor was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The default processor version. */
+@property(nonatomic, copy, nullable) NSString *defaultProcessorVersion;
+
+/** The display name of the processor. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The KMS key used for encryption/decryption in CMEK scenarios. See
+ *  https://cloud.google.com/security-key-management.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. Immutable. The resource name of the processor. Format:
+ *  projects/{project}/locations/{location}/processors/{processor}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Immutable. The http endpoint that can be called to invoke
+ *  processing.
+ */
+@property(nonatomic, copy, nullable) NSString *processEndpoint;
+
+/**
+ *  Output only. The state of the processor.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Creating The
+ *        processor is being created, will become either ENABLED (for successful
+ *        creation) or FAILED (for failed ones). Once a processor is in this
+ *        state, it can then be used for document processing, but the feature
+ *        dependencies of the processor might not be fully created yet. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Deleting The
+ *        processor is being deleted, will be removed if successful. (Value:
+ *        "DELETING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabled The
+ *        processor is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling The
+ *        processor is being disabled, will become DISABLED if successful.
+ *        (Value: "DISABLING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled The
+ *        processor is enabled, i.e, has an enabled version which can currently
+ *        serve processing requests and all the feature dependencies have been
+ *        successfully initialized. (Value: "ENABLED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling The
+ *        processor is being enabled, will become ENABLED if successful. (Value:
+ *        "ENABLING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Failed The
+ *        processor failed during creation or initialization of feature
+ *        dependencies. The user should delete the processor and recreate one as
+ *        all the functionalities of the processor are disabled. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_StateUnspecified
+ *        The processor is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The processor type, e.g., INVOICE_PARSING, W2_PARSING, etc. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A processor type is responsible for performing a certain document
+ *  understanding task on a certain type of document. All processor types are
+ *  created by the documentai service internally. User will only list all
+ *  available processor types via UI. For different users (projects), the
+ *  available processor types may be different since we'll expose the access of
+ *  some types via EAP whitelisting. We make the ProcessorType a resource under
+ *  location so we have a unified API and keep the possibility that UI will load
+ *  different available processor types from different regions. But for alpha
+ *  the behavior is that the user will always get the union of all available
+ *  processor types among all regions no matter which regionalized endpoint is
+ *  called, and then we use the 'available_locations' field to show under which
+ *  regions a processor type is available. For example, users can call either
+ *  the 'US' or 'EU' endpoint to feach processor types. In the return, we will
+ *  have an 'invoice parsing' processor with 'available_locations' field only
+ *  containing 'US'. So the user can try to create an 'invoice parsing'
+ *  processor under the location 'US'. Such attempt of creating under the
+ *  location 'EU' will fail. Next ID: 9.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorType : GTLRObject
+
+/**
+ *  Whether the processor type allows creation. If yes, user can create a
+ *  processor of this processor type. Otherwise, user needs to request access.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCreation;
+
+/** The locations in which this processor is available. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo *> *availableLocations;
+
+/** The processor category, used by UI to group processor types. */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Launch stage of the processor type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Alpha
+ *        Alpha is a limited availability test for releases before they are
+ *        cleared for widespread use. By Alpha, all significant design issues
+ *        are resolved and we are in the process of verifying functionality.
+ *        Alpha customers need to apply for access, agree to applicable terms,
+ *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        feature complete, no SLAs are provided, and there are no technical
+ *        support obligations, but they will be far enough along that customers
+ *        can actually use them in test environments or for limited-use tests --
+ *        just like they would in normal production cases. (Value: "ALPHA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta
+ *        Beta is the point at which we are ready to open a release for any
+ *        customer to use. There are no SLA or technical support obligations in
+ *        a Beta release. Products will be complete from a feature perspective,
+ *        but may have some open outstanding issues. Beta releases are suitable
+ *        for limited production use cases. (Value: "BETA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated
+ *        Deprecated features are scheduled to be shut down and removed. For
+ *        more information, see the “Deprecation Policy” section of our [Terms
+ *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
+ *        Platform Subject to the Deprecation
+ *        Policy](https://cloud.google.com/terms/deprecation) documentation.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_EarlyAccess
+ *        Early Access features are limited to a closed group of testers. To use
+ *        these features, you must sign up in advance and sign a Trusted Tester
+ *        agreement (which includes confidentiality provisions). These features
+ *        may be unstable, changed in backward-incompatible ways, and are not
+ *        guaranteed to be released. (Value: "EARLY_ACCESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Ga
+ *        GA features are open to all developers and are considered stable and
+ *        fully qualified for production use. (Value: "GA")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_LaunchStageUnspecified
+ *        Do not use this default value. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Prelaunch
+ *        Prelaunch features are hidden from users and are only visible
+ *        internally. (Value: "PRELAUNCH")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Unimplemented
+ *        The feature is not yet implemented. Users can not use it. (Value:
+ *        "UNIMPLEMENTED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
+
+/**
+ *  The resource name of the processor type. Format:
+ *  projects/{project}/processorTypes/{processor_type}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The type of the processor, e.g., "invoice_parsing". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The location information about where the processor is available.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorTypeLocationInfo : GTLRObject
+
+/** The location id, currently must be one of [us, eu]. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+@end
+
+
+/**
+ *  A processor version is an implementation of a processor. Each processor can
+ *  have multiple versions, pre-trained by Google internally or up-trained by
+ *  the customer. At a time, a processor can only have one default version
+ *  version. So the processor's behavior (when processing documents) is defined
+ *  by a default version.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion : GTLRObject
+
+/** The time the processor version was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The display name of the processor version. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The most recently invoked evaluation for the processor version. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference *latestEvaluation;
+
+/**
+ *  The resource name of the processor version. Format:
+ *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The schema of the processor version. Describes the output. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Schema *schema;
+
+/**
+ *  The state of the processor version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Creating
+ *        The processor version is being created. (Value: "CREATING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deleting
+ *        The processor version is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deployed
+ *        The processor version is deployed and can be used for processing.
+ *        (Value: "DEPLOYED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Deploying
+ *        The processor version is being deployed. (Value: "DEPLOYING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Failed
+ *        The processor version failed and is in an indeterminate state. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_StateUnspecified
+ *        The processor version is in an unspecified state. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeployed
+ *        The processor version is not deployed and cannot be used for
+ *        processing. (Value: "UNDEPLOYED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion_State_Undeploying
+ *        The processor version is being undeployed. (Value: "UNDEPLOYING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Request message for the process document method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest : GTLRObject
+
+/** An inline document proto. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;
+
+/** A raw document content (bytes). */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1RawDocument *rawDocument;
+
+/**
+ *  Whether Human Review feature should be skipped for this request. Default to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
+
+@end
+
+
+/**
+ *  Response message for the process document method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse : GTLRObject
+
+/**
+ *  The document payload, will populate fields based on the processor's
+ *  behavior.
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *document;
+
+/** The status of human review on the processed document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus *humanReviewStatus;
+
+@end
+
+
+/**
+ *  Payload message of raw document content (bytes).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1RawDocument : GTLRObject
+
+/**
+ *  Inline document content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  An IANA MIME type (RFC6838) indicating the nature and format of the
+ *  [content].
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -5580,12 +6519,241 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  Request message for review document method. Next Id: 6.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest : GTLRObject
+
+/**
+ *  Whether the validation should be performed on the ad-hoc review request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSchemaValidation;
+
+/** An inline document proto. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;
+
+/**
+ *  The priority of the human review task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default
+ *        The default priority level. (Value: "DEFAULT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent
+ *        The urgent priority level. The labeling manager should allocate
+ *        labeler resource to the urgent task queue to respect this priority
+ *        level. (Value: "URGENT")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+@end
+
+
+/**
  *  Response message for review document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentResponse : GTLRObject
 
 /** The Cloud Storage uri for the human reviewed document. */
 @property(nonatomic, copy, nullable) NSString *gcsDestination;
+
+@end
+
+
+/**
+ *  The schema defines the output of the processed document by a processor.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Schema : GTLRObject
+
+/**
+ *  Description of the schema.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name to show to users. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Entity types of the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType *> *entityTypes;
+
+@end
+
+
+/**
+ *  EntityType is the wrapper of a label of the corresponding model with
+ *  detailed attributes and limitations for entity-based processors. Multiple
+ *  types can also compose a dependency tree to represent nested types.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType : GTLRObject
+
+/**
+ *  Type of the entity. It must be one of the following: `document` - the entity
+ *  represents a classification of a logical document. `object` - if the entity
+ *  has properties it is likely an object (or or a document.) `datetime` - the
+ *  entity is a date or time value. `money` - the entity represents a money
+ *  value amount. `number` - the entity is a number - integer or floating point.
+ *  `string` - the entity is a string value. `boolean` - the entity is a boolean
+ *  value. `address` - the entity is a location address. `duration` - the entity
+ *  is a duration.
+ */
+@property(nonatomic, copy, nullable) NSString *baseType;
+
+/**
+ *  Description of the entity type.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** If specified, lists all the possible values for this entity. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enumValues;
+
+/**
+ *  Occurrence type limits the number of times an entity type appears in the
+ *  document.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified
+ *        Unspecified occurrence type. (Value: "OCCURRENCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalMultiple
+ *        The entity type will appear zero or multiple times. (Value:
+ *        "OPTIONAL_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_OptionalOnce
+ *        The entity type will appear zero times or once. (Value:
+ *        "OPTIONAL_ONCE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredMultiple
+ *        The entity type will appear once or more times. (Value:
+ *        "REQUIRED_MULTIPLE")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_OccurrenceType_RequiredOnce
+ *        The entity type will only appear exactly once. (Value:
+ *        "REQUIRED_ONCE")
+ */
+@property(nonatomic, copy, nullable) NSString *occurrenceType;
+
+/**
+ *  Describing the nested structure of an entity. An EntityType may consist of
+ *  several other EntityTypes. For example, in a document there can be an
+ *  EntityType 'ID', which consists of EntityType 'name' and 'address', with
+ *  corresponding attributes, such as TEXT for both types and ONCE for
+ *  occurrence types.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType *> *properties;
+
+/**
+ *  Source of this entity type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_Predefined
+ *        The entity type is in the predefined schema of a pretrained version of
+ *        a processor. (Value: "PREDEFINED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_SourceUnspecified
+ *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1SchemaEntityType_Source_UserInput
+ *        The entity type is added by the users either: - during an uptraining
+ *        of an existing processor, or - during the process of creating a
+ *        customized processor. (Value: "USER_INPUT")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Name of the type. It must satisfy the following constraints: 1. Must be
+ *  unique within the set of same level types (with case-insensitive match). 2.
+ *  Maximum 50 characters. 3. Must start with a letter. 4. Allowed characters:
+ *  ASCII letters [a-zA-Z], ASCII digits [0-9], or one of the following
+ *  punctuation characters: * underscore '_' (recommended) * hyphen '-'
+ *  (allowed, not recommended) * colon ':' (allowed, not recommended) NOTE:
+ *  Whitespace characters are not allowed. 5. Cannot end with a punctuation
+ *  character. 6. Cannot contain the following restricted strings: "google",
+ *  "DocumentAI" (case-insensitive match). 7. A slash character '/' is reserved
+ *  as a separator in flattened representations of nested entity types (e.g.,
+ *  "line_item/amount") in which case each part (e.g., "line_item", "amount")
+ *  must comply with the rules defined above. We recommend using the snake case
+ *  ("snake_case") in entity type names.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The long running operation metadata for set default processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionRequest : GTLRObject
+
+/**
+ *  Required. The resource name of child ProcessorVersion to use as default.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultProcessorVersion;
+
+@end
+
+
+/**
+ *  Response message for set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for the undeploy processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Request message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the undeploy processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1UndeployProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1Vertex : GTLRObject
+
+/**
+ *  X coordinate.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Y coordinate (starts from the top of the image).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
 
 @end
 
@@ -5672,6 +6840,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDocument_GoogleCloudLocationLocation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDocument_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleLongrunningOperation *> *operations;
+
 @end
 
 
@@ -5814,65 +7006,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 /**
  *  Represents a color in the RGBA color space. This representation is designed
  *  for simplicity of conversion to/from color representations in various
- *  languages over compactness; for example, the fields of this representation
- *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
- *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
+ *  languages over compactness. For example, the fields of this representation
+ *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
+ *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
- *  carry information about the absolute color space that should be used to
- *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
- *  default, applications SHOULD assume the sRGB color space. Note: when color
- *  equality needs to be decided, implementations, unless documented otherwise,
- *  will treat two colors to be equal if all their red, green, blue and alpha
- *  values each differ by at most 1e-5. Example (Java): import
- *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
- *  protocolor) { float alpha = protocolor.hasAlpha() ?
- *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
- *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
- *  public static Color toProto(java.awt.Color color) { float red = (float)
- *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
- *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
- *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
- *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
- *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
- *  .setValue(((float) alpha) / denominator) .build()); } return
- *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
- *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
- *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
- *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
- *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
- *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
- *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
- *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
- *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
- *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
- *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
- *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
- *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
- *  || 0.0; var red = Math.floor(redFrac * 255); var green =
- *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
- *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
- *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
- *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
- *  Number((red << 16) | (green << 8) | blue); var hexString =
- *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
- *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
- *  resultBuilder.join(''); }; // ...
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  information about the absolute color space that should be used to interpret
+ *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  applications should assume the sRGB color space. When color equality needs
+ *  to be decided, implementations, unless documented otherwise, treat two
+ *  colors as equal if all their red, green, blue, and alpha values each differ
+ *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
+ *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
+ *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
+ *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
+ *  color) { float red = (float) color.getRed(); float green = (float)
+ *  color.getGreen(); float blue = (float) color.getBlue(); float denominator =
+ *  255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red /
+ *  denominator) .setGreen(green / denominator) .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha(
+ *  FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build());
+ *  } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ...
+ *  static UIColor* fromProto(Color* protocolor) { float red = [protocolor red];
+ *  float green = [protocolor green]; float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if
+ *  (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor
+ *  colorWithRed:red green:green blue:blue alpha:alpha]; } static Color*
+ *  toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color
+ *  getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color*
+ *  result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green];
+ *  [result setBlue:blue]; if (alpha <= 0.9999) { [result
+ *  setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return
+ *  result; } // ... Example (JavaScript): // ... var protoToCssColor =
+ *  function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac =
+ *  rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red =
+ *  Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue
+ *  = Math.floor(blueFrac * 255); if (!('alpha' in rgb_color)) { return
+ *  rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value ||
+ *  0.0; var rgbParams = [red, green, blue].join(','); return ['rgba(',
+ *  rgbParams, ',', alphaFrac, ')'].join(''); }; var rgbToCssColor =
+ *  function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green
+ *  << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6
+ *  - hexString.length; var resultBuilder = ['#']; for (var i = 0; i <
+ *  missingZeros; i++) { resultBuilder.push('0'); }
+ *  resultBuilder.push(hexString); return resultBuilder.join(''); }; // ...
  */
 @interface GTLRDocument_GoogleTypeColor : GTLRObject
 
 /**
  *  The fraction of this color that should be applied to the pixel. That is, the
- *  final pixel color is defined by the equation: pixel color = alpha * (this
- *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  final pixel color is defined by the equation: `pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color)` This means that a value of 1.0
  *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
  *  completely transparent color. This uses a wrapper message rather than a
  *  simple float scalar so that it is possible to distinguish between a default
- *  value and the value being unset. If omitted, this color object is to be
- *  rendered as a solid color (as if the alpha value had been explicitly given
- *  with a value of 1.0).
+ *  value and the value being unset. If omitted, this color object is rendered
+ *  as a solid color (as if the alpha value had been explicitly given a value of
+ *  1.0).
  *
  *  Uses NSNumber of floatValue.
  */

@@ -21,7 +21,13 @@ NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified = @"CONTENT_TY
 NSString * const kGTLRCloudAssetContentTypeIamPolicy           = @"IAM_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOrgPolicy           = @"ORG_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOsInventory         = @"OS_INVENTORY";
+NSString * const kGTLRCloudAssetContentTypeRelationship        = @"RELATIONSHIP";
 NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
+
+// view
+NSString * const kGTLRCloudAssetViewAnalysisViewUnspecified = @"ANALYSIS_VIEW_UNSPECIFIED";
+NSString * const kGTLRCloudAssetViewBasic                   = @"BASIC";
+NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -30,6 +36,34 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 @implementation GTLRCloudAssetQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRCloudAssetQuery_AssetsList
+
+@dynamic assetTypes, contentType, pageSize, pageToken, parent, readTime,
+         relationshipTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetTypes" : [NSString class],
+    @"relationshipTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assets";
+  GTLRCloudAssetQuery_AssetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_ListAssetsResponse class];
+  query.loggingName = @"cloudasset.assets.list";
+  return query;
+}
 
 @end
 
@@ -167,6 +201,7 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @dynamic analysisQueryAccessSelectorPermissions,
          analysisQueryAccessSelectorRoles,
+         analysisQueryConditionContextAccessTime,
          analysisQueryIdentitySelectorIdentity,
          analysisQueryOptionsAnalyzeServiceAccountImpersonation,
          analysisQueryOptionsExpandGroups, analysisQueryOptionsExpandResources,
@@ -178,6 +213,7 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
   NSDictionary<NSString *, NSString *> *map = @{
     @"analysisQueryAccessSelectorPermissions" : @"analysisQuery.accessSelector.permissions",
     @"analysisQueryAccessSelectorRoles" : @"analysisQuery.accessSelector.roles",
+    @"analysisQueryConditionContextAccessTime" : @"analysisQuery.conditionContext.accessTime",
     @"analysisQueryIdentitySelectorIdentity" : @"analysisQuery.identitySelector.identity",
     @"analysisQueryOptionsAnalyzeServiceAccountImpersonation" : @"analysisQuery.options.analyzeServiceAccountImpersonation",
     @"analysisQueryOptionsExpandGroups" : @"analysisQuery.options.expandGroups",
@@ -240,10 +276,29 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
+@implementation GTLRCloudAssetQuery_V1AnalyzeMove
+
+@dynamic destinationParent, resource, view;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:analyzeMove";
+  GTLRCloudAssetQuery_V1AnalyzeMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeMoveResponse class];
+  query.loggingName = @"cloudasset.analyzeMove";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_V1BatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,
-         readTimeWindowStartTime;
+         readTimeWindowStartTime, relationshipTypes;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -255,7 +310,8 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"assetNames" : [NSString class]
+    @"assetNames" : [NSString class],
+    @"relationshipTypes" : [NSString class]
   };
   return map;
 }
@@ -304,7 +360,14 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @implementation GTLRCloudAssetQuery_V1SearchAllIamPolicies
 
-@dynamic pageSize, pageToken, query, scope;
+@dynamic assetTypes, orderBy, pageSize, pageToken, query, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithScope:(NSString *)scope {
   NSArray *pathParams = @[ @"scope" ];
@@ -323,7 +386,7 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @implementation GTLRCloudAssetQuery_V1SearchAllResources
 
-@dynamic assetTypes, orderBy, pageSize, pageToken, query, scope;
+@dynamic assetTypes, orderBy, pageSize, pageToken, query, readMask, scope;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

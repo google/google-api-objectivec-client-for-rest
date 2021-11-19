@@ -4,10 +4,9 @@
 // API:
 //   Notebooks API (notebooks/v1)
 // Description:
-//   AI Platform Notebooks API is used to manage notebook resources in Google
-//   Cloud.
+//   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:
-//   https://cloud.google.com/ai-platform/notebooks/docs/
+//   https://cloud.google.com/notebooks/docs/
 
 #import "GTLRAIPlatformNotebooks.h"
 

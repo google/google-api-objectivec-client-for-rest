@@ -24,22 +24,30 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BatchDeleteTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BatchRunTestCasesRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillIntentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Page;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TestCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TrainFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup;
@@ -96,11 +104,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeCoverageTypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeIntent;
 /**
- *  Page transition coverage
+ *  Page transition coverage.
  *
  *  Value: "PAGE_TRANSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypePageTransition;
+/**
+ *  Transition route group coverage.
+ *
+ *  Value: "TRANSITION_ROUTE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeTransitionRouteGroup;
 
 // ----------------------------------------------------------------------------
 // view
@@ -140,7 +154,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an agent in the specified location.
+ *  Retrieves the specified Changelog.
+ *
+ *  Method: dialogflow.projects.locations.agents.changelogs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the changelog to get. Format:
+ *  `projects//locations//agents//changelogs/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog.
+ *
+ *  Retrieves the specified Changelog.
+ *
+ *  @param name Required. The name of the changelog to get. Format:
+ *    `projects//locations//agents//changelogs/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of Changelogs.
+ *
+ *  Method: dialogflow.projects.locations.agents.changelogs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList : GTLRDialogflowQuery
+
+/**
+ *  The filter string. Supports filter by user_email, resource, type and
+ *  create_time. Some examples: 1. By user email: user_email =
+ *  "someone\@google.com" 2. By resource name: resource =
+ *  "projects/123/locations/global/agents/456/flows/789" 3. By resource display
+ *  name: display_name = "my agent" 4. By action: action = "Create" 5. By type:
+ *  type = "flows" 6. By create time. Currently predicates on `create_time` and
+ *  `create_time_epoch_seconds` are supported: create_time_epoch_seconds >
+ *  1551790877 AND create_time <= 2017-01-15T01:30:15.01Z 7. Combination of
+ *  above filters: resource =
+ *  "projects/123/locations/global/agents/456/flows/789" AND user_email =
+ *  "someone\@google.com" AND create_time <= 2017-01-15T01:30:15.01Z
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The agent containing the changelogs. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3ListChangelogsResponse.
+ *
+ *  Returns the list of Changelogs.
+ *
+ *  @param parent Required. The agent containing the changelogs. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an agent in the specified location. Note: You should always train
+ *  flows prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.create
  *
@@ -149,8 +255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsCreateWithObject:parent:]
 
 /**
  *  Required. The location to create a agent for. Format:
@@ -161,7 +265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent.
  *
- *  Creates an agent in the specified location.
+ *  Creates an agent in the specified location. Note: You should always train
+ *  flows prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent to
  *    include in the query.
@@ -185,8 +291,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsDeleteWithname:]
 
 /**
  *  Required. The name of the agent to delete. Format:
@@ -209,7 +313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an entity type in the specified agent.
+ *  Creates an entity type in the specified agent. Note: You should always train
+ *  a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.create
  *
@@ -218,17 +324,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `entity_type`: *
  *  `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -241,7 +345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.
  *
- *  Creates an entity type in the specified agent.
+ *  Creates an entity type in the specified agent. Note: You should always train
+ *  a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType to
  *    include in the query.
@@ -256,7 +362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified entity type.
+ *  Deletes the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.delete
  *
@@ -265,8 +373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesDeleteWithname:]
 
 /**
  *  This field has no effect for entity type not being used. For entity types
@@ -288,7 +394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified entity type.
+ *  Deletes the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects//locations//agents//entityTypes/`.
@@ -309,17 +417,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesGetWithname:]
 
 /**
  *  The language to retrieve the entity type for. The following fields are
  *  language dependent: * `EntityType.entities.value` *
  *  `EntityType.entities.synonyms` * `EntityType.excluded_phrases.value` If not
  *  specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -353,17 +459,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesListWithparent:]
 
 /**
  *  The language to list entity types for. The following fields are language
  *  dependent: * `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -402,7 +506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified entity type.
+ *  Updates the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.patch
  *
@@ -411,17 +517,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `entity_type`: *
  *  `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -442,7 +546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.
  *
- *  Updates the specified entity type.
+ *  Updates the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType to
  *    include in the query.
@@ -458,7 +564,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an Environment in the specified Agent.
+ *  Fetches a list of continuous test results for a given environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.continuousTestResults.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The environment to list results for. Format:
+ *  `projects//locations//agents// environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse.
+ *
+ *  Fetches a list of continuous test results for a given environment.
+ *
+ *  @param parent Required. The environment to list results for. Format:
+ *    `projects//locations//agents// environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an Environment in the specified Agent. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  Method: dialogflow.projects.locations.agents.environments.create
  *
@@ -467,8 +624,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  Required. The Agent to create an Environment for. Format:
@@ -479,7 +634,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Creates an Environment in the specified Agent.
+ *  Creates an Environment in the specified Agent. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Environment to
  *    include in the query.
@@ -503,8 +664,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsDeleteWithname:]
 
 /**
  *  Required. The name of the Environment to delete. Format:
@@ -527,6 +686,379 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Deploys a flow to the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: DeployFlowMetadata - `response`: DeployFlowResponse
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployFlow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow : GTLRDialogflowQuery
+
+/**
+ *  Required. The environment to deploy the flow to. Format:
+ *  `projects//locations//agents// environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Deploys a flow to the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: DeployFlowMetadata - `response`: DeployFlowResponse
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest to include in
+ *    the query.
+ *  @param environment Required. The environment to deploy the flow to. Format:
+ *    `projects//locations//agents// environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
+ *  Retrieves the specified Deployment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the Deployment. Format:
+ *  `projects//locations//agents//environments//deployments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment.
+ *
+ *  Retrieves the specified Deployment.
+ *
+ *  @param name Required. The name of the Deployment. Format:
+ *    `projects//locations//agents//environments//deployments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all deployments in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 20 and at
+ *  most 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Environment to list all environments for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListDeploymentsResponse.
+ *
+ *  Returns the list of all deployments in the specified Environment.
+ *
+ *  @param parent Required. The Environment to list all environments for.
+ *    Format: `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an Experiment in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate : GTLRDialogflowQuery
+
+/**
+ *  Required. The Agent to create an Environment for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Creates an Experiment in the specified Environment.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment to
+ *    include in the query.
+ *  @param parent Required. The Agent to create an Environment for. Format:
+ *    `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the Environment to delete. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified Experiment.
+ *
+ *  @param name Required. The name of the Environment to delete. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the Environment. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Retrieves the specified Experiment.
+ *
+ *  @param name Required. The name of the Environment. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all experiments in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 20 and at
+ *  most 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Environment to list all environments for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse.
+ *
+ *  Returns the list of all experiments in the specified Environment.
+ *
+ *  @param parent Required. The Environment to list all environments for.
+ *    Format: `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch : GTLRDialogflowQuery
+
+/**
+ *  The name of the experiment. Format:
+ *  projects//locations//agents//environments//experiments/..
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Updates the specified Experiment.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment to
+ *    include in the query.
+ *  @param name The name of the experiment. Format:
+ *    projects//locations//agents//environments//experiments/..
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts the specified Experiment. This rpc only changes the state of
+ *  experiment from PENDING to RUNNING.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart : GTLRDialogflowQuery
+
+/**
+ *  Required. Resource name of the experiment to start. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Starts the specified Experiment. This rpc only changes the state of
+ *  experiment from PENDING to RUNNING.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the experiment to start. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops the specified Experiment. This rpc only changes the state of
+ *  experiment from RUNNING to DONE.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop : GTLRDialogflowQuery
+
+/**
+ *  Required. Resource name of the experiment to stop. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Stops the specified Experiment. This rpc only changes the state of
+ *  experiment from RUNNING to DONE.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the experiment to stop. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the specified Environment.
  *
  *  Method: dialogflow.projects.locations.agents.environments.get
@@ -536,8 +1068,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsGetWithname:]
 
 /**
  *  Required. The name of the Environment. Format:
@@ -569,8 +1099,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -616,8 +1144,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsLookupEnvironmentHistory : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsLookupEnvironmentHistoryWithname:]
 
 /**
  *  Required. Resource name of the environment to look up the history for.
@@ -654,7 +1180,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified Environment.
+ *  Updates the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  Method: dialogflow.projects.locations.agents.environments.patch
  *
@@ -663,8 +1194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsPatchWithObject:name:]
 
 /**
  *  The name of the environment. Format:
@@ -682,7 +1211,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Updates the specified Environment.
+ *  Updates the specified Environment. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: Environment
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Environment to
  *    include in the query.
@@ -693,6 +1227,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Environment *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Kicks off a continuous test under the specified Environment. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunContinuousTestMetadata - `response`:
+ *  RunContinuousTestResponse
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.runContinuousTest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest : GTLRDialogflowQuery
+
+/** Required. Format: `projects//locations//agents//environments/`. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Kicks off a continuous test under the specified Environment. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunContinuousTestMetadata - `response`:
+ *  RunContinuousTestResponse
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest to
+ *    include in the query.
+ *  @param environment Required. Format:
+ *    `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest *)object
+                    environment:(NSString *)environment;
 
 @end
 
@@ -711,8 +1287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsDetectIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsDetectIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -762,8 +1336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  Method: dialogflow.projects.locations.agents.environments.sessions.entityTypes.create
  *
@@ -772,8 +1345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesCreateWithObject:parent:]
 
 /**
  *  Required. The session to create a session entity type for. Format:
@@ -786,8 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.
  *
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType to include in
@@ -814,8 +1384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesDeleteWithname:]
 
 /**
  *  Required. The name of the session entity type to delete. Format:
@@ -851,8 +1419,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesGetWithname:]
 
 /**
  *  Required. The name of the session entity type. Format:
@@ -888,8 +1454,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -939,8 +1503,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesPatchWithObject:name:]
 
 /**
  *  Required. The unique identifier of the session entity type. Format:
@@ -989,8 +1551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsFulfillIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsFulfillIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -1042,8 +1602,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsMatchIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsMatchIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -1084,7 +1642,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Exports the specified agent to a binary file.
+ *  Exports the specified agent to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportAgentResponse
  *
  *  Method: dialogflow.projects.locations.agents.export
  *
@@ -1093,8 +1656,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsExport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsExportWithObject:name:]
 
 /**
  *  Required. The name of the agent to export. Format:
@@ -1105,7 +1666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Exports the specified agent to a binary file.
+ *  Exports the specified agent to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportAgentResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest to include in
@@ -1121,7 +1687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a flow in the specified agent.
+ *  Creates a flow in the specified agent. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.create
  *
@@ -1130,17 +1698,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `flow`: *
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1153,7 +1721,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow.
  *
- *  Creates a flow in the specified agent.
+ *  Creates a flow in the specified agent. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow to include
  *    in the query.
@@ -1177,8 +1747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsDeleteWithname:]
 
 /**
  *  This field has no effect for flows with no incoming transitions. For flows
@@ -1211,6 +1779,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Exports the specified flow to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportFlowResponse Note that resources (e.g. intents,
+ *  entities, webhooks) that the flow references will also be exported.
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the flow to export. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Exports the specified flow to a binary file. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ExportFlowResponse Note that resources (e.g. intents,
+ *  entities, webhooks) that the flow references will also be exported.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest to include in
+ *    the query.
+ *  @param name Required. The name of the flow to export. Format:
+ *    `projects//locations//agents//flows/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the specified flow.
  *
  *  Method: dialogflow.projects.locations.agents.flows.get
@@ -1220,17 +1835,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsGetWithname:]
 
 /**
  *  The language to retrieve the flow for. The following fields are language
  *  dependent: * `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1265,8 +1880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsGetValidationResult : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsGetValidationResultWithname:]
 
 /** If not specified, the agent's default language is used. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -1293,6 +1906,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Imports the specified flow to the specified agent from a binary file. This
+ *  method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ImportFlowResponse Note: You should always train a flow prior
+ *  to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to import the flow into. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Imports the specified flow to the specified agent from a binary file. This
+ *  method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: ImportFlowResponse Note: You should always train a flow prior
+ *  to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest to include in
+ *    the query.
+ *  @param parent Required. The agent to import the flow into. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns the list of all flows in the specified agent.
  *
  *  Method: dialogflow.projects.locations.agents.flows.list
@@ -1302,17 +1966,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsListWithparent:]
 
 /**
  *  The language to list flows for. The following fields are language dependent:
  *  * `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1350,7 +2014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a page in the specified flow.
+ *  Creates a page in the specified flow. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.create
  *
@@ -1359,20 +2025,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `page`: *
  *  `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1385,7 +2054,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page.
  *
- *  Creates a page in the specified flow.
+ *  Creates a page in the specified flow. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page to include
  *    in the query.
@@ -1400,7 +2071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified page.
+ *  Deletes the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.delete
  *
@@ -1409,8 +2082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesDeleteWithname:]
 
 /**
  *  This field has no effect for pages with no incoming transitions. For pages
@@ -1431,7 +2102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified page.
+ *  Deletes the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the page to delete. Format:
  *    `projects//locations//agents//Flows//pages/`.
@@ -1452,20 +2125,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesGetWithname:]
 
 /**
  *  The language to retrieve the page for. The following fields are language
  *  dependent: * `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1499,20 +2175,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesListWithparent:]
 
 /**
  *  The language to list pages for. The following fields are language dependent:
  *  * `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1550,7 +2229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified page.
+ *  Updates the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.patch
  *
@@ -1559,20 +2240,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `page`: *
  *  `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1594,7 +2278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page.
  *
- *  Updates the specified page.
+ *  Updates the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page to include
  *    in the query.
@@ -1610,7 +2296,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified flow.
+ *  Updates the specified flow. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.patch
  *
@@ -1619,17 +2307,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `flow`: *
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1640,8 +2328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The mask to control which fields get updated. If `update_mask` is
- *  not specified, an error will be returned.
+ *  The mask to control which fields get updated. If the mask is not present,
+ *  all fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1650,7 +2338,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow.
  *
- *  Updates the specified flow.
+ *  Updates the specified flow. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow to include
  *    in the query.
@@ -1666,7 +2356,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained.
+ *  trained. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train a flow prior to sending it queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.train
  *
@@ -1675,8 +2374,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTrain : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTrainWithObject:name:]
 
 /**
  *  Required. The flow to train. Format: `projects//locations//agents//flows/`.
@@ -1687,7 +2384,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained.
+ *  trained. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train a flow prior to sending it queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TrainFlowRequest to include in the
@@ -1703,7 +2409,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an TransitionRouteGroup in the specified flow.
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.create
  *
@@ -1712,16 +2420,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsCreateWithObject:parent:]
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1734,7 +2441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
  *
- *  Creates an TransitionRouteGroup in the specified flow.
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
@@ -1750,7 +2459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified TransitionRouteGroup.
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.delete
  *
@@ -1759,8 +2470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsDeleteWithname:]
 
 /**
  *  This field has no effect for transition route group that no page is using.
@@ -1781,7 +2490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified TransitionRouteGroup.
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the TransitionRouteGroup to delete.
  *    Format: `projects//locations//agents//flows//transitionRouteGroups/`.
@@ -1802,16 +2513,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsGetWithname:]
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  The language to retrieve the transition route group for. The following
+ *  fields are language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1845,16 +2556,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsListWithparent:]
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  The language to list transition route groups for. The following fields are
+ *  language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1893,7 +2604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified TransitionRouteGroup.
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.patch
  *
@@ -1902,16 +2615,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsPatchWithObject:name:]
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1933,7 +2645,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
  *
- *  Updates the specified TransitionRouteGroup.
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
@@ -1962,8 +2676,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsValidate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsValidateWithObject:name:]
 
 /**
  *  Required. The flow to validate. Format:
@@ -1992,7 +2704,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a Version in the specified Flow.
+ *  Compares the specified base version with target version.
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.versions.compareVersions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions : GTLRDialogflowQuery
+
+/**
+ *  Required. Name of the base flow version to compare with the target version.
+ *  Use version ID `0` to indicate the draft version of the specified flow.
+ *  Format: `projects//locations//agents/ /flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *baseVersion;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsResponse.
+ *
+ *  Compares the specified base version with target version.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest to include
+ *    in the query.
+ *  @param baseVersion Required. Name of the base flow version to compare with
+ *    the target version. Use version ID `0` to indicate the draft version of
+ *    the specified flow. Format: `projects//locations//agents/
+ *    /flows//versions/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest *)object
+                    baseVersion:(NSString *)baseVersion;
+
+@end
+
+/**
+ *  Creates a Version in the specified Flow. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: CreateVersionOperationMetadata - `response`: Version
  *
  *  Method: dialogflow.projects.locations.agents.flows.versions.create
  *
@@ -2001,8 +2755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsCreateWithObject:parent:]
 
 /**
  *  Required. The Flow to create an Version for. Format:
@@ -2013,7 +2765,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Creates a Version in the specified Flow.
+ *  Creates a Version in the specified Flow. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: CreateVersionOperationMetadata - `response`: Version
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Version to
  *    include in the query.
@@ -2037,8 +2792,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsDeleteWithname:]
 
 /**
  *  Required. The name of the Version to delete. Format:
@@ -2070,8 +2823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsGetWithname:]
 
 /**
  *  Required. The name of the Version. Format:
@@ -2103,8 +2854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -2140,7 +2889,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Loads a specified version to draft version.
+ *  Loads resources in the specified version to the draft flow. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
  *
  *  Method: dialogflow.projects.locations.agents.flows.versions.load
  *
@@ -2149,11 +2905,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsLoad : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsLoadWithObject:name:]
 
 /**
- *  Required. The Version to be loaded to draft version. Format:
+ *  Required. The Version to be loaded to draft flow. Format:
  *  `projects//locations//agents//flows//versions/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2161,12 +2915,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Loads a specified version to draft version.
+ *  Loads resources in the specified version to the draft flow. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest to include in
  *    the query.
- *  @param name Required. The Version to be loaded to draft version. Format:
+ *  @param name Required. The Version to be loaded to draft flow. Format:
  *    `projects//locations//agents//flows//versions/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsLoad
@@ -2186,8 +2947,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsPatchWithObject:name:]
 
 /**
  *  Format: projects//locations//agents//flows//versions/. Version ID is a
@@ -2231,8 +2990,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsGetWithname:]
 
 /**
  *  Required. The name of the agent. Format: `projects//locations//agents/`.
@@ -2264,8 +3021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsGetValidationResult : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsGetValidationResultWithname:]
 
 /** If not specified, the agent's default language is used. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -2292,7 +3047,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an intent in the specified agent.
+ *  Creates an intent in the specified agent. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.create
  *
@@ -2301,16 +3058,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `intent`: *
  *  `Intent.training_phrases.parts.text` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2323,7 +3078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent.
  *
- *  Creates an intent in the specified agent.
+ *  Creates an intent in the specified agent. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent to
  *    include in the query.
@@ -2338,7 +3095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified intent.
+ *  Deletes the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.delete
  *
@@ -2347,8 +3106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsDeleteWithname:]
 
 /**
  *  Required. The name of the intent to delete. Format:
@@ -2359,7 +3116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified intent.
+ *  Deletes the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the intent to delete. Format:
  *    `projects//locations//agents//intents/`.
@@ -2380,16 +3139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsGetWithname:]
 
 /**
  *  The language to retrieve the intent for. The following fields are language
  *  dependent: * `Intent.training_phrases.parts.text` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2423,8 +3180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsListWithparent:]
 
 /**
  *  The resource view to apply to the returned intent.
@@ -2443,9 +3198,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list intents for. The following fields are language
  *  dependent: * `Intent.training_phrases.parts.text` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2483,7 +3238,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified intent.
+ *  Updates the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.patch
  *
@@ -2492,16 +3249,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `intent`: *
  *  `Intent.training_phrases.parts.text` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2523,7 +3278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent.
  *
- *  Updates the specified intent.
+ *  Updates the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent to
  *    include in the query.
@@ -2548,8 +3305,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -2585,7 +3340,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified agent.
+ *  Updates the specified agent. Note: You should always train flows prior to
+ *  sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.patch
  *
@@ -2594,8 +3351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsPatchWithObject:name:]
 
 /**
  *  The unique identifier of the agent. Required for the Agents.UpdateAgent
@@ -2615,7 +3370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent.
  *
- *  Updates the specified agent.
+ *  Updates the specified agent. Note: You should always train flows prior to
+ *  sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent to
  *    include in the query.
@@ -2633,7 +3390,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed.
+ *  entity types, flows) will be removed. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train flows prior to sending them queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.restore
  *
@@ -2642,8 +3408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsRestore : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsRestoreWithObject:name:]
 
 /**
  *  Required. The name of the agent to restore into. Format:
@@ -2656,7 +3420,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed.
+ *  entity types, flows) will be removed. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: An empty [Struct
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#struct)
+ *  - `response`: An [Empty
+ *  message](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty)
+ *  Note: You should always train flows prior to sending them queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest to include in
@@ -2686,8 +3459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsDetectIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsDetectIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -2737,8 +3508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  Method: dialogflow.projects.locations.agents.sessions.entityTypes.create
  *
@@ -2747,8 +3517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesCreateWithObject:parent:]
 
 /**
  *  Required. The session to create a session entity type for. Format:
@@ -2761,8 +3529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.
  *
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType to include in
@@ -2789,8 +3556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesDeleteWithname:]
 
 /**
  *  Required. The name of the session entity type to delete. Format:
@@ -2826,8 +3591,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesGetWithname:]
 
 /**
  *  Required. The name of the session entity type. Format:
@@ -2863,8 +3626,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -2914,8 +3675,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesPatchWithObject:name:]
 
 /**
  *  Required. The unique identifier of the session entity type. Format:
@@ -2964,8 +3723,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsFulfillIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsFulfillIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -3017,8 +3774,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsMatchIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsMatchIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -3068,8 +3823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The agent to delete test cases from. Format:
@@ -3096,7 +3849,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Kicks off a batch run of test cases.
+ *  Kicks off a batch run of test cases. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: BatchRunTestCasesMetadata - `response`:
+ *  BatchRunTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.batchRun
  *
@@ -3105,8 +3862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchRun : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesBatchRunWithObject:parent:]
 
 /** Required. Agent name. Format: `projects//locations//agents/ `. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3114,7 +3869,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Kicks off a batch run of test cases.
+ *  Kicks off a batch run of test cases. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: BatchRunTestCasesMetadata - `response`:
+ *  BatchRunTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3BatchRunTestCasesRequest to
@@ -3138,8 +3897,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesCalculateCoverage : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesCalculateCoverageWithagent:]
 
 /**
  *  Required. The agent to calculate coverage for. Format:
@@ -3154,8 +3911,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @arg @c kGTLRDialogflowTypeCoverageTypeUnspecified Should never be used.
  *        (Value: "COVERAGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflowTypeIntent Intent coverage. (Value: "INTENT")
- *    @arg @c kGTLRDialogflowTypePageTransition Page transition coverage (Value:
- *        "PAGE_TRANSITION")
+ *    @arg @c kGTLRDialogflowTypePageTransition Page transition coverage.
+ *        (Value: "PAGE_TRANSITION")
+ *    @arg @c kGTLRDialogflowTypeTransitionRouteGroup Transition route group
+ *        coverage. (Value: "TRANSITION_ROUTE_GROUP")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3184,8 +3943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesCreateWithObject:parent:]
 
 /**
  *  Required. The agent to create the test case for. Format:
@@ -3212,7 +3969,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Exports the test cases under the agent to a Cloud Storage bucket or a local
- *  file. Filter can be applied to export a subset of test cases.
+ *  file. Filter can be applied to export a subset of test cases. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.export
  *
@@ -3221,8 +3982,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesExport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesExportWithObject:parent:]
 
 /**
  *  Required. The agent where to export test cases from. Format:
@@ -3234,7 +3993,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Exports the test cases under the agent to a Cloud Storage bucket or a local
- *  file. Filter can be applied to export a subset of test cases.
+ *  file. Filter can be applied to export a subset of test cases. This method is
+ *  a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ExportTestCasesMetadata - `response`: ExportTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest to include
@@ -3259,8 +4022,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesGetWithname:]
 
 /**
  *  Required. The name of the testcase. Format:
@@ -3285,7 +4046,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
  *  always creates new test cases and won't overwite any existing ones. The
- *  provided ID in the imported test case is neglected.
+ *  provided ID in the imported test case is neglected. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportTestCasesMetadata - `response`: ImportTestCasesResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.import
  *
@@ -3294,8 +4059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesImport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesImportWithObject:parent:]
 
 /**
  *  Required. The agent to import test cases to. Format:
@@ -3308,7 +4071,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *
  *  Imports the test cases from a Cloud Storage bucket or a local file. It
  *  always creates new test cases and won't overwite any existing ones. The
- *  provided ID in the imported test case is neglected.
+ *  provided ID in the imported test case is neglected. This method is a
+ *  [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: ImportTestCasesMetadata - `response`: ImportTestCasesResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportTestCasesRequest to include
@@ -3333,8 +4100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20. Note
@@ -3394,8 +4159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesPatchWithObject:name:]
 
 /**
  *  The unique identifier of the test case. TestCases.CreateTestCase will
@@ -3431,6 +4194,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Gets a test case result.
+ *
+ *  Method: dialogflow.projects.locations.agents.testCases.results.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the testcase. Format:
+ *  `projects//locations//agents//testCases//results/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TestCaseResult.
+ *
+ *  Gets a test case result.
+ *
+ *  @param name Required. The name of the testcase. Format:
+ *    `projects//locations//agents//testCases//results/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetches a list of results for a given test case.
  *
  *  Method: dialogflow.projects.locations.agents.testCases.results.list
@@ -3440,8 +4234,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesResultsListWithparent:]
 
 /**
  *  The filter expression used to filter test case results. See [API
@@ -3496,7 +4288,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Kicks off a test case run.
+ *  Kicks off a test case run. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse
  *
  *  Method: dialogflow.projects.locations.agents.testCases.run
  *
@@ -3505,33 +4300,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesRunWithObject:projectsId:locationsId:agentsId:]
 
-@property(nonatomic, copy, nullable) NSString *agentsId;
-
-@property(nonatomic, copy, nullable) NSString *locationsId;
-
-@property(nonatomic, copy, nullable) NSString *projectsId;
+/**
+ *  Required. Format of test case name to run: `projects//locations/
+ *  /agents//testCases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Kicks off a test case run.
+ *  Kicks off a test case run. This method is a [long-running
+ *  operation](https://cloud.google.com/dialogflow/cx/docs/how/long-running-operation).
+ *  The returned `Operation` type has the following method-specific fields: -
+ *  `metadata`: RunTestCaseMetadata - `response`: RunTestCaseResponse
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest to include in
  *    the query.
- *  @param projectsId NSString
- *  @param locationsId NSString
- *  @param agentsId NSString
+ *  @param name Required. Format of test case name to run: `projects//locations/
+ *    /agents//testCases/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest *)object
-                     projectsId:(NSString *)projectsId
-                    locationsId:(NSString *)locationsId
-                       agentsId:(NSString *)agentsId;
+                           name:(NSString *)name;
 
 @end
 
@@ -3547,8 +4340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsValidate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsValidateWithObject:name:]
 
 /**
  *  Required. The agent to validate. Format: `projects//locations//agents/`.
@@ -3585,8 +4376,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksCreateWithObject:parent:]
 
 /**
  *  Required. The agent to create a webhook for. Format:
@@ -3621,8 +4410,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksDeleteWithname:]
 
 /**
  *  This field has no effect for webhook not being used. For webhooks that are
@@ -3664,8 +4451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksGetWithname:]
 
 /**
  *  Required. The name of the webhook. Format:
@@ -3697,8 +4482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -3743,8 +4526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksPatchWithObject:name:]
 
 /**
  *  The unique identifier of the webhook. Required for the
@@ -3780,6 +4561,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Gets information about a location.
+ *
+ *  Method: dialogflow.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsGet : GTLRDialogflowQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudLocationLocation.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: dialogflow.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsList : GTLRDialogflowQuery
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudLocationListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -3797,8 +4655,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsCancel : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3836,8 +4692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3875,8 +4729,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -3925,8 +4777,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsCreateWithObject:parent:]
 
 /**
  *  Required. The location to create an SecuritySettings for. Format:
@@ -3962,8 +4812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsDeleteWithname:]
 
 /**
  *  Required. The name of the SecuritySettings to delete. Format:
@@ -3996,8 +4844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsGetWithname:]
 
 /**
  *  Required. Resource name of the settings. Format:
@@ -4030,8 +4876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -4077,12 +4921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsPatchWithObject:name:]
 
 /**
- *  Required. Resource name of the settings. Format:
- *  `projects//locations//securitySettings/`.
+ *  Resource name of the settings. Required for the
+ *  SecuritySettingsService.UpdateSecuritySettings method.
+ *  SecuritySettingsService.CreateSecuritySettings populates the name
+ *  automatically. Format: `projects//locations//securitySettings/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4102,8 +4946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings to include in the
  *    query.
- *  @param name Required. Resource name of the settings. Format:
- *    `projects//locations//securitySettings/`.
+ *  @param name Resource name of the settings. Required for the
+ *    SecuritySettingsService.UpdateSecuritySettings method.
+ *    SecuritySettingsService.CreateSecuritySettings populates the name
+ *    automatically. Format: `projects//locations//securitySettings/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsPatch
  */
@@ -4130,8 +4976,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsCancel : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4169,8 +5013,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4208,8 +5050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

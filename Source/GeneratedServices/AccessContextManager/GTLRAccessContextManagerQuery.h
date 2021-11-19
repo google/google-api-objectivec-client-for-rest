@@ -90,8 +90,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsCreate : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsCreateWithObject:parent:]
 
 /**
  *  Required. Resource name for the access policy which owns this Access Level.
@@ -130,8 +128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsDelete : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsDeleteWithname:]
 
 /**
  *  Required. Resource name for the Access Level. Format:
@@ -164,8 +160,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsGet : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsGetWithname:]
 
 /**
  *  Whether to return `BasicLevels` in the Cloud Common Expression Language
@@ -216,8 +210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsList : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsListWithparent:]
 
 /**
  *  Whether to return `BasicLevels` in the Cloud Common Expression language, as
@@ -282,14 +274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsPatchWithObject:name:]
 
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
- *  of the `short_name` component is 50 characters.
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
+ *  length of the `access_level` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -312,8 +302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    query.
  *  @param name Required. Resource name for the Access Level. The `short_name`
  *    component must begin with a letter and only include alphanumeric and '_'.
- *    Format: `accessPolicies/{policy_id}/accessLevels/{short_name}`. The
- *    maximum length of the `short_name` component is 50 characters.
+ *    Format: `accessPolicies/{access_policy}/accessLevels/{access_level}`. The
+ *    maximum length of the `access_level` component is 50 characters.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch
  */
@@ -338,8 +328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsReplaceAllWithObject:parent:]
 
 /**
  *  Required. Resource name for the access policy which owns these Access
@@ -383,8 +371,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesCreate : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
@@ -414,8 +400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesDelete : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesDeleteWithname:]
 
 /**
  *  Required. Resource name for the access policy to delete. Format
@@ -448,8 +432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesGet : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesGetWithname:]
 
 /**
  *  Required. Resource name for the access policy to get. Format
@@ -480,8 +462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesList : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesList]
 
 /** Number of AccessPolicy instances to include in the list. Default 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -525,12 +505,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesPatch : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the `AccessPolicy`. Format:
- *  `accessPolicies/{policy_id}`
+ *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -552,7 +530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
  *  @param name Output only. Resource name of the `AccessPolicy`. Format:
- *    `accessPolicies/{policy_id}`
+ *    `accessPolicies/{access_policy}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesPatch
  */
@@ -580,8 +558,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersCommitWithObject:parent:]
 
 /**
  *  Required. Resource name for the parent Access Policy which owns all Service
@@ -630,8 +606,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCreate : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersCreateWithObject:parent:]
 
 /**
  *  Required. Resource name for the access policy which owns this Service
@@ -670,8 +644,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersDelete : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersDeleteWithname:]
 
 /**
  *  Required. Resource name for the Service Perimeter. Format:
@@ -704,8 +676,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersGetWithname:]
 
 /**
  *  Required. Resource name for the Service Perimeter. Format:
@@ -736,8 +706,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersList : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersListWithparent:]
 
 /** Number of Service Perimeters to include in the list. Default 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -784,13 +752,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersPatchWithObject:name:]
 
 /**
  *  Required. Resource name for the ServicePerimeter. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -814,7 +780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  @param name Required. Resource name for the ServicePerimeter. The
  *    `short_name` component must begin with a letter and only include
  *    alphanumeric and '_'. Format:
- *    `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *    `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch
  */
@@ -838,8 +804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersReplaceAllWithObject:parent:]
 
 /**
  *  Required. Resource name for the access policy which owns these Service
@@ -888,8 +852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OperationsCancel : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -930,8 +892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OperationsDelete : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -963,8 +923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OperationsGet : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1001,8 +959,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OperationsList : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1054,8 +1010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsCreate : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsCreateWithObject:parent:]
 
 /** Required. Example: "organizations/256" */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1091,8 +1045,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsDelete : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsDeleteWithname:]
 
 /**
  *  Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
@@ -1124,8 +1076,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsGet : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsGetWithname:]
 
 /**
  *  Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
@@ -1155,8 +1105,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsListWithparent:]
 
 /**
  *  Optional. Maximum number of items to return. The server may return fewer
@@ -1201,8 +1149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
  */
 @interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch : GTLRAccessContextManagerQuery
-// Previous library name was
-//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsPatchWithObject:name:]
 
 /**
  *  Immutable. Assigned by the server during creation. The last segment has an

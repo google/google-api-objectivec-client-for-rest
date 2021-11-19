@@ -37,10 +37,12 @@
 @class GTLRSecretManager_ReplicaStatus;
 @class GTLRSecretManager_Replication;
 @class GTLRSecretManager_ReplicationStatus;
+@class GTLRSecretManager_Rotation;
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Labels;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
+@class GTLRSecretManager_Topic;
 @class GTLRSecretManager_UserManaged;
 @class GTLRSecretManager_UserManagedStatus;
 
@@ -240,7 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRSecretManager_Binding : GTLRObject
 
@@ -249,14 +251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -288,8 +290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -334,6 +336,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.DestroySecretVersion.
  */
 @interface GTLRSecretManager_DestroySecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -341,6 +351,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.DisableSecretVersion.
  */
 @interface GTLRSecretManager_DisableSecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -359,6 +377,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.EnableSecretVersion.
  */
 @interface GTLRSecretManager_EnableSecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -567,15 +593,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -591,7 +617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -601,9 +627,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Binding *> *bindings;
 
@@ -729,6 +760,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
+ *  The rotation time and period for a Secret. At next_rotation_time, Secret
+ *  Manager will send a Pub/Sub notification to the topics configured on the
+ *  Secret. Secret.topics must be set to configure rotation.
+ */
+@interface GTLRSecretManager_Rotation : GTLRObject
+
+/**
+ *  Optional. Timestamp in UTC at which the Secret is scheduled to rotate.
+ *  Cannot be set to less than 300s (5 min) in the future and at most
+ *  3153600000s (100 years). next_rotation_time MUST be set if rotation_period
+ *  is set.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextRotationTime;
+
+/**
+ *  Input only. The Duration between rotation notifications. Must be in seconds
+ *  and at least 3600s (1h) and at most 3153600000s (100 years). If
+ *  rotation_period is set, next_rotation_time must be set. next_rotation_time
+ *  will be advanced by this period when the service automatically sends
+ *  rotation notifications.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *rotationPeriod;
+
+@end
+
+
+/**
  *  A Secret is a logical secret whose value and versions can be accessed. A
  *  Secret is made up of zero or more SecretVersions that represent the secret
  *  data.
@@ -737,6 +795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** Output only. The time at which the Secret was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Etag of the currently stored Secret. */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Optional. Timestamp in UTC when the Secret is scheduled to expire. This is
@@ -767,6 +828,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  been created.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Replication *replication;
+
+/**
+ *  Optional. Rotation policy attached to the Secret. May be excluded if there
+ *  is no rotation policy.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Rotation *rotation;
+
+/**
+ *  Optional. A list of up to 10 Pub/Sub topics to which messages are published
+ *  when control plane operations are called on the secret or its versions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Topic *> *topics;
 
 /** Input only. The TTL for the Secret. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
@@ -822,6 +895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  state is DESTROYED.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *destroyTime;
+
+/** Output only. Etag of the currently stored SecretVersion. */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. The resource name of the SecretVersion in the format `projects/
@@ -902,6 +978,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A Pub/Sub topic which Secret Manager will publish to when control plane
+ *  events occur on this secret.
+ */
+@interface GTLRSecretManager_Topic : GTLRObject
+
+/**
+ *  Required. The resource name of the Pub/Sub topic that will be published to,
+ *  in the following format: `projects/ * /topics/ *`. For publication to
+ *  succeed, the Secret Manager P4SA must have `pubsub.publisher` permissions on
+ *  the topic.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

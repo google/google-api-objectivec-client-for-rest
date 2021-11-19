@@ -37,15 +37,21 @@ NSString * const kGTLRCloudKMS_CryptoKey_Purpose_AsymmetricDecrypt = @"ASYMMETRI
 NSString * const kGTLRCloudKMS_CryptoKey_Purpose_AsymmetricSign = @"ASYMMETRIC_SIGN";
 NSString * const kGTLRCloudKMS_CryptoKey_Purpose_CryptoKeyPurposeUnspecified = @"CRYPTO_KEY_PURPOSE_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecrypt = @"ENCRYPT_DECRYPT";
+NSString * const kGTLRCloudKMS_CryptoKey_Purpose_Mac           = @"MAC";
 
 // GTLRCloudKMS_CryptoKeyVersion.algorithm
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_ExternalSymmetricEncryption = @"EXTERNAL_SYMMETRIC_ENCRYPTION";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256 = @"HMAC_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha1 = @"RSA_DECRYPT_OAEP_4096_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
@@ -56,6 +62,9 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss2048Sha256 =
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs12048 = @"RSA_SIGN_RAW_PKCS1_2048";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs13072 = @"RSA_SIGN_RAW_PKCS1_3072";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
 
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_External = @"EXTERNAL";
@@ -77,10 +86,15 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_PendingImport = @"PENDING_
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_ExternalSymmetricEncryption = @"EXTERNAL_SYMMETRIC_ENCRYPTION";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256 = @"HMAC_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha1 = @"RSA_DECRYPT_OAEP_4096_SHA1";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
@@ -91,6 +105,9 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss2048
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs12048 = @"RSA_SIGN_RAW_PKCS1_2048";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs13072 = @"RSA_SIGN_RAW_PKCS1_3072";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
 
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_External = @"EXTERNAL";
@@ -110,14 +127,25 @@ NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software = @"SOFTWARE";
 
+// GTLRCloudKMS_GenerateRandomBytesRequest.protectionLevel
+NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Software = @"SOFTWARE";
+
 // GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption = @"EXTERNAL_SYMMETRIC_ENCRYPTION";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256 = @"HMAC_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1 = @"RSA_DECRYPT_OAEP_4096_SHA1";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
@@ -128,6 +156,9 @@ NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPs
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048 = @"RSA_SIGN_RAW_PKCS1_2048";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072 = @"RSA_SIGN_RAW_PKCS1_3072";
+NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
 
 // GTLRCloudKMS_ImportJob.importMethod
 NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_ImportMethodUnspecified = @"IMPORT_METHOD_UNSPECIFIED";
@@ -151,14 +182,31 @@ NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_AttestationFormatU
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV1Compressed = @"CAVIUM_V1_COMPRESSED";
 NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed = @"CAVIUM_V2_COMPRESSED";
 
+// GTLRCloudKMS_MacSignResponse.protectionLevel
+NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_MacVerifyResponse.protectionLevel
+NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Software = @"SOFTWARE";
+
 // GTLRCloudKMS_PublicKey.algorithm
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256 = @"EC_SIGN_SECP256K1_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_ExternalSymmetricEncryption = @"EXTERNAL_SYMMETRIC_ENCRYPTION";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption = @"GOOGLE_SYMMETRIC_ENCRYPTION";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256  = @"HMAC_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha1 = @"RSA_DECRYPT_OAEP_3072_SHA1";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256 = @"RSA_DECRYPT_OAEP_3072_SHA256";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha1 = @"RSA_DECRYPT_OAEP_4096_SHA1";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256 = @"RSA_DECRYPT_OAEP_4096_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha512 = @"RSA_DECRYPT_OAEP_4096_SHA512";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPkcs12048Sha256 = @"RSA_SIGN_PKCS1_2048_SHA256";
@@ -169,6 +217,9 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss2048Sha256 = @"RSA_
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs12048 = @"RSA_SIGN_RAW_PKCS1_2048";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs13072 = @"RSA_SIGN_RAW_PKCS1_3072";
+NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096 = @"RSA_SIGN_RAW_PKCS1_4096";
 
 // GTLRCloudKMS_PublicKey.protectionLevel
 NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_External = @"EXTERNAL";
@@ -202,7 +253,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignRequest
-@dynamic digest, digestCrc32c;
+@dynamic data, dataCrc32c, digest, digestCrc32c;
 @end
 
 
@@ -212,7 +263,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignResponse
-@dynamic name, protectionLevel, signature, signatureCrc32c,
+@dynamic name, protectionLevel, signature, signatureCrc32c, verifiedDataCrc32c,
          verifiedDigestCrc32c;
 @end
 
@@ -297,8 +348,8 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_CryptoKey
-@dynamic createTime, labels, name, nextRotationTime, primary, purpose,
-         rotationPeriod, versionTemplate;
+@dynamic createTime, destroyScheduledDuration, importOnly, labels, name,
+         nextRotationTime, primary, purpose, rotationPeriod, versionTemplate;
 @end
 
 
@@ -324,7 +375,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 @implementation GTLRCloudKMS_CryptoKeyVersion
 @dynamic algorithm, attestation, createTime, destroyEventTime, destroyTime,
          externalProtectionLevelOptions, generateTime, importFailureReason,
-         importJob, importTime, name, protectionLevel, state;
+         importJob, importTime, name, protectionLevel, reimportEligible, state;
 @end
 
 
@@ -427,11 +478,31 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_GenerateRandomBytesRequest
+//
+
+@implementation GTLRCloudKMS_GenerateRandomBytesRequest
+@dynamic lengthBytes, protectionLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_GenerateRandomBytesResponse
+//
+
+@implementation GTLRCloudKMS_GenerateRandomBytesResponse
+@dynamic data, dataCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_ImportCryptoKeyVersionRequest
 //
 
 @implementation GTLRCloudKMS_ImportCryptoKeyVersionRequest
-@dynamic algorithm, importJob, rsaAesWrappedKey;
+@dynamic algorithm, cryptoKeyVersion, importJob, rsaAesWrappedKey;
 @end
 
 
@@ -621,6 +692,47 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 @implementation GTLRCloudKMS_LocationMetadata
 @dynamic ekmAvailable, hsmAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_MacSignRequest
+//
+
+@implementation GTLRCloudKMS_MacSignRequest
+@dynamic data, dataCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_MacSignResponse
+//
+
+@implementation GTLRCloudKMS_MacSignResponse
+@dynamic mac, macCrc32c, name, protectionLevel, verifiedDataCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_MacVerifyRequest
+//
+
+@implementation GTLRCloudKMS_MacVerifyRequest
+@dynamic data, dataCrc32c, mac, macCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_MacVerifyResponse
+//
+
+@implementation GTLRCloudKMS_MacVerifyResponse
+@dynamic name, protectionLevel, success, verifiedDataCrc32c, verifiedMacCrc32c,
+         verifiedSuccessIntegrity;
 @end
 
 

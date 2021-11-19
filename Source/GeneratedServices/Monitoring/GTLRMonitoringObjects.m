@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -190,6 +190,18 @@ NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Launc
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic = @"SERVICE_TIER_BASIC";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium = @"SERVICE_TIER_PREMIUM";
+NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified = @"SERVICE_TIER_UNSPECIFIED";
+
+// GTLRMonitoring_OperationMetadata.state
+NSString * const kGTLRMonitoring_OperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Created = @"CREATED";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Done  = @"DONE";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
@@ -277,9 +289,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_AlertPolicy
-@dynamic combiner, conditions, creationRecord, displayName, documentation,
-         enabled, mutationRecord, name, notificationChannels, userLabels,
-         validity;
+@dynamic alertStrategy, combiner, conditions, creationRecord, displayName,
+         documentation, enabled, mutationRecord, name, notificationChannels,
+         userLabels, validity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -303,6 +315,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_AlertStrategy
+//
+
+@implementation GTLRMonitoring_AlertStrategy
+@dynamic autoClose, notificationRateLimit;
 @end
 
 
@@ -462,8 +484,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Condition
-@dynamic conditionAbsent, conditionMonitoringQueryLanguage, conditionThreshold,
-         displayName, name;
+@dynamic conditionAbsent, conditionMatchedLog, conditionMonitoringQueryLanguage,
+         conditionThreshold, displayName, name;
 @end
 
 
@@ -1119,6 +1141,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_LogMatch
+//
+
+@implementation GTLRMonitoring_LogMatch
+@dynamic filter, labelExtractors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LogMatch_LabelExtractors
+//
+
+@implementation GTLRMonitoring_LogMatch_LabelExtractors
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_MeshIstio
 //
 
@@ -1333,11 +1379,18 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_NotificationChannel
-@dynamic descriptionProperty, displayName, enabled, labels, name, type,
-         userLabels, verificationStatus;
+@dynamic creationRecord, descriptionProperty, displayName, enabled, labels,
+         mutationRecords, name, type, userLabels, verificationStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mutationRecords" : [GTLRMonitoring_MutationRecord class]
+  };
+  return map;
 }
 
 @end
@@ -1377,7 +1430,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_NotificationChannelDescriptor
-@dynamic descriptionProperty, displayName, labels, launchStage, name, type;
+@dynamic descriptionProperty, displayName, labels, launchStage, name,
+         supportedTiers, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1385,11 +1439,32 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"labels" : [GTLRMonitoring_LabelDescriptor class]
+    @"labels" : [GTLRMonitoring_LabelDescriptor class],
+    @"supportedTiers" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_NotificationRateLimit
+//
+
+@implementation GTLRMonitoring_NotificationRateLimit
+@dynamic period;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_OperationMetadata
+//
+
+@implementation GTLRMonitoring_OperationMetadata
+@dynamic createTime, state, updateTime;
 @end
 
 
@@ -1540,7 +1615,21 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Service
 @dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName,
-         istioCanonicalService, meshIstio, name, telemetry;
+         istioCanonicalService, meshIstio, name, telemetry, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Service_UserLabels
+//
+
+@implementation GTLRMonitoring_Service_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1561,7 +1650,21 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_ServiceLevelObjective
 @dynamic calendarPeriod, displayName, goal, name, rollingPeriod,
-         serviceLevelIndicator;
+         serviceLevelIndicator, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceLevelObjective_UserLabels
+//
+
+@implementation GTLRMonitoring_ServiceLevelObjective_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

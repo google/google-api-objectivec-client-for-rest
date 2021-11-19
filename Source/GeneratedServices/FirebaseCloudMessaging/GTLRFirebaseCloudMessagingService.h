@@ -29,15 +29,22 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform;
+/**
+ *  Authorization scope: Send messages and manage messaging subscriptions for
+ *  your Firebase applications
+ *
+ *  Value "https://www.googleapis.com/auth/firebase.messaging"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging;
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseCloudMessagingService

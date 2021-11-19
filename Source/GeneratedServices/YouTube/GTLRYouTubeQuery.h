@@ -434,7 +434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDefinitionStandard;
 // ----------------------------------------------------------------------------
 // videoDimension
 
-/** Value: "any" */
+/**
+ *  Include both 3D and non-3D videos in returned results. This is the default
+ *  value.
+ *
+ *  Value: "any"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDimensionAny;
 /**
  *  Restrict search results to exclude 3D videos.
@@ -588,8 +593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_AbuseReportsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForAbuseReportsInsertWithObject:part:]
 
 /**
  *  The *part* parameter serves two purposes in this operation. It identifies
@@ -626,8 +629,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_ActivitiesList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForActivitiesListWithpart:]
 
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -703,8 +704,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_CaptionsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -756,8 +755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_CaptionsDownload : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsDownloadWithidentifier:]
 
 /**
  *  The ID of the caption track to download, required for One Platform.
@@ -821,8 +818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_CaptionsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsInsertWithObject:part:]
 
 /**
  *  ID of the Google+ Page for the channel that the request is be on behalf of
@@ -884,8 +879,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_CaptionsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsListWithpart:videoId:]
 
 /**
  *  Returns the captions with the given IDs for Stubby or Apiary.
@@ -950,8 +943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_CaptionsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsUpdateWithObject:part:]
 
 /**
  *  ID of the Google+ Page for the channel that the request is on behalf of.
@@ -1016,8 +1007,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeUpload
  */
 @interface GTLRYouTubeQuery_ChannelBannersInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelBannersInsertWithObject:]
 
 /**
  *  Unused, channel_id is currently derived from the security context of the
@@ -1087,8 +1076,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ChannelSectionsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelSectionsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -1136,8 +1123,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ChannelSectionsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelSectionsInsertWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -1210,8 +1195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ChannelSectionsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelSectionsListWithpart:]
 
 /** Return the ChannelSections owned by the specified channel ID. */
 @property(nonatomic, copy, nullable) NSString *channelId;
@@ -1288,8 +1271,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ChannelSectionsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelSectionsUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -1344,8 +1325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit
  */
 @interface GTLRYouTubeQuery_ChannelsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelsListWithpart:]
 
 /** Return the channels within the specified guide category ID. */
 @property(nonatomic, copy, nullable) NSString *categoryId;
@@ -1453,8 +1432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ChannelsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForChannelsUpdateWithObject:part:]
 
 /**
  *  The *onBehalfOfContentOwner* parameter indicates that the authenticated user
@@ -1510,8 +1487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -1543,8 +1518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsInsertWithObject:part:]
 
 /**
  *  The *part* parameter identifies the properties that the API response will
@@ -1579,8 +1552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsListWithpart:]
 
 /**
  *  Returns the comments with the given IDs for One Platform.
@@ -1662,8 +1633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsMarkAsSpam : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsMarkAsSpamWithidentifier:]
 
 /**
  *  Flags the comments with the given IDs as spam in the caller's opinion.
@@ -1697,8 +1666,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsSetModerationStatus : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsSetModerationStatusWithidentifier:moderationStatus:]
 
 /**
  *  If set to true the author of the comment gets added to the ban list. This
@@ -1773,8 +1740,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentsUpdateWithObject:part:]
 
 /**
  *  The *part* parameter identifies the properties that the API response will
@@ -1811,8 +1776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentThreadsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentThreadsInsertWithObject:part:]
 
 /**
  *  The *part* parameter identifies the properties that the API response will
@@ -1847,8 +1810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_CommentThreadsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentThreadsListWithpart:]
 
 /**
  *  Returns the comment threads of all videos of the channel and the channel
@@ -1968,44 +1929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Updates an existing resource.
- *
- *  Method: youtube.commentThreads.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTubeForceSsl
- */
-@interface GTLRYouTubeQuery_CommentThreadsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForCommentThreadsUpdateWithObject:part:]
-
-/**
- *  The *part* parameter specifies a comma-separated list of commentThread
- *  resource properties that the API response will include. You must at least
- *  include the snippet part in the parameter value since that part contains all
- *  of the properties that the API request can update.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  Fetches a @c GTLRYouTube_CommentThread.
- *
- *  Updates an existing resource.
- *
- *  @param object The @c GTLRYouTube_CommentThread to include in the query.
- *  @param part The *part* parameter specifies a comma-separated list of
- *    commentThread resource properties that the API response will include. You
- *    must at least include the snippet part in the parameter value since that
- *    part contains all of the properties that the API request can update.
- *
- *  @return GTLRYouTubeQuery_CommentThreadsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
-                           part:(NSArray<NSString *> *)part;
-
-@end
-
-/**
  *  Retrieves a list of resources, possibly filtered.
  *
  *  Method: youtube.i18nLanguages.list
@@ -2017,8 +1940,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_I18nLanguagesList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForI18nLanguagesListWithpart:]
 
 /**
  *  hl
@@ -2060,8 +1981,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_I18nRegionsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForI18nRegionsListWithpart:]
 
 /**
  *  hl
@@ -2101,8 +2020,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsBind : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsBindWithidentifier:part:]
 
 /**
  *  Broadcast to bind to the stream
@@ -2174,106 +2091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Slate and recording control of the live broadcast. Support actions: slate
- *  on/off, recording start/stop/pause/resume. Design doc:
- *  goto/yt-api-liveBroadcast-control
- *
- *  Method: youtube.liveBroadcasts.control
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTube
- *    @c kGTLRAuthScopeYouTubeForceSsl
- */
-@interface GTLRYouTubeQuery_LiveBroadcastsControl : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsControlWithidentifier:part:]
-
-/** Whether display or hide slate. */
-@property(nonatomic, assign) BOOL displaySlate;
-
-/**
- *  Broadcast to operate.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  The exact time when the actions (e.g. slate on) are executed. It is an
- *  offset from the first frame of the monitor stream. If not set, it means
- *  "now" or ASAP. This field should not be set if the monitor stream is
- *  disabled, otherwise an error will be returned.
- */
-@property(nonatomic, assign) unsigned long long offsetTimeMs;
-
-/**
- *  *Note:* This parameter is intended exclusively for YouTube content partners.
- *  The *onBehalfOfContentOwner* parameter indicates that the request's
- *  authorization credentials identify a YouTube CMS user who is acting on
- *  behalf of the content owner specified in the parameter value. This parameter
- *  is intended for YouTube content partners that own and manage many different
- *  YouTube channels. It allows content owners to authenticate once and get
- *  access to all their video and channel data, without having to provide
- *  authentication credentials for each individual channel. The CMS account that
- *  the user authenticates with must be linked to the specified YouTube content
- *  owner.
- */
-@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
-
-/**
- *  This parameter can only be used in a properly authorized request. *Note:*
- *  This parameter is intended exclusively for YouTube content partners. The
- *  *onBehalfOfContentOwnerChannel* parameter specifies the YouTube channel ID
- *  of the channel to which a video is being added. This parameter is required
- *  when a request specifies a value for the onBehalfOfContentOwner parameter,
- *  and it can only be used in conjunction with that parameter. In addition, the
- *  request must be authorized using a CMS account that is linked to the content
- *  owner that the onBehalfOfContentOwner parameter specifies. Finally, the
- *  channel that the onBehalfOfContentOwnerChannel parameter value specifies
- *  must be linked to the content owner that the onBehalfOfContentOwner
- *  parameter specifies. This parameter is intended for YouTube content partners
- *  that own and manage many different YouTube channels. It allows content
- *  owners to authenticate once and perform actions on behalf of the channel
- *  specified in the parameter value, without having to provide authentication
- *  credentials for each separate channel.
- */
-@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
-
-/**
- *  The *part* parameter specifies a comma-separated list of one or more
- *  liveBroadcast resource properties that the API response will include. The
- *  part names that you can include in the parameter value are id, snippet,
- *  contentDetails, and status.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  The wall clock time at which the action should be executed. Only one of
- *  offset_time_ms and walltime may be set at a time.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *walltime;
-
-/**
- *  Fetches a @c GTLRYouTube_LiveBroadcast.
- *
- *  Slate and recording control of the live broadcast. Support actions: slate
- *  on/off, recording start/stop/pause/resume. Design doc:
- *  goto/yt-api-liveBroadcast-control
- *
- *  @param identifier Broadcast to operate.
- *  @param part The *part* parameter specifies a comma-separated list of one or
- *    more liveBroadcast resource properties that the API response will include.
- *    The part names that you can include in the parameter value are id,
- *    snippet, contentDetails, and status.
- *
- *  @return GTLRYouTubeQuery_LiveBroadcastsControl
- */
-+ (instancetype)queryWithIdentifier:(NSString *)identifier
-                               part:(NSArray<NSString *> *)part;
-
-@end
-
-/**
  *  Delete a given broadcast.
  *
  *  Method: youtube.liveBroadcasts.delete
@@ -2283,8 +2100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsDeleteWithidentifier:]
 
 /**
  *  Broadcast to delete.
@@ -2350,8 +2165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsInsertWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -2424,8 +2237,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsListWithpart:]
 
 /**
  *  Return broadcasts with a certain status, e.g. active broadcasts.
@@ -2557,8 +2368,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsTransition : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsTransitionWithbroadcastStatus:identifier:part:]
 
 /**
  *  The status to which the broadcast is going to transition.
@@ -2670,8 +2479,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -2760,8 +2567,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatBansDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatBansDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -2794,8 +2599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatBansInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatBansInsertWithObject:part:]
 
 /**
  *  The *part* parameter serves two purposes in this operation. It identifies
@@ -2832,8 +2635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatMessagesDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatMessagesDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -2866,8 +2667,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatMessagesInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatMessagesInsertWithObject:part:]
 
 /**
  *  The *part* parameter serves two purposes. It identifies the properties that
@@ -2904,8 +2703,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_LiveChatMessagesList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatMessagesListWithliveChatId:part:]
 
 /**
  *  Specifies the localization language in which the system messages should be
@@ -2978,8 +2775,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatModeratorsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatModeratorsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -3012,8 +2807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveChatModeratorsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatModeratorsInsertWithObject:part:]
 
 /**
  *  The *part* parameter serves two purposes in this operation. It identifies
@@ -3051,8 +2844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_LiveChatModeratorsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveChatModeratorsListWithliveChatId:part:]
 
 /** The id of the live chat for which moderators should be returned. */
 @property(nonatomic, copy, nullable) NSString *liveChatId;
@@ -3111,8 +2902,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveStreamsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveStreamsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -3178,8 +2967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveStreamsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveStreamsInsertWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -3252,8 +3039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_LiveStreamsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveStreamsListWithpart:]
 
 /**
  *  Return LiveStreams with the given ids from Stubby or Apiary.
@@ -3351,8 +3136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeForceSsl
  */
 @interface GTLRYouTubeQuery_LiveStreamsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForLiveStreamsUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -3430,8 +3213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
  */
 @interface GTLRYouTubeQuery_MembershipsLevelsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForMembershipsLevelsListWithpart:]
 
 /**
  *  The *part* parameter specifies the membershipsLevel resource parts that the
@@ -3463,8 +3244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
  */
 @interface GTLRYouTubeQuery_MembersList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForMembersListWithpart:]
 
 /**
  *  Comma separated list of channel IDs. Only data about members that are part
@@ -3544,8 +3323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistItemsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistItemsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -3593,8 +3370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistItemsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistItemsInsertWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -3646,8 +3421,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistItemsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistItemsListWithpart:]
 
 /**
  *  identifier
@@ -3738,8 +3511,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistItemsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistItemsUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -3810,8 +3581,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -3859,8 +3628,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistsInsertWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -3931,8 +3698,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistsListWithpart:]
 
 /** Return the playlists owned by the specified channel ID. */
 @property(nonatomic, copy, nullable) NSString *channelId;
@@ -4044,8 +3809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_PlaylistsUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForPlaylistsUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -4108,8 +3871,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_SearchList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSearchListWithpart:]
 
 /** Filter on resources belonging to this channelId. */
 @property(nonatomic, copy, nullable) NSString *channelId;
@@ -4267,9 +4028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  Restrict results to a particular set of resource types from One Platform.
- *
- *  @note If not set, the documented server-side default will be
- *        video,channel,playlist.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -4308,7 +4066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Filter on 3d videos.
  *
  *  Likely values:
- *    @arg @c kGTLRYouTubeVideoDimensionAny Value "any"
+ *    @arg @c kGTLRYouTubeVideoDimensionAny Include both 3D and non-3D videos in
+ *        returned results. This is the default value. (Value: "any")
  *    @arg @c kGTLRYouTubeVideoDimensionX2d Restrict search results to exclude
  *        3D videos. (Value: "2d")
  *    @arg @c kGTLRYouTubeVideoDimensionX3d Restrict search results to only
@@ -4417,8 +4176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_SubscriptionsDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSubscriptionsDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -4452,8 +4209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_SubscriptionsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSubscriptionsInsertWithObject:part:]
 
 /**
  *  The *part* parameter serves two purposes in this operation. It identifies
@@ -4491,8 +4246,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_SubscriptionsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSubscriptionsListWithpart:]
 
 /** Return the subscriptions of the given channel owner. */
 @property(nonatomic, copy, nullable) NSString *channelId;
@@ -4629,8 +4382,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_SuperChatEventsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSuperChatEventsListWithpart:]
 
 /** Return rendered funding amounts in specified language. */
 @property(nonatomic, copy, nullable) NSString *hl;
@@ -4653,7 +4404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  The *part* parameter specifies the superChatEvent resource parts that the
- *  API response will include. Supported values are id and snippet.
+ *  API response will include. This parameter is currently not supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -4663,7 +4414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Retrieves a list of resources, possibly filtered.
  *
  *  @param part The *part* parameter specifies the superChatEvent resource parts
- *    that the API response will include. Supported values are id and snippet.
+ *    that the API response will include. This parameter is currently not
+ *    supported.
  *
  *  @return GTLRYouTubeQuery_SuperChatEventsList
  *
@@ -4684,8 +4436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_TestsInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForTestsInsertWithObject:part:]
+
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -4710,8 +4462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.delete
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForThirdPartyLinksDeleteWithlinkingToken:type:]
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /** Delete the partner links with the given linking token. */
 @property(nonatomic, copy, nullable) NSString *linkingToken;
@@ -4760,8 +4513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.insert
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForThirdPartyLinksInsertWithObject:part:]
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /**
  *  The *part* parameter specifies the thirdPartyLink resource parts that the
@@ -4793,8 +4547,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.list
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForThirdPartyLinksListWithpart:]
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /** Get a third party link with the given linking token. */
 @property(nonatomic, copy, nullable) NSString *linkingToken;
@@ -4839,8 +4594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.thirdPartyLinks.update
  */
 @interface GTLRYouTubeQuery_ThirdPartyLinksUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForThirdPartyLinksUpdateWithObject:part:]
+
+/** Channel ID to which changes should be applied, for delegation. */
+@property(nonatomic, copy, nullable) NSString *externalChannelId;
 
 /**
  *  The *part* parameter specifies the thirdPartyLink resource parts that the
@@ -4880,8 +4636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_ThumbnailsSet : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForThumbnailsSetWithvideoId:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -4931,8 +4685,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeReadonly
  */
 @interface GTLRYouTubeQuery_VideoAbuseReportReasonsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideoAbuseReportReasonsListWithpart:]
 
 /**
  *  hl
@@ -4973,8 +4725,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideoCategoriesList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideoCategoriesListWithpart:]
 
 /**
  *  hl
@@ -5024,8 +4774,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosDelete : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosDeleteWithidentifier:]
 
 /**
  *  identifier
@@ -5074,8 +4822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosGetRating : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosGetRatingWithidentifier:]
 
 /**
  *  identifier
@@ -5099,7 +4845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  Fetches a @c GTLRYouTube_VideoRatingListResponse.
+ *  Fetches a @c GTLRYouTube_VideoGetRatingResponse.
  *
  *  Retrieves the ratings that the authorized user gave to a list of specified
  *  videos.
@@ -5124,8 +4870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosInsert : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosInsertWithObject:part:]
 
 /** Should auto-levels be applied to the upload. */
 @property(nonatomic, assign) BOOL autoLevels;
@@ -5223,8 +4967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosListWithpart:]
 
 /**
  *  Return the videos that are in the specified chart.
@@ -5371,8 +5113,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosRate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosRateWithidentifier:rating:]
 
 /**
  *  identifier
@@ -5425,8 +5165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosReportAbuse : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosReportAbuseWithObject:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -5467,8 +5205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_VideosUpdate : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForVideosUpdateWithObject:part:]
 
 /**
  *  *Note:* This parameter is intended exclusively for YouTube content partners.
@@ -5547,8 +5283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_WatermarksSet : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForWatermarksSetWithObject:channelId:]
 
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -5597,8 +5331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_WatermarksUnset : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForWatermarksUnsetWithchannelId:]
 
 @property(nonatomic, copy, nullable) NSString *channelId;
 
@@ -5627,6 +5359,34 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @return GTLRYouTubeQuery_WatermarksUnset
  */
 + (instancetype)queryWithChannelId:(NSString *)channelId;
+
+@end
+
+/**
+ *  Updates an existing resource.
+ *
+ *  Method: youtube.youtube.v3.updateCommentThreads
+ */
+@interface GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads : GTLRYouTubeQuery
+
+/**
+ *  The *part* parameter specifies a comma-separated list of commentThread
+ *  resource properties that the API response will include. You must at least
+ *  include the snippet part in the parameter value since that part contains all
+ *  of the properties that the API request can update.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_CommentThread.
+ *
+ *  Updates an existing resource.
+ *
+ *  @param object The @c GTLRYouTube_CommentThread to include in the query.
+ *
+ *  @return GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads
+ */
++ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object;
 
 @end
 

@@ -12,6 +12,14 @@
 #import "GTLRResellerObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRReseller_Customer.customerType
+NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
+NSString * const kGTLRReseller_Customer_CustomerType_Domain    = @"DOMAIN";
+NSString * const kGTLRReseller_Customer_CustomerType_Team      = @"TEAM";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRReseller_Address
 //
@@ -39,7 +47,8 @@
 
 @implementation GTLRReseller_Customer
 @dynamic alternateEmail, customerDomain, customerDomainVerified, customerId,
-         kind, phoneNumber, postalAddress, resourceUiUrl;
+         customerType, kind, phoneNumber, postalAddress, primaryAdmin,
+         resourceUiUrl;
 @end
 
 
@@ -68,6 +77,16 @@
 
 @implementation GTLRReseller_NotifyResource
 @dynamic topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReseller_PrimaryAdmin
+//
+
+@implementation GTLRReseller_PrimaryAdmin
+@dynamic primaryEmail;
 @end
 
 
@@ -128,7 +147,8 @@
 //
 
 @implementation GTLRReseller_Subscription_TransferInfo
-@dynamic minimumTransferableSeats, transferabilityExpirationTime;
+@dynamic currentLegacySkuId, minimumTransferableSeats,
+         transferabilityExpirationTime;
 @end
 
 

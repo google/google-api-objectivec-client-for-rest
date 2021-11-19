@@ -5,7 +5,8 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on HTTP traffic.
+//   based on incoming requests. The Cloud Run Admin API follows the Knative
+//   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -32,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -47,7 +48,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRunCloudPlatform;
  *  Service for executing Cloud Run Admin API queries.
  *
  *  Deploy and manage user provided container images that scale automatically
- *  based on HTTP traffic.
+ *  based on incoming requests. The Cloud Run Admin API follows the Knative
+ *  Serving API specification.
  */
 @interface GTLRCloudRunService : GTLRService
 

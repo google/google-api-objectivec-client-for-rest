@@ -373,14 +373,22 @@ NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour = @"HOUR"
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime = @"LIFETIME";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute = @"MINUTE";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month = @"MONTH";
+NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Pod = @"POD";
+NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Stream = @"STREAM";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified = @"TIME_UNIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week = @"WEEK";
+
+// GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms.reservationType
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_ReservationTypeUnspecified = @"RESERVATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Sponsorship = @"SPONSORSHIP";
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Standard = @"STANDARD";
 
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_AtpVendor = @"ATP_VENDOR";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute = @"CREATIVE_ATTRIBUTE";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified = @"DETAIL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason = @"DISAPPROVAL_REASON";
+NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_GvlId = @"GVL_ID";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic = @"POLICY_TOPIC";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory = @"PRODUCT_CATEGORY";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory = @"SENSITIVE_CATEGORY";
@@ -1065,7 +1073,8 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms
-@dynamic fixedPrices, guaranteedImpressions, guaranteedLooks, minimumDailyLooks;
+@dynamic fixedPrices, guaranteedImpressions, guaranteedLooks, impressionCap,
+         minimumDailyLooks, percentShareOfVoice, reservationType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1684,6 +1693,24 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdExchangeBuyerII_PauseProposalDealsRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_PauseProposalDealsRequest
+@dynamic externalDealIds, reason;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDealIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdExchangeBuyerII_PauseProposalRequest
 //
 
@@ -1865,6 +1892,24 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_RemoveDealAssociationRequest
 @dynamic association;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ResumeProposalDealsRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_ResumeProposalDealsRequest
+@dynamic externalDealIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDealIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

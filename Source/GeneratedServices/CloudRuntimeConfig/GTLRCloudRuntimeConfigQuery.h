@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRuntimeConfigCloudruntimeconfig
  */
 @interface GTLRCloudRuntimeConfigQuery_OperationsCancel : GTLRCloudRuntimeConfigQuery
-// Previous library name was
-//   +[GTLQueryCloudRuntimeConfig queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -103,8 +101,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRuntimeConfigCloudruntimeconfig
  */
 @interface GTLRCloudRuntimeConfigQuery_OperationsDelete : GTLRCloudRuntimeConfigQuery
-// Previous library name was
-//   +[GTLQueryCloudRuntimeConfig queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -143,8 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRuntimeConfigCloudruntimeconfig
  */
 @interface GTLRCloudRuntimeConfigQuery_OperationsList : GTLRCloudRuntimeConfigQuery
-// Previous library name was
-//   +[GTLQueryCloudRuntimeConfig queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

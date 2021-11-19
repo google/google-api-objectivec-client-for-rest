@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLocalservicesAdwords
  */
 @interface GTLRLocalservicesQuery_AccountReportsSearch : GTLRLocalservicesQuery
-// Previous library name was
-//   +[GTLQueryLocalservices queryForAccountReportsSearch]
 
 /**
  *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
@@ -142,8 +140,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLocalservicesAdwords
  */
 @interface GTLRLocalservicesQuery_DetailedLeadReportsSearch : GTLRLocalservicesQuery
-// Previous library name was
-//   +[GTLQueryLocalservices queryForDetailedLeadReportsSearch]
 
 /**
  *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0

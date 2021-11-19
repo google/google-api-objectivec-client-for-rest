@@ -28,7 +28,10 @@
 @class GTLRDataproc_InjectCredentialsRequest;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest;
 @class GTLRDataproc_Job;
+@class GTLRDataproc_RepairClusterRequest;
 @class GTLRDataproc_SetIamPolicyRequest;
+@class GTLRDataproc_StartClusterRequest;
+@class GTLRDataproc_StopClusterRequest;
 @class GTLRDataproc_SubmitJobRequest;
 @class GTLRDataproc_TestIamPermissionsRequest;
 @class GTLRDataproc_WorkflowTemplate;
@@ -42,6 +45,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// actionOnFailedPrimaryWorkers
+
+/**
+ *  Delete the failed cluster resource.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersDelete;
+/**
+ *  When FailureAction is unspecified, failure action defaults to NO_ACTION.
+ *
+ *  Value: "FAILURE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified;
+/**
+ *  Take no action on failure to create a cluster resource. NO_ACTION is the
+ *  default.
+ *
+ *  Value: "NO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocActionOnFailedPrimaryWorkersNoAction;
 
 // ----------------------------------------------------------------------------
 // jobStateMatcher
@@ -88,8 +114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesCreate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesCreateWithObject:parent:]
 
 /**
  *  Required. The "resource name" of the region or location, as described in
@@ -133,8 +157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesDeleteWithname:]
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
@@ -178,8 +200,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesGetWithname:]
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
@@ -223,8 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -260,8 +278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return in each response. Must be
@@ -320,8 +336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -362,8 +376,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -403,8 +415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesUpdate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsAutoscalingPoliciesUpdateWithObject:name:]
 
 /**
  *  Output only. The "resource name" of the autoscaling policy, as described in
@@ -450,8 +460,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the region or location, as described in
@@ -494,8 +502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesDeleteWithname:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -546,8 +552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesGetWithname:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -599,8 +603,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -645,8 +647,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesInstantiateWithObject:name:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -712,8 +712,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesInstantiateInlineWithObject:parent:]
 
 /**
  *  Required. The resource name of the region or location, as described in
@@ -778,8 +776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesListWithparent:]
 
 /** Optional. The maximum number of results to return in each response. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -834,8 +830,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -876,8 +870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -917,8 +909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsLocationsWorkflowTemplatesUpdateWithObject:name:]
 
 /**
  *  Output only. The resource name of the workflow template, as described in
@@ -964,8 +954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesCreate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesCreateWithObject:parent:]
 
 /**
  *  Required. The "resource name" of the region or location, as described in
@@ -1009,8 +997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesDeleteWithname:]
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
@@ -1054,8 +1040,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesGetWithname:]
 
 /**
  *  Required. The "resource name" of the autoscaling policy, as described in
@@ -1099,8 +1083,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1136,8 +1118,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return in each response. Must be
@@ -1196,8 +1176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1238,8 +1216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1279,8 +1255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesUpdate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsAutoscalingPoliciesUpdateWithObject:name:]
 
 /**
  *  Output only. The "resource name" of the autoscaling policy, as described in
@@ -1328,8 +1302,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersCreate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersCreateWithObject:projectId:region:]
+
+/**
+ *  Optional. Failure action when primary worker creation fails.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersFailureActionUnspecified
+ *        When FailureAction is unspecified, failure action defaults to
+ *        NO_ACTION. (Value: "FAILURE_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersNoAction Take no action
+ *        on failure to create a cluster resource. NO_ACTION is the default.
+ *        (Value: "NO_ACTION")
+ *    @arg @c kGTLRDataprocActionOnFailedPrimaryWorkersDelete Delete the failed
+ *        cluster resource. (Value: "DELETE")
+ */
+@property(nonatomic, copy, nullable) NSString *actionOnFailedPrimaryWorkers;
 
 /**
  *  Required. The ID of the Google Cloud Platform project that the cluster
@@ -1341,13 +1328,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two CreateClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two CreateClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1382,8 +1371,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersDeleteWithprojectId:region:clusterName:]
 
 /** Required. The cluster name. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
@@ -1404,13 +1391,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two DeleteClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two DeleteClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1448,8 +1437,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersDiagnose : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersDiagnoseWithObject:projectId:region:clusterName:]
 
 /** Required. The cluster name. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
@@ -1498,8 +1485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersGetWithprojectId:region:clusterName:]
 
 /** Required. The cluster name. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
@@ -1541,8 +1526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1580,8 +1563,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersInjectCredentialsWithObject:project:region:cluster:]
 
 /** Required. The cluster, in the form clusters/. */
 @property(nonatomic, copy, nullable) NSString *cluster;
@@ -1628,8 +1609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersListWithprojectId:region:]
 
 /**
  *  Optional. A filter constraining the clusters to list. Filters are
@@ -1685,6 +1664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Updates a cluster in a project. The returned Operation.metadata will be
  *  ClusterOperationMetadata
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  The cluster must be in a RUNNING state or an error is returned.
  *
  *  Method: dataproc.projects.regions.clusters.patch
  *
@@ -1692,8 +1672,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersPatch : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersPatchWithObject:projectId:region:clusterName:]
 
 /** Required. The cluster name. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
@@ -1720,13 +1698,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
- *  two UpdateClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two UpdateClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.UpdateClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1757,6 +1737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Updates a cluster in a project. The returned Operation.metadata will be
  *  ClusterOperationMetadata
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  The cluster must be in a RUNNING state or an error is returned.
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
@@ -1774,6 +1755,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Repairs a cluster.
+ *
+ *  Method: dataproc.projects.regions.clusters.repair
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersRepair : GTLRDataprocQuery
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Repairs a cluster.
+ *
+ *  @param object The @c GTLRDataproc_RepairClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersRepair
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_RepairClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
+
+@end
+
+/**
  *  Sets the access control policy on the specified resource. Replaces any
  *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
  *  PERMISSION_DENIED errors.
@@ -1784,8 +1808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1814,6 +1836,92 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Starts a cluster in a project.
+ *
+ *  Method: dataproc.projects.regions.clusters.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersStart : GTLRDataprocQuery
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Starts a cluster in a project.
+ *
+ *  @param object The @c GTLRDataproc_StartClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersStart
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_StartClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
+
+@end
+
+/**
+ *  Stops a cluster in a project.
+ *
+ *  Method: dataproc.projects.regions.clusters.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersStop : GTLRDataprocQuery
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Stops a cluster in a project.
+ *
+ *  @param object The @c GTLRDataproc_StopClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersStop
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_StopClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  NOT_FOUND error.Note: This operation is designed to be used for building
@@ -1826,8 +1934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsClustersTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1870,8 +1976,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsCancel : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsCancelWithObject:projectId:region:jobId:]
 
 /** Required. The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -1919,8 +2023,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsDeleteWithprojectId:region:jobId:]
 
 /** Required. The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -1962,8 +2064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsGetWithprojectId:region:jobId:]
 
 /** Required. The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -2005,8 +2105,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -2042,8 +2140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsListWithprojectId:region:]
 
 /**
  *  Optional. If set, the returned jobs list includes only jobs that were
@@ -2123,8 +2219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsPatch : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsPatchWithObject:projectId:region:jobId:]
 
 /** Required. The job ID. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -2179,8 +2273,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2217,8 +2309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSubmit : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsSubmitWithObject:projectId:region:]
 
 /**
  *  Required. The ID of the Google Cloud Platform project that the job belongs
@@ -2256,8 +2346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsSubmitAsOperationWithObject:projectId:region:]
 
 /**
  *  Required. The ID of the Google Cloud Platform project that the job belongs
@@ -2299,8 +2387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsJobsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2347,8 +2433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsCancel : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2386,8 +2470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2419,8 +2501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2450,8 +2530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -2495,8 +2573,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2546,8 +2622,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2588,8 +2662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsOperationsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2628,8 +2700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesCreate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the region or location, as described in
@@ -2672,8 +2742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesDeleteWithname:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -2724,8 +2792,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGet : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesGetWithname:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -2777,8 +2843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -2823,8 +2887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesInstantiateWithObject:name:]
 
 /**
  *  Required. The resource name of the workflow template, as described in
@@ -2890,8 +2952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesInstantiateInlineWithObject:parent:]
 
 /**
  *  Required. The resource name of the region or location, as described in
@@ -2956,8 +3016,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesList : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesListWithparent:]
 
 /** Optional. The maximum number of results to return in each response. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -3012,8 +3070,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesSetIamPolicy : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -3054,8 +3110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesTestIamPermissions : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -3095,8 +3149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate : GTLRDataprocQuery
-// Previous library name was
-//   +[GTLQueryDataproc queryForProjectsRegionsWorkflowTemplatesUpdateWithObject:name:]
 
 /**
  *  Output only. The resource name of the workflow template, as described in

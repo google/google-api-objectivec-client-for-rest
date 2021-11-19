@@ -53,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsCreate : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsCreateWithObject:parent:]
 
 /**
  *  Optional. Connection id that should be assigned to the created connection.
@@ -94,8 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsDelete : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsDeleteWithname:]
 
 /**
  *  Required. Name of the deleted connection, for example:
@@ -127,8 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGet : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsGetWithname:]
 
 /**
  *  Required. Name of the requested connection, for example:
@@ -161,8 +155,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGetIamPolicy : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -199,8 +191,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsListWithparent:]
 
 /** Required. Maximum number of results per page. */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -243,8 +233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsPatch : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsPatchWithObject:name:]
 
 /**
  *  Required. Name of the connection to update, for example:
@@ -289,8 +277,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsSetIamPolicy : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -332,8 +318,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsTestIamPermissions : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -373,8 +357,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryConnectionServiceCloudPlatform
  */
 @interface GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsUpdateCredential : GTLRBigQueryConnectionServiceQuery
-// Previous library name was
-//   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsUpdateCredentialWithObject:name:]
 
 /**
  *  Required. Name of the connection, for example:

@@ -13,11 +13,35 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAlertCenter_AccountSuspensionDetails.abuseReason
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_AccountSuspensionAbuseReasonUnspecified = @"ACCOUNT_SUSPENSION_ABUSE_REASON_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Fraud = @"FRAUD";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_NumberHarvesting = @"NUMBER_HARVESTING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_PaymentsFraud = @"PAYMENTS_FRAUD";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Phishing = @"PHISHING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Spam = @"SPAM";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TosViolation = @"TOS_VIOLATION";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping = @"TRAFFIC_PUMPING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnwantedContent = @"UNWANTED_CONTENT";
+
+// GTLRAlertCenter_AccountSuspensionWarning.state
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AccountSuspensionWarningStateUnspecified = @"ACCOUNT_SUSPENSION_WARNING_STATE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AppealApproved = @"APPEAL_APPROVED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AppealSubmitted = @"APPEAL_SUBMITTED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_Warning = @"WARNING";
+
 // GTLRAlertCenter_AlertFeedback.type
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_AlertFeedbackTypeUnspecified = @"ALERT_FEEDBACK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
+
+// GTLRAlertCenter_AppsOutage.status
+NSString * const kGTLRAlertCenter_AppsOutage_Status_New        = @"NEW";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Ongoing    = @"ONGOING";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Resolved   = @"RESOLVED";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRAlertCenter_CloudPubsubTopic.payloadFormat
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
@@ -54,11 +78,48 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_AccountSuspensionDetails
+//
+
+@implementation GTLRAlertCenter_AccountSuspensionDetails
+@dynamic abuseReason, productName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AccountSuspensionWarning
+//
+
+@implementation GTLRAlertCenter_AccountSuspensionWarning
+@dynamic appealWindow, state, suspensionDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suspensionDetails" : [GTLRAlertCenter_AccountSuspensionDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_AccountWarning
 //
 
 @implementation GTLRAlertCenter_AccountWarning
 @dynamic email, loginDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_ActionInfo
+//
+
+@implementation GTLRAlertCenter_ActionInfo
 @end
 
 
@@ -154,6 +215,34 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requestInfo" : [GTLRAlertCenter_RequestInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AppSettingsChanged
+//
+
+@implementation GTLRAlertCenter_AppSettingsChanged
+@dynamic alertDetails, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AppsOutage
+//
+
+@implementation GTLRAlertCenter_AppsOutage
+@dynamic dashboardUri, nextUpdateTime, products, resolutionTime, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [NSString class]
   };
   return map;
 }
@@ -573,6 +662,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_ReportingRule
+//
+
+@implementation GTLRAlertCenter_ReportingRule
+@dynamic alertDetails, name, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_RequestInfo
 //
 
@@ -616,14 +715,15 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_RuleViolationInfo
 @dynamic dataSource, matchInfo, recipients, resourceInfo, ruleInfo,
-         suppressedActionTypes, trigger, triggeredActionTypes,
-         triggeringUserEmail;
+         suppressedActionTypes, trigger, triggeredActionInfo,
+         triggeredActionTypes, triggeringUserEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"matchInfo" : [GTLRAlertCenter_MatchInfo class],
     @"recipients" : [NSString class],
     @"suppressedActionTypes" : [NSString class],
+    @"triggeredActionInfo" : [GTLRAlertCenter_ActionInfo class],
     @"triggeredActionTypes" : [NSString class]
   };
   return map;
@@ -738,6 +838,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_User
 @dynamic displayName, emailAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UserChanges
+//
+
+@implementation GTLRAlertCenter_UserChanges
+@dynamic name;
 @end
 
 

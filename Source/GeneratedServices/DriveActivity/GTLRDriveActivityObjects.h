@@ -729,7 +729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  */
 @interface GTLRDriveActivity_Copy : GTLRObject
 
-/** The the original object. */
+/** The original object. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_TargetReference *originalObject;
 
 @end
@@ -824,7 +824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /** An opaque string used to identify this domain. */
 @property(nonatomic, copy, nullable) NSString *legacyId;
 
-/** The name of the domain, e.g. "google.com". */
+/** The name of the domain, e.g. `google.com`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -837,7 +837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The resource name of the shared drive. The format is
- *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID
+ *  `COLLECTION_ID/DRIVE_ID`. Clients should not assume a specific collection ID
  *  for this resource name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -945,7 +945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
-/** The target Drive item. The format is "items/ITEM_ID". */
+/** The target Drive item. The format is `items/ITEM_ID`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Information about the owner of this Drive item. */
@@ -976,7 +976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /** This field is deprecated; please use the `driveFolder` field instead. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Folder *folder;
 
-/** The target Drive item. The format is "items/ITEM_ID". */
+/** The target Drive item. The format is `items/ITEM_ID`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The title of the Drive item. */
@@ -992,7 +992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The resource name of the shared drive. The format is
- *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID
+ *  `COLLECTION_ID/DRIVE_ID`. Clients should not assume a specific collection ID
  *  for this resource name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1039,7 +1039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The link to the discussion thread containing this comment, for example,
- *  "https://docs.google.com/DOCUMENT_ID/edit?disco=THREAD_ID".
+ *  `https://docs.google.com/DOCUMENT_ID/edit?disco=THREAD_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *linkToDiscussion;
 
@@ -1116,7 +1116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The identifier for this user that can be used with the People API to get
- *  more information. The format is "people/ACCOUNT_ID". See
+ *  more information. The format is `people/ACCOUNT_ID`. See
  *  https://developers.google.com/people/.
  */
 @property(nonatomic, copy, nullable) NSString *personName;
@@ -1206,8 +1206,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Group *group;
 
 /**
- *  Indicates the Google Drive permissions role. The role determines a user's
- *  ability to read, write, and comment on items.
+ *  Indicates the [Google Drive permissions
+ *  role](https://developers.google.com/drive/web/manage-sharing#roles). The
+ *  role determines a user's ability to read, write, and comment on items.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveActivity_Permission_Role_Commenter A role granting the
@@ -1291,7 +1292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  Return activities for this Drive folder and all children and descendants.
- *  The format is "items/ITEM_ID".
+ *  The format is `items/ITEM_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorName;
 
@@ -1305,17 +1306,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *  The filtering for items returned from this query request. The format of the
  *  filter string is a sequence of expressions, joined by an optional "AND",
  *  where each expression is of the form "field operator value". Supported
- *  fields: - time: Uses numerical operators on date values either in terms of
- *  milliseconds since Jan 1, 1970 or in RFC 3339 format. Examples: - time >
- *  1452409200000 AND time <= 1492812924310 - time >=
- *  "2016-01-10T01:02:03-05:00" - detail.action_detail_case: Uses the "has"
+ *  fields: - `time`: Uses numerical operators on date values either in terms of
+ *  milliseconds since Jan 1, 1970 or in RFC 3339 format. Examples: - `time >
+ *  1452409200000 AND time <= 1492812924310` - `time >=
+ *  "2016-01-10T01:02:03-05:00"` - `detail.action_detail_case`: Uses the "has"
  *  operator (:) and either a singular value or a list of allowed action types
- *  enclosed in parentheses. Examples: - detail.action_detail_case: RENAME -
- *  detail.action_detail_case:(CREATE EDIT) - -detail.action_detail_case:MOVE
+ *  enclosed in parentheses. Examples: - `detail.action_detail_case: RENAME` -
+ *  `detail.action_detail_case:(CREATE EDIT)` -
+ *  `-detail.action_detail_case:MOVE`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Return activities for this Drive item. The format is "items/ITEM_ID". */
+/** Return activities for this Drive item. The format is `items/ITEM_ID`. */
 @property(nonatomic, copy, nullable) NSString *itemName;
 
 /**

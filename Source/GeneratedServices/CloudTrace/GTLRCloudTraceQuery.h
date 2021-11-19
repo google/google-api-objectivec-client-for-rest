@@ -54,8 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudTraceTraceAppend
  */
 @interface GTLRCloudTraceQuery_ProjectsTracesBatchWrite : GTLRCloudTraceQuery
-// Previous library name was
-//   +[GTLQueryCloudTrace queryForProjectsTracesBatchWriteWithObject:name:]
 
 /**
  *  Required. The name of the project where the spans belong. The format is
@@ -90,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudTraceTraceAppend
  */
 @interface GTLRCloudTraceQuery_ProjectsTracesSpansCreateSpan : GTLRCloudTraceQuery
-// Previous library name was
-//   +[GTLQueryCloudTrace queryForProjectsTracesSpansCreateSpanWithObject:name:]
 
 /**
  *  Required. The resource name of the span in the following format:

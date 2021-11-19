@@ -151,6 +151,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: jobs.projects.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTalentSolution
+ *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
+ */
+@interface GTLRCloudTalentSolutionQuery_ProjectsOperationsGet : GTLRCloudTalentSolutionQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudTalentSolution_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudTalentSolutionQuery_ProjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Report events issued when end user interacts with customer's application
  *  that uses Cloud Talent Solution. You may inspect the created events in [self
  *  service tools](https://console.cloud.google.com/talent-solution/overview).
@@ -164,8 +195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsClientEventsCreate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsClientEventsCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the tenant under which the event is created. The
@@ -206,8 +235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesCreate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompaniesCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the tenant under which the company is created.
@@ -245,8 +272,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesDelete : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompaniesDeleteWithname:]
 
 /**
  *  Required. The resource name of the company to be deleted. The format is
@@ -282,8 +307,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesGet : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompaniesGetWithname:]
 
 /**
  *  Required. The resource name of the company to be retrieved. The format is
@@ -318,8 +341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesList : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompaniesListWithparent:]
 
 /**
  *  The maximum number of companies to be returned, at most 100. Default is 100
@@ -373,8 +394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesPatch : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompaniesPatchWithObject:name:]
 
 /**
  *  Required during company update. The resource name for a company. This is
@@ -424,8 +443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCompleteQuery : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCompleteQueryWithtenant:]
 
 /**
  *  If provided, restricts completion to specified company. The format is
@@ -517,8 +534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsCreate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the project under which the tenant is created.
@@ -553,8 +568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsDelete : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsDeleteWithname:]
 
 /**
  *  Required. The resource name of the tenant to be deleted. The format is
@@ -588,8 +601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsGet : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsGetWithname:]
 
 /**
  *  Required. The resource name of the tenant to be retrieved. The format is
@@ -623,8 +634,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchCreate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsBatchCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant under which the job is created.
@@ -661,8 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchDelete : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant under which the job is created.
@@ -701,8 +708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchUpdate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsBatchUpdateWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant under which the job is created.
@@ -740,8 +745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsCreate : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant under which the job is created.
@@ -779,8 +782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsDelete : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsDeleteWithname:]
 
 /**
  *  Required. The resource name of the job to be deleted. The format is
@@ -816,8 +817,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsGet : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsGetWithname:]
 
 /**
  *  Required. The resource name of the job to retrieve. The format is
@@ -852,17 +851,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsList : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsListWithparent:]
 
 /**
  *  Required. The filter string specifies the jobs to be enumerated. Supported
- *  operator: =, AND The fields eligible for filtering are: * `companyName`
- *  (Required) * `requisitionId` * `status` Available values: OPEN, EXPIRED,
- *  ALL. Defaults to OPEN if no value is specified. Sample Query: * companyName
- *  = "projects/foo/tenants/bar/companies/baz" * companyName =
- *  "projects/foo/tenants/bar/companies/baz" AND requisitionId = "req-1" *
- *  companyName = "projects/foo/tenants/bar/companies/baz" AND status =
+ *  operator: =, AND The fields eligible for filtering are: * `companyName` *
+ *  `requisitionId` * `status` Available values: OPEN, EXPIRED, ALL. Defaults to
+ *  OPEN if no value is specified. At least one of `companyName` and
+ *  `requisitionId` must present or an INVALID_ARGUMENT error is thrown. Sample
+ *  Query: * companyName = "projects/foo/tenants/bar/companies/baz" *
+ *  companyName = "projects/foo/tenants/bar/companies/baz" AND requisitionId =
+ *  "req-1" * companyName = "projects/foo/tenants/bar/companies/baz" AND status
+ *  = "EXPIRED" * requisitionId = "req-1" * requisitionId = "req-1" AND status =
  *  "EXPIRED"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -940,8 +939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsPatch : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsPatchWithObject:name:]
 
 /**
  *  Required during job update. The resource name for the job. This is generated
@@ -996,8 +993,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearch : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsSearchWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant to search within. The format is
@@ -1042,8 +1037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearchForAlert : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsJobsSearchForAlertWithObject:parent:]
 
 /**
  *  Required. The resource name of the tenant to search within. The format is
@@ -1086,8 +1079,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsList : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsListWithparent:]
 
 /**
  *  The maximum number of tenants to be returned, at most 100. Default is 100 if
@@ -1133,8 +1124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
  */
 @interface GTLRCloudTalentSolutionQuery_ProjectsTenantsPatch : GTLRCloudTalentSolutionQuery
-// Previous library name was
-//   +[GTLQueryCloudTalentSolution queryForProjectsTenantsPatchWithObject:name:]
 
 /**
  *  Required during tenant update. The resource name for a tenant. This is

@@ -250,8 +250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsBatchUpdate : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsBatchUpdateWithObject:spreadsheetId:]
 
 /** The spreadsheet to apply the updates to. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -294,8 +292,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsCreate : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRSheets_Spreadsheet.
@@ -322,8 +318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsDeveloperMetadataGet : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsDeveloperMetadataGetWithspreadsheetId:metadataId:]
 
 /** The ID of the developer metadata to retrieve. */
 @property(nonatomic, assign) NSInteger metadataId;
@@ -362,8 +356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsDeveloperMetadataSearch : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsDeveloperMetadataSearchWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to retrieve metadata from. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -411,8 +403,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
  */
 @interface GTLRSheetsQuery_SpreadsheetsGet : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsGetWithspreadsheetId:]
 
 /**
  *  True if grid data should be returned. This parameter is ignored if a field
@@ -471,8 +461,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsGetByDataFilter : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsGetByDataFilterWithObject:spreadsheetId:]
 
 /** The spreadsheet to request. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -516,8 +504,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsSheetsCopyTo : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsSheetsCopyToWithObject:spreadsheetId:sheetId:]
 
 /** The ID of the sheet to copy. */
 @property(nonatomic, assign) NSInteger sheetId;
@@ -563,8 +549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesAppend : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesAppendWithObject:spreadsheetId:range:]
 
 /**
  *  Determines if the update response should include the values of the cells
@@ -594,8 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  [DateTimeRenderOption.SERIAL_NUMBER].
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
@@ -617,7 +600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
@@ -697,8 +680,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchClear : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchClearWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -737,8 +718,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchClearByDataFilter : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchClearByDataFilterWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -777,13 +756,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchGet : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchGetWithspreadsheetId:]
 
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
@@ -819,7 +796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
-/** The A1 notation of the values to retrieve. */
+/** The A1 notation or R1C1 notation of the range to retrieve values from. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 /** The ID of the spreadsheet to retrieve data from. */
@@ -874,8 +851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchGetByDataFilter : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchGetByDataFilterWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to retrieve data from. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -910,8 +885,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchUpdate : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchUpdateWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -946,8 +919,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesBatchUpdateByDataFilter : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesBatchUpdateByDataFilterWithObject:spreadsheetId:]
 
 /** The ID of the spreadsheet to update. */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
@@ -983,10 +954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesClear : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesClearWithObject:spreadsheetId:range:]
 
-/** The A1 notation of the values to clear. */
+/** The A1 notation or R1C1 notation of the values to clear. */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to update. */
@@ -1001,7 +970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *
  *  @param object The @c GTLRSheets_ClearValuesRequest to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
- *  @param range The A1 notation of the values to clear.
+ *  @param range The A1 notation or R1C1 notation of the values to clear.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesClear
  */
@@ -1025,13 +994,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheetsReadonly
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesGet : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesGetWithspreadsheetId:range:]
 
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
@@ -1067,7 +1034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
-/** The A1 notation of the values to retrieve. */
+/** The A1 notation or R1C1 notation of the range to retrieve values from. */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /** The ID of the spreadsheet to retrieve data from. */
@@ -1075,7 +1042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  How values should be represented in the output. The default render option is
- *  ValueRenderOption.FORMATTED_VALUE.
+ *  FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
@@ -1102,7 +1069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  spreadsheet ID and a range.
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
- *  @param range The A1 notation of the values to retrieve.
+ *  @param range The A1 notation or R1C1 notation of the range to retrieve
+ *    values from.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesGet
  */
@@ -1123,8 +1091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *    @c kGTLRAuthScopeSheetsSpreadsheets
  */
 @interface GTLRSheetsQuery_SpreadsheetsValuesUpdate : GTLRSheetsQuery
-// Previous library name was
-//   +[GTLQuerySheets queryForSpreadsheetsValuesUpdateWithObject:spreadsheetId:range:]
 
 /**
  *  Determines if the update response should include the values of the cells
@@ -1141,8 +1107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
@@ -1164,7 +1129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be

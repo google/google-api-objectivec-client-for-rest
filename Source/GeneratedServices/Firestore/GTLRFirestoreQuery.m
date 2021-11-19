@@ -645,6 +645,25 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1Database class];
+  query.loggingName = @"firestore.projects.databases.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesImportDocuments
 
 @dynamic name;
@@ -667,6 +686,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
   query.loggingName = @"firestore.projects.databases.importDocuments";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/databases";
+  GTLRFirestoreQuery_ProjectsDatabasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirestore_GoogleFirestoreAdminV1ListDatabasesResponse class];
+  query.loggingName = @"firestore.projects.databases.list";
   return query;
 }
 
@@ -751,6 +789,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"firestore.projects.databases.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirestoreQuery_ProjectsDatabasesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirestore_GoogleFirestoreAdminV1Database *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRFirestoreQuery_ProjectsDatabasesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirestore_GoogleLongrunningOperation class];
+  query.loggingName = @"firestore.projects.databases.patch";
   return query;
 }
 

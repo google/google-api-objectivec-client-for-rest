@@ -45,6 +45,7 @@
 @class GTLRGameServices_GameServerDeployment;
 @class GTLRGameServices_GameServerDeployment_Labels;
 @class GTLRGameServices_GkeClusterReference;
+@class GTLRGameServices_KubernetesClusterState;
 @class GTLRGameServices_LabelSelector;
 @class GTLRGameServices_LabelSelector_Labels;
 @class GTLRGameServices_Location;
@@ -233,9 +234,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_NoAttr;
  *  with IN, the condition indicates "any of the request's realms match one of
  *  the given values; with NOT_IN, "none of the realms match any of the given
  *  values". Note that a value can be: - 'self' (i.e., allow connections from
- *  clients that are in the same security realm) - 'self:metro' (i.e., clients
- *  that are in the same metro) - 'self:cloud-region' (i.e., allow connections
- *  from clients that are in the same cloud region) - 'guardians' (i.e., allow
+ *  clients that are in the same security realm, which is currently but not
+ *  guaranteed to be campus-sized) - 'self:metro' (i.e., clients that are in the
+ *  same metro) - 'self:cloud-region' (i.e., allow connections from clients that
+ *  are in the same cloud region) - 'self:prod-region' (i.e., allow connections
+ *  from clients that are in the same prod region) - 'guardians' (i.e., allow
  *  connections from its guardian realms. See
  *  go/security-realms-glossary#guardian for more information.) - a realm (e.g.,
  *  'campus-abc') - a realm group (e.g., 'realms-for-borg-cell-xx', see:
@@ -349,6 +352,66 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_L
  *  Value: "LOG_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGameServices_KubernetesClusterState.installationState
+
+/**
+ *  The combination of Agones and Kubernetes versions is supported by Google
+ *  Cloud Game Servers.
+ *
+ *  Value: "AGONES_KUBERNETES_VERSION_SUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionSupported;
+/**
+ *  The installed version of Agones is supported by Google Cloud Game Servers,
+ *  but the installed version of Kubernetes is not recommended or supported by
+ *  the version of Agones.
+ *
+ *  Value: "AGONES_KUBERNETES_VERSION_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionUnsupported;
+/**
+ *  Agones is not installed.
+ *
+ *  Value: "AGONES_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesNotInstalled;
+/**
+ *  The installed version of Agones is not recognized because the Agones
+ *  controller's image name does not have a version string reported as
+ *  {major}.{minor}(.{patch}).
+ *
+ *  Value: "AGONES_VERSION_UNRECOGNIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnrecognized;
+/**
+ *  The installed version of Agones is not supported by Google Cloud Game
+ *  Servers.
+ *
+ *  Value: "AGONES_VERSION_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnsupported;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "INSTALLATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_InstallationStateUnspecified;
+/**
+ *  The server version of Kubernetes cluster is not recognized because the API
+ *  server didn't return parsable version info on path/version.
+ *
+ *  Value: "KUBERNETES_VERSION_UNRECOGNIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_KubernetesVersionUnrecognized;
+/**
+ *  Failed to read or verify the version of Agones or Kubernetes. See
+ *  version_installed_error_message for details.
+ *
+ *  Value: "VERSION_VERIFICATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_VersionVerificationFailed;
 
 // ----------------------------------------------------------------------------
 // GTLRGameServices_OperationStatus.errorCode
@@ -641,11 +704,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        condition indicates "any of the request's realms match one of the
  *        given values; with NOT_IN, "none of the realms match any of the given
  *        values". Note that a value can be: - 'self' (i.e., allow connections
- *        from clients that are in the same security realm) - 'self:metro'
- *        (i.e., clients that are in the same metro) - 'self:cloud-region'
- *        (i.e., allow connections from clients that are in the same cloud
- *        region) - 'guardians' (i.e., allow connections from its guardian
- *        realms. See go/security-realms-glossary#guardian for more
+ *        from clients that are in the same security realm, which is currently
+ *        but not guaranteed to be campus-sized) - 'self:metro' (i.e., clients
+ *        that are in the same metro) - 'self:cloud-region' (i.e., allow
+ *        connections from clients that are in the same cloud region) -
+ *        'self:prod-region' (i.e., allow connections from clients that are in
+ *        the same prod region) - 'guardians' (i.e., allow connections from its
+ *        guardian realms. See go/security-realms-glossary#guardian for more
  *        information.) - a realm (e.g., 'campus-abc') - a realm group (e.g.,
  *        'realms-for-borg-cell-xx', see: go/realm-groups) A match is determined
  *        by a realm group membership check performed by a RealmAclRep object
@@ -1002,6 +1067,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @interface GTLRGameServices_GameServerCluster : GTLRObject
 
 /**
+ *  Output only. The state of the Kubernetes cluster, this will be available if
+ *  'view' is set to `FULL` in the relevant List/Get/Preview request.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_KubernetesClusterState *clusterState;
+
+/**
  *  The game server cluster connection information. This information is used to
  *  manage game server clusters.
  */
@@ -1251,6 +1322,83 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  cluster.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
+
+@end
+
+
+/**
+ *  The state of the Kubernetes cluster.
+ */
+@interface GTLRGameServices_KubernetesClusterState : GTLRObject
+
+/**
+ *  Output only. The version of Agones currently installed in the registered
+ *  Kubernetes cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *agonesVersionInstalled;
+
+/**
+ *  Output only. The version of Agones that is targeted to be installed in the
+ *  cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *agonesVersionTargeted;
+
+/**
+ *  Output only. The state for the installed versions of Agones/Kubernetes.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionSupported
+ *        The combination of Agones and Kubernetes versions is supported by
+ *        Google Cloud Game Servers. (Value:
+ *        "AGONES_KUBERNETES_VERSION_SUPPORTED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionUnsupported
+ *        The installed version of Agones is supported by Google Cloud Game
+ *        Servers, but the installed version of Kubernetes is not recommended or
+ *        supported by the version of Agones. (Value:
+ *        "AGONES_KUBERNETES_VERSION_UNSUPPORTED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesNotInstalled
+ *        Agones is not installed. (Value: "AGONES_NOT_INSTALLED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnrecognized
+ *        The installed version of Agones is not recognized because the Agones
+ *        controller's image name does not have a version string reported as
+ *        {major}.{minor}(.{patch}). (Value: "AGONES_VERSION_UNRECOGNIZED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnsupported
+ *        The installed version of Agones is not supported by Google Cloud Game
+ *        Servers. (Value: "AGONES_VERSION_UNSUPPORTED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_InstallationStateUnspecified
+ *        The default value. This value is used if the state is omitted. (Value:
+ *        "INSTALLATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_KubernetesVersionUnrecognized
+ *        The server version of Kubernetes cluster is not recognized because the
+ *        API server didn't return parsable version info on path/version.
+ *        (Value: "KUBERNETES_VERSION_UNRECOGNIZED")
+ *    @arg @c kGTLRGameServices_KubernetesClusterState_InstallationState_VersionVerificationFailed
+ *        Failed to read or verify the version of Agones or Kubernetes. See
+ *        version_installed_error_message for details. (Value:
+ *        "VERSION_VERIFICATION_FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *installationState;
+
+/**
+ *  Output only. The version of Kubernetes that is currently used in the
+ *  registered Kubernetes cluster (as detected by the Cloud Game Servers
+ *  service).
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesVersionInstalled;
+
+/**
+ *  Output only. The cloud provider type reported by the first node's providerID
+ *  in the list of nodes on the Kubernetes endpoint. On Kubernetes platforms
+ *  that support zero-node clusters (like GKE-on-GCP), the provider type will be
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/**
+ *  Output only. The detailed error message for the installed versions of
+ *  Agones/Kubernetes.
+ */
+@property(nonatomic, copy, nullable) NSString *versionInstalledErrorMessage;
 
 @end
 
@@ -1728,7 +1876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1809,6 +1957,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *  GameServerClustersService.PreviewCreateGameServerCluster.
  */
 @interface GTLRGameServices_PreviewCreateGameServerClusterResponse : GTLRObject
+
+/**
+ *  Output only. The state of the Kubernetes cluster in preview, this will be
+ *  available if 'view' is set to `FULL` in the relevant List/Get/Preview
+ *  request.
+ */
+@property(nonatomic, strong, nullable) GTLRGameServices_KubernetesClusterState *clusterState;
 
 /** The ETag of the game server cluster. */
 @property(nonatomic, copy, nullable) NSString *ETag;
@@ -1993,8 +2148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inProperty;
 
 /**
- *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
- *  that match the LOG action.
+ *  The config returned to callers of CheckPolicy for any entries that match the
+ *  LOG action.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_LogConfig *> *logConfig;
 

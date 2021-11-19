@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsLocationsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -83,19 +81,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsLocationsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -125,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsAddVersion : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsAddVersionWithObject:parent:]
 
 /**
  *  Required. The resource name of the Secret to associate with the
@@ -161,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsCreate : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the project to associate with the Secret, in
@@ -203,8 +205,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsDelete : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsDeleteWithname:]
+
+/**
+ *  Optional. Etag of the Secret. The request succeeds if it matches the etag of
+ *  the currently stored secret object. If the etag is omitted, the request
+ *  succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Required. The resource name of the Secret to delete in the format `projects/
@@ -235,8 +242,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsGetWithname:]
 
 /**
  *  Required. The resource name of the Secret, in the format `projects/ *
@@ -268,8 +273,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsGetIamPolicy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -313,8 +316,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsListWithparent:]
+
+/**
+ *  Optional. Filter string, adhering to the rules in [List-operation
+ *  filtering](https://cloud.google.com/secret-manager/docs/filtering). List
+ *  only secrets matching the filter. If filter is empty, all secrets are
+ *  listed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If
@@ -362,8 +371,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsPatch : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsPatchWithObject:name:]
 
 /**
  *  Output only. The resource name of the Secret in the format `projects/ *
@@ -405,8 +412,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsSetIamPolicy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -447,8 +452,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsTestIamPermissions : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -480,7 +483,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
- *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /secrets/ * /versions/latest` is an alias to the most recently created
+ *  SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.access
  *
@@ -488,12 +492,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsAccess : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsAccessWithname:]
 
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
- *  /secrets/ * /versions/ *`.
+ *  /secrets/ * /versions/ *`. `projects/ * /secrets/ * /versions/latest` is an
+ *  alias to the most recently created SecretVersion.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -501,10 +504,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecretManager_AccessSecretVersionResponse.
  *
  *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
- *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /secrets/ * /versions/latest` is an alias to the most recently created
+ *  SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
- *    `projects/ * /secrets/ * /versions/ *`.
+ *    `projects/ * /secrets/ * /versions/ *`. `projects/ * /secrets/ *
+ *    /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsAccess
  */
@@ -522,8 +527,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsDestroy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsDestroyWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to destroy in the format
@@ -558,8 +561,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsDisable : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsDisableWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to disable in the format
@@ -593,8 +594,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsEnable : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsEnableWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to enable in the format
@@ -621,7 +620,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
- *  /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.get
  *
@@ -629,13 +628,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsGetWithname:]
 
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
  *  /secrets/ * /versions/ *`. `projects/ * /secrets/ * /versions/latest` is an
- *  alias to the `latest` SecretVersion.
+ *  alias to the most recently created SecretVersion.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -643,11 +640,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
  *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
- *  /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
  *    `projects/ * /secrets/ * /versions/ *`. `projects/ * /secrets/ *
- *    /versions/latest` is an alias to the `latest` SecretVersion.
+ *    /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsGet
  */
@@ -664,8 +661,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsListWithparent:]
+
+/**
+ *  Optional. Filter string, adhering to the rules in [List-operation
+ *  filtering](https://cloud.google.com/secret-manager/docs/filtering). List
+ *  only secret versions matching the filter. If filter is empty, all secret
+ *  versions are listed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If

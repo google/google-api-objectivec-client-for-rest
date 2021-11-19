@@ -32,9 +32,11 @@
 @class GTLRAdExchangeBuyerII_CompleteSetupRequest;
 @class GTLRAdExchangeBuyerII_Creative;
 @class GTLRAdExchangeBuyerII_FilterSet;
+@class GTLRAdExchangeBuyerII_PauseProposalDealsRequest;
 @class GTLRAdExchangeBuyerII_PauseProposalRequest;
 @class GTLRAdExchangeBuyerII_Proposal;
 @class GTLRAdExchangeBuyerII_RemoveDealAssociationRequest;
+@class GTLRAdExchangeBuyerII_ResumeProposalDealsRequest;
 @class GTLRAdExchangeBuyerII_ResumeProposalRequest;
 @class GTLRAdExchangeBuyerII_StopWatchingCreativeRequest;
 @class GTLRAdExchangeBuyerII_WatchCreativeRequest;
@@ -118,8 +120,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsCreateWithObject:accountId:]
 
 /**
  *  Unique numerical account ID for the buyer of which the client buyer is a
@@ -153,8 +153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsGetWithaccountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -189,8 +187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsCreateWithObject:accountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -231,8 +227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsGetWithaccountId:clientAccountId:invitationId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -275,8 +269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsInvitationsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsInvitationsListWithaccountId:clientAccountId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -334,8 +326,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsListWithaccountId:]
 
 /**
  *  Unique numerical account ID of the sponsor buyer to list the clients for.
@@ -389,8 +379,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsUpdate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUpdateWithObject:accountId:clientAccountId:]
 
 /**
  *  Unique numerical account ID for the buyer of which the client buyer is a
@@ -430,8 +418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUsersGetWithaccountId:clientAccountId:userId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -473,8 +459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUsersListWithaccountId:clientAccountId:]
 
 /**
  *  Numerical account ID of the sponsor buyer of the client to list users for.
@@ -536,8 +520,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsClientsUsersUpdate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsClientsUsersUpdateWithObject:accountId:clientAccountId:userId:]
 
 /** Numerical account ID of the client's sponsor buyer. (required) */
 @property(nonatomic, assign) long long accountId;
@@ -583,8 +565,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesCreateWithObject:accountId:]
 
 /**
  *  The account that this creative belongs to. Can be used to filter the
@@ -635,8 +615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsAdd : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesDealAssociationsAddWithObject:accountId:creativeId:]
 
 /** The account the creative belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -671,8 +649,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesDealAssociationsListWithaccountId:creativeId:]
 
 /**
  *  The account to list the associations from. Specify "-" to list all creatives
@@ -740,8 +716,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesDealAssociationsRemove : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesDealAssociationsRemoveWithObject:accountId:creativeId:]
 
 /** The account the creative belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -776,8 +750,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesGetWithaccountId:creativeId:]
 
 /** The account the creative belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -809,8 +781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesListWithaccountId:]
 
 /**
  *  The account to list the creatives from. Specify "-" to list all creatives
@@ -874,8 +844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesStopWatching : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesStopWatchingWithObject:accountId:creativeId:]
 
 /** The account of the creative to stop notifications for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -915,8 +883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesUpdate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesUpdateWithObject:accountId:creativeId:]
 
 /**
  *  The account that this creative belongs to. Can be used to filter the
@@ -959,8 +925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsCreativesWatch : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsCreativesWatchWithObject:accountId:creativeId:]
 
 /** The account of the creative to watch. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1006,8 +970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsFinalizedProposalsListWithaccountId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1065,6 +1027,98 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
 @end
 
 /**
+ *  Update given deals to pause serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.pause endpoint. It is
+ *  a no-op to pause already-paused deals. It is an error to call
+ *  PauseProposalDeals for deals which are not part of the proposal of
+ *  proposal_id or which are not finalized or renegotiating.
+ *
+ *  Method: adexchangebuyer2.accounts.finalizedProposals.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause : GTLRAdExchangeBuyerIIQuery
+
+/** Account ID of the buyer. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The proposal_id of the proposal containing the deals. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Proposal.
+ *
+ *  Update given deals to pause serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.pause endpoint. It is
+ *  a no-op to pause already-paused deals. It is an error to call
+ *  PauseProposalDeals for deals which are not part of the proposal of
+ *  proposal_id or which are not finalized or renegotiating.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_PauseProposalDealsRequest to
+ *    include in the query.
+ *  @param accountId Account ID of the buyer.
+ *  @param proposalId The proposal_id of the proposal containing the deals.
+ *
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_PauseProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId;
+
+@end
+
+/**
+ *  Update given deals to resume serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.resume endpoint. It
+ *  is a no-op to resume running deals or deals paused by the other party. It is
+ *  an error to call ResumeProposalDeals for deals which are not part of the
+ *  proposal of proposal_id or which are not finalized or renegotiating.
+ *
+ *  Method: adexchangebuyer2.accounts.finalizedProposals.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume : GTLRAdExchangeBuyerIIQuery
+
+/** Account ID of the buyer. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The proposal_id of the proposal containing the deals. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Proposal.
+ *
+ *  Update given deals to resume serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.resume endpoint. It
+ *  is a no-op to resume running deals or deals paused by the other party. It is
+ *  an error to call ResumeProposalDeals for deals which are not part of the
+ *  proposal of proposal_id or which are not finalized or renegotiating.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_ResumeProposalDealsRequest to
+ *    include in the query.
+ *  @param accountId Account ID of the buyer.
+ *  @param proposalId The proposal_id of the proposal containing the deals.
+ *
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ResumeProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId;
+
+@end
+
+/**
  *  Gets the requested product by ID.
  *
  *  Method: adexchangebuyer2.accounts.products.get
@@ -1073,8 +1127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProductsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProductsGetWithaccountId:productId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1107,8 +1159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProductsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProductsListWithaccountId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1162,8 +1212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsAccept : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsAcceptWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1205,8 +1253,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsAddNote : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsAddNoteWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1245,8 +1291,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsCancelNegotiation : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsCancelNegotiationWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1288,8 +1332,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsCompleteSetup : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsCompleteSetupWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1330,8 +1372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsCreateWithObject:accountId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1361,8 +1401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsGetWithaccountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1399,8 +1437,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsListWithaccountId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1473,8 +1509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsPause : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsPauseWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1518,8 +1552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsResume : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsResumeWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1568,8 +1600,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsProposalsUpdate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsProposalsUpdateWithObject:accountId:proposalId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1612,8 +1642,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsPublisherProfilesGetWithaccountId:publisherProfileId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1645,8 +1673,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_AccountsPublisherProfilesList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForAccountsPublisherProfilesListWithaccountId:]
 
 /** Account ID of the buyer. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1683,8 +1709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidMetricsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -1742,8 +1766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidResponseErrorsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -1802,8 +1824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsBidResponsesWithoutBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -1861,8 +1881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsCreateWithObject:ownerName:]
 
 /**
  *  Whether the filter set is transient, or should be persisted indefinitely. By
@@ -1910,8 +1928,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsDeleteWithname:]
 
 /**
  *  Full name of the resource to delete. For example: - For a bidder-level
@@ -1951,8 +1967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidRequestsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2011,8 +2025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsCreativesListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by creative.
@@ -2084,8 +2096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsDetailsListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by detail.
@@ -2160,8 +2170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsFilteredBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2220,8 +2228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsGetWithname:]
 
 /**
  *  Full name of the resource being requested. For example: - For a bidder-level
@@ -2261,8 +2267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsImpressionMetricsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2319,8 +2323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsListWithownerName:]
 
 /**
  *  Name of the owner (bidder or account) of the filter sets to be listed. For
@@ -2376,8 +2378,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsLosingBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2436,8 +2436,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersAccountsFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersAccountsFilterSetsNonBillableWinningBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2495,8 +2493,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidMetricsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidMetricsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2554,8 +2550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponseErrorsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidResponseErrorsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2614,8 +2608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsBidResponsesWithoutBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsBidResponsesWithoutBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2673,8 +2665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsCreate : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsCreateWithObject:ownerName:]
 
 /**
  *  Whether the filter set is transient, or should be persisted indefinitely. By
@@ -2722,8 +2712,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsDelete : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsDeleteWithname:]
 
 /**
  *  Full name of the resource to delete. For example: - For a bidder-level
@@ -2763,8 +2751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidRequestsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidRequestsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -2823,8 +2809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsCreativesList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsCreativesListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by creative.
@@ -2896,8 +2880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsDetailsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsDetailsListWithfilterSetName:creativeStatusId:]
 
 /**
  *  The ID of the creative status for which to retrieve a breakdown by detail.
@@ -2972,8 +2954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsFilteredBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsFilteredBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -3032,8 +3012,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsGet : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsGetWithname:]
 
 /**
  *  Full name of the resource being requested. For example: - For a bidder-level
@@ -3073,8 +3051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsImpressionMetricsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsImpressionMetricsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -3131,8 +3107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsListWithownerName:]
 
 /**
  *  Name of the owner (bidder or account) of the filter sets to be listed. For
@@ -3188,8 +3162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsLosingBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsLosingBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For
@@ -3248,8 +3220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerIIQuery_BiddersFilterSetsNonBillableWinningBidsList : GTLRAdExchangeBuyerIIQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyerII queryForBiddersFilterSetsNonBillableWinningBidsListWithfilterSetName:]
 
 /**
  *  Name of the filter set that should be applied to the requested metrics. For

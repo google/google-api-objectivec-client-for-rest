@@ -25,11 +25,25 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Manag
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Performance = @"PERFORMANCE";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security = @"SECURITY";
 
+// GTLRRecommender_GoogleCloudRecommenderV1Insight.severity
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_High = @"HIGH";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Low = @"LOW";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo.state
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Accepted = @"ACCEPTED";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Active = @"ACTIVE";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Dismissed = @"DISMISSED";
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRRecommender_GoogleCloudRecommenderV1Recommendation.priority
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P1 = @"P1";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P2 = @"P2";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P3 = @"P3";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P4 = @"P4";
+NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
 
 // GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo.state
 NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Active = @"ACTIVE";
@@ -55,7 +69,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Impact
-@dynamic category, costProjection;
+@dynamic category, costProjection, securityProjection;
 @end
 
 
@@ -67,7 +81,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Insight
 @dynamic associatedRecommendations, category, content, descriptionProperty,
          ETag, insightSubtype, lastRefreshTime, name, observationPeriod,
-         stateInfo, targetResources;
+         severity, stateInfo, targetResources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -360,8 +374,8 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Recommendation
 @dynamic additionalImpact, associatedInsights, content, descriptionProperty,
-         ETag, lastRefreshTime, name, primaryImpact, recommenderSubtype,
-         stateInfo;
+         ETag, lastRefreshTime, name, primaryImpact, priority,
+         recommenderSubtype, stateInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -388,13 +402,27 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent
-@dynamic operationGroups;
+@dynamic operationGroups, overview;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operationGroups" : [GTLRRecommender_GoogleCloudRecommenderV1OperationGroup class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -429,6 +457,30 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection
+@dynamic details;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

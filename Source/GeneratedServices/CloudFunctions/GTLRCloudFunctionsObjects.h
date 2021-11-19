@@ -40,6 +40,9 @@
 @class GTLRCloudFunctions_OperationMetadataV1_Request;
 @class GTLRCloudFunctions_Policy;
 @class GTLRCloudFunctions_Retry;
+@class GTLRCloudFunctions_SecretEnvVar;
+@class GTLRCloudFunctions_SecretVersion;
+@class GTLRCloudFunctions_SecretVolume;
 @class GTLRCloudFunctions_SourceRepository;
 @class GTLRCloudFunctions_Status;
 @class GTLRCloudFunctions_Status_Details_Item;
@@ -295,7 +298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudFunctions_Binding : GTLRObject
 
@@ -304,14 +307,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -343,8 +346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -388,6 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 /**
  *  Describes a Cloud Function that contains user computation executed in
  *  response to an event. It encapsulate function and triggers configurations.
+ *  Next tag: 35
  */
 @interface GTLRCloudFunctions_CloudFunction : GTLRObject
 
@@ -408,15 +412,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, copy, nullable) NSString *buildId;
 
 /**
+ *  Output only. The Cloud Build Name of the function deployment.
+ *  `projects//locations//builds/`.
+ */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
+/**
  *  Name of the Cloud Build Custom Worker Pool that should be used to build the
  *  function. The format of this field is
  *  `projects/{project}/locations/{region}/workerPools/{workerPool}` where
- *  {project} and {region} are the project id and region respectively where the
- *  worker pool is defined and {workerPool} is the short name of the worker
- *  pool. If the project id is not the same as the function, then the Cloud
- *  Functions Service Agent (service-\@gcf-admin-robot.iam.gserviceaccount.com)
- *  must be granted the role Cloud Build Custom Workers Builder
- *  (roles/cloudbuild.customworkers.builder) in the project.
+ *  `{project}` and `{region}` are the project id and region respectively where
+ *  the worker pool is defined and `{workerPool}` is the short name of the
+ *  worker pool. If the project id is not the same as the function, then the
+ *  Cloud Functions Service Agent
+ *  (`service-\@gcf-admin-robot.iam.gserviceaccount.com`) must be granted the
+ *  role Cloud Build Custom Workers Builder
+ *  (`roles/cloudbuild.customworkers.builder`) in the project.
  */
 @property(nonatomic, copy, nullable) NSString *buildWorkerPool;
 
@@ -485,6 +496,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, strong, nullable) NSNumber *maxInstances;
 
 /**
+ *  A lower bound for the number function instances that may coexist at a given
+ *  time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minInstances;
+
+/**
  *  A user-defined name of the function. Function names must be unique globally
  *  and match pattern `projects/ * /locations/ * /functions/ *`
  */
@@ -497,8 +516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Otherwise, it must belong to a project within the same organization. The
  *  format of this field is either
  *  `projects/{project}/global/networks/{network}` or `{network}`, where
- *  {project} is a project id where the network is defined, and {network} is the
- *  short name of the network. This field is mutually exclusive with
+ *  `{project}` is a project id where the network is defined, and `{network}` is
+ *  the short name of the network. This field is mutually exclusive with
  *  `vpc_connector` and will be replaced by it. See [the VPC
  *  documentation](https://cloud.google.com/compute/docs/vpc) for more
  *  information on connecting Cloud projects.
@@ -509,9 +528,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  The runtime in which to run the function. Required when deploying a new
  *  function, optional when updating an existing function. For a complete list
  *  of possible choices, see the [`gcloud` command
- *  reference](/sdk/gcloud/reference/functions/deploy#--runtime).
+ *  reference](https://cloud.google.com/sdk/gcloud/reference/functions/deploy#--runtime).
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
+
+/** Secret environment variables configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretEnvVar *> *secretEnvironmentVariables;
+
+/** Secret volumes configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVolume *> *secretVolumes;
 
 /**
  *  The email of the function's service account. If empty, defaults to
@@ -520,7 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  The Google Cloud Storage URL, starting with gs://, pointing to the zip
+ *  The Google Cloud Storage URL, starting with `gs://`, pointing to the zip
  *  archive which contains the function.
  */
 @property(nonatomic, copy, nullable) NSString *sourceArchiveUrl;
@@ -536,7 +561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 /**
  *  The Google Cloud Storage signed URL used for source uploading, generated by
- *  google.cloud.functions.v1.GenerateUploadUrl
+ *  calling [google.cloud.functions.v1.GenerateUploadUrl]. The signature is
+ *  validated on write methods (Create, Update) The signature is stripped from
+ *  the Function object on read methods (Get, List)
  */
 @property(nonatomic, copy, nullable) NSString *sourceUploadUrl;
 
@@ -1070,6 +1097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  */
 @property(nonatomic, copy, nullable) NSString *buildId;
 
+/**
+ *  The Cloud Build Name of the function deployment. This field is only
+ *  populated for Create and Update operations. `projects//locations//builds/`.
+ */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_OperationMetadataV1_Request *request;
 
@@ -1081,7 +1114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 /**
  *  Target of the operation - for example
- *  projects/project-1/locations/region-1/functions/function-1
+ *  `projects/project-1/locations/region-1/functions/function-1`
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -1129,15 +1162,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1153,7 +1186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1163,9 +1196,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_Binding *> *bindings;
 
@@ -1218,6 +1256,101 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Retried execution is charged as any other execution.
  */
 @interface GTLRCloudFunctions_Retry : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a secret environment variable. It has the information
+ *  necessary to fetch the secret value from secret manager and expose it as an
+ *  environment variable. Secret value is not a part of the configuration.
+ *  Secret values are only fetched when a new clone starts.
+ */
+@interface GTLRCloudFunctions_SecretEnvVar : GTLRObject
+
+/** Name of the environment variable. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Project identifier (preferrably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it will be
+ *  populated with the function's project assuming that the secret exists in the
+ *  same project as of the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  recommended to use a numeric version for secret environment variables as any
+ *  updates to the secret value is not reflected until new clones start.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a single version.
+ */
+@interface GTLRCloudFunctions_SecretVersion : GTLRObject
+
+/**
+ *  Relative path of the file under the mount path where the secret value for
+ *  this version will be fetched and made available. For example, setting the
+ *  mount_path as '/etc/secrets' and path as `/secret_foo` would mount the
+ *  secret value file at `/etc/secrets/secret_foo`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  preferrable to use `latest` version with secret volumes as secret value
+ *  changes are reflected immediately.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a secret volume. It has the information necessary to fetch
+ *  the secret value from secret manager and make it available as files mounted
+ *  at the requested paths within the application container. Secret value is not
+ *  a part of the configuration. Every filesystem read operation performs a
+ *  lookup in secret manager to retrieve the secret value.
+ */
+@interface GTLRCloudFunctions_SecretVolume : GTLRObject
+
+/**
+ *  The path within the container to mount the secret volume. For example,
+ *  setting the mount_path as `/etc/secrets` would mount the secret value files
+ *  under the `/etc/secrets` directory. This directory will also be completely
+ *  shadowed and unavailable to mount any other secrets. Recommended mount
+ *  paths: /etc/secrets Restricted mount paths: /cloudsql, /dev/log, /pod,
+ *  /proc, /var/log
+ */
+@property(nonatomic, copy, nullable) NSString *mountPath;
+
+/**
+ *  Project identifier (preferrably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it will be
+ *  populated with the function's project assuming that the secret exists in the
+ *  same project as of the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  List of secret versions to mount for this secret. If empty, the `latest`
+ *  version of the secret will be made available in a file named after the
+ *  secret under the mount point.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVersion *> *versions;
+
 @end
 
 

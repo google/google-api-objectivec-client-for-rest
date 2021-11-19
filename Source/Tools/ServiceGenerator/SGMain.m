@@ -701,7 +701,8 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
     if (json == nil) {
       // At this point, the data wasn't typed as json and there were no other errors, give up.
-      [self reportError:@"Response didn't appear to be JSON."];
+      [self reportError:@"Successful response for %@ didn't appear to be JSON, Content-Type was: %@",
+       reportingName, responseContentType];
       if (self.status == 0) {
         self.status = 16;
       }

@@ -122,6 +122,9 @@
 @class GTLRDocs_ParagraphElement;
 @class GTLRDocs_ParagraphStyle;
 @class GTLRDocs_ParagraphStyleSuggestionState;
+@class GTLRDocs_Person;
+@class GTLRDocs_Person_SuggestedTextStyleChanges;
+@class GTLRDocs_PersonProperties;
 @class GTLRDocs_PositionedObject;
 @class GTLRDocs_PositionedObject_SuggestedPositionedObjectPropertiesChanges;
 @class GTLRDocs_PositionedObjectPositioning;
@@ -136,6 +139,9 @@
 @class GTLRDocs_Request;
 @class GTLRDocs_Response;
 @class GTLRDocs_RgbColor;
+@class GTLRDocs_RichLink;
+@class GTLRDocs_RichLink_SuggestedTextStyleChanges;
+@class GTLRDocs_RichLinkProperties;
 @class GTLRDocs_SectionBreak;
 @class GTLRDocs_SectionColumnProperties;
 @class GTLRDocs_SectionStyle;
@@ -880,6 +886,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingM
 // ----------------------------------------------------------------------------
 // GTLRDocs_PositionedObjectPositioning.layout
 
+/**
+ *  The positioned object is behind the text.
+ *
+ *  Value: "BEHIND_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BehindText;
 /**
  *  Breaks text such that the positioned object is on the left and text is on
  *  the right.
@@ -4016,6 +4028,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /** A page break paragraph element. */
 @property(nonatomic, strong, nullable) GTLRDocs_PageBreak *pageBreak;
 
+/** A paragraph element that links to a person or email address. */
+@property(nonatomic, strong, nullable) GTLRDocs_Person *person;
+
+/**
+ *  A paragraph element that links to a Google resource (such as a file in
+ *  Drive, a Youtube video, a Calendar event, etc.)
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLink *richLink;
+
 /**
  *  The zero-based start index of this paragraph element, in UTF-16 code units.
  *
@@ -4403,6 +4424,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  A person or email address mentioned in a document. These mentions behave as
+ *  a single, immutable element containing the person's name or email address.
+ */
+@interface GTLRDocs_Person : GTLRObject
+
+/** Output only. The unique ID of this link. */
+@property(nonatomic, copy, nullable) NSString *personId;
+
+/**
+ *  Output only. The properties of this Person. This field is always present.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_PersonProperties *personProperties;
+
+/**
+ *  IDs for suggestions that remove this person link from the document. A Person
+ *  might have multiple deletion IDs if, for example, multiple users suggest to
+ *  delete it. If empty, then this person link isn't suggested for deletion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
+
+/**
+ *  IDs for suggestions that insert this person link into the document. A Person
+ *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  suggestion within a suggestion made by a different user, for example). If
+ *  empty, then this person link isn't a suggested insertion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
+
+/**
+ *  The suggested text style changes to this Person, keyed by suggestion ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Person_SuggestedTextStyleChanges *suggestedTextStyleChanges;
+
+/** The text style of this Person. */
+@property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
+
+@end
+
+
+/**
+ *  The suggested text style changes to this Person, keyed by suggestion ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedTextStyle. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_Person_SuggestedTextStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  Properties specific to a linked Person.
+ */
+@interface GTLRDocs_PersonProperties : GTLRObject
+
+/**
+ *  Output only. The email address linked to this Person. This field is always
+ *  present.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Output only. The name of the person if it is displayed in the link text
+ *  instead of the person's email address.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  An object that is tethered to a Paragraph and positioned relative to the
  *  beginning of the paragraph. A PositionedObject contains an EmbeddedObject
  *  such as an image.
@@ -4460,6 +4553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The layout of this positioned object.
  *
  *  Likely values:
+ *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BehindText The
+ *        positioned object is behind the text. (Value: "BEHIND_TEXT")
  *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft Breaks text
  *        such that the positioned object is on the left and text is on the
  *        right. (Value: "BREAK_LEFT")
@@ -4857,6 +4952,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *red;
+
+@end
+
+
+/**
+ *  A link to a Google resource (e.g., a file in Drive, a YouTube video, a
+ *  Calendar event, etc.).
+ */
+@interface GTLRDocs_RichLink : GTLRObject
+
+/** Output only. The ID of this link. */
+@property(nonatomic, copy, nullable) NSString *richLinkId;
+
+/**
+ *  Output only. The properties of this RichLink. This field is always present.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLinkProperties *richLinkProperties;
+
+/**
+ *  IDs for suggestions that remove this link from the document. A RichLink
+ *  might have multiple deletion IDs if, for example, multiple users suggest to
+ *  delete it. If empty, then this person link isn't suggested for deletion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
+
+/**
+ *  IDs for suggestions that insert this link into the document. A RichLink
+ *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  suggestion within a suggestion made by a different user, for example). If
+ *  empty, then this person link isn't a suggested insertion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
+
+/**
+ *  The suggested text style changes to this RichLink, keyed by suggestion ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLink_SuggestedTextStyleChanges *suggestedTextStyleChanges;
+
+/** The text style of this RichLink. */
+@property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
+
+@end
+
+
+/**
+ *  The suggested text style changes to this RichLink, keyed by suggestion ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedTextStyle. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_RichLink_SuggestedTextStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  Properties specific to a RichLink.
+ */
+@interface GTLRDocs_RichLinkProperties : GTLRObject
+
+/**
+ *  Output only. The [MIME
+ *  type](https://developers.google.com/drive/api/v3/mime-types) of the
+ *  RichLink, if there is one (i.e., when it is a file in Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Output only. The title of the RichLink as displayed in the link. This title
+ *  matches the title of the linked resource at the time of the insertion or
+ *  last update of the link. This field is always present.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. The URI to the RichLink. This is always present. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

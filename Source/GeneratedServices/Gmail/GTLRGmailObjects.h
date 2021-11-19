@@ -772,7 +772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 /**
  *  Labels are used to categorize messages and threads within the user's
- *  mailbox.
+ *  mailbox. The maximum number of labels supported for a user's mailbox is
+ *  10,000.
  */
 @interface GTLRGmail_Label : GTLRObject
 
@@ -1459,7 +1460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 /**
  *  An optional HTML signature that is included in messages composed with this
- *  alias in the Gmail web UI.
+ *  alias in the Gmail web UI. This signature is added to new emails only.
  */
 @property(nonatomic, copy, nullable) NSString *signature;
 

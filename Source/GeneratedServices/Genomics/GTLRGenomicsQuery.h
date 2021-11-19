@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
@@ -21,6 +21,8 @@
 #endif
 
 @class GTLRGenomics_CancelOperationRequest;
+@class GTLRGenomics_CheckInRequest;
+@class GTLRGenomics_RunPipelineRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -40,6 +42,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Runs a pipeline. The returned Operation's metadata field will contain a
+ *  google.genomics.v2alpha1.Metadata object describing the status of the
+ *  pipeline execution. The [response] field will contain a
+ *  google.genomics.v2alpha1.RunPipelineResponse object if the pipeline
+ *  completes successfully. **Note:** Before you can use this method, the
+ *  Genomics Service Agent must have access to your project. This is done
+ *  automatically when the Cloud Genomics API is first enabled, but if you
+ *  delete this permission, or if you enabled the Cloud Genomics API before the
+ *  v2alpha1 API launch, you must disable and re-enable the API to grant the
+ *  Genomics Service Agent the required permissions. Authorization requires the
+ *  following [Google IAM](https://cloud.google.com/iam/) permission: *
+ *  `genomics.operations.create` [1]: /genomics/gsa
+ *
+ *  Method: genomics.pipelines.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGenomics
+ *    @c kGTLRAuthScopeGenomicsCloudPlatform
+ */
+@interface GTLRGenomicsQuery_PipelinesRun : GTLRGenomicsQuery
+
+/**
+ *  Fetches a @c GTLRGenomics_Operation.
+ *
+ *  Runs a pipeline. The returned Operation's metadata field will contain a
+ *  google.genomics.v2alpha1.Metadata object describing the status of the
+ *  pipeline execution. The [response] field will contain a
+ *  google.genomics.v2alpha1.RunPipelineResponse object if the pipeline
+ *  completes successfully. **Note:** Before you can use this method, the
+ *  Genomics Service Agent must have access to your project. This is done
+ *  automatically when the Cloud Genomics API is first enabled, but if you
+ *  delete this permission, or if you enabled the Cloud Genomics API before the
+ *  v2alpha1 API launch, you must disable and re-enable the API to grant the
+ *  Genomics Service Agent the required permissions. Authorization requires the
+ *  following [Google IAM](https://cloud.google.com/iam/) permission: *
+ *  `genomics.operations.create` [1]: /genomics/gsa
+ *
+ *  @param object The @c GTLRGenomics_RunPipelineRequest to include in the
+ *    query.
+ *
+ *  @return GTLRGenomicsQuery_PipelinesRun
+ */
++ (instancetype)queryWithObject:(GTLRGenomics_RunPipelineRequest *)object;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  Clients may use Operations.GetOperation or Operations.ListOperations to
@@ -48,15 +97,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  IAM](https://cloud.google.com/iam) permission: *
  *  `genomics.operations.cancel`
  *
- *  Method: genomics.operations.cancel
+ *  Method: genomics.projects.operations.cancel
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGenomics
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
-@interface GTLRGenomicsQuery_OperationsCancel : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsCancelWithObject:name:]
+@interface GTLRGenomicsQuery_ProjectsOperationsCancel : GTLRGenomicsQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -76,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLRGenomicsQuery_OperationsCancel
+ *  @return GTLRGenomicsQuery_ProjectsOperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRGenomics_CancelOperationRequest *)object
                            name:(NSString *)name;
@@ -89,15 +136,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  service. Authorization requires the following [Google
  *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.get`
  *
- *  Method: genomics.operations.get
+ *  Method: genomics.projects.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGenomics
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
-@interface GTLRGenomicsQuery_OperationsGet : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsGetWithname:]
+@interface GTLRGenomicsQuery_ProjectsOperationsGet : GTLRGenomicsQuery
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -112,7 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation resource.
  *
- *  @return GTLRGenomicsQuery_OperationsGet
+ *  @return GTLRGenomicsQuery_ProjectsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -123,15 +168,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Authorization requires the following [Google
  *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.list`
  *
- *  Method: genomics.operations.list
+ *  Method: genomics.projects.operations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeGenomics
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
-@interface GTLRGenomicsQuery_OperationsList : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsListWithname:]
+@interface GTLRGenomicsQuery_ProjectsOperationsList : GTLRGenomicsQuery
 
 /**
  *  A string for filtering Operations. In v2alpha1, the following filter fields
@@ -142,12 +185,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  finishes, the value is the standard Google error code. * labels.key or
  *  labels."key with space" where key is a label key. * done: If the pipeline is
  *  running, this value is false. Once the pipeline finishes, the value is true.
- *  In v1 and v1alpha2, the following filter fields are supported: * projectId:
- *  Required. Corresponds to OperationMetadata.projectId. * createTime: The time
- *  this job was created, in seconds from the
- *  [epoch](http://en.wikipedia.org/wiki/Unix_time). Can use `>=` and/or `<=`
- *  operators. * status: Can be `RUNNING`, `SUCCESS`, `FAILURE`, or `CANCELED`.
- *  Only one status may be specified. * labels.key where key is a label key.
  *  Examples: * `projectId = my-project AND createTime >= 1432140000` *
  *  `projectId = my-project AND createTime >= 1432140000 AND createTime <=
  *  1432150000 AND status = RUNNING` * `projectId = my-project AND labels.color
@@ -173,13 +210,87 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @return GTLRGenomicsQuery_OperationsList
+ *  @return GTLRGenomicsQuery_ProjectsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  The worker uses this method to retrieve the assigned operation and provide
+ *  periodic status updates.
+ *
+ *  Method: genomics.projects.workers.checkIn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGenomics
+ *    @c kGTLRAuthScopeGenomicsCloudPlatform
+ */
+@interface GTLRGenomicsQuery_ProjectsWorkersCheckIn : GTLRGenomicsQuery
+
+/**
+ *  The VM identity token for authenticating the VM instance.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRGenomics_CheckInResponse.
+ *
+ *  The worker uses this method to retrieve the assigned operation and provide
+ *  periodic status updates.
+ *
+ *  @param object The @c GTLRGenomics_CheckInRequest to include in the query.
+ *  @param identifier The VM identity token for authenticating the VM instance.
+ *    https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ *
+ *  @return GTLRGenomicsQuery_ProjectsWorkersCheckIn
+ */
++ (instancetype)queryWithObject:(GTLRGenomics_CheckInRequest *)object
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  The worker uses this method to retrieve the assigned operation and provide
+ *  periodic status updates.
+ *
+ *  Method: genomics.workers.checkIn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGenomics
+ *    @c kGTLRAuthScopeGenomicsCloudPlatform
+ */
+@interface GTLRGenomicsQuery_WorkersCheckIn : GTLRGenomicsQuery
+
+/**
+ *  The VM identity token for authenticating the VM instance.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRGenomics_CheckInResponse.
+ *
+ *  The worker uses this method to retrieve the assigned operation and provide
+ *  periodic status updates.
+ *
+ *  @param object The @c GTLRGenomics_CheckInRequest to include in the query.
+ *  @param identifier The VM identity token for authenticating the VM instance.
+ *    https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ *
+ *  @return GTLRGenomicsQuery_WorkersCheckIn
+ */
++ (instancetype)queryWithObject:(GTLRGenomics_CheckInRequest *)object
+                     identifier:(NSString *)identifier;
 
 @end
 

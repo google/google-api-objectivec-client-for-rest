@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsGet : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -79,8 +77,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsCreate : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsCreateWithObject:parent:]
 
 /**
  *  Required. The location name. For example:
@@ -113,8 +109,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsDelete : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsDeleteWithname:]
 
 /**
  *  Required. The job name. For example:
@@ -145,8 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsGet : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsGetWithname:]
 
 /**
  *  Required. The job name. For example:
@@ -177,8 +169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsList : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsListWithparent:]
 
 /**
  *  Requested page size. The maximum page size is 500. If unspecified, the page
@@ -233,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsPatch : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsPatchWithObject:name:]
 
 /**
  *  Optionally caller-specified in CreateJob, after which it becomes output
@@ -299,8 +287,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsPause : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsPauseWithObject:name:]
 
 /**
  *  Required. The job name. For example:
@@ -340,8 +326,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsResume : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsResumeWithObject:name:]
 
 /**
  *  Required. The job name. For example:
@@ -379,8 +363,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsJobsRun : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsJobsRunWithObject:name:]
 
 /**
  *  Required. The job name. For example:
@@ -415,19 +397,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
  */
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsList : GTLRCloudSchedulerQuery
-// Previous library name was
-//   +[GTLQueryCloudScheduler queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

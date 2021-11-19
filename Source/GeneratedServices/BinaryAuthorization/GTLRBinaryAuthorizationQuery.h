@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsCreate : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsCreateWithObject:parent:]
 
 /** Required. The attestors ID. */
 @property(nonatomic, copy, nullable) NSString *attestorId;
@@ -91,8 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsDelete : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsDeleteWithname:]
 
 /**
  *  Required. The name of the attestors to delete, in the format `projects/ *
@@ -123,8 +119,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsGet : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsGetWithname:]
 
 /**
  *  Required. The name of the attestor to retrieve, in the format `projects/ *
@@ -156,8 +150,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsGetIamPolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -201,8 +193,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsList : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsListWithparent:]
 
 /**
  *  Requested page size. The server may return fewer results than requested. If
@@ -252,8 +242,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsSetIamPolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -294,8 +282,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsTestIamPermissions : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -334,8 +320,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsUpdate : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsUpdateWithObject:name:]
 
 /**
  *  Required. The resource name, in the format: `projects/ * /attestors/ *`.
@@ -370,8 +354,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsValidateAttestationOccurrence : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsValidateAttestationOccurrenceWithObject:attestor:]
 
 /**
  *  Required. The resource name of the Attestor of the occurrence, in the format
@@ -411,8 +393,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsGetPolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsGetPolicyWithname:]
 
 /**
  *  Required. The resource name of the policy to retrieve, in the format
@@ -448,8 +428,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsPolicyGetIamPolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsPolicyGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -495,8 +473,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsPolicySetIamPolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsPolicySetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -537,8 +513,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsPolicyTestIamPermissions : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsPolicyTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -580,8 +554,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
  */
 @interface GTLRBinaryAuthorizationQuery_ProjectsUpdatePolicy : GTLRBinaryAuthorizationQuery
-// Previous library name was
-//   +[GTLQueryBinaryAuthorization queryForProjectsUpdatePolicyWithObject:name:]
 
 /**
  *  Output only. The resource name, in the format `projects/ * /policy`. There
@@ -605,6 +577,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBinaryAuthorization_Policy *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the current system policy in the specified location.
+ *
+ *  Method: binaryauthorization.systempolicy.getPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy : GTLRBinaryAuthorizationQuery
+
+/**
+ *  Required. The resource name, in the format `locations/ * /policy`. Note that
+ *  the system policy is not associated with a project.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_Policy.
+ *
+ *  Gets the current system policy in the specified location.
+ *
+ *  @param name Required. The resource name, in the format `locations/ *
+ *    /policy`. Note that the system policy is not associated with a project.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

@@ -19,13 +19,17 @@ NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource = @"AD_SOURC
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSourceInstance = @"AD_SOURCE_INSTANCE";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App = @"APP";
+NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Date = @"DATE";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format = @"FORMAT";
+NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_GmaSdkVersion = @"GMA_SDK_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup = @"MEDIATION_GROUP";
+NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Month = @"MONTH";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Week = @"WEEK";
 
 // GTLRAdMob_MediationReportSpec.metrics
@@ -44,13 +48,17 @@ NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourc
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance = @"AD_SOURCE_INSTANCE";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App = @"APP";
+NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Date = @"DATE";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format = @"FORMAT";
+NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_GmaSdkVersion = @"GMA_SDK_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup = @"MEDIATION_GROUP";
+NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month = @"MONTH";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week = @"WEEK";
 
 // GTLRAdMob_MediationReportSpecSortCondition.dimension
@@ -58,13 +66,17 @@ NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource 
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance = @"AD_SOURCE_INSTANCE";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App = @"APP";
+NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Date = @"DATE";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format = @"FORMAT";
+NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_GmaSdkVersion = @"GMA_SDK_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup = @"MEDIATION_GROUP";
+NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month = @"MONTH";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week = @"WEEK";
 
 // GTLRAdMob_MediationReportSpecSortCondition.metric
@@ -87,12 +99,16 @@ NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Order_SortOrderUnsp
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdType = @"AD_TYPE";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_App   = @"APP";
+NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Date  = @"DATE";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Format = @"FORMAT";
+NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_GmaSdkVersion = @"GMA_SDK_VERSION";
+NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Month = @"MONTH";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Week  = @"WEEK";
 
 // GTLRAdMob_NetworkReportSpec.metrics
@@ -111,24 +127,32 @@ NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate = @"SHOW_RATE";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdType = @"AD_TYPE";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App = @"APP";
+NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Date = @"DATE";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format = @"FORMAT";
+NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_GmaSdkVersion = @"GMA_SDK_VERSION";
+NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month = @"MONTH";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week = @"WEEK";
 
 // GTLRAdMob_NetworkReportSpecSortCondition.dimension
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdType = @"AD_TYPE";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdUnit = @"AD_UNIT";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App = @"APP";
+NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AppVersionName = @"APP_VERSION_NAME";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country = @"COUNTRY";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Date = @"DATE";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format = @"FORMAT";
+NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_GmaSdkVersion = @"GMA_SDK_VERSION";
+NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_MobileOsVersion = @"MOBILE_OS_VERSION";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month = @"MONTH";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform = @"PLATFORM";
+NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_ServingRestriction = @"SERVING_RESTRICTION";
 NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week = @"WEEK";
 
 // GTLRAdMob_NetworkReportSpecSortCondition.metric
@@ -154,6 +178,54 @@ NSString * const kGTLRAdMob_ReportWarning_Type_DataDelayed     = @"DATA_DELAYED"
 NSString * const kGTLRAdMob_ReportWarning_Type_Other           = @"OTHER";
 NSString * const kGTLRAdMob_ReportWarning_Type_ReportCurrencyNotAccountCurrency = @"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY";
 NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_AdUnit
+//
+
+@implementation GTLRAdMob_AdUnit
+@dynamic adFormat, adTypes, adUnitId, appId, displayName, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_App
+//
+
+@implementation GTLRAdMob_App
+@dynamic appId, linkedAppInfo, manualAppInfo, name, platform;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_AppLinkedAppInfo
+//
+
+@implementation GTLRAdMob_AppLinkedAppInfo
+@dynamic appStoreId, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_AppManualAppInfo
+//
+
+@implementation GTLRAdMob_AppManualAppInfo
+@dynamic displayName;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -212,6 +284,50 @@ NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRAdMob_GenerateNetworkReportResponse
 @dynamic footer, header, row;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_ListAdUnitsResponse
+//
+
+@implementation GTLRAdMob_ListAdUnitsResponse
+@dynamic adUnits, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adUnits" : [GTLRAdMob_AdUnit class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adUnits";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_ListAppsResponse
+//
+
+@implementation GTLRAdMob_ListAppsResponse
+@dynamic apps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apps" : [GTLRAdMob_App class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"apps";
+}
+
 @end
 
 

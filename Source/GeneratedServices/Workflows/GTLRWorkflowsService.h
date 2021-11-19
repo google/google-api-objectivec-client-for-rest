@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflows API (workflows/v1beta)
+//   Workflows API (workflows/v1)
 // Description:
-//   Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
-//   API endpoints.
+//   Manage workflow definitions. To execute workflows and manage executions,
+//   see the Workflows Executions API.
 // Documentation:
 //   https://cloud.google.com/workflows
 
@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -46,8 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkflowsCloudPlatform;
 /**
  *  Service for executing Workflows API queries.
  *
- *  Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
- *  API endpoints.
+ *  Manage workflow definitions. To execute workflows and manage executions, see
+ *  the Workflows Executions API.
  */
 @interface GTLRWorkflowsService : GTLRService
 

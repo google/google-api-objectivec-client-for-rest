@@ -16,6 +16,20 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverAfter
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverImmediately = @"DELIVER_IMMEDIATELY";
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequirementUnspecified = @"DELIVERY_REQUIREMENT_UNSPECIFIED";
 
+// GTLRPubsubLite_SeekSubscriptionRequest.namedTarget
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Head = @"HEAD";
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_NamedTargetUnspecified = @"NAMED_TARGET_UNSPECIFIED";
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TAIL";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_CancelOperationRequest
+//
+
+@implementation GTLRPubsubLite_CancelOperationRequest
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPubsubLite_Capacity
@@ -23,6 +37,45 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 @implementation GTLRPubsubLite_Capacity
 @dynamic publishMibPerSec, subscribeMibPerSec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_CommitCursorRequest
+//
+
+@implementation GTLRPubsubLite_CommitCursorRequest
+@dynamic cursor, partition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_CommitCursorResponse
+//
+
+@implementation GTLRPubsubLite_CommitCursorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeHeadCursorRequest
+//
+
+@implementation GTLRPubsubLite_ComputeHeadCursorRequest
+@dynamic partition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeHeadCursorResponse
+//
+
+@implementation GTLRPubsubLite_ComputeHeadCursorResponse
+@dynamic headCursor;
 @end
 
 
@@ -43,6 +96,26 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 @implementation GTLRPubsubLite_ComputeMessageStatsResponse
 @dynamic messageBytes, messageCount, minimumEventTime, minimumPublishTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeTimeCursorRequest
+//
+
+@implementation GTLRPubsubLite_ComputeTimeCursorRequest
+@dynamic partition, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeTimeCursorResponse
+//
+
+@implementation GTLRPubsubLite_ComputeTimeCursorResponse
+@dynamic cursor;
 @end
 
 
@@ -77,6 +150,28 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_ListOperationsResponse
+//
+
+@implementation GTLRPubsubLite_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRPubsubLite_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_ListPartitionCursorsResponse
 //
 
@@ -92,6 +187,46 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 + (NSString *)collectionItemsKey {
   return @"partitionCursors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ListReservationsResponse
+//
+
+@implementation GTLRPubsubLite_ListReservationsResponse
+@dynamic nextPageToken, reservations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservations" : [GTLRPubsubLite_Reservation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"reservations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ListReservationTopicsResponse
+//
+
+@implementation GTLRPubsubLite_ListReservationTopicsResponse
+@dynamic nextPageToken, topics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topics" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -161,6 +296,54 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_Operation
+//
+
+@implementation GTLRPubsubLite_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Operation_Metadata
+//
+
+@implementation GTLRPubsubLite_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Operation_Response
+//
+
+@implementation GTLRPubsubLite_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_OperationMetadata
+//
+
+@implementation GTLRPubsubLite_OperationMetadata
+@dynamic createTime, endTime, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_PartitionConfig
 //
 
@@ -181,11 +364,82 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_Reservation
+//
+
+@implementation GTLRPubsubLite_Reservation
+@dynamic name, throughputCapacity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ReservationConfig
+//
+
+@implementation GTLRPubsubLite_ReservationConfig
+@dynamic throughputReservation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_RetentionConfig
 //
 
 @implementation GTLRPubsubLite_RetentionConfig
 @dynamic period, perPartitionBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_SeekSubscriptionRequest
+//
+
+@implementation GTLRPubsubLite_SeekSubscriptionRequest
+@dynamic namedTarget, timeTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_SeekSubscriptionResponse
+//
+
+@implementation GTLRPubsubLite_SeekSubscriptionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Status
+//
+
+@implementation GTLRPubsubLite_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRPubsubLite_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Status_Details_Item
+//
+
+@implementation GTLRPubsubLite_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -201,11 +455,21 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_TimeTarget
+//
+
+@implementation GTLRPubsubLite_TimeTarget
+@dynamic eventTime, publishTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_Topic
 //
 
 @implementation GTLRPubsubLite_Topic
-@dynamic name, partitionConfig, retentionConfig;
+@dynamic name, partitionConfig, reservationConfig, retentionConfig;
 @end
 
 

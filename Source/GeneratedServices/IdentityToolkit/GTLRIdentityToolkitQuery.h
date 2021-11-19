@@ -64,8 +64,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyCreateAuthUri : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyCreateAuthUriWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_CreateAuthUriResponse.
@@ -90,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyDeleteAccount : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyDeleteAccountWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_DeleteAccountResponse.
@@ -117,8 +113,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyDownloadAccount : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyDownloadAccountWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_DownloadAccountResponse.
@@ -143,8 +137,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyEmailLinkSignin : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyEmailLinkSigninWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_EmailLinkSigninResponse.
@@ -169,8 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetAccountInfo : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyGetAccountInfoWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_GetAccountInfoResponse.
@@ -195,8 +185,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetOobConfirmationCode : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyGetOobConfirmationCodeWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_GetOobConfirmationCodeResponse.
@@ -221,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetProjectConfig : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyGetProjectConfig]
 
 /** Delegated GCP project number of the request. */
 @property(nonatomic, copy, nullable) NSString *delegatedProjectNumber;
@@ -250,8 +236,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetPublicKeys : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyGetPublicKeys]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartyGetPublicKeysResponse.
@@ -273,8 +257,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyGetRecaptchaParam : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyGetRecaptchaParam]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_GetRecaptchaParamResponse.
@@ -296,8 +278,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyResetPassword : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyResetPasswordWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_ResetPasswordResponse.
@@ -322,8 +302,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySendVerificationCode : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartySendVerificationCodeWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartySendVerificationCodeResponse.
@@ -349,8 +327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySetAccountInfo : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartySetAccountInfoWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_SetAccountInfoResponse.
@@ -375,8 +351,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySetProjectConfig : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartySetProjectConfigWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartySetProjectConfigResponse.
@@ -401,8 +375,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySignOutUser : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartySignOutUserWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartySignOutUserResponse.
@@ -427,8 +399,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartySignupNewUser : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartySignupNewUserWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_SignupNewUserResponse.
@@ -454,8 +424,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitFirebase
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyUploadAccount : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyUploadAccountWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_UploadAccountResponse.
@@ -480,8 +448,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyAssertion : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyVerifyAssertionWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_VerifyAssertionResponse.
@@ -506,8 +472,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyCustomToken : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyVerifyCustomTokenWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_VerifyCustomTokenResponse.
@@ -533,8 +497,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyPassword : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyVerifyPasswordWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_VerifyPasswordResponse.
@@ -560,8 +522,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIdentityToolkitCloudPlatform
  */
 @interface GTLRIdentityToolkitQuery_RelyingpartyVerifyPhoneNumber : GTLRIdentityToolkitQuery
-// Previous library name was
-//   +[GTLQueryIdentityToolkit queryForRelyingpartyVerifyPhoneNumberWithObject:]
 
 /**
  *  Fetches a @c GTLRIdentityToolkit_RelyingpartyVerifyPhoneNumberResponse.

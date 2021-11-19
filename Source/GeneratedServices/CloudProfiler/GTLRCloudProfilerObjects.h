@@ -158,10 +158,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  */
 @interface GTLRCloudProfiler_CreateProfileRequest : GTLRObject
 
-/** Deployment details. */
+/** Required. Deployment details. */
 @property(nonatomic, strong, nullable) GTLRCloudProfiler_Deployment *deployment;
 
-/** One or more profile types that the agent is capable of providing. */
+/**
+ *  Required. One or more profile types that the agent is capable of providing.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *profileType;
 
 @end
@@ -194,9 +196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 
 /**
  *  Target is the service name used to group related deployments: * Service name
- *  for GAE Flex / Standard. * Cluster and container name for GKE. *
- *  User-specified string for direct GCE profiling (e.g. Java). * Job name for
- *  Dataflow. Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
+ *  for App Engine Flex / Standard. * Cluster and container name for GKE. *
+ *  User-specified string for direct Compute Engine profiling (e.g. Java). * Job
+ *  name for Dataflow. Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 

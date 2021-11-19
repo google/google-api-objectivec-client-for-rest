@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #import "GTLRReportsQuery.h"
 
@@ -20,8 +20,6 @@
 // applicationName
 NSString * const kGTLRReportsApplicationNameAccessTransparency = @"access_transparency";
 NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
-NSString * const kGTLRReportsApplicationNameApplicationNameUndefined = @"application_name_undefined";
-NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified = @"application_name_unspecified";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
@@ -33,6 +31,7 @@ NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
 NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
 NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";
 NSString * const kGTLRReportsApplicationNameJamboard           = @"jamboard";
+NSString * const kGTLRReportsApplicationNameKeep               = @"keep";
 NSString * const kGTLRReportsApplicationNameLogin              = @"login";
 NSString * const kGTLRReportsApplicationNameMeet               = @"meet";
 NSString * const kGTLRReportsApplicationNameMobile             = @"mobile";
@@ -42,13 +41,11 @@ NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 
 // entityKey
-NSString * const kGTLRReportsEntityKeyAll                = @"all";
-NSString * const kGTLRReportsEntityKeyEntityKey          = @"entityKey";
-NSString * const kGTLRReportsEntityKeyEntityKeyUndefined = @"entityKeyUndefined";
+NSString * const kGTLRReportsEntityKeyAll       = @"all";
+NSString * const kGTLRReportsEntityKeyEntityKey = @"entityKey";
 
 // entityType
-NSString * const kGTLRReportsEntityTypeEntityTypeUndefined = @"entity_type_undefined";
-NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities";
+NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 // ----------------------------------------------------------------------------
 // Query Classes

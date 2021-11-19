@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Certificate Authority API (privateca/v1beta1)
+//   Certificate Authority API (privateca/v1)
 // Description:
 //   The Certificate Authority Service API is a highly-available, scalable
 //   service that enables you to simplify and automate the management of private
@@ -24,54 +24,32 @@
 #endif
 
 @class GTLRCertificateAuthorityService_AccessUrls;
-@class GTLRCertificateAuthorityService_AllowedConfigList;
-@class GTLRCertificateAuthorityService_AllowedSubjectAltNames;
+@class GTLRCertificateAuthorityService_AllowedKeyType;
 @class GTLRCertificateAuthorityService_AuditConfig;
 @class GTLRCertificateAuthorityService_AuditLogConfig;
 @class GTLRCertificateAuthorityService_Binding;
 @class GTLRCertificateAuthorityService_CaOptions;
+@class GTLRCertificateAuthorityService_CaPool;
+@class GTLRCertificateAuthorityService_CaPool_Labels;
+@class GTLRCertificateAuthorityService_CertChain;
 @class GTLRCertificateAuthorityService_Certificate;
 @class GTLRCertificateAuthorityService_Certificate_Labels;
 @class GTLRCertificateAuthorityService_CertificateAuthority;
 @class GTLRCertificateAuthorityService_CertificateAuthority_Labels;
-@class GTLRCertificateAuthorityService_CertificateAuthorityPolicy;
 @class GTLRCertificateAuthorityService_CertificateConfig;
 @class GTLRCertificateAuthorityService_CertificateDescription;
+@class GTLRCertificateAuthorityService_CertificateExtensionConstraints;
 @class GTLRCertificateAuthorityService_CertificateFingerprint;
+@class GTLRCertificateAuthorityService_CertificateIdentityConstraints;
 @class GTLRCertificateAuthorityService_CertificateRevocationList;
 @class GTLRCertificateAuthorityService_CertificateRevocationList_Labels;
-@class GTLRCertificateAuthorityService_Exemplar;
-@class GTLRCertificateAuthorityService_Exemplar_Attachments_Item;
+@class GTLRCertificateAuthorityService_CertificateTemplate;
+@class GTLRCertificateAuthorityService_CertificateTemplate_Labels;
+@class GTLRCertificateAuthorityService_EcKeyType;
 @class GTLRCertificateAuthorityService_Expr;
 @class GTLRCertificateAuthorityService_ExtendedKeyUsageOptions;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes_AttributeMap;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Distribution;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExplicitBuckets;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExponentialBuckets;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1HttpRequest;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LinearBuckets;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Labels;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_ProtoPayload;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_StructPayload;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntryOperation;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntrySourceLocation;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue_Labels;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Labels;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan;
-@class GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString;
 @class GTLRCertificateAuthorityService_IssuanceModes;
-@class GTLRCertificateAuthorityService_IssuingOptions;
+@class GTLRCertificateAuthorityService_IssuancePolicy;
 @class GTLRCertificateAuthorityService_KeyId;
 @class GTLRCertificateAuthorityService_KeyUsage;
 @class GTLRCertificateAuthorityService_KeyUsageOptions;
@@ -79,19 +57,16 @@
 @class GTLRCertificateAuthorityService_Location;
 @class GTLRCertificateAuthorityService_Location_Labels;
 @class GTLRCertificateAuthorityService_Location_Metadata;
-@class GTLRCertificateAuthorityService_Money;
 @class GTLRCertificateAuthorityService_ObjectId;
 @class GTLRCertificateAuthorityService_Operation;
 @class GTLRCertificateAuthorityService_Operation_Metadata;
 @class GTLRCertificateAuthorityService_Operation_Response;
 @class GTLRCertificateAuthorityService_Policy;
 @class GTLRCertificateAuthorityService_PublicKey;
-@class GTLRCertificateAuthorityService_ReusableConfig;
-@class GTLRCertificateAuthorityService_ReusableConfig_Labels;
-@class GTLRCertificateAuthorityService_ReusableConfigValues;
-@class GTLRCertificateAuthorityService_ReusableConfigWrapper;
+@class GTLRCertificateAuthorityService_PublishingOptions;
 @class GTLRCertificateAuthorityService_RevocationDetails;
 @class GTLRCertificateAuthorityService_RevokedCertificate;
+@class GTLRCertificateAuthorityService_RsaKeyType;
 @class GTLRCertificateAuthorityService_Status;
 @class GTLRCertificateAuthorityService_Status_Details_Item;
 @class GTLRCertificateAuthorityService_Subject;
@@ -101,6 +76,7 @@
 @class GTLRCertificateAuthorityService_SubordinateConfig;
 @class GTLRCertificateAuthorityService_SubordinateConfigChain;
 @class GTLRCertificateAuthorityService_X509Extension;
+@class GTLRCertificateAuthorityService_X509Parameters;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -141,32 +117,101 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AuditLogConf
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_CaPool.tier
+
+/**
+ *  DevOps tier.
+ *
+ *  Value: "DEVOPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_Devops;
+/**
+ *  Enterprise tier.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_Enterprise;
+/**
+ *  Not specified.
+ *
+ *  Value: "TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_TierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_Certificate.subjectMode
+
+/**
+ *  The default mode used in most cases. Indicates that the certificate's
+ *  Subject and/or SubjectAltNames are specified in the certificate request.
+ *  This mode requires the caller to have the `privateca.certificates.create`
+ *  permission.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default;
+/**
+ *  A mode reserved for special cases. Indicates that the certificate should
+ *  have one or more SPIFFE SubjectAltNames set by the service based on the
+ *  caller's identity. This mode will ignore any explicitly specified Subject
+ *  and/or SubjectAltNames in the certificate request. This mode requires the
+ *  caller to have the `privateca.certificates.createForSelf` permission.
+ *
+ *  Value: "REFLECTED_SPIFFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe;
+/**
+ *  Not specified.
+ *
+ *  Value: "SUBJECT_REQUEST_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_SubjectRequestModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_CertificateAuthority.state
 
 /**
+ *  Certificates cannot be issued from this CA. CRLs will not be generated. The
+ *  CA will not be part of the CaPool's trust anchor, and will not be used to
+ *  issue certificates from the CaPool.
+ *
+ *  Value: "AWAITING_USER_ACTIVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_AwaitingUserActivation;
+/**
+ *  Certificates cannot be issued from this CA. CRLs will not be generated. The
+ *  CA may still be recovered by calling
+ *  CertificateAuthorityService.UndeleteCertificateAuthority before expire_time.
+ *  The CA will not be part of the CaPool's trust anchor, and will not be used
+ *  to issue certificates from the CaPool.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Deleted;
+/**
  *  Certificates cannot be issued from this CA. CRLs will still be generated.
+ *  The CA will be part of the CaPool's trust anchor, but will not be used to
+ *  issue certificates from the CaPool.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Disabled;
 /**
  *  Certificates can be issued from this CA. CRLs will be generated for this CA.
+ *  The CA will be part of the CaPool's trust anchor, and will be used to issue
+ *  certificates from the CaPool.
  *
  *  Value: "ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Enabled;
 /**
- *  Certificates cannot be issued from this CA. CRLs will not be generated.
+ *  Certificates can be issued from this CA. CRLs will be generated for this CA.
+ *  The CA will be part of the CaPool's trust anchor, but will not be used to
+ *  issue certificates from the CaPool.
  *
- *  Value: "PENDING_ACTIVATION"
+ *  Value: "STAGED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingActivation;
-/**
- *  Certificates cannot be issued from this CA. CRLs will not be generated.
- *
- *  Value: "PENDING_DELETION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingDeletion;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Staged;
 /**
  *  Not specified.
  *
@@ -220,6 +265,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateA
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_CertificateExtensionConstraints.knownExtensions
+
+/**
+ *  Refers to OCSP servers in a certificate's Authority Information Access
+ *  extension, as described in [RFC 5280 section
+ *  4.2.2.1](https://tools.ietf.org/html/rfc5280#section-4.2.2.1), This
+ *  corresponds to the X509Parameters.aia_ocsp_servers field.
+ *
+ *  Value: "AIA_OCSP_SERVERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_AiaOcspServers;
+/**
+ *  Refers to a certificate's Key Usage extension, as described in [RFC 5280
+ *  section 4.2.1.3](https://tools.ietf.org/html/rfc5280#section-4.2.1.3). This
+ *  corresponds to the KeyUsage.base_key_usage field.
+ *
+ *  Value: "BASE_KEY_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_BaseKeyUsage;
+/**
+ *  Refers to a certificate's Basic Constraints extension, as described in [RFC
+ *  5280 section 4.2.1.9](https://tools.ietf.org/html/rfc5280#section-4.2.1.9).
+ *  This corresponds to the X509Parameters.ca_options field.
+ *
+ *  Value: "CA_OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_CaOptions;
+/**
+ *  Refers to a certificate's Extended Key Usage extension, as described in [RFC
+ *  5280 section
+ *  4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12). This
+ *  corresponds to the KeyUsage.extended_key_usage message.
+ *
+ *  Value: "EXTENDED_KEY_USAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_ExtendedKeyUsage;
+/**
+ *  Not specified.
+ *
+ *  Value: "KNOWN_CERTIFICATE_EXTENSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_KnownCertificateExtensionUnspecified;
+/**
+ *  Refers to a certificate's Policy object identifiers, as described in [RFC
+ *  5280 section 4.2.1.4](https://tools.ietf.org/html/rfc5280#section-4.2.1.4).
+ *  This corresponds to the X509Parameters.policy_ids field.
+ *
+ *  Value: "POLICY_IDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_PolicyIds;
+
+// ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_CertificateRevocationList.state
 
 /**
@@ -242,172 +339,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateR
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_CertificateRevocationList_State_Superseded;
 
 // ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry.severity
+// GTLRCertificateAuthorityService_EcKeyType.signatureAlgorithm
 
 /**
- *  (700) A person must take an action immediately.
+ *  Refers to the Elliptic Curve Digital Signature Algorithm over the NIST P-256
+ *  curve.
  *
- *  Value: "ALERT"
+ *  Value: "ECDSA_P256"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Alert;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP256;
 /**
- *  (600) Critical events cause more severe problems or outages.
+ *  Refers to the Elliptic Curve Digital Signature Algorithm over the NIST P-384
+ *  curve.
  *
- *  Value: "CRITICAL"
+ *  Value: "ECDSA_P384"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Critical;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP384;
 /**
- *  (100) Debug or trace information.
+ *  Not specified. Signifies that any signature algorithm may be used.
  *
- *  Value: "DEBUG"
+ *  Value: "EC_SIGNATURE_ALGORITHM_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Debug;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcSignatureAlgorithmUnspecified;
 /**
- *  (0) The log entry has no assigned severity level.
+ *  Refers to the Edwards-curve Digital Signature Algorithm over curve 25519, as
+ *  described in RFC 8410.
  *
- *  Value: "DEFAULT"
+ *  Value: "EDDSA_25519"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Default;
-/**
- *  (800) One or more systems are unusable.
- *
- *  Value: "EMERGENCY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Emergency;
-/**
- *  (500) Error events are likely to cause problems.
- *
- *  Value: "ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Error;
-/**
- *  (200) Routine information, such as ongoing status or performance.
- *
- *  Value: "INFO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Info;
-/**
- *  (300) Normal but significant events, such as start up, shut down, or a
- *  configuration change.
- *
- *  Value: "NOTICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Notice;
-/**
- *  (400) Warning events might cause problems.
- *
- *  Value: "WARNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Warning;
-
-// ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation.importance
-
-/**
- *  Deprecated. Do not use. Disables data aggregation and enables additional
- *  validation logic. It should only be used during the onboarding process. It
- *  is only available to Google internal services, and the service must be
- *  approved by chemist-dev\@google.com in order to use this level.
- *
- *  Value: "DEBUG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Debug;
-/**
- *  Disables data aggregation to minimize data loss. It is for operations that
- *  contains significant monetary value or audit trail. This feature only
- *  applies to the client libraries.
- *
- *  Value: "HIGH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_High;
-/**
- *  Allows data caching, batching, and aggregation. It provides higher
- *  performance with higher data loss risk.
- *
- *  Value: "LOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Low;
-
-// ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties.quotaMode
-
-/**
- *  Decreases available quota by the cost specified for the operation. If cost
- *  is higher than available quota, operation fails and returns error.
- *
- *  Value: "ACQUIRE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Acquire;
-/**
- *  Decreases available quota by the cost specified for the operation. If cost
- *  is higher than available quota, operation does not fail and available quota
- *  goes down to zero but it returns error.
- *
- *  Value: "ACQUIRE_BEST_EFFORT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_AcquireBestEffort;
-/**
- *  Does not change any available quota. Only checks if there is enough quota.
- *  No lock is placed on the checked tokens neither.
- *
- *  Value: "CHECK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Check;
-/**
- *  Increases available quota by the operation cost specified for the operation.
- *
- *  Value: "RELEASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Release;
-
-// ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan.spanKind
-
-/**
- *  Indicates that the span covers the client-side wrapper around an RPC or
- *  other remote request.
- *
- *  Value: "CLIENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Client;
-/**
- *  Indicates that the span describes consumer receiving a message from a
- *  broker. Unlike client and server, there is no direct critical path latency
- *  relationship between producer and consumer spans (e.g. receiving a message
- *  from a pubsub service subscription).
- *
- *  Value: "CONSUMER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Consumer;
-/**
- *  Indicates that the span is used internally. Default value.
- *
- *  Value: "INTERNAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Internal;
-/**
- *  Indicates that the span describes producer sending a message to a broker.
- *  Unlike client and server, there is no direct critical path latency
- *  relationship between producer and consumer spans (e.g. publishing a message
- *  to a pubsub service).
- *
- *  Value: "PRODUCER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Producer;
-/**
- *  Indicates that the span covers server-side handling of an RPC or other
- *  remote network request.
- *
- *  Value: "SERVER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Server;
-/**
- *  Unspecified. Do NOT use as default. Implementations MAY assume
- *  SpanKind.INTERNAL to be default.
- *
- *  Value: "SPAN_KIND_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_SpanKindUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_Eddsa25519;
 
 // ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_KeyVersionSpec.algorithm
@@ -468,31 +428,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_KeyVersionSp
 FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_SignHashAlgorithmUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCertificateAuthorityService_PublicKey.type
+// GTLRCertificateAuthorityService_PublicKey.format
 
 /**
  *  Default unspecified value.
  *
- *  Value: "KEY_TYPE_UNSPECIFIED"
+ *  Value: "KEY_FORMAT_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_KeyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_KeyFormatUnspecified;
 /**
- *  An RFC 5280
+ *  The key is PEM-encoded as defined in [RFC
+ *  7468](https://tools.ietf.org/html/rfc7468). It can be any of the following:
+ *  a PEM-encoded PKCS#1/RFC 3447 RSAPublicKey structure, an RFC 5280
+ *  [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1) or a
+ *  PEM-encoded X.509 certificate signing request (CSR). If a
+ *  [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1) is
+ *  specified, it can contain a A PEM-encoded PKCS#1/RFC 3447 RSAPublicKey or a
+ *  NIST P-256/secp256r1/prime256v1 or P-384 key. If a CSR is specified, it will
+ *  used solely for the purpose of extracting the public key. When generated by
+ *  the service, it will always be an RFC 5280
  *  [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
- *  structure containing a PEM-encoded compressed NIST
- *  P-256/secp256r1/prime256v1 or P-384 key.
+ *  structure containing an algorithm identifier and a key.
  *
- *  Value: "PEM_EC_KEY"
+ *  Value: "PEM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_PemEcKey;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_Pem;
+
+// ----------------------------------------------------------------------------
+// GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
+
 /**
- *  A PEM-encoded PKCS#1/RFC 3447 RSAPublicKey structure, or an RFC 5280
- *  [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
- *  structure containing the former.
+ *  The resource has to be deleted. When using this bit, the CLH should fail the
+ *  operation.
  *
- *  Value: "PEM_RSA_KEY"
+ *  Value: "DELETE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_PemRsaKey;
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete;
+/**
+ *  This resource could not be repaired but the repair should be tried again at
+ *  a later time. This can happen if there is a dependency that needs to be
+ *  resolved first- e.g. if a parent resource must be repaired before a child
+ *  resource.
+ *
+ *  Value: "RETRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry;
+/** Value: "UNKNOWN_REPAIR_ACTION" */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
 
 // ----------------------------------------------------------------------------
 // GTLRCertificateAuthorityService_RevocationDetails.revocationState
@@ -692,10 +674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, copy, nullable) NSString *caCertificateAccessUrl;
 
 /**
- *  The URL where this CertificateAuthority's CRLs are published. This will only
- *  be set for CAs that have been activated.
+ *  The URLs where this CertificateAuthority's CRLs are published. This will
+ *  only be set for CAs that have been activated.
  */
-@property(nonatomic, copy, nullable) NSString *crlAccessUrl;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *crlAccessUrls;
 
 @end
 
@@ -736,74 +718,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  GTLRCertificateAuthorityService_AllowedConfigList
+ *  Describes a "type" of key that may be used in a Certificate issued from a
+ *  CaPool. Note that a single AllowedKeyType may refer to either a
+ *  fully-qualified key algorithm, such as RSA 4096, or a family of key
+ *  algorithms, such as any RSA key.
  */
-@interface GTLRCertificateAuthorityService_AllowedConfigList : GTLRObject
+@interface GTLRCertificateAuthorityService_AllowedKeyType : GTLRObject
 
-/**
- *  Required. All Certificates issued by the CertificateAuthority must match at
- *  least one listed ReusableConfigWrapper. If a ReusableConfigWrapper has an
- *  empty field, any value will be allowed for that field.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_ReusableConfigWrapper *> *allowedConfigValues;
+/** Represents an allowed Elliptic Curve key type. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_EcKeyType *ellipticCurve;
 
-@end
-
-
-/**
- *  AllowedSubjectAltNames specifies the allowed values for SubjectAltNames by
- *  the CertificateAuthority when issuing Certificates.
- */
-@interface GTLRCertificateAuthorityService_AllowedSubjectAltNames : GTLRObject
-
-/**
- *  Optional. Specifies if to allow custom X509Extension values.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowCustomSans;
-
-/**
- *  Optional. Contains valid, fully-qualified host names. Glob patterns are also
- *  supported. To allow an explicit wildcard certificate, escape with backlash
- *  (i.e. "\\*"). E.g. for globbed entries: '*bar.com' will allow 'foo.bar.com',
- *  but not '*.bar.com', unless the allow_globbing_dns_wildcards field is set.
- *  E.g. for wildcard entries: '\\*.bar.com' will allow '*.bar.com', but not
- *  'foo.bar.com'.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDnsNames;
-
-/**
- *  Optional. Contains valid RFC 2822 E-mail addresses. Glob patterns are also
- *  supported.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedEmailAddresses;
-
-/**
- *  Optional. Contains valid 32-bit IPv4 addresses and subnet ranges or RFC 4291
- *  IPv6 addresses and subnet ranges. Subnet ranges are specified using the '/'
- *  notation (e.g. 10.0.0.0/8, 2001:700:300:1800::/64). Glob patterns are
- *  supported only for ip address entries (i.e. not for subnet ranges).
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedIps;
-
-/**
- *  Optional. Contains valid RFC 3986 URIs. Glob patterns are also supported. To
- *  match across path seperators (i.e. '/') use the double star glob pattern
- *  (i.e. '**').
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedUris;
-
-/**
- *  Optional. Specifies if glob patterns used for allowed_dns_names allow
- *  wildcard certificates. If this is set, certificate requests with wildcard
- *  domains will be permitted to match a glob pattern specified in
- *  allowed_dns_names. Otherwise, certificate requests with wildcard domains
- *  will be permitted only if allowed_dns_names contains a literal wildcard.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowGlobbingDnsWildcards;
+/** Represents an allowed RSA key type. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_RsaKeyType *rsa;
 
 @end
 
@@ -875,23 +801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  Message for reporting billing requests through Eventstream.
- */
-@interface GTLRCertificateAuthorityService_BillingView : GTLRObject
-
-/**
- *  Billing requests to be reported for cloud.eventstream.v2.ResourceEvent Each
- *  request contains billing operations to be reported under a service name. See
- *  go/billing-view-construction for documentation on constructing billing view
- *  report requests.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest *> *reportRequests;
-
-@end
-
-
-/**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCertificateAuthorityService_Binding : GTLRObject
 
@@ -900,14 +810,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -939,8 +849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -983,6 +893,80 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  A CaPool represents a group of CertificateAuthorities that form a trust
+ *  anchor. A CaPool can be used to manage issuance policies for one or more
+ *  CertificateAuthority resources and to rotate CA certificates in and out of
+ *  the trust anchor.
+ */
+@interface GTLRCertificateAuthorityService_CaPool : GTLRObject
+
+/** Output only. The time at which this CaPool was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The IssuancePolicy to control how Certificates will be issued from
+ *  this CaPool.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_IssuancePolicy *issuancePolicy;
+
+/** Optional. Labels with user-defined metadata. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaPool_Labels *labels;
+
+/**
+ *  Output only. The resource name for this CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The PublishingOptions to follow when issuing Certificates from any
+ *  CertificateAuthority in this CaPool.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_PublishingOptions *publishingOptions;
+
+/**
+ *  Required. Immutable. The Tier of this CaPool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_CaPool_Tier_Devops DevOps tier.
+ *        (Value: "DEVOPS")
+ *    @arg @c kGTLRCertificateAuthorityService_CaPool_Tier_Enterprise Enterprise
+ *        tier. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRCertificateAuthorityService_CaPool_Tier_TierUnspecified Not
+ *        specified. (Value: "TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tier;
+
+/** Output only. The time at which this CaPool was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels with user-defined metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateAuthorityService_CaPool_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRCertificateAuthorityService_CertChain
+ */
+@interface GTLRCertificateAuthorityService_CertChain : GTLRObject
+
+/** The certificates that form the CA chain, from leaf to root order. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *certificates;
+
+@end
+
+
+/**
  *  A Certificate corresponds to a signed X.509 certificate issued by a
  *  CertificateAuthority.
  */
@@ -992,6 +976,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateDescription *certificateDescription;
 
 /**
+ *  Immutable. The resource name for a CertificateTemplate used to issue this
+ *  certificate, in the format `projects/ * /locations/ * /certificateTemplates/
+ *  *`. If this is specified, the caller must have the necessary permission to
+ *  use this template. If this is omitted, no template will be used. This
+ *  template must be in the same location as the Certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateTemplate;
+
+/**
  *  Immutable. A description of the certificate and key that does not require
  *  X.509 or ASN.1.
  */
@@ -999,6 +992,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /** Output only. The time at which this Certificate was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The resource name of the issuing CertificateAuthority in the
+ *  format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *issuerCertificateAuthority;
 
 /** Optional. Labels with user-defined metadata. */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Certificate_Labels *labels;
@@ -1012,8 +1011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
- *  Output only. The resource path for this Certificate in the format `projects/
- *  * /locations/ * /certificateAuthorities/ * /certificates/ *`.
+ *  Output only. The resource name for this Certificate in the format `projects/
+ *  * /locations/ * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1034,6 +1033,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  Certificate is considered revoked if and only if this field is present.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_RevocationDetails *revocationDetails;
+
+/**
+ *  Immutable. Specifies how the Certificate's identity fields are to be
+ *  decided. If this is omitted, the `DEFAULT` subject mode will be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default
+ *        The default mode used in most cases. Indicates that the certificate's
+ *        Subject and/or SubjectAltNames are specified in the certificate
+ *        request. This mode requires the caller to have the
+ *        `privateca.certificates.create` permission. (Value: "DEFAULT")
+ *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe
+ *        A mode reserved for special cases. Indicates that the certificate
+ *        should have one or more SPIFFE SubjectAltNames set by the service
+ *        based on the caller's identity. This mode will ignore any explicitly
+ *        specified Subject and/or SubjectAltNames in the certificate request.
+ *        This mode requires the caller to have the
+ *        `privateca.certificates.createForSelf` permission. (Value:
+ *        "REFLECTED_SPIFFE")
+ *    @arg @c kGTLRCertificateAuthorityService_Certificate_SubjectMode_SubjectRequestModeUnspecified
+ *        Not specified. (Value: "SUBJECT_REQUEST_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subjectMode;
 
 /** Output only. The time at which this Certificate was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1072,12 +1094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertificateDescription *> *caCertificateDescriptions;
 
 /**
- *  Optional. The CertificateAuthorityPolicy to enforce when issuing
- *  Certificates from this CertificateAuthority.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateAuthorityPolicy *certificatePolicy;
-
-/**
  *  Required. Immutable. The config used to create a self-signed X.509
  *  certificate or CSR.
  */
@@ -1087,10 +1103,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The time at which this CertificateAuthority will be deleted, if
- *  scheduled for deletion.
+ *  Output only. The time at which this CertificateAuthority was soft deleted,
+ *  if it is in the DELETED state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. The time at which this CertificateAuthority will be permanently
+ *  purged, if it is in the DELETED state.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  Immutable. The name of a Cloud Storage bucket where this
@@ -1101,12 +1123,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  managed bucket will be created.
  */
 @property(nonatomic, copy, nullable) NSString *gcsBucket;
-
-/**
- *  Optional. The IssuingOptions to follow when issuing Certificates from this
- *  CertificateAuthority.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_IssuingOptions *issuingOptions;
 
 /**
  *  Required. Immutable. Used when issuing certificates for this
@@ -1120,14 +1136,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateAuthority_Labels *labels;
 
 /**
- *  Required. The desired lifetime of the CA certificate. Used to create the
- *  "not_before_time" and "not_after_time" fields inside an X.509 certificate.
+ *  Required. Immutable. The desired lifetime of the CA certificate. Used to
+ *  create the "not_before_time" and "not_after_time" fields inside an X.509
+ *  certificate.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
  *  Output only. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1143,18 +1160,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  Output only. The State for this CertificateAuthority.
  *
  *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_AwaitingUserActivation
+ *        Certificates cannot be issued from this CA. CRLs will not be
+ *        generated. The CA will not be part of the CaPool's trust anchor, and
+ *        will not be used to issue certificates from the CaPool. (Value:
+ *        "AWAITING_USER_ACTIVATION")
+ *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_Deleted
+ *        Certificates cannot be issued from this CA. CRLs will not be
+ *        generated. The CA may still be recovered by calling
+ *        CertificateAuthorityService.UndeleteCertificateAuthority before
+ *        expire_time. The CA will not be part of the CaPool's trust anchor, and
+ *        will not be used to issue certificates from the CaPool. (Value:
+ *        "DELETED")
  *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_Disabled
  *        Certificates cannot be issued from this CA. CRLs will still be
- *        generated. (Value: "DISABLED")
+ *        generated. The CA will be part of the CaPool's trust anchor, but will
+ *        not be used to issue certificates from the CaPool. (Value: "DISABLED")
  *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_Enabled
  *        Certificates can be issued from this CA. CRLs will be generated for
- *        this CA. (Value: "ENABLED")
- *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingActivation
- *        Certificates cannot be issued from this CA. CRLs will not be
- *        generated. (Value: "PENDING_ACTIVATION")
- *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingDeletion
- *        Certificates cannot be issued from this CA. CRLs will not be
- *        generated. (Value: "PENDING_DELETION")
+ *        this CA. The CA will be part of the CaPool's trust anchor, and will be
+ *        used to issue certificates from the CaPool. (Value: "ENABLED")
+ *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_Staged
+ *        Certificates can be issued from this CA. CRLs will be generated for
+ *        this CA. The CA will be part of the CaPool's trust anchor, but will
+ *        not be used to issue certificates from the CaPool. (Value: "STAGED")
  *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_State_StateUnspecified
  *        Not specified. (Value: "STATE_UNSPECIFIED")
  */
@@ -1168,7 +1197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_SubordinateConfig *subordinateConfig;
 
 /**
- *  Required. Immutable. The Tier of this CertificateAuthority.
+ *  Output only. The CaPool.Tier of the CaPool that includes this
+ *  CertificateAuthority.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateAuthorityService_CertificateAuthority_Tier_Devops
@@ -1194,7 +1224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Output only. The time at which this CertificateAuthority was updated. */
+/**
+ *  Output only. The time at which this CertificateAuthority was last updated.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1213,66 +1245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  The issuing policy for a CertificateAuthority. Certificates will not be
- *  successfully issued from this CertificateAuthority if they violate the
- *  policy.
- */
-@interface GTLRCertificateAuthorityService_CertificateAuthorityPolicy : GTLRObject
-
-/**
- *  Optional. If any value is specified here, then all Certificates issued by
- *  the CertificateAuthority must match at least one listed value. If no value
- *  is specified, all values will be allowed for this fied. Glob patterns are
- *  also supported.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedCommonNames;
-
-/**
- *  Optional. All Certificates issued by the CertificateAuthority must match at
- *  least one listed ReusableConfigWrapper in the list.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_AllowedConfigList *allowedConfigList;
-
-/**
- *  Optional. If specified, then only methods allowed in the IssuanceModes may
- *  be used to issue Certificates.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_IssuanceModes *allowedIssuanceModes;
-
-/**
- *  Optional. If any Subject is specified here, then all Certificates issued by
- *  the CertificateAuthority must match at least one listed Subject. If a
- *  Subject has an empty field, any value will be allowed for that field.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_Subject *> *allowedLocationsAndOrganizations;
-
-/**
- *  Optional. If a AllowedSubjectAltNames is specified here, then all
- *  Certificates issued by the CertificateAuthority must match
- *  AllowedSubjectAltNames. If no value or an empty value is specified, any
- *  value will be allowed for the SubjectAltNames field.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_AllowedSubjectAltNames *allowedSans;
-
-/**
- *  Optional. The maximum lifetime allowed by the CertificateAuthority. Note
- *  that if the any part if the issuing chain expires before a Certificate's
- *  requested maximum_lifetime, the effective lifetime will be explicitly
- *  truncated.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
-
-/**
- *  Optional. All Certificates issued by the CertificateAuthority will use the
- *  provided configuration values, overwriting any requested configuration
- *  values.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfigWrapper *overwriteConfigValues;
-
-@end
-
-
-/**
  *  A CertificateConfig describes an X.509 certificate or CSR that is to be
  *  created, as an alternative to using ASN.1.
  */
@@ -1286,16 +1258,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_PublicKey *publicKey;
 
 /**
- *  Required. Describes how some of the technical fields in a certificate should
- *  be populated.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfigWrapper *reusableConfig;
-
-/**
  *  Required. Specifies some of the values in a certificate that are related to
  *  the subject.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_SubjectConfig *subjectConfig;
+
+/**
+ *  Required. Describes how some of the technical X.509 fields in a certificate
+ *  should be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Config;
 
 @end
 
@@ -1321,9 +1293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /** The hash of the x.509 certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateFingerprint *certFingerprint;
 
-/** Describes some of the technical fields in a certificate. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfigValues *configValues;
-
 /**
  *  Describes a list of locations to obtain CRL information, i.e. the
  *  DistributionPoint.fullName described by
@@ -1346,6 +1315,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyId *subjectKeyId;
 
+/** Describes some of the technical X.509 fields in a certificate. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *x509Description;
+
+@end
+
+
+/**
+ *  Describes a set of X.509 extensions that may be part of some certificate
+ *  issuance controls.
+ */
+@interface GTLRCertificateAuthorityService_CertificateExtensionConstraints : GTLRObject
+
+/**
+ *  Optional. A set of ObjectIds identifying custom X.509 extensions. Will be
+ *  combined with known_extensions to determine the full set of X.509
+ *  extensions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_ObjectId *> *additionalExtensions;
+
+/**
+ *  Optional. A set of named X.509 extensions. Will be combined with
+ *  additional_extensions to determine the full set of X.509 extensions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *knownExtensions;
+
 @end
 
 
@@ -1356,6 +1350,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 /** The SHA 256 hash, encoded in hexadecimal, of the DER x509 certificate. */
 @property(nonatomic, copy, nullable) NSString *sha256Hash;
+
+@end
+
+
+/**
+ *  Describes constraints on a Certificate's Subject and SubjectAltNames.
+ */
+@interface GTLRCertificateAuthorityService_CertificateIdentityConstraints : GTLRObject
+
+/**
+ *  Required. If this is true, the SubjectAltNames extension may be copied from
+ *  a certificate request into the signed certificate. Otherwise, the requested
+ *  SubjectAltNames will be discarded.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowSubjectAltNamesPassthrough;
+
+/**
+ *  Required. If this is true, the Subject field may be copied from a
+ *  certificate request into the signed certificate. Otherwise, the requested
+ *  Subject will be discarded.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowSubjectPassthrough;
+
+/**
+ *  Optional. A CEL expression that may be used to validate the resolved X.509
+ *  Subject and/or Subject Alternative Name before a certificate is signed. To
+ *  see the full allowed syntax and some examples, see
+ *  https://cloud.google.com/certificate-authority-service/docs/using-cel
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Expr *celExpression;
 
 @end
 
@@ -1379,14 +1407,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateRevocationList_Labels *labels;
 
 /**
- *  Output only. The resource path for this CertificateRevocationList in the
- *  format `projects/ * /locations/ * /certificateAuthorities/ * /
+ *  Output only. The resource name for this CertificateRevocationList in the
+ *  format `projects/ * /locations/ * /caPools/ *certificateAuthorities/ * /
  *  certificateRevocationLists/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. The PEM-encoded X.509 CRL. */
 @property(nonatomic, copy, nullable) NSString *pemCrl;
+
+/**
+ *  Output only. The revision ID of this CertificateRevocationList. A new
+ *  revision is committed whenever a new CRL is published. The format is an
+ *  8-character hexadecimal string.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
 
 /** Output only. The revoked serial numbers that appear in pem_crl. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_RevokedCertificate *> *revokedCertificates;
@@ -1433,6 +1468,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  A CertificateTemplate refers to a managed template for certificate issuance.
+ */
+@interface GTLRCertificateAuthorityService_CertificateTemplate : GTLRObject
+
+/** Output only. The time at which this CertificateTemplate was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of scenarios this template is
+ *  intended for.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Describes constraints on identities that may be appear in
+ *  Certificates issued using this template. If this is omitted, then this
+ *  template will not add restrictions on a certificate's identity.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateIdentityConstraints *identityConstraints;
+
+/** Optional. Labels with user-defined metadata. */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateTemplate_Labels *labels;
+
+/**
+ *  Output only. The resource name for this CertificateTemplate in the format
+ *  `projects/ * /locations/ * /certificateTemplates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Describes the set of X.509 extensions that may appear in a
+ *  Certificate issued using this CertificateTemplate. If a certificate request
+ *  sets extensions that don't appear in the passthrough_extensions, those
+ *  extensions will be dropped. If the issuing CaPool's IssuancePolicy defines
+ *  baseline_values that don't appear here, the certificate issuance request
+ *  will fail. If this is omitted, then this template will not add restrictions
+ *  on a certificate's X.509 extensions. These constraints do not apply to X.509
+ *  extensions set in this CertificateTemplate's predefined_values.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateExtensionConstraints *passthroughExtensions;
+
+/**
+ *  Optional. A set of X.509 values that will be applied to all issued
+ *  certificates that use this template. If the certificate request includes
+ *  conflicting values for the same properties, they will be overwritten by the
+ *  values defined here. If the issuing CaPool's IssuancePolicy defines
+ *  conflicting baseline_values for the same properties, the certificate
+ *  issuance request will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *predefinedValues;
+
+/** Output only. The time at which this CertificateTemplate was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels with user-defined metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCertificateAuthorityService_CertificateTemplate_Labels : GTLRObject
+@end
+
+
+/**
  *  Request message for CertificateAuthorityService.DisableCertificateAuthority.
  */
 @interface GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest : GTLRObject
@@ -1450,6 +1557,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Describes an Elliptic Curve key that may be used in a Certificate issued
+ *  from a CaPool.
+ */
+@interface GTLRCertificateAuthorityService_EcKeyType : GTLRObject
+
+/**
+ *  Optional. A signature algorithm that must be used. If this is omitted, any
+ *  EC-based signature algorithm will be allowed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP256
+ *        Refers to the Elliptic Curve Digital Signature Algorithm over the NIST
+ *        P-256 curve. (Value: "ECDSA_P256")
+ *    @arg @c kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP384
+ *        Refers to the Elliptic Curve Digital Signature Algorithm over the NIST
+ *        P-384 curve. (Value: "ECDSA_P384")
+ *    @arg @c kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcSignatureAlgorithmUnspecified
+ *        Not specified. Signifies that any signature algorithm may be used.
+ *        (Value: "EC_SIGNATURE_ALGORITHM_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_Eddsa25519
+ *        Refers to the Edwards-curve Digital Signature Algorithm over curve
+ *        25519, as described in RFC 8410. (Value: "EDDSA_25519")
+ */
+@property(nonatomic, copy, nullable) NSString *signatureAlgorithm;
 
 @end
 
@@ -1484,51 +1620,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-@end
-
-
-/**
- *  Exemplars are example points that may be used to annotate aggregated
- *  distribution values. They are metadata that gives information about a
- *  particular value added to a Distribution bucket, such as a trace ID that was
- *  active when a value was added. They may contain further information, such as
- *  a example values and timestamps, origin, etc.
- */
-@interface GTLRCertificateAuthorityService_Exemplar : GTLRObject
-
-/**
- *  Contextual information about the example value. Examples are: Trace:
- *  type.googleapis.com/google.monitoring.v3.SpanContext Literal string:
- *  type.googleapis.com/google.protobuf.StringValue Labels dropped during
- *  aggregation: type.googleapis.com/google.monitoring.v3.DroppedLabels There
- *  may be only a single attachment of any given message type in a single
- *  exemplar, and this is enforced by the system.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_Exemplar_Attachments_Item *> *attachments;
-
-/** The observation (sampling) time of the above value. */
-@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
-
-/**
- *  Value of the exemplar point. This value determines to which bucket the
- *  exemplar belongs.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *value;
-
-@end
-
-
-/**
- *  GTLRCertificateAuthorityService_Exemplar_Attachments_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_Exemplar_Attachments_Item : GTLRObject
 @end
 
 
@@ -1639,6 +1730,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  Request message for CertificateAuthorityService.FetchCaCerts.
+ */
+@interface GTLRCertificateAuthorityService_FetchCaCertsRequest : GTLRObject
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Response message for CertificateAuthorityService.FetchCaCerts.
+ */
+@interface GTLRCertificateAuthorityService_FetchCaCertsResponse : GTLRObject
+
+/**
+ *  The PEM encoded CA certificate chains of all ACTIVE CertificateAuthority
+ *  resources in this CaPool.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertChain *> *caCerts;
+
+@end
+
+
+/**
  *  Response message for
  *  CertificateAuthorityService.FetchCertificateAuthorityCsr.
  */
@@ -1651,1055 +1778,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  A set of attributes, each in the format `[KEY]:[VALUE]`.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes : GTLRObject
-
-/**
- *  The set of attributes. Each attribute's key can be up to 128 bytes long. The
- *  value can be a string up to 256 bytes, a signed 64-bit integer, or the
- *  Boolean values `true` and `false`. For example: "/instance_id":
- *  "my-instance" "/http/user_agent": "" "/http/request_bytes": 300
- *  "abc.com/myattribute": true
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes_AttributeMap *attributeMap;
-
-/**
- *  The number of attributes that were discarded. Attributes can be discarded
- *  because their keys are too long or because there are too many attributes. If
- *  this value is 0 then all attributes are valid.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *droppedAttributesCount;
-
-@end
-
-
-/**
- *  The set of attributes. Each attribute's key can be up to 128 bytes long. The
- *  value can be a string up to 256 bytes, a signed 64-bit integer, or the
- *  Boolean values `true` and `false`. For example: "/instance_id":
- *  "my-instance" "/http/user_agent": "" "/http/request_bytes": 300
- *  "abc.com/myattribute": true
- *
- *  @note This class is documented as having more properties of
- *        GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue.
- *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
- *        the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes_AttributeMap : GTLRObject
-@end
-
-
-/**
- *  The allowed types for [VALUE] in a `[KEY]:[VALUE]` attribute.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue : GTLRObject
-
-/**
- *  A Boolean value represented by `true` or `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *boolValue;
-
-/**
- *  A 64-bit signed integer.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *intValue;
-
-/** A string up to 256 bytes long. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString *stringValue;
-
-@end
-
-
-/**
- *  Distribution represents a frequency distribution of double-valued sample
- *  points. It contains the size of the population of sample points plus
- *  additional optional information: - the arithmetic mean of the samples - the
- *  minimum and maximum of the samples - the sum-squared-deviation of the
- *  samples, used to compute variance - a histogram of the values of the sample
- *  points
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Distribution : GTLRObject
-
-/**
- *  The number of samples in each histogram bucket. `bucket_counts` are
- *  optional. If present, they must sum to the `count` value. The buckets are
- *  defined below in `bucket_option`. There are N buckets. `bucket_counts[0]` is
- *  the number of samples in the underflow bucket. `bucket_counts[1]` to
- *  `bucket_counts[N-1]` are the numbers of samples in each of the finite
- *  buckets. And `bucket_counts[N] is the number of samples in the overflow
- *  bucket. See the comments of `bucket_option` below for more details. Any
- *  suffix of trailing zeros may be omitted.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketCounts;
-
-/**
- *  The total number of samples in the distribution. Must be >= 0.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/** Example points. Must be in increasing order of `value` field. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_Exemplar *> *exemplars;
-
-/** Buckets with arbitrary user-provided width. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExplicitBuckets *explicitBuckets;
-
-/** Buckets with exponentially growing width. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExponentialBuckets *exponentialBuckets;
-
-/** Buckets with constant width. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LinearBuckets *linearBuckets;
-
-/**
- *  The maximum of the population of values. Ignored if `count` is zero.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maximum;
-
-/**
- *  The arithmetic mean of the samples in the distribution. If `count` is zero
- *  then this field must be zero.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *mean;
-
-/**
- *  The minimum of the population of values. Ignored if `count` is zero.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minimum;
-
-/**
- *  The sum of squared deviations from the mean: Sum[i=1..count]((x_i - mean)^2)
- *  where each x_i is a sample values. If `count` is zero then this field must
- *  be zero, otherwise validation of the request fails.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sumOfSquaredDeviation;
-
-@end
-
-
-/**
- *  Describing buckets with arbitrary user-provided width.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExplicitBuckets : GTLRObject
-
-/**
- *  'bound' is a list of strictly increasing boundaries between buckets. Note
- *  that a list of length N-1 defines N buckets because of fenceposting. See
- *  comments on `bucket_options` for details. The i'th finite bucket covers the
- *  interval [bound[i-1], bound[i]) where i ranges from 1 to bound_size() - 1.
- *  Note that there are no finite buckets at all if 'bound' only contains a
- *  single element; in that special case the single bound defines the boundary
- *  between the underflow and overflow buckets. bucket number lower bound upper
- *  bound i == 0 (underflow) -inf bound[i] 0 < i < bound_size() bound[i-1]
- *  bound[i] i == bound_size() (overflow) bound[i-1] +inf
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bounds;
-
-@end
-
-
-/**
- *  Describing buckets with exponentially growing width.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExponentialBuckets : GTLRObject
-
-/**
- *  The i'th exponential bucket covers the interval [scale *
- *  growth_factor^(i-1), scale * growth_factor^i) where i ranges from 1 to
- *  num_finite_buckets inclusive. Must be larger than 1.0.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *growthFactor;
-
-/**
- *  The number of finite buckets. With the underflow and overflow buckets, the
- *  total number of buckets is `num_finite_buckets` + 2. See comments on
- *  `bucket_options` for details.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numFiniteBuckets;
-
-/**
- *  The i'th exponential bucket covers the interval [scale *
- *  growth_factor^(i-1), scale * growth_factor^i) where i ranges from 1 to
- *  num_finite_buckets inclusive. Must be > 0.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *scale;
-
-@end
-
-
-/**
- *  A common proto for logging HTTP requests. Only contains semantics defined by
- *  the HTTP specification. Product-specific logging information MUST be defined
- *  in a separate message.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1HttpRequest : GTLRObject
-
-/**
- *  The number of HTTP response bytes inserted into cache. Set only when a cache
- *  fill was attempted.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cacheFillBytes;
-
-/**
- *  Whether or not an entity was served from cache (with or without validation).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cacheHit;
-
-/**
- *  Whether or not a cache lookup was attempted.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cacheLookup;
-
-/**
- *  Whether or not the response was validated with the origin server before
- *  being served from cache. This field is only meaningful if `cache_hit` is
- *  True.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cacheValidatedWithOriginServer;
-
-/**
- *  The request processing latency on the server, from the time the request was
- *  received until the response was sent.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *latency;
-
-/**
- *  Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
- */
-@property(nonatomic, copy, nullable) NSString *protocol;
-
-/**
- *  The referer URL of the request, as defined in [HTTP/1.1 Header Field
- *  Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
- */
-@property(nonatomic, copy, nullable) NSString *referer;
-
-/**
- *  The IP address (IPv4 or IPv6) of the client that issued the HTTP request.
- *  Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
- */
-@property(nonatomic, copy, nullable) NSString *remoteIp;
-
-/** The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`. */
-@property(nonatomic, copy, nullable) NSString *requestMethod;
-
-/**
- *  The size of the HTTP request message in bytes, including the request headers
- *  and the request body.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestSize;
-
-/**
- *  The scheme (http, https), the host name, the path, and the query portion of
- *  the URL that was requested. Example:
- *  `"http://example.com/some/info?color=red"`.
- */
-@property(nonatomic, copy, nullable) NSString *requestUrl;
-
-/**
- *  The size of the HTTP response message sent back to the client, in bytes,
- *  including the response headers and the response body.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *responseSize;
-
-/**
- *  The IP address (IPv4 or IPv6) of the origin server that the request was sent
- *  to.
- */
-@property(nonatomic, copy, nullable) NSString *serverIp;
-
-/**
- *  The response code indicating the status of the response. Examples: 200, 404.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *status;
-
-/**
- *  The user agent sent by the client. Example: `"Mozilla/4.0 (compatible; MSIE
- *  6.0; Windows 98; Q312461; .NET CLR 1.0.3705)"`.
- */
-@property(nonatomic, copy, nullable) NSString *userAgent;
-
-@end
-
-
-/**
- *  Describing buckets with constant width.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LinearBuckets : GTLRObject
-
-/**
- *  The number of finite buckets. With the underflow and overflow buckets, the
- *  total number of buckets is `num_finite_buckets` + 2. See comments on
- *  `bucket_options` for details.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numFiniteBuckets;
-
-/**
- *  The i'th linear bucket covers the interval [offset + (i-1) * width, offset +
- *  i * width) where i ranges from 1 to num_finite_buckets, inclusive.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *offset;
-
-/**
- *  The i'th linear bucket covers the interval [offset + (i-1) * width, offset +
- *  i * width) where i ranges from 1 to num_finite_buckets, inclusive. Must be
- *  strictly positive.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *width;
-
-@end
-
-
-/**
- *  An individual log entry.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry : GTLRObject
-
-/**
- *  Optional. Information about the HTTP request associated with this log entry,
- *  if applicable.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1HttpRequest *httpRequest;
-
-/**
- *  A unique ID for the log entry used for deduplication. If omitted, the
- *  implementation will generate one based on operation_id.
- */
-@property(nonatomic, copy, nullable) NSString *insertId;
-
-/**
- *  A set of user-defined (key, value) data that provides additional information
- *  about the log entry.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Labels *labels;
-
-/**
- *  Required. The log to which this log entry belongs. Examples: `"syslog"`,
- *  `"book_log"`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. Information about an operation associated with the log entry, if
- *  applicable.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntryOperation *operation;
-
-/**
- *  The log entry payload, represented as a protocol buffer that is expressed as
- *  a JSON object. The only accepted type currently is AuditLog.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_ProtoPayload *protoPayload;
-
-/**
- *  The severity of the log entry. The default value is `LogSeverity.DEFAULT`.
- *
- *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Alert
- *        (700) A person must take an action immediately. (Value: "ALERT")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Critical
- *        (600) Critical events cause more severe problems or outages. (Value:
- *        "CRITICAL")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Debug
- *        (100) Debug or trace information. (Value: "DEBUG")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Default
- *        (0) The log entry has no assigned severity level. (Value: "DEFAULT")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Emergency
- *        (800) One or more systems are unusable. (Value: "EMERGENCY")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Error
- *        (500) Error events are likely to cause problems. (Value: "ERROR")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Info
- *        (200) Routine information, such as ongoing status or performance.
- *        (Value: "INFO")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Notice
- *        (300) Normal but significant events, such as start up, shut down, or a
- *        configuration change. (Value: "NOTICE")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Warning
- *        (400) Warning events might cause problems. (Value: "WARNING")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/**
- *  Optional. Source code location information associated with the log entry, if
- *  any.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntrySourceLocation *sourceLocation;
-
-/**
- *  The log entry payload, represented as a structure that is expressed as a
- *  JSON object.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_StructPayload *structPayload;
-
-/** The log entry payload, represented as a Unicode string (UTF-8). */
-@property(nonatomic, copy, nullable) NSString *textPayload;
-
-/**
- *  The time the event described by the log entry occurred. If omitted, defaults
- *  to operation start time.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
-
-/**
- *  Optional. Resource name of the trace associated with the log entry, if any.
- *  If this field contains a relative resource name, you can assume the name is
- *  relative to `//tracing.googleapis.com`. Example:
- *  `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
- */
-@property(nonatomic, copy, nullable) NSString *trace;
-
-@end
-
-
-/**
- *  A set of user-defined (key, value) data that provides additional information
- *  about the log entry.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Labels : GTLRObject
-@end
-
-
-/**
- *  The log entry payload, represented as a protocol buffer that is expressed as
- *  a JSON object. The only accepted type currently is AuditLog.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_ProtoPayload : GTLRObject
-@end
-
-
-/**
- *  The log entry payload, represented as a structure that is expressed as a
- *  JSON object.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_StructPayload : GTLRObject
-@end
-
-
-/**
- *  Additional information about a potentially long-running operation with which
- *  a log entry is associated.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntryOperation : GTLRObject
-
-/**
- *  Optional. Set this to True if this is the first log entry in the operation.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *first;
-
-/**
- *  Optional. An arbitrary operation identifier. Log entries with the same
- *  identifier are assumed to be part of the same operation.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Optional. Set this to True if this is the last log entry in the operation.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *last;
-
-/**
- *  Optional. An arbitrary producer identifier. The combination of `id` and
- *  `producer` must be globally unique. Examples for `producer`:
- *  `"MyDivision.MyBigCompany.com"`, `"github.com/MyProject/MyApplication"`.
- */
-@property(nonatomic, copy, nullable) NSString *producer;
-
-@end
-
-
-/**
- *  Additional information about the source code location that produced the log
- *  entry.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntrySourceLocation : GTLRObject
-
-/**
- *  Optional. Source file name. Depending on the runtime environment, this might
- *  be a simple name or a fully-qualified name.
- */
-@property(nonatomic, copy, nullable) NSString *file;
-
-/**
- *  Optional. Human-readable name of the function or method being invoked, with
- *  optional context such as the class or package name. This information may be
- *  used in contexts such as the logs viewer, where a file and line number are
- *  less meaningful. The format can vary by language. For example:
- *  `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
- *  (Python).
- */
-@property(nonatomic, copy, nullable) NSString *function;
-
-/**
- *  Optional. Line within the source file. 1-based; 0 indicates no line number
- *  available.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *line;
-
-@end
-
-
-/**
- *  Represents a single metric value.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue : GTLRObject
-
-/**
- *  A boolean value.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *boolValue;
-
-/** A distribution value. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Distribution *distributionValue;
-
-/**
- *  A double precision floating point value.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *doubleValue;
-
-/**
- *  The end of the time period over which this metric value's measurement
- *  applies. If not specified, google.api.servicecontrol.v1.Operation.end_time
- *  will be used.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  A signed 64-bit integer value.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *int64Value;
-
-/**
- *  The labels describing the metric value. See comments on
- *  google.api.servicecontrol.v1.Operation.labels for the overriding
- *  relationship. Note that this map must not contain monitored resource labels.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue_Labels *labels;
-
-/** A money value. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Money *moneyValue;
-
-/**
- *  The start of the time period over which this metric value's measurement
- *  applies. The time period has different semantics for different metric types
- *  (cumulative, delta, and gauge). See the metric definition documentation in
- *  the service configuration for details. If not specified,
- *  google.api.servicecontrol.v1.Operation.start_time will be used.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/** A text string value. */
-@property(nonatomic, copy, nullable) NSString *stringValue;
-
-@end
-
-
-/**
- *  The labels describing the metric value. See comments on
- *  google.api.servicecontrol.v1.Operation.labels for the overriding
- *  relationship. Note that this map must not contain monitored resource labels.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue_Labels : GTLRObject
-@end
-
-
-/**
- *  Represents a set of metric values in the same metric. Each metric value in
- *  the set should have a unique combination of start time, end time, and label
- *  values.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet : GTLRObject
-
-/** The metric name defined in the service configuration. */
-@property(nonatomic, copy, nullable) NSString *metricName;
-
-/** The values in this metric. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue *> *metricValues;
-
-@end
-
-
-/**
- *  Represents information regarding an operation.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation : GTLRObject
-
-/**
- *  Identity of the consumer who is using the service. This field should be
- *  filled in for the operations initiated by a consumer, but not for
- *  service-initiated operations that are not related to a specific consumer. -
- *  This can be in one of the following formats: - project:PROJECT_ID, -
- *  project`_`number:PROJECT_NUMBER, - projects/PROJECT_ID or PROJECT_NUMBER, -
- *  folders/FOLDER_NUMBER, - organizations/ORGANIZATION_NUMBER, -
- *  api`_`key:API_KEY.
- */
-@property(nonatomic, copy, nullable) NSString *consumerId;
-
-/**
- *  End time of the operation. Required when the operation is used in
- *  ServiceController.Report, but optional when the operation is used in
- *  ServiceController.Check.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Unimplemented. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item *> *extensions;
-
-/**
- *  DO NOT USE. This is an experimental field.
- *
- *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Debug
- *        Deprecated. Do not use. Disables data aggregation and enables
- *        additional validation logic. It should only be used during the
- *        onboarding process. It is only available to Google internal services,
- *        and the service must be approved by chemist-dev\@google.com in order
- *        to use this level. (Value: "DEBUG")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_High
- *        Disables data aggregation to minimize data loss. It is for operations
- *        that contains significant monetary value or audit trail. This feature
- *        only applies to the client libraries. (Value: "HIGH")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Low
- *        Allows data caching, batching, and aggregation. It provides higher
- *        performance with higher data loss risk. (Value: "LOW")
- */
-@property(nonatomic, copy, nullable) NSString *importance;
-
-/**
- *  Labels describing the operation. Only the following labels are allowed: -
- *  Labels describing monitored resources as defined in the service
- *  configuration. - Default labels of metric values. When specified, labels
- *  defined in the metric value override these default. - The following labels
- *  defined by Google Cloud Platform: - `cloud.googleapis.com/location`
- *  describing the location where the operation happened, -
- *  `servicecontrol.googleapis.com/user_agent` describing the user agent of the
- *  API request, - `servicecontrol.googleapis.com/service_agent` describing the
- *  service used to handle the API request (e.g. ESP), -
- *  `servicecontrol.googleapis.com/platform` describing the platform where the
- *  API is served, such as App Engine, Compute Engine, or Kubernetes Engine.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Labels *labels;
-
-/** Represents information to be logged. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry *> *logEntries;
-
-/**
- *  Represents information about this operation. Each MetricValueSet corresponds
- *  to a metric defined in the service configuration. The data type used in the
- *  MetricValueSet must agree with the data type specified in the metric
- *  definition. Within a single operation, it is not allowed to have more than
- *  one MetricValue instances that have the same metric names and identical
- *  label value combinations. If a request has such duplicated MetricValue
- *  instances, the entire request is rejected with an invalid argument error.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet *> *metricValueSets;
-
-/**
- *  Identity of the operation. This must be unique within the scope of the
- *  service that generated the operation. If the service calls Check() and
- *  Report() on the same operation, the two calls should carry the same id. UUID
- *  version 4 is recommended, though not required. In scenarios where an
- *  operation is computed from existing information and an idempotent id is
- *  desirable for deduplication purpose, UUID version 5 is recommended. See RFC
- *  4122 for details.
- */
-@property(nonatomic, copy, nullable) NSString *operationId;
-
-/** Fully qualified name of the operation. Reserved for future use. */
-@property(nonatomic, copy, nullable) NSString *operationName;
-
-/**
- *  Represents the properties needed for quota check. Applicable only if this
- *  operation is for a quota check request. If this is not specified, no quota
- *  check will be performed.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties *quotaProperties;
-
-/**
- *  The resources that are involved in the operation. The maximum supported
- *  number of entries in this field is 100.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo *> *resources;
-
-/** Required. Start time of the operation. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/**
- *  Unimplemented. A list of Cloud Trace spans. The span names shall contain the
- *  id of the destination project which can be either the produce or the
- *  consumer project.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan *> *traceSpans;
-
-/**
- *  Private Preview. This feature is only available for approved services. User
- *  defined labels for the resource that this operation is associated with. Only
- *  a combination of 1000 user labels per consumer project are allowed.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels *userLabels;
-
-@end
-
-
-/**
- *  GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item : GTLRObject
-@end
-
-
-/**
- *  Labels describing the operation. Only the following labels are allowed: -
- *  Labels describing monitored resources as defined in the service
- *  configuration. - Default labels of metric values. When specified, labels
- *  defined in the metric value override these default. - The following labels
- *  defined by Google Cloud Platform: - `cloud.googleapis.com/location`
- *  describing the location where the operation happened, -
- *  `servicecontrol.googleapis.com/user_agent` describing the user agent of the
- *  API request, - `servicecontrol.googleapis.com/service_agent` describing the
- *  service used to handle the API request (e.g. ESP), -
- *  `servicecontrol.googleapis.com/platform` describing the platform where the
- *  API is served, such as App Engine, Compute Engine, or Kubernetes Engine.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Labels : GTLRObject
-@end
-
-
-/**
- *  Private Preview. This feature is only available for approved services. User
- *  defined labels for the resource that this operation is associated with. Only
- *  a combination of 1000 user labels per consumer project are allowed.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels : GTLRObject
-@end
-
-
-/**
- *  Represents the properties needed for quota operations.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties : GTLRObject
-
-/**
- *  Quota mode for this operation.
- *
- *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Acquire
- *        Decreases available quota by the cost specified for the operation. If
- *        cost is higher than available quota, operation fails and returns
- *        error. (Value: "ACQUIRE")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_AcquireBestEffort
- *        Decreases available quota by the cost specified for the operation. If
- *        cost is higher than available quota, operation does not fail and
- *        available quota goes down to zero but it returns error. (Value:
- *        "ACQUIRE_BEST_EFFORT")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Check
- *        Does not change any available quota. Only checks if there is enough
- *        quota. No lock is placed on the checked tokens neither. (Value:
- *        "CHECK")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Release
- *        Increases available quota by the operation cost specified for the
- *        operation. (Value: "RELEASE")
- */
-@property(nonatomic, copy, nullable) NSString *quotaMode;
-
-@end
-
-
-/**
- *  Request message for the Report method.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest : GTLRObject
-
-/**
- *  Operations to be reported. Typically the service should report one operation
- *  per request. Putting multiple operations into a single request is allowed,
- *  but should be used only when multiple operations are natually available at
- *  the time of the report. There is no limit on the number of operations in the
- *  same ReportRequest, however the ReportRequest size should be no larger than
- *  1MB. See ReportResponse.report_errors for partial failure behavior.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation *> *operations;
-
-/**
- *  Specifies which version of service config should be used to process the
- *  request. If unspecified or no matching version can be found, the latest one
- *  will be used.
- */
-@property(nonatomic, copy, nullable) NSString *serviceConfigId;
-
-/**
- *  The service name as specified in its service configuration. For example,
- *  `"pubsub.googleapis.com"`. See
- *  [google.api.Service](https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service)
- *  for the definition of a service name.
- */
-@property(nonatomic, copy, nullable) NSString *serviceName;
-
-@end
-
-
-/**
- *  Describes a resource associated with this operation.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo : GTLRObject
-
-/**
- *  The identifier of the parent of this resource instance. Must be in one of
- *  the following formats: - `projects/` - `folders/` - `organizations/`
- */
-@property(nonatomic, copy, nullable) NSString *resourceContainer;
-
-/**
- *  The location of the resource. If not empty, the resource will be checked
- *  against location policy. The value must be a valid zone, region or
- *  multiregion. For example: "europe-west4" or "northamerica-northeast1-a"
- */
-@property(nonatomic, copy, nullable) NSString *resourceLocation;
-
-/** Name of the resource. This is used for auditing purposes. */
-@property(nonatomic, copy, nullable) NSString *resourceName;
-
-@end
-
-
-/**
- *  A span represents a single operation within a trace. Spans can be nested to
- *  form a trace tree. Often, a trace contains a root span that describes the
- *  end-to-end latency, and one or more subspans for its sub-operations. A trace
- *  can also contain multiple root spans, or none at all. Spans do not need to
- *  be contiguous—there may be gaps or overlaps between spans in a trace.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan : GTLRObject
-
-/**
- *  A set of attributes on the span. You can have up to 32 attributes per span.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes *attributes;
-
-/**
- *  An optional number of child spans that were generated while this span was
- *  active. If set, allows implementation to detect missing child spans.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *childSpanCount;
-
-/**
- *  A description of the span's operation (up to 128 bytes). Stackdriver Trace
- *  displays the description in the Google Cloud Platform Console. For example,
- *  the display name can be a qualified method name or a file name and a line
- *  number where the operation is called. A best practice is to use the same
- *  display name within an application and at the same call point. This makes it
- *  easier to correlate spans in different traces.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString *displayName;
-
-/**
- *  The end time of the span. On the client side, this is the time kept by the
- *  local machine where the span execution ends. On the server side, this is the
- *  time when the server application handler stops running.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  The resource name of the span in the following format:
- *  projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/SPAN_ID is a unique identifier
- *  for a trace within a project; it is a 32-character hexadecimal encoding of a
- *  16-byte array. [SPAN_ID] is a unique identifier for a span within a trace;
- *  it is a 16-character hexadecimal encoding of an 8-byte array.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The [SPAN_ID] of this span's parent span. If this is a root span, then this
- *  field must be empty.
- */
-@property(nonatomic, copy, nullable) NSString *parentSpanId;
-
-/**
- *  (Optional) Set this parameter to indicate whether this span is in the same
- *  process as its parent. If you do not set this parameter, Stackdriver Trace
- *  is unable to take advantage of this helpful information.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *sameProcessAsParentSpan;
-
-/** The [SPAN_ID] portion of the span's resource name. */
-@property(nonatomic, copy, nullable) NSString *spanId;
-
-/**
- *  Distinguishes between spans generated in a particular context. For example,
- *  two spans with the same name may be distinguished using `CLIENT` (caller)
- *  and `SERVER` (callee) to identify an RPC call.
- *
- *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Client
- *        Indicates that the span covers the client-side wrapper around an RPC
- *        or other remote request. (Value: "CLIENT")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Consumer
- *        Indicates that the span describes consumer receiving a message from a
- *        broker. Unlike client and server, there is no direct critical path
- *        latency relationship between producer and consumer spans (e.g.
- *        receiving a message from a pubsub service subscription). (Value:
- *        "CONSUMER")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Internal
- *        Indicates that the span is used internally. Default value. (Value:
- *        "INTERNAL")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Producer
- *        Indicates that the span describes producer sending a message to a
- *        broker. Unlike client and server, there is no direct critical path
- *        latency relationship between producer and consumer spans (e.g.
- *        publishing a message to a pubsub service). (Value: "PRODUCER")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Server
- *        Indicates that the span covers server-side handling of an RPC or other
- *        remote network request. (Value: "SERVER")
- *    @arg @c kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_SpanKindUnspecified
- *        Unspecified. Do NOT use as default. Implementations MAY assume
- *        SpanKind.INTERNAL to be default. (Value: "SPAN_KIND_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *spanKind;
-
-/**
- *  The start time of the span. On the client side, this is the time kept by the
- *  local machine where the span execution starts. On the server side, this is
- *  the time when the server's application handler starts running.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-/** An optional final status for this span. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Status *status;
-
-@end
-
-
-/**
- *  Represents a string that might be shortened to a specified length.
- */
-@interface GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString : GTLRObject
-
-/**
- *  The number of bytes removed from the original string. If this value is 0,
- *  then the string was not shortened.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *truncatedByteCount;
-
-/**
- *  The shortened string. For example, if the original string is 500 bytes long
- *  and the limit of the string is 128 bytes, then `value` contains the first
- *  128 bytes of the 500-byte string. Truncation always happens on a UTF8
- *  character boundary. If there are multi-byte characters in the string, then
- *  the length of the shortened string might be less than the size limit.
- */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
  *  IssuanceModes specifies the allowed ways in which Certificates may be
- *  requested from this CertificateAuthority.
+ *  requested from this CaPool.
  */
 @interface GTLRCertificateAuthorityService_IssuanceModes : GTLRObject
 
 /**
- *  Required. When true, allows callers to create Certificates by specifying a
+ *  Optional. When true, allows callers to create Certificates by specifying a
  *  CertificateConfig.
  *
  *  Uses NSNumber of boolValue.
@@ -2707,7 +1792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSNumber *allowConfigBasedIssuance;
 
 /**
- *  Required. When true, allows callers to create Certificates by specifying a
+ *  Optional. When true, allows callers to create Certificates by specifying a
  *  CSR.
  *
  *  Uses NSNumber of boolValue.
@@ -2718,27 +1803,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  Options that affect all certificates issued by a CertificateAuthority.
+ *  Defines controls over all certificate issuance within a CaPool.
  */
-@interface GTLRCertificateAuthorityService_IssuingOptions : GTLRObject
+@interface GTLRCertificateAuthorityService_IssuancePolicy : GTLRObject
 
 /**
- *  Required. When true, includes a URL to the issuing CA certificate in the
- *  "authority information access" X.509 extension.
- *
- *  Uses NSNumber of boolValue.
+ *  Optional. If specified, then only methods allowed in the IssuanceModes may
+ *  be used to issue Certificates.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeCaCertUrl;
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_IssuanceModes *allowedIssuanceModes;
 
 /**
- *  Required. When true, includes a URL to the CRL corresponding to certificates
- *  issued from a CertificateAuthority. CRLs will expire 7 days from their
- *  creation. However, we will rebuild daily. CRLs are also rebuilt shortly
- *  after a certificate is revoked.
- *
- *  Uses NSNumber of boolValue.
+ *  Optional. If any AllowedKeyType is specified, then the certificate request's
+ *  public key must match one of the key types listed here. Otherwise, any key
+ *  may be used.
  */
-@property(nonatomic, strong, nullable) NSNumber *includeCrlAccessUrl;
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AllowedKeyType *> *allowedKeyTypes;
+
+/**
+ *  Optional. A set of X.509 values that will be applied to all certificates
+ *  issued through this CaPool. If a certificate request includes conflicting
+ *  values for the same properties, they will be overwritten by the values
+ *  defined here. If a certificate request uses a CertificateTemplate that
+ *  defines conflicting predefined_values for the same properties, the
+ *  certificate issuance request will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_X509Parameters *baselineValues;
+
+/**
+ *  Optional. Describes constraints on identities that may appear in
+ *  Certificates issued through this CaPool. If this is omitted, then this
+ *  CaPool will not add restrictions on a certificate's identity.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateIdentityConstraints *identityConstraints;
+
+/**
+ *  Optional. The maximum lifetime allowed for issued Certificates. Note that if
+ *  the issuing CertificateAuthority expires before a Certificate's requested
+ *  maximum_lifetime, the effective lifetime will be explicitly truncated to
+ *  match it.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maximumLifetime;
+
+/**
+ *  Optional. Describes the set of X.509 extensions that may appear in a
+ *  Certificate issued through this CaPool. If a certificate request sets
+ *  extensions that don't appear in the passthrough_extensions, those extensions
+ *  will be dropped. If a certificate request uses a CertificateTemplate with
+ *  predefined_values that don't appear here, the certificate issuance request
+ *  will fail. If this is omitted, then this CaPool will not add restrictions on
+ *  a certificate's X.509 extensions. These constraints do not apply to X.509
+ *  extensions set in this CaPool's baseline_values.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CertificateExtensionConstraints *passthroughExtensions;
 
 @end
 
@@ -2857,9 +1974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_KeyVersionSpec : GTLRObject
 
 /**
- *  Required. The algorithm to use for creating a managed Cloud KMS key for a
- *  for a simplified experience. All managed keys will be have their
- *  ProtectionLevel as `HSM`.
+ *  The algorithm to use for creating a managed Cloud KMS key for a for a
+ *  simplified experience. All managed keys will be have their ProtectionLevel
+ *  as `HSM`.
  *
  *  Likely values:
  *    @arg @c kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_EcP256Sha256
@@ -2892,12 +2009,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
 /**
- *  Required. The resource name for an existing Cloud KMS CryptoKeyVersion in
- *  the format `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *
- *  /cryptoKeyVersions/ *`. This option enables full flexibility in the key's
- *  capabilities and properties.
+ *  The resource name for an existing Cloud KMS CryptoKeyVersion in the format
+ *  `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ * /cryptoKeyVersions/
+ *  *`. This option enables full flexibility in the key's capabilities and
+ *  properties.
  */
 @property(nonatomic, copy, nullable) NSString *cloudKmsKeyVersion;
+
+@end
+
+
+/**
+ *  Response message for CertificateAuthorityService.ListCaPools.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "caPools" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCertificateAuthorityService_ListCaPoolsResponse : GTLRCollectionObject
+
+/**
+ *  The list of CaPools.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CaPool *> *caPools;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListCertificateAuthoritiesRequest.next_page_token to retrieve the next page
+ *  of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** A list of locations (e.g. "us-west1") that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2997,6 +2145,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  Response message for CertificateAuthorityService.ListCertificateTemplates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "certificateTemplates" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCertificateAuthorityService_ListCertificateTemplatesResponse : GTLRCollectionObject
+
+/**
+ *  The list of CertificateTemplates.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_CertificateTemplate *> *certificateTemplates;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListCertificateTemplatesRequest.next_page_token to retrieve the next page of
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** A list of locations (e.g. "us-west1") that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3040,37 +2219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_Operation *> *operations;
-
-@end
-
-
-/**
- *  Response message for CertificateAuthorityService.ListReusableConfigs.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "reusableConfigs" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRCertificateAuthorityService_ListReusableConfigsResponse : GTLRCollectionObject
-
-/**
- *  A token to retrieve next page of results. Pass this value in
- *  ListReusableConfigsRequest.next_page_token to retrieve the next page of
- *  results.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The list of ReusableConfigs.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_ReusableConfig *> *reusableConfigs;
-
-/** A list of locations (e.g. "us-west1") that could not be reached. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -3133,36 +2281,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCertificateAuthorityService_Location_Metadata : GTLRObject
-@end
-
-
-/**
- *  Represents an amount of money with its currency type.
- */
-@interface GTLRCertificateAuthorityService_Money : GTLRObject
-
-/** The three-letter currency code defined in ISO 4217. */
-@property(nonatomic, copy, nullable) NSString *currencyCode;
-
-/**
- *  Number of nano (10^-9) units of the amount. The value must be between
- *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
- *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
- *  or negative. If `units` is negative, `nanos` must be negative or zero. For
- *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nanos;
-
-/**
- *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
- *  then 1 unit is one US dollar.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *units;
-
 @end
 
 
@@ -3304,15 +2422,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -3328,7 +2446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -3338,9 +2456,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_Binding *> *bindings;
 
@@ -3392,162 +2515,103 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_PublicKey : GTLRObject
 
 /**
- *  Required. A public key. When this is specified in a request, the padding and
- *  encoding can be any of the options described by the respective 'KeyType'
- *  value. When this is generated by the service, it will always be an RFC 5280
- *  [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
- *  structure containing an algorithm identifier and a key.
+ *  Required. The format of the public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateAuthorityService_PublicKey_Format_KeyFormatUnspecified
+ *        Default unspecified value. (Value: "KEY_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRCertificateAuthorityService_PublicKey_Format_Pem The key is
+ *        PEM-encoded as defined in [RFC
+ *        7468](https://tools.ietf.org/html/rfc7468). It can be any of the
+ *        following: a PEM-encoded PKCS#1/RFC 3447 RSAPublicKey structure, an
+ *        RFC 5280
+ *        [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
+ *        or a PEM-encoded X.509 certificate signing request (CSR). If a
+ *        [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
+ *        is specified, it can contain a A PEM-encoded PKCS#1/RFC 3447
+ *        RSAPublicKey or a NIST P-256/secp256r1/prime256v1 or P-384 key. If a
+ *        CSR is specified, it will used solely for the purpose of extracting
+ *        the public key. When generated by the service, it will always be an
+ *        RFC 5280
+ *        [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
+ *        structure containing an algorithm identifier and a key. (Value: "PEM")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Required. A public key. The padding and encoding must match with the
+ *  `KeyFormat` value specified for the `format` field.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
+@end
+
+
 /**
- *  Optional. The type of public key. If specified, it must match the public key
- *  used for the`key` field.
+ *  Options relating to the publication of each CertificateAuthority's CA
+ *  certificate and CRLs and their inclusion as extensions in issued
+ *  Certificates. The options set here apply to certificates issued by any
+ *  CertificateAuthority in the CaPool.
+ */
+@interface GTLRCertificateAuthorityService_PublishingOptions : GTLRObject
+
+/**
+ *  Optional. When true, publishes each CertificateAuthority's CA certificate
+ *  and includes its URL in the "Authority Information Access" X.509 extension
+ *  in all issued Certificates. If this is false, the CA certificate will not be
+ *  published and the corresponding X.509 extension will not be written in
+ *  issued certificates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publishCaCert;
+
+/**
+ *  Optional. When true, publishes each CertificateAuthority's CRL and includes
+ *  its URL in the "CRL Distribution Points" X.509 extension in all issued
+ *  Certificates. If this is false, CRLs will not be published and the
+ *  corresponding X.509 extension will not be written in issued certificates.
+ *  CRLs will expire 7 days from their creation. However, we will rebuild daily.
+ *  CRLs are also rebuilt shortly after a certificate is revoked.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *publishCrl;
+
+@end
+
+
+/**
+ *  Operation metadata returned by the CLH during resource state reconciliation.
+ */
+@interface GTLRCertificateAuthorityService_ReconciliationOperationMetadata : GTLRObject
+
+/**
+ *  DEPRECATED. Use exclusive_action instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteResource;
+
+/**
+ *  exclusiveAction
  *
  *  Likely values:
- *    @arg @c kGTLRCertificateAuthorityService_PublicKey_Type_KeyTypeUnspecified
- *        Default unspecified value. (Value: "KEY_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCertificateAuthorityService_PublicKey_Type_PemEcKey An RFC
- *        5280
- *        [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
- *        structure containing a PEM-encoded compressed NIST
- *        P-256/secp256r1/prime256v1 or P-384 key. (Value: "PEM_EC_KEY")
- *    @arg @c kGTLRCertificateAuthorityService_PublicKey_Type_PemRsaKey A
- *        PEM-encoded PKCS#1/RFC 3447 RSAPublicKey structure, or an RFC 5280
- *        [SubjectPublicKeyInfo](https://tools.ietf.org/html/rfc5280#section-4.1)
- *        structure containing the former. (Value: "PEM_RSA_KEY")
+ *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete
+ *        The resource has to be deleted. When using this bit, the CLH should
+ *        fail the operation. (Value: "DELETE")
+ *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry
+ *        This resource could not be repaired but the repair should be tried
+ *        again at a later time. This can happen if there is a dependency that
+ *        needs to be resolved first- e.g. if a parent resource must be repaired
+ *        before a child resource. (Value: "RETRY")
+ *    @arg @c kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction
+ *        Value "UNKNOWN_REPAIR_ACTION"
  */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Request message for CertificateAuthorityService.RestoreCertificateAuthority.
- */
-@interface GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest : GTLRObject
-
-/**
- *  Optional. An ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-@end
-
-
-/**
- *  A ReusableConfig refers to a managed ReusableConfigValues. Those, in turn,
- *  are used to describe certain fields of an X.509 certificate, such as the key
- *  usage fields, fields specific to CA certificates, certificate policy
- *  extensions and custom extensions.
- */
-@interface GTLRCertificateAuthorityService_ReusableConfig : GTLRObject
-
-/** Output only. The time at which this ReusableConfig was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. A human-readable description of scenarios these
- *  ReusableConfigValues may be compatible with.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. Labels with user-defined metadata. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfig_Labels *labels;
-
-/**
- *  Output only. The resource path for this ReusableConfig in the format
- *  `projects/ * /locations/ * /reusableConfigs/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The time at which this ReusableConfig was updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/** Required. The config values. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfigValues *values;
-
-@end
-
-
-/**
- *  Optional. Labels with user-defined metadata.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCertificateAuthorityService_ReusableConfig_Labels : GTLRObject
-@end
-
-
-/**
- *  A ReusableConfigValues is used to describe certain fields of an X.509
- *  certificate, such as the key usage fields, fields specific to CA
- *  certificates, certificate policy extensions and custom extensions.
- */
-@interface GTLRCertificateAuthorityService_ReusableConfigValues : GTLRObject
-
-/** Optional. Describes custom X.509 extensions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_X509Extension *> *additionalExtensions;
-
-/**
- *  Optional. Describes Online Certificate Status Protocol (OCSP) endpoint
- *  addresses that appear in the "Authority Information Access" extension in the
- *  certificate.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aiaOcspServers;
-
-/**
- *  Optional. Describes options in this ReusableConfigValues that are relevant
- *  in a CA certificate.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaOptions *caOptions;
-
-/**
- *  Optional. Indicates the intended use for keys that correspond to a
- *  certificate.
- */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyUsage *keyUsage;
-
-/**
- *  Optional. Describes the X.509 certificate policy object identifiers, per
- *  https://tools.ietf.org/html/rfc5280#section-4.2.1.4.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_ObjectId *> *policyIds;
-
-@end
-
-
-/**
- *  A ReusableConfigWrapper describes values that may assist in creating an
- *  X.509 certificate, or a reference to a pre-defined set of values.
- */
-@interface GTLRCertificateAuthorityService_ReusableConfigWrapper : GTLRObject
-
-/**
- *  Required. A resource path to a ReusableConfig in the format `projects/ *
- *  /locations/ * /reusableConfigs/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *reusableConfig;
-
-/** Required. A user-specified inline ReusableConfigValues. */
-@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_ReusableConfigValues *reusableConfigValues;
+@property(nonatomic, copy, nullable) NSString *exclusiveAction;
 
 @end
 
@@ -3661,8 +2725,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_RevokedCertificate : GTLRObject
 
 /**
- *  The resource path for the Certificate in the format `projects/ * /locations/
- *  * /certificateAuthorities/ * /certificates/ *`.
+ *  The resource name for the Certificate in the format `projects/ * /locations/
+ *  * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *certificate;
 
@@ -3708,33 +2772,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  Request message for
- *  CertificateAuthorityService.ScheduleDeleteCertificateAuthority.
+ *  Describes an RSA key that may be used in a Certificate issued from a CaPool.
  */
-@interface GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest : GTLRObject
+@interface GTLRCertificateAuthorityService_RsaKeyType : GTLRObject
 
 /**
- *  Optional. This field allows the CA to be scheduled for deletion even if the
- *  CA has active certs. Active certs include both unrevoked and unexpired
- *  certs.
+ *  Optional. The maximum allowed RSA modulus size (inclusive), in bits. If this
+ *  is not set, or if set to zero, the service will not enforce an explicit
+ *  upper bound on RSA modulus sizes.
  *
- *  Uses NSNumber of boolValue.
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *ignoreActiveCertificates;
+@property(nonatomic, strong, nullable) NSNumber *maxModulusSize;
 
 /**
- *  Optional. An ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ *  Optional. The minimum allowed RSA modulus size (inclusive), in bits. If this
+ *  is not set, or if set to zero, the service-level min RSA modulus size will
+ *  continue to apply.
+ *
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, copy, nullable) NSString *requestId;
+@property(nonatomic, strong, nullable) NSNumber *minModulusSize;
 
 @end
 
@@ -3814,6 +2872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @interface GTLRCertificateAuthorityService_Subject : GTLRObject
 
+/** The "common name" of the subject. */
+@property(nonatomic, copy, nullable) NSString *commonName;
+
 /** The country code of the subject. */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -3869,12 +2930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @interface GTLRCertificateAuthorityService_SubjectConfig : GTLRObject
 
-/** Optional. The "common name" of the distinguished name. */
-@property(nonatomic, copy, nullable) NSString *commonName;
-
 /**
- *  Required. Contains distinguished name fields such as the location and
- *  organization.
+ *  Required. Contains distinguished name fields such as the common name,
+ *  location and organization.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Subject *subject;
 
@@ -3890,26 +2948,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @interface GTLRCertificateAuthorityService_SubjectDescription : GTLRObject
 
-/** The "common name" of the distinguished name. */
-@property(nonatomic, copy, nullable) NSString *commonName;
-
 /** The serial number encoded in lowercase hexadecimal. */
 @property(nonatomic, copy, nullable) NSString *hexSerialNumber;
 
-/**
- *  For convenience, the actual lifetime of an issued certificate. Corresponds
- *  to 'not_after_time' - 'not_before_time'.
- */
+/** For convenience, the actual lifetime of an issued certificate. */
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
-/** The time at which the certificate expires. */
+/**
+ *  The time after which the certificate is expired. Per RFC 5280, the validity
+ *  period for a certificate is the period of time from not_before_time through
+ *  not_after_time, inclusive. Corresponds to 'not_before_time' + 'lifetime' - 1
+ *  second.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *notAfterTime;
 
 /** The time at which the certificate becomes valid. */
 @property(nonatomic, strong, nullable) GTLRDateTime *notBeforeTime;
 
 /**
- *  Contains distinguished name fields such as the location and organization.
+ *  Contains distinguished name fields such as the common name, location and /
+ *  organization.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_Subject *subject;
 
@@ -3920,16 +2978,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  Describes a subordinate CA's issuers. This is either a resource path to a
+ *  Describes a subordinate CA's issuers. This is either a resource name to a
  *  known issuing CertificateAuthority, or a PEM issuer certificate chain.
  */
 @interface GTLRCertificateAuthorityService_SubordinateConfig : GTLRObject
 
 /**
- *  Required. This can refer to a CertificateAuthority in the same project that
- *  was used to create a subordinate CertificateAuthority. This field is used
- *  for information and usability purposes only. The resource name is in the
- *  format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  Required. This can refer to a CertificateAuthority that was used to create a
+ *  subordinate CertificateAuthority. This field is used for information and
+ *  usability purposes only. The resource name is in the format `projects/ *
+ *  /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *certificateAuthority;
 
@@ -3983,13 +3041,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
+ *  Request message for
+ *  CertificateAuthorityService.UndeleteCertificateAuthority.
+ */
+@interface GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest : GTLRObject
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  An X509Extension specifies an X.509 extension, which may be used in
  *  different parts of X.509 objects like certificates, CSRs, and CRLs.
  */
 @interface GTLRCertificateAuthorityService_X509Extension : GTLRObject
 
 /**
- *  Required. Indicates whether or not this extension is critical (i.e., if the
+ *  Optional. Indicates whether or not this extension is critical (i.e., if the
  *  client does not know how to handle this extension, the client should
  *  consider this to be an error).
  *
@@ -4007,6 +3088,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  An X509Parameters is used to describe certain fields of an X.509
+ *  certificate, such as the key usage fields, fields specific to CA
+ *  certificates, certificate policy extensions and custom extensions.
+ */
+@interface GTLRCertificateAuthorityService_X509Parameters : GTLRObject
+
+/** Optional. Describes custom X.509 extensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_X509Extension *> *additionalExtensions;
+
+/**
+ *  Optional. Describes Online Certificate Status Protocol (OCSP) endpoint
+ *  addresses that appear in the "Authority Information Access" extension in the
+ *  certificate.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aiaOcspServers;
+
+/**
+ *  Optional. Describes options in this X509Parameters that are relevant in a CA
+ *  certificate.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_CaOptions *caOptions;
+
+/**
+ *  Optional. Indicates the intended use for keys that correspond to a
+ *  certificate.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_KeyUsage *keyUsage;
+
+/**
+ *  Optional. Describes the X.509 certificate policy object identifiers, per
+ *  https://tools.ietf.org/html/rfc5280#section-4.2.1.4.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_ObjectId *> *policyIds;
 
 @end
 

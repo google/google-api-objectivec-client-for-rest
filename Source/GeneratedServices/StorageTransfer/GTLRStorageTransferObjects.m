@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRStorageTransfer_AgentPool.state
+NSString * const kGTLRStorageTransfer_AgentPool_State_Created  = @"CREATED";
+NSString * const kGTLRStorageTransfer_AgentPool_State_Creating = @"CREATING";
+NSString * const kGTLRStorageTransfer_AgentPool_State_Deleting = @"DELETING";
+NSString * const kGTLRStorageTransfer_AgentPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRStorageTransfer_ErrorSummary.errorCode
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted = @"ABORTED";
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists = @"ALREADY_EXISTS";
@@ -61,6 +67,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_AgentPool
+//
+
+@implementation GTLRStorageTransfer_AgentPool
+@dynamic bandwidthLimit, displayName, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_AwsAccessKey
 //
 
@@ -75,7 +91,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_AwsS3Data
-@dynamic awsAccessKey, bucketName, path;
+@dynamic awsAccessKey, bucketName, path, roleArn;
 @end
 
 
@@ -96,6 +112,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_AzureCredentials
 @dynamic sasToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_BandwidthLimit
+//
+
+@implementation GTLRStorageTransfer_BandwidthLimit
+@dynamic limitMbps;
 @end
 
 
@@ -179,7 +205,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_GoogleServiceAccount
-@dynamic accountEmail;
+@dynamic accountEmail, subjectId;
 @end
 
 
@@ -190,6 +216,28 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_HttpData
 @dynamic listUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_ListAgentPoolsResponse
+//
+
+@implementation GTLRStorageTransfer_ListAgentPoolsResponse
+@dynamic agentPools, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentPools" : [GTLRStorageTransfer_AgentPool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"agentPools";
+}
+
 @end
 
 
@@ -234,6 +282,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
   return @"transferJobs";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_LoggingConfig
+//
+
+@implementation GTLRStorageTransfer_LoggingConfig
+@dynamic enableOnpremGcsTransferLogs;
 @end
 
 
@@ -325,10 +383,30 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_PosixFilesystem
+//
+
+@implementation GTLRStorageTransfer_PosixFilesystem
+@dynamic rootDirectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_ResumeTransferOperationRequest
 //
 
 @implementation GTLRStorageTransfer_ResumeTransferOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageTransfer_RunTransferJobRequest
+//
+
+@implementation GTLRStorageTransfer_RunTransferJobRequest
+@dynamic projectId;
 @end
 
 
@@ -394,8 +472,10 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 @dynamic bytesCopiedToSink, bytesDeletedFromSink, bytesDeletedFromSource,
          bytesFailedToDeleteFromSink, bytesFoundFromSource,
          bytesFoundOnlyFromSink, bytesFromSourceFailed,
-         bytesFromSourceSkippedBySync, objectsCopiedToSink,
-         objectsDeletedFromSink, objectsDeletedFromSource,
+         bytesFromSourceSkippedBySync, directoriesFailedToListFromSource,
+         directoriesFoundFromSource, directoriesSuccessfullyListedFromSource,
+         intermediateObjectsCleanedUp, intermediateObjectsFailedCleanedUp,
+         objectsCopiedToSink, objectsDeletedFromSink, objectsDeletedFromSource,
          objectsFailedToDeleteFromSink, objectsFoundFromSource,
          objectsFoundOnlyFromSink, objectsFromSourceFailed,
          objectsFromSourceSkippedBySync;
@@ -409,8 +489,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, lastModificationTime,
-         latestOperationName, name, notificationConfig, projectId, schedule,
-         status, transferSpec;
+         latestOperationName, loggingConfig, name, notificationConfig,
+         projectId, schedule, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -456,7 +536,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
-         gcsDataSource, httpDataSource, objectConditions, transferOptions;
+         gcsDataSource, httpDataSource, objectConditions, posixDataSource,
+         transferOptions;
 @end
 
 

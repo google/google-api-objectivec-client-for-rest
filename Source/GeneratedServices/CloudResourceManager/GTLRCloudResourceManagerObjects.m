@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Resource Manager API (cloudresourcemanager/v2)
+//   Cloud Resource Manager API (cloudresourcemanager/v3)
 // Description:
 //   Creates, reads, and updates metadata for Google Cloud Platform resource
 //   containers.
@@ -20,10 +20,10 @@ NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataRead = @"D
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRCloudResourceManager_Folder.lifecycleState
-NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_Active = @"ACTIVE";
-NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_DeleteRequested = @"DELETE_REQUESTED";
-NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_LifecycleStateUnspecified = @"LIFECYCLE_STATE_UNSPECIFIED";
+// GTLRCloudResourceManager_Folder.state
+NSString * const kGTLRCloudResourceManager_Folder_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudResourceManager_Folder_State_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRCloudResourceManager_Folder_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudResourceManager_FolderOperation.operationType
 NSString * const kGTLRCloudResourceManager_FolderOperation_OperationType_Create = @"CREATE";
@@ -51,6 +51,16 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1Fol
 NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Move = @"MOVE";
 NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudResourceManager_Organization.state
+NSString * const kGTLRCloudResourceManager_Organization_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudResourceManager_Organization_State_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRCloudResourceManager_Organization_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudResourceManager_Project.state
+NSString * const kGTLRCloudResourceManager_Project_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudResourceManager_Project_State_DeleteRequested = @"DELETE_REQUESTED";
+NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -128,6 +138,15 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_CreateTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateTagBindingMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_CreateTagKeyMetadata
 //
 
@@ -173,6 +192,15 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_DeleteTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteTagBindingMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_DeleteTagKeyMetadata
 //
 
@@ -186,6 +214,15 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 //
 
 @implementation GTLRCloudResourceManager_DeleteTagValueMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_Empty
+//
+
+@implementation GTLRCloudResourceManager_Empty
 @end
 
 
@@ -210,7 +247,13 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 //
 
 @implementation GTLRCloudResourceManager_Folder
-@dynamic createTime, displayName, lifecycleState, name, parent;
+@dynamic createTime, deleteTime, displayName, ETag, name, parent, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -276,6 +319,24 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Lien
+//
+
+@implementation GTLRCloudResourceManager_Lien
+@dynamic createTime, name, origin, parent, reason, restrictions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ListFoldersResponse
 //
 
@@ -291,6 +352,116 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 + (NSString *)collectionItemsKey {
   return @"folders";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListLiensResponse
+//
+
+@implementation GTLRCloudResourceManager_ListLiensResponse
+@dynamic liens, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"liens" : [GTLRCloudResourceManager_Lien class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"liens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListProjectsResponse
+//
+
+@implementation GTLRCloudResourceManager_ListProjectsResponse
+@dynamic nextPageToken, projects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projects" : [GTLRCloudResourceManager_Project class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"projects";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListTagBindingsResponse
+//
+
+@implementation GTLRCloudResourceManager_ListTagBindingsResponse
+@dynamic nextPageToken, tagBindings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagBindings" : [GTLRCloudResourceManager_TagBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tagBindings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListTagKeysResponse
+//
+
+@implementation GTLRCloudResourceManager_ListTagKeysResponse
+@dynamic nextPageToken, tagKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagKeys" : [GTLRCloudResourceManager_TagKey class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tagKeys";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ListTagValuesResponse
+//
+
+@implementation GTLRCloudResourceManager_ListTagValuesResponse
+@dynamic nextPageToken, tagValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagValues" : [GTLRCloudResourceManager_TagValue class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tagValues";
 }
 
 @end
@@ -322,6 +493,16 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 //
 
 @implementation GTLRCloudResourceManager_MoveProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_MoveProjectRequest
+//
+
+@implementation GTLRCloudResourceManager_MoveProjectRequest
+@dynamic destinationParent;
 @end
 
 
@@ -365,6 +546,22 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_Organization
+//
+
+@implementation GTLRCloudResourceManager_Organization
+@dynamic createTime, deleteTime, directoryCustomerId, displayName, ETag, name,
+         state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_Policy
 //
 
@@ -388,21 +585,41 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_ProjectCreationStatus
+//   GTLRCloudResourceManager_Project
 //
 
-@implementation GTLRCloudResourceManager_ProjectCreationStatus
-@dynamic createTime, gettable, ready;
+@implementation GTLRCloudResourceManager_Project
+@dynamic createTime, deleteTime, displayName, ETag, labels, name, parent,
+         projectId, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_SearchFoldersRequest
+//   GTLRCloudResourceManager_Project_Labels
 //
 
-@implementation GTLRCloudResourceManager_SearchFoldersRequest
-@dynamic pageSize, pageToken, query;
+@implementation GTLRCloudResourceManager_Project_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_ProjectCreationStatus
+//
+
+@implementation GTLRCloudResourceManager_ProjectCreationStatus
+@dynamic createTime, gettable, ready;
 @end
 
 
@@ -423,6 +640,50 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 + (NSString *)collectionItemsKey {
   return @"folders";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_SearchOrganizationsResponse
+//
+
+@implementation GTLRCloudResourceManager_SearchOrganizationsResponse
+@dynamic nextPageToken, organizations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizations" : [GTLRCloudResourceManager_Organization class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"organizations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_SearchProjectsResponse
+//
+
+@implementation GTLRCloudResourceManager_SearchProjectsResponse
+@dynamic nextPageToken, projects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projects" : [GTLRCloudResourceManager_Project class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"projects";
 }
 
 @end
@@ -465,6 +726,56 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagBinding
+//
+
+@implementation GTLRCloudResourceManager_TagBinding
+@dynamic name, parent, tagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagKey
+//
+
+@implementation GTLRCloudResourceManager_TagKey
+@dynamic createTime, descriptionProperty, ETag, name, namespacedName, parent,
+         shortName, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_TagValue
+//
+
+@implementation GTLRCloudResourceManager_TagValue
+@dynamic createTime, descriptionProperty, ETag, name, namespacedName, parent,
+         shortName, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end
@@ -539,6 +850,15 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 //
 
 @implementation GTLRCloudResourceManager_UndeleteProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UndeleteProjectRequest
+//
+
+@implementation GTLRCloudResourceManager_UndeleteProjectRequest
 @end
 
 

@@ -7,7 +7,7 @@
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
 // Documentation:
-//   https://cloud.google.com/compute/docs/manage-os
+//   https://cloud.google.com/compute/docs/osconfig/rest
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

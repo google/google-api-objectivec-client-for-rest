@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -28,9 +28,12 @@
 @class GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
+@class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
+@class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
 @class GTLRApigee_GoogleCloudApigeeV1Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation;
+@class GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1DataCollector;
 @class GTLRApigee_GoogleCloudApigeeV1Datastore;
@@ -39,11 +42,16 @@
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1Environment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
+@class GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ExportRequest;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHook;
+@class GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest;
+@class GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest;
 @class GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Instance;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
@@ -53,11 +61,15 @@
 @class GTLRApigee_GoogleCloudApigeeV1Organization;
 @class GTLRApigee_GoogleCloudApigeeV1ProvisionOrganizationRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Query;
+@class GTLRApigee_GoogleCloudApigeeV1RatePlan;
 @class GTLRApigee_GoogleCloudApigeeV1Reference;
 @class GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest;
+@class GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Subscription;
 @class GTLRApigee_GoogleCloudApigeeV1SyncAuthorization;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServer;
+@class GTLRApigee_GoogleCloudApigeeV1TraceConfig;
+@class GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride;
 @class GTLRApigee_GoogleIamV1SetIamPolicyRequest;
 @class GTLRApigee_GoogleIamV1TestIamPermissionsRequest;
 
@@ -70,6 +82,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// state
+
+/**
+ *  Rate plan is in draft mode and only visible to API providers.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStateDraft;
+/**
+ *  Rate plan is published and will become visible to developers for the
+ *  configured duration (between `startTime` and `endTime`).
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStatePublished;
+/**
+ *  State of the rate plan is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStateStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // view
@@ -122,8 +157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_HybridIssuersList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForHybridIssuersListWithname:]
 
 /** Required. Must be of the form `hybrid/issuers`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -152,8 +185,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresCreateWithObject:parent:]
 
 /**
  *  Required. The parent organization name. Must be of the form
@@ -187,8 +218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresDeleteWithname:]
 
 /**
  *  Required. Resource name of the Datastore to be deleted. Must be of the form
@@ -219,8 +248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresGetWithname:]
 
 /**
  *  Required. Resource name of the Datastore to be get. Must be of the form
@@ -251,8 +278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresListWithparent:]
 
 /**
  *  Required. The parent organization name. Must be of the form
@@ -290,8 +315,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresTest : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresTestWithObject:parent:]
 
 /**
  *  Required. The parent organization name Must be of the form
@@ -327,8 +350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresUpdateWithObject:name:]
 
 /**
  *  Required. The resource name of datastore to be updated. Must be of the form
@@ -371,8 +392,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -415,8 +434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the API product attribute. Use the following structure in
@@ -449,8 +466,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesGetWithname:]
 
 /**
  *  Required. Name of the API product attribute. Use the following structure in
@@ -483,8 +498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesListWithparent:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -521,8 +534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesUpdateApiProductAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesUpdateApiProductAttributeWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -559,18 +570,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  collection of API resources combined with quota settings and metadata that
  *  you can use to deliver customized and productized API bundles to your
  *  developer community. This metadata can include: - Scope - Environments - API
- *  proxies - Extensible profile API products enable you repackage APIs
- *  on-the-fly, without having to do any additional coding or configuration.
- *  Apigee recommends that you start with a simple API product including only
- *  required elements. You then provision credentials to apps to enable them to
- *  start testing your APIs. After you have authentication and authorization
- *  working against a simple API product, you can iterate to create finer
- *  grained API products, defining different sets of API resources for each API
- *  product. **WARNING:** - If you don't specify an API proxy in the request
- *  body, *any* app associated with the product can make calls to *any* API in
- *  your entire organization. - If you don't specify an environment in the
- *  request body, the product allows access to all environments. For more
- *  information, see What is an API product?
+ *  proxies - Extensible profile API products enable you repackage APIs on the
+ *  fly, without having to do any additional coding or configuration. Apigee
+ *  recommends that you start with a simple API product including only required
+ *  elements. You then provision credentials to apps to enable them to start
+ *  testing your APIs. After you have authentication and authorization working
+ *  against a simple API product, you can iterate to create finer-grained API
+ *  products, defining different sets of API resources for each API product.
+ *  **WARNING:** - If you don't specify an API proxy in the request body, *any*
+ *  app associated with the product can make calls to *any* API in your entire
+ *  organization. - If you don't specify an environment in the request body, the
+ *  product allows access to all environments. For more information, see What is
+ *  an API product?
  *
  *  Method: apigee.organizations.apiproducts.create
  *
@@ -578,8 +589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization in which the API product will be created.
@@ -595,18 +604,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  collection of API resources combined with quota settings and metadata that
  *  you can use to deliver customized and productized API bundles to your
  *  developer community. This metadata can include: - Scope - Environments - API
- *  proxies - Extensible profile API products enable you repackage APIs
- *  on-the-fly, without having to do any additional coding or configuration.
- *  Apigee recommends that you start with a simple API product including only
- *  required elements. You then provision credentials to apps to enable them to
- *  start testing your APIs. After you have authentication and authorization
- *  working against a simple API product, you can iterate to create finer
- *  grained API products, defining different sets of API resources for each API
- *  product. **WARNING:** - If you don't specify an API proxy in the request
- *  body, *any* app associated with the product can make calls to *any* API in
- *  your entire organization. - If you don't specify an environment in the
- *  request body, the product allows access to all environments. For more
- *  information, see What is an API product?
+ *  proxies - Extensible profile API products enable you repackage APIs on the
+ *  fly, without having to do any additional coding or configuration. Apigee
+ *  recommends that you start with a simple API product including only required
+ *  elements. You then provision credentials to apps to enable them to start
+ *  testing your APIs. After you have authentication and authorization working
+ *  against a simple API product, you can iterate to create finer-grained API
+ *  products, defining different sets of API resources for each API product.
+ *  **WARNING:** - If you don't specify an API proxy in the request body, *any*
+ *  app associated with the product can make calls to *any* API in your entire
+ *  organization. - If you don't specify an environment in the request body, the
+ *  product allows access to all environments. For more information, see What is
+ *  an API product?
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProduct to include in
  *    the query.
@@ -637,8 +646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsDeleteWithname:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -680,8 +687,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsGetWithname:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -709,9 +714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Lists all API product names for an organization. Filter the list by passing
- *  an `attributename` and `attibutevalue`. The limit on the number of API
- *  products returned by the API is 1000. You can paginate the list of API
- *  products returned using the `startKey` and `count` query parameters.
+ *  an `attributename` and `attibutevalue`. The maximum number of API products
+ *  returned is 1000. You can paginate the list of API products returned using
+ *  the `startKey` and `count` query parameters.
  *
  *  Method: apigee.organizations.apiproducts.list
  *
@@ -719,8 +724,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsListWithparent:]
 
 /** Name of the attribute used to filter the search. */
 @property(nonatomic, copy, nullable) NSString *attributename;
@@ -759,9 +762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse.
  *
  *  Lists all API product names for an organization. Filter the list by passing
- *  an `attributename` and `attibutevalue`. The limit on the number of API
- *  products returned by the API is 1000. You can paginate the list of API
- *  products returned using the `startKey` and `count` query parameters.
+ *  an `attributename` and `attibutevalue`. The maximum number of API products
+ *  returned is 1000. You can paginate the list of API products returned using
+ *  the `startKey` and `count` query parameters.
  *
  *  @param parent Required. Name of the organization. Use the following
  *    structure in your request: `organizations/{org}`
@@ -773,10 +776,234 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Create a rate plan that is associated with an API product in an
+ *  organization. Using rate plans, API product owners can monetize their API
+ *  products by configuring one or more of the following: - Billing frequency -
+ *  Initial setup fees for using an API product - Payment funding model
+ *  (postpaid only) - Fixed recurring or consumption-based charges for using an
+ *  API product - Revenue sharing with developer partners An API product can
+ *  have multiple rate plans associated with it but *only one* rate plan can be
+ *  active at any point of time. **Note: From the developer's perspective, they
+ *  purchase API products not rate plans.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product that is associated with the rate plan. Use
+ *  the following structure in your request:
+ *  `organizations/{org}/apiproducts/{apiproduct}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Create a rate plan that is associated with an API product in an
+ *  organization. Using rate plans, API product owners can monetize their API
+ *  products by configuring one or more of the following: - Billing frequency -
+ *  Initial setup fees for using an API product - Payment funding model
+ *  (postpaid only) - Fixed recurring or consumption-based charges for using an
+ *  API product - Revenue sharing with developer partners An API product can
+ *  have multiple rate plans associated with it but *only one* rate plan can be
+ *  active at any point of time. **Note: From the developer's perspective, they
+ *  purchase API products not rate plans.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1RatePlan to include in
+ *    the query.
+ *  @param parent Required. Name of the API product that is associated with the
+ *    rate plan. Use the following structure in your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete : GTLRApigeeQuery
+
+/**
+ *  Required. ID of the rate plan. Use the following structure in your request:
+ *  `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Deletes a rate plan.
+ *
+ *  @param name Required. ID of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the rate plan. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Gets the details of a rate plan.
+ *
+ *  @param name Required. Name of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the rate plans for an API product.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansList : GTLRApigeeQuery
+
+/**
+ *  Number of rate plans to return in the API call. Use with the `startKey`
+ *  parameter to provide more targeted filtering. The maximum limit is 1000.
+ *  Defaults to 100.
+ */
+@property(nonatomic, assign) NSInteger count;
+
+/**
+ *  Flag that specifies whether to expand the results. Set to `true` to get
+ *  expanded details about each API. Defaults to `false`.
+ */
+@property(nonatomic, assign) BOOL expand;
+
+/**
+ *  Name of the attribute used for sorting. Valid values include: * `name`: Name
+ *  of the rate plan. * `state`: State of the rate plan (`DRAFT`, `PUBLISHED`).
+ *  * `startTime`: Time when the rate plan becomes active. * `endTime`: Time
+ *  when the rate plan expires. **Note**: Not supported by Apigee at this time.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Required. Name of the API product. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` Use
+ *  `organizations/{org}/apiproducts/-` to return rate plans for all API
+ *  products within the organization.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Name of the rate plan from which to start displaying the list of rate plans.
+ *  If omitted, the list starts from the first item. For example, to view the
+ *  rate plans from 51-150, set the value of `startKey` to the name of the 51st
+ *  rate plan and set the value of `count` to 100.
+ */
+@property(nonatomic, copy, nullable) NSString *startKey;
+
+/**
+ *  State of the rate plans (`DRAFT`, `PUBLISHED`) that you want to display.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeStateStateUnspecified State of the rate plan is not
+ *        specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeStateDraft Rate plan is in draft mode and only visible
+ *        to API providers. (Value: "DRAFT")
+ *    @arg @c kGTLRApigeeStatePublished Rate plan is published and will become
+ *        visible to developers for the configured duration (between `startTime`
+ *        and `endTime`). (Value: "PUBLISHED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse.
+ *
+ *  Lists all the rate plans for an API product.
+ *
+ *  @param parent Required. Name of the API product. Use the following structure
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` Use
+ *    `organizations/{org}/apiproducts/-` to return rate plans for all API
+ *    products within the organization.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the rate plan. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Updates an existing rate plan.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1RatePlan to include in
+ *    the query.
+ *  @param name Required. Name of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates an existing API product. You must include all required values,
  *  whether or not you are updating them, as well as any optional values that
  *  you are updating. The API product name required in the request URL is the
- *  internal name of the product, not the Display Name. While they may be the
+ *  internal name of the product, not the display name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
  *  the list of API products to identify their internal names.
  *
@@ -786,8 +1013,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -801,7 +1026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Updates an existing API product. You must include all required values,
  *  whether or not you are updating them, as well as any optional values that
  *  you are updating. The API product name required in the request URL is the
- *  internal name of the product, not the Display Name. While they may be the
+ *  internal name of the product, not the display name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
  *  the list of API products to identify their internal names.
  *
@@ -840,8 +1065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisCreateWithObject:parent:]
 
 /**
  *  Action to perform when importing an API proxy configuration bundle. Set this
@@ -906,8 +1129,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisDeleteWithname:]
 
 /**
  *  Required. Name of the API proxy in the following format:
@@ -939,8 +1160,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy for which to return deployment information
@@ -971,8 +1190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisGetWithname:]
 
 /**
  *  Required. Name of the API proxy in the following format:
@@ -1003,8 +1220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the environment in which to create the key value map.
@@ -1039,8 +1254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -1073,8 +1286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisListWithparent:]
 
 /**
  *  Flag that specifies whether to include API proxy metadata in the response.
@@ -1109,6 +1320,46 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates an existing API proxy.
+ *
+ *  Method: apigee.organizations.apis.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisPatch : GTLRApigeeQuery
+
+/**
+ *  Required. API proxy to update in the following format:
+ *  `organizations/{org}/apis/{api}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxy.
+ *
+ *  Updates an existing API proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProxy to include in
+ *    the query.
+ *  @param name Required. API proxy to update in the following format:
+ *    `organizations/{org}/apis/{api}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiProxy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes an API proxy revision and all policies, resources, endpoints, and
  *  revisions associated with it. The API proxy revision must be undeployed
  *  before you can delete it.
@@ -1119,8 +1370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsDeleteWithname:]
 
 /**
  *  Required. API proxy revision in the following format:
@@ -1153,8 +1402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
@@ -1180,13 +1427,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Gets an API proxy revision. To download the API proxy configuration bundle
- *  for the specified revision as a zip file, do the following: * Set the
- *  `format` query parameter to `bundle`. * Set the `Accept` header to
- *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
- *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
- *  API proxy configuration locally and upload the updated API proxy
- *  configuration revision, as described in
- *  [updateApiProxyRevision](updateApiProxyRevision).
+ *  for the specified revision as a zip file, set the `format` query parameter
+ *  to `bundle`. If you are using curl, specify `-o filename.zip` to save the
+ *  output to a file; otherwise, it displays to `stdout`. Then, develop the API
+ *  proxy configuration locally and upload the updated API proxy configuration
+ *  revision, as described in [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  Method: apigee.organizations.apis.revisions.get
  *
@@ -1194,8 +1439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsGetWithname:]
 
 /**
  *  Format used when downloading the API proxy configuration revision. Set to
@@ -1213,13 +1456,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
  *  Gets an API proxy revision. To download the API proxy configuration bundle
- *  for the specified revision as a zip file, do the following: * Set the
- *  `format` query parameter to `bundle`. * Set the `Accept` header to
- *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
- *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
- *  API proxy configuration locally and upload the updated API proxy
- *  configuration revision, as described in
- *  [updateApiProxyRevision](updateApiProxyRevision).
+ *  for the specified revision as a zip file, set the `format` query parameter
+ *  to `bundle`. If you are using curl, specify `-o filename.zip` to save the
+ *  output to a file; otherwise, it displays to `stdout`. Then, develop the API
+ *  proxy configuration locally and upload the updated API proxy configuration
+ *  revision, as described in [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  @param name Required. API proxy revision in the following format:
  *    `organizations/{org}/apis/{api}/revisions/{rev}`
@@ -1244,8 +1485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsUpdateApiProxyRevision : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsUpdateApiProxyRevisionWithObject:name:]
 
 /**
  *  Required. API proxy revision to update in the following format:
@@ -1289,8 +1528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAppsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAppsGetWithname:]
 
 /**
  *  Required. App ID in the following format: `organizations/{org}/apps/{app}`
@@ -1322,8 +1559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAppsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAppsListWithparent:]
 
 /** API product. */
 @property(nonatomic, copy, nullable) NSString *apiProduct;
@@ -1399,8 +1634,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCreateWithObject:]
 
 /**
  *  Required. Name of the GCP project in which to associate the Apigee
@@ -1433,8 +1666,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsCreateWithObject:parent:]
 
 /**
  *  ID of the data collector. Overrides any ID in the data collector resource.
@@ -1474,8 +1705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsDeleteWithname:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1506,8 +1735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsGetWithname:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1538,8 +1765,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsListWithparent:]
 
 /**
  *  Maximum number of data collectors to return. The page size defaults to 25.
@@ -1585,8 +1810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsPatchWithObject:name:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1627,8 +1850,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDeleteWithname:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -1659,8 +1880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the organization for which to return deployment
@@ -1699,8 +1918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesWithObject:name:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1736,8 +1953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1770,8 +1985,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesGetWithname:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1804,8 +2017,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesListWithparent:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1842,8 +2053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesUpdateDeveloperAppAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesUpdateDeveloperAppAttributeWithObject:name:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1889,8 +2098,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the developer. Use the following structure in your
@@ -1932,8 +2139,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsDeleteWithname:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1990,8 +2195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsGenerateKeyPairOrUpdateDeveloperAppStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsGenerateKeyPairOrUpdateDeveloperAppStatusWithObject:name:]
 
 /** Action. Valid values are `approve` or `revoke`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -2051,8 +2254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsGetWithname:]
 
 /**
  *  **Note**: Must be used in conjunction with the `query` parameter. Set to
@@ -2101,8 +2302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsDeleteWithname:]
 
 /**
  *  Name of the API product in the developer app key in the following format:
@@ -2129,11 +2328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Approve or revoke an app's consumer key. After a consumer key is approved,
- *  the app can use it to access APIs. A consumer key that is revoked or pending
- *  cannot be used to access an API. Any access tokens associated with a revoked
- *  consumer key will remain active. However, Apigee hybrid checks the status of
- *  the consumer key and if set to `revoked` will not allow access to the API.
+ *  Approves or revokes the consumer key for an API product. After a consumer
+ *  key is approved, the app can use it to access APIs. A consumer key that is
+ *  revoked or pending cannot be used to access an API. Any access tokens
+ *  associated with a revoked consumer key will remain active. However, Apigee
+ *  checks the status of the consumer key and if set to `revoked` will not allow
+ *  access to the API.
  *
  *  Method: apigee.organizations.developers.apps.keys.apiproducts.updateDeveloperAppKeyApiProduct
  *
@@ -2141,8 +2341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProduct : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProductWithname:]
 
 /**
  *  Approve or revoke the consumer key by setting this value to `approve` or
@@ -2159,11 +2357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Approve or revoke an app's consumer key. After a consumer key is approved,
- *  the app can use it to access APIs. A consumer key that is revoked or pending
- *  cannot be used to access an API. Any access tokens associated with a revoked
- *  consumer key will remain active. However, Apigee hybrid checks the status of
- *  the consumer key and if set to `revoked` will not allow access to the API.
+ *  Approves or revokes the consumer key for an API product. After a consumer
+ *  key is approved, the app can use it to access APIs. A consumer key that is
+ *  revoked or pending cannot be used to access an API. Any access tokens
+ *  associated with a revoked consumer key will remain active. However, Apigee
+ *  checks the status of the consumer key and if set to `revoked` will not allow
+ *  access to the API.
  *
  *  @param name Name of the API product in the developer app key in the
  *    following format:
@@ -2178,15 +2377,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
- *  contain letters, numbers, underscores, and hyphens. No other special
- *  characters are allowed. To avoid service disruptions, a consumer key and
- *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
- *  key and secret, an association to API products will not be made. Therefore,
- *  you should not specify the associated API products in your request. Instead,
- *  use the UpdateDeveloperAppKey API to make the association after the consumer
- *  key and secret are created. If a consumer key and secret already exist, you
- *  can keep them or delete them using the DeleteDeveloperAppKey API.
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create
  *
@@ -2194,8 +2393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysCreateWithObject:parent:]
 
 /**
  *  Parent of the developer app key. Use the following structure in your
@@ -2208,15 +2405,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
- *  contain letters, numbers, underscores, and hyphens. No other special
- *  characters are allowed. To avoid service disruptions, a consumer key and
- *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
- *  key and secret, an association to API products will not be made. Therefore,
- *  you should not specify the associated API products in your request. Instead,
- *  use the UpdateDeveloperAppKey API to make the association after the consumer
- *  key and secret are created. If a consumer key and secret already exist, you
- *  can keep them or delete them using the DeleteDeveloperAppKey API.
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -2233,15 +2430,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
- *  contain letters, numbers, underscores, and hyphens. No other special
- *  characters are allowed. To avoid service disruptions, a consumer key and
- *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
- *  key and secret, an association to API products will not be made. Therefore,
- *  you should not specify the associated API products in your request. Instead,
- *  use the UpdateDeveloperAppKey API to make the association after the consumer
- *  key and secret are created. If a consumer key and secret already exist, you
- *  can keep them or delete them using the DeleteDeveloperAppKey API.
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create.create
  *
@@ -2249,8 +2446,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreateCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysCreateCreateWithObject:parent:]
 
 /**
  *  Parent of the developer app key. Use the following structure in your
@@ -2263,15 +2458,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
- *  contain letters, numbers, underscores, and hyphens. No other special
- *  characters are allowed. To avoid service disruptions, a consumer key and
- *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
- *  key and secret, an association to API products will not be made. Therefore,
- *  you should not specify the associated API products in your request. Instead,
- *  use the UpdateDeveloperAppKey API to make the association after the consumer
- *  key and secret are created. If a consumer key and secret already exist, you
- *  can keep them or delete them using the DeleteDeveloperAppKey API.
+ *  secrets to Apigee from another system. Consumer keys and secrets can contain
+ *  letters, numbers, underscores, and hyphens. No other special characters are
+ *  allowed. To avoid service disruptions, a consumer key and secret should not
+ *  exceed 2 KBs each. **Note**: When creating the consumer key and secret, an
+ *  association to API products will not be made. Therefore, you should not
+ *  specify the associated API products in your request. Instead, use the
+ *  UpdateDeveloperAppKey API to make the association after the consumer key and
+ *  secret are created. If a consumer key and secret already exist, you can keep
+ *  them or delete them using the DeleteDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -2300,8 +2495,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysDeleteWithname:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2331,8 +2524,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Returns details for a consumer key for a developer app, including the key
- *  and secret value, associated API products, and other information.
+ *  Gets details for a consumer key for a developer app, including the key and
+ *  secret value, associated API products, and other information.
  *
  *  Method: apigee.organizations.developers.apps.keys.get
  *
@@ -2340,8 +2533,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysGetWithname:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2352,8 +2543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey.
  *
- *  Returns details for a consumer key for a developer app, including the key
- *  and secret value, associated API products, and other information.
+ *  Gets details for a consumer key for a developer app, including the key and
+ *  secret value, associated API products, and other information.
  *
  *  @param name Name of the developer app key. Use the following structure in
  *    your request:
@@ -2379,8 +2570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysReplaceDeveloperAppKey : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysReplaceDeveloperAppKeyWithObject:name:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2425,8 +2614,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysUpdateDeveloperAppKey : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysUpdateDeveloperAppKeyWithObject:name:]
 
 /**
  *  Approve or revoke the consumer key by setting this value to `approve` or
@@ -2475,8 +2662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsListWithparent:]
 
 /**
  *  Number of developer apps to return in the API call. Use with the `startKey`
@@ -2547,8 +2732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -2600,12 +2783,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesWithObject:parent:]
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  updated in the following format:
+ *  updated. Use the following structure in your request:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2626,7 +2807,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
  *  @param parent Required. Email address of the developer for which attributes
- *    are being updated in the following format:
+ *    are being updated. Use the following structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributes
@@ -2645,8 +2826,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2679,8 +2858,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesGetWithname:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2713,12 +2890,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesListWithparent:]
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  listed in the following format:
+ *  listed. Use the following structure in your request:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2729,7 +2904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Returns a list of all developer attributes.
  *
  *  @param parent Required. Email address of the developer for which attributes
- *    are being listed in the following format:
+ *    are being listed. Use the following structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesList
@@ -2752,8 +2927,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesUpdateDeveloperAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesUpdateDeveloperAttributeWithObject:name:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2786,6 +2959,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Credits the account balance for the developer.
+ *
+ *  Method: apigee.organizations.developers.balance.credit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperBalance.
+ *
+ *  Credits the account balance for the developer.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest to include in
+ *    the query.
+ *  @param name Required. Account balance for the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a developer. Once created, the developer can register an app and
  *  obtain an API key. At creation time, a developer is set as `active`. To
  *  change the developer status, use the SetDeveloperStatus API.
@@ -2796,8 +3004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersCreateWithObject:parent:]
 
 /**
  *  Required. Name of the Apigee organization in which the developer is created.
@@ -2841,8 +3047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersDeleteWithname:]
 
 /**
  *  Required. Email address of the developer. Use the following structure in
@@ -2883,8 +3087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersGetWithname:]
 
 /** Status of the developer. Valid values are `active` or `inactive`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -2913,6 +3115,69 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the account balance for the developer.
+ *
+ *  Method: apigee.organizations.developers.getBalance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersGetBalance : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperBalance.
+ *
+ *  Gets the account balance for the developer.
+ *
+ *  @param name Required. Account balance for the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersGetBalance
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the monetization configuration for the developer.
+ *
+ *  Method: apigee.organizations.developers.getMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the developer. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/developers/{developer}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.
+ *
+ *  Gets the monetization configuration for the developer.
+ *
+ *  @param name Required. Monetization configuration for the developer. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists all developers in an organization by email address. By default, the
  *  response does not include company developers. Set the `includeCompany` query
  *  parameter to `true` to include company developers. **Note**: A maximum of
@@ -2925,8 +3190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersListWithparent:]
 
 /**
  *  Optional. List only Developers that are associated with the app. Note that
@@ -2988,13 +3251,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Sets the status of a developer. Valid values are `active` or `inactive`. A
- *  developer is `active` by default. If you set a developer's status to
- *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers can
- *  still sign in to the developer portal and create apps; however, any new API
- *  keys generated during app creation won't work. If successful, the API call
- *  returns the following HTTP status code: `204 No Content`
+ *  Sets the status of a developer. A developer is `active` by default. If you
+ *  set a developer's status to `inactive`, the API keys assigned to the
+ *  developer apps are no longer valid even though the API keys are set to
+ *  `approved`. Inactive developers can still sign in to the developer portal
+ *  and create apps; however, any new API keys generated during app creation
+ *  won't work. To set the status of a developer, set the `action` query
+ *  parameter to `active` or `inactive`, and the `Content-Type` header to
+ *  `application/octet-stream`. If successful, the API call returns the
+ *  following HTTP status code: `204 No Content`
  *
  *  Method: apigee.organizations.developers.setDeveloperStatus
  *
@@ -3002,36 +3267,186 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersSetDeveloperStatusWithname:]
 
 /** Status of the developer. Valid values are `active` and `inactive`. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Required. Email address of the developer. Use the following structure in
- *  your request: `organizations/{org}/developers/{developer_email}`
+ *  Required. Name of the developer. Use the following structure in your
+ *  request: `organizations/{org}/developers/{developer_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Sets the status of a developer. Valid values are `active` or `inactive`. A
- *  developer is `active` by default. If you set a developer's status to
- *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers can
- *  still sign in to the developer portal and create apps; however, any new API
- *  keys generated during app creation won't work. If successful, the API call
- *  returns the following HTTP status code: `204 No Content`
+ *  Sets the status of a developer. A developer is `active` by default. If you
+ *  set a developer's status to `inactive`, the API keys assigned to the
+ *  developer apps are no longer valid even though the API keys are set to
+ *  `approved`. Inactive developers can still sign in to the developer portal
+ *  and create apps; however, any new API keys generated during app creation
+ *  won't work. To set the status of a developer, set the `action` query
+ *  parameter to `active` or `inactive`, and the `Content-Type` header to
+ *  `application/octet-stream`. If successful, the API call returns the
+ *  following HTTP status code: `204 No Content`
  *
- *  @param name Required. Email address of the developer. Use the following
- *    structure in your request:
- *    `organizations/{org}/developers/{developer_email}`
+ *  @param name Required. Name of the developer. Use the following structure in
+ *    your request: `organizations/{org}/developers/{developer_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a subscription to an API product.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Email address of the developer that is purchasing a subscription
+ *  to the API product. Use the following structure in your request:
+ *  `organizations/{org}/developers/{developer_email}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Creates a subscription to an API product.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription to
+ *    include in the query.
+ *  @param parent Required. Email address of the developer that is purchasing a
+ *    subscription to the API product. Use the following structure in your
+ *    request: `organizations/{org}/developers/{developer_email}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Expires an API product subscription immediately.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.expire
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product subscription. Use the following structure
+ *  in your request:
+ *  `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Expires an API product subscription immediately.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest to
+ *    include in the query.
+ *  @param name Required. Name of the API product subscription. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details for an API product subscription.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product subscription. Use the following structure
+ *  in your request:
+ *  `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Gets details for an API product subscription.
+ *
+ *  @param name Required. Name of the API product subscription. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all API product subscriptions for a developer.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList : GTLRApigeeQuery
+
+/**
+ *  Number of API product subscriptions to return in the API call. Use with
+ *  `startKey` to provide more targeted filtering. Defaults to 100. The maximum
+ *  limit is 1000.
+ */
+@property(nonatomic, assign) NSInteger count;
+
+/**
+ *  Required. Email address of the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer_email}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Name of the API product subscription from which to start displaying the list
+ *  of subscriptions. If omitted, the list starts from the first item. For
+ *  example, to view the API product subscriptions from 51-150, set the value of
+ *  `startKey` to the name of the 51st subscription and set the value of `count`
+ *  to 100.
+ */
+@property(nonatomic, copy, nullable) NSString *startKey;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse.
+ *
+ *  Lists all API product subscriptions for a developer.
+ *
+ *  @param parent Required. Email address of the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer_email}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3052,8 +3467,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersUpdateWithObject:name:]
 
 /**
  *  Required. Email address of the developer. Use the following structure in
@@ -3088,6 +3501,42 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates the monetization configuration for the developer.
+ *
+ *  Method: apigee.organizations.developers.updateMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the developer. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/developers/{developer}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig.
+ *
+ *  Updates the monetization configuration for the developer.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig to include in
+ *    the query.
+ *  @param name Required. Monetization configuration for the developer. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new attachment of an environment to an environment group.
  *
  *  Method: apigee.organizations.envgroups.attachments.create
@@ -3096,8 +3545,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsCreateWithObject:parent:]
 
 /**
  *  Required. EnvironmentGroup under which to create the attachment in the
@@ -3133,8 +3580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsDeleteWithname:]
 
 /**
  *  Required. Name of the environment group attachment to delete in the
@@ -3167,8 +3612,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsGetWithname:]
 
 /**
  *  Required. Name of the environment group attachment in the following format:
@@ -3200,8 +3643,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsListWithparent:]
 
 /**
  *  Maximum number of environment group attachments to return. The page size
@@ -3249,8 +3690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsCreateWithObject:parent:]
 
 /**
  *  ID of the environment group. Overrides any ID in the environment_group
@@ -3290,8 +3729,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsDeleteWithname:]
 
 /**
  *  Required. Name of the environment group in the following format:
@@ -3322,8 +3759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsGetWithname:]
 
 /**
  *  Required. Name of the environment group in the following format:
@@ -3354,8 +3789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsListWithparent:]
 
 /**
  *  Maximum number of environment groups to return. The page size defaults to
@@ -3402,8 +3835,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsPatchWithObject:name:]
 
 /**
  *  Required. Name of the environment group to update in the format:
@@ -3436,9 +3867,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports. Each schema element contains the name of the
- *  field with its associated type and if it is either custom field or standard
+ *  Gets a list of metrics and dimensions that can be used to create analytics
+ *  queries and reports. Each schema element contains the name of the field, its
+ *  associated type, and a flag indicating whether it is a standard or custom
  *  field.
  *
  *  Method: apigee.organizations.environments.analytics.admin.getSchemav2
@@ -3447,31 +3878,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2 : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsAdminGetSchemav2Withname:]
 
 /**
- *  Required. The parent organization and environment names. Must be of the form
+ *  Flag that specifies whether the schema is be read from the database or
+ *  cache. Set to `true` to read the schema from the database. Defaults to
+ *  cache.
+ */
+@property(nonatomic, assign) BOOL disableCache;
+
+/**
+ *  Required. Path to the schema. Use the following structure in your request:
  *  `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Type refers to the dataset name whose schema needs to be retrieved
- *  E.g. type=fact or type=agg_cus1
+ *  Required. Name of the dataset for which you want to retrieve the schema. For
+ *  example: `fact` or `agg_cus1`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Schema.
  *
- *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports. Each schema element contains the name of the
- *  field with its associated type and if it is either custom field or standard
+ *  Gets a list of metrics and dimensions that can be used to create analytics
+ *  queries and reports. Each schema element contains the name of the field, its
+ *  associated type, and a flag indicating whether it is a standard or custom
  *  field.
  *
- *  @param name Required. The parent organization and environment names. Must be
- *    of the form
+ *  @param name Required. Path to the schema. Use the following structure in
+ *    your request:
  *    `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
@@ -3491,8 +3927,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsCreateWithObject:parent:]
 
 /**
  *  Required. Names of the parent organization and environment. Must be of the
@@ -3531,8 +3965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsGetWithname:]
 
 /** Required. Resource name of the export to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3563,8 +3995,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsListWithparent:]
 
 /**
  *  Required. Names of the parent organization and environment. Must be of the
@@ -3596,8 +4026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisDeploymentsListWithparent:]
 
 /**
  *  Required. Name representing an API proxy in an environment in the following
@@ -3628,8 +4056,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the API Proxy revision deployment for which
@@ -3671,8 +4097,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDataGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsDataGetWithname:]
 
 /**
  *  Required. The name of the debug session transaction. Must be of the form:
@@ -3706,8 +4130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteData : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteDataWithname:]
 
 /**
  *  Required. The name of the debug session to delete. Must be of the form:
@@ -3741,8 +4163,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsGetWithname:]
 
 /**
  *  Required. The name of the debug session to retrieve. Must be of the form:
@@ -3775,8 +4195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsListWithparent:]
 
 /**
  *  Maximum number of debug sessions to return. The page size defaults to 25.
@@ -3834,8 +4252,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeployWithname:]
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
@@ -3845,27 +4261,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Flag that specifies whether the new deployment replaces other deployed
- *  revisions of the API proxy in the environment. Set override to true to
- *  replace other deployed revisions. By default, override is false and the
+ *  revisions of the API proxy in the environment. Set `override` to `true` to
+ *  replace other deployed revisions. By default, `override` is `false` and the
  *  deployment is rejected if other revisions of the API proxy are deployed in
  *  the environment.
  */
 @property(nonatomic, assign) BOOL override;
 
 /**
- *  If true, a best-effort attempt will be made to roll out the routing rules
- *  corresponding to this deployment and the environment changes to add this
- *  deployment in a safe order. This reduces the risk of downtime that could be
- *  caused by changing the environment group's routing before the new
- *  destination for the affected traffic is ready to receive it. This should
- *  only be necessary if the new deployment will be capturing traffic from
- *  another environment under a shared environment group or if traffic will be
- *  rerouted to a different environment due to a basepath removal. The
- *  GenerateDeployChangeReport API may be used to examine routing changes before
- *  issuing the deployment request, and its response will indicate if a
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
+ *  best-effort attempt will be made to roll out the routing rules corresponding
+ *  to this deployment and the environment changes to add this deployment in a
+ *  safe order. This reduces the risk of downtime that could be caused by
+ *  changing the environment group's routing before the new destination for the
+ *  affected traffic is ready to receive it. This should only be necessary if
+ *  the new deployment will be capturing traffic from another environment under
+ *  a shared environment group or if traffic will be rerouted to a different
+ *  environment due to a base path removal. The [GenerateDeployChangeReport
+ *  API](GenerateDeployChangeReport) may be used to examine routing changes
+ *  before issuing the deployment request, and its response will indicate if a
  *  sequenced rollout is recommended for the deployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
+
+/**
+ *  Google Cloud IAM service account. The service account represents the
+ *  identity of the deployed proxy, and determines what permissions it has. The
+ *  format must be `{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
@@ -3910,8 +4334,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReportWithname:]
 
 /**
  *  Name of the API proxy revision deployment in the following format:
@@ -3969,8 +4391,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReport : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReportWithname:]
 
 /**
  *  Name of the API proxy revision deployment in the following format:
@@ -4013,8 +4433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsGetDeployments : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsGetDeploymentsWithname:]
 
 /**
  *  Required. Name representing an API proxy revision in an environment in the
@@ -4052,8 +4470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsUndeployWithname:]
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
@@ -4062,15 +4478,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If true, a best-effort attempt will be made to remove the environment group
- *  routing rules corresponding to this deployment before removing the
- *  deployment from the runtime. This is likely to be a rare use case; it is
- *  only needed when the intended effect of undeploying this proxy is to cause
- *  the traffic it currently handles to be rerouted to some other existing proxy
- *  in the environment group. The GenerateUndeployChangeReport API may be used
- *  to examine routing changes before issuing the undeployment request, and its
- *  response will indicate if a sequenced rollout is recommended for the
- *  undeployment.
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
+ *  best-effort attempt will be made to remove the environment group routing
+ *  rules corresponding to this deployment before removing the deployment from
+ *  the runtime. This is likely to be a rare use case; it is only needed when
+ *  the intended effect of undeploying this proxy is to cause the traffic it
+ *  currently handles to be rerouted to some other existing proxy in the
+ *  environment group. The [GenerateUndeployChangeReport
+ *  API](GenerateUndeployChangeReport) may be used to examine routing changes
+ *  before issuing the undeployment request, and its response will indicate if a
+ *  sequenced rollout is recommended for the undeployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
@@ -4094,6 +4511,276 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a new ArchiveDeployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate : GTLRApigeeQuery
+
+/** Required. The Environment this Archive Deployment will be created in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a new ArchiveDeployment.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment to
+ *    include in the query.
+ *  @param parent Required. The Environment this Archive Deployment will be
+ *    created in.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an archive deployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes an archive deployment.
+ *
+ *  @param name Required. Name of the Archive Deployment in the following
+ *    format: `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a signed URL for downloading the original zip file used to create
+ *  an Archive Deployment. The URL is only valid for a limited period and should
+ *  be used within minutes after generation. Each call returns a new upload URL.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.generateDownloadUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl : GTLRApigeeQuery
+
+/** Required. The name of the Archive Deployment you want to download. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlResponse.
+ *
+ *  Generates a signed URL for downloading the original zip file used to create
+ *  an Archive Deployment. The URL is only valid for a limited period and should
+ *  be used within minutes after generation. Each call returns a new upload URL.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest to include in the
+ *    query.
+ *  @param name Required. The name of the Archive Deployment you want to
+ *    download.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a signed URL for uploading an Archive zip file to Google Cloud
+ *  Storage. Once the upload is complete, the signed URL should be passed to
+ *  CreateArchiveDeployment. When uploading to the generated signed URL, please
+ *  follow these restrictions: * Source file type should be a zip file. * Source
+ *  file size should not exceed 1GB limit. * No credentials should be attached -
+ *  the signed URLs provide access to the target bucket using internal service
+ *  identity; if credentials were attached, the identity from the credentials
+ *  would be used, but that identity does not have permissions to upload files
+ *  to the URL. When making a HTTP PUT request, these two headers need to be
+ *  specified: * `content-type: application/zip` * `x-goog-content-length-range:
+ *  0,1073741824` And this header SHOULD NOT be specified: * `Authorization:
+ *  Bearer YOUR_TOKEN`
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.generateUploadUrl
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl : GTLRApigeeQuery
+
+/** Required. The organization and environment to upload to. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlResponse.
+ *
+ *  Generates a signed URL for uploading an Archive zip file to Google Cloud
+ *  Storage. Once the upload is complete, the signed URL should be passed to
+ *  CreateArchiveDeployment. When uploading to the generated signed URL, please
+ *  follow these restrictions: * Source file type should be a zip file. * Source
+ *  file size should not exceed 1GB limit. * No credentials should be attached -
+ *  the signed URLs provide access to the target bucket using internal service
+ *  identity; if credentials were attached, the identity from the credentials
+ *  would be used, but that identity does not have permissions to upload files
+ *  to the URL. When making a HTTP PUT request, these two headers need to be
+ *  specified: * `content-type: application/zip` * `x-goog-content-length-range:
+ *  0,1073741824` And this header SHOULD NOT be specified: * `Authorization:
+ *  Bearer YOUR_TOKEN`
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest
+ *    to include in the query.
+ *  @param parent Required. The organization and environment to upload to.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the specified ArchiveDeployment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment.
+ *
+ *  Gets the specified ArchiveDeployment.
+ *
+ *  @param name Required. Name of the Archive Deployment in the following
+ *    format: `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the ArchiveDeployments in the specified Environment.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList : GTLRApigeeQuery
+
+/**
+ *  Optional. An optional query used to return a subset of Archive Deployments
+ *  using the semantics defined in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Maximum number of Archive Deployments to return. If unspecified,
+ *  at most 25 deployments will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous ListArchiveDeployments call,
+ *  that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the Environment for which to list Archive Deployments in
+ *  the format: `organizations/{org}/environments/{env}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListArchiveDeploymentsResponse.
+ *
+ *  Lists the ArchiveDeployments in the specified Environment.
+ *
+ *  @param parent Required. Name of the Environment for which to list Archive
+ *    Deployments in the format: `organizations/{org}/environments/{env}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing ArchiveDeployment. Labels can modified but most of the
+ *  other fields are not modifiable.
+ *
+ *  Method: apigee.organizations.environments.archiveDeployments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch : GTLRApigeeQuery
+
+/**
+ *  Name of the Archive Deployment in the following format:
+ *  `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment.
+ *
+ *  Updates an existing ArchiveDeployment. Labels can modified but most of the
+ *  other fields are not modifiable.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment to
+ *    include in the query.
+ *  @param name Name of the Archive Deployment in the following format:
+ *    `organizations/{org}/environments/{env}/archiveDeployments/{id}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a cache.
  *
  *  Method: apigee.organizations.environments.caches.delete
@@ -4102,8 +4789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsCachesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsCachesDeleteWithname:]
 
 /**
  *  Required. Cache resource name of the form:
@@ -4134,8 +4819,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  Optional. Name of the environment. Alternatively, the name may be specified
@@ -4176,8 +4859,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsDeleteWithname:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -4208,8 +4889,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the environment for which to return deployment information
@@ -4248,8 +4927,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHook : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHookWithObject:name:]
 
 /**
  *  Required. Name of the flow hook to which the shared flow should be attached
@@ -4285,8 +4962,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksDetachSharedFlowFromFlowHook : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksDetachSharedFlowFromFlowHookWithname:]
 
 /**
  *  Required. Name of the flow hook to detach in the following format:
@@ -4319,8 +4994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksGetWithname:]
 
 /**
  *  Required. Name of the flow hook in the following format:
@@ -4353,8 +5026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetWithname:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -4385,8 +5056,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetDebugmask : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetDebugmaskWithname:]
 
 /**
  *  Required. Name of the debug mask. Use the following structure in your
@@ -4417,8 +5086,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetDeployedConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetDeployedConfigWithname:]
 
 /**
  *  Required. Name of the environment deployed configuration resource. Use the
@@ -4455,8 +5122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -4495,6 +5160,37 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Get distributed trace configuration in an environment.
+ *
+ *  Method: apigee.organizations.environments.getTraceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the trace configuration. Use the following structure in
+ *  your request: "organizations/ * /environments/ * /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfig.
+ *
+ *  Get distributed trace configuration in an environment.
+ *
+ *  @param name Required. Name of the trace configuration. Use the following
+ *    structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates an alias from a key/certificate pair. The structure of the request
  *  is controlled by the `format` query parameter: - `keycertfile` - Separate
  *  PEM-encoded key and certificate files are uploaded. Set `Content-Type:
@@ -4513,8 +5209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCreateWithObject:parent:]
 
 /**
  *  DEPRECATED: For improved security, specify the password in the request body
@@ -4594,8 +5288,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCsr : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCsrWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4628,8 +5320,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesDeleteWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4661,8 +5351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4694,8 +5382,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGetCertificate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetCertificateWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4727,8 +5413,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesUpdateWithObject:name:]
 
 /**
  *  Required. Flag that specifies whether to ignore expiry validation. If set to
@@ -4779,8 +5463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresCreateWithObject:parent:]
 
 /** Optional. Name of the keystore. Overrides the value in Keystore. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4822,8 +5504,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresDeleteWithname:]
 
 /**
  *  Required. Name of the keystore. Use the following format in your request:
@@ -4854,8 +5534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresGetWithname:]
 
 /**
  *  Required. Name of the keystore. Use the following format in your request:
@@ -4886,8 +5564,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the environment in which to create the key value map.
@@ -4923,8 +5599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -4959,8 +5633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsOptimizedStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -4985,10 +5657,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
+ *  `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *  target_host. The value of dimensions should be comma separated list as shown
- *  below `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *  below
+ *  `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5059,11 +5732,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
+ *    `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as
  *    shown below
- *    `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *    `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet
  */
@@ -5083,8 +5756,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name. Must be of the form
@@ -5123,8 +5794,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetWithname:]
 
 /**
  *  Required. Name of the asynchronous query to get. Must be of the form
@@ -5161,8 +5830,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResult : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetResultWithname:]
 
 /**
  *  Required. Name of the asynchronous query result to get. Must be of the form
@@ -5198,8 +5865,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesListWithparent:]
 
 /** Filter response list by dataset. Example: `api`, `mint` */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -5258,8 +5923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesCreateWithObject:parent:]
 
 /**
  *  Required. The parent environment name under which the Reference will be
@@ -5295,8 +5958,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesDeleteWithname:]
 
 /**
  *  Required. The name of the Reference to delete. Must be of the form
@@ -5328,8 +5989,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesGetWithname:]
 
 /**
  *  Required. The name of the Reference to get. Must be of the form
@@ -5362,8 +6021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesUpdateWithObject:name:]
 
 /**
  *  Required. The name of the Reference to update. Must be of the form
@@ -5402,8 +6059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the resource file. Must match the regular expression:
@@ -5451,8 +6106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesDeleteWithparent:type:name:]
 
 /**
  *  Required. ID of the resource file to delete. Must match the regular
@@ -5501,8 +6154,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesGetWithparent:type:name:]
 
 /**
  *  Required. ID of the resource file. Must match the regular expression:
@@ -5551,8 +6202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesListWithparent:]
 
 /**
  *  Required. Name of the environment in which to list resource files in the
@@ -5590,8 +6239,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesListEnvironmentResources : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesListEnvironmentResourcesWithparent:type:]
 
 /**
  *  Required. Name of the environment in which to list resource files in the
@@ -5633,8 +6280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesUpdateWithObject:parent:type:name:]
 
 /**
  *  Required. ID of the resource file to update. Must match the regular
@@ -5689,8 +6334,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSetIamPolicy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -5730,8 +6373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsDeploymentsListWithparent:]
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
@@ -5771,8 +6412,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsDeployWithname:]
 
 /**
  *  Required. Name of the shared flow revision to deploy in the following
@@ -5782,15 +6421,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag that specifies whether to force the deployment of the new revision over
- *  the currently deployed revision by overriding conflict checks. If an
- *  existing shared flow revision is deployed, to ensure seamless deployment
- *  with no downtime, set this parameter to `true`. In this case, hybrid deploys
- *  the new revision fully before undeploying the existing revision. If set to
- *  `false`, you must undeploy the existing revision before deploying the new
- *  revision.
+ *  Flag that specifies whether the new deployment replaces other deployed
+ *  revisions of the shared flow in the environment. Set `override` to `true` to
+ *  replace other deployed revisions. By default, `override` is `false` and the
+ *  deployment is rejected if other revisions of the shared flow are deployed in
+ *  the environment.
  */
 @property(nonatomic, assign) BOOL override;
+
+/**
+ *  Google Cloud IAM service account. The service account represents the
+ *  identity of the deployed proxy, and determines what permissions it has. The
+ *  format must be `{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
@@ -5825,8 +6469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsGetDeployments : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsGetDeploymentsWithname:]
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
@@ -5865,8 +6507,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsUndeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsUndeployWithname:]
 
 /**
  *  Required. Name of the shared flow revision to undeploy in the following
@@ -5909,8 +6549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsStatsGetWithname:]
 
 /**
  *  Legacy field: not used anymore. This field is present to support UI calls
@@ -6036,8 +6674,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSubscribe : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSubscribeWithparent:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6070,8 +6706,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversCreateWithObject:parent:]
 
 /**
  *  Optional. The ID to give the TargetServer. This will overwrite the value in
@@ -6113,8 +6747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversDeleteWithname:]
 
 /**
  *  Required. The name of the TargetServer to delete. Must be of the form
@@ -6147,8 +6779,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversGetWithname:]
 
 /**
  *  Required. The name of the TargetServer to get. Must be of the form
@@ -6182,8 +6812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversUpdateWithObject:name:]
 
 /**
  *  Required. The name of the TargetServer to replace. Must be of the form
@@ -6223,8 +6851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTestIamPermissions : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -6254,6 +6880,209 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a trace configuration override. The response contains a
+ *  system-generated UUID, that can be used to view, update, or delete the
+ *  configuration override. Use the List API to view the existing trace
+ *  configuration overrides.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Parent resource of the trace configuration override. Use the
+ *  following structure in your request. "organizations/ * /environments/ *
+ *  /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Creates a trace configuration override. The response contains a
+ *  system-generated UUID, that can be used to view, update, or delete the
+ *  configuration override. Use the List API to view the existing trace
+ *  configuration overrides.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride to
+ *    include in the query.
+ *  @param parent Required. Parent resource of the trace configuration override.
+ *    Use the following structure in your request. "organizations/ *
+ *    /environments/ * /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a distributed trace configuration override.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes a distributed trace configuration override.
+ *
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a trace configuration override.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Gets a trace configuration override.
+ *
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all of the distributed trace configuration overrides in an
+ *  environment.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList : GTLRApigeeQuery
+
+/**
+ *  Maximum number of trace configuration overrides to return. If not specified,
+ *  the maximum number returned is 25. The maximum number cannot exceed 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, returned from a previous `ListTraceConfigOverrides` call.
+ *  Token value that can be used to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListTraceConfigOverrides` must
+ *  match those specified in the call to obtain the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource of the trace configuration override. Use the
+ *  following structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse.
+ *
+ *  Lists all of the distributed trace configuration overrides in an
+ *  environment.
+ *
+ *  @param parent Required. Parent resource of the trace configuration override.
+ *    Use the following structure in your request: "organizations/ *
+ *    /environments/ * /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a distributed trace configuration override. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Updates a distributed trace configuration override. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride to
+ *    include in the query.
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a subscription for the environment's Pub/Sub topic.
  *
  *  Method: apigee.organizations.environments.unsubscribe
@@ -6262,8 +7091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUnsubscribe : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUnsubscribeWithObject:parent:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6301,8 +7128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6340,8 +7165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateDebugmask : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateDebugmaskWithObject:name:]
 
 /** Name of the debug mask. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6389,8 +7212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateEnvironment : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateEnvironmentWithObject:name:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6420,6 +7241,51 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates the trace configurations in an environment. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  Method: apigee.organizations.environments.updateTraceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the trace configuration. Use the following structure in
+ *  your request: "organizations/ * /environments/ * /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfig.
+ *
+ *  Updates the trace configurations in an environment. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfig to include in
+ *    the query.
+ *  @param name Required. Name of the trace configuration. Use the following
+ *    structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the profile for an Apigee organization. See [Understanding
  *  organizations](https://cloud.google.com/apigee/docs/api-platform/fundamentals/organization-structure).
  *
@@ -6429,8 +7295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetWithname:]
 
 /**
  *  Required. Apigee organization name in the following format:
@@ -6462,8 +7326,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetDeployedIngressConfigWithname:]
 
 /**
  *  Required. Name of the deployed configuration for the organization in the
@@ -6507,6 +7369,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Get runtime config for an organization.
+ *
+ *  Method: apigee.organizations.getRuntimeConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsGetRuntimeConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the runtime config for the organization in the following
+ *  format: 'organizations/{org}/runtimeConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RuntimeConfig.
+ *
+ *  Get runtime config for an organization.
+ *
+ *  @param name Required. Name of the runtime config for the organization in the
+ *    following format: 'organizations/{org}/runtimeConfig'.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsGetRuntimeConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the service accounts with the permissions required to allow the
  *  Synchronizer to download environment data from the control plane. An ETag is
  *  returned in the response to `getSyncAuthorization`. Pass that ETag when
@@ -6523,8 +7415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGetSyncAuthorization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetSyncAuthorizationWithObject:name:]
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
@@ -6570,8 +7460,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name. Must be of the form
@@ -6610,8 +7498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetWithname:]
 
 /**
  *  Required. Name of the asynchronous query to get. Must be of the form
@@ -6648,8 +7534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGetResult : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetResultWithname:]
 
 /**
  *  Required. Name of the asynchronous query result to get. Must be of the form
@@ -6684,8 +7568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGetResultView : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetResultViewWithname:]
 
 /**
  *  Required. Name of the asynchronous query result view to get. Must be of the
@@ -6714,8 +7596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesListWithparent:]
 
 /** Filter response list by dataset. Example: `api`, `mint` */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -6782,8 +7662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -6805,10 +7683,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
+ *  `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let you
  *  view metrics in meaningful groupings. E.g. apiproxy, target_host. The value
  *  of dimensions should be comma separated list as shown below
- *  `organizations/{org}/stats/apiproxy,request_verb`
+ *  `organizations/{org}/hostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6875,10 +7753,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *    view metrics in meaningful groupings. E.g. apiproxy, target_host. The
+ *    `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let
+ *    you view metrics in meaningful groupings. E.g. apiproxy, target_host. The
  *    value of dimensions should be comma separated list as shown below
- *    `organizations/{org}/stats/apiproxy,request_verb`
+ *    `organizations/{org}/hostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsHostStatsGet
  */
@@ -6896,8 +7774,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -6932,8 +7808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsDeleteWithname:]
 
 /**
  *  Required. Name of the attachment. Use the following structure in your
@@ -6966,8 +7840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsGetWithname:]
 
 /**
  *  Required. Name of the attachment. Use the following structure in your
@@ -7000,8 +7872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsListWithparent:]
 
 /** Maximum number of instance attachments to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7046,8 +7916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCanaryevaluationsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCanaryevaluationsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -7081,8 +7949,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCanaryevaluationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCanaryevaluationsGetWithname:]
 
 /**
  *  Required. Name of the CanaryEvaluation. Use the following structure in your
@@ -7116,8 +7982,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -7154,8 +8018,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesDeleteWithname:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7188,8 +8050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesGetWithname:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7222,8 +8082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesListWithparent:]
 
 /** Maximum number of instances to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7269,8 +8127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesActivate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesActivateWithObject:name:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7311,8 +8167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7351,8 +8205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesDeleteWithname:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7387,8 +8239,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesGetWithname:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7423,8 +8273,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesListWithparent:]
 
 /** Maximum number of natAddresses to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7461,6 +8309,50 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Updates an Apigee runtime instance. You can update the fields described in
+ *  NodeConfig. No other fields will be updated. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesPatch : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates an Apigee runtime instance. You can update the fields described in
+ *  NodeConfig. No other fields will be updated. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Instance to include in
+ *    the query.
+ *  @param name Required. Name of the instance. Use the following structure in
+ *    your request: `organizations/{org}/instances/{instance}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Reports the latest status for a runtime instance.
  *
  *  Method: apigee.organizations.instances.reportStatus
@@ -7469,8 +8361,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesReportStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesReportStatusWithObject:instance:]
 
 /**
  *  The name of the instance reporting this status. For SaaS the request will be
@@ -7507,8 +8397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the organization in which to create the key value map
@@ -7542,8 +8430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -7576,8 +8462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsListWithparent:]
 
 /** Required. Use the following structure in your request: `organizations` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -7609,8 +8493,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOperationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7647,8 +8529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOperationsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -7697,8 +8577,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOptimizedHostStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -7720,10 +8598,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *  view metrics in meaningful groupings. E.g. apiproxy, target_host. The value
- *  of dimensions should be comma separated list as shown below
- *  `organizations/{org}/stats/apiproxy,request_verb`
+ *  `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
+ *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
+ *  target_host. The value of dimensions should be comma separated list as shown
+ *  below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7786,10 +8664,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *    view metrics in meaningful groupings. E.g. apiproxy, target_host. The
- *    value of dimensions should be comma separated list as shown below
- *    `organizations/{org}/stats/apiproxy,request_verb`
+ *    `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
+ *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
+ *    target_host. The value of dimensions should be comma separated list as
+ *    shown below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet
  */
@@ -7812,8 +8690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsCreateWithObject:parent:]
 
 /**
  *  Required. The parent organization name under which the Custom Report will be
@@ -7854,8 +8730,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsDeleteWithname:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -7886,8 +8760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsGetWithname:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -7918,8 +8790,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsListWithparent:]
 
 /** Set to 'true' to get expanded details about each custom report. */
 @property(nonatomic, assign) BOOL expand;
@@ -7953,8 +8823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsUpdateWithObject:name:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -7980,6 +8848,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Configures the add-ons for the Apigee organization. The existing add-on
+ *  configuration will be fully replaced.
+ *
+ *  Method: apigee.organizations.setAddons
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSetAddons : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *org;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Configures the add-ons for the Apigee organization. The existing add-on
+ *  configuration will be fully replaced.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest to
+ *    include in the query.
+ *  @param org Required. Name of the organization. Use the following structure
+ *    in your request: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSetAddons
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest *)object
+                            org:(NSString *)org;
+
+@end
+
+/**
  *  Sets the permissions required to allow the Synchronizer to download
  *  environment data from the control plane. You must call this API to enable
  *  proper functioning of hybrid. Pass the ETag when calling
@@ -7997,8 +8900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSetSyncAuthorization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSetSyncAuthorizationWithObject:name:]
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
@@ -8045,8 +8946,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsCreateWithObject:parent:]
 
 /** Required. Must be set to either `import` or `validate`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -8091,8 +8990,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsDeleteWithname:]
 
 /**
  *  Required. shared flow name of the form:
@@ -8124,8 +9021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the shared flow for which to return deployment information
@@ -8157,8 +9052,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsGetWithname:]
 
 /**
  *  Required. The name of the shared flow to get. Must be of the form:
@@ -8189,8 +9082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsListWithparent:]
 
 /** Indicates whether to include shared flow metadata in the response. */
 @property(nonatomic, assign) BOOL includeMetaData;
@@ -8228,8 +9119,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsDeleteWithname:]
 
 /**
  *  Required. The name of the shared flow revision to delete. Must be of the
@@ -8263,8 +9152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
@@ -8289,9 +9176,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
- *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
- *  files.
+ *  Gets a revision of a shared flow. To download the shared flow configuration
+ *  bundle for the specified revision as a zip file, set the `format` query
+ *  parameter to `bundle`. If you are using curl, specify `-o filename.zip` to
+ *  save the output to a file; otherwise, it displays to `stdout`. Then, develop
+ *  the shared flow configuration locally and upload the updated sharedFlow
+ *  configuration revision, as described in
+ *  [updateSharedFlowRevision](updateSharedFlowRevision).
  *
  *  Method: apigee.organizations.sharedflows.revisions.get
  *
@@ -8299,8 +9190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsGetWithname:]
 
 /**
  *  Specify `bundle` to export the contents of the shared flow bundle.
@@ -8317,9 +9206,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
- *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
- *  files.
+ *  Gets a revision of a shared flow. To download the shared flow configuration
+ *  bundle for the specified revision as a zip file, set the `format` query
+ *  parameter to `bundle`. If you are using curl, specify `-o filename.zip` to
+ *  save the output to a file; otherwise, it displays to `stdout`. Then, develop
+ *  the shared flow configuration locally and upload the updated sharedFlow
+ *  configuration revision, as described in
+ *  [updateSharedFlowRevision](updateSharedFlowRevision).
  *
  *  @param name Required. The name of the shared flow revision to get. Must be
  *    of the form:
@@ -8344,8 +9237,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsUpdateSharedFlowRevision : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsUpdateSharedFlowRevisionWithObject:name:]
 
 /**
  *  Required. The name of the shared flow revision to update. Must be of the
@@ -8391,8 +9282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the portal. Use the following structure in your request:
@@ -8426,8 +9315,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesDeleteWithname:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8459,8 +9346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesGetWithname:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8492,8 +9377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesListWithparent:]
 
 /**
  *  Required. Name of the portal. Use the following structure in your request:
@@ -8524,8 +9407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesPatchWithObject:name:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8561,8 +9442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsUpdateWithObject:name:]
 
 /**
  *  Required. Apigee organization name in the following format:
@@ -8598,8 +9477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_ProjectsProvisionOrganization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForProjectsProvisionOrganizationWithObject:project:]
 
 /**
  *  Required. Name of the GCP project with which to associate the Apigee

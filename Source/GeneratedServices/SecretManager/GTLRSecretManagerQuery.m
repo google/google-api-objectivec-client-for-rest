@@ -113,7 +113,11 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -174,7 +178,7 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -393,7 +397,7 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsVersionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

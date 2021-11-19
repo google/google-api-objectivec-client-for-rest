@@ -79,6 +79,107 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
 
 @end
 
+@implementation GTLRRealTimeBiddingQuery_BiddersEndpointsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersEndpointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Endpoint class];
+  query.loggingName = @"realtimebidding.bidders.endpoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersEndpointsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/endpoints";
+  GTLRRealTimeBiddingQuery_BiddersEndpointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRealTimeBidding_ListEndpointsResponse class];
+  query.loggingName = @"realtimebidding.bidders.endpoints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersEndpointsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_Endpoint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersEndpointsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Endpoint class];
+  query.loggingName = @"realtimebidding.bidders.endpoints.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Bidder class];
+  query.loggingName = @"realtimebidding.bidders.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/bidders";
+  GTLRRealTimeBiddingQuery_BiddersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRRealTimeBidding_ListBiddersResponse class];
+  query.loggingName = @"realtimebidding.bidders.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsActivate
 
 @dynamic name;
@@ -498,6 +599,25 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
 
 @end
 
+@implementation GTLRRealTimeBiddingQuery_BuyersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BuyersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Buyer class];
+  query.loggingName = @"realtimebidding.buyers.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag
 
 @dynamic name;
@@ -512,6 +632,23 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
   query.name = name;
   query.expectedObjectClass = [GTLRRealTimeBidding_GetRemarketingTagResponse class];
   query.loggingName = @"realtimebidding.buyers.getRemarketingTag";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BuyersList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/buyers";
+  GTLRRealTimeBiddingQuery_BuyersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRRealTimeBidding_ListBuyersResponse class];
+  query.loggingName = @"realtimebidding.buyers.list";
   return query;
 }
 

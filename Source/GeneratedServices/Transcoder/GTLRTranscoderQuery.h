@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsCreate : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobsCreateWithObject:parent:]
 
 /**
  *  Required. The parent location to create and process this job. Format:
@@ -84,8 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsDelete : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobsDeleteWithname:]
 
 /**
  *  Required. The name of the job to delete. Format:
@@ -116,8 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsGet : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobsGetWithname:]
 
 /**
  *  Required. The name of the job to retrieve. Format:
@@ -148,8 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsList : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobsListWithparent:]
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -188,8 +180,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesCreate : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The ID to use for the job template, which will become the final
@@ -230,8 +220,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesDelete : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobTemplatesDeleteWithname:]
 
 /**
  *  Required. The name of the job template to delete.
@@ -262,8 +250,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesGet : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobTemplatesGetWithname:]
 
 /**
  *  Required. The name of the job template to retrieve. Format:
@@ -294,8 +280,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesList : GTLRTranscoderQuery
-// Previous library name was
-//   +[GTLQueryTranscoder queryForProjectsLocationsJobTemplatesListWithparent:]
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;

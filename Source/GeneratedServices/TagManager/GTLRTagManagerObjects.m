@@ -123,6 +123,9 @@ NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthDirection = @"s
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthThreshold = @"scrollDepthThreshold";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits = @"scrollDepthUnits";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion = @"sdkVersion";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationHostname = @"serverPageLocationHostname";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationPath = @"serverPageLocationPath";
+NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationUrl = @"serverPageLocationUrl";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime = @"videoCurrentTime";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoDuration = @"videoDuration";
 NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoPercent = @"videoPercent";
@@ -193,6 +196,11 @@ NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerLoad = @"oncePerLoad
 NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiringOptionUnspecified = @"tagFiringOptionUnspecified";
 NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited = @"unlimited";
 
+// GTLRTagManager_TagConsentSetting.consentStatus
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed = @"needed";
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded = @"notNeeded";
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet = @"notSet";
+
 // GTLRTagManager_Trigger.type
 NSString * const kGTLRTagManager_Trigger_Type_Always           = @"always";
 NSString * const kGTLRTagManager_Trigger_Type_AmpClick         = @"ampClick";
@@ -200,6 +208,7 @@ NSString * const kGTLRTagManager_Trigger_Type_AmpScroll        = @"ampScroll";
 NSString * const kGTLRTagManager_Trigger_Type_AmpTimer         = @"ampTimer";
 NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility    = @"ampVisibility";
 NSString * const kGTLRTagManager_Trigger_Type_Click            = @"click";
+NSString * const kGTLRTagManager_Trigger_Type_ConsentInit      = @"consentInit";
 NSString * const kGTLRTagManager_Trigger_Type_CustomEvent      = @"customEvent";
 NSString * const kGTLRTagManager_Trigger_Type_DomReady         = @"domReady";
 NSString * const kGTLRTagManager_Trigger_Type_ElementVisibility = @"elementVisibility";
@@ -218,10 +227,12 @@ NSString * const kGTLRTagManager_Trigger_Type_FirebaseSessionStart = @"firebaseS
 NSString * const kGTLRTagManager_Trigger_Type_FirebaseUserEngagement = @"firebaseUserEngagement";
 NSString * const kGTLRTagManager_Trigger_Type_FormSubmission   = @"formSubmission";
 NSString * const kGTLRTagManager_Trigger_Type_HistoryChange    = @"historyChange";
+NSString * const kGTLRTagManager_Trigger_Type_Init             = @"init";
 NSString * const kGTLRTagManager_Trigger_Type_JsError          = @"jsError";
 NSString * const kGTLRTagManager_Trigger_Type_LinkClick        = @"linkClick";
 NSString * const kGTLRTagManager_Trigger_Type_Pageview         = @"pageview";
 NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth      = @"scrollDepth";
+NSString * const kGTLRTagManager_Trigger_Type_ServerPageview   = @"serverPageview";
 NSString * const kGTLRTagManager_Trigger_Type_Timer            = @"timer";
 NSString * const kGTLRTagManager_Trigger_Type_TriggerGroup     = @"triggerGroup";
 NSString * const kGTLRTagManager_Trigger_Type_WindowLoaded     = @"windowLoaded";
@@ -268,7 +279,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Client
-@dynamic accountId, clientId, containerId, fingerprint, name, parameter,
+@dynamic accountId, clientId, containerId, fingerprint, name, notes, parameter,
          parentFolderId, path, priority, tagManagerUrl, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -530,6 +541,28 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 + (NSString *)collectionItemsKey {
   return @"account";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_ListClientsResponse
+//
+
+@implementation GTLRTagManager_ListClientsResponse
+@dynamic client, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"client" : [GTLRTagManager_Client class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"client";
 }
 
 @end
@@ -868,6 +901,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_RevertClientResponse
+//
+
+@implementation GTLRTagManager_RevertClientResponse
+@dynamic client;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_RevertFolderResponse
 //
 
@@ -980,11 +1023,12 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Tag
-@dynamic accountId, blockingRuleId, blockingTriggerId, containerId, fingerprint,
-         firingRuleId, firingTriggerId, liveOnly, monitoringMetadata,
-         monitoringMetadataTagNameKey, name, notes, parameter, parentFolderId,
-         path, paused, priority, scheduleEndMs, scheduleStartMs, setupTag,
-         tagFiringOption, tagId, tagManagerUrl, teardownTag, type, workspaceId;
+@dynamic accountId, blockingRuleId, blockingTriggerId, consentSettings,
+         containerId, fingerprint, firingRuleId, firingTriggerId, liveOnly,
+         monitoringMetadata, monitoringMetadataTagNameKey, name, notes,
+         parameter, parentFolderId, path, paused, priority, scheduleEndMs,
+         scheduleStartMs, setupTag, tagFiringOption, tagId, tagManagerUrl,
+         teardownTag, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -999,6 +1043,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_TagConsentSetting
+//
+
+@implementation GTLRTagManager_TagConsentSetting
+@dynamic consentStatus, consentType;
 @end
 
 

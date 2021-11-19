@@ -109,6 +109,33 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @end
 
+@implementation GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_EnrollDataSourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enrollDataSources";
+  GTLRBigQueryDataTransferQuery_ProjectsEnrollDataSources *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Empty class];
+  query.loggingName = @"bigquerydatatransfer.projects.enrollDataSources";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesCheckValidCreds
 
 @dynamic name;
@@ -169,6 +196,33 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListDataSourcesResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.locations.dataSources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_EnrollDataSourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enrollDataSources";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsEnrollDataSources *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_Empty class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.enrollDataSources";
   return query;
 }
 

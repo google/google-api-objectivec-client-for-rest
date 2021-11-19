@@ -27,6 +27,8 @@
 @class GTLRSecurityCommandCenter_AuditConfig;
 @class GTLRSecurityCommandCenter_AuditLogConfig;
 @class GTLRSecurityCommandCenter_Binding;
+@class GTLRSecurityCommandCenter_Cve;
+@class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Expr;
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
@@ -42,6 +44,7 @@
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamPolicy;
+@class GTLRSecurityCommandCenter_Indicator;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
 @class GTLRSecurityCommandCenter_NotificationConfig;
@@ -49,6 +52,7 @@
 @class GTLRSecurityCommandCenter_Operation_Metadata;
 @class GTLRSecurityCommandCenter_Operation_Response;
 @class GTLRSecurityCommandCenter_Policy;
+@class GTLRSecurityCommandCenter_Reference;
 @class GTLRSecurityCommandCenter_Resource;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
@@ -57,6 +61,7 @@
 @class GTLRSecurityCommandCenter_Status;
 @class GTLRSecurityCommandCenter_Status_Details_Item;
 @class GTLRSecurityCommandCenter_StreamingConfig;
+@class GTLRSecurityCommandCenter_Vulnerability;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -120,6 +125,275 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.attackComplexity
+
+/**
+ *  A successful attack depends on conditions beyond the attacker's control.
+ *  That is, a successful attack cannot be accomplished at will, but requires
+ *  the attacker to invest in some measurable amount of effort in preparation or
+ *  execution against the vulnerable component before a successful attack can be
+ *  expected.
+ *
+ *  Value: "ATTACK_COMPLEXITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh;
+/**
+ *  Specialized access conditions or extenuating circumstances do not exist. An
+ *  attacker can expect repeatable success when attacking the vulnerable
+ *  component.
+ *
+ *  Value: "ATTACK_COMPLEXITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.attackVector
+
+/**
+ *  The vulnerable component is bound to the network stack, but the attack is
+ *  limited at the protocol level to a logically adjacent topology.
+ *
+ *  Value: "ATTACK_VECTOR_ADJACENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorAdjacent;
+/**
+ *  The vulnerable component is not bound to the network stack and the
+ *  attacker's path is via read/write/execute capabilities.
+ *
+ *  Value: "ATTACK_VECTOR_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorLocal;
+/**
+ *  The vulnerable component is bound to the network stack and the set of
+ *  possible attackers extends beyond the other options listed below, up to and
+ *  including the entire Internet.
+ *
+ *  Value: "ATTACK_VECTOR_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorNetwork;
+/**
+ *  The attack requires the attacker to physically touch or manipulate the
+ *  vulnerable component.
+ *
+ *  Value: "ATTACK_VECTOR_PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorPhysical;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_VECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.availabilityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.confidentialityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.integrityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.privilegesRequired
+
+/**
+ *  The attacker requires privileges that provide significant (e.g.,
+ *  administrative) control over the vulnerable component allowing access to
+ *  component-wide settings and files.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredHigh;
+/**
+ *  The attacker requires privileges that provide basic user capabilities that
+ *  could normally affect only settings and files owned by a user.
+ *  Alternatively, an attacker with Low privileges has the ability to access
+ *  only non-sensitive resources.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredLow;
+/**
+ *  The attacker is unauthorized prior to attack, and therefore does not require
+ *  any access to settings or files of the vulnerable system to carry out an
+ *  attack.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.scope
+
+/**
+ *  An exploited vulnerability can affect resources beyond the security scope
+ *  managed by the security authority of the vulnerable component.
+ *
+ *  Value: "SCOPE_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeChanged;
+/**
+ *  An exploited vulnerability can only affect resources managed by the same
+ *  security authority.
+ *
+ *  Value: "SCOPE_UNCHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnchanged;
+/**
+ *  Invalid value.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Cvssv3.userInteraction
+
+/**
+ *  The vulnerable system can be exploited without interaction from any user.
+ *
+ *  Value: "USER_INTERACTION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionNone;
+/**
+ *  Successful exploitation of this vulnerability requires a user to take some
+ *  action before the vulnerability can be exploited.
+ *
+ *  Value: "USER_INTERACTION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired;
+/**
+ *  Invalid value.
+ *
+ *  Value: "USER_INTERACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Finding.findingClass
+
+/**
+ *  Unspecified finding class.
+ *
+ *  Value: "FINDING_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified;
+/**
+ *  Describes a potential weakness in cloud resource/asset configuration that
+ *  increases risk.
+ *
+ *  Value: "MISCONFIGURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration;
+/**
+ *  Describes a security observation that is for informational purposes.
+ *
+ *  Value: "OBSERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation;
+/**
+ *  Describes unwanted or malicious activity.
+ *
+ *  Value: "THREAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat;
+/**
+ *  Describes a potential weakness in software that increases risk to
+ *  Confidentiality & Integrity & Availability.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.severity
@@ -448,6 +722,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 @interface GTLRSecurityCommandCenter_Asset : GTLRObject
 
+/**
+ *  The canonical name of the resource. It's either
+ *  "organizations/{organization_id}/assets/{asset_id}",
+ *  "folders/{folder_id}/assets/{asset_id}" or
+ *  "projects/{project_number}/assets/{asset_id}", depending on the closest CRM
+ *  ancestor of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
 /** The time at which the asset was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -483,10 +766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks *securityMarks;
 
-/**
- *  The time at which the asset was last updated, added, or deleted in Security
- *  Command Center.
- */
+/** The time at which the asset was last updated or added in Cloud SCC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -607,7 +887,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRSecurityCommandCenter_Binding : GTLRObject
 
@@ -616,14 +896,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -655,10 +935,209 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  CVE stands for Common Vulnerabilities and Exposures. More information:
+ *  https://cve.mitre.org
+ */
+@interface GTLRSecurityCommandCenter_Cve : GTLRObject
+
+/**
+ *  Describe Common Vulnerability Scoring System specified at
+ *  https://www.first.org/cvss/v3.1/specification-document
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cvssv3 *cvssv3;
+
+/**
+ *  The unique identifier for the vulnerability. e.g. CVE-2021-34527
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Additional information about the CVE. e.g.
+ *  https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Reference *> *references;
+
+@end
+
+
+/**
+ *  Common Vulnerability Scoring System version 3.
+ */
+@interface GTLRSecurityCommandCenter_Cvssv3 : GTLRObject
+
+/**
+ *  This metric describes the conditions beyond the attacker's control that must
+ *  exist in order to exploit the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityHigh
+ *        A successful attack depends on conditions beyond the attacker's
+ *        control. That is, a successful attack cannot be accomplished at will,
+ *        but requires the attacker to invest in some measurable amount of
+ *        effort in preparation or execution against the vulnerable component
+ *        before a successful attack can be expected. (Value:
+ *        "ATTACK_COMPLEXITY_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityLow
+ *        Specialized access conditions or extenuating circumstances do not
+ *        exist. An attacker can expect repeatable success when attacking the
+ *        vulnerable component. (Value: "ATTACK_COMPLEXITY_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackComplexity_AttackComplexityUnspecified
+ *        Invalid value. (Value: "ATTACK_COMPLEXITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackComplexity;
+
+/**
+ *  Base Metrics Represents the intrinsic characteristics of a vulnerability
+ *  that are constant over time and across user environments. This metric
+ *  reflects the context by which vulnerability exploitation is possible.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorAdjacent
+ *        The vulnerable component is bound to the network stack, but the attack
+ *        is limited at the protocol level to a logically adjacent topology.
+ *        (Value: "ATTACK_VECTOR_ADJACENT")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorLocal
+ *        The vulnerable component is not bound to the network stack and the
+ *        attacker's path is via read/write/execute capabilities. (Value:
+ *        "ATTACK_VECTOR_LOCAL")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorNetwork
+ *        The vulnerable component is bound to the network stack and the set of
+ *        possible attackers extends beyond the other options listed below, up
+ *        to and including the entire Internet. (Value: "ATTACK_VECTOR_NETWORK")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorPhysical
+ *        The attack requires the attacker to physically touch or manipulate the
+ *        vulnerable component. (Value: "ATTACK_VECTOR_PHYSICAL")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AttackVector_AttackVectorUnspecified
+ *        Invalid value. (Value: "ATTACK_VECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackVector;
+
+/**
+ *  This metric measures the impact to the availability of the impacted
+ *  component resulting from a successfully exploited vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactHigh
+ *        High impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactLow Low
+ *        impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactNone No
+ *        impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_AvailabilityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityImpact;
+
+/**
+ *  The base score is a function of the base metric scores.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseScore;
+
+/**
+ *  This metric measures the impact to the confidentiality of the information
+ *  resources managed by a software component due to a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactHigh
+ *        High impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactLow
+ *        Low impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactNone
+ *        No impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_ConfidentialityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialityImpact;
+
+/**
+ *  This metric measures the impact to integrity of a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactHigh High
+ *        impact. (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactLow Low
+ *        impact. (Value: "IMPACT_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactNone No
+ *        impact. (Value: "IMPACT_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_IntegrityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *integrityImpact;
+
+/**
+ *  This metric describes the level of privileges an attacker must possess
+ *  before successfully exploiting the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredHigh
+ *        The attacker requires privileges that provide significant (e.g.,
+ *        administrative) control over the vulnerable component allowing access
+ *        to component-wide settings and files. (Value:
+ *        "PRIVILEGES_REQUIRED_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredLow
+ *        The attacker requires privileges that provide basic user capabilities
+ *        that could normally affect only settings and files owned by a user.
+ *        Alternatively, an attacker with Low privileges has the ability to
+ *        access only non-sensitive resources. (Value:
+ *        "PRIVILEGES_REQUIRED_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredNone
+ *        The attacker is unauthorized prior to attack, and therefore does not
+ *        require any access to settings or files of the vulnerable system to
+ *        carry out an attack. (Value: "PRIVILEGES_REQUIRED_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_PrivilegesRequired_PrivilegesRequiredUnspecified
+ *        Invalid value. (Value: "PRIVILEGES_REQUIRED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privilegesRequired;
+
+/**
+ *  The Scope metric captures whether a vulnerability in one vulnerable
+ *  component impacts resources in components beyond its security scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeChanged An exploited
+ *        vulnerability can affect resources beyond the security scope managed
+ *        by the security authority of the vulnerable component. (Value:
+ *        "SCOPE_CHANGED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnchanged An
+ *        exploited vulnerability can only affect resources managed by the same
+ *        security authority. (Value: "SCOPE_UNCHANGED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_Scope_ScopeUnspecified Invalid
+ *        value. (Value: "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  This metric captures the requirement for a human user, other than the
+ *  attacker, to participate in the successful compromise of the vulnerable
+ *  component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionNone
+ *        The vulnerable system can be exploited without interaction from any
+ *        user. (Value: "USER_INTERACTION_NONE")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionRequired
+ *        Successful exploitation of this vulnerability requires a user to take
+ *        some action before the vulnerability can be exploited. (Value:
+ *        "USER_INTERACTION_REQUIRED")
+ *    @arg @c kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteractionUnspecified
+ *        Invalid value. (Value: "USER_INTERACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInteraction;
 
 @end
 
@@ -733,6 +1212,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_Finding : GTLRObject
 
 /**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}",
+ *  depending on the closest CRM ancestor of the resource associated with the
+ *  finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  The additional taxonomy group within findings from a given source. This
  *  field is immutable after creation time. Example: "XSS_FLASH_INJECTION"
  */
@@ -746,7 +1235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  occurred. For example, if the finding represents an open firewall it would
  *  capture the time the detector believes the firewall became open. The
  *  accuracy is determined by the detector. If the finding were to be resolved
- *  afterward, this time would reflect when the finding was resolved.
+ *  afterward, this time would reflect when the finding was resolved. Must not
+ *  be set to a value greater than the current timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
@@ -756,6 +1246,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  field is guaranteed to be either empty or a well formed URL.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
+
+/**
+ *  The class of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified
+ *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration
+ *        Describes a potential weakness in cloud resource/asset configuration
+ *        that increases risk. (Value: "MISCONFIGURATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Observation
+ *        Describes a security observation that is for informational purposes.
+ *        (Value: "OBSERVATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
+ *        unwanted or malicious activity. (Value: "THREAT")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability
+ *        Describes a potential weakness in software that increases risk to
+ *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  computer forensics. This is an artifact observed on a network or in an
+ *  operating system that, with high confidence, indicates a computer intrusion.
+ *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
 
 /**
  *  The relative resource name of this finding. See:
@@ -861,6 +1379,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Represents vulnerability specific fields like cve, cvss scores etc. CVE
+ *  stands for Common Vulnerabilities and Exposures
+ *  (https://cve.mitre.org/about/)
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Vulnerability *vulnerability;
 
 @end
 
@@ -990,6 +1515,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding : GTLRObject
 
 /**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}",
+ *  depending on the closest CRM ancestor of the resource associated with the
+ *  finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  The additional taxonomy group within findings from a given source. This
  *  field is immutable after creation time. Example: "XSS_FLASH_INJECTION"
  */
@@ -1003,7 +1538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  occurred. For example, if the finding represents an open firewall it would
  *  capture the time the detector believes the firewall became open. The
  *  accuracy is determined by the detector. If the finding were to be resolved
- *  afterward, this time would reflect when the finding was resolved.
+ *  afterward, this time would reflect when the finding was resolved. Must not
+ *  be set to a value greater than the current timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
@@ -1215,6 +1751,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks : GTLRObject
 
 /**
+ *  The canonical name of the marks. Examples:
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "folders/{folder_id}/assets/{asset_id}/securityMarks"
+ *  "projects/{project_number}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  Mutable user specified security marks belonging to the parent resource.
  *  Constraints are as follows: * Keys and values are treated as case
  *  insensitive * Keys must be between 1 - 256 characters (inclusive) * Keys
@@ -1257,6 +1804,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
 
+/** The human readable name of the resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  Output only. Contains a Folder message for each folder in the assets
  *  ancestry. The first folder is the deepest nested folder, and the last folder
@@ -1281,6 +1831,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 /** The human readable name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectDisplayName;
+
+/** The full resource type of the resource. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1503,15 +2056,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  boolean literals `true` and `false` without quotes. The following field and
  *  operator combinations are supported: * name: `=` * parent: `=`, `:` *
  *  resource_name: `=`, `:` * state: `=`, `:` * category: `=`, `:` *
- *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` * severity:
- *  `=`, `:` Usage: This should be milliseconds since epoch or an RFC3339
- *  string. Examples: `event_time = "2019-06-10T16:07:18-07:00"` `event_time =
- *  1560208038000` * security_marks.marks: `=`, `:` * source_properties: `=`,
- *  `:`, `>`, `<`, `>=`, `<=` For example, `source_properties.size = 100` is a
- *  valid filter string. Use a partial match on the empty string to filter based
- *  on a property existing: `source_properties.my_property : ""` Use a negated
- *  partial match on the empty string to filter based on a property not
- *  existing: `-source_properties.my_property : ""`
+ *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This
+ *  should be milliseconds since epoch or an RFC3339 string. Examples:
+ *  `event_time = "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000` *
+ *  severity: `=`, `:` * workflow_state: `=`, `:` * security_marks.marks: `=`,
+ *  `:` * source_properties: `=`, `:`, `>`, `<`, `>=`, `<=` For example,
+ *  `source_properties.size = 100` is a valid filter string. Use a partial match
+ *  on the empty string to filter based on a property existing:
+ *  `source_properties.my_property : ""` Use a negated partial match on the
+ *  empty string to filter based on a property not existing:
+ *  `-source_properties.my_property : ""` * resource: * resource.name: `=`, `:`
+ *  * resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
+ *  resource.project_name: `=`, `:` * resource.project_display_name: `=`, `:` *
+ *  resource.type: `=`, `:`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1632,6 +2189,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  https://cloud.google.com/iam/reference/rest/v1/Policy for format details.
  */
 @property(nonatomic, copy, nullable) NSString *policyBlob;
+
+@end
+
+
+/**
+ *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  computer forensics. This is an artifact observed on a network or in an
+ *  operating system that, with high confidence, indicates a computer intrusion.
+ *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ */
+@interface GTLRSecurityCommandCenter_Indicator : GTLRObject
+
+/** List of domains associated to the Finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/** List of ip addresses associated to the Finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
 @end
 
@@ -2002,15 +2576,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -2026,7 +2600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -2036,9 +2610,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Binding *> *bindings;
 
@@ -2085,10 +2664,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Additional Links
+ */
+@interface GTLRSecurityCommandCenter_Reference : GTLRObject
+
+/** Source of the reference e.g. NVD */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Uri for the mentioned source e.g.
+ *  https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Information related to the Google Cloud resource that is associated with
- *  this finding. LINT.IfChange
+ *  this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
+
+/** The human readable name of the resource. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Contains a Folder message for each folder in the assets ancestry. The first
@@ -2114,6 +2713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 /** The full resource name of project that the resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *projectName;
+
+/** The full resource type of the resource. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2187,6 +2789,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  proper permissions on the organization.
  */
 @interface GTLRSecurityCommandCenter_SecurityMarks : GTLRObject
+
+/**
+ *  The canonical name of the marks. Examples:
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "folders/{folder_id}/assets/{asset_id}/securityMarks"
+ *  "projects/{project_number}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
 
 /**
  *  Mutable user specified security marks belonging to the parent resource.
@@ -2282,6 +2895,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  findings that come from the same scanner, logger, monitor, and other tools.
  */
 @interface GTLRSecurityCommandCenter_Source : GTLRObject
+
+/**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}",
+ *  "folders/{folder_id}/sources/{source_id}" or
+ *  "projects/{project_number}/sources/{source_id}", depending on the closest
+ *  CRM ancestor of the resource associated with the finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
 
 /**
  *  The description of the source (max of 1024 characters). Example: "Web
@@ -2405,6 +3027,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Refers to common vulnerability fields e.g. cve, cvss, cwe etc.
+ */
+@interface GTLRSecurityCommandCenter_Vulnerability : GTLRObject
+
+/**
+ *  CVE stands for Common Vulnerabilities and Exposures
+ *  (https://cve.mitre.org/about/)
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Cve *cve;
 
 @end
 

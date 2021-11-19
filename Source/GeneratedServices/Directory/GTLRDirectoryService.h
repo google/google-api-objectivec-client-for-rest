@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -33,8 +33,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, add, edit, and permanently delete the printers
+ *  that your organization can use with Chrome
+ *
+ *  Value "https://www.googleapis.com/auth/admin.chrome.printers"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrinters;
+/**
+ *  Authorization scope: See the printers that your organization can use with
+ *  Chrome
+ *
+ *  Value "https://www.googleapis.com/auth/admin.chrome.printers.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrintersReadonly;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -177,7 +191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAlias;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAliasReadonly;
 /**
- *  Authorization scope: View users on your domain
+ *  Authorization scope: See info about users on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.readonly"
  */

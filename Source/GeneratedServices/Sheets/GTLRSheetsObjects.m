@@ -2595,6 +2595,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_Link
+//
+
+@implementation GTLRSheets_Link
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ManualRule
 //
 
@@ -3280,7 +3290,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_TextFormat
 @dynamic bold, fontFamily, fontSize, foregroundColor, foregroundColorStyle,
-         italic, strikethrough, underline;
+         italic, link, strikethrough, underline;
 @end
 
 

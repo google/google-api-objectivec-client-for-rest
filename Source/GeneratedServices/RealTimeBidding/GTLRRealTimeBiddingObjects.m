@@ -160,6 +160,24 @@ NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnknown = @"URL_REJECTED_UNKNOWN";
 NSString * const kGTLRRealTimeBidding_DestinationNotWorkingEvidence_UrlRejected_UrlRejectedUnspecified = @"URL_REJECTED_UNSPECIFIED";
 
+// GTLRRealTimeBidding_Endpoint.bidProtocol
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_BidProtocolUnspecified = @"BID_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_GoogleRtb = @"GOOGLE_RTB";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb22 = @"OPENRTB_2_2";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb23 = @"OPENRTB_2_3";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb24 = @"OPENRTB_2_4";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_Openrtb25 = @"OPENRTB_2_5";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf23 = @"OPENRTB_PROTOBUF_2_3";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf24 = @"OPENRTB_PROTOBUF_2_4";
+NSString * const kGTLRRealTimeBidding_Endpoint_BidProtocol_OpenrtbProtobuf25 = @"OPENRTB_PROTOBUF_2_5";
+
+// GTLRRealTimeBidding_Endpoint.tradingLocation
+NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_Asia = @"ASIA";
+NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_Europe = @"EUROPE";
+NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_TradingLocationUnspecified = @"TRADING_LOCATION_UNSPECIFIED";
+NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_UsEast = @"US_EAST";
+NSString * const kGTLRRealTimeBidding_Endpoint_TradingLocation_UsWest = @"US_WEST";
+
 // GTLRRealTimeBidding_MediaFile.mimeType
 NSString * const kGTLRRealTimeBidding_MediaFile_MimeType_MimeApplicationJavascript = @"MIME_APPLICATION_JAVASCRIPT";
 NSString * const kGTLRRealTimeBidding_MediaFile_MimeType_MimeApplicationMpegdash = @"MIME_APPLICATION_MPEGDASH";
@@ -318,6 +336,26 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRealTimeBidding_AdTechnologyProviders
+//
+
+@implementation GTLRRealTimeBidding_AdTechnologyProviders
+@dynamic detectedGvlIds, detectedProviderIds, unidentifiedProviderDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedGvlIds" : [NSNumber class],
+    @"detectedProviderIds" : [NSNumber class],
+    @"unidentifiedProviderDomains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRealTimeBidding_AdvertiserAndBrand
 //
 
@@ -333,6 +371,36 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 @implementation GTLRRealTimeBidding_AppTargeting
 @dynamic mobileAppCategoryTargeting, mobileAppTargeting;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRealTimeBidding_Bidder
+//
+
+@implementation GTLRRealTimeBidding_Bidder
+@dynamic bypassNonguaranteedDealsPretargeting, cookieMatchingNetworkId,
+         cookieMatchingUrl, dealsBillingId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRealTimeBidding_Buyer
+//
+
+@implementation GTLRRealTimeBidding_Buyer
+@dynamic activeCreativeCount, bidder, billingIds, displayName,
+         maximumActiveCreativeCount, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"billingIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -390,9 +458,9 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 //
 
 @implementation GTLRRealTimeBidding_CreativeServingDecision
-@dynamic chinaPolicyCompliance, dealsPolicyCompliance, detectedAdvertisers,
-         detectedAttributes, detectedClickThroughUrls, detectedDomains,
-         detectedLanguages, detectedProductCategories,
+@dynamic adTechnologyProviders, chinaPolicyCompliance, dealsPolicyCompliance,
+         detectedAdvertisers, detectedAttributes, detectedClickThroughUrls,
+         detectedDomains, detectedLanguages, detectedProductCategories,
          detectedSensitiveCategories, detectedVendorIds, lastStatusUpdate,
          networkPolicyCompliance, platformPolicyCompliance,
          russiaPolicyCompliance;
@@ -512,6 +580,16 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRealTimeBidding_Endpoint
+//
+
+@implementation GTLRRealTimeBidding_Endpoint
+@dynamic bidProtocol, maximumQps, name, tradingLocation, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRealTimeBidding_GetRemarketingTagResponse
 //
 
@@ -578,6 +656,50 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRealTimeBidding_ListBiddersResponse
+//
+
+@implementation GTLRRealTimeBidding_ListBiddersResponse
+@dynamic bidders, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bidders" : [GTLRRealTimeBidding_Bidder class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"bidders";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRealTimeBidding_ListBuyersResponse
+//
+
+@implementation GTLRRealTimeBidding_ListBuyersResponse
+@dynamic buyers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buyers" : [GTLRRealTimeBidding_Buyer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"buyers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRealTimeBidding_ListCreativesResponse
 //
 
@@ -593,6 +715,28 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 
 + (NSString *)collectionItemsKey {
   return @"creatives";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRealTimeBidding_ListEndpointsResponse
+//
+
+@implementation GTLRRealTimeBidding_ListEndpointsResponse
+@dynamic endpoints, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRRealTimeBidding_Endpoint class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"endpoints";
 }
 
 @end
@@ -660,7 +804,7 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 @implementation GTLRRealTimeBidding_NativeContent
 @dynamic advertiserName, appIcon, body, callToAction, clickLinkUrl,
          clickTrackingUrl, headline, image, logo, priceDisplayText, starRating,
-         videoUrl;
+         videoUrl, videoVastXml;
 @end
 
 

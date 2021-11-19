@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePlaycustomappAndroidpublisher
  */
 @interface GTLRPlaycustomappQuery_AccountsCustomAppsCreate : GTLRPlaycustomappQuery
-// Previous library name was
-//   +[GTLQueryPlaycustomapp queryForAccountsCustomAppsCreateWithObject:account:]
 
 /** Developer account ID. */
 @property(nonatomic, assign) long long account;

@@ -22,11 +22,23 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent;
+@class GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails;
+@class GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest;
@@ -44,40 +56,333 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
 
 /**
- *  Firebase users have edit access to the Analytics property and may manage the
- *  Firebase link.
+ *  Action type unknown or not specified.
  *
- *  Value: "EDITOR_INCLUDING_LINK_MANAGEMENT"
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified;
 /**
- *  Firebase users have edit access to the Analytics property, but may not
- *  manage the Firebase link.
+ *  Resource was created in this change.
  *
- *  Value: "EDITOR_WITHOUT_LINK_MANAGEMENT"
+ *  Value: "CREATED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created;
 /**
- *  Unspecified maximum user access.
+ *  Resource was deleted in this change.
  *
- *  Value: "MAXIMUM_USER_ACCESS_UNSPECIFIED"
+ *  Value: "DELETED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_MaximumUserAccessUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted;
 /**
- *  Firebase users have no access to the Analytics property.
+ *  Resource was updated in this change.
  *
- *  Value: "NO_ACCESS"
+ *  Value: "UPDATED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_NoAccess;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent.actorType
+
 /**
- *  Firebase users have Read & Analyze access to the Analytics property.
+ *  Unknown or unspecified actor type.
  *
- *  Value: "READ_AND_ANALYZE"
+ *  Value: "ACTOR_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_ReadAndAnalyze;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified;
+/**
+ *  Changes made by Google Analytics support team staff.
+ *
+ *  Value: "SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support;
+/**
+ *  Changes made by the Google Analytics system.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System;
+/**
+ *  Changes made by the user specified in actor_email.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.scope
+
+/**
+ *  Scope unknown or not specified.
+ *
+ *  Value: "DIMENSION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified;
+/**
+ *  Dimension scoped to an event.
+ *
+ *  Value: "EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event;
+/**
+ *  Dimension scoped to a user.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.measurementUnit
+
+/**
+ *  This metric measures a currency.
+ *
+ *  Value: "CURRENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency;
+/**
+ *  This metric measures feet.
+ *
+ *  Value: "FEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet;
+/**
+ *  This metric measures hours.
+ *
+ *  Value: "HOURS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours;
+/**
+ *  This metric measures kilometers.
+ *
+ *  Value: "KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers;
+/**
+ *  MeasurementUnit unspecified or missing.
+ *
+ *  Value: "MEASUREMENT_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified;
+/**
+ *  This metric measures meters.
+ *
+ *  Value: "METERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters;
+/**
+ *  This metric measures miles.
+ *
+ *  Value: "MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles;
+/**
+ *  This metric measures milliseconds.
+ *
+ *  Value: "MILLISECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds;
+/**
+ *  This metric measures minutes.
+ *
+ *  Value: "MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes;
+/**
+ *  This metric measures seconds.
+ *
+ *  Value: "SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds;
+/**
+ *  This metric uses default units.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
+
+/**
+ *  Metric scoped to an event.
+ *
+ *  Value: "EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event;
+/**
+ *  Scope unknown or not specified.
+ *
+ *  Value: "METRIC_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings.eventDataRetention
+
+/**
+ *  The data retention time duration is 50 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "FIFTY_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths;
+/**
+ *  The data retention time duration is 14 months.
+ *
+ *  Value: "FOURTEEN_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths;
+/**
+ *  Data retention time duration is not specified.
+ *
+ *  Value: "RETENTION_DURATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified;
+/**
+ *  The data retention time duration is 38 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "THIRTY_EIGHT_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths;
+/**
+ *  The data retention time duration is 26 months. Available to 360 properties
+ *  only.
+ *
+ *  Value: "TWENTY_SIX_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths;
+/**
+ *  The data retention time duration is 2 months.
+ *
+ *  Value: "TWO_MONTHS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
+
+/**
+ *  Terms of service have been accepted
+ *
+ *  Value: "GOOGLE_SIGNALS_CONSENT_CONSENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented;
+/**
+ *  Terms of service have not been accepted
+ *
+ *  Value: "GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented;
+/**
+ *  Google Signals consent value defaults to GOOGLE_SIGNALS_CONSENT_UNSPECIFIED.
+ *  This will be treated as GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED.
+ *
+ *  Value: "GOOGLE_SIGNALS_CONSENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.state
+
+/**
+ *  Google Signals is disabled.
+ *
+ *  Value: "GOOGLE_SIGNALS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled;
+/**
+ *  Google Signals is enabled.
+ *
+ *  Value: "GOOGLE_SIGNALS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled;
+/**
+ *  Google Signals status defaults to GOOGLE_SIGNALS_STATE_UNSPECIFIED to
+ *  represent that the user has not made an explicit choice.
+ *
+ *  Value: "GOOGLE_SIGNALS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalInitiatingProduct
+
+/**
+ *  This proposal was created by a user from Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics;
+/**
+ *  This proposal was created by a user from a linked product (not Google
+ *  Analytics).
+ *
+ *  Value: "LINKED_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct;
+/**
+ *  Unspecified product.
+ *
+ *  Value: "LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalState
+
+/**
+ *  This proposal is awaiting review from a Google Analytics user. This proposal
+ *  will automatically expire after some time.
+ *
+ *  Value: "AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics;
+/**
+ *  This proposal is awaiting review from a user of a linked product. This
+ *  proposal will automatically expire after some time.
+ *
+ *  Value: "AWAITING_REVIEW_FROM_LINKED_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct;
+/**
+ *  This proposal has been declined by an admin on the receiving product. This
+ *  proposal will be automatically deleted after some time.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined;
+/**
+ *  This proposal expired due to lack of response from an admin on the receiving
+ *  product. This proposal will be automatically deleted after some time.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired;
+/**
+ *  Unspecified state
+ *
+ *  Value: "LINK_PROPOSAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified;
+/**
+ *  This proposal has become obsolete because a link was directly created to the
+ *  same external product resource that this proposal specifies. This proposal
+ *  will be automatically deleted after some time.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete;
+/**
+ *  This proposal has been withdrawn by an admin on the initiating product. This
+ *  proposal will be automatically deleted after some time.
+ *
+ *  Value: "WITHDRAWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
@@ -245,6 +550,144 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel;
 
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
+
+/**
+ *  The paid, premium version of Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360;
+/**
+ *  The standard version of Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard;
+/**
+ *  Service level not specified or invalid.
+ *
+ *  Value: "SERVICE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
+
+/**
+ *  Action type unknown or not specified.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified;
+/**
+ *  Resource was created in this change.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Created;
+/**
+ *  Resource was deleted in this change.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Deleted;
+/**
+ *  Resource was updated in this change.
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Updated;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.resourceType
+
+/**
+ *  Account resource
+ *
+ *  Value: "ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account;
+/**
+ *  AndroidAppDataStream resource
+ *
+ *  Value: "ANDROID_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AndroidAppDataStream;
+/**
+ *  Resource type unknown or not specified.
+ *
+ *  Value: "CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified;
+/**
+ *  ConversionEvent resource
+ *
+ *  Value: "CONVERSION_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent;
+/**
+ *  CustomDimension resource
+ *
+ *  Value: "CUSTOM_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension;
+/**
+ *  CustomMetric resource
+ *
+ *  Value: "CUSTOM_METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric;
+/**
+ *  DataRetentionSettings resource
+ *
+ *  Value: "DATA_RETENTION_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings;
+/**
+ *  FirebaseLink resource
+ *
+ *  Value: "FIREBASE_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink;
+/**
+ *  GoogleAdsLink resource
+ *
+ *  Value: "GOOGLE_ADS_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink;
+/**
+ *  GoogleSignalsSettings resource
+ *
+ *  Value: "GOOGLE_SIGNALS_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings;
+/**
+ *  IosAppDataStream resource
+ *
+ *  Value: "IOS_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream;
+/**
+ *  MeasurementProtocolSecret resource
+ *
+ *  Value: "MEASUREMENT_PROTOCOL_SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_MeasurementProtocolSecret;
+/**
+ *  Property resource
+ *
+ *  Value: "PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Property;
+/**
+ *  WebDataStream resource
+ *
+ *  Value: "WEB_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_WebDataStream;
+
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
@@ -318,6 +761,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  Request message for AcknowledgeUserDataCollection RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionRequest : GTLRObject
+
+/**
+ *  Required. An acknowledgement that the caller of this method understands the
+ *  terms of user data collection. This field must contain the exact value: "I
+ *  acknowledge that I have the necessary privacy disclosures and rights from my
+ *  end users for the collection and processing of their data, including the
+ *  association of such data with the visitation information Google Analytics
+ *  collects from my site and/or app property."
+ */
+@property(nonatomic, copy, nullable) NSString *acknowledgement;
+
+@end
+
+
+/**
+ *  Response message for AcknowledgeUserDataCollection RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse : GTLRObject
+@end
+
+
+/**
  *  A resource message representing a Google Analytics Android app stream.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream : GTLRObject
@@ -357,13 +825,48 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  Request message for ApproveDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for ApproveDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse : GTLRObject
+
+/**
+ *  The DisplayVideo360AdvertiserLink created as a result of approving the
+ *  proposal.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *displayVideo360AdvertiserLink;
+
+@end
+
+
+/**
+ *  Request message for ArchiveCustomDimension RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for ArchiveCustomMetric RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest : GTLRObject
+@end
+
+
+/**
  *  Read-only resource used to summarize a principal's effective roles.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink : GTLRObject
 
 /**
  *  Roles directly assigned to this user for this entity. Format:
- *  predefinedRoles/read Excludes roles that are inherited from an account (if
+ *  predefinedRoles/viewer Excludes roles that are inherited from an account (if
  *  this is for a property), group, or organization admin role.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
@@ -371,7 +874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 /**
  *  Union of all permissions a user has at this account or property (includes
  *  direct permissions, group-inherited permissions, etc.). Format:
- *  predefinedRoles/read
+ *  predefinedRoles/viewer
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *effectiveRoles;
 
@@ -522,6 +1025,216 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  Request message for CancelDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest : GTLRObject
+@end
+
+
+/**
+ *  A description of a change to a single Google Analytics resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange : GTLRObject
+
+/**
+ *  The type of action that changed this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified
+ *        Action type unknown or not specified. (Value:
+ *        "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created
+ *        Resource was created in this change. (Value: "CREATED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted
+ *        Resource was deleted in this change. (Value: "DELETED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated
+ *        Resource was updated in this change. (Value: "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Resource name of the resource whose changes are described by this entry.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Resource contents from after the change was made. If this resource was
+ *  deleted in this change, this field will be missing.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource *resourceAfterChange;
+
+/**
+ *  Resource contents from before the change was made. If this resource was
+ *  created in this change, this field will be missing.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource *resourceBeforeChange;
+
+@end
+
+
+/**
+ *  A snapshot of a resource as before or after the result of a change in change
+ *  history.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource : GTLRObject
+
+/** A snapshot of an Account resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAccount *account;
+
+/** A snapshot of an AndroidAppDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *androidAppDataStream;
+
+/** A snapshot of a ConversionEvent resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *conversionEvent;
+
+/** A snapshot of a CustomDimension resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *customDimension;
+
+/** A snapshot of a CustomMetric resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *customMetric;
+
+/** A snapshot of a data retention settings resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings *dataRetentionSettings;
+
+/**
+ *  A snapshot of a DisplayVideo360AdvertiserLink resource in change history.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *displayVideo360AdvertiserLink;
+
+/**
+ *  A snapshot of a DisplayVideo360AdvertiserLinkProposal resource in change
+ *  history.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *displayVideo360AdvertiserLinkProposal;
+
+/** A snapshot of a FirebaseLink resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *firebaseLink;
+
+/** A snapshot of a GoogleAdsLink resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *googleAdsLink;
+
+/** A snapshot of a GoogleSignalsSettings resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *googleSignalsSettings;
+
+/** A snapshot of an IosAppDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream *iosAppDataStream;
+
+/** A snapshot of a MeasurementProtocolSecret resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *measurementProtocolSecret;
+
+/** A snapshot of a Property resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaProperty *property;
+
+/** A snapshot of a WebDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream *webDataStream;
+
+@end
+
+
+/**
+ *  A set of changes within a Google Analytics account or its child properties
+ *  that resulted from the same cause. Common causes would be updates made in
+ *  the Google Analytics UI, changes from customer support, or automatic Google
+ *  Analytics system changes.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent : GTLRObject
+
+/**
+ *  The type of actor that made this change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified
+ *        Unknown or unspecified actor type. (Value: "ACTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support
+ *        Changes made by Google Analytics support team staff. (Value:
+ *        "SUPPORT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System
+ *        Changes made by the Google Analytics system. (Value: "SYSTEM")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User
+ *        Changes made by the user specified in actor_email. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *actorType;
+
+/**
+ *  A list of changes made in this change history event that fit the filters
+ *  specified in SearchChangeHistoryEventsRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange *> *changes;
+
+/**
+ *  If true, then the list of changes returned was filtered, and does not
+ *  represent all changes that occurred in this event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *changesFiltered;
+
+/** Time when change was made. */
+@property(nonatomic, strong, nullable) GTLRDateTime *changeTime;
+
+/**
+ *  ID of this change history event. This ID is unique across Google Analytics.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Email address of the Google account that made the change. This will be a
+ *  valid email address if the actor field is set to USER, and empty otherwise.
+ *  Google accounts that have been deleted will cause an error.
+ */
+@property(nonatomic, copy, nullable) NSString *userActorEmail;
+
+@end
+
+
+/**
+ *  A conversion event in a Google Analytics property.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent : GTLRObject
+
+/**
+ *  Output only. Time when this conversion event was created in the property.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. If set to true, this conversion event refers to a custom event.
+ *  If set to false, this conversion event refers to a default event in GA.
+ *  Default events typically have special meaning in GA. Default events are
+ *  usually created for you by the GA system, but in some cases can be created
+ *  by property admins. Custom events count towards the maximum number of custom
+ *  conversion events that may be created per property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *custom;
+
+/**
+ *  Output only. If set, this event can currently be deleted via
+ *  DeleteConversionEvent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletable;
+
+/**
+ *  Immutable. The event name for this conversion event. Examples: 'click',
+ *  'purchase'
+ */
+@property(nonatomic, copy, nullable) NSString *eventName;
+
+/**
+ *  Output only. Resource name of this conversion event. Format:
+ *  properties/{property}/conversionEvents/{conversion_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Request message for CreateUserLink RPC. Users can have multiple email
  *  addresses associated with their Google account, and one of these email
  *  addresses is the "primary" email address. Any of the email addresses
@@ -544,6 +1257,194 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /** Required. The user link to create. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaUserLink *userLink;
+
+@end
+
+
+/**
+ *  A definition for a CustomDimension.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension : GTLRObject
+
+/**
+ *  Optional. Description for this custom dimension. Max length of 150
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If set to true, sets this dimension as NPA and excludes it from
+ *  ads personalization. This is currently only supported by user-scoped custom
+ *  dimensions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disallowAdsPersonalization;
+
+/**
+ *  Required. Display name for this custom dimension as shown in the Analytics
+ *  UI. Max length of 82 characters, alphanumeric plus space and underscore
+ *  starting with a letter. Legacy system-generated display names may contain
+ *  square brackets, but updates to this field will never permit square
+ *  brackets.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Resource name for this CustomDimension resource. Format:
+ *  properties/{property}/customDimensions/{customDimension}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Tagging parameter name for this custom dimension. If
+ *  this is a user-scoped dimension, then this is the user property name. If
+ *  this is an event-scoped dimension, then this is the event parameter name.
+ *  May only contain alphanumeric and underscore characters, starting with a
+ *  letter. Max length of 24 characters for user-scoped dimensions, 40
+ *  characters for event-scoped dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. Immutable. The scope of this dimension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified
+ *        Scope unknown or not specified. (Value: "DIMENSION_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event
+ *        Dimension scoped to an event. (Value: "EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User
+ *        Dimension scoped to a user. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  A definition for a custom metric.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric : GTLRObject
+
+/**
+ *  Optional. Description for this custom dimension. Max length of 150
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Display name for this custom metric as shown in the Analytics UI.
+ *  Max length of 82 characters, alphanumeric plus space and underscore starting
+ *  with a letter. Legacy system-generated display names may contain square
+ *  brackets, but updates to this field will never permit square brackets.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The type for the custom metric's value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency
+ *        This metric measures a currency. (Value: "CURRENCY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet
+ *        This metric measures feet. (Value: "FEET")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours
+ *        This metric measures hours. (Value: "HOURS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers
+ *        This metric measures kilometers. (Value: "KILOMETERS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified
+ *        MeasurementUnit unspecified or missing. (Value:
+ *        "MEASUREMENT_UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters
+ *        This metric measures meters. (Value: "METERS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles
+ *        This metric measures miles. (Value: "MILES")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds
+ *        This metric measures milliseconds. (Value: "MILLISECONDS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes
+ *        This metric measures minutes. (Value: "MINUTES")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds
+ *        This metric measures seconds. (Value: "SECONDS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard
+ *        This metric uses default units. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *measurementUnit;
+
+/**
+ *  Output only. Resource name for this CustomMetric resource. Format:
+ *  properties/{property}/customMetrics/{customMetric}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Tagging name for this custom metric. If this is an
+ *  event-scoped metric, then this is the event parameter name. May only contain
+ *  alphanumeric and underscore charactes, starting with a letter. Max length of
+ *  40 characters for event-scoped metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. Immutable. The scope of this custom metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event Metric
+ *        scoped to an event. (Value: "EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified
+ *        Scope unknown or not specified. (Value: "METRIC_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Settings values for data retention. This is a singleton resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings : GTLRObject
+
+/**
+ *  The length of time that event-level data is retained.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FiftyMonths
+ *        The data retention time duration is 50 months. Available to 360
+ *        properties only. (Value: "FIFTY_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_FourteenMonths
+ *        The data retention time duration is 14 months. (Value:
+ *        "FOURTEEN_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_RetentionDurationUnspecified
+ *        Data retention time duration is not specified. (Value:
+ *        "RETENTION_DURATION_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_ThirtyEightMonths
+ *        The data retention time duration is 38 months. Available to 360
+ *        properties only. (Value: "THIRTY_EIGHT_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths
+ *        The data retention time duration is 26 months. Available to 360
+ *        properties only. (Value: "TWENTY_SIX_MONTHS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths
+ *        The data retention time duration is 2 months. (Value: "TWO_MONTHS")
+ */
+@property(nonatomic, copy, nullable) NSString *eventDataRetention;
+
+/**
+ *  Output only. Resource name for this DataRetentionSetting resource. Format:
+ *  properties/{property}/dataRetentionSettings
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If true, reset the retention period for the user identifier with every event
+ *  from that user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resetUserDataOnNewActivity;
 
 @end
 
@@ -614,133 +1515,129 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
- *  Singleton resource under a WebDataStream, configuring measurement of
- *  additional site interactions and content.
+ *  A link between a GA4 property and a Display & Video 360 advertiser.
  */
-@interface GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings : GTLRObject
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink : GTLRObject
 
 /**
- *  If enabled, capture a file download event each time a link is clicked with a
- *  common document, compressed file, application, video, or audio extension.
+ *  Enables personalized advertising features with this integration. If this
+ *  field is not set on create/update, it will be defaulted to true.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *fileDownloadsEnabled;
+@property(nonatomic, strong, nullable) NSNumber *adsPersonalizationEnabled;
+
+/** Output only. The display name of the Display & Video 360 Advertiser. */
+@property(nonatomic, copy, nullable) NSString *advertiserDisplayName;
+
+/** Immutable. The Display & Video 360 Advertiser's advertiser ID. */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
 
 /**
- *  Output only. Resource name of this Data Stream. Format:
- *  properties/{property_id}/webDataStreams/{stream_id}/enhancedMeasurementSettings
- *  Example: "properties/1000/webDataStreams/2000/enhancedMeasurementSettings"
+ *  Immutable. Enables the import of campaign data from Display & Video 360 into
+ *  the GA4 property. After link creation, this can only be updated from the
+ *  Display & Video 360 product. If this field is not set on create, it will be
+ *  defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignDataSharingEnabled;
+
+/**
+ *  Immutable. Enables the import of cost data from Display & Video 360 into the
+ *  GA4 property. This can only be enabled if campaign_data_sharing_enabled is
+ *  enabled. After link creation, this can only be updated from the Display &
+ *  Video 360 product. If this field is not set on create, it will be defaulted
+ *  to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costDataSharingEnabled;
+
+/**
+ *  Output only. The resource name for this DisplayVideo360AdvertiserLink
+ *  resource. Format:
+ *  properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note: linkId
+ *  is not the Display & Video 360 Advertiser ID
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  If enabled, capture an outbound click event each time a visitor clicks a
- *  link that leads them away from your domain.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *outboundClicksEnabled;
-
-/**
- *  If enabled, capture a page view event each time the website changes the
- *  browser history state.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageChangesEnabled;
-
-/**
- *  Output only. If enabled, capture a page view event each time a page loads.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageLoadsEnabled;
-
-/**
- *  Output only. If enabled, capture a page view event each time a page loads or
- *  the website changes the browser history state.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageViewsEnabled;
-
-/**
- *  If enabled, capture scroll events each time a visitor gets to the bottom of
- *  a page.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *scrollsEnabled;
-
-/**
- *  Required. URL query parameters to interpret as site search parameters. Max
- *  length is 1024 characters. Must not be empty.
- */
-@property(nonatomic, copy, nullable) NSString *searchQueryParameter;
-
-/**
- *  If enabled, capture a view search results event each time a visitor performs
- *  a search on your site (based on a query parameter).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *siteSearchEnabled;
-
-/**
- *  Indicates whether Enhanced Measurement Settings will be used to
- *  automatically measure interactions and content on this web stream. Changing
- *  this value does not affect the settings themselves, but determines whether
- *  they are respected.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *streamEnabled;
-
-/** Additional URL query parameters. Max length is 1024 characters. */
-@property(nonatomic, copy, nullable) NSString *uriQueryParameter;
-
-/**
- *  If enabled, capture video play, progress, and complete events as visitors
- *  view embedded videos on your site.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *videoEngagementEnabled;
 
 @end
 
 
 /**
- *  A link between an GA4 property and a Firebase project.
+ *  A proposal for a link between a GA4 property and a Display & Video 360
+ *  advertiser. A proposal is converted to a DisplayVideo360AdvertiserLink once
+ *  approved. Google Analytics admins approve inbound proposals while Display &
+ *  Video 360 admins approve outbound proposals.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal : GTLRObject
+
+/**
+ *  Immutable. Enables personalized advertising features with this integration.
+ *  If this field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adsPersonalizationEnabled;
+
+/**
+ *  Output only. The display name of the Display & Video Advertiser. Only
+ *  populated for proposals that originated from Display & Video 360.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserDisplayName;
+
+/** Immutable. The Display & Video 360 Advertiser's advertiser ID. */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  Immutable. Enables the import of campaign data from Display & Video 360. If
+ *  this field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignDataSharingEnabled;
+
+/**
+ *  Immutable. Enables the import of cost data from Display & Video 360. This
+ *  can only be enabled if campaign_data_sharing_enabled is enabled. If this
+ *  field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costDataSharingEnabled;
+
+/** Output only. The status information for this link proposal. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails *linkProposalStatusDetails;
+
+/**
+ *  Output only. The resource name for this
+ *  DisplayVideo360AdvertiserLinkProposal resource. Format:
+ *  properties/{propertyId}/displayVideo360AdvertiserLinkProposals/{proposalId}
+ *  Note: proposalId is not the Display & Video 360 Advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Input only. On a proposal being sent to Display & Video 360, this field must
+ *  be set to the email address of an admin on the target advertiser. This is
+ *  used to verify that the Google Analytics admin is aware of at least one
+ *  admin on the Display & Video 360 Advertiser. This does not restrict approval
+ *  of the proposal to a single user. Any admin on the Display & Video 360
+ *  Advertiser may approve the proposal.
+ */
+@property(nonatomic, copy, nullable) NSString *validationEmail;
+
+@end
+
+
+/**
+ *  A link between a GA4 property and a Firebase project.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink : GTLRObject
 
 /** Output only. Time when this FirebaseLink was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Maximum user access to the GA4 property allowed to admins of the linked
- *  Firebase project.
- *
- *  Likely values:
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement
- *        Firebase users have edit access to the Analytics property and may
- *        manage the Firebase link. (Value: "EDITOR_INCLUDING_LINK_MANAGEMENT")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement
- *        Firebase users have edit access to the Analytics property, but may not
- *        manage the Firebase link. (Value: "EDITOR_WITHOUT_LINK_MANAGEMENT")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_MaximumUserAccessUnspecified
- *        Unspecified maximum user access. (Value:
- *        "MAXIMUM_USER_ACCESS_UNSPECIFIED")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_NoAccess
- *        Firebase users have no access to the Analytics property. (Value:
- *        "NO_ACCESS")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_ReadAndAnalyze
- *        Firebase users have Read & Analyze access to the Analytics property.
- *        (Value: "READ_AND_ANALYZE")
- */
-@property(nonatomic, copy, nullable) NSString *maximumUserAccess;
 
 /** Output only. Example format: properties/1234/firebaseLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -779,7 +1676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
- *  A link between an GA4 property and a Google Ads account.
+ *  A link between a GA4 property and a Google Ads account.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink : GTLRObject
 
@@ -787,7 +1684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  Enable personalized advertising features with this integration.
  *  Automatically publish my Google Analytics audience lists and Google
  *  Analytics remarketing events/parameters to the linked Google Ads account. If
- *  this field is not set on create/update it will be defaulted to true.
+ *  this field is not set on create/update, it will be defaulted to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -803,14 +1700,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 /** Output only. Time when this link was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Immutable. Google Ads customer ID. */
-@property(nonatomic, copy, nullable) NSString *customerId;
-
 /**
  *  Output only. Email address of the user that created the link. An empty
  *  string will be returned if the email address can't be retrieved.
  */
-@property(nonatomic, copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *creatorEmailAddress;
+
+/** Immutable. Google Ads customer ID. */
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Output only. Format:
@@ -821,6 +1718,54 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /** Output only. Time when this link was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Settings values for Google Signals. This is a singleton resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings : GTLRObject
+
+/**
+ *  Output only. Terms of Service acceptance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented
+ *        Terms of service have been accepted (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_CONSENTED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented
+ *        Terms of service have not been accepted (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified
+ *        Google Signals consent value defaults to
+ *        GOOGLE_SIGNALS_CONSENT_UNSPECIFIED. This will be treated as
+ *        GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED. (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consent;
+
+/**
+ *  Output only. Resource name of this setting. Format:
+ *  properties/{property_id}/googleSignalsSettings Example:
+ *  "properties/1000/googleSignalsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Status of this setting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled
+ *        Google Signals is disabled. (Value: "GOOGLE_SIGNALS_DISABLED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled
+ *        Google Signals is enabled. (Value: "GOOGLE_SIGNALS_ENABLED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified
+ *        Google Signals status defaults to GOOGLE_SIGNALS_STATE_UNSPECIFIED to
+ *        represent that the user has not made an explicit choice. (Value:
+ *        "GOOGLE_SIGNALS_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -860,6 +1805,67 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /** Output only. Time when stream payload fields were last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Status information for a link proposal.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails : GTLRObject
+
+/**
+ *  Output only. The source of this proposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics
+ *        This proposal was created by a user from Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct
+ *        This proposal was created by a user from a linked product (not Google
+ *        Analytics). (Value: "LINKED_PRODUCT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified
+ *        Unspecified product. (Value:
+ *        "LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *linkProposalInitiatingProduct;
+
+/**
+ *  Output only. The state of this proposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics
+ *        This proposal is awaiting review from a Google Analytics user. This
+ *        proposal will automatically expire after some time. (Value:
+ *        "AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct
+ *        This proposal is awaiting review from a user of a linked product. This
+ *        proposal will automatically expire after some time. (Value:
+ *        "AWAITING_REVIEW_FROM_LINKED_PRODUCT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined
+ *        This proposal has been declined by an admin on the receiving product.
+ *        This proposal will be automatically deleted after some time. (Value:
+ *        "DECLINED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired
+ *        This proposal expired due to lack of response from an admin on the
+ *        receiving product. This proposal will be automatically deleted after
+ *        some time. (Value: "EXPIRED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified
+ *        Unspecified state (Value: "LINK_PROPOSAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete
+ *        This proposal has become obsolete because a link was directly created
+ *        to the same external product resource that this proposal specifies.
+ *        This proposal will be automatically deleted after some time. (Value:
+ *        "OBSOLETE")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn
+ *        This proposal has been withdrawn by an admin on the initiating
+ *        product. This proposal will be automatically deleted after some time.
+ *        (Value: "WITHDRAWN")
+ */
+@property(nonatomic, copy, nullable) NSString *linkProposalState;
+
+/** Output only. The email address of the user that proposed this linkage. */
+@property(nonatomic, copy, nullable) NSString *requestorEmail;
 
 @end
 
@@ -935,6 +1941,141 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *> *androidAppDataStreams;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListConversionEvents RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "conversionEvents" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse : GTLRCollectionObject
+
+/**
+ *  The requested conversion events
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *> *conversionEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListCustomDimensions RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customDimensions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse : GTLRCollectionObject
+
+/**
+ *  List of CustomDimensions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *> *customDimensions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListCustomMetrics RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customMetrics" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse : GTLRCollectionObject
+
+/**
+ *  List of CustomMetrics.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *> *customMetrics;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListDisplayVideo360AdvertiserLinkProposals RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "displayVideo360AdvertiserLinkProposals" property. If returned as
+ *        the result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse : GTLRCollectionObject
+
+/**
+ *  List of DisplayVideo360AdvertiserLinkProposals.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *> *displayVideo360AdvertiserLinkProposals;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListDisplayVideo360AdvertiserLinks RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "displayVideo360AdvertiserLinks" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse : GTLRCollectionObject
+
+/**
+ *  List of DisplayVideo360AdvertiserLinks.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *> *displayVideo360AdvertiserLinks;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -1029,6 +2170,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  Response message for ListMeasurementProtocolSecret RPC
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "measurementProtocolSecrets" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse : GTLRCollectionObject
+
+/**
+ *  A list of secrets for the parent stream specified in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *> *measurementProtocolSecrets;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListProperties RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1110,9 +2278,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  A secret value used for sending hits to Measurement Protocol.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret : GTLRObject
+
+/** Required. Human-readable display name for this secret. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Resource name of this secret. This secret may be a child of any
+ *  type of stream. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The measurement protocol secret value. Pass this value to the
+ *  api_secret field of the Measurement Protocol API when sending hits to this
+ *  secret's parent property.
+ */
+@property(nonatomic, copy, nullable) NSString *secretValue;
+
+@end
+
+
+/**
  *  A resource message representing a Google Analytics GA4 property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaProperty : GTLRObject
+
+/**
+ *  Immutable. The resource name of the parent account Format:
+ *  accounts/{account_id} Example: "accounts/123"
+ */
+@property(nonatomic, copy, nullable) NSString *account;
 
 /** Output only. Time when the entity was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1124,18 +2323,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Output only. Indicates whether this Property is soft-deleted or not. Deleted
- *  properties are excluded from List results unless specifically requested.
- *
- *  Uses NSNumber of boolValue.
+ *  Output only. If set, the time at which this property was trashed. If not
+ *  set, then this property is not currently in the trash can.
  */
-@property(nonatomic, strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
  *  Required. Human-readable display name for this property. The max allowed
  *  display name length is 100 UTF-16 code units.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. If set, the time at which this trashed property will be
+ *  permanently deleted. If not set, then this property is not currently in the
+ *  trash can and is not slated to be deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  Industry associated with this property Example: AUTOMOTIVE, FOOD_AND_DRINK
@@ -1213,11 +2417,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Reporting Time Zone, used as the day boundary for reports, regardless of
- *  where the data originates. If the time zone honors DST, Analytics will
- *  automatically adjust for the changes. NOTE: Changing the time zone only
- *  affects data going forward, and is not applied retroactively. Format:
- *  https://www.iana.org/time-zones Example: "America/Los_Angeles"
+ *  Output only. The Google Analytics service level that applies to this
+ *  property.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360
+ *        The paid, premium version of Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS_360")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard
+ *        The standard version of Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS_STANDARD")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified
+ *        Service level not specified or invalid. (Value:
+ *        "SERVICE_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLevel;
+
+/**
+ *  Required. Reporting Time Zone, used as the day boundary for reports,
+ *  regardless of where the data originates. If the time zone honors DST,
+ *  Analytics will automatically adjust for the changes. NOTE: Changing the time
+ *  zone only affects data going forward, and is not applied retroactively.
+ *  Format: https://www.iana.org/time-zones Example: "America/Los_Angeles"
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -1228,7 +2449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
- *  A virtual resource representing metadata for an GA4 property.
+ *  A virtual resource representing metadata for a GA4 property.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary : GTLRObject
 
@@ -1273,6 +2494,91 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 
 /**
+ *  Request message for SearchChangeHistoryEvents RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest : GTLRObject
+
+/**
+ *  Optional. If set, only return changes that match one or more of these types
+ *  of actions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *action;
+
+/**
+ *  Optional. If set, only return changes if they are made by a user in this
+ *  list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actorEmail;
+
+/** Optional. If set, only return changes made after this time (inclusive). */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestChangeTime;
+
+/**
+ *  Optional. If set, only return changes made before this time (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestChangeTime;
+
+/**
+ *  Optional. The maximum number of ChangeHistoryEvent items to return. The
+ *  service may return fewer than this value, even if there are additional
+ *  pages. If unspecified, at most 50 items will be returned. The maximum value
+ *  is 200 (higher values will be coerced to the maximum).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `SearchChangeHistoryEvents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `SearchChangeHistoryEvents` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Resource name for a child property. If set, only return changes
+ *  made to this property or its child resources.
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Optional. If set, only return changes if they are for a resource that
+ *  matches at least one of these types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceType;
+
+@end
+
+
+/**
+ *  Response message for SearchAccounts RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "changeHistoryEvents" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse : GTLRCollectionObject
+
+/**
+ *  Results that were accessible to the caller.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent *> *changeHistoryEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Request message for UpdateUserLink RPC.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest : GTLRObject
@@ -1291,18 +2597,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /**
  *  Roles directly assigned to this user for this account or property. Valid
- *  values: predefinedRoles/read predefinedRoles/collaborate
- *  predefinedRoles/edit predefinedRoles/manage-users Excludes roles that are
- *  inherited from a higher-level entity, group, or organization admin role. A
- *  UserLink that is updated to have an empty list of direct_roles will be
- *  deleted.
+ *  values: predefinedRoles/viewer predefinedRoles/analyst
+ *  predefinedRoles/editor predefinedRoles/admin predefinedRoles/no-cost-data
+ *  predefinedRoles/no-revenue-data Excludes roles that are inherited from a
+ *  higher-level entity, group, or organization admin role. A UserLink that is
+ *  updated to have an empty list of direct_roles will be deleted.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
 
-/** Email address of the user to link */
+/** Immutable. Email address of the user to link */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
-/** Example format: properties/1234/userLinks/5678 */
+/** Output only. Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

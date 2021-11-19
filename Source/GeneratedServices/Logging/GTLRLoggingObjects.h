@@ -25,6 +25,7 @@
 
 @class GTLRLogging_BigQueryOptions;
 @class GTLRLogging_BucketOptions;
+@class GTLRLogging_CopyLogEntriesRequest;
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
 @class GTLRLogging_HttpRequest;
@@ -54,8 +55,13 @@
 @class GTLRLogging_MonitoredResourceMetadata;
 @class GTLRLogging_MonitoredResourceMetadata_SystemLabels;
 @class GTLRLogging_MonitoredResourceMetadata_UserLabels;
+@class GTLRLogging_Operation;
+@class GTLRLogging_Operation_Metadata;
+@class GTLRLogging_Operation_Response;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
+@class GTLRLogging_Status;
+@class GTLRLogging_Status_Details_Item;
 @class GTLRLogging_SuppressionInfo;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
 
@@ -68,6 +74,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_CopyLogEntriesMetadata.state
+
+/**
+ *  The operation was cancelled by the user.
+ *
+ *  Value: "OPERATION_STATE_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled;
+/**
+ *  The operation failed.
+ *
+ *  Value: "OPERATION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed;
+/**
+ *  The operation is running.
+ *
+ *  Value: "OPERATION_STATE_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning;
+/**
+ *  The operation is scheduled.
+ *
+ *  Value: "OPERATION_STATE_SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled;
+/**
+ *  The operation was completed successfully.
+ *
+ *  Value: "OPERATION_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded;
+/**
+ *  Should not be used.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified;
+/**
+ *  Waiting for necessary permissions.
+ *
+ *  Value: "OPERATION_STATE_WAITING_FOR_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LabelDescriptor.valueType
@@ -597,8 +649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. Whether to use BigQuery's partition tables
  *  (https://cloud.google.com/bigquery/docs/partitioned-tables). By default,
- *  Logging creates dated tables based on the log entries' timestamps, e.g.
- *  syslog_20170523. With partitioned tables the date suffix is no longer
+ *  Cloud Logging creates dated tables based on the log entries' timestamps,
+ *  e.g. syslog_20170523. With partitioned tables the date suffix is no longer
  *  present and special query syntax
  *  (https://cloud.google.com/bigquery/docs/querying-partitioned-tables) has to
  *  be used instead. In both cases, tables are sharded based on UTC timezone.
@@ -609,7 +661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Output only. True if new timestamp column based partitioning is in use,
- *  false if legacy ingestion-time partitioning is in use. All new sinks will
+ *  false if legacy ingestion-time partitioning is in use.All new sinks will
  *  have this field set true and will use timestamp column based partitioning.
  *  If use_partitioned_tables is false, this value has no meaning and will be
  *  false. Legacy sinks using partitioned tables will have this field set to
@@ -652,11 +704,18 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRLogging_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  Describes the customer-managed encryption key (CMEK) settings associated
  *  with a project, folder, organization, billing account, or flexible
  *  resource.Note: CMEK for the Logs Router can currently only be configured for
- *  GCP organizations. Once configured, it applies to all projects and folders
- *  in the GCP organization.See Enabling CMEK for Logs Router
+ *  Google Cloud organizations. Once configured, it applies to all projects and
+ *  folders in the Google Cloud organization.See Enabling CMEK for Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  */
@@ -664,9 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The resource name for the configured Cloud KMS key.KMS key name format:
- *  "projects/PROJECT_ID/locations/LOCATION/keyRings/KEYRING/cryptoKeys/KEY"For
- *  example:
- *  "projects/my-project-id/locations/my-region/keyRings/key-ring-name/cryptoKeys/key-name"To
+ *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
+ *  For
+ *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
  *  enable CMEK for the Logs Router, set this field to a valid kms_key_name for
  *  which the associated service account has the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
@@ -696,6 +755,107 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+@end
+
+
+/**
+ *  Metadata for CopyLogEntries long running operations.
+ */
+@interface GTLRLogging_CopyLogEntriesMetadata : GTLRObject
+
+/**
+ *  Identifies whether the user has requested cancellation of the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancellationRequested;
+
+/** The end time of an operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Estimated progress of the operation (0 - 100%).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progress;
+
+/** CopyLogEntries RPC request. */
+@property(nonatomic, strong, nullable) GTLRLogging_CopyLogEntriesRequest *request;
+
+/** The create time of an operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  State of an operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled
+ *        The operation was cancelled by the user. (Value:
+ *        "OPERATION_STATE_CANCELLED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed The
+ *        operation failed. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning
+ *        The operation is running. (Value: "OPERATION_STATE_RUNNING")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled
+ *        The operation is scheduled. (Value: "OPERATION_STATE_SCHEDULED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded
+ *        The operation was completed successfully. (Value:
+ *        "OPERATION_STATE_SUCCEEDED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified
+ *        Should not be used. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions
+ *        Waiting for necessary permissions. (Value:
+ *        "OPERATION_STATE_WAITING_FOR_PERMISSIONS")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The IAM identity of a service account that must be granted access to the
+ *  destination.If the service account is not granted permission to the
+ *  destination within an hour, the operation will be cancelled.For example:
+ *  "serviceAccount:foo\@bar.com"
+ */
+@property(nonatomic, copy, nullable) NSString *writerIdentity;
+
+@end
+
+
+/**
+ *  The parameters to CopyLogEntries.
+ */
+@interface GTLRLogging_CopyLogEntriesRequest : GTLRObject
+
+/** Required. Destination to which to copy log entries. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Optional. A filter specifying which log entries to copy. The filter must be
+ *  no more than 20k characters. An empty filter matches all log entries.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Log bucket from which to copy log entries.For
+ *  example:"projects/my-project/locations/global/buckets/my-source-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response type for CopyLogEntries long running operations.
+ */
+@interface GTLRLogging_CopyLogEntriesResponse : GTLRObject
+
+/**
+ *  Number of log entries copied.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logEntriesCopiedCount;
 
 @end
 
@@ -1072,13 +1232,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. Names of one or more parent resources from which to retrieve log
- *  entries: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" May
- *  alternatively be one or more views
- *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
- *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
- *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
- *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDProjects
+ *  entries: projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]May alternatively be
+ *  one or more views:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]Projects
  *  listed in the project_ids field are added to this list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
@@ -1195,6 +1355,30 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_MonitoredResourceDescriptor *> *resourceDescriptors;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_Operation *> *operations;
 
 @end
 
@@ -1317,7 +1501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes a repository of logs.
+ *  Describes a repository in which log entries are stored.
  */
 @interface GTLRLogging_LogBucket : GTLRObject
 
@@ -1349,21 +1533,31 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
- *  Whether the bucket has been locked. The retention period on a locked bucket
- *  may not be changed. Locked buckets may only be deleted if they are empty.
+ *  Whether the bucket is locked.The retention period on a locked bucket cannot
+ *  be changed. Locked buckets may only be deleted if they are empty.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locked;
 
 /**
- *  Output only. The resource name of the bucket. For example:
- *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id The
- *  supported locations are: "global"For the location of global it is
- *  unspecified where logs are actually stored. Once a bucket has been created,
- *  the location can not be changed.
+ *  Output only. The resource name of the bucket.For
+ *  example:projects/my-project/locations/global/buckets/my-bucketFor a list of
+ *  supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support)For the location of
+ *  global it is unspecified where log entries are actually stored.After a
+ *  bucket has been created, the location cannot be changed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Log entry field paths that are denied access in this bucket.The following
+ *  fields and their children are eligible: textPayload, jsonPayload,
+ *  protoPayload, httpRequest, labels, sourceLocation.Restricting a repeated
+ *  field will restrict all values. Adding a parent will block all child fields.
+ *  (e.g. foo.bar will block foo.bar.baz)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedFields;
 
 /**
  *  Logs will be retained by default for this amount of time, after which they
@@ -1411,8 +1605,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_JsonPayload *jsonPayload;
 
 /**
- *  Optional. A set of user-defined (key, value) data that provides additional
- *  information about the log entry.
+ *  Optional. A map of key, value pairs that provides additional information
+ *  about the log entry. The labels can be user-defined or
+ *  system-defined.User-defined labels are arbitrary key, value pairs that you
+ *  can use to classify logs.System-defined labels are defined by GCP services
+ *  for platform logs. They have two components - a service namespace component
+ *  and the attribute name. For example:
+ *  compute.googleapis.com/resource_name.Cloud Logging truncates label keys that
+ *  exceed 512 B and label values that exceed 64 KB upon their associated log
+ *  entry being written. The truncation is indicated by an ellipsis at the end
+ *  of the character string.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_Labels *labels;
 
@@ -1425,26 +1627,20 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  PROJECT_ID. The project number is translated to its corresponding PROJECT_ID
  *  internally and the log_name field will contain PROJECT_ID in queries and
  *  exports.[LOG_ID] must be URL-encoded within log_name. Example:
- *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
- *  [LOG_ID] must be less than 512 characters long and can only include the
- *  following characters: upper and lower case alphanumeric characters,
- *  forward-slash, underscore, hyphen, and period.For backward compatibility, if
- *  log_name begins with a forward-slash, such as /projects/..., then the log
- *  entry is ingested as usual but the forward-slash is removed. Listing the log
- *  entry will not show the leading slash and filtering for a log name with a
- *  leading slash will never return any results.
+ *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".[LOG_ID]
+ *  must be less than 512 characters long and can only include the following
+ *  characters: upper and lower case alphanumeric characters, forward-slash,
+ *  underscore, hyphen, and period.For backward compatibility, if log_name
+ *  begins with a forward-slash, such as /projects/..., then the log entry is
+ *  ingested as usual, but the forward-slash is removed. Listing the log entry
+ *  will not show the leading slash and filtering for a log name with a leading
+ *  slash will never return any results.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
 /**
- *  Output only. Deprecated. Additional metadata about the monitored
- *  resource.Only k8s_container, k8s_pod, and k8s_node MonitoredResources have
- *  this field populated for GKE versions older than 1.12.6. For GKE versions
- *  1.12.6 and above, the metadata field has been deprecated. The Kubernetes pod
- *  labels that used to be in metadata.userLabels will now be present in the
- *  labels field with a key prefix of k8s-pod/. The system labels that were
- *  present in the metadata.systemLabels field will no longer be available in
- *  the LogEntry.
+ *  Output only. Deprecated. This field is not used by Logging. Any value
+ *  written to it is cleared.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata *metadata;
 
@@ -1568,8 +1764,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Optional. A set of user-defined (key, value) data that provides additional
- *  information about the log entry.
+ *  Optional. A map of key, value pairs that provides additional information
+ *  about the log entry. The labels can be user-defined or
+ *  system-defined.User-defined labels are arbitrary key, value pairs that you
+ *  can use to classify logs.System-defined labels are defined by GCP services
+ *  for platform logs. They have two components - a service namespace component
+ *  and the attribute name. For example:
+ *  compute.googleapis.com/resource_name.Cloud Logging truncates label keys that
+ *  exceed 512 B and label values that exceed 64 KB upon their associated log
+ *  entry being written. The truncation is indicated by an ellipsis at the end
+ *  of the character string.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1667,12 +1871,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Specifies a set of log entries that are not to be stored in Logging. If your
- *  GCP resource receives a large volume of logs, you can use exclusions to
- *  reduce your chargeable logs. Exclusions are processed after log sinks, so
- *  you can export log entries before they are excluded. Note that
- *  organization-level and folder-level exclusions don't apply to child
- *  resources, and that you can't exclude audit log entries.
+ *  Specifies a set of log entries that are filtered out by a sink. If your
+ *  Google Cloud resource receives a large volume of log entries, you can use
+ *  exclusions to reduce your chargeable logs. Note that exclusions on
+ *  organization-level and folder-level sinks don't apply to child resources.
+ *  Note also that you cannot modify the _Required sink or exclude logs from it.
  */
 @interface GTLRLogging_LogExclusion : GTLRObject
 
@@ -1703,10 +1906,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  (https://cloud.google.com/logging/docs/view/advanced-queries) that matches
  *  the log entries to be excluded. By using the sample function
  *  (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you
- *  can exclude less than 100% of the matching log entries. For example, the
+ *  can exclude less than 100% of the matching log entries.For example, the
  *  following query matches 99% of low-severity log entries from Google Cloud
- *  Storage buckets:"resource.type=gcs_bucket severity<ERROR sample(insertId,
- *  0.99)"
+ *  Storage buckets:resource.type=gcs_bucket severity<ERROR sample(insertId,
+ *  0.99)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1800,6 +2003,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If set to True, then this metric is disabled and it does not
+ *  generate any points.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
  *  Required. An advanced logs filter
@@ -1918,7 +2129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Describes a sink used to export log entries to one of the following
  *  destinations in any project: a Cloud Storage bucket, a BigQuery dataset, a
- *  Cloud Pub/Sub topic or a Cloud Logging Bucket. A logs filter controls which
+ *  Pub/Sub topic or a Cloud Logging log bucket. A logs filter controls which
  *  log entries are exported. The sink must be created within a project,
  *  organization, billing account, or folder.
  */
@@ -1934,7 +2145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. A description of this sink. The maximum length of the description
+ *  Optional. A description of this sink.The maximum length of the description
  *  is 8000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -1953,7 +2164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  Optional. If set to True, then this sink is disabled and it does not export
+ *  Optional. If set to true, then this sink is disabled and it does not export
  *  any log entries.
  *
  *  Uses NSNumber of boolValue.
@@ -1961,8 +2172,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  Optional. Log entries that match any of the exclusion filters will not be
- *  exported. If a log entry is matched by both filter and one of
+ *  Optional. Log entries that match any of these exclusion filters will not be
+ *  exported.If a log entry is matched by both filter and one of
  *  exclusion_filters it will not be exported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogExclusion *> *exclusions;
@@ -1971,8 +2182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. An advanced logs filter
  *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
  *  exported log entries are those that are in the resource owning the sink and
- *  that match the filter. For example:
- *  logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
+ *  that match the filter.For
+ *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1980,14 +2191,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. This field applies only to sinks owned by organizations and
  *  folders. If the field is false, the default, only the logs owned by the
  *  sink's parent resource are available for export. If the field is true, then
- *  logs from all the projects, folders, and billing accounts contained in the
- *  sink's parent resource are also available for export. Whether a particular
- *  log entry from the children is exported depends on the sink's filter
- *  expression. For example, if this field is true, then the filter
+ *  log entries from all the projects, folders, and billing accounts contained
+ *  in the sink's parent resource are also available for export. Whether a
+ *  particular log entry from the children is exported depends on the sink's
+ *  filter expression.For example, if this field is true, then the filter
  *  resource.type=gce_instance would export all Compute Engine VM instance log
- *  entries from all projects in the sink's parent. To only export entries from
- *  certain child projects, filter on the project part of the log name:
- *  logName:("projects/test-project1/" OR "projects/test-project2/") AND
+ *  entries from all projects in the sink's parent.To only export entries from
+ *  certain child projects, filter on the project part of the log
+ *  name:logName:("projects/test-project1/" OR "projects/test-project2/") AND
  *  resource.type=gce_instance
  *
  *  Uses NSNumber of boolValue.
@@ -1995,8 +2206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *includeChildren;
 
 /**
- *  Required. The client-assigned sink identifier, unique within the project.
- *  Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
+ *  Required. The client-assigned sink identifier, unique within the project.For
+ *  example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
  *  characters and can include only the following characters: upper and
  *  lower-case alphanumeric characters, underscores, hyphens, and periods. First
  *  character has to be alphanumeric.
@@ -2024,15 +2235,17 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Output only. An IAM identity—a service account or group—under which Logging
- *  writes the exported log entries to the sink's destination. This field is set
- *  by sinks.create and sinks.update based on the value of
+ *  Output only. An IAM identity—a service account or group—under which Cloud
+ *  Logging writes the exported log entries to the sink's destination. This
+ *  field is set by sinks.create and sinks.update based on the value of
  *  unique_writer_identity in those methods.Until you grant this identity
  *  write-access to the destination, log entry exports from this sink will fail.
  *  For more information, see Granting Access for a Resource
  *  (https://cloud.google.com/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource).
  *  Consult the destination service's documentation to determine the appropriate
- *  IAM roles to assign to the identity.
+ *  IAM roles to assign to the identity.Sinks that have a destination that is a
+ *  log bucket in the same project as the sink do not have a writer_identity and
+ *  no additional permissions are required.
  */
 @property(nonatomic, copy, nullable) NSString *writerIdentity;
 
@@ -2040,7 +2253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes a view over logs in a bucket.
+ *  Describes a view over log entries in a bucket.
  */
 @interface GTLRLogging_LogView : GTLRObject
 
@@ -2056,16 +2269,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Filter that restricts which log entries in a bucket are visible in this
- *  view. Filters are restricted to be a logical AND of ==/!= of any of the
+ *  view.Filters are restricted to be a logical AND of ==/!= of any of the
  *  following: originating project/folder/organization/billing account. resource
- *  type log id Example: SOURCE("projects/myproject") AND resource.type =
+ *  type log idFor example:SOURCE("projects/myproject") AND resource.type =
  *  "gce_instance" AND LOG_ID("stdout")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The resource name of the view. For example
- *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view
+ *  The resource name of the view.For
+ *  example:projects/my-project/locations/global/buckets/my-bucket/views/my-view
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2199,11 +2412,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
- *  representation of the stored metric values.Different systems may scale the
- *  values to be more easily displayed (so a value of 0.02KBy might be displayed
- *  as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if
- *  the unit is KBy, then the value of the metric is always in thousands of
- *  bytes, no matter how it may be displayed..If you want a custom metric to
+ *  representation of the stored metric values.Different systems might scale the
+ *  values to be more easily displayed (so a value of 0.02kBy might be displayed
+ *  as 20By, and a value of 3523kBy might be displayed as 3.5MBy). However, if
+ *  the unit is kBy, then the value of the metric is always in thousands of
+ *  bytes, no matter how it might be displayed.If you want a custom metric to
  *  record the exact number of CPU-seconds used by a job, you can create an
  *  INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or
  *  just s). If the job uses 12,005 CPU-seconds, then the value is written as
@@ -2212,8 +2425,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
  *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
  *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By
- *  byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
+ *  (https://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit
+ *  By byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
  *  kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa
  *  (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n
  *  nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto
@@ -2480,7 +2693,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  "cloudsql_database" represents databases in Google Cloud SQL.
+ *  "cloudsql_database" represents databases in Google Cloud SQL. For a list of
+ *  types, see Monitoring resource types
+ *  (https://cloud.google.com/monitoring/api/resources) and Logging resource
+ *  types (https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2538,6 +2754,85 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        fetch them all at once.
  */
 @interface GTLRLogging_MonitoredResourceMetadata_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRLogging_Operation : GTLRObject
+
+/**
+ *  If the value is false, it means the operation is still in progress. If true,
+ *  the operation is completed, and either error or response is available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRLogging_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the name should
+ *  be a resource name ending with operations/{unique_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Operation_Response : GTLRObject
 @end
 
 
@@ -2762,6 +3057,51 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The Status type defines a logical error model that is suitable for different
+ *  programming environments, including REST APIs and RPC APIs. It is used by
+ *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
+ *  data: error code, error message, and error details.You can find out more
+ *  about this error model and how to work with it in the API Design Guide
+ *  (https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRLogging_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRLogging_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Status_Details_Item : GTLRObject
+@end
+
+
+/**
  *  Information about entries that were omitted from the session.
  */
 @interface GTLRLogging_SuppressionInfo : GTLRObject
@@ -2818,13 +3158,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. Name of a parent resource from which to retrieve log entries:
- *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" May
- *  alternatively be one or more views:
- *  "projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
- *  "organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
- *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
- *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
+ *  projects/[PROJECT_ID] organizations/[ORGANIZATION_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID] folders/[FOLDER_ID]May alternatively be
+ *  one or more views:
+ *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
+ *  folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -2887,14 +3227,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  among the log entries that did not supply their own values, the entries
  *  earlier in the list will sort before the entries later in the list. See the
  *  entries.list method.Log entries with timestamps that are more than the logs
- *  retention period (https://cloud.google.com/logging/quota-policy) in the past
- *  or more than 24 hours in the future will not be available when calling
+ *  retention period (https://cloud.google.com/logging/quotas) in the past or
+ *  more than 24 hours in the future will not be available when calling
  *  entries.list. However, those log entries can still be exported with LogSinks
  *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).To improve
  *  throughput and to avoid exceeding the quota limit
- *  (https://cloud.google.com/logging/quota-policy) for calls to entries.write,
- *  you should try to include several log entries in this list, rather than
- *  calling this method for each individual log entry.
+ *  (https://cloud.google.com/logging/quotas) for calls to entries.write, you
+ *  should try to include several log entries in this list, rather than calling
+ *  this method for each individual log entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 
@@ -2909,15 +3249,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. A default log resource name that is assigned to all log entries in
  *  entries that do not specify a value for log_name:
- *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
- *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
- *  example: "projects/my-project-id/logs/syslog"
- *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"
- *  The permission logging.logEntries.create is needed on each project,
- *  organization, billing account, or folder that is receiving new log entries,
- *  whether the resource is specified in logName or in an individual log entry.
+ *  projects/[PROJECT_ID]/logs/[LOG_ID]
+ *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
+ *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
+ *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example:
+ *  "projects/my-project-id/logs/syslog"
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity" The permission
+ *  logging.logEntries.create is needed on each project, organization, billing
+ *  account, or folder that is receiving new log entries, whether the resource
+ *  is specified in logName or in an individual log entry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 

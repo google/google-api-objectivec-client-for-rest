@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsBackupsCreate : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsBackupsCreateWithObject:parent:]
 
 /**
  *  Required. The ID to use for the backup. The ID must be unique within the
@@ -66,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The backup's project and location, in the format
- *  projects/{project_number}/locations/{location}. In Cloud Filestore, backup
+ *  `projects/{project_number}/locations/{location}`. In Cloud Filestore, backup
  *  locations map to GCP regions, for example **us-west1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -78,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param parent Required. The backup's project and location, in the format
- *    projects/{project_number}/locations/{location}. In Cloud Filestore, backup
- *    locations map to GCP regions, for example **us-west1**.
+ *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
+ *    backup locations map to GCP regions, for example **us-west1**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsCreate
  */
@@ -97,12 +95,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsBackupsDelete : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsBackupsDeleteWithname:]
 
 /**
  *  Required. The backup resource name, in the format
- *  projects/{project_number}/locations/{location}/backups/{backup_id}
+ *  `projects/{project_number}/locations/{location}/backups/{backup_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -112,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a backup.
  *
  *  @param name Required. The backup resource name, in the format
- *    projects/{project_number}/locations/{location}/backups/{backup_id}
+ *    `projects/{project_number}/locations/{location}/backups/{backup_id}`
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsDelete
  */
@@ -129,12 +125,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsBackupsGet : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsBackupsGetWithname:]
 
 /**
  *  Required. The backup resource name, in the format
- *  projects/{project_number}/locations/{location}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -144,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific backup.
  *
  *  @param name Required. The backup resource name, in the format
- *    projects/{project_number}/locations/{location}/backups/{backup_id}.
+ *    `projects/{project_number}/locations/{location}/backups/{backup_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsGet
  */
@@ -162,8 +156,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsBackupsList : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsBackupsListWithparent:]
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -184,9 +176,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve backup information,
- *  in the format projects/{project_number}/locations/{location}. In Cloud
+ *  in the format `projects/{project_number}/locations/{location}`. In Cloud
  *  Filestore, backup locations map to GCP regions, for example **us-west1**. To
- *  retrieve backup information for all locations, use "-" for the {location}
+ *  retrieve backup information for all locations, use "-" for the `{location}`
  *  value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -199,9 +191,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    backup information, in the format
- *    projects/{project_number}/locations/{location}. In Cloud Filestore, backup
- *    locations map to GCP regions, for example **us-west1**. To retrieve backup
- *    information for all locations, use "-" for the {location} value.
+ *    `projects/{project_number}/locations/{location}`. In Cloud Filestore,
+ *    backup locations map to GCP regions, for example **us-west1**. To retrieve
+ *    backup information for all locations, use "-" for the `{location}` value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsList
  *
@@ -222,12 +214,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsBackupsPatch : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsBackupsPatchWithObject:name:]
 
 /**
  *  Output only. The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -246,7 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Backup to include in the query.
  *  @param name Output only. The resource name of the backup, in the format
- *    projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *    `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsBackupsPatch
  */
@@ -264,8 +254,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsGet : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -294,8 +282,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the instance to create. The name must be unique for
@@ -305,7 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The instance's project and location, in the format
- *  projects/{project_id}/locations/{location}. In Cloud Filestore, locations
+ *  `projects/{project_id}/locations/{location}`. In Cloud Filestore, locations
  *  map to GCP zones, for example **us-west1-b**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -319,8 +305,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param parent Required. The instance's project and location, in the format
- *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
- *    map to GCP zones, for example **us-west1-b**.
+ *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+ *    locations map to GCP zones, for example **us-west1-b**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
  */
@@ -338,12 +324,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  Required. The instance resource name, in the format
- *  projects/{project_id}/locations/{location}/instances/{instance_id}
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -353,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an instance.
  *
  *  @param name Required. The instance resource name, in the format
- *    projects/{project_id}/locations/{location}/instances/{instance_id}
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete
  */
@@ -370,12 +354,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  Required. The instance resource name, in the format
- *  projects/{project_id}/locations/{location}/instances/{instance_id}.
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -385,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific instance.
  *
  *  @param name Required. The instance resource name, in the format
- *    projects/{project_id}/locations/{location}/instances/{instance_id}.
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesGet
  */
@@ -403,8 +385,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesListWithparent:]
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -425,10 +405,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location for which to retrieve instance
- *  information, in the format projects/{project_id}/locations/{location}. In
+ *  information, in the format `projects/{project_id}/locations/{location}`. In
  *  Cloud Filestore, locations map to GCP zones, for example **us-west1-b**. To
- *  retrieve instance information for all locations, use "-" for the {location}
- *  value.
+ *  retrieve instance information for all locations, use "-" for the
+ *  `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -440,9 +420,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The project and location for which to retrieve
  *    instance information, in the format
- *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
- *    map to GCP zones, for example **us-west1-b**. To retrieve instance
- *    information for all locations, use "-" for the {location} value.
+ *    `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+ *    locations map to GCP zones, for example **us-west1-b**. To retrieve
+ *    instance information for all locations, use "-" for the `{location}`
+ *    value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList
  *
@@ -463,12 +444,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesPatchWithObject:name:]
 
 /**
  *  Output only. The resource name of the instance, in the format
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  `projects/{project}/locations/{location}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -488,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param name Output only. The resource name of the instance, in the format
- *    projects/{project}/locations/{location}/instances/{instance}.
+ *    `projects/{project}/locations/{location}/instances/{instance}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPatch
  */
@@ -498,9 +477,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restores an existing instance's file share from a backup. The instance's
- *  file share capacity will be set to the backup's capacity or the minimum
- *  capacity of the tier, whichever is larger.
+ *  Restores an existing instance's file share from a backup. The capacity of
+ *  the instance needs to be equal to or larger than the capacity of the backup
+ *  (and also equal to or larger than the minimum capacity of the tier).
  *
  *  Method: file.projects.locations.instances.restore
  *
@@ -508,26 +487,24 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesRestoreWithObject:name:]
 
 /**
  *  Required. The resource name of the instance, in the format
- *  projects/{project_number}/locations/{location_id}/instances/{instance_id}.
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudFilestore_Operation.
  *
- *  Restores an existing instance's file share from a backup. The instance's
- *  file share capacity will be set to the backup's capacity or the minimum
- *  capacity of the tier, whichever is larger.
+ *  Restores an existing instance's file share from a backup. The capacity of
+ *  the instance needs to be equal to or larger than the capacity of the backup
+ *  (and also equal to or larger than the minimum capacity of the tier).
  *
  *  @param object The @c GTLRCloudFilestore_RestoreInstanceRequest to include in
  *    the query.
  *  @param name Required. The resource name of the instance, in the format
- *    projects/{project_number}/locations/{location_id}/instances/{instance_id}.
+ *    `projects/{project_number}/locations/{location_id}/instances/{instance_id}`.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
  */
@@ -545,10 +522,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsList : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -560,10 +539,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -600,8 +585,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsOperationsCancel : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -642,8 +625,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsOperationsDelete : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -675,8 +656,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsOperationsGet : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -713,8 +692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
  */
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsOperationsList : GTLRCloudFilestoreQuery
-// Previous library name was
-//   +[GTLQueryCloudFilestore queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

@@ -51,9 +51,9 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 @implementation GTLRCloudLifeSciences_Action
 @dynamic alwaysRun, blockExternalNetwork, commands, containerName, credentials,
          disableImagePrefetch, disableStandardErrorCapture, enableFuse,
-         entrypoint, environment, ignoreExitStatus, imageUri, labels, mounts,
-         pidNamespace, portMappings, publishExposedPorts, runInBackground,
-         timeout;
+         encryptedEnvironment, entrypoint, environment, ignoreExitStatus,
+         imageUri, labels, mounts, pidNamespace, portMappings,
+         publishExposedPorts, runInBackground, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -323,7 +323,7 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_Metadata
-@dynamic createTime, endTime, events, labels, pipeline, startTime;
+@dynamic createTime, endTime, events, labels, pipeline, pubSubTopic, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -433,7 +433,7 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_Pipeline
-@dynamic actions, environment, resources, timeout;
+@dynamic actions, encryptedEnvironment, environment, resources, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -504,7 +504,7 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_RunPipelineRequest
-@dynamic labels, pipeline;
+@dynamic labels, pipeline, pubSubTopic;
 @end
 
 
@@ -609,7 +609,8 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 @implementation GTLRCloudLifeSciences_VirtualMachine
 @dynamic accelerators, bootDiskSizeGb, bootImage, cpuPlatform, disks,
          dockerCacheImages, enableStackdriverMonitoring, labels, machineType,
-         network, nvidiaDriverVersion, preemptible, serviceAccount, volumes;
+         network, nvidiaDriverVersion, preemptible, reservation, serviceAccount,
+         volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

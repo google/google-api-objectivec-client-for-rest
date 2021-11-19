@@ -18,47 +18,9 @@
 
 @end
 
-@implementation GTLRBigQueryReservationQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBigQueryReservationQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryReservation_Empty class];
-  query.loggingName = @"bigqueryreservation.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryReservationQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBigQueryReservationQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryReservation_ListOperationsResponse class];
-  query.loggingName = @"bigqueryreservation.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsCreate
 
-@dynamic enforceSingleAdminProjectPerOrg, parent;
+@dynamic capacityCommitmentId, enforceSingleAdminProjectPerOrg, parent;
 
 + (instancetype)queryWithObject:(GTLRBigQueryReservation_CapacityCommitment *)object
                          parent:(NSString *)parent {
@@ -85,7 +47,7 @@
 
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -242,7 +204,7 @@
 
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsCreate
 
-@dynamic parent;
+@dynamic assignmentId, parent;
 
 + (instancetype)queryWithObject:(GTLRBigQueryReservation_Assignment *)object
                          parent:(NSString *)parent {

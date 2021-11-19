@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -37,15 +37,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCompute;
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeCloudPlatform;
 /**
- *  Authorization scope: Manage your data and permissions in Google Cloud
- *  Storage
+ *  Authorization scope: Manage your data and permissions in Cloud Storage and
+ *  see the email address for your Google Account
  *
  *  Value "https://www.googleapis.com/auth/devstorage.full_control"
  */
@@ -57,7 +57,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageFullControl;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeComputeDevstorageReadOnly;
 /**
- *  Authorization scope: Manage your data in Google Cloud Storage
+ *  Authorization scope: Manage your data in Cloud Storage and see the email
+ *  address of your Google Account
  *
  *  Value "https://www.googleapis.com/auth/devstorage.read_write"
  */

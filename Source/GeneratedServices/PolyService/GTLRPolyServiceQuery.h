@@ -103,8 +103,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
  *  Method: poly.assets.get
  */
 @interface GTLRPolyServiceQuery_AssetsGet : GTLRPolyServiceQuery
-// Previous library name was
-//   +[GTLQueryPolyService queryForAssetsGetWithname:]
 
 /** Required. An asset's name in the form `assets/{ASSET_ID}`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -131,8 +129,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
  *  Method: poly.assets.list
  */
 @interface GTLRPolyServiceQuery_AssetsList : GTLRPolyServiceQuery
-// Previous library name was
-//   +[GTLQueryPolyService queryForAssetsList]
 
 /**
  *  Filter assets based on the specified category. Supported values are:
@@ -219,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
  *  Method: poly.users.assets.list
  */
 @interface GTLRPolyServiceQuery_UsersAssetsList : GTLRPolyServiceQuery
-// Previous library name was
-//   +[GTLQueryPolyService queryForUsersAssetsListWithname:]
 
 /**
  *  Return only assets with the matching format. Acceptable values are:
@@ -299,8 +293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
  *  Method: poly.users.likedassets.list
  */
 @interface GTLRPolyServiceQuery_UsersLikedassetsList : GTLRPolyServiceQuery
-// Previous library name was
-//   +[GTLQueryPolyService queryForUsersLikedassetsListWithname:]
 
 /**
  *  Return only assets with the matching format. Acceptable values are:

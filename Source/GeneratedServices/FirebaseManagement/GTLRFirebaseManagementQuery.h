@@ -67,8 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_AvailableProjectsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForAvailableProjectsList]
 
 /**
  *  The maximum number of Projects to return in the response. The server may
@@ -119,8 +117,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_OperationsGet : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -170,8 +166,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAddFirebase : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAddFirebaseWithObject:project:]
 
 /**
  *  The resource name of the GCP `Project` to which Firebase resources will be
@@ -276,8 +270,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAddGoogleAnalytics : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAddGoogleAnalyticsWithObject:parent:]
 
 /**
  *  The resource name of the FirebaseProject to link to an existing Google
@@ -354,8 +346,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsCreate : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsCreateWithObject:parent:]
 
 /**
  *  The resource name of the parent FirebaseProject in which to create an
@@ -400,8 +390,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsGet : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsGetWithname:]
 
 /**
  *  The resource name of the AndroidApp, in the format: projects/
@@ -443,8 +431,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsGetConfig : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsGetConfigWithname:]
 
 /**
  *  The resource name of the AndroidApp configuration to download, in the
@@ -490,8 +476,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsListWithparent:]
 
 /**
  *  The maximum number of Apps to return in the response. The server may return
@@ -548,8 +532,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsPatch : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsPatchWithObject:name:]
 
 /**
  *  The resource name of the AndroidApp, in the format: projects/
@@ -610,8 +592,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsShaCreate : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsShaCreateWithObject:parent:]
 
 /**
  *  The resource name of the parent AndroidApp to which to add a ShaCertificate,
@@ -656,8 +636,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsShaDelete : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsShaDeleteWithname:]
 
 /**
  *  The resource name of the ShaCertificate to remove from the parent
@@ -704,8 +682,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAndroidAppsShaList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAndroidAppsShaListWithparent:]
 
 /**
  *  The resource name of the parent AndroidApp for which to list each associated
@@ -764,8 +740,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsAvailableLocationsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsAvailableLocationsListWithparent:]
 
 /**
  *  The maximum number of locations to return in the response. The server may
@@ -865,8 +839,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsDefaultLocationFinalize : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsDefaultLocationFinalizeWithObject:parent:]
 
 /**
  *  The resource name of the FirebaseProject for which the default GCP resource
@@ -935,8 +907,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsGet : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsGetWithname:]
 
 /**
  *  The resource name of the FirebaseProject, in the format: projects/
@@ -978,8 +948,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsGetAdminSdkConfig : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsGetAdminSdkConfigWithname:]
 
 /**
  *  The resource name of the FirebaseProject, in the format: projects/
@@ -1023,8 +991,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsGetAnalyticsDetails : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsGetAnalyticsDetailsWithname:]
 
 /**
  *  The resource name of the FirebaseProject, in the format: projects/
@@ -1065,8 +1031,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsCreate : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsIosAppsCreateWithObject:parent:]
 
 /**
  *  The resource name of the parent FirebaseProject in which to create an
@@ -1109,8 +1073,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsGet : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsIosAppsGetWithname:]
 
 /**
  *  The resource name of the IosApp, in the format: projects/PROJECT_IDENTIFIER
@@ -1152,8 +1114,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsGetConfig : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsIosAppsGetConfigWithname:]
 
 /**
  *  The resource name of the App configuration to download, in the format:
@@ -1197,8 +1157,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsIosAppsListWithparent:]
 
 /**
  *  The maximum number of Apps to return in the response. The server may return
@@ -1254,8 +1212,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsIosAppsPatch : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsIosAppsPatchWithObject:name:]
 
 /**
  *  The resource name of the IosApp, in the format: projects/PROJECT_IDENTIFIER
@@ -1323,8 +1279,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsList]
 
 /**
  *  The maximum number of Projects to return in the response. The server may
@@ -1373,8 +1327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsPatch : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsPatchWithObject:name:]
 
 /**
  *  The resource name of the Project, in the format: projects/PROJECT_IDENTIFIER
@@ -1442,8 +1394,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsRemoveAnalytics : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsRemoveAnalyticsWithObject:parent:]
 
 /**
  *  The resource name of the FirebaseProject to unlink from its Google Analytics
@@ -1498,8 +1448,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsSearchApps : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsSearchAppsWithparent:]
 
 /**
  *  A query string compatible with Google's
@@ -1583,8 +1531,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsCreate : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsWebAppsCreateWithObject:parent:]
 
 /**
  *  The resource name of the parent FirebaseProject in which to create a WebApp,
@@ -1627,8 +1573,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsGet : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsWebAppsGetWithname:]
 
 /**
  *  The resource name of the WebApp, in the format: projects/PROJECT_IDENTIFIER
@@ -1670,8 +1614,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsGetConfig : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsWebAppsGetConfigWithname:]
 
 /**
  *  The resource name of the WebApp configuration to download, in the format:
@@ -1715,8 +1657,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementReadonly
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsList : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsWebAppsListWithparent:]
 
 /**
  *  The maximum number of Apps to return in the response. The server may return
@@ -1772,8 +1712,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseManagementCloudPlatform
  */
 @interface GTLRFirebaseManagementQuery_ProjectsWebAppsPatch : GTLRFirebaseManagementQuery
-// Previous library name was
-//   +[GTLQueryFirebaseManagement queryForProjectsWebAppsPatchWithObject:name:]
 
 /**
  *  The resource name of the WebApp, in the format: projects/PROJECT_IDENTIFIER

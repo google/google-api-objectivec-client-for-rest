@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Certificate Authority API (privateca/v1beta1)
+//   Certificate Authority API (privateca/v1)
 // Description:
 //   The Certificate Authority Service API is a highly-available, scalable
 //   service that enables you to simplify and automate the management of private
@@ -25,16 +25,18 @@
 
 @class GTLRCertificateAuthorityService_ActivateCertificateAuthorityRequest;
 @class GTLRCertificateAuthorityService_CancelOperationRequest;
+@class GTLRCertificateAuthorityService_CaPool;
 @class GTLRCertificateAuthorityService_Certificate;
 @class GTLRCertificateAuthorityService_CertificateAuthority;
 @class GTLRCertificateAuthorityService_CertificateRevocationList;
+@class GTLRCertificateAuthorityService_CertificateTemplate;
 @class GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest;
 @class GTLRCertificateAuthorityService_EnableCertificateAuthorityRequest;
-@class GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest;
+@class GTLRCertificateAuthorityService_FetchCaCertsRequest;
 @class GTLRCertificateAuthorityService_RevokeCertificateRequest;
-@class GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest;
 @class GTLRCertificateAuthorityService_SetIamPolicyRequest;
 @class GTLRCertificateAuthorityService_TestIamPermissionsRequest;
+@class GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -54,31 +56,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Activate a CertificateAuthority that is in state PENDING_ACTIVATION and is
- *  of type SUBORDINATE. After the parent Certificate Authority signs a
+ *  Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION
+ *  and is of type SUBORDINATE. After the parent Certificate Authority signs a
  *  certificate signing request from FetchCertificateAuthorityCsr, this method
  *  can complete the activation process.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.activate
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.activate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesActivate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesActivateWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesActivate : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCertificateAuthorityService_Operation.
  *
- *  Activate a CertificateAuthority that is in state PENDING_ACTIVATION and is
- *  of type SUBORDINATE. After the parent Certificate Authority signs a
+ *  Activate a CertificateAuthority that is in state AWAITING_USER_ACTIVATION
+ *  and is of type SUBORDINATE. After the parent Certificate Authority signs a
  *  certificate signing request from FetchCertificateAuthorityCsr, this method
  *  can complete the activation process.
  *
@@ -86,9 +86,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRCertificateAuthorityService_ActivateCertificateAuthorityRequest to
  *    include in the query.
  *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesActivate
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesActivate
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_ActivateCertificateAuthorityRequest *)object
                            name:(NSString *)name;
@@ -98,14 +98,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns a CertificateRevocationList.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.get
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetWithname:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGet : GTLRCertificateAuthorityServiceQuery
 
 /** Required. The name of the CertificateRevocationList to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -117,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the CertificateRevocationList to get.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGet
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -127,14 +125,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.getIamPolicy
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.getIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicyWithresource:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -163,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
 
@@ -172,14 +168,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists CertificateRevocationLists.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.list
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsListWithparent:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsList : GTLRCertificateAuthorityServiceQuery
 
 /** Optional. Only include resources that match the filter in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -205,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the location associated with the
  *  CertificateRevocationLists, in the format `projects/ * /locations/ *
- *  /certificateauthorities/ *`.
+ *  /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -217,9 +211,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The resource name of the location associated with
  *    the CertificateRevocationLists, in the format `projects/ * /locations/ *
- *    /certificateauthorities/ *`.
+ *    /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsList
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -232,18 +226,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Update a CertificateRevocationList.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.patch
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatchWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Output only. The resource path for this CertificateRevocationList in the
- *  format `projects/ * /locations/ * /certificateAuthorities/ * /
+ *  Output only. The resource name for this CertificateRevocationList in the
+ *  format `projects/ * /locations/ * /caPools/ *certificateAuthorities/ * /
  *  certificateRevocationLists/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -277,11 +269,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRCertificateAuthorityService_CertificateRevocationList to include in
  *    the query.
- *  @param name Output only. The resource path for this
+ *  @param name Output only. The resource name for this
  *    CertificateRevocationList in the format `projects/ * /locations/ *
- *    /certificateAuthorities/ * / certificateRevocationLists/ *`.
+ *    /caPools/ *certificateAuthorities/ * / certificateRevocationLists/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatch
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateRevocationList *)object
                            name:(NSString *)name;
@@ -293,14 +285,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.setIamPolicy
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.setIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicyWithObject:resource:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -321,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -335,14 +325,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.certificateRevocationLists.testIamPermissions
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.testIamPermissions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissionsWithObject:resource:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -366,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -374,266 +362,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Create a new Certificate in a given Project, Location from a particular
- *  CertificateAuthority.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.certificates.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesCreate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesCreateWithObject:parent:]
-
-/**
- *  Optional. It must be unique within a location and match the regular
- *  expression `[a-zA-Z0-9_-]{1,63}`. This field is required when using a
- *  CertificateAuthority in the Enterprise CertificateAuthority.Tier, but is
- *  optional and its value is ignored otherwise.
- */
-@property(nonatomic, copy, nullable) NSString *certificateId;
-
-/**
- *  Required. The resource name of the location and CertificateAuthority
- *  associated with the Certificate, in the format `projects/ * /locations/ *
- *  /certificateAuthorities/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Optional. An ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
- *
- *  Create a new Certificate in a given Project, Location from a particular
- *  CertificateAuthority.
- *
- *  @param object The @c GTLRCertificateAuthorityService_Certificate to include
- *    in the query.
- *  @param parent Required. The resource name of the location and
- *    CertificateAuthority associated with the Certificate, in the format
- *    `projects/ * /locations/ * /certificateAuthorities/ *`.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesCreate
- */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Returns a Certificate.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.certificates.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesGetWithname:]
-
-/** Required. The name of the Certificate to get. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
- *
- *  Returns a Certificate.
- *
- *  @param name Required. The name of the Certificate to get.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists Certificates.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.certificates.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesListWithparent:]
-
-/**
- *  Optional. Only include resources that match the filter in the response. For
- *  details on supported filters and syntax, see [Certificates Filtering
- *  documentation](https://cloud.google.com/certificate-authority-service/docs/sorting-filtering-certificates#filtering_support).
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  Optional. Specify how the results should be sorted. For details on supported
- *  fields and syntax, see [Certificates Sorting
- *  documentation](https://cloud.google.com/certificate-authority-service/docs/sorting-filtering-certificates#sorting_support).
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Optional. Limit on the number of Certificates to include in the response.
- *  Further Certificates can subsequently be obtained by including the
- *  ListCertificatesResponse.next_page_token in a subsequent request. If
- *  unspecified, the server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Pagination token, returned earlier via
- *  ListCertificatesResponse.next_page_token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The resource name of the location associated with the
- *  Certificates, in the format `projects/ * /locations/ *
- *  /certificateauthorities/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_ListCertificatesResponse.
- *
- *  Lists Certificates.
- *
- *  @param parent Required. The resource name of the location associated with
- *    the Certificates, in the format `projects/ * /locations/ *
- *    /certificateauthorities/ *`.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Update a Certificate. Currently, the only field you can update is the labels
- *  field.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.certificates.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesPatchWithObject:name:]
-
-/**
- *  Output only. The resource path for this Certificate in the format `projects/
- *  * /locations/ * /certificateAuthorities/ * /certificates/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. An ID to identify requests. Specify a unique request ID so that if
- *  you must retry your request, the server will know to ignore the request if
- *  it has already been completed. The server will guarantee that for at least
- *  60 minutes since the first request. For example, consider a situation where
- *  you make an initial request and t he request times out. If you make the
- *  request again with the same request ID, the server can check if original
- *  operation with the same request ID was received, and if so, will ignore the
- *  second request. This prevents clients from accidentally creating duplicate
- *  commitments. The request ID must be a valid UUID with the exception that
- *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-/**
- *  Required. A list of fields to be updated in this request.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
- *
- *  Update a Certificate. Currently, the only field you can update is the labels
- *  field.
- *
- *  @param object The @c GTLRCertificateAuthorityService_Certificate to include
- *    in the query.
- *  @param name Output only. The resource path for this Certificate in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *
- *    /certificates/ *`.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesPatch
- */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Revoke a Certificate.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.certificates.revoke
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesRevoke : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesRevokeWithObject:name:]
-
-/**
- *  Required. The resource name for this Certificate in the format `projects/ *
- *  /locations/ * /certificateAuthorities/ * /certificates/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
- *
- *  Revoke a Certificate.
- *
- *  @param object The @c
- *    GTLRCertificateAuthorityService_RevokeCertificateRequest to include in the
- *    query.
- *  @param name Required. The resource name for this Certificate in the format
- *    `projects/ * /locations/ * /certificateAuthorities/ * /certificates/ *`.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesRevoke
- */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RevokeCertificateRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Create a new CertificateAuthority in a given Project and Location.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.create
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCreate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCreateWithObject:parent:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCreate : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Required. It must be unique within a location and match the regular
@@ -642,8 +378,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *certificateAuthorityId;
 
 /**
- *  Required. The resource name of the location associated with the
- *  CertificateAuthorities, in the format `projects/ * /locations/ *`.
+ *  Required. The resource name of the CaPool associated with the
+ *  CertificateAuthorities, in the format `projects/ * /locations/ * /caPools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -668,10 +405,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCertificateAuthorityService_CertificateAuthority to
  *    include in the query.
- *  @param parent Required. The resource name of the location associated with
- *    the CertificateAuthorities, in the format `projects/ * /locations/ *`.
+ *  @param parent Required. The resource name of the CaPool associated with the
+ *    CertificateAuthorities, in the format `projects/ * /locations/ * /caPools/
+ *    *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCreate
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCreate
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateAuthority *)object
                          parent:(NSString *)parent;
@@ -679,20 +417,68 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disable a CertificateAuthority.
+ *  Delete a CertificateAuthority.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.disable
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesDisable : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesDisableWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDelete : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Optional. This field allows the CA to be deleted even if the CA has active
+ *  certs. Active certs include both unrevoked and unexpired certs.
+ */
+@property(nonatomic, assign) BOOL ignoreActiveCertificates;
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Delete a CertificateAuthority.
+ *
+ *  @param name Required. The resource name for this CertificateAuthority in the
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Disable a CertificateAuthority.
+ *
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDisable : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. The resource name for this CertificateAuthority in the format
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -705,9 +491,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest to
  *    include in the query.
  *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesDisable
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDisable
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest *)object
                            name:(NSString *)name;
@@ -717,18 +503,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Enable a CertificateAuthority.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.enable
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.enable
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesEnable : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesEnableWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesEnable : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -741,9 +525,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRCertificateAuthorityService_EnableCertificateAuthorityRequest to
  *    include in the query.
  *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesEnable
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesEnable
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_EnableCertificateAuthorityRequest *)object
                            name:(NSString *)name;
@@ -752,23 +536,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetch a certificate signing request (CSR) from a CertificateAuthority that
- *  is in state PENDING_ACTIVATION and is of type SUBORDINATE. The CSR must then
- *  be signed by the desired parent Certificate Authority, which could be
- *  another CertificateAuthority resource, or could be an on-prem certificate
+ *  is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR
+ *  must then be signed by the desired parent Certificate Authority, which could
+ *  be another CertificateAuthority resource, or could be an on-prem certificate
  *  authority. See also ActivateCertificateAuthority.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.fetch
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.fetch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesFetch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesFetchWithname:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesFetch : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -777,15 +559,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCertificateAuthorityService_FetchCertificateAuthorityCsrResponse.
  *
  *  Fetch a certificate signing request (CSR) from a CertificateAuthority that
- *  is in state PENDING_ACTIVATION and is of type SUBORDINATE. The CSR must then
- *  be signed by the desired parent Certificate Authority, which could be
- *  another CertificateAuthority resource, or could be an on-prem certificate
+ *  is in state AWAITING_USER_ACTIVATION and is of type SUBORDINATE. The CSR
+ *  must then be signed by the desired parent Certificate Authority, which could
+ *  be another CertificateAuthority resource, or could be an on-prem certificate
  *  authority. See also ActivateCertificateAuthority.
  *
  *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesFetch
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesFetch
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -794,14 +576,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns a CertificateAuthority.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.get
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesGetWithname:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesGet : GTLRCertificateAuthorityServiceQuery
 
 /** Required. The name of the CertificateAuthority to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -813,69 +593,21 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. The name of the CertificateAuthority to get.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGet
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: privateca.projects.locations.certificateAuthorities.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesGetIamPolicyWithresource:]
-
-/**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists CertificateAuthorities.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.list
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesListWithparent:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesList : GTLRCertificateAuthorityServiceQuery
 
 /** Optional. Only include resources that match the filter in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -899,8 +631,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the location associated with the
- *  CertificateAuthorities, in the format `projects/ * /locations/ *`.
+ *  Required. The resource name of the CaPool associated with the
+ *  CertificateAuthorities, in the format `projects/ * /locations/ * /caPools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -910,10 +643,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists CertificateAuthorities.
  *
- *  @param parent Required. The resource name of the location associated with
- *    the CertificateAuthorities, in the format `projects/ * /locations/ *`.
+ *  @param parent Required. The resource name of the CaPool associated with the
+ *    CertificateAuthorities, in the format `projects/ * /locations/ * /caPools/
+ *    *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesList
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -926,18 +660,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Update a CertificateAuthority.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.patch
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesPatchWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Output only. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -970,9 +702,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCertificateAuthorityService_CertificateAuthority to
  *    include in the query.
  *  @param name Output only. The resource name for this CertificateAuthority in
- *    the format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    the format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/
+ *    *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesPatch
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateAuthority *)object
                            name:(NSString *)name;
@@ -980,73 +713,604 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restore a CertificateAuthority that is scheduled for deletion.
+ *  Undelete a CertificateAuthority that has been deleted.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.restore
+ *  Method: privateca.projects.locations.caPools.certificateAuthorities.undelete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesRestore : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesRestoreWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesUndelete : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCertificateAuthorityService_Operation.
  *
- *  Restore a CertificateAuthority that is scheduled for deletion.
+ *  Undelete a CertificateAuthority that has been deleted.
  *
  *  @param object The @c
- *    GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest to
+ *    GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest to
  *    include in the query.
  *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesRestore
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesUndelete
  */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest *)object
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest *)object
                            name:(NSString *)name;
 
 @end
 
 /**
- *  Schedule a CertificateAuthority for deletion.
+ *  Create a new Certificate in a given Project, Location from a particular
+ *  CaPool.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.scheduleDelete
+ *  Method: privateca.projects.locations.caPools.certificates.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesScheduleDelete : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesScheduleDeleteWithObject:name:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesCreate : GTLRCertificateAuthorityServiceQuery
 
 /**
- *  Required. The resource name for this CertificateAuthority in the format
- *  `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *  Optional. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`. This field is required when using a
+ *  CertificateAuthority in the Enterprise CertificateAuthority.Tier, but is
+ *  optional and its value is ignored otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *certificateId;
+
+/**
+ *  Optional. The resource ID of the CertificateAuthority that should issue the
+ *  certificate. This optional field will ignore the load-balancing scheme of
+ *  the Pool and directly issue the certificate from the CA with the specified
+ *  ID, contained in the same CaPool referenced by `parent`. Per-CA quota rules
+ *  apply. If left empty, a CertificateAuthority will be chosen from the CaPool
+ *  by the service. For example, to issue a Certificate from a Certificate
+ *  Authority with resource name
+ *  "projects/my-project/locations/us-central1/caPools/my-pool/certificateAuthorities/my-ca",
+ *  you can set the parent to
+ *  "projects/my-project/locations/us-central1/caPools/my-pool" and the
+ *  issuing_certificate_authority_id to "my-ca".
+ */
+@property(nonatomic, copy, nullable) NSString *issuingCertificateAuthorityId;
+
+/**
+ *  Required. The resource name of the CaPool associated with the Certificate,
+ *  in the format `projects/ * /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If this is true, no Certificate resource will be persisted
+ *  regardless of the CaPool's tier, and the returned Certificate will not
+ *  contain the pem_certificate field.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
+ *
+ *  Create a new Certificate in a given Project, Location from a particular
+ *  CaPool.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_Certificate to include
+ *    in the query.
+ *  @param parent Required. The resource name of the CaPool associated with the
+ *    Certificate, in the format `projects/ * /locations/ * /caPools/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a Certificate.
+ *
+ *  Method: privateca.projects.locations.caPools.certificates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesGet : GTLRCertificateAuthorityServiceQuery
+
+/** Required. The name of the Certificate to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
+ *
+ *  Returns a Certificate.
+ *
+ *  @param name Required. The name of the Certificate to get.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Certificates.
+ *
+ *  Method: privateca.projects.locations.caPools.certificates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Optional. Only include resources that match the filter in the response. For
+ *  details on supported filters and syntax, see [Certificates Filtering
+ *  documentation](https://cloud.google.com/certificate-authority-service/docs/sorting-filtering-certificates#filtering_support).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. For details on supported
+ *  fields and syntax, see [Certificates Sorting
+ *  documentation](https://cloud.google.com/certificate-authority-service/docs/sorting-filtering-certificates#sorting_support).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Limit on the number of Certificates to include in the response.
+ *  Further Certificates can subsequently be obtained by including the
+ *  ListCertificatesResponse.next_page_token in a subsequent request. If
+ *  unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Pagination token, returned earlier via
+ *  ListCertificatesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  Certificates, in the format `projects/ * /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_ListCertificatesResponse.
+ *
+ *  Lists Certificates.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the Certificates, in the format `projects/ * /locations/ * /caPools/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a Certificate. Currently, the only field you can update is the labels
+ *  field.
+ *
+ *  Method: privateca.projects.locations.caPools.certificates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Output only. The resource name for this Certificate in the format `projects/
+ *  * /locations/ * /caPools/ * /certificates/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A list of fields to be updated in this request.
  *
- *  Schedule a CertificateAuthority for deletion.
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
+ *
+ *  Update a Certificate. Currently, the only field you can update is the labels
+ *  field.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_Certificate to include
+ *    in the query.
+ *  @param name Output only. The resource name for this Certificate in the
+ *    format `projects/ * /locations/ * /caPools/ * /certificates/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Revoke a Certificate.
+ *
+ *  Method: privateca.projects.locations.caPools.certificates.revoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesRevoke : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. The resource name for this Certificate in the format `projects/ *
+ *  /locations/ * /caPools/ * /certificates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Certificate.
+ *
+ *  Revoke a Certificate.
  *
  *  @param object The @c
- *    GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest
- *    to include in the query.
- *  @param name Required. The resource name for this CertificateAuthority in the
- *    format `projects/ * /locations/ * /certificateAuthorities/ *`.
+ *    GTLRCertificateAuthorityService_RevokeCertificateRequest to include in the
+ *    query.
+ *  @param name Required. The resource name for this Certificate in the format
+ *    `projects/ * /locations/ * /caPools/ * /certificates/ *`.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesScheduleDelete
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesRevoke
  */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest *)object
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RevokeCertificateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a CaPool.
+ *
+ *  Method: privateca.projects.locations.caPools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCreate : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`
+ */
+@property(nonatomic, copy, nullable) NSString *caPoolId;
+
+/**
+ *  Required. The resource name of the location associated with the CaPool, in
+ *  the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Create a CaPool.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_CaPool to include in
+ *    the query.
+ *  @param parent Required. The resource name of the location associated with
+ *    the CaPool, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CaPool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a CaPool.
+ *
+ *  Method: privateca.projects.locations.caPools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. The resource name for this CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Delete a CaPool.
+ *
+ *  @param name Required. The resource name for this CaPool in the format
+ *    `projects/ * /locations/ * /caPools/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  FetchCaCerts returns the current trust anchor for the CaPool. This will
+ *  include CA certificate chains for all ACTIVE CertificateAuthority resources
+ *  in the CaPool.
+ *
+ *  Method: privateca.projects.locations.caPools.fetchCaCerts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsFetchCaCerts : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. The resource name for the CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *caPool;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_FetchCaCertsResponse.
+ *
+ *  FetchCaCerts returns the current trust anchor for the CaPool. This will
+ *  include CA certificate chains for all ACTIVE CertificateAuthority resources
+ *  in the CaPool.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_FetchCaCertsRequest to
+ *    include in the query.
+ *  @param caPool Required. The resource name for the CaPool in the format
+ *    `projects/ * /locations/ * /caPools/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsFetchCaCerts
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_FetchCaCertsRequest *)object
+                         caPool:(NSString *)caPool;
+
+@end
+
+/**
+ *  Returns a CaPool.
+ *
+ *  Method: privateca.projects.locations.caPools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGet : GTLRCertificateAuthorityServiceQuery
+
+/** Required. The name of the CaPool to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_CaPool.
+ *
+ *  Returns a CaPool.
+ *
+ *  @param name Required. The name of the CaPool to get.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: privateca.projects.locations.caPools.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists CaPools.
+ *
+ *  Method: privateca.projects.locations.caPools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsList : GTLRCertificateAuthorityServiceQuery
+
+/** Optional. Only include resources that match the filter in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Specify how the results should be sorted. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Limit on the number of CaPools to include in the response. Further
+ *  CaPools can subsequently be obtained by including the
+ *  ListCaPoolsResponse.next_page_token in a subsequent request. If unspecified,
+ *  the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Pagination token, returned earlier via
+ *  ListCaPoolsResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the CaPools, in
+ *  the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_ListCaPoolsResponse.
+ *
+ *  Lists CaPools.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the CaPools, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a CaPool.
+ *
+ *  Method: privateca.projects.locations.caPools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Output only. The resource name for this CaPool in the format `projects/ *
+ *  /locations/ * /caPools/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A list of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Update a CaPool.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_CaPool to include in
+ *    the query.
+ *  @param name Output only. The resource name for this CaPool in the format
+ *    `projects/ * /locations/ * /caPools/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CaPool *)object
                            name:(NSString *)name;
 
 @end
@@ -1056,14 +1320,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
  *  `PERMISSION_DENIED` errors.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.setIamPolicy
+ *  Method: privateca.projects.locations.caPools.setIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesSetIamPolicyWithObject:resource:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1084,7 +1346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    specified. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesSetIamPolicy
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
@@ -1098,14 +1360,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission-aware UIs and command-line tools, not for authorization checking.
  *  This operation may "fail open" without warning.
  *
- *  Method: privateca.projects.locations.certificateAuthorities.testIamPermissions
+ *  Method: privateca.projects.locations.caPools.testIamPermissions
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesTestIamPermissionsWithObject:resource:]
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1129,7 +1389,365 @@ NS_ASSUME_NONNULL_BEGIN
  *    requested. See the operation documentation for the appropriate value for
  *    this field.
  *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesTestIamPermissions
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Create a new CertificateTemplate in a given Project and Location.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesCreate : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`
+ */
+@property(nonatomic, copy, nullable) NSString *certificateTemplateId;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  CertificateTemplate, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Create a new CertificateTemplate in a given Project and Location.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_CertificateTemplate to
+ *    include in the query.
+ *  @param parent Required. The resource name of the location associated with
+ *    the CertificateTemplate, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateTemplate *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  DeleteCertificateTemplate deletes a CertificateTemplate.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesDelete : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Required. The resource name for this CertificateTemplate in the format
+ *  `projects/ * /locations/ * /certificateTemplates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  DeleteCertificateTemplate deletes a CertificateTemplate.
+ *
+ *  @param name Required. The resource name for this CertificateTemplate in the
+ *    format `projects/ * /locations/ * /certificateTemplates/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a CertificateTemplate.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGet : GTLRCertificateAuthorityServiceQuery
+
+/** Required. The name of the CertificateTemplate to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_CertificateTemplate.
+ *
+ *  Returns a CertificateTemplate.
+ *
+ *  @param name Required. The name of the CertificateTemplate to get.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGetIamPolicy : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists CertificateTemplates.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesList : GTLRCertificateAuthorityServiceQuery
+
+/** Optional. Only include resources that match the filter in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Specify how the results should be sorted. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Limit on the number of CertificateTemplates to include in the
+ *  response. Further CertificateTemplates can subsequently be obtained by
+ *  including the ListCertificateTemplatesResponse.next_page_token in a
+ *  subsequent request. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Pagination token, returned earlier via
+ *  ListCertificateTemplatesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  CertificateTemplates, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCertificateAuthorityService_ListCertificateTemplatesResponse.
+ *
+ *  Lists CertificateTemplates.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the CertificateTemplates, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a CertificateTemplate.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  Output only. The resource name for this CertificateTemplate in the format
+ *  `projects/ * /locations/ * /certificateTemplates/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes since the first request. For example, consider a situation where
+ *  you make an initial request and t he request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A list of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Operation.
+ *
+ *  Update a CertificateTemplate.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_CertificateTemplate to
+ *    include in the query.
+ *  @param name Output only. The resource name for this CertificateTemplate in
+ *    the format `projects/ * /locations/ * /certificateTemplates/ *`.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateTemplate *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesSetIamPolicy : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRCertificateAuthorityService_SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: privateca.projects.locations.certificateTemplates.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
+ */
+@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesTestIamPermissions : GTLRCertificateAuthorityServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCertificateAuthorityService_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c
+ *    GTLRCertificateAuthorityService_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -1145,8 +1763,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1173,19 +1789,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1222,8 +1846,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsCancel : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1264,8 +1886,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsDelete : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1297,8 +1917,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1335,8 +1953,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1372,221 +1988,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Returns a ReusableConfig.
- *
- *  Method: privateca.projects.locations.reusableConfigs.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsGetWithname:]
-
-/** Required. The name of the ReusableConfigs to get. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_ReusableConfig.
- *
- *  Returns a ReusableConfig.
- *
- *  @param name Required. The name of the ReusableConfigs to get.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: privateca.projects.locations.reusableConfigs.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsGetIamPolicyWithresource:]
-
-/**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Lists ReusableConfigs.
- *
- *  Method: privateca.projects.locations.reusableConfigs.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsListWithparent:]
-
-/** Optional. Only include resources that match the filter in the response. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** Optional. Specify how the results should be sorted. */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
-/**
- *  Optional. Limit on the number of ReusableConfigs to include in the response.
- *  Further ReusableConfigs can subsequently be obtained by including the
- *  ListReusableConfigsResponse.next_page_token in a subsequent request. If
- *  unspecified, the server will pick an appropriate default.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  Optional. Pagination token, returned earlier via
- *  ListReusableConfigsResponse.next_page_token.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Required. The resource name of the location associated with the
- *  ReusableConfigs, in the format `projects/ * /locations/ *`.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_ListReusableConfigsResponse.
- *
- *  Lists ReusableConfigs.
- *
- *  @param parent Required. The resource name of the location associated with
- *    the ReusableConfigs, in the format `projects/ * /locations/ *`.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: privateca.projects.locations.reusableConfigs.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsSetIamPolicyWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See the
- *  operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRCertificateAuthorityService_SetIamPolicyRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: privateca.projects.locations.reusableConfigs.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsTestIamPermissionsWithObject:resource:]
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  the operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c
- *    GTLRCertificateAuthorityService_TestIamPermissionsRequest to include in
- *    the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 

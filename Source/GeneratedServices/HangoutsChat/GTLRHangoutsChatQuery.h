@@ -2,9 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Hangouts Chat API (chat/v1)
+//   Google Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in Hangouts Chat.
+//   Enables bots to fetch information and perform actions in Google Chat.
+//   Authentication using a service account is a prerequisite for using the
+//   Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -46,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.conversations.messages
  */
 @interface GTLRHangoutsChatQuery_DmsConversationsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsConversationsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -56,11 +56,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -90,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.messages
  */
 @interface GTLRHangoutsChatQuery_DmsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -100,11 +105,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -134,8 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.webhooks
  */
 @interface GTLRHangoutsChatQuery_DmsWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -144,11 +154,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -178,8 +195,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.media.download
  */
 @interface GTLRHangoutsChatQuery_MediaDownload : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForMediaDownloadWithresourceName:]
 
 /**
  *  Name of the media that is being downloaded. See ReadRequest.resource_name.
@@ -221,8 +236,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.conversations.messages
  */
 @interface GTLRHangoutsChatQuery_RoomsConversationsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsConversationsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -231,11 +244,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -265,8 +285,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.messages
  */
 @interface GTLRHangoutsChatQuery_RoomsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -275,11 +293,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -309,8 +334,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.webhooks
  */
 @interface GTLRHangoutsChatQuery_RoomsWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -319,11 +342,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -352,12 +382,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.get
  */
 @interface GTLRHangoutsChatQuery_SpacesGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesGetWithname:]
 
 /**
  *  Required. Resource name of the space, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -367,7 +395,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a space.
  *
  *  @param name Required. Resource name of the space, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_SpacesGet
  */
@@ -381,8 +409,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.list
  */
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesList]
 
 /**
  *  Requested page size. The value is capped at 1000. Server may return fewer
@@ -414,8 +440,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.members.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMembersGetWithname:]
 
 /**
  *  Required. Resource name of the membership to be retrieved, in the form
@@ -445,8 +469,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.members.list
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersList : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMembersListWithparent:]
 
 /**
  *  Requested page size. The value is capped at 1000. Server may return fewer
@@ -489,8 +511,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.attachments.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesAttachmentsGetWithname:]
 
 /**
  *  Resource name of the attachment, in the form "spaces/ * /messages/ *
@@ -519,8 +539,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.create
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesCreateWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -529,11 +547,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */
@@ -561,8 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.delete
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesDeleteWithname:]
 
 /**
  *  Required. Resource name of the message to be deleted, in the form "spaces/ *
@@ -591,8 +614,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesGetWithname:]
 
 /**
  *  Required. Resource name of the message to be retrieved, in the form "spaces/
@@ -622,18 +643,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.update
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesUpdateWithObject:name:]
 
 /**
- *  Resource name, in the form "spaces/ * /messages/ *". Example:
- *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  Resource name in the form `spaces/ * /messages/ *`. Example:
+ *  `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The field paths to be updated, comma separated if there are
- *  multiple. Currently supported field paths: * text * cards
+ *  multiple. Currently supported field paths: * text * cards *
+ *  gsuite_message_integration_render_data * attachment
  *
  *  String format is a comma-separated list of fields.
  */
@@ -645,8 +665,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a message.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name, in the form "spaces/ * /messages/ *". Example:
- *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
+ *    `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */
@@ -662,8 +682,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.webhooks
  */
 @interface GTLRHangoutsChatQuery_SpacesWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -672,11 +690,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages into
- *  a single thread. If this is the first message with a given thread
- *  identifier, a new thread is created. Subsequent messages with the same
- *  thread identifier will be posted into the same thread. This relieves bots
- *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  Optional. A unique request ID for this message. If a message has already
+ *  been created in the space with this request ID, the subsequent request will
+ *  return the existing message and no new message will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Opaque thread identifier string that can be specified to group
+ *  messages into a single thread. If this is the first message with a given
+ *  thread identifier, a new thread is created. Subsequent messages with the
+ *  same thread identifier will be posted into the same thread. This relieves
+ *  bots and webhooks from having to store the Google Chat thread ID of a thread
  *  (created earlier by them) to post further updates to it. Has no effect if
  *  thread field, corresponding to an existing thread, is set in message.
  */

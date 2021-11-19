@@ -17,6 +17,7 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_ChargeStatus_NotCharged = @"NOT_CHARGED";
 
 // GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport.leadType
+NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_Booking = @"BOOKING";
 NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_LeadTypeUnspecified = @"LEAD_TYPE_UNSPECIFIED";
 NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_Message = @"MESSAGE";
 NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport_LeadType_PhoneCall = @"PHONE_CALL";
@@ -30,9 +31,10 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 @dynamic accountId, aggregatorInfo, averageFiveStarRating, averageWeeklyBudget,
          businessName, currencyCode, currentPeriodChargedLeads,
          currentPeriodConnectedPhoneCalls, currentPeriodPhoneCalls,
-         currentPeriodTotalCost, phoneLeadResponsiveness,
-         previousPeriodChargedLeads, previousPeriodConnectedPhoneCalls,
-         previousPeriodPhoneCalls, previousPeriodTotalCost, totalReview;
+         currentPeriodTotalCost, impressionsLastTwoDays,
+         phoneLeadResponsiveness, previousPeriodChargedLeads,
+         previousPeriodConnectedPhoneCalls, previousPeriodPhoneCalls,
+         previousPeriodTotalCost, totalReview;
 @end
 
 
@@ -48,13 +50,24 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1BookingLead
+//
+
+@implementation GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1BookingLead
+@dynamic bookingAppointmentTimestamp, consumerEmail, consumerPhoneNumber,
+         customerName, jobType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport
 //
 
 @implementation GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1DetailedLeadReport
-@dynamic accountId, aggregatorInfo, businessName, chargeStatus, currencyCode,
-         disputeStatus, geo, leadCategory, leadCreationTimestamp, leadId,
-         leadPrice, leadType, messageLead, phoneLead, timezone;
+@dynamic accountId, aggregatorInfo, bookingLead, businessName, chargeStatus,
+         currencyCode, disputeStatus, geo, leadCategory, leadCreationTimestamp,
+         leadId, leadPrice, leadType, messageLead, phoneLead, timezone;
 @end
 
 

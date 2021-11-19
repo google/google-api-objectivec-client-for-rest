@@ -48,10 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Constructs a new OAuth brand for the project if one does not exist. The
  *  created brand is "internal only", meaning that OAuth clients created under
- *  it only accept requests from users who belong to the same G Suite
+ *  it only accept requests from users who belong to the same Google Workspace
  *  organization as the project. The brand is created in an un-reviewed status.
  *  NOTE: The "internal only" status can be manually changed in the Google Cloud
- *  console. Requires that a brand does not already exist for the project, and
+ *  Console. Requires that a brand does not already exist for the project, and
  *  that the specified support email is owned by the caller.
  *
  *  Method: iap.projects.brands.create
@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsCreate : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsCreateWithObject:parent:]
 
 /**
  *  Required. GCP Project number/id under which the brand is to be created. In
@@ -74,10 +72,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Constructs a new OAuth brand for the project if one does not exist. The
  *  created brand is "internal only", meaning that OAuth clients created under
- *  it only accept requests from users who belong to the same G Suite
+ *  it only accept requests from users who belong to the same Google Workspace
  *  organization as the project. The brand is created in an un-reviewed status.
  *  NOTE: The "internal only" status can be manually changed in the Google Cloud
- *  console. Requires that a brand does not already exist for the project, and
+ *  Console. Requires that a brand does not already exist for the project, and
  *  that the specified support email is owned by the caller.
  *
  *  @param object The @c GTLRCloudIAP_Brand to include in the query.
@@ -100,8 +98,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsGet : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsGetWithname:]
 
 /**
  *  Required. Name of the brand to be fetched. In the following format:
@@ -134,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsCreateWithObject:parent:]
 
 /**
  *  Required. Path to create the client in. In the following format:
@@ -175,8 +169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsDelete : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsDeleteWithname:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to be deleted. In the
@@ -212,8 +204,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsGet : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsGetWithname:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to be fetched. In the
@@ -247,8 +237,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsListWithparent:]
 
 /**
  *  The maximum number of clients to return. The service may return fewer than
@@ -299,8 +287,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsResetSecretWithObject:name:]
 
 /**
  *  Required. Name of the Identity Aware Proxy client to that will have its
@@ -337,8 +323,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_ProjectsBrandsList : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForProjectsBrandsListWithparent:]
 
 /**
  *  Required. GCP Project number/id. In the following format:
@@ -371,8 +355,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_V1GetIamPolicy : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -409,8 +391,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_V1GetIapSettings : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForGetIapSettingsWithname:]
 
 /**
  *  Required. The resource name for which to retrieve the settings.
@@ -446,8 +426,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_V1SetIamPolicy : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -487,8 +465,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_V1TestIamPermissions : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -526,8 +502,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudIAPCloudPlatform
  */
 @interface GTLRCloudIAPQuery_V1UpdateIapSettings : GTLRCloudIAPQuery
-// Previous library name was
-//   +[GTLQueryCloudIAP queryForUpdateIapSettingsWithObject:name:]
 
 /** Required. The resource name of the IAP protected resource. */
 @property(nonatomic, copy, nullable) NSString *name;

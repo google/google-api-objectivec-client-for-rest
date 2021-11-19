@@ -269,8 +269,8 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -494,15 +494,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Endpoint
-@dynamic aliases, allowCors, name, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic allowCors, name, target;
 @end
 
 
@@ -1554,7 +1546,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_V1DefaultIdentity
-@dynamic email, name, uniqueId;
+@dynamic email, name, tag, uniqueId;
 @end
 
 

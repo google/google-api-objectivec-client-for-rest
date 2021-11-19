@@ -232,9 +232,10 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
-@dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength, region,
-         requestedAddress, requestedRanges, secondaryIpRangeSpecs, subnetwork,
-         subnetworkUsers;
+@dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength,
+         outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
+         region, requestedAddress, requestedRanges, secondaryIpRangeSpecs,
+         subnetwork, subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -365,8 +366,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -581,6 +582,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DeleteConnectionRequest
+//
+
+@implementation GTLRServiceNetworking_DeleteConnectionRequest
+@dynamic consumerNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_DeletePeeredDnsDomainMetadata
 //
 
@@ -685,15 +696,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Endpoint
-@dynamic aliases, allowCors, name, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic allowCors, name, target;
 @end
 
 
@@ -1218,6 +1221,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_PartialDeleteConnectionMetadata
+//
+
+@implementation GTLRServiceNetworking_PartialDeleteConnectionMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_PeeredDnsDomain
 //
 
@@ -1422,7 +1434,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_SecondaryIpRangeSpec
-@dynamic ipPrefixLength, rangeName, requestedAddress;
+@dynamic ipPrefixLength, outsideAllocationPublicIpRange, rangeName,
+         requestedAddress;
 @end
 
 

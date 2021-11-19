@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -23,6 +23,8 @@
 #endif
 
 @class GTLRDirectory_Alias;
+@class GTLRDirectory_BatchCreatePrintersRequest;
+@class GTLRDirectory_BatchDeletePrintersRequest;
 @class GTLRDirectory_Building;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel;
@@ -39,6 +41,7 @@
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDeviceAction;
 @class GTLRDirectory_OrgUnit;
+@class GTLRDirectory_Printer;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_RoleAssignment;
 @class GTLRDirectory_Schema;
@@ -66,8 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "CLIENT_SPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified;
-/** Value: "COORDINATES_SOURCE_UNDEFINED" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined;
 /**
  *  Building.coordinates are automatically populated based on the postal
  *  address.
@@ -90,10 +91,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecif
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventAdd;
 /** Value: "delete" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventDelete;
-/** Value: "eventTypeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventEventTypeUnspecified;
-/** Value: "eventUndefined" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventEventUndefined;
 /**
  *  User Admin Status Change Event
  *
@@ -169,10 +166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByName;
  *  Value: "notes"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByNotes;
-/** Value: "orderByUndefined" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUndefined;
-/** Value: "orderByUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUnspecified;
 /**
  *  The device's operating system.
  *
@@ -210,10 +203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionBasic;
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionCustom;
 /** Value: "full" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionFull;
-/** Value: "PROJECTION_UNDEFINED" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionProjectionUndefined;
-/** Value: "projectionUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionProjectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // sortOrder
@@ -230,10 +219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderAscending;
  *  Value: "DESCENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
-/** Value: "SORT_ORDER_UNDEFINED" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderSortOrderUndefined;
-/** Value: "sortOrderUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderSortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // type
@@ -250,8 +235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeAll;
  *  Value: "children"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeChildren;
-/** Value: "typeUndefined" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeTypeUndefined;
 
 // ----------------------------------------------------------------------------
 // viewType
@@ -265,8 +248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeAdminView;
  *  Value: "domain_public"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
-/** Value: "view_type_undefined" */
-FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -283,7 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete an ASP issued by a user.
+ *  Deletes an ASP issued by a user.
  *
  *  Method: directory.asps.delete
  *
@@ -291,8 +272,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_AspsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForAspsDeleteWithuserKey:codeId:]
 
 /** The unique ID of the ASP to be deleted. */
 @property(nonatomic, assign) NSInteger codeId;
@@ -307,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete an ASP issued by a user.
+ *  Deletes an ASP issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -321,7 +300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Get information about an ASP issued by a user.
+ *  Gets information about an ASP issued by a user.
  *
  *  Method: directory.asps.get
  *
@@ -329,8 +308,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_AspsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForAspsGetWithuserKey:codeId:]
 
 /** The unique ID of the ASP. */
 @property(nonatomic, assign) NSInteger codeId;
@@ -344,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Asp.
  *
- *  Get information about an ASP issued by a user.
+ *  Gets information about an ASP issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -358,7 +335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  List the ASPs issued by a user.
+ *  Lists the ASPs issued by a user.
  *
  *  Method: directory.asps.list
  *
@@ -366,8 +343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_AspsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForAspsListWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -378,7 +353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Asps.
  *
- *  List the ASPs issued by a user.
+ *  Lists the ASPs issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -390,7 +365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Stop watching resources through this channel.
+ *  Stops watching resources through this channel.
  *
  *  Method: admin.channels.stop
  *
@@ -402,14 +377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_ChannelsStop : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stop watching resources through this channel.
+ *  Stops watching resources through this channel.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *
@@ -437,8 +410,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesAction : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesActionWithObject:customerId:resourceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -500,8 +471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesGetWithcustomerId:deviceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -524,8 +493,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  a subset.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -565,8 +532,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesListWithcustomerId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -575,6 +540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Return devices from all child orgunits, as well as the specified org unit.
+ *  If this is set to true 'orgUnitPath' must be provided.
+ */
+@property(nonatomic, assign) BOOL includeChildOrgunits;
 
 /**
  *  Maximum number of results to return.
@@ -587,7 +558,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Device property to use for sorting results.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByAnnotatedLocation Chrome device location as
  *        annotated by the administrator. (Value: "annotatedLocation")
  *    @arg @c kGTLRDirectoryOrderByAnnotatedUser Chromebook user as annotated by
@@ -623,8 +593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -644,8 +612,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  with the `orderBy` parameter.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
- *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -674,8 +640,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Move or insert multiple Chrome OS devices to an organizational unit. You can
- *  move up to 50 devices at once.
+ *  Moves or inserts multiple Chrome OS devices to an organizational unit. You
+ *  can move up to 50 devices at once.
  *
  *  Method: directory.chromeosdevices.moveDevicesToOu
  *
@@ -683,8 +649,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesMoveDevicesToOuWithObject:customerId:orgUnitPath:]
 
 /** Immutable ID of the Google Workspace account */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -696,8 +660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Move or insert multiple Chrome OS devices to an organizational unit. You can
- *  move up to 50 devices at once.
+ *  Moves or inserts multiple Chrome OS devices to an organizational unit. You
+ *  can move up to 50 devices at once.
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
@@ -724,8 +688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesPatchWithObject:customerId:deviceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -746,8 +708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -792,8 +752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
 @interface GTLRDirectoryQuery_ChromeosdevicesUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForChromeosdevicesUpdateWithObject:customerId:deviceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -814,8 +772,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -858,8 +814,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly
  */
 @interface GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForCustomerDevicesChromeosCommandsGetWithcustomerId:deviceId:commandId:]
 
 /** Immutable. Immutable ID of Chrome OS Device Command. */
 @property(nonatomic, assign) long long commandId;
@@ -896,8 +850,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
  */
 @interface GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForCustomerDevicesChromeosIssueCommandWithObject:customerId:deviceId:]
 
 /** Immutable. Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -924,6 +876,316 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
+ *  Creates printers under given Organization Unit.
+ *
+ *  Method: admin.customers.chrome.printers.batchCreatePrinters
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters : GTLRDirectoryQuery
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchCreatePrintersResponse.
+ *
+ *  Creates printers under given Organization Unit.
+ *
+ *  @param object The @c GTLRDirectory_BatchCreatePrintersRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchCreatePrintersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes printers in batch.
+ *
+ *  Method: admin.customers.chrome.printers.batchDeletePrinters
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters : GTLRDirectoryQuery
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchDeletePrintersResponse.
+ *
+ *  Deletes printers in batch.
+ *
+ *  @param object The @c GTLRDirectory_BatchDeletePrintersRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchDeletePrintersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a printer under given Organization Unit.
+ *
+ *  Method: admin.customers.chrome.printers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersCreate : GTLRDirectoryQuery
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Creates a printer under given Organization Unit.
+ *
+ *  @param object The @c GTLRDirectory_Printer to include in the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `Printer`.
+ *
+ *  Method: admin.customers.chrome.printers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersDelete : GTLRDirectoryQuery
+
+/**
+ *  Required. The name of the printer to be updated. Format:
+ *  customers/{customer_id}/chrome/printers/{printer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_Empty.
+ *
+ *  Deletes a `Printer`.
+ *
+ *  @param name Required. The name of the printer to be updated. Format:
+ *    customers/{customer_id}/chrome/printers/{printer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a `Printer` resource (printer's config).
+ *
+ *  Method: admin.customers.chrome.printers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ *    @c kGTLRAuthScopeDirectoryChromePrintersReadonly
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersGet : GTLRDirectoryQuery
+
+/**
+ *  Required. The name of the printer to retrieve. Format:
+ *  customers/{customer_id}/chrome/printers/{printer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Returns a `Printer` resource (printer's config).
+ *
+ *  @param name Required. The name of the printer to retrieve. Format:
+ *    customers/{customer_id}/chrome/printers/{printer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List printers configs.
+ *
+ *  Method: admin.customers.chrome.printers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ *    @c kGTLRAuthScopeDirectoryChromePrintersReadonly
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersList : GTLRDirectoryQuery
+
+/**
+ *  Search query. Search syntax is shared between this api and Admin Console
+ *  printers pages.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Organization Unit that we want to list the printers for. When org_unit is
+ *  not present in the request then all printers of the customer are returned
+ *  (or filtered). When org_unit is present in the request then only printers
+ *  available to this OU will be returned (owned or inherited). You may see if
+ *  printer is owned or inherited for this OU by looking at Printer.org_unit_id.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  The maximum number of objects to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token, received from a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the customer who owns this collection of printers.
+ *  Format: customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_ListPrintersResponse.
+ *
+ *  List printers configs.
+ *
+ *  @param parent Required. The name of the customer who owns this collection of
+ *    printers. Format: customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the supported printer models.
+ *
+ *  Method: admin.customers.chrome.printers.listPrinterModels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ *    @c kGTLRAuthScopeDirectoryChromePrintersReadonly
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels : GTLRDirectoryQuery
+
+/**
+ *  Filer to list only models by a given manufacturer in format:
+ *  "manufacturer:Brother". Search syntax is shared between this api and Admin
+ *  Console printers pages.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of objects to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token, received from a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the customer who owns this collection of printers.
+ *  Format: customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_ListPrinterModelsResponse.
+ *
+ *  Lists the supported printer models.
+ *
+ *  @param parent Required. The name of the customer who owns this collection of
+ *    printers. Format: customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a `Printer` resource.
+ *
+ *  Method: admin.customers.chrome.printers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryChromePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersPatch : GTLRDirectoryQuery
+
+/**
+ *  The list of fields to be cleared. Note, some of the fields are read only and
+ *  cannot be updated. Values for not specified fields will be patched.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *clearMask;
+
+/**
+ *  The resource name of the Printer object, in the format
+ *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
+ *  empty)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Note, some of the fields are read only and
+ *  cannot be updated. Values for not specified fields will be patched.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Updates a `Printer` resource.
+ *
+ *  @param object The @c GTLRDirectory_Printer to include in the query.
+ *  @param name The resource name of the Printer object, in the format
+ *    customers/{customer-id}/printers/{printer-id} (During printer creation
+ *    leave empty)
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves a customer.
  *
  *  Method: directory.customers.get
@@ -933,8 +1195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryCustomerReadonly
  */
 @interface GTLRDirectoryQuery_CustomersGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForCustomersGetWithcustomerKey:]
 
 /** Id of the customer to be retrieved */
 @property(nonatomic, copy, nullable) NSString *customerKey;
@@ -953,7 +1213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Customers via Apiary Patch Orchestration
+ *  Patches a customer.
  *
  *  Method: directory.customers.patch
  *
@@ -961,8 +1221,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryCustomer
  */
 @interface GTLRDirectoryQuery_CustomersPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForCustomersPatchWithObject:customerKey:]
 
 /** Id of the customer to be updated */
 @property(nonatomic, copy, nullable) NSString *customerKey;
@@ -970,7 +1228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Customer.
  *
- *  Patch Customers via Apiary Patch Orchestration
+ *  Patches a customer.
  *
  *  @param object The @c GTLRDirectory_Customer to include in the query.
  *  @param customerKey Id of the customer to be updated
@@ -991,8 +1249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryCustomer
  */
 @interface GTLRDirectoryQuery_CustomersUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForCustomersUpdateWithObject:customerKey:]
 
 /** Id of the customer to be updated */
 @property(nonatomic, copy, nullable) NSString *customerKey;
@@ -1021,8 +1277,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomain
  */
 @interface GTLRDirectoryQuery_DomainAliasesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainAliasesDeleteWithcustomer:domainAliasName:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1056,8 +1310,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomainReadonly
  */
 @interface GTLRDirectoryQuery_DomainAliasesGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainAliasesGetWithcustomer:domainAliasName:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1089,8 +1341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomain
  */
 @interface GTLRDirectoryQuery_DomainAliasesInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainAliasesInsertWithObject:customer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1120,8 +1370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomainReadonly
  */
 @interface GTLRDirectoryQuery_DomainAliasesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainAliasesListWithcustomer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1151,8 +1399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomain
  */
 @interface GTLRDirectoryQuery_DomainsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainsDeleteWithcustomer:domainName:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1186,8 +1432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomainReadonly
  */
 @interface GTLRDirectoryQuery_DomainsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainsGetWithcustomer:domainName:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1219,8 +1463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomain
  */
 @interface GTLRDirectoryQuery_DomainsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainsInsertWithObject:customer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1250,8 +1492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDomainReadonly
  */
 @interface GTLRDirectoryQuery_DomainsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForDomainsListWithcustomer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -1278,8 +1518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsAliasesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsAliasesDeleteWithgroupKey:alias:]
 
 /** The alias to be removed */
 @property(nonatomic, copy, nullable) NSString *alias;
@@ -1316,8 +1554,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsAliasesInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsAliasesInsertWithObject:groupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1351,8 +1587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_GroupsAliasesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsAliasesListWithgroupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1383,8 +1617,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsDeleteWithgroupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1417,8 +1649,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_GroupsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsGetWithgroupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1449,8 +1679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
@@ -1466,7 +1694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all groups of a domain or of a user given a userKey (paginated)
+ *  Retrieves all groups of a domain or of a user given a userKey (paginated).
  *
  *  Method: directory.groups.list
  *
@@ -1475,8 +1703,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_GroupsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsList]
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
@@ -1506,7 +1732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Column to use for sorting results
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByEmail Email of the group. (Value: "email")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -1525,8 +1750,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  orderBy is also used
  *
  *  Likely values:
- *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
- *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -1544,7 +1767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Groups.
  *
- *  Retrieve all groups of a domain or of a user given a userKey (paginated)
+ *  Retrieves all groups of a domain or of a user given a userKey (paginated).
  *
  *  @return GTLRDirectoryQuery_GroupsList
  *
@@ -1566,8 +1789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsPatchWithObject:groupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1601,8 +1822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroup
  */
 @interface GTLRDirectoryQuery_GroupsUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForGroupsUpdateWithObject:groupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1636,8 +1855,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupMember
  */
 @interface GTLRDirectoryQuery_MembersDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersDeleteWithgroupKey:memberKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1683,8 +1900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_MembersGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersGetWithgroupKey:memberKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1730,8 +1945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_MembersHasMember : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersHasMemberWithgroupKey:memberKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1773,8 +1986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupMember
  */
 @interface GTLRDirectoryQuery_MembersInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersInsertWithObject:groupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1810,8 +2021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupReadonly
  */
 @interface GTLRDirectoryQuery_MembersList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersListWithgroupKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1868,8 +2077,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupMember
  */
 @interface GTLRDirectoryQuery_MembersPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersPatchWithObject:groupKey:memberKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1916,8 +2123,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryGroupMember
  */
 @interface GTLRDirectoryQuery_MembersUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMembersUpdateWithObject:groupKey:memberKey:]
 
 /**
  *  Identifies the group in the API request. The value can be the group's email
@@ -1963,8 +2168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceMobileAction
  */
 @interface GTLRDirectoryQuery_MobiledevicesAction : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMobiledevicesActionWithObject:customerId:resourceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2010,8 +2213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceMobile
  */
 @interface GTLRDirectoryQuery_MobiledevicesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMobiledevicesDeleteWithcustomerId:resourceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2055,8 +2256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceMobileReadonly
  */
 @interface GTLRDirectoryQuery_MobiledevicesGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMobiledevicesGetWithcustomerId:resourceId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2070,8 +2269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, model, status, type, and status) (Value:
  *        "BASIC")
@@ -2113,8 +2310,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryDeviceMobileReadonly
  */
 @interface GTLRDirectoryQuery_MobiledevicesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForMobiledevicesListWithcustomerId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2136,7 +2331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Device property to use for sorting results.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByDeviceId The serial number for a Google Sync
  *        mobile device. For Android devices, this is a software generated
  *        unique identifier. (Value: "deviceId")
@@ -2162,8 +2356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, model, status, type, and status) (Value:
  *        "BASIC")
@@ -2183,8 +2375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  with the `orderBy` parameter.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
- *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -2221,8 +2411,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunit
  */
 @interface GTLRDirectoryQuery_OrgunitsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsDeleteWithcustomerId:orgUnitPath:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2265,8 +2453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly
  */
 @interface GTLRDirectoryQuery_OrgunitsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsGetWithcustomerId:orgUnitPath:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2307,8 +2493,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunit
  */
 @interface GTLRDirectoryQuery_OrgunitsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsInsertWithObject:customerId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2346,8 +2530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly
  */
 @interface GTLRDirectoryQuery_OrgunitsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsListWithcustomerId:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2367,7 +2549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Whether to return all sub-organizations or just immediate children.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryTypeTypeUndefined Value "typeUndefined"
  *    @arg @c kGTLRDirectoryTypeAll All sub-organizational units. (Value: "all")
  *    @arg @c kGTLRDirectoryTypeChildren Immediate children only (default).
  *        (Value: "children")
@@ -2400,8 +2581,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunit
  */
 @interface GTLRDirectoryQuery_OrgunitsPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsPatchWithObject:customerId:orgUnitPath:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2445,8 +2624,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunit
  */
 @interface GTLRDirectoryQuery_OrgunitsUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForOrgunitsUpdateWithObject:customerId:orgUnitPath:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2490,8 +2667,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly
  */
 @interface GTLRDirectoryQuery_PrivilegesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForPrivilegesListWithcustomer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2518,8 +2693,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsDeleteWithcustomer:buildingId:]
 
 /** The id of the building to delete. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
@@ -2559,8 +2732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsGetWithcustomer:buildingId:]
 
 /** The unique ID of the building to retrieve. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
@@ -2598,15 +2769,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsInsertWithObject:customer:]
 
 /**
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
- *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2657,8 +2824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsListWithcustomer:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2697,7 +2862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patches a building via Apiary Patch Orchestration.
+ *  Patches a building.
  *
  *  Method: directory.resources.buildings.patch
  *
@@ -2705,8 +2870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsPatchWithObject:customer:buildingId:]
 
 /** The id of the building to update. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
@@ -2715,8 +2878,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
- *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2743,7 +2904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Building.
  *
- *  Patches a building via Apiary Patch Orchestration.
+ *  Patches a building.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -2768,8 +2929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesBuildingsUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesBuildingsUpdateWithObject:customer:buildingId:]
 
 /** The id of the building to update. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
@@ -2778,8 +2937,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
- *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2831,8 +2988,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsDeleteWithcustomer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to delete. */
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
@@ -2872,8 +3027,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsGetWithcustomer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
@@ -2912,8 +3065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsInsertWithObject:customer:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2949,8 +3100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsListWithcustomer:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3012,7 +3161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patches a calendar resource via Apiary Patch Orchestration.
+ *  Patches a calendar resource.
  *
  *  Method: directory.resources.calendars.patch
  *
@@ -3020,8 +3169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsPatchWithObject:customer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to update. */
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
@@ -3036,7 +3183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
  *
- *  Patches a calendar resource via Apiary Patch Orchestration.
+ *  Patches a calendar resource.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -3063,8 +3210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesCalendarsUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesCalendarsUpdateWithObject:customer:calendarResourceId:]
 
 /** The unique ID of the calendar resource to update. */
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
@@ -3106,8 +3251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesDeleteWithcustomer:featureKey:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3147,8 +3290,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesGetWithcustomer:featureKey:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3186,8 +3327,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesInsertWithObject:customer:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3223,8 +3362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendarReadonly
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesListWithcustomer:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3263,7 +3400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patches a feature via Apiary Patch Orchestration.
+ *  Patches a feature.
  *
  *  Method: directory.resources.features.patch
  *
@@ -3271,8 +3408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesPatchWithObject:customer:featureKey:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3287,7 +3422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Feature.
  *
- *  Patches a feature via Apiary Patch Orchestration.
+ *  Patches a feature.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -3312,8 +3447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesRename : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesRenameWithObject:customer:oldName:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3354,8 +3487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryResourceCalendar
  */
 @interface GTLRDirectoryQuery_ResourcesFeaturesUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForResourcesFeaturesUpdateWithObject:customer:featureKey:]
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -3395,8 +3526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRoleAssignmentsDeleteWithcustomer:roleAssignmentId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3421,7 +3550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve a role assignment.
+ *  Retrieves a role assignment.
  *
  *  Method: directory.roleAssignments.get
  *
@@ -3430,8 +3559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRoleAssignmentsGetWithcustomer:roleAssignmentId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3442,7 +3569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_RoleAssignment.
  *
- *  Retrieve a role assignment.
+ *  Retrieves a role assignment.
  *
  *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleAssignmentId Immutable ID of the role assignment.
@@ -3463,8 +3590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRoleAssignmentsInsertWithObject:customer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3494,8 +3619,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly
  */
 @interface GTLRDirectoryQuery_RoleAssignmentsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRoleAssignmentsListWithcustomer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3548,8 +3671,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RolesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesDeleteWithcustomer:roleId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3583,8 +3704,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly
  */
 @interface GTLRDirectoryQuery_RolesGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesGetWithcustomer:roleId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3616,8 +3735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RolesInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesInsertWithObject:customer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3647,8 +3764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagementReadonly
  */
 @interface GTLRDirectoryQuery_RolesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesListWithcustomer:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3681,7 +3796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch role via Apiary Patch Orchestration
+ *  Patches a role.
  *
  *  Method: directory.roles.patch
  *
@@ -3689,8 +3804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RolesPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesPatchWithObject:customer:roleId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3701,7 +3814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Role.
  *
- *  Patch role via Apiary Patch Orchestration
+ *  Patches a role.
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
  *  @param customer Immutable ID of the Google Workspace account.
@@ -3724,8 +3837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryRolemanagement
  */
 @interface GTLRDirectoryQuery_RolesUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForRolesUpdateWithObject:customer:roleId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3751,7 +3862,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete schema
+ *  Deletes a schema.
  *
  *  Method: directory.schemas.delete
  *
@@ -3759,8 +3870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschema
  */
 @interface GTLRDirectoryQuery_SchemasDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasDeleteWithcustomerId:schemaKey:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3772,7 +3881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete schema
+ *  Deletes a schema.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
@@ -3785,7 +3894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve schema
+ *  Retrieves a schema.
  *
  *  Method: directory.schemas.get
  *
@@ -3794,8 +3903,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschemaReadonly
  */
 @interface GTLRDirectoryQuery_SchemasGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasGetWithcustomerId:schemaKey:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3806,7 +3913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Retrieve schema
+ *  Retrieves a schema.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
@@ -3819,7 +3926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Create schema.
+ *  Creates a schema.
  *
  *  Method: directory.schemas.insert
  *
@@ -3827,8 +3934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschema
  */
 @interface GTLRDirectoryQuery_SchemasInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasInsertWithObject:customerId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3836,7 +3941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Create schema.
+ *  Creates a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -3849,7 +3954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all schemas for a customer
+ *  Retrieves all schemas for a customer.
  *
  *  Method: directory.schemas.list
  *
@@ -3858,8 +3963,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschemaReadonly
  */
 @interface GTLRDirectoryQuery_SchemasList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasListWithcustomerId:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3867,7 +3970,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Schemas.
  *
- *  Retrieve all schemas for a customer
+ *  Retrieves all schemas for a customer.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *
@@ -3878,7 +3981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Schema via Apiary Patch Orchestration
+ *  Patches a schema.
  *
  *  Method: directory.schemas.patch
  *
@@ -3886,8 +3989,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschema
  */
 @interface GTLRDirectoryQuery_SchemasPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasPatchWithObject:customerId:schemaKey:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3898,7 +3999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Patch Schema via Apiary Patch Orchestration
+ *  Patches a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -3913,7 +4014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Update schema
+ *  Updates a schema.
  *
  *  Method: directory.schemas.update
  *
@@ -3921,8 +4022,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserschema
  */
 @interface GTLRDirectoryQuery_SchemasUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForSchemasUpdateWithObject:customerId:schemaKey:]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -3933,7 +4032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Update schema
+ *  Updates a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -3948,7 +4047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete all access tokens issued by a user for an application.
+ *  Deletes all access tokens issued by a user for an application.
  *
  *  Method: directory.tokens.delete
  *
@@ -3956,8 +4055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_TokensDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForTokensDeleteWithuserKey:clientId:]
 
 /** The Client ID of the application the token is issued to. */
 @property(nonatomic, copy, nullable) NSString *clientId;
@@ -3972,7 +4069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete all access tokens issued by a user for an application.
+ *  Deletes all access tokens issued by a user for an application.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -3986,7 +4083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Get information about an access token issued by a user.
+ *  Gets information about an access token issued by a user.
  *
  *  Method: directory.tokens.get
  *
@@ -3994,8 +4091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_TokensGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForTokensGetWithuserKey:clientId:]
 
 /** The Client ID of the application the token is issued to. */
 @property(nonatomic, copy, nullable) NSString *clientId;
@@ -4009,7 +4104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Token.
  *
- *  Get information about an access token issued by a user.
+ *  Gets information about an access token issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -4032,8 +4127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_TokensList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForTokensListWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4057,7 +4150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Turn off 2-Step Verification for user.
+ *  Turns off 2-Step Verification for user.
  *
  *  Method: directory.twoStepVerification.turnOff
  *
@@ -4065,8 +4158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_TwoStepVerificationTurnOff : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForTwoStepVerificationTurnOffWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4078,7 +4169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Turn off 2-Step Verification for user.
+ *  Turns off 2-Step Verification for user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -4099,8 +4190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserAlias
  */
 @interface GTLRDirectoryQuery_UsersAliasesDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersAliasesDeleteWithuserKey:alias:]
 
 /** The alias to be removed. */
 @property(nonatomic, copy, nullable) NSString *alias;
@@ -4138,8 +4227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserAlias
  */
 @interface GTLRDirectoryQuery_UsersAliasesInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersAliasesInsertWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4175,8 +4262,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersAliasesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersAliasesListWithuserKey:]
+
+/**
+ *  Events to watch for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
+ *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4199,7 +4293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Watch for changes in users list.
+ *  Watches for changes in users list.
  *
  *  Method: directory.users.aliases.watch
  *
@@ -4210,14 +4304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersAliasesWatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersAliasesWatchWithObject:userKey:]
 
 /**
  *  Events to watch for.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryEventEventUndefined Value "eventUndefined"
  *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
  */
@@ -4229,7 +4320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in users list.
+ *  Watches for changes in users list.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *  @param userKey Email or immutable ID of the user
@@ -4250,8 +4341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersDeleteWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4284,8 +4373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersGetWithuserKey:]
 
 /**
  *  A comma-separated list of schema names. All fields from these schemas are
@@ -4297,8 +4384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "projectionUndefined"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -4323,8 +4408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
- *        "view_type_undefined"
  *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
  *        administrator-only and domain-public fields for the user. (Value:
  *        "admin_view")
@@ -4360,8 +4443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersInsert : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRDirectory_User.
@@ -4387,8 +4468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersList]
 
 /**
  *  The unique ID for the customer's Google Workspace account. In case of a
@@ -4415,6 +4494,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
+ *  Event on which subscription is intended (if subscribing)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryEventAdd User Created Event (Value: "add")
+ *    @arg @c kGTLRDirectoryEventDelete User Deleted Event (Value: "delete")
+ *    @arg @c kGTLRDirectoryEventMakeAdmin User Admin Status Change Event
+ *        (Value: "makeAdmin")
+ *    @arg @c kGTLRDirectoryEventUndelete User Undeleted Event (Value:
+ *        "undelete")
+ *    @arg @c kGTLRDirectoryEventUpdate User Updated Event (Value: "update")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
  *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
@@ -4426,7 +4519,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Property to use for sorting results.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByEmail Primary email of the user. (Value:
  *        "email")
  *    @arg @c kGTLRDirectoryOrderByFamilyName User's family name. (Value:
@@ -4443,8 +4535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
- *        "projectionUndefined"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -4473,8 +4563,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Whether to return results in ascending or descending order.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
- *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -4488,8 +4576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
- *        "view_type_undefined"
  *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
  *        administrator-only and domain-public fields for the user. (Value:
  *        "admin_view")
@@ -4526,8 +4612,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersMakeAdmin : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersMakeAdminWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4564,8 +4648,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersPatchWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4601,8 +4683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersPhotosDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersPhotosDeleteWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4635,8 +4715,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersPhotosGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersPhotosGetWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4668,8 +4746,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersPhotosPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersPhotosPatchWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4703,8 +4779,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersPhotosUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersPhotosUpdateWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4729,7 +4803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Sign a user out of all web and device sessions and reset their sign-in
+ *  Signs a user out of all web and device sessions and reset their sign-in
  *  cookies. User will have to sign in by authenticating again.
  *
  *  Method: directory.users.signOut
@@ -4738,8 +4812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_UsersSignOut : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersSignOutWithuserKey:]
 
 /**
  *  Identifies the target user in the API request. The value can be the user's
@@ -4751,7 +4823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Sign a user out of all web and device sessions and reset their sign-in
+ *  Signs a user out of all web and device sessions and reset their sign-in
  *  cookies. User will have to sign in by authenticating again.
  *
  *  @param userKey Identifies the target user in the API request. The value can
@@ -4773,8 +4845,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersUndelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersUndeleteWithObject:userKey:]
 
 /** The immutable id of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
@@ -4806,8 +4876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUser
  */
 @interface GTLRDirectoryQuery_UsersUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersUpdateWithObject:userKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary
@@ -4834,7 +4902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Watch for changes in users list
+ *  Watches for changes in users list.
  *
  *  Method: directory.users.watch
  *
@@ -4844,8 +4912,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserReadonly
  */
 @interface GTLRDirectoryQuery_UsersWatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForUsersWatchWithObject:]
 
 /**
  *  Immutable ID of the Google Workspace account. In case of multi-domain, to
@@ -4869,8 +4935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Events to watch for.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryEventEventTypeUnspecified Value
- *        "eventTypeUnspecified"
  *    @arg @c kGTLRDirectoryEventAdd User Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete User Deleted Event (Value: "delete")
  *    @arg @c kGTLRDirectoryEventMakeAdmin User Admin Status Change Event
@@ -4893,7 +4957,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Column to use for sorting results
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryOrderByOrderByUnspecified Value "orderByUnspecified"
  *    @arg @c kGTLRDirectoryOrderByEmail Primary email of the user. (Value:
  *        "email")
  *    @arg @c kGTLRDirectoryOrderByFamilyName User's family name. (Value:
@@ -4910,8 +4973,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryProjectionProjectionUnspecified Value
- *        "projectionUnspecified"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -4937,8 +4998,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Whether to return results in ascending or descending order.
  *
  *  Likely values:
- *    @arg @c kGTLRDirectorySortOrderSortOrderUnspecified Value
- *        "sortOrderUnspecified"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -4966,7 +5025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in users list
+ *  Watches for changes in users list.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *
@@ -4977,7 +5036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Generate new backup verification codes for the user.
+ *  Generates new backup verification codes for the user.
  *
  *  Method: directory.verificationCodes.generate
  *
@@ -4985,8 +5044,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_VerificationCodesGenerate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForVerificationCodesGenerateWithuserKey:]
 
 /** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
@@ -4995,7 +5052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Generate new backup verification codes for the user.
+ *  Generates new backup verification codes for the user.
  *
  *  @param userKey Email or immutable ID of the user
  *
@@ -5006,7 +5063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Invalidate the current backup verification codes for the user.
+ *  Invalidates the current backup verification codes for the user.
  *
  *  Method: directory.verificationCodes.invalidate
  *
@@ -5014,8 +5071,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_VerificationCodesInvalidate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForVerificationCodesInvalidateWithuserKey:]
 
 /** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
@@ -5024,7 +5079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Invalidate the current backup verification codes for the user.
+ *  Invalidates the current backup verification codes for the user.
  *
  *  @param userKey Email or immutable ID of the user
  *
@@ -5044,8 +5099,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
  */
 @interface GTLRDirectoryQuery_VerificationCodesList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForVerificationCodesListWithuserKey:]
 
 /**
  *  Identifies the user in the API request. The value can be the user's primary

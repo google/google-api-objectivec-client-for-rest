@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -12,6 +12,11 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRWorkflowExecutions_Execution.callLogLevel
+NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified = @"CALL_LOG_LEVEL_UNSPECIFIED";
+NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls = @"LOG_ALL_CALLS";
+NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly = @"LOG_ERRORS_ONLY";
 
 // GTLRWorkflowExecutions_Execution.state
 NSString * const kGTLRWorkflowExecutions_Execution_State_Active = @"ACTIVE";
@@ -45,7 +50,7 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 //
 
 @implementation GTLRWorkflowExecutions_Execution
-@dynamic argument, endTime, error, name, result, startTime, state,
+@dynamic argument, callLogLevel, endTime, error, name, result, startTime, state,
          workflowRevisionId;
 @end
 
@@ -74,6 +79,16 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkflowExecutions_Position
+//
+
+@implementation GTLRWorkflowExecutions_Position
+@dynamic column, length, line;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkflowExecutions_StackTrace
 //
 
@@ -96,5 +111,5 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 //
 
 @implementation GTLRWorkflowExecutions_StackTraceElement
-@dynamic column, line, routine, step;
+@dynamic position, routine, step;
 @end

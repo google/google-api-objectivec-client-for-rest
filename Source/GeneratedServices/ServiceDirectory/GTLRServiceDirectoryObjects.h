@@ -43,7 +43,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRServiceDirectory_Binding : GTLRObject
 
@@ -52,14 +52,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -91,8 +91,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -117,41 +117,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectory_Endpoint : GTLRObject
 
 /**
- *  Optional. An IPv4 or IPv6 address. Service Directory will reject bad
- *  addresses like: "8.8.8" "8.8.8.8:53" "test:bad:address" "[::1]" "[::1]:8080"
+ *  Optional. An IPv4 or IPv6 address. Service Directory rejects bad addresses
+ *  like: * `8.8.8` * `8.8.8.8:53` * `test:bad:address` * `[::1]` * `[::1]:8080`
  *  Limited to 45 characters.
  */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
  *  Optional. Annotations for the endpoint. This data can be consumed by service
- *  clients. Restrictions: - The entire annotations dictionary may contain up to
- *  512 characters, spread accoss all key-value pairs. Annotations that goes
- *  beyond any these limits will be rejected. - Valid annotation keys have two
- *  segments: an optional prefix and name, separated by a slash (/). The name
- *  segment is required and must be 63 characters or less, beginning and ending
- *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
- *  (_), dots (.), and alphanumerics between. The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Annotations that fails to meet these requirements will be
- *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system annotations managed by Service Directory. If the user
- *  tries to write to these keyspaces, those entries will be silently ignored by
- *  the system. Note: This field is equivalent to the 'metadata' field in the
- *  v1beta1 API. They have the same syntax and read/write to the same location
- *  in Service Directory.
+ *  clients. Restrictions: * The entire annotations dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Annotations that go
+ *  beyond this limit are rejected * Valid annotation keys have two segments: an
+ *  optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/)
+ *  Annotations that fails to meet these requirements are rejected. Note: This
+ *  field is equivalent to the `metadata` field in the v1beta1 API. They have
+ *  the same syntax and read/write to the same location in Service Directory.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Endpoint_Annotations *annotations;
 
 /**
- *  Immutable. The resource name for the endpoint in the format 'projects/ *
- *  /locations/ * /namespaces/ * /services/ * /endpoints/ *'.
+ *  Immutable. The resource name for the endpoint in the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Service Directory will reject values outside of [0, 65535].
+ *  Optional. Service Directory rejects values outside of `[0, 65535]`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -162,22 +158,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Annotations for the endpoint. This data can be consumed by service
- *  clients. Restrictions: - The entire annotations dictionary may contain up to
- *  512 characters, spread accoss all key-value pairs. Annotations that goes
- *  beyond any these limits will be rejected. - Valid annotation keys have two
- *  segments: an optional prefix and name, separated by a slash (/). The name
- *  segment is required and must be 63 characters or less, beginning and ending
- *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
- *  (_), dots (.), and alphanumerics between. The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Annotations that fails to meet these requirements will be
- *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system annotations managed by Service Directory. If the user
- *  tries to write to these keyspaces, those entries will be silently ignored by
- *  the system. Note: This field is equivalent to the 'metadata' field in the
- *  v1beta1 API. They have the same syntax and read/write to the same location
- *  in Service Directory.
+ *  clients. Restrictions: * The entire annotations dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Annotations that go
+ *  beyond this limit are rejected * Valid annotation keys have two segments: an
+ *  optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/)
+ *  Annotations that fails to meet these requirements are rejected. Note: This
+ *  field is equivalent to the `metadata` field in the v1beta1 API. They have
+ *  the same syntax and read/write to the same location in Service Directory.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -445,15 +437,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectory_Namespace : GTLRObject
 
 /**
- *  Optional. Resource labels associated with this Namespace. No more than 64
+ *  Optional. Resource labels associated with this namespace. No more than 64
  *  user labels can be associated with a given resource. Label keys and values
  *  can be no longer than 63 characters.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Namespace_Labels *labels;
 
 /**
- *  Immutable. The resource name for the namespace in the format 'projects/ *
- *  /locations/ * /namespaces/ *'.
+ *  Immutable. The resource name for the namespace in the format `projects/ *
+ *  /locations/ * /namespaces/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -461,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. Resource labels associated with this Namespace. No more than 64
+ *  Optional. Resource labels associated with this namespace. No more than 64
  *  user labels can be associated with a given resource. Label keys and values
  *  can be no longer than 63 characters.
  *
@@ -477,15 +469,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -501,16 +493,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRServiceDirectory_Policy : GTLRObject
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceDirectory_Binding *> *bindings;
 
@@ -564,15 +561,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The filter applied to the endpoints of the resolved service.
- *  General filter string syntax: () can be "name" or "metadata." for map field.
- *  can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS and is roughly the
- *  same as "=". must be the same data type as the field. can be "AND, OR, NOT".
- *  Examples of valid filters: * "metadata.owner" returns Endpoints that have a
- *  label with the key "owner", this is the same as "metadata:owner" *
- *  "metadata.protocol=gRPC" returns Endpoints that have key/value
- *  "protocol=gRPC" * "metadata.owner!=sd AND metadata.foo=bar" returns
- *  Endpoints that have "owner" field in metadata with a value that is not "sd"
- *  AND have the key/value foo=bar.
+ *  General `filter` string syntax: ` ()` * `` can be `name`, `address`, `port`,
+ *  or `annotations.` for map field * `` can be `<`, `>`, `<=`, `>=`, `!=`, `=`,
+ *  `:`. Of which `:` means `HAS`, and is roughly the same as `=` * `` must be
+ *  the same data type as field * `` can be `AND`, `OR`, `NOT` Examples of valid
+ *  filters: * `annotations.owner` returns endpoints that have a annotation with
+ *  the key `owner`, this is the same as `annotations:owner` *
+ *  `annotations.protocol=gRPC` returns endpoints that have key/value
+ *  `protocol=gRPC` * `address=192.108.1.105` returns endpoints that have this
+ *  address * `port>8080` returns endpoints that have port number larger than
+ *  8080 *
+ *  `name>projects/my-project/locations/us-east1/namespaces/my-namespace/services/my-service/endpoints/endpoint-c`
+ *  returns endpoints that have name that is alphabetically later than the
+ *  string, so "endpoint-e" is returned but "endpoint-a" is not *
+ *  `annotations.owner!=sd AND annotations.foo=bar` returns endpoints that have
+ *  `owner` in annotation key but value is not `sd` AND have key/value `foo=bar`
+ *  * `doesnotexist.foo=bar` returns an empty list. Note that endpoint doesn't
+ *  have a field called "doesnotexist". Since the filter does not match any
+ *  endpoint, it returns no results For more information about filtering, see
+ *  [API Filtering](https://aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *endpointFilter;
 
@@ -606,35 +613,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Annotations for the service. This data can be consumed by service
- *  clients. Restrictions: - The entire annotations dictionary may contain up to
- *  2000 characters, spread accoss all key-value pairs. Annotations that goes
- *  beyond any these limits will be rejected. - Valid annotation keys have two
- *  segments: an optional prefix and name, separated by a slash (/). The name
- *  segment is required and must be 63 characters or less, beginning and ending
- *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
- *  (_), dots (.), and alphanumerics between. The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Annotations that fails to meet these requirements will be
- *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system annotations managed by Service Directory. If the user
- *  tries to write to these keyspaces, those entries will be silently ignored by
- *  the system. Note: This field is equivalent to the 'metadata' field in the
- *  v1beta1 API. They have the same syntax and read/write to the same location
- *  in Service Directory.
+ *  clients. Restrictions: * The entire annotations dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Annotations that go
+ *  beyond this limit are rejected * Valid annotation keys have two segments: an
+ *  optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/).
+ *  Annotations that fails to meet these requirements are rejected Note: This
+ *  field is equivalent to the `metadata` field in the v1beta1 API. They have
+ *  the same syntax and read/write to the same location in Service Directory.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Service_Annotations *annotations;
 
 /**
  *  Output only. Endpoints associated with this service. Returned on
- *  LookupService.Resolve. Control plane clients should use
+ *  LookupService.ResolveService. Control plane clients should use
  *  RegistrationService.ListEndpoints.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceDirectory_Endpoint *> *endpoints;
 
 /**
- *  Immutable. The resource name for the service in the format 'projects/ *
- *  /locations/ * /namespaces/ * /services/ *'.
+ *  Immutable. The resource name for the service in the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -643,22 +646,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Annotations for the service. This data can be consumed by service
- *  clients. Restrictions: - The entire annotations dictionary may contain up to
- *  2000 characters, spread accoss all key-value pairs. Annotations that goes
- *  beyond any these limits will be rejected. - Valid annotation keys have two
- *  segments: an optional prefix and name, separated by a slash (/). The name
- *  segment is required and must be 63 characters or less, beginning and ending
- *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
- *  (_), dots (.), and alphanumerics between. The prefix is optional. If
- *  specified, the prefix must be a DNS subdomain: a series of DNS labels
- *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Annotations that fails to meet these requirements will be
- *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system annotations managed by Service Directory. If the user
- *  tries to write to these keyspaces, those entries will be silently ignored by
- *  the system. Note: This field is equivalent to the 'metadata' field in the
- *  v1beta1 API. They have the same syntax and read/write to the same location
- *  in Service Directory.
+ *  clients. Restrictions: * The entire annotations dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Annotations that go
+ *  beyond this limit are rejected * Valid annotation keys have two segments: an
+ *  optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/).
+ *  Annotations that fails to meet these requirements are rejected Note: This
+ *  field is equivalent to the `metadata` field in the v1beta1 API. They have
+ *  the same syntax and read/write to the same location in Service Directory.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

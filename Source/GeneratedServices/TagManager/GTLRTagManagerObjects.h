@@ -40,6 +40,7 @@
 @class GTLRTagManager_SetupTag;
 @class GTLRTagManager_SyncStatus;
 @class GTLRTagManager_Tag;
+@class GTLRTagManager_TagConsentSetting;
 @class GTLRTagManager_TeardownTag;
 @class GTLRTagManager_Trigger;
 @class GTLRTagManager_UserPermission;
@@ -296,6 +297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDe
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits;
 /** Value: "sdkVersion" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion;
+/** Value: "serverPageLocationHostname" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationHostname;
+/** Value: "serverPageLocationPath" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationPath;
+/** Value: "serverPageLocationUrl" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationUrl;
 /** Value: "videoCurrentTime" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime;
 /** Value: "videoDuration" */
@@ -491,6 +498,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiring
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited;
 
 // ----------------------------------------------------------------------------
+// GTLRTagManager_TagConsentSetting.consentStatus
+
+/**
+ *  Tag requires additional consent settings.
+ *
+ *  Value: "needed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed;
+/**
+ *  Tag doesn't require any additional consent settings.
+ *
+ *  Value: "notNeeded"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded;
+/**
+ *  Default value where user has not specified any setting on it.
+ *
+ *  Value: "notSet"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet;
+
+// ----------------------------------------------------------------------------
 // GTLRTagManager_Trigger.type
 
 /** Value: "always" */
@@ -505,6 +534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpTimer;
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility;
 /** Value: "click" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Click;
+/** Value: "consentInit" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ConsentInit;
 /** Value: "customEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_CustomEvent;
 /** Value: "domReady" */
@@ -541,6 +572,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseUserEnga
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FormSubmission;
 /** Value: "historyChange" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_HistoryChange;
+/** Value: "init" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Init;
 /** Value: "jsError" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_JsError;
 /** Value: "linkClick" */
@@ -549,6 +582,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_LinkClick;
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Pageview;
 /** Value: "scrollDepth" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth;
+/** Value: "serverPageview" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ServerPageview;
 /** Value: "timer" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Timer;
 /** Value: "triggerGroup" */
@@ -846,6 +881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits Value
  *        "scrollDepthUnits"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_SdkVersion Value "sdkVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationHostname
+ *        Value "serverPageLocationHostname"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationPath Value
+ *        "serverPageLocationPath"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationUrl Value
+ *        "serverPageLocationUrl"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime Value
  *        "videoCurrentTime"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoDuration Value
@@ -895,6 +936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  tagmanager.accounts.containers.workspaces.clients.update
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  User notes on how to apply this tag in the container. \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.update
+ */
+@property(nonatomic, copy, nullable) NSString *notes;
 
 /**
  *  The client's parameters. \@mutable
@@ -1574,6 +1622,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_ListClientsResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "client" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRTagManager_ListClientsResponse : GTLRCollectionObject
+
+/**
+ *  All GTM Clients of a GTM Container.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Client *> *client;
+
+/** Continuation token for fetching the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  List Containers Response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2030,6 +2102,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  The result of reverting a client in a workspace.
+ */
+@interface GTLRTagManager_RevertClientResponse : GTLRObject
+
+/**
+ *  Client as it appears in the latest container version since the last
+ *  workspace synchronization operation. If no client is present, that means the
+ *  client was deleted in the latest container version.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Client *client;
+
+@end
+
+
+/**
  *  The result of reverting folder changes in a workspace.
  */
 @interface GTLRTagManager_RevertFolderResponse : GTLRObject
@@ -2209,6 +2296,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingTriggerId;
 
+/**
+ *  Consent settings of a tag. \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.update
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_TagConsentSetting *consentSettings;
+
 /** GTM Container ID. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
@@ -2361,6 +2455,36 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** GTM Workspace ID. */
 @property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  GTLRTagManager_TagConsentSetting
+ */
+@interface GTLRTagManager_TagConsentSetting : GTLRObject
+
+/**
+ *  The tag's consent status. If set to NEEDED, the runtime will check that the
+ *  consent types specified by the consent_type field have been granted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed Tag
+ *        requires additional consent settings. (Value: "needed")
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded Tag
+ *        doesn't require any additional consent settings. (Value: "notNeeded")
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet Default
+ *        value where user has not specified any setting on it. (Value:
+ *        "notSet")
+ */
+@property(nonatomic, copy, nullable) NSString *consentStatus;
+
+/**
+ *  The type of consents to check for during tag firing if in the consent NEEDED
+ *  state. This parameter must be of type LIST where each list item is of type
+ *  STRING.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *consentType;
 
 @end
 
@@ -2549,6 +2673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_Trigger_Type_AmpTimer Value "ampTimer"
  *    @arg @c kGTLRTagManager_Trigger_Type_AmpVisibility Value "ampVisibility"
  *    @arg @c kGTLRTagManager_Trigger_Type_Click Value "click"
+ *    @arg @c kGTLRTagManager_Trigger_Type_ConsentInit Value "consentInit"
  *    @arg @c kGTLRTagManager_Trigger_Type_CustomEvent Value "customEvent"
  *    @arg @c kGTLRTagManager_Trigger_Type_DomReady Value "domReady"
  *    @arg @c kGTLRTagManager_Trigger_Type_ElementVisibility Value
@@ -2581,10 +2706,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *        "firebaseUserEngagement"
  *    @arg @c kGTLRTagManager_Trigger_Type_FormSubmission Value "formSubmission"
  *    @arg @c kGTLRTagManager_Trigger_Type_HistoryChange Value "historyChange"
+ *    @arg @c kGTLRTagManager_Trigger_Type_Init Value "init"
  *    @arg @c kGTLRTagManager_Trigger_Type_JsError Value "jsError"
  *    @arg @c kGTLRTagManager_Trigger_Type_LinkClick Value "linkClick"
  *    @arg @c kGTLRTagManager_Trigger_Type_Pageview Value "pageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_ScrollDepth Value "scrollDepth"
+ *    @arg @c kGTLRTagManager_Trigger_Type_ServerPageview Value "serverPageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_Timer Value "timer"
  *    @arg @c kGTLRTagManager_Trigger_Type_TriggerGroup Value "triggerGroup"
  *    @arg @c kGTLRTagManager_Trigger_Type_WindowLoaded Value "windowLoaded"

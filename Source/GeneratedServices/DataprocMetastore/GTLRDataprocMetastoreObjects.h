@@ -23,13 +23,19 @@
 
 @class GTLRDataprocMetastore_AuditConfig;
 @class GTLRDataprocMetastore_AuditLogConfig;
+@class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_DatabaseDump;
+@class GTLRDataprocMetastore_DataCatalogConfig;
+@class GTLRDataprocMetastore_DataplexConfig;
+@class GTLRDataprocMetastore_DataplexConfig_LakeResources;
+@class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
+@class GTLRDataprocMetastore_Lake;
 @class GTLRDataprocMetastore_Location;
 @class GTLRDataprocMetastore_Location_Labels;
 @class GTLRDataprocMetastore_Location_Metadata;
@@ -42,6 +48,7 @@
 @class GTLRDataprocMetastore_Operation_Metadata;
 @class GTLRDataprocMetastore_Operation_Response;
 @class GTLRDataprocMetastore_Policy;
+@class GTLRDataprocMetastore_Restore;
 @class GTLRDataprocMetastore_Secret;
 @class GTLRDataprocMetastore_Service;
 @class GTLRDataprocMetastore_Service_Labels;
@@ -87,6 +94,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Backup.state
+
+/**
+ *  The backup is active and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Active;
+/**
+ *  The backup is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Creating;
+/**
+ *  The backup is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Deleting;
+/**
+ *  The backup failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Failed;
+/**
+ *  The backup is being restored.
+ *
+ *  Value: "RESTORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Restoring;
+/**
+ *  The state of the backup is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_DatabaseDump.databaseType
 
 /**
@@ -101,6 +148,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseT
  *  Value: "MYSQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_DatabaseDump.type
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+
+/**
+ *  The protocol is not set.
+ *
+ *  Value: "ENDPOINT_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified;
+/**
+ *  Use the modernized gRPC protocol for the metastore service endpoint.
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc;
+/**
+ *  Use the legacy Apache Thrift protocol for the metastore service endpoint.
+ *
+ *  Value: "THRIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
@@ -153,6 +266,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayO
  *  Value: "WEDNESDAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_MetadataExport.databaseDumpType
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MetadataExport.state
@@ -221,6 +356,109 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_S
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Restore.state
+
+/**
+ *  The metadata restore is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled;
+/**
+ *  The metadata restore failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Failed;
+/**
+ *  The metadata restore is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Running;
+/**
+ *  The state of the metadata restore is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_StateUnspecified;
+/**
+ *  The metadata restore completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Restore.type
+
+/**
+ *  The service's metadata and configuration are restored.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_Full;
+/**
+ *  Only the service's metadata is restored.
+ *
+ *  Value: "METADATA_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_MetadataOnly;
+/**
+ *  The restore type is unknown.
+ *
+ *  Value: "RESTORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_RestoreServiceRequest.restoreType
+
+/**
+ *  The service's metadata and configuration are restored.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full;
+/**
+ *  Only the service's metadata is restored.
+ *
+ *  Value: "METADATA_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly;
+/**
+ *  The restore type is unknown.
+ *
+ *  Value: "RESTORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Service.releaseChannel
+
+/**
+ *  The CANARY release channel contains the newest features, which may be
+ *  unstable and subject to unresolved issues with no known workarounds.
+ *  Services using the CANARY release channel are not subject to any SLAs.
+ *
+ *  Value: "CANARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Canary;
+/**
+ *  Release channel is not specified.
+ *
+ *  Value: "RELEASE_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_ReleaseChannelUnspecified;
+/**
+ *  The STABLE release channel contains features that are considered stable and
+ *  have been validated for production use.
+ *
+ *  Value: "STABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Stable;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Service.state
@@ -368,7 +606,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
- *  Associates members with a role.
+ *  The details of a backup resource.
+ */
+@interface GTLRDataprocMetastore_Backup : GTLRObject
+
+/** Output only. The time when the backup was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The description of the backup.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time when the backup finished creating. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Immutable. The relative resource name of the backup, in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/backups/{backup_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Services that are restoring from the backup. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restoringServices;
+
+/** Output only. The revision of the service at the time of backup. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_Service *serviceRevision;
+
+/**
+ *  Output only. The current state of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Active The backup is active
+ *        and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Creating The backup is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Deleting The backup is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Failed The backup failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Restoring The backup is being
+ *        restored. (Value: "RESTORING")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_StateUnspecified The state of
+ *        the backup is unknown. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Associates members, or principals, with a role.
  */
 @interface GTLRDataprocMetastore_Binding : GTLRObject
 
@@ -377,14 +667,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  evaluates to true, then this binding applies to the current request.If the
  *  condition evaluates to false, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding.To learn which resources
+ *  to one or more of the principals in this binding.To learn which resources
  *  support conditions in their IAM policies, see the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
@@ -415,8 +705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to members. For example, roles/viewer, roles/editor,
- *  or roles/owner.
+ *  Role that is assigned to the list of members, or principals. For example,
+ *  roles/viewer, roles/editor, or roles/owner.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -442,14 +732,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, copy, nullable) NSString *databaseType;
 
 /**
- *  A Cloud Storage object URI that specifies the source from which to import
- *  metadata. It must begin with gs://.
+ *  A Cloud Storage object or folder URI that specifies the source from which to
+ *  import metadata. It must begin with gs://.
  */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /** The name of the source database. */
 @property(nonatomic, copy, nullable) NSString *sourceDatabase;
 
+/**
+ *  Optional. The type of the database dump. If unspecified, defaults to MYSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_Avro Database dump
+ *        contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_Mysql Database dump is a
+ *        MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified The type
+ *        of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Specifies how metastore metadata should be integrated with the Data Catalog
+ *  service.
+ */
+@interface GTLRDataprocMetastore_DataCatalogConfig : GTLRObject
+
+/**
+ *  Defines whether the metastore metadata should be synced to Data Catalog. The
+ *  default value is to disable syncing metastore metadata to Data Catalog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Specifies how metastore metadata should be integrated with the Dataplex
+ *  service.
+ */
+@interface GTLRDataprocMetastore_DataplexConfig : GTLRObject
+
+/**
+ *  A reference to the Lake resources that this metastore service is attached
+ *  to. The key is the lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig_LakeResources *lakeResources;
+
+@end
+
+
+/**
+ *  A reference to the Lake resources that this metastore service is attached
+ *  to. The key is the lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_Lake. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_DataplexConfig_LakeResources : GTLRObject
 @end
 
 
@@ -465,14 +815,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Encryption settings for the service.
+ */
+@interface GTLRDataprocMetastore_EncryptionConfig : GTLRObject
+
+/**
+ *  The fully qualified customer provided Cloud KMS key name to use for customer
+ *  data encryption, in the following
+ *  form:projects/{project_number}/locations/{location_id}/keyRings/{key_ring_id}/cryptoKeys/{crypto_key_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+@end
+
+
+/**
  *  Request message for DataprocMetastore.ExportMetadata.
  */
 @interface GTLRDataprocMetastore_ExportMetadataRequest : GTLRObject
 
 /**
- *  Required. A Cloud Storage URI of a folder that metadata are exported to, in
- *  the format gs:///. A sub-folder containing exported files will be created
- *  below it.
+ *  Optional. The type of the database dump. If unspecified, defaults to MYSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro
+ *        Database dump contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql
+ *        Database dump is a MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified
+ *        The type of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDumpType;
+
+/**
+ *  A Cloud Storage URI of a folder, in the format gs:///. A sub-folder
+ *  containing exported files will be created below it.
  */
 @property(nonatomic, copy, nullable) NSString *destinationGcsFolder;
 
@@ -555,11 +932,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides *configOverrides;
 
 /**
+ *  The protocol to use for the metastore service endpoint. If unspecified,
+ *  defaults to THRIFT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified
+ *        The protocol is not set. (Value: "ENDPOINT_PROTOCOL_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc
+ *        Use the modernized gRPC protocol for the metastore service endpoint.
+ *        (Value: "GRPC")
+ *    @arg @c kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift
+ *        Use the legacy Apache Thrift protocol for the metastore service
+ *        endpoint. (Value: "THRIFT")
+ */
+@property(nonatomic, copy, nullable) NSString *endpointProtocol;
+
+/**
  *  Information used to configure the Hive metastore service as a service
  *  principal in a Kerberos realm. To disable Kerberos, use the UpdateService
- *  method and specify this field's path
- *  ("hive_metastore_config.kerberos_config") in the request's update_mask while
- *  omitting this field from the request's service.
+ *  method and specify this field's path (hive_metastore_config.kerberos_config)
+ *  in the request's update_mask while omitting this field from the request's
+ *  service.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_KerberosConfig *kerberosConfig;
 
@@ -622,10 +1015,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  A Kerberos principal that exists in the both the keytab the KDC to
- *  authenticate as. A typical principal is of the form
- *  "primary/instance\@REALM", but there is no exact format.
+ *  authenticate as. A typical principal is of the form primary/instance\@REALM,
+ *  but there is no exact format.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
+
+@end
+
+
+/**
+ *  Represents a Lake resource
+ */
+@interface GTLRDataprocMetastore_Lake : GTLRObject
+
+/**
+ *  The Lake resource name. Example:
+ *  projects/{project_number}/locations/{location_id}/lakes/{lake_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.ListBackups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataprocMetastore_ListBackupsResponse : GTLRCollectionObject
+
+/**
+ *  The backups of the specified service.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Backup *> *backups;
+
+/**
+ *  A token that can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -859,8 +1296,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @interface GTLRDataprocMetastore_MetadataExport : GTLRObject
 
 /**
+ *  Output only. The type of the database dump.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro
+ *        Database dump contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql
+ *        Database dump is a MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified
+ *        The type of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDumpType;
+
+/**
  *  Output only. A Cloud Storage URI of a folder that metadata are exported to,
- *  in the form of gs:////, where ` is automatically generated.
+ *  in the form of gs:////, where is automatically generated.
  */
 @property(nonatomic, copy, nullable) NSString *destinationGcsUri;
 
@@ -895,7 +1345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @interface GTLRDataprocMetastore_MetadataImport : GTLRObject
 
-/** Output only. The time when the metadata import was created. */
+/** Output only. The time when the metadata import was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Immutable. A database dump from a pre-existing metastore's database. */
@@ -908,9 +1358,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. The time when the metadata import finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Immutable. The relative resource name of the metadata import, of the
- *  form:"projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}".
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -943,6 +1396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  services.
  */
 @interface GTLRDataprocMetastore_MetadataIntegration : GTLRObject
+
+/** The integration config for the Data Catalog service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataCatalogConfig *dataCatalogConfig;
+
+/** The integration config for the Dataplex service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataplexConfig *dataplexConfig;
+
 @end
 
 
@@ -953,6 +1413,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /** Output only. The latest metadata exports of the metastore service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_MetadataExport *> *metadataExports;
+
+/** Output only. The latest restores of the metastore service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Restore *> *restores;
 
 @end
 
@@ -1037,17 +1500,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Represents the metadata of a long-running operation.
+ */
+@interface GTLRDataprocMetastore_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the caller has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources.A Policy is a collection of bindings. A
- *  binding binds one or more members to a single role. Members can be user
- *  accounts, service accounts, Google groups, and domains (such as G Suite). A
- *  role is a named list of permissions; each role can be an IAM predefined role
- *  or a user-created custom role.For some types of Google Cloud resources, a
- *  binding can also specify a condition, which is a logical expression that
- *  allows access to a resource only if the expression evaluates to true. A
- *  condition can add constraints based on attributes of the request, the
- *  resource, or both. To learn which resources support conditions in their IAM
- *  policies, see the IAM documentation
+ *  binding binds one or more members, or principals, to a single role.
+ *  Principals can be user accounts, service accounts, Google groups, and
+ *  domains (such as G Suite). A role is a named list of permissions; each role
+ *  can be an IAM predefined role or a user-created custom role.For some types
+ *  of Google Cloud resources, a binding can also specify a condition, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to true. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).JSON
  *  example: { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1063,7 +1564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the IAM
  *  documentation (https://cloud.google.com/iam/docs/).
  */
@@ -1073,9 +1574,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of members to a role. Optionally, may specify a condition
- *  that determines how and when the bindings are applied. Each of the bindings
- *  must contain at least one member.
+ *  Associates a list of members, or principals, with a role. Optionally, may
+ *  specify a condition that determines how and when the bindings are applied.
+ *  Each of the bindings must contain at least one principal.The bindings in a
+ *  Policy can refer to up to 1,500 principals; up to 250 of these principals
+ *  can be Google groups. Each occurrence of a principal counts towards these
+ *  limits. For example, if the bindings grant 50 different roles to
+ *  user:alice\@example.com, and not to any other principal, then you can add
+ *  another 1,450 principals to the bindings in the Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Binding *> *bindings;
 
@@ -1122,6 +1628,104 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  The details of a metadata restore operation.
+ */
+@interface GTLRDataprocMetastore_Restore : GTLRObject
+
+/**
+ *  Output only. The relative resource name of the metastore service backup to
+ *  restore from, in the following
+ *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Output only. The restore details containing the revision of the service to
+ *  be restored to, in format of JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/** Output only. The time when the restore ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The time when the restore started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the restore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Cancelled The metadata
+ *        restore is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Failed The metadata restore
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Running The metadata restore
+ *        is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_StateUnspecified The state of
+ *        the metadata restore is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Succeeded The metadata
+ *        restore completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of restore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_Full The service's metadata
+ *        and configuration are restored. (Value: "FULL")
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_MetadataOnly Only the
+ *        service's metadata is restored. (Value: "METADATA_ONLY")
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified The
+ *        restore type is unknown. (Value: "RESTORE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Request message for DataprocMetastore.Restore.
+ */
+@interface GTLRDataprocMetastore_RestoreServiceRequest : GTLRObject
+
+/**
+ *  Required. The relative resource name of the metastore service backup to
+ *  restore from, in the following
+ *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format). A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. The type of restore. If unspecified, defaults to METADATA_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full The
+ *        service's metadata and configuration are restored. (Value: "FULL")
+ *    @arg @c kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly
+ *        Only the service's metadata is restored. (Value: "METADATA_ONLY")
+ *    @arg @c kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified
+ *        The restore type is unknown. (Value: "RESTORE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *restoreType;
+
+@end
+
+
+/**
  *  A securely stored value.
  */
 @interface GTLRDataprocMetastore_Secret : GTLRObject
@@ -1129,7 +1733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /**
  *  The relative resource name of a Secret Manager secret version, in the
  *  following
- *  form:"projects/{project_number}/secrets/{secret_id}/versions/{version_id}".
+ *  form:projects/{project_number}/secrets/{secret_id}/versions/{version_id}.
  */
 @property(nonatomic, copy, nullable) NSString *cloudSecret;
 
@@ -1151,6 +1755,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Immutable. Information used to configure the Dataproc Metastore service to
+ *  encrypt customer data at rest. Cannot be updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_EncryptionConfig *encryptionConfig;
+
+/**
  *  Output only. The URI of the endpoint used to access the metastore service.
  */
 @property(nonatomic, copy, nullable) NSString *endpointUri;
@@ -1167,6 +1777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /**
  *  The one hour maintenance window of the metastore service. This specifies
  *  when the service can be restarted for maintenance purposes in UTC time.
+ *  Maintenance window is not needed for services with the SPANNER database
+ *  type.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_MaintenanceWindow *maintenanceWindow;
 
@@ -1183,15 +1795,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  Immutable. The relative resource name of the metastore service, of the
- *  form:"projects/{project_number}/locations/{location_id}/services/{service_id}".
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The relative resource name of the VPC network on which the
- *  instance can be accessed. The network must belong to the same project as the
- *  metastore instance. It is specified in the following
- *  form:"projects/{project_number}/global/networks/{network_id}".
+ *  instance can be accessed. It is specified in the following
+ *  form:projects/{project_number}/global/networks/{network_id}.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -1201,6 +1812,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  Immutable. The release channel of the service. If unspecified, defaults to
+ *  STABLE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Service_ReleaseChannel_Canary The CANARY
+ *        release channel contains the newest features, which may be unstable
+ *        and subject to unresolved issues with no known workarounds. Services
+ *        using the CANARY release channel are not subject to any SLAs. (Value:
+ *        "CANARY")
+ *    @arg @c kGTLRDataprocMetastore_Service_ReleaseChannel_ReleaseChannelUnspecified
+ *        Release channel is not specified. (Value:
+ *        "RELEASE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_Service_ReleaseChannel_Stable The STABLE
+ *        release channel contains features that are considered stable and have
+ *        been validated for production use. (Value: "STABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *releaseChannel;
 
 /**
  *  Output only. The current state of the metastore service.

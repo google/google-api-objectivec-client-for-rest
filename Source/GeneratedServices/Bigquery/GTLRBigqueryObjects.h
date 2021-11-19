@@ -27,10 +27,12 @@
 @class GTLRBigquery_ArimaForecastingMetrics;
 @class GTLRBigquery_ArimaModelInfo;
 @class GTLRBigquery_ArimaOrder;
-@class GTLRBigquery_ArimaResult;
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
+@class GTLRBigquery_AvroOptions;
+@class GTLRBigquery_BiEngineReason;
+@class GTLRBigquery_BiEngineStatistics;
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
@@ -43,7 +45,6 @@
 @class GTLRBigquery_CategoricalValue;
 @class GTLRBigquery_CategoryCount;
 @class GTLRBigquery_Cluster;
-@class GTLRBigquery_ClusterInfo;
 @class GTLRBigquery_Clustering;
 @class GTLRBigquery_ClusteringMetrics;
 @class GTLRBigquery_ConfusionMatrix;
@@ -51,25 +52,25 @@
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
+@class GTLRBigquery_DatasetAccessEntry;
+@class GTLRBigquery_DatasetAccessEntry_TargetTypes_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item_Labels;
 @class GTLRBigquery_DatasetReference;
 @class GTLRBigquery_DataSplitResult;
 @class GTLRBigquery_DestinationTableProperties;
 @class GTLRBigquery_DestinationTableProperties_Labels;
-@class GTLRBigquery_DimensionalityReductionMetrics;
+@class GTLRBigquery_DmlStatistics;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_Entry;
 @class GTLRBigquery_ErrorProto;
 @class GTLRBigquery_EvaluationMetrics;
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
-@class GTLRBigquery_Explanation;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
-@class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_IterationResult;
@@ -92,6 +93,7 @@
 @class GTLRBigquery_JobStatus;
 @class GTLRBigquery_JsonObject;
 @class GTLRBigquery_MaterializedViewDefinition;
+@class GTLRBigquery_MlStatistics;
 @class GTLRBigquery_Model;
 @class GTLRBigquery_Model_Labels;
 @class GTLRBigquery_ModelDefinition;
@@ -99,8 +101,8 @@
 @class GTLRBigquery_ModelReference;
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_MultiClassClassificationMetrics;
+@class GTLRBigquery_ParquetOptions;
 @class GTLRBigquery_Policy;
-@class GTLRBigquery_PrincipalComponentInfo;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
 @class GTLRBigquery_QueryParameter;
@@ -122,10 +124,12 @@
 @class GTLRBigquery_RowLevelSecurityStatistics;
 @class GTLRBigquery_ScriptStackFrame;
 @class GTLRBigquery_ScriptStatistics;
+@class GTLRBigquery_SessionInfo;
 @class GTLRBigquery_SnapshotDefinition;
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
+@class GTLRBigquery_StandardSqlTableType;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -229,7 +233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_Seasona
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -271,7 +279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaModelInfo_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -313,7 +325,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_NoS
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaResult_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -355,7 +371,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetr
  *  Value: "QUARTERLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_Quarterly;
-/** Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified seasonal period.
+ *
+ *  Value: "SEASONAL_PERIOD_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ArimaSingleModelForecastingMetrics_SeasonalPeriods_SeasonalPeriodTypeUnspecified;
 /**
  *  Weekly period, 7 days.
@@ -408,13 +428,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeU
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
 /**
- *  [Beta] AutoML Tables classification model.
+ *  New name for the ARIMA model.
+ *
+ *  Value: "ARIMA_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus;
+/**
+ *  AutoML Tables classification model.
  *
  *  Value: "AUTOML_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier;
 /**
- *  [Beta] AutoML Tables regression model.
+ *  AutoML Tables regression model.
  *
  *  Value: "AUTOML_REGRESSOR"
  */
@@ -534,6 +560,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineType
  *  Value: "SCALAR_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
+/**
+ *  Non-builtin permanent TVF.
+ *
+ *  Value: "TABLE_VALUED_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_TableValuedFunction;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_StandardSqlDataType.typeKind
@@ -593,6 +625,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ge
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64;
 /**
+ *  Encoded as fully qualified 3 part: 0-5 15 2:30:45.6
+ *
+ *  Value: "INTERVAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Interval;
+/**
+ *  Encoded as a string.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Json;
+/**
  *  Encoded as a decimal string.
  *
  *  Value: "NUMERIC"
@@ -630,6 +674,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Ti
  *  Value: "TYPE_KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_TypeKindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.boosterType
+
+/**
+ *  Unspecified booster type.
+ *
+ *  Value: "BOOSTER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified;
+/**
+ *  Dart booster.
+ *
+ *  Value: "DART"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Dart;
+/**
+ *  Gbtree booster.
+ *
+ *  Value: "GBTREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_BoosterType_Gbtree;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.dartNormalizeType
+
+/**
+ *  Unspecified dart normalize type.
+ *
+ *  Value: "DART_NORMALIZE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_DartNormalizeTypeUnspecified;
+/**
+ *  New trees have the same weight of sum of dropped trees.
+ *
+ *  Value: "FOREST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Forest;
+/**
+ *  New trees have the same weight of each of dropped trees.
+ *
+ *  Value: "TREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DartNormalizeType_Tree;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.dataFrequency
@@ -1260,6 +1348,40 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Value: "OPTIMIZATION_STRATEGY_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_OptimizationStrategyUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.treeMethod
+
+/**
+ *  Approximate greedy algorithm using quantile sketch and gradient histogram.
+ *
+ *  Value: "APPROX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Approx;
+/**
+ *  Use heuristic to choose the fastest method.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Auto;
+/**
+ *  Exact greedy algorithm.
+ *
+ *  Value: "EXACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Exact;
+/**
+ *  Fast histogram optimized approximate greedy algorithm.
+ *
+ *  Value: "HIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Hist;
+/**
+ *  Unspecified tree method.
+ *
+ *  Value: "TREE_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified;
+
 /**
  *  Aggregate metrics for classification/classifier models. For multi-class
  *  models, the metrics are either macro-averaged or micro-averaged. When
@@ -1491,6 +1613,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *hasDrift;
 
+/**
+ *  If true, holiday_effect is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasHolidayEffect;
+
+/**
+ *  If true, spikes_and_dips is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasSpikesAndDips;
+
+/**
+ *  If true, step_changes is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasStepChanges;
+
 /** Non-seasonal order. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
 
@@ -1500,8 +1643,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
 
-/** The id to indicate different time series. */
+/**
+ *  The time_series_id value for this time series. It will be one of the unique
+ *  values from the time_series_id_column specified during ARIMA model training.
+ *  Only present when time_series_id_column training option was used.
+ */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
+
+/**
+ *  The tuple of time_series_ids identifying this time series. It will be one of
+ *  the unique tuples of values present in the time_series_id_columns specified
+ *  during ARIMA model training. Only present when time_series_id_columns
+ *  training option was used and the order of values here are same as the order
+ *  of time_series_id_columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIds;
 
 @end
 
@@ -1571,6 +1727,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *hasDrift;
 
+/**
+ *  If true, holiday_effect is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasHolidayEffect;
+
+/**
+ *  If true, spikes_and_dips is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasSpikesAndDips;
+
+/**
+ *  If true, step_changes is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasStepChanges;
+
 /** Non-seasonal order. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
 
@@ -1580,8 +1757,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
 
-/** The id to indicate different time series. */
+/**
+ *  The time_series_id value for this time series. It will be one of the unique
+ *  values from the time_series_id_column specified during ARIMA model training.
+ *  Only present when time_series_id_column training option was used.
+ */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
+
+/**
+ *  The tuple of time_series_ids identifying this time series. It will be one of
+ *  the unique tuples of values present in the time_series_id_columns specified
+ *  during ARIMA model training. Only present when time_series_id_columns
+ *  training option was used and the order of values here are same as the order
+ *  of time_series_id_columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIds;
 
 @end
 
@@ -1648,6 +1838,64 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
+
+@end
+
+
+/**
+ *  GTLRBigquery_AvroOptions
+ */
+@interface GTLRBigquery_AvroOptions : GTLRObject
+
+/**
+ *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  logical types as the corresponding BigQuery data type (for example,
+ *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useAvroLogicalTypes;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BiEngineReason
+ */
+@interface GTLRBigquery_BiEngineReason : GTLRObject
+
+/**
+ *  [Output-only] High-level BI Engine reason for partial or disabled
+ *  acceleration.
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output-only] Free form human-readable reason for partial or disabled
+ *  acceleration.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BiEngineStatistics
+ */
+@interface GTLRBigquery_BiEngineStatistics : GTLRObject
+
+/**
+ *  [Output-only] Specifies which mode of BI Engine acceleration was performed
+ *  (if any).
+ */
+@property(nonatomic, copy, nullable) NSString *biEngineMode;
+
+/**
+ *  In case of DISABLED or PARTIAL bi_engine_mode, these contain the explanatory
+ *  reasons as to why BI Engine could not accelerate. In case the full query was
+ *  accelerated, this field is not populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BiEngineReason *> *biEngineReasons;
 
 @end
 
@@ -1893,7 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRBigquery_Binding : GTLRObject
 
@@ -1902,14 +2150,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1941,8 +2189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2308,6 +2556,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
+ *  [Optional] An custom string that will represent a NULL value in CSV import
+ *  data.
+ */
+@property(nonatomic, copy, nullable) NSString *nullMarker;
+
+/**
  *  [Optional] The value that is used to quote data sections in a CSV file.
  *  BigQuery converts the string to ISO-8859-1 encoding, and then uses the first
  *  byte of the encoded string to split the data in its raw, binary state. The
@@ -2365,6 +2619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** [Required] A reference that identifies the dataset. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *datasetReference;
+
+/** [Output-only] The default collation of the dataset. */
+@property(nonatomic, copy, nullable) NSString *defaultCollation;
 
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *defaultEncryptionConfiguration;
 
@@ -2425,6 +2682,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
+/**
+ *  [Optional] Indicates if table names are case insensitive in the dataset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCaseInsensitive;
+
 /** [Output-only] The resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2469,6 +2733,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  GTLRBigquery_Dataset_Access_Item
  */
 @interface GTLRBigquery_Dataset_Access_Item : GTLRObject
+
+/**
+ *  [Pick one] A grant authorizing all resources of a particular type in a
+ *  particular dataset access to this dataset. Only views are supported for now.
+ *  The role field is not required when this field is set. If that dataset is
+ *  deleted and re-created, its access needs to be granted again via an update
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetAccessEntry *dataset;
 
 /**
  *  [Pick one] A domain to grant access to. Any users signed in with the domain
@@ -2548,6 +2821,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        fetch them all at once.
  */
 @interface GTLRBigquery_Dataset_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRBigquery_DatasetAccessEntry
+ */
+@interface GTLRBigquery_DatasetAccessEntry : GTLRObject
+
+/** [Required] The dataset this entry applies to. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *dataset;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DatasetAccessEntry_TargetTypes_Item *> *targetTypes;
+
+@end
+
+
+/**
+ *  GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
+ */
+@interface GTLRBigquery_DatasetAccessEntry_TargetTypes_Item : GTLRObject
+
+/**
+ *  [Required] Which resources in the dataset this entry applies to. Currently,
+ *  only views are supported, but additional target types may be added in the
+ *  future. Possible values: VIEWS: This entry applies to all views in the
+ *  dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *targetType;
+
 @end
 
 
@@ -2693,6 +2995,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  [Optional] The destination table expiration time. If this field is set: For
+ *  a new table, it will set the table's expiration time (even if there is a
+ *  dataset level default table expiration time). For an existing table, it will
+ *  update the table's expiration time. If this field is not set: For a new
+ *  table, if dataset level default table expiration time is present, that will
+ *  be applied. For an existing table, no change is made to the table's
+ *  expiration time. Additionally this field is only applied when data is
+ *  written to an empty table (WRITE_EMPTY) or data is overwritten to a table
+ *  (WRITE_TRUNCATE).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/**
  *  [Optional] The friendly name for the destination table. This will only be
  *  used if the destination table is newly created. If the table already exists
  *  and a value different than the current friendly name is provided, the job
@@ -2727,16 +3042,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Model evaluation metrics for dimensionality reduction models.
+ *  GTLRBigquery_DmlStatistics
  */
-@interface GTLRBigquery_DimensionalityReductionMetrics : GTLRObject
+@interface GTLRBigquery_DmlStatistics : GTLRObject
 
 /**
- *  Total percentage of variance explained by the selected principal components.
+ *  Number of deleted Rows. populated by DML DELETE, MERGE and TRUNCATE
+ *  statements.
  *
- *  Uses NSNumber of doubleValue.
+ *  Uses NSNumber of longLongValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *totalExplainedVarianceRatio;
+@property(nonatomic, strong, nullable) NSNumber *deletedRowCount;
+
+/**
+ *  Number of inserted Rows. Populated by DML INSERT and MERGE statements.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insertedRowCount;
+
+/**
+ *  Number of updated Rows. Populated by DML UPDATE and MERGE statements.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedRowCount;
 
 @end
 
@@ -2815,12 +3145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Populated for clustering models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ClusteringMetrics *clusteringMetrics;
-
-/**
- *  Evaluation metrics when the model is a dimensionality reduction model, which
- *  currently includes PCA.
- */
-@property(nonatomic, strong, nullable) GTLRBigquery_DimensionalityReductionMetrics *dimensionalityReductionMetrics;
 
 /** Populated for multi-class classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MultiClassClassificationMetrics *multiClassClassificationMetrics;
@@ -3063,28 +3387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Explanation for a single feature.
- */
-@interface GTLRBigquery_Explanation : GTLRObject
-
-/**
- *  Attribution of feature.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *attribution;
-
-/**
- *  Full name of the feature. For non-numerical features, will be formatted like
- *  .. Overall size of feature name will always be truncated to first 120
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *featureName;
-
-@end
-
-
-/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -3146,6 +3448,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
 
+/** Additional properties to set if sourceFormat is set to Avro. */
+@property(nonatomic, strong, nullable) GTLRBigquery_AvroOptions *avroOptions;
+
 /** [Optional] Additional options if sourceFormat is set to BIGTABLE. */
 @property(nonatomic, strong, nullable) GTLRBigquery_BigtableOptions *bigtableOptions;
 
@@ -3161,6 +3466,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Additional properties to set if sourceFormat is set to CSV. */
 @property(nonatomic, strong, nullable) GTLRBigquery_CsvOptions *csvOptions;
+
+/**
+ *  [Optional] Defines the list of possible SQL data types to which the source
+ *  decimal values are converted. This list and the precision and the scale
+ *  parameters of the decimal field determine the target type. In the order of
+ *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
+ *  list and if it supports the precision and the scale. STRING supports all
+ *  precision and scale values. If none of the listed types supports the
+ *  precision and the scale, the type supporting the widest range in the
+ *  specified list is picked, and if a value exceeds the supported range when
+ *  reading the data, an error will be thrown. Example: Suppose the value of
+ *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
+ *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
+ *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
+ *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
+ *  This field cannot contain duplicate types. The order of the types in this
+ *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
+ *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
+ *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
+ *  the other file formats.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
 /** [Optional] Additional options if sourceFormat is set to GOOGLE_SHEETS. */
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
@@ -3194,6 +3521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
+
+/** Additional properties to set if sourceFormat is set to Parquet. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
  *  [Optional] The schema for the data. Schema is required for CSV and JSON
@@ -3384,28 +3714,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Global explanations containing the top most important features after
- *  training.
- */
-@interface GTLRBigquery_GlobalExplanation : GTLRObject
-
-/**
- *  Class label for this set of global explanations. Will be empty/null for
- *  binary logistic and linear regression models. Sorted alphabetically in
- *  descending order.
- */
-@property(nonatomic, copy, nullable) NSString *classLabel;
-
-/**
- *  A list of the top global explanations. Sorted by absolute value of
- *  attribution in descending order.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Explanation *> *explanations;
-
-@end
-
-
-/**
  *  GTLRBigquery_GoogleSheetsOptions
  */
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
@@ -3482,14 +3790,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Information about a single iteration of the training run.
+ *  GTLRBigquery_IterationResult
  */
 @interface GTLRBigquery_IterationResult : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRBigquery_ArimaResult *arimaResult;
-
-/** Information about top clusters for clustering models. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ClusterInfo *> *clusterInfos;
 
 /**
  *  Time taken to run the iteration in milliseconds.
@@ -3518,9 +3821,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *learnRate;
-
-/** The information of the principal components. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_PrincipalComponentInfo *> *principalComponentInfos;
 
 /**
  *  Loss computed on the training data at the end of iteration.
@@ -3784,24 +4084,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
- *  Defines the list of possible SQL data types to which the source decimal
- *  values are converted. This list and the precision and the scale parameters
- *  of the decimal field determine the target type. In the order of NUMERIC,
- *  BIGNUMERIC ([Preview](/products/#product-launch-stages)), and STRING, a type
- *  is picked if it is in the specified list and if it supports the precision
- *  and the scale. STRING supports all precision and scale values. If none of
- *  the listed types supports the precision and the scale, the type supporting
- *  the widest range in the specified list is picked, and if a value exceeds the
- *  supported range when reading the data, an error will be thrown. Example:
- *  Suppose the value of this field is ["NUMERIC", "BIGNUMERIC"]. If
- *  (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC
- *  cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold
- *  10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC
- *  (error if value exeeds supported range). This field cannot contain duplicate
- *  types. The order of the types in this field is ignored. For example,
- *  ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC", "BIGNUMERIC"] and
- *  NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
- *  "STRING"] for ORC and ["NUMERIC"] for the other file formats.
+ *  [Optional] Defines the list of possible SQL data types to which the source
+ *  decimal values are converted. This list and the precision and the scale
+ *  parameters of the decimal field determine the target type. In the order of
+ *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
+ *  list and if it supports the precision and the scale. STRING supports all
+ *  precision and scale values. If none of the listed types supports the
+ *  precision and the scale, the type supporting the widest range in the
+ *  specified list is picked, and if a value exceeds the supported range when
+ *  reading the data, an error will be thrown. Example: Suppose the value of
+ *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
+ *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
+ *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
+ *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
+ *  This field cannot contain duplicate types. The order of the types in this
+ *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
+ *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
+ *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
+ *  the other file formats.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
@@ -3879,6 +4179,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  BYTE columns, BigQuery interprets the empty string as an empty value.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
+
+/** [Optional] Options to configure parquet support. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
  *  If sourceFormat is set to "DATASTORE_BACKUP", indicates which entity
@@ -3974,9 +4277,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) GTLRBigquery_TimePartitioning *timePartitioning;
 
 /**
- *  [Optional] If sourceFormat is set to "AVRO", indicates whether to enable
- *  interpreting logical types into their corresponding types (ie. TIMESTAMP),
- *  instead of only using their raw types (ie. INTEGER).
+ *  [Optional] If sourceFormat is set to "AVRO", indicates whether to interpret
+ *  logical types as the corresponding BigQuery data type (for example,
+ *  TIMESTAMP), instead of using the raw type (for example, INTEGER).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4033,6 +4336,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  occur as one atomic update upon job completion.
  */
 @property(nonatomic, copy, nullable) NSString *createDisposition;
+
+/**
+ *  If true, creates a new session, where session id will be a server generated
+ *  random id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs query in non-session mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSession;
 
 /**
  *  [Optional] Specifies the default dataset to use for unqualified table names
@@ -4419,6 +4731,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) GTLRBigquery_ScriptStatistics *scriptStatistics;
 
 /**
+ *  [Output-only] [Preview] Information of the session if this job is part of
+ *  one.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
+
+/**
  *  [Output-only] Start time of this job, in milliseconds since the epoch. This
  *  field will be present when the job transitions from the PENDING state to
  *  either RUNNING or DONE.
@@ -4446,7 +4764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  [Output-only] [Alpha] Information of the multi-statement transaction if this
  *  job is part of one.
  */
-@property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfoTemplate;
+@property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfo;
 
 @end
 
@@ -4478,6 +4796,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_JobStatistics2 : GTLRObject
 
 /**
+ *  BI Engine specific Statistics. [Output-only] BI Engine specific Statistics.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_BiEngineStatistics *biEngineStatistics;
+
+/**
  *  [Output-only] Billing tier for the job.
  *
  *  Uses NSNumber of intValue.
@@ -4500,6 +4823,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *ddlAffectedRowAccessPolicyCount;
 
 /**
+ *  [Output-only] The DDL destination table. Present only for ALTER TABLE RENAME
+ *  TO queries. Note that ddl_target_table is used just for its type
+ *  information.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlDestinationTable;
+
+/**
  *  The DDL operation performed, possibly dependent on the pre-existence of the
  *  DDL target. Possible values (new values might be added in the future):
  *  "CREATE": The query created the DDL target. "SKIP": No-op. Example cases:
@@ -4510,6 +4840,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  DDL target.
  */
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
+
+/**
+ *  [Output-only] The DDL target dataset. Present only for CREATE/ALTER/DROP
+ *  SCHEMA queries.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *ddlTargetDataset;
 
 /**
  *  The DDL target routine. Present only for CREATE/DROP FUNCTION/PROCEDURE
@@ -4530,11 +4866,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
 
 /**
+ *  [Output-only] Detailed statistics for DML statements Present only for DML
+ *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
+
+/**
  *  [Output-only] The original estimate of bytes processed for the job.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedBytesProcessed;
+
+/** [Output-only] Statistics of a BigQuery ML training job. */
+@property(nonatomic, strong, nullable) GTLRBigquery_MlStatistics *mlStatistics;
 
 /** [Output-only, Beta] Information about create model query job progress. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ModelTraining *modelTraining;
@@ -4914,9 +5259,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_MlStatistics
+ */
+@interface GTLRBigquery_MlStatistics : GTLRObject
+
+/** Results for all completed iterations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *iterationResults;
+
+/**
+ *  Maximum number of iterations specified as max_iterations in the 'CREATE
+ *  MODEL' query. The actual number of iterations may be less than this number
+ *  due to early stop.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxIterations;
+
+@end
+
+
+/**
  *  GTLRBigquery_Model
  */
 @interface GTLRBigquery_Model : GTLRObject
+
+/**
+ *  The best trial_id across all training runs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bestTrialId;
 
 /**
  *  Output only. The time when this model was created, in millisecs since the
@@ -4999,9 +5371,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier [Beta] AutoML
- *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor [Beta] AutoML Tables
+ *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlus New name for the ARIMA
+ *        model. (Value: "ARIMA_PLUS")
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier AutoML Tables
+ *        classification model. (Value: "AUTOML_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor AutoML Tables
  *        regression model. (Value: "AUTOML_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier Boosted tree
  *        classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
@@ -5149,17 +5523,41 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_ParquetOptions
+ */
+@interface GTLRBigquery_ParquetOptions : GTLRObject
+
+/**
+ *  [Optional] Indicates whether to use schema inference specifically for
+ *  Parquet LIST logical type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableListInference;
+
+/**
+ *  [Optional] Indicates whether to infer Parquet ENUM logical type as STRING
+ *  instead of BYTES by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enumAsString;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -5175,7 +5573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -5185,9 +5583,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Binding *> *bindings;
 
@@ -5229,45 +5632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
-
-@end
-
-
-/**
- *  Principal component infos, used only for eigen decomposition based models,
- *  e.g., PCA. Ordered by explained_variance in the descending order.
- */
-@interface GTLRBigquery_PrincipalComponentInfo : GTLRObject
-
-/**
- *  The explained_variance is pre-ordered in the descending order to compute the
- *  cumulative explained variance ratio.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cumulativeExplainedVarianceRatio;
-
-/**
- *  Explained variance by this principal component, which is simply the
- *  eigenvalue.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *explainedVariance;
-
-/**
- *  Explained_variance over the total explained variance.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *explainedVarianceRatio;
-
-/**
- *  Id of the principal component.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *principalComponentId;
 
 @end
 
@@ -5457,6 +5821,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
+ *  If true, creates a new session, where session id will be a server generated
+ *  random id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs query in non-session mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSession;
+
+/**
  *  [Optional] Specifies the default datasetId and projectId to assume for any
  *  unqualified table names in the query. If not set, all table names in the
  *  query string must be qualified in the format 'datasetId.tableId'.
@@ -5624,6 +5997,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
+ *  [Output-only] Detailed statistics for DML statements Present only for DML
+ *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
+
+/**
  *  [Output-only] The first errors or warnings encountered during the running of
  *  the job. The final message includes the number of errors that caused the
  *  process to stop. Errors here do not necessarily mean that the job has
@@ -5674,6 +6053,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  successfully.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableSchema *schema;
+
+/**
+ *  [Output-only] [Preview] Information of the session if this job is part of
+ *  one.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
 
 /**
  *  The total number of bytes processed for this query. If this query was a dry
@@ -5906,15 +6291,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *definitionBody;
 
 /**
- *  Optional. [Experimental] The description of the routine if defined.
+ *  Optional. The description of the routine, if defined.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. [Experimental] The determinism level of the JavaScript UDF if
- *  defined.
+ *  Optional. The determinism level of the JavaScript UDF, if defined.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Routine_DeterminismLevel_DeterminismLevelUnspecified
@@ -5959,8 +6343,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
- *  Optional if language = "SQL"; required otherwise. If absent, the return type
- *  is inferred from definition_body at query time in each query that references
+ *  Optional. Can be set only if routine_type = "TABLE_VALUED_FUNCTION". If
+ *  absent, the return table type is inferred from definition_body at query time
+ *  in each query that references this routine. If present, then the columns in
+ *  the evaluated table result will be cast to match the column types specificed
+ *  in return table type, at query time.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlTableType *returnTableType;
+
+/**
+ *  Optional if language = "SQL"; required otherwise. Cannot be set if
+ *  routine_type = "TABLE_VALUED_FUNCTION". If absent, the return type is
+ *  inferred from definition_body at query time in each query that references
  *  this routine. If present, then the evaluated result will be cast to the
  *  specified returned type at query time. For example, for the functions
  *  created with the following statements: * `CREATE FUNCTION Add(x FLOAT64, y
@@ -5988,8 +6382,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        "ROUTINE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRBigquery_Routine_RoutineType_ScalarFunction Non-builtin
  *        permanent scalar function. (Value: "SCALAR_FUNCTION")
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_TableValuedFunction Non-builtin
+ *        permanent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
+
+/**
+ *  Optional. Can be set for procedures only. If true (default), the definition
+ *  body will be validated in the creation and the updates of the procedure. For
+ *  procedures with an argument of ANY TYPE, the definition body validtion is
+ *  not supported at creation/update time, and thus this field must be set to
+ *  false explicitly.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *strictMode;
 
 @end
 
@@ -6170,6 +6577,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_SessionInfo
+ */
+@interface GTLRBigquery_SessionInfo : GTLRObject
+
+/** [Output-only] // [Preview] Id of the session. */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRBigquery_SetIamPolicyRequest : GTLRObject
@@ -6198,12 +6616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_SnapshotDefinition : GTLRObject
 
-/**
- *  [Required] Reference describing the ID of the table that is snapshotted.
- */
+/** [Required] Reference describing the ID of the table that was snapshot. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
 
-/** [Required] The time at which the base table was snapshot. */
+/**
+ *  [Required] The time at which the base table was snapshot. This value is
+ *  reported in the JSON response using RFC3339 format.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
@@ -6248,6 +6667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        WKT (Value: "GEOGRAPHY")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Int64 Encoded as a
  *        string in decimal format. (Value: "INT64")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Interval Encoded as
+ *        fully qualified 3 part: 0-5 15 2:30:45.6 (Value: "INTERVAL")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Json Encoded as a
+ *        string. (Value: "JSON")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric Encoded as a
  *        decimal string. (Value: "NUMERIC")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_String Encoded as a
@@ -6292,6 +6715,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_StandardSqlStructType : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *fields;
+
+@end
+
+
+/**
+ *  A table type
+ */
+@interface GTLRBigquery_StandardSqlTableType : GTLRObject
+
+/** The columns in this table type */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *columns;
 
 @end
 
@@ -6348,6 +6782,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *creationTime;
+
+/** [Output-only] The default collation of the table. */
+@property(nonatomic, copy, nullable) NSString *defaultCollation;
 
 /**
  *  [Optional] A user-friendly description of this table.
@@ -6689,6 +7126,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_Categories *categories;
 
 /**
+ *  Optional. Collation specification of the field. It only can be set on string
+ *  type field.
+ */
+@property(nonatomic, copy, nullable) NSString *collationSpec;
+
+/**
  *  [Optional] The field description. The maximum length is 1,024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -6702,6 +7145,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_TableFieldSchema *> *fields;
 
 /**
+ *  [Optional] Maximum length of values of this field for STRINGS or BYTES. If
+ *  max_length is not specified, no maximum length constraint is imposed on this
+ *  field. If type = "STRING", then max_length represents the maximum UTF-8
+ *  length of strings in this field. If type = "BYTES", then max_length
+ *  represents the maximum number of bytes in this field. It is invalid to set
+ *  this field if type ≠ "STRING" and ≠ "BYTES".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxLength;
+
+/**
  *  [Optional] The field mode. Possible values include NULLABLE, REQUIRED and
  *  REPEATED. The default value is NULLABLE.
  */
@@ -6710,18 +7165,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Required] The field name. The name must contain only letters (a-z, A-Z),
  *  numbers (0-9), or underscores (_), and must start with a letter or
- *  underscore. The maximum length is 128 characters.
+ *  underscore. The maximum length is 300 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_PolicyTags *policyTags;
 
 /**
+ *  [Optional] Precision (maximum number of total digits in base 10) and scale
+ *  (maximum number of digits in the fractional part in base 10) constraints for
+ *  values of this field for NUMERIC or BIGNUMERIC. It is invalid to set
+ *  precision or scale if type ≠ "NUMERIC" and ≠ "BIGNUMERIC". If precision and
+ *  scale are not specified, no value range constraint is imposed on this field
+ *  insofar as values are permitted by the type. Values of this NUMERIC or
+ *  BIGNUMERIC field must be in this range when: - Precision (P) and scale (S)
+ *  are specified: [-10P-S + 10-S, 10P-S - 10-S] - Precision (P) is specified
+ *  but not scale (and thus scale is interpreted to be equal to zero): [-10P +
+ *  1, 10P - 1]. Acceptable values for precision and scale if both are
+ *  specified: - If type = "NUMERIC": 1 ≤ precision - scale ≤ 29 and 0 ≤ scale ≤
+ *  9. - If type = "BIGNUMERIC": 1 ≤ precision - scale ≤ 38 and 0 ≤ scale ≤ 38.
+ *  Acceptable values for precision if only precision is specified but not scale
+ *  (and thus scale is interpreted to be equal to zero): - If type = "NUMERIC":
+ *  1 ≤ precision ≤ 29. - If type = "BIGNUMERIC": 1 ≤ precision ≤ 38. If scale
+ *  is specified but not precision, then it is invalid.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *precision;
+
+/**
+ *  [Optional] See documentation for precision.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scale;
+
+/**
  *  [Required] The field data type. Possible values include STRING, BYTES,
  *  INTEGER, INT64 (same as INTEGER), FLOAT, FLOAT64 (same as FLOAT), NUMERIC,
  *  BIGNUMERIC, BOOLEAN, BOOL (same as BOOLEAN), TIMESTAMP, DATE, TIME,
- *  DATETIME, RECORD (where RECORD indicates that the field contains a nested
- *  schema) or STRUCT (same as RECORD).
+ *  DATETIME, INTERVAL, RECORD (where RECORD indicates that the field contains a
+ *  nested schema) or STRUCT (same as RECORD).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7004,6 +7488,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_TrainingOptions : GTLRObject
 
 /**
+ *  If true, detect step changes and make data adjustment in the input time
+ *  series.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adjustStepChanges;
+
+/**
  *  Whether to enable auto ARIMA or not.
  *
  *  Uses NSNumber of boolValue.
@@ -7023,6 +7515,62 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/**
+ *  Booster type for boosted tree models.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_BoosterTypeUnspecified
+ *        Unspecified booster type. (Value: "BOOSTER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_Dart Dart booster.
+ *        (Value: "DART")
+ *    @arg @c kGTLRBigquery_TrainingOptions_BoosterType_Gbtree Gbtree booster.
+ *        (Value: "GBTREE")
+ */
+@property(nonatomic, copy, nullable) NSString *boosterType;
+
+/**
+ *  If true, clean spikes and dips in the input time series.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cleanSpikesAndDips;
+
+/**
+ *  Subsample ratio of columns for each level for boosted tree models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBylevel;
+
+/**
+ *  Subsample ratio of columns for each node(split) for boosted tree models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBynode;
+
+/**
+ *  Subsample ratio of columns when constructing each tree for boosted tree
+ *  models.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *colsampleBytree;
+
+/**
+ *  Type of normalization algorithm for boosted tree models using dart booster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_DartNormalizeTypeUnspecified
+ *        Unspecified dart normalize type. (Value:
+ *        "DART_NORMALIZE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_Forest New trees
+ *        have the same weight of sum of dropped trees. (Value: "FOREST")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DartNormalizeType_Tree New trees
+ *        have the same weight of each of dropped trees. (Value: "TREE")
+ */
+@property(nonatomic, copy, nullable) NSString *dartNormalizeType;
 
 /**
  *  The data frequency of a time series.
@@ -7089,6 +7637,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        data sequentially. (Value: "SEQUENTIAL")
  */
 @property(nonatomic, copy, nullable) NSString *dataSplitMethod;
+
+/**
+ *  If true, perform decompose time series and save the results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *decomposeTimeSeries;
 
 /**
  *  Distance type for clustering models.
@@ -7413,6 +7968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *minSplitLoss;
 
 /**
+ *  Minimum sum of instance weight needed in a child for boosted tree models.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTreeChildWeight;
+
+/**
  *  Google Cloud Storage URI from which the model was imported. Only applicable
  *  for imported models.
  */
@@ -7438,6 +8000,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numFactors;
+
+/**
+ *  Number of parallel trees constructed during each iteration for boosted tree
+ *  models.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numParallelTree;
 
 /**
  *  Optimization strategy for training linear regression models.
@@ -7474,14 +8044,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Column to be designated as time series data for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesDataColumn;
 
-/**
- *  The id column that will be used to indicate different time series to
- *  forecast in parallel.
- */
+/** The time series id column that was used during ARIMA model training. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesIdColumn;
+
+/** The time series id columns that were used during ARIMA model training. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIdColumns;
 
 /** Column to be designated as time series timestamp for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesTimestampColumn;
+
+/**
+ *  Tree construction algorithm for boosted tree models.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Approx Approximate greedy
+ *        algorithm using quantile sketch and gradient histogram. (Value:
+ *        "APPROX")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Auto Use heuristic to
+ *        choose the fastest method. (Value: "AUTO")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Exact Exact greedy
+ *        algorithm. (Value: "EXACT")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_Hist Fast histogram
+ *        optimized approximate greedy algorithm. (Value: "HIST")
+ *    @arg @c kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified
+ *        Unspecified tree method. (Value: "TREE_METHOD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *treeMethod;
 
 /** User column specified for matrix factorization models. */
 @property(nonatomic, copy, nullable) NSString *userColumn;
@@ -7533,13 +8121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  of training.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
-
-/**
- *  Global explanations for important features of the model. For multi-class
- *  models, there is one entry for each label class. For other models, there is
- *  only one entry in the list.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GlobalExplanation *> *globalExplanations;
 
 /** Output of each iteration run, results.size() <= max_iterations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *results;
@@ -7599,6 +8180,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** [Required] A query that BigQuery executes when the view is referenced. */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  True if the column names are explicitly specified. For example by using the
+ *  'CREATE VIEW v(c1, c2) AS ...' syntax. Can only be set using BigQuery's
+ *  standard SQL: https://cloud.google.com/bigquery/sql-reference/
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useExplicitColumnNames;
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL for this view. The default

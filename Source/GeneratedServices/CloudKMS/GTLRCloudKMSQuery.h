@@ -28,9 +28,12 @@
 @class GTLRCloudKMS_DecryptRequest;
 @class GTLRCloudKMS_DestroyCryptoKeyVersionRequest;
 @class GTLRCloudKMS_EncryptRequest;
+@class GTLRCloudKMS_GenerateRandomBytesRequest;
 @class GTLRCloudKMS_ImportCryptoKeyVersionRequest;
 @class GTLRCloudKMS_ImportJob;
 @class GTLRCloudKMS_KeyRing;
+@class GTLRCloudKMS_MacSignRequest;
+@class GTLRCloudKMS_MacVerifyRequest;
 @class GTLRCloudKMS_RestoreCryptoKeyVersionRequest;
 @class GTLRCloudKMS_SetIamPolicyRequest;
 @class GTLRCloudKMS_TestIamPermissionsRequest;
@@ -95,6 +98,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Generate random bytes using the Cloud KMS randomness source in the provided
+ *  location.
+ *
+ *  Method: cloudkms.projects.locations.generateRandomBytes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes : GTLRCloudKMSQuery
+
+/**
+ *  The project-specific location in which to generate random bytes. For
+ *  example, "projects/my-project/locations/us-central1".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_GenerateRandomBytesResponse.
+ *
+ *  Generate random bytes using the Cloud KMS randomness source in the provided
+ *  location.
+ *
+ *  @param object The @c GTLRCloudKMS_GenerateRandomBytesRequest to include in
+ *    the query.
+ *  @param location The project-specific location in which to generate random
+ *    bytes. For example, "projects/my-project/locations/us-central1".
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_GenerateRandomBytesRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: cloudkms.projects.locations.get
@@ -104,8 +143,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsGet : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -133,8 +170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCreateWithObject:parent:]
 
 /**
  *  Required. It must be unique within a location and match the regular
@@ -175,8 +210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCreate : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCreateWithObject:parent:]
 
 /**
  *  Required. It must be unique within a KeyRing and match the regular
@@ -223,8 +256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricDecrypt : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricDecryptWithObject:name:]
 
 /**
  *  Required. The resource name of the CryptoKeyVersion to use for decryption.
@@ -262,8 +293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricSign : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricSignWithObject:name:]
 
 /** Required. The resource name of the CryptoKeyVersion to use for signing. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -298,8 +327,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreate : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the CryptoKey associated with the CryptoKeyVersions.
@@ -325,11 +352,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
- *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
- *  will be set to a time 24 hours in the future, at which point the state will
- *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
- *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
- *  reverse the process.
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
+ *  will be set to the time destroy_scheduled_duration in the future. At that
+ *  time, the state will automatically change to DESTROYED, and the key material
+ *  will be irrevocably destroyed. Before the destroy_time is reached,
+ *  RestoreCryptoKeyVersion may be called to reverse the process.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
  *
@@ -338,8 +365,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDestroyWithObject:name:]
 
 /** Required. The resource name of the CryptoKeyVersion to destroy. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -348,11 +373,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
- *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
- *  will be set to a time 24 hours in the future, at which point the state will
- *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
- *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
- *  reverse the process.
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
+ *  will be set to the time destroy_scheduled_duration in the future. At that
+ *  time, the state will automatically change to DESTROYED, and the key material
+ *  will be irrevocably destroyed. Before the destroy_time is reached,
+ *  RestoreCryptoKeyVersion may be called to reverse the process.
  *
  *  @param object The @c GTLRCloudKMS_DestroyCryptoKeyVersionRequest to include
  *    in the query.
@@ -375,8 +400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGet : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetWithname:]
 
 /** Required. The name of the CryptoKeyVersion to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -405,8 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKey : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKeyWithname:]
 
 /** Required. The name of the CryptoKeyVersion public key to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -426,9 +447,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
- *  key material provided in the request. The version ID will be assigned the
- *  next sequential id within the CryptoKey.
+ *  Import wrapped key material into a CryptoKeyVersion. All requests must
+ *  specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the
+ *  request, key material will be reimported into that version. Otherwise, a new
+ *  version will be created, and will be assigned the next sequential id within
+ *  the CryptoKey.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import
  *
@@ -437,22 +460,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportWithObject:parent:]
 
-/** Required. The name of the CryptoKey to be imported into. */
+/**
+ *  Required. The name of the CryptoKey to be imported into. The create
+ *  permission is only required on this key when creating a new
+ *  CryptoKeyVersion.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
- *  key material provided in the request. The version ID will be assigned the
- *  next sequential id within the CryptoKey.
+ *  Import wrapped key material into a CryptoKeyVersion. All requests must
+ *  specify a CryptoKey. If a CryptoKeyVersion is additionally specified in the
+ *  request, key material will be reimported into that version. Otherwise, a new
+ *  version will be created, and will be assigned the next sequential id within
+ *  the CryptoKey.
  *
  *  @param object The @c GTLRCloudKMS_ImportCryptoKeyVersionRequest to include
  *    in the query.
- *  @param parent Required. The name of the CryptoKey to be imported into.
+ *  @param parent Required. The name of the CryptoKey to be imported into. The
+ *    create permission is only required on this key when creating a new
+ *    CryptoKeyVersion.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
  */
@@ -471,8 +500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsListWithparent:]
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
@@ -540,6 +567,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a
+ *  tag that can be verified by another source with the same key.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macSign
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign : GTLRCloudKMSQuery
+
+/** Required. The resource name of the CryptoKeyVersion to use for signing. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_MacSignResponse.
+ *
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a
+ *  tag that can be verified by another source with the same key.
+ *
+ *  @param object The @c GTLRCloudKMS_MacSignRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    signing.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacSignRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and
+ *  returns a response that indicates whether or not the verification was
+ *  successful.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macVerify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for verification.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_MacVerifyResponse.
+ *
+ *  Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and
+ *  returns a response that indicates whether or not the verification was
+ *  successful.
+ *
+ *  @param object The @c GTLRCloudKMS_MacVerifyRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    verification.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacVerifyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Update a CryptoKeyVersion's metadata. state may be changed between ENABLED
  *  and DISABLED using this method. See DestroyCryptoKeyVersion and
  *  RestoreCryptoKeyVersion to move between other states.
@@ -551,8 +646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatchWithObject:name:]
 
 /**
  *  Output only. The resource name for this CryptoKeyVersion in the format
@@ -599,8 +692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestore : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsRestoreWithObject:name:]
 
 /** Required. The resource name of the CryptoKeyVersion to restore. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -634,8 +725,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDecrypt : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysDecryptWithObject:name:]
 
 /**
  *  Required. The resource name of the CryptoKey to use for decryption. The
@@ -671,8 +760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysEncrypt : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysEncryptWithObject:name:]
 
 /**
  *  Required. The resource name of the CryptoKey or CryptoKeyVersion to use for
@@ -710,8 +797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGet : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysGetWithname:]
 
 /** Required. The name of the CryptoKey to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -741,8 +826,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -787,8 +870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysListWithparent:]
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
@@ -865,8 +946,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysPatch : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysPatchWithObject:name:]
 
 /**
  *  Output only. The resource name for this CryptoKey in the format `projects/ *
@@ -909,8 +988,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -952,8 +1029,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -985,7 +1060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
- *  error if called on an asymmetric key.
+ *  error if called on a key whose purpose is not ENCRYPT_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
  *
@@ -994,8 +1069,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersion : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysUpdatePrimaryVersionWithObject:name:]
 
 /** Required. The resource name of the CryptoKey to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1004,7 +1077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
  *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
- *  error if called on an asymmetric key.
+ *  error if called on a key whose purpose is not ENCRYPT_DECRYPT.
  *
  *  @param object The @c GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest to
  *    include in the query.
@@ -1027,8 +1100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGet : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsGetWithname:]
 
 /** Required. The name of the KeyRing to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1057,8 +1128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1104,8 +1173,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsCreate : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsCreateWithObject:parent:]
 
 /**
  *  Required. It must be unique within a KeyRing and match the regular
@@ -1143,8 +1210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGet : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetWithname:]
 
 /** Required. The name of the ImportJob to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1173,8 +1238,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1219,8 +1282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsListWithparent:]
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
@@ -1287,8 +1348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1330,8 +1389,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1371,8 +1428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsListWithparent:]
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
@@ -1439,8 +1494,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1482,8 +1535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1523,19 +1574,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *    @c kGTLRAuthScopeCloudKMSCloudPlatform
  */
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery
-// Previous library name was
-//   +[GTLQueryCloudKMS queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

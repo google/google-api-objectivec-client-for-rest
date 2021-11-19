@@ -34,10 +34,23 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Googl
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Active = @"ACTIVE";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Failed = @"FAILED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Updating = @"UPDATING";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready = @"READY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Connected = @"CONNECTED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Creating = @"CREATING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_Disconnected = @"DISCONNECTED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule.day
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -48,6 +61,12 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Sched
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Thursday = @"THURSDAY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Tuesday = @"TUESDAY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday = @"WEDNESDAY";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating = @"CREATING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Ready = @"READY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Connected = @"CONNECTED";
@@ -112,6 +131,25 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate
+@dynamic expireTime, issuingCertificate, subject, subjectAlternativeName,
+         thumbprint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAlternativeName" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle
 //
 
@@ -156,8 +194,9 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain
-@dynamic admin, authorizedNetworks, createTime, fqdn, labels, locations, name,
-         reservedIpRange, state, statusMessage, trusts, updateTime;
+@dynamic admin, auditLogsEnabled, authorizedNetworks, createTime, fqdn, labels,
+         locations, name, reservedIpRange, state, statusMessage, trusts,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -347,7 +386,7 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude, maintenancePolicies;
+@dynamic exclude, isRollback, maintenancePolicies;
 @end
 
 
@@ -371,13 +410,29 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
-@dynamic exclusions, location, nodeId;
+@dynamic location, nodeId, perSliEligibility;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
-  };
-  return map;
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+@dynamic eligibilities;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility class];
 }
 
 @end
@@ -405,30 +460,30 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-//
-
-@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic duration, reason, sliName, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic eligibility, exclusions, nodes, tier;
+@dynamic nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class],
     @"nodes" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings
+@dynamic certificate, certificatePassword, certificatePfx, name, state,
+         updateTime;
 @end
 
 
@@ -494,6 +549,52 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListPeeringsResponse
+@dynamic nextPageToken, peerings, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peerings" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"peerings";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse
+@dynamic nextPageToken, sqlIntegrations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sqlIntegrations" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sqlIntegrations";
 }
 
 @end
@@ -628,6 +729,31 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering
+@dynamic authorizedNetwork, createTime, domainResource, labels, name, state,
+         statusMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Peering_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy
 //
 
@@ -702,6 +828,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration
+@dynamic createTime, name, sqlInstance, state, updateTime;
 @end
 
 

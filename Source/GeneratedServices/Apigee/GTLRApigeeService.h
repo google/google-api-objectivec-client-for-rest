@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -35,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -52,8 +52,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeApigeeCloudPlatform;
  *  Use the Apigee API to programmatically develop and manage APIs with a set of
  *  RESTful operations. Develop and secure API proxies, deploy and undeploy API
  *  proxy revisions, monitor APIs, configure environments, manage users, and
- *  more. Get started using the APIs. *Note:* This product is available as a
- *  free trial for a time period of 60 days.
+ *  more. Note: This product is available as a free trial for a time period of
+ *  60 days.
  */
 @interface GTLRApigeeService : GTLRService
 

@@ -54,8 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsDetectLanguage : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsDetectLanguageWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -101,8 +99,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsGetSupportedLanguages : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsGetSupportedLanguagesWithparent:]
 
 /**
  *  Optional. The language to use to return localized, human readable names of
@@ -117,9 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  Returns languages supported by the specified model. If missing, we get
- *  supported languages of Google general base (PBMT) model.
+ *  supported languages of Google general NMT model.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -167,8 +162,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudPlatform
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsBatchTranslateTextWithObject:parent:]
 
 /**
  *  Required. Location to make a call. Must refer to a caller's project. Format:
@@ -215,8 +208,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDetectLanguage : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsDetectLanguageWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -262,8 +253,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -291,8 +280,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGetSupportedLanguages : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGetSupportedLanguagesWithparent:]
 
 /**
  *  Optional. The language to use to return localized, human readable names of
@@ -307,9 +294,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  Returns languages supported by the specified model. If missing, we get
- *  supported languages of Google general base (PBMT) model.
+ *  supported languages of Google general NMT model.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -353,8 +339,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudPlatform
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesCreate : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesCreateWithObject:parent:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -386,8 +370,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesDelete : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesDeleteWithname:]
 
 /** Required. The name of the glossary to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -416,8 +398,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesGetWithname:]
 
 /** Required. The name of the glossary to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -446,8 +426,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesListWithparent:]
 
 /**
  *  Optional. Filter specifying constraints of a list operation. Specify the
@@ -515,19 +493,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -565,8 +551,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsCancel : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -608,8 +592,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsDelete : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -642,8 +624,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -681,8 +661,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -722,11 +700,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Waits for the specified long-running operation until it is done or reaches
- *  at most a specified timeout, returning the latest state. If the operation is
- *  already done, the latest state is immediately returned. If the timeout
- *  specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout
- *  is used. If the server does not support this method, it returns
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
  *  basis. It may return the latest state before the specified timeout
  *  (including immediately), meaning even an immediate response is no guarantee
@@ -739,8 +717,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsWait : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsWaitWithObject:name:]
 
 /** The name of the operation resource to wait on. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -748,11 +724,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTranslate_Operation.
  *
- *  Waits for the specified long-running operation until it is done or reaches
- *  at most a specified timeout, returning the latest state. If the operation is
- *  already done, the latest state is immediately returned. If the timeout
- *  specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout
- *  is used. If the server does not support this method, it returns
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
  *  basis. It may return the latest state before the specified timeout
  *  (including immediately), meaning even an immediate response is no guarantee
@@ -779,8 +755,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsTranslateTextWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -826,8 +800,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsTranslateTextWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's

@@ -48,6 +48,70 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// encryptionConfigEncryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must contain a
+ *  valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeCustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption;
+/**
+ *  Use the same encryption configuration as the database. This is the default
+ *  option when encryption_config is empty. For example, if the database is
+ *  using `Customer_Managed_Encryption`, the backup will be using the same Cloud
+ *  KMS key as the database.
+ *
+ *  Value: "USE_DATABASE_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption;
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Full representation of the scan is returned in the server response,
+ *  including `data`.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewFull;
+/**
+ *  Server responses only include `name`, `details`, `start_time` and
+ *  `end_time`. The default value. Note, the ListScans method may only use this
+ *  view type, others view types are not supported.
+ *
+ *  Value: "SUMMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewSummary;
+/**
+ *  Not specified, equivalent to SUMMARY.
+ *
+ *  Value: "VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Spanner query classes.
  */
@@ -68,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstanceConfigsGetWithname:]
 
 /**
  *  Required. The name of the requested instance configuration. Values are of
@@ -101,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstanceConfigsListWithparent:]
 
 /**
  *  Number of instance configurations to be returned in the response. If 0 or
@@ -158,8 +218,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupOperationsListWithparent:]
 
 /**
  *  An expression that filters the list of returned backup operations. A filter
@@ -250,8 +308,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsCreateWithObject:parent:]
 
 /**
  *  Required. The id of the backup to be created. The `backup_id` appended to
@@ -259,6 +315,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects//instances//backups/`.
  */
 @property(nonatomic, copy, nullable) NSString *backupId;
+
+/**
+ *  Required. The encryption type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption
+ *        Use the same encryption configuration as the database. This is the
+ *        default option when encryption_config is empty. For example, if the
+ *        database is using `Customer_Managed_Encryption`, the backup will be
+ *        using the same Cloud KMS key as the database. (Value:
+ *        "USE_DATABASE_ENCRYPTION")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeCustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        contain a valid Cloud KMS key. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionConfigEncryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to protect the backup. This
+ *  field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionConfigKmsKeyName;
 
 /**
  *  Required. The name of the instance in which the backup will be created. This
@@ -305,8 +389,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsDeleteWithname:]
 
 /**
  *  Required. Name of the backup to delete. Values are of the form
@@ -338,8 +420,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsGetWithname:]
 
 /**
  *  Required. Name of the backup. Values are of the form
@@ -375,8 +455,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -419,8 +497,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsListWithparent:]
 
 /**
  *  An expression that filters the list of returned backups. A filter expression
@@ -431,6 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  in the Backup are eligible for filtering: * `name` * `database` * `state` *
  *  `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
+ *  `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `size_bytes` You can combine multiple expressions by enclosing each
  *  expression in parentheses. By default, expressions are combined with AND
  *  logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few
@@ -502,8 +579,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -542,8 +617,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -576,8 +649,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -615,8 +686,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -665,8 +734,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsPatch : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsPatchWithObject:name:]
 
 /**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
@@ -725,8 +792,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -772,8 +837,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
@@ -832,8 +895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in which to create the instance. Values
@@ -888,8 +949,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabaseOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabaseOperationsListWithparent:]
 
 /**
  *  An expression that filters the list of returned operations. A filter
@@ -976,8 +1035,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the instance that will serve the new database. Values
@@ -1017,8 +1074,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesDropDatabase : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesDropDatabaseWithdatabase:]
 
 /** Required. The database to be dropped. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1047,8 +1102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetWithname:]
 
 /**
  *  Required. The name of the requested database. Values are of the form
@@ -1082,8 +1135,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetDdl : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetDdlWithdatabase:]
 
 /**
  *  Required. The database whose schema we wish to get. Values are of the form
@@ -1121,8 +1172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -1154,6 +1203,67 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Request a specific scan with Database-specific data for Cloud Key
+ *  Visualizer.
+ *
+ *  Method: spanner.projects.instances.databases.getScans
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans : GTLRSpannerQuery
+
+/** The upper bound for the time range to retrieve Scan data for. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The unique name of the scan containing the requested information,
+ *  specific to the Database service implementing this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  These fields restrict the Database-specific information returned in the
+ *  `Scan.data` field. If a `View` is provided that does not include the
+ *  `Scan.data` field, these are ignored. This range of time must be entirely
+ *  contained within the defined time range of the targeted scan. The lower
+ *  bound for the time range to retrieve Scan data for.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Specifies which parts of the Scan should be returned in the response. Note,
+ *  if left unspecified, the FULL view is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerViewViewUnspecified Not specified, equivalent to
+ *        SUMMARY. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerViewSummary Server responses only include `name`,
+ *        `details`, `start_time` and `end_time`. The default value. Note, the
+ *        ListScans method may only use this view type, others view types are
+ *        not supported. (Value: "SUMMARY")
+ *    @arg @c kGTLRSpannerViewFull Full representation of the scan is returned
+ *        in the server response, including `data`. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRSpanner_Scan.
+ *
+ *  Request a specific scan with Database-specific data for Cloud Key
+ *  Visualizer.
+ *
+ *  @param name Required. The unique name of the scan containing the requested
+ *    information, specific to the Database service implementing this interface.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists Cloud Spanner databases.
  *
  *  Method: spanner.projects.instances.databases.list
@@ -1163,8 +1273,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesListWithparent:]
 
 /**
  *  Number of databases to be returned in the response. If 0 or less, defaults
@@ -1220,8 +1328,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1260,8 +1366,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1294,8 +1398,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1333,8 +1435,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1394,8 +1494,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesRestore : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesRestoreWithObject:parent:]
 
 /**
  *  Required. The name of the instance in which to create the restored database.
@@ -1447,8 +1545,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsBatchCreateWithObject:database:]
 
 /** Required. The database in which the new sessions are created. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1483,8 +1579,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsBeginTransactionWithObject:session:]
 
 /** Required. The session in which the transaction runs. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1525,8 +1619,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCommit : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsCommitWithObject:session:]
 
 /**
  *  Required. The session in which the transaction to be committed is running.
@@ -1579,8 +1671,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsCreateWithObject:database:]
 
 /** Required. The database in which the new session is created. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1624,8 +1714,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsDeleteWithname:]
 
 /** Required. The name of the session to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1662,8 +1750,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteBatchDml : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteBatchDmlWithObject:session:]
 
 /** Required. The session in which the DML statements should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1709,8 +1795,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteSql : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteSqlWithObject:session:]
 
 /** Required. The session in which the SQL query should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1751,8 +1835,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteStreamingSql : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteStreamingSqlWithObject:session:]
 
 /** Required. The session in which the SQL query should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1787,8 +1869,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsGetWithname:]
 
 /** Required. The name of the session to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1817,8 +1897,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsListWithdatabase:]
 
 /** Required. The database in which to list sessions. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1881,8 +1959,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionQueryWithObject:session:]
 
 /** Required. The session used to create the partitions. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1933,8 +2009,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionReadWithObject:session:]
 
 /** Required. The session used to create the partitions. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1983,8 +2057,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsReadWithObject:session:]
 
 /** Required. The session in which the read should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2025,8 +2097,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRollback : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsRollbackWithObject:session:]
 
 /** Required. The session in which the transaction to roll back is running. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2063,8 +2133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsStreamingRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsStreamingReadWithObject:session:]
 
 /** Required. The session in which the read should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2099,8 +2167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -2146,8 +2212,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
@@ -2194,8 +2258,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesUpdateDdl : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesUpdateDdlWithObject:database:]
 
 /** Required. The database to update. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -2233,8 +2295,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDeleteWithname:]
 
 /**
  *  Required. The name of the instance to be deleted. Values are of the form
@@ -2269,8 +2329,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesGetWithname:]
 
 /**
  *  If field_mask is present, specifies the subset of Instance fields that
@@ -2312,8 +2370,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -2352,8 +2408,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesListWithparent:]
 
 /**
  *  An expression for filtering the results of the request. Filter rules are
@@ -2430,8 +2484,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2470,8 +2522,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2504,8 +2554,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2543,8 +2591,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2603,7 +2649,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  long-running operation will have a name of the format `/operations/` and can
  *  be used to track the instance modification. The metadata field type is
  *  UpdateInstanceMetadata. The response field type is Instance, if successful.
- *  Authorization requires `spanner.instances.update` permission on resource
+ *  Authorization requires `spanner.instances.update` permission on the resource
  *  name.
  *
  *  Method: spanner.projects.instances.patch
@@ -2613,8 +2659,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesPatch : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesPatchWithObject:name:]
 
 /**
  *  Required. A unique identifier for the instance, which cannot be changed
@@ -2646,7 +2690,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  long-running operation will have a name of the format `/operations/` and can
  *  be used to track the instance modification. The metadata field type is
  *  UpdateInstanceMetadata. The response field type is Instance, if successful.
- *  Authorization requires `spanner.instances.update` permission on resource
+ *  Authorization requires `spanner.instances.update` permission on the resource
  *  name.
  *
  *  @param object The @c GTLRSpanner_UpdateInstanceRequest to include in the
@@ -2675,8 +2719,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -2719,8 +2761,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
@@ -2748,6 +2788,72 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Return available scans given a Database-specific resource name.
+ *
+ *  Method: spanner.scans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ScansList : GTLRSpannerQuery
+
+/**
+ *  A filter expression to restrict the results based on information present in
+ *  the available Scan collection. The filter applies to all fields within the
+ *  Scan message except for `data`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the parent resource, specific to the Database
+ *  service implementing this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Specifies which parts of the Scan should be returned in the response. Note,
+ *  only the SUMMARY view (the default) is currently supported for ListScans.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerViewViewUnspecified Not specified, equivalent to
+ *        SUMMARY. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerViewSummary Server responses only include `name`,
+ *        `details`, `start_time` and `end_time`. The default value. Note, the
+ *        ListScans method may only use this view type, others view types are
+ *        not supported. (Value: "SUMMARY")
+ *    @arg @c kGTLRSpannerViewFull Full representation of the scan is returned
+ *        in the server response, including `data`. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListScansResponse.
+ *
+ *  Return available scans given a Database-specific resource name.
+ *
+ *  @param parent Required. The unique name of the parent resource, specific to
+ *    the Database service implementing this interface.
+ *
+ *  @return GTLRSpannerQuery_ScansList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

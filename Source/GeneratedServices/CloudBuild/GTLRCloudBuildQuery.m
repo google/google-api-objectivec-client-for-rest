@@ -64,6 +64,33 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_ProjectsBuildsApprove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_ApproveBuildRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:approve";
+  GTLRCloudBuildQuery_ProjectsBuildsApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.builds.approve";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_ProjectsBuildsCancel
 
 @dynamic identifier, projectId;
@@ -207,6 +234,144 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate
+
+@dynamic gheConfigId, parent, projectId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/githubEnterpriseConfigs";
+  GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete
+
+@dynamic configId, name, projectId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet
+
+@dynamic configId, name, projectId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_GitHubEnterpriseConfig class];
+  query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsList
+
+@dynamic parent, projectId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/githubEnterpriseConfigs";
+  GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListGithubEnterpriseConfigsResponse class];
+  query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsGithubEnterpriseConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsApprove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_ApproveBuildRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:approve";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.approve";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel
 
 @dynamic name;
@@ -330,6 +495,117 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate
+
+@dynamic gheConfigId, parent, projectId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/githubEnterpriseConfigs";
+  GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.githubEnterpriseConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete
+
+@dynamic configId, name, projectId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.githubEnterpriseConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet
+
+@dynamic configId, name, projectId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_GitHubEnterpriseConfig class];
+  query.loggingName = @"cloudbuild.projects.locations.githubEnterpriseConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsList
+
+@dynamic parent, projectId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/githubEnterpriseConfigs";
+  GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListGithubEnterpriseConfigsResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.githubEnterpriseConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_GitHubEnterpriseConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsGithubEnterpriseConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.githubEnterpriseConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_ProjectsLocationsOperationsCancel
 
 @dynamic name;
@@ -376,9 +652,289 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate
+
+@dynamic parent, projectId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/triggers";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete
+
+@dynamic name, projectId, triggerId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersGet
+
+@dynamic name, projectId, triggerId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersList
+
+@dynamic pageSize, pageToken, parent, projectId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/triggers";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListBuildTriggersResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch
+
+@dynamic projectId, resourceName, triggerId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                   resourceName:(NSString *)resourceName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resourceName" ];
+  NSString *pathURITemplate = @"v1/{+resourceName}";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resourceName = resourceName;
+  query.expectedObjectClass = [GTLRCloudBuild_BuildTrigger class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_RunBuildTriggerRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:run";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook
+
+@dynamic name, projectId, secret, trigger;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:webhook";
+  GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_ReceiveTriggerWebhookResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.triggers.webhook";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate
+
+@dynamic parent, validateOnly, workerPoolId;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workerPools";
+  GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.workerPools.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete
+
+@dynamic allowMissing, ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.workerPools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_WorkerPool class];
+  query.loggingName = @"cloudbuild.projects.locations.workerPools.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workerPools";
+  GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListWorkerPoolsResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.workerPools.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.workerPools.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_ProjectsTriggersCreate
 
-@dynamic projectId;
+@dynamic parent, projectId;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
                       projectId:(NSString *)projectId {
@@ -405,7 +961,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersDelete
 
-@dynamic projectId, triggerId;
+@dynamic name, projectId, triggerId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          triggerId:(NSString *)triggerId {
@@ -428,7 +984,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersGet
 
-@dynamic projectId, triggerId;
+@dynamic name, projectId, triggerId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                          triggerId:(NSString *)triggerId {
@@ -451,7 +1007,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersList
 
-@dynamic pageSize, pageToken, projectId;
+@dynamic pageSize, pageToken, parent, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -501,7 +1057,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsTriggersRun
 
-@dynamic projectId, triggerId;
+@dynamic name, projectId, triggerId;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
                       projectId:(NSString *)projectId
@@ -525,6 +1081,61 @@
   query.triggerId = triggerId;
   query.expectedObjectClass = [GTLRCloudBuild_Operation class];
   query.loggingName = @"cloudbuild.projects.triggers.run";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersWebhook
+
+@dynamic name, projectId, secret, trigger;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                      projectId:(NSString *)projectId
+                        trigger:(NSString *)trigger {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"projectId", @"trigger"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{trigger}:webhook";
+  GTLRCloudBuildQuery_ProjectsTriggersWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.trigger = trigger;
+  query.expectedObjectClass = [GTLRCloudBuild_ReceiveTriggerWebhookResponse class];
+  query.loggingName = @"cloudbuild.projects.triggers.webhook";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_V1Webhook
+
+@dynamic webhookKey;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/webhook";
+  GTLRCloudBuildQuery_V1Webhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.webhook";
   return query;
 }
 

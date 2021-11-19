@@ -16,6 +16,7 @@
 // Constants
 
 // view
+NSString * const kGTLRBigtableAdminViewEncryptionView  = @"ENCRYPTION_VIEW";
 NSString * const kGTLRBigtableAdminViewFull            = @"FULL";
 NSString * const kGTLRBigtableAdminViewNameOnly        = @"NAME_ONLY";
 NSString * const kGTLRBigtableAdminViewReplicationView = @"REPLICATION_VIEW";
@@ -490,6 +491,33 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigtableAdmin_ListClustersResponse class];
   query.loggingName = @"bigtableadmin.projects.instances.clusters.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersPartialUpdateCluster
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Cluster *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersPartialUpdateCluster *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_Operation class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.partialUpdateCluster";
   return query;
 }
 

@@ -54,44 +54,6 @@
 
 @end
 
-@implementation GTLRSpeechQuery_ProjectsLocationsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRSpeechQuery_ProjectsLocationsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSpeech_Operation class];
-  query.loggingName = @"speech.projects.locations.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRSpeechQuery_ProjectsLocationsOperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
-  GTLRSpeechQuery_ProjectsLocationsOperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRSpeech_ListOperationsResponse class];
-  query.loggingName = @"speech.projects.locations.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRSpeechQuery_SpeechLongrunningrecognize
 
 + (instancetype)queryWithObject:(GTLRSpeech_LongRunningRecognizeRequest *)object {

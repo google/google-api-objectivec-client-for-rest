@@ -260,7 +260,7 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 
 @implementation GTLRAndroidEnterprise_AdministratorWebTokenSpec
 @dynamic managedConfigurations, parent, permission, playSearch, privateApps,
-         storeBuilder, webApps;
+         storeBuilder, webApps, zeroTouch;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -318,6 +318,16 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch
+//
+
+@implementation GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch
 @dynamic enabled;
 @end
 

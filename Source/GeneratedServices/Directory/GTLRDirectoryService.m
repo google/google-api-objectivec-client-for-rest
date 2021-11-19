@@ -8,13 +8,15 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #import "GTLRDirectory.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeDirectoryChromePrinters         = @"https://www.googleapis.com/auth/admin.chrome.printers";
+NSString * const kGTLRAuthScopeDirectoryChromePrintersReadonly = @"https://www.googleapis.com/auth/admin.chrome.printers.readonly";
 NSString * const kGTLRAuthScopeDirectoryCloudPlatform          = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeDirectoryDirectoryCustomer      = @"https://www.googleapis.com/auth/admin.directory.customer";
 NSString * const kGTLRAuthScopeDirectoryDirectoryCustomerReadonly = @"https://www.googleapis.com/auth/admin.directory.customer.readonly";

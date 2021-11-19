@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -79,8 +79,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
  */
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCancel : GTLRWorkflowExecutionsQuery
-// Previous library name was
-//   +[GTLQueryWorkflowExecutions queryForProjectsLocationsWorkflowsExecutionsCancelWithObject:name:]
 
 /**
  *  Required. Name of the execution to be cancelled. Format:
@@ -114,8 +112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
  */
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCreate : GTLRWorkflowExecutionsQuery
-// Previous library name was
-//   +[GTLQueryWorkflowExecutions queryForProjectsLocationsWorkflowsExecutionsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the workflow for which an execution should be created.
@@ -152,8 +148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
  */
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsGet : GTLRWorkflowExecutionsQuery
-// Previous library name was
-//   +[GTLQueryWorkflowExecutions queryForProjectsLocationsWorkflowsExecutionsGetWithname:]
 
 /**
  *  Required. Name of the execution to be retrieved. Format:
@@ -200,8 +194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutionsViewFull;
  *    @c kGTLRAuthScopeWorkflowExecutionsCloudPlatform
  */
 @interface GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsList : GTLRWorkflowExecutionsQuery
-// Previous library name was
-//   +[GTLQueryWorkflowExecutions queryForProjectsLocationsWorkflowsExecutionsListWithparent:]
 
 /**
  *  Maximum number of executions to return per call. Max supported value depends

@@ -26,6 +26,7 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
   if (self) {
     // From discovery.
     self.rootURLString = @"https://shoppingcontent.googleapis.com/";
+    self.servicePath = @"content/v2.1/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

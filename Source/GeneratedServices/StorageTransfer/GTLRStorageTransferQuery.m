@@ -38,6 +38,117 @@
 
 @end
 
+@implementation GTLRStorageTransferQuery_ProjectsAgentPoolsCreate
+
+@dynamic agentPoolId, projectId;
+
++ (instancetype)queryWithObject:(GTLRStorageTransfer_AgentPool *)object
+                      projectId:(NSString *)projectId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{+projectId}/agentPools";
+  GTLRStorageTransferQuery_ProjectsAgentPoolsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRStorageTransfer_AgentPool class];
+  query.loggingName = @"storagetransfer.projects.agentPools.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageTransferQuery_ProjectsAgentPoolsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRStorageTransferQuery_ProjectsAgentPoolsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRStorageTransfer_Empty class];
+  query.loggingName = @"storagetransfer.projects.agentPools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageTransferQuery_ProjectsAgentPoolsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRStorageTransferQuery_ProjectsAgentPoolsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRStorageTransfer_AgentPool class];
+  query.loggingName = @"storagetransfer.projects.agentPools.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageTransferQuery_ProjectsAgentPoolsList
+
+@dynamic filter, pageSize, pageToken, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId {
+  NSArray *pathParams = @[ @"projectId" ];
+  NSString *pathURITemplate = @"v1/projects/{+projectId}/agentPools";
+  GTLRStorageTransferQuery_ProjectsAgentPoolsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.expectedObjectClass = [GTLRStorageTransfer_ListAgentPoolsResponse class];
+  query.loggingName = @"storagetransfer.projects.agentPools.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageTransferQuery_ProjectsAgentPoolsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRStorageTransfer_AgentPool *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRStorageTransferQuery_ProjectsAgentPoolsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRStorageTransfer_AgentPool class];
+  query.loggingName = @"storagetransfer.projects.agentPools.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageTransferQuery_TransferJobsCreate
 
 + (instancetype)queryWithObject:(GTLRStorageTransfer_TransferJob *)object {
@@ -121,6 +232,33 @@
   query.jobName = jobName;
   query.expectedObjectClass = [GTLRStorageTransfer_TransferJob class];
   query.loggingName = @"storagetransfer.transferJobs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageTransferQuery_TransferJobsRun
+
+@dynamic jobName;
+
++ (instancetype)queryWithObject:(GTLRStorageTransfer_RunTransferJobRequest *)object
+                        jobName:(NSString *)jobName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"jobName" ];
+  NSString *pathURITemplate = @"v1/{+jobName}:run";
+  GTLRStorageTransferQuery_TransferJobsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.jobName = jobName;
+  query.expectedObjectClass = [GTLRStorageTransfer_Operation class];
+  query.loggingName = @"storagetransfer.transferJobs.run";
   return query;
 }
 

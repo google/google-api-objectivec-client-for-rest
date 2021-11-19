@@ -25,10 +25,12 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Response;
@@ -49,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport;
+/**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
  *  Value: "CJIS"
@@ -61,6 +69,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -72,6 +86,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
+/**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
 /**
  *  Information protection as per DoD IL4 requirements.
  *
@@ -89,6 +115,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.complianceRegime
 
 /**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_CaRegionsAndSupport;
+/**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
  *  Value: "CJIS"
@@ -101,6 +133,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -112,6 +150,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampModerate;
+/**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hitrust;
 /**
  *  Information protection as per DoD IL4 requirements.
  *
@@ -129,7 +179,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo.resourceType
 
 /**
- *  Consumer project.
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerFolder;
+/**
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -141,6 +198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject;
 /**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_Keyring;
+/**
  *  Unknown resource type.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
@@ -148,8 +211,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings.resourceType
+
+/**
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerFolder;
+/**
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
+ *
+ *  Value: "CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject;
+/**
+ *  Consumer project containing encryption keys.
+ *
+ *  Value: "ENCRYPTION_KEYS_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring;
+/**
+ *  Unknown resource type.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
+/**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport;
 /**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
@@ -163,6 +267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -174,6 +284,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
+/**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
 /**
  *  Information protection as per DoD IL4 requirements.
  *
@@ -191,6 +313,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
 /**
+ *  Assured Workloads For Canada Regions and Support controls
+ *
+ *  Value: "CA_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport;
+/**
  *  Criminal Justice Information Services (CJIS) Security policies.
  *
  *  Value: "CJIS"
@@ -203,6 +331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -214,6 +348,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
+/**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust;
 /**
  *  Information protection as per DoD IL4 requirements.
  *
@@ -243,11 +389,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject;
 /**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring;
+/**
  *  Unknown resource type.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings.resourceType
+
+/**
+ *  Consumer project.
+ *
+ *  Value: "CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject;
+/**
+ *  Consumer project containing encryption keys.
+ *
+ *  Value: "ENCRYPTION_KEYS_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring;
+/**
+ *  Unknown resource type.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
 
 /**
  *  Operation metadata to give request details of CreateWorkload.
@@ -259,15 +439,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -285,6 +476,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 /** Optional. The parent of the workload. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/**
+ *  Optional. Resource properties in the input that are used for
+ *  creating/customizing workload resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings *> *resourceSettings;
+
 @end
 
 
@@ -295,13 +492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload : GTLRObject
 
 /**
- *  Required. Input only. The billing account used for the resources which are
- *  direct children of workload. This billing account is initially associated
- *  with the resources created as part of Workload creation. After the initial
- *  creation of these resources, the customer can change the assigned billing
- *  account. The resource name has the form
- *  `billingAccounts/{billing_account_id}`. For example,
- *  `billingAccounts/012345-567890-ABCDEF`.
+ *  Input only. The billing account used for the resources which are direct
+ *  children of workload. This billing account is initially associated with the
+ *  resources created as part of Workload creation. After the initial creation
+ *  of these resources, the customer can change the assigned billing account.
+ *  The resource name has the form `billingAccounts/{billing_account_id}`. For
+ *  example, `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
@@ -315,15 +511,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess
@@ -385,10 +592,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
- *  Workload. May be either an organization or a folder. Must be the same or a
- *  child of the Workload parent. If not specified all resources are created
- *  under the Workload parent. Formats: folders/{folder_id}
- *  organizations/{organization_id}
+ *  Workload. May be either empty or a folder resource which is a child of the
+ *  Workload parent. If not specified all resources are created under the parent
+ *  organization. Format: folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *provisionedResourcesParent;
 
@@ -398,6 +604,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  exist, the workload creation will fail. Always read only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo *> *resources;
+
+/**
+ *  Input only. Resource properties that are used to customize workload
+ *  resources. These properties (such as custom project id) will be used to
+ *  create workload resources if possible. This field is optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings *> *resourceSettings;
 
 @end
 
@@ -504,12 +717,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Indicates the type of resource.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerProject
- *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
+ *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Represent the custom settings for the resources to be created.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  User-assigned resource display name. If not empty it will be used to create
+ *  a resource with the specified name.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource identifier. For a project this represents project_id. If the
+ *  project is already taken, the workload creation will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Indicates the type of resource. This field should be specified to correspond
+ *  the id to the right project type (CONSUMER_PROJECT or
+ *  ENCRYPTION_KEYS_PROJECT)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
+ *        Consumer project containing encryption keys. (Value:
+ *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
@@ -527,15 +788,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  managed by the workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -587,13 +859,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload : GTLRObject
 
 /**
- *  Required. Input only. The billing account used for the resources which are
- *  direct children of workload. This billing account is initially associated
- *  with the resources created as part of Workload creation. After the initial
- *  creation of these resources, the customer can change the assigned billing
- *  account. The resource name has the form
- *  `billingAccounts/{billing_account_id}`. For example,
- *  `billingAccounts/012345-567890-ABCDEF`.
+ *  Optional. The billing account used for the resources which are direct
+ *  children of workload. This billing account is initially associated with the
+ *  resources created as part of Workload creation. After the initial creation
+ *  of these resources, the customer can change the assigned billing account.
+ *  The resource name has the form `billingAccounts/{billing_account_id}`. For
+ *  example, `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
@@ -601,15 +872,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Required. Immutable. Compliance Regime associated with this workload.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
+ *        Assured Workloads For Canada Regions and Support controls (Value:
+ *        "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis
  *        Criminal Justice Information Services (CJIS) Security policies.
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
@@ -653,10 +935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
- *  Workload. May be either an organization or a folder. Must be the same or a
- *  child of the Workload parent. If not specified all resources are created
- *  under the Workload parent. Formats: folders/{folder_id}
- *  organizations/{organization_id}
+ *  Workload. May be either empty or a folder resource which is a child of the
+ *  Workload parent. If not specified all resources are created under the parent
+ *  organization. Format: folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *provisionedResourcesParent;
 
@@ -666,6 +947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  exist, the workload creation will fail. Always read only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo *> *resources;
+
+/**
+ *  Input only. Resource properties that are used to customize workload
+ *  resources. These properties (such as custom project id) will be used to
+ *  create workload resources if possible. This field is optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings *> *resourceSettings;
 
 @end
 
@@ -725,7 +1013,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
+ *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Represent the custom settings for the resources to be created.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  User-assigned resource display name. If not empty it will be used to create
+ *  a resource with the specified name.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Resource identifier. For a project this represents project_id. If the
+ *  project is already taken, the workload creation will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Indicates the type of resource. This field should be specified to correspond
+ *  the id to the right project type (CONSUMER_PROJECT or
+ *  ENCRYPTION_KEYS_PROJECT)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject
+ *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
+ *        Consumer project containing encryption keys. (Value:
+ *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;

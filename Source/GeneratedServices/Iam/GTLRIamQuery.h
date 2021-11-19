@@ -25,7 +25,9 @@
 @class GTLRIam_CreateRoleRequest;
 @class GTLRIam_CreateServiceAccountKeyRequest;
 @class GTLRIam_CreateServiceAccountRequest;
+@class GTLRIam_DisableServiceAccountKeyRequest;
 @class GTLRIam_DisableServiceAccountRequest;
+@class GTLRIam_EnableServiceAccountKeyRequest;
 @class GTLRIam_EnableServiceAccountRequest;
 @class GTLRIam_LintPolicyRequest;
 @class GTLRIam_PatchServiceAccountRequest;
@@ -40,7 +42,11 @@
 @class GTLRIam_TestIamPermissionsRequest;
 @class GTLRIam_UndeleteRoleRequest;
 @class GTLRIam_UndeleteServiceAccountRequest;
+@class GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest;
+@class GTLRIam_UndeleteWorkloadIdentityPoolRequest;
 @class GTLRIam_UploadServiceAccountKeyRequest;
+@class GTLRIam_WorkloadIdentityPool;
+@class GTLRIam_WorkloadIdentityPoolProvider;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -139,8 +145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_IamPoliciesLintPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForIamPoliciesLintPolicyWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_LintPolicyResponse.
@@ -169,8 +173,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_IamPoliciesQueryAuditableServices : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForIamPoliciesQueryAuditableServicesWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryAuditableServicesResponse.
@@ -189,6 +191,66 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.locations.workforcePools.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.locations.workforcePools.providers.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet : GTLRIamQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new custom Role.
  *
  *  Method: iam.organizations.roles.create
@@ -197,8 +259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesCreateWithObject:parent:]
 
 /**
  *  The `parent` parameter's value depends on the target resource for the
@@ -249,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -263,8 +323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesDeleteWithname:]
 
 /**
  *  Used to perform a consistent read-modify-write.
@@ -299,8 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Role.
  *
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -340,8 +398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -413,8 +469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesListWithparent:]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -510,8 +564,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesPatchWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -581,8 +633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesUndeleteWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -638,7 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Lists every permission that you can test on a resource. A permission is
- *  testable if you can check whether a member has that permission on the
+ *  testable if you can check whether a principal has that permission on the
  *  resource.
  *
  *  Method: iam.permissions.queryTestablePermissions
@@ -647,14 +697,12 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_PermissionsQueryTestablePermissions : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForPermissionsQueryTestablePermissionsWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryTestablePermissionsResponse.
  *
  *  Lists every permission that you can test on a resource. A permission is
- *  testable if you can check whether a member has that permission on the
+ *  testable if you can check whether a principal has that permission on the
  *  resource.
  *
  *  @param object The @c GTLRIam_QueryTestablePermissionsRequest to include in
@@ -663,6 +711,160 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @return GTLRIamQuery_PermissionsQueryTestablePermissions
  */
 + (instancetype)queryWithObject:(GTLRIam_QueryTestablePermissionsRequest *)object;
+
+@end
+
+/**
+ *  Creates a new WorkloadIdentityPool. You cannot reuse the name of a deleted
+ *  pool until 30 days after deletion.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate : GTLRIamQuery
+
+/**
+ *  Required. The parent resource to create the pool in. The only supported
+ *  location is `global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the pool, which becomes the final component of
+ *  the resource name. This value should be 4-32 characters, and may contain the
+ *  characters [a-z0-9-]. The prefix `gcp-` is reserved for use by Google, and
+ *  may not be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadIdentityPoolId;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Creates a new WorkloadIdentityPool. You cannot reuse the name of a deleted
+ *  pool until 30 days after deletion.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPool to include in the query.
+ *  @param parent Required. The parent resource to create the pool in. The only
+ *    supported location is `global`.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a WorkloadIdentityPool. You cannot use a deleted pool to exchange
+ *  external credentials for Google Cloud credentials. However, deletion does
+ *  not revoke credentials that have already been issued. Credentials issued for
+ *  a deleted pool do not grant access to resources. If the pool is undeleted,
+ *  and the credentials are not expired, they grant access again. You can
+ *  undelete a pool for 30 days. After 30 days, deletion is permanent. You
+ *  cannot update deleted pools. However, you can view and list them.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete : GTLRIamQuery
+
+/** Required. The name of the pool to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Deletes a WorkloadIdentityPool. You cannot use a deleted pool to exchange
+ *  external credentials for Google Cloud credentials. However, deletion does
+ *  not revoke credentials that have already been issued. Credentials issued for
+ *  a deleted pool do not grant access to resources. If the pool is undeleted,
+ *  and the credentials are not expired, they grant access again. You can
+ *  undelete a pool for 30 days. After 30 days, deletion is permanent. You
+ *  cannot update deleted pools. However, you can view and list them.
+ *
+ *  @param name Required. The name of the pool to delete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an individual WorkloadIdentityPool.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet : GTLRIamQuery
+
+/** Required. The name of the pool to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_WorkloadIdentityPool.
+ *
+ *  Gets an individual WorkloadIdentityPool.
+ *
+ *  @param name Required. The name of the pool to retrieve.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all non-deleted WorkloadIdentityPools in a project. If `show_deleted`
+ *  is set to `true`, then deleted pools are also listed.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList : GTLRIamQuery
+
+/**
+ *  The maximum number of pools to return. If unspecified, at most 50 pools are
+ *  returned. The maximum value is 1000; values above are 1000 truncated to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListWorkloadIdentityPools` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource to list pools for. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Whether to return soft-deleted pools. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRIam_ListWorkloadIdentityPoolsResponse.
+ *
+ *  Lists all non-deleted WorkloadIdentityPools in a project. If `show_deleted`
+ *  is set to `true`, then deleted pools are also listed.
+ *
+ *  @param parent Required. The parent resource to list pools for.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -677,8 +879,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -699,6 +899,190 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Updates an existing WorkloadIdentityPool.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch : GTLRIamQuery
+
+/** Output only. The resource name of the pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Updates an existing WorkloadIdentityPool.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPool to include in the query.
+ *  @param name Output only. The resource name of the pool.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new WorkloadIdentityPoolProvider in a WorkloadIdentityPool. You
+ *  cannot reuse the name of a deleted provider until 30 days after deletion.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate : GTLRIamQuery
+
+/** Required. The pool to create this provider in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID for the provider, which becomes the final component of the
+ *  resource name. This value must be 4-32 characters, and may contain the
+ *  characters [a-z0-9-]. The prefix `gcp-` is reserved for use by Google, and
+ *  may not be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadIdentityPoolProviderId;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Creates a new WorkloadIdentityPoolProvider in a WorkloadIdentityPool. You
+ *  cannot reuse the name of a deleted provider until 30 days after deletion.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPoolProvider to include in the
+ *    query.
+ *  @param parent Required. The pool to create this provider in.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a WorkloadIdentityPoolProvider. Deleting a provider does not revoke
+ *  credentials that have already been issued; they continue to grant access.
+ *  You can undelete a provider for 30 days. After 30 days, deletion is
+ *  permanent. You cannot update deleted providers. However, you can view and
+ *  list them.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete : GTLRIamQuery
+
+/** Required. The name of the provider to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Deletes a WorkloadIdentityPoolProvider. Deleting a provider does not revoke
+ *  credentials that have already been issued; they continue to grant access.
+ *  You can undelete a provider for 30 days. After 30 days, deletion is
+ *  permanent. You cannot update deleted providers. However, you can view and
+ *  list them.
+ *
+ *  @param name Required. The name of the provider to delete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an individual WorkloadIdentityPoolProvider.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet : GTLRIamQuery
+
+/** Required. The name of the provider to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_WorkloadIdentityPoolProvider.
+ *
+ *  Gets an individual WorkloadIdentityPoolProvider.
+ *
+ *  @param name Required. The name of the provider to retrieve.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all non-deleted WorkloadIdentityPoolProviders in a
+ *  WorkloadIdentityPool. If `show_deleted` is set to `true`, then deleted
+ *  providers are also listed.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList : GTLRIamQuery
+
+/**
+ *  The maximum number of providers to return. If unspecified, at most 50
+ *  providers are returned. The maximum value is 100; values above 100 are
+ *  truncated to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListWorkloadIdentityPoolProviders`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The pool to list providers for. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Whether to return soft-deleted providers. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRIam_ListWorkloadIdentityPoolProvidersResponse.
+ *
+ *  Lists all non-deleted WorkloadIdentityPoolProviders in a
+ *  WorkloadIdentityPool. If `show_deleted` is set to `true`, then deleted
+ *  providers are also listed.
+ *
+ *  @param parent Required. The pool to list providers for.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -709,8 +1093,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -731,6 +1113,104 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Updates an existing WorkloadIdentityPoolProvider.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch : GTLRIamQuery
+
+/** Output only. The resource name of the provider. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Updates an existing WorkloadIdentityPoolProvider.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPoolProvider to include in the
+ *    query.
+ *  @param name Output only. The resource name of the provider.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a WorkloadIdentityPoolProvider, as long as it was deleted fewer
+ *  than 30 days ago.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete : GTLRIamQuery
+
+/** Required. The name of the provider to undelete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Undeletes a WorkloadIdentityPoolProvider, as long as it was deleted fewer
+ *  than 30 days ago.
+ *
+ *  @param object The @c GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest to
+ *    include in the query.
+ *  @param name Required. The name of the provider to undelete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete
+ */
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a WorkloadIdentityPool, as long as it was deleted fewer than 30
+ *  days ago.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete : GTLRIamQuery
+
+/** Required. The name of the pool to undelete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Undeletes a WorkloadIdentityPool, as long as it was deleted fewer than 30
+ *  days ago.
+ *
+ *  @param object The @c GTLRIam_UndeleteWorkloadIdentityPoolRequest to include
+ *    in the query.
+ *  @param name Required. The name of the pool to undelete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new custom Role.
  *
  *  Method: iam.projects.roles.create
@@ -739,8 +1219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesCreateWithObject:parent:]
 
 /**
  *  The `parent` parameter's value depends on the target resource for the
@@ -791,8 +1269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -805,8 +1283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesDeleteWithname:]
 
 /**
  *  Used to perform a consistent read-modify-write.
@@ -841,8 +1317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Role.
  *
  *  Deletes a custom Role. When you delete a custom role, the following changes
- *  occur immediately: * You cannot bind a member to the custom role in an IAM
- *  Policy. * Existing bindings to the custom role are not changed, but they
+ *  occur immediately: * You cannot bind a principal to the custom role in an
+ *  IAM Policy. * Existing bindings to the custom role are not changed, but they
  *  have no effect. * By default, the response from ListRoles does not include
  *  the custom role. You have 7 days to undelete the custom role. After 7 days,
  *  the following changes occur: * The custom role is permanently deleted and
@@ -882,8 +1358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -955,8 +1429,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesListWithparent:]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -1052,8 +1524,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesPatchWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -1123,8 +1593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesUndeleteWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -1187,8 +1655,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsCreateWithObject:name:]
 
 /**
  *  Required. The resource name of the project associated with the service
@@ -1231,8 +1697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsDeleteWithname:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1287,8 +1751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsDisable : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsDisableWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -1341,8 +1803,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsEnable : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsEnableWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -1385,8 +1845,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsGetWithname:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1415,11 +1873,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 
 /**
  *  Gets the IAM policy that is attached to a ServiceAccount. This IAM policy
- *  specifies which members have access to the service account. This method does
- *  not tell you whether the service account has been granted any roles on other
- *  resources. To check whether a service account has role grants on a resource,
- *  use the `getIamPolicy` method for that resource. For example, to view the
- *  role grants for a project, call the Resource Manager API's
+ *  specifies which principals have access to the service account. This method
+ *  does not tell you whether the service account has been granted any roles on
+ *  other resources. To check whether a service account has role grants on a
+ *  resource, use the `getIamPolicy` method for that resource. For example, to
+ *  view the role grants for a project, call the Resource Manager API's
  *  [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy)
  *  method.
  *
@@ -1429,8 +1887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsGetIamPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1453,11 +1909,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  Fetches a @c GTLRIam_Policy.
  *
  *  Gets the IAM policy that is attached to a ServiceAccount. This IAM policy
- *  specifies which members have access to the service account. This method does
- *  not tell you whether the service account has been granted any roles on other
- *  resources. To check whether a service account has role grants on a resource,
- *  use the `getIamPolicy` method for that resource. For example, to view the
- *  role grants for a project, call the Resource Manager API's
+ *  specifies which principals have access to the service account. This method
+ *  does not tell you whether the service account has been granted any roles on
+ *  other resources. To check whether a service account has role grants on a
+ *  resource, use the `getIamPolicy` method for that resource. For example, to
+ *  view the role grants for a project, call the Resource Manager API's
  *  [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy)
  *  method.
  *
@@ -1480,8 +1936,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysCreateWithObject:name:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1522,8 +1976,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysDeleteWithname:]
 
 /**
  *  Required. The resource name of the service account key in the following
@@ -1555,6 +2007,88 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Disable a ServiceAccountKey. A disabled service account key can be enabled
+ *  through EnableServiceAccountKey.
+ *
+ *  Method: iam.projects.serviceAccounts.keys.disable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsKeysDisable : GTLRIamQuery
+
+/**
+ *  Required. The resource name of the service account key in the following
+ *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
+ *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
+ *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
+ *  of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Disable a ServiceAccountKey. A disabled service account key can be enabled
+ *  through EnableServiceAccountKey.
+ *
+ *  @param object The @c GTLRIam_DisableServiceAccountKeyRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the service account key in the
+ *    following format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
+ *    a wildcard for the `PROJECT_ID` will infer the project from the account.
+ *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
+ *    service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsKeysDisable
+ */
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountKeyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Enable a ServiceAccountKey.
+ *
+ *  Method: iam.projects.serviceAccounts.keys.enable
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsServiceAccountsKeysEnable : GTLRIamQuery
+
+/**
+ *  Required. The resource name of the service account key in the following
+ *  format: `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using
+ *  `-` as a wildcard for the `PROJECT_ID` will infer the project from the
+ *  account. The `ACCOUNT` value can be the `email` address or the `unique_id`
+ *  of the service account.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Empty.
+ *
+ *  Enable a ServiceAccountKey.
+ *
+ *  @param object The @c GTLRIam_EnableServiceAccountKeyRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the service account key in the
+ *    following format:
+ *    `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`. Using `-` as
+ *    a wildcard for the `PROJECT_ID` will infer the project from the account.
+ *    The `ACCOUNT` value can be the `email` address or the `unique_id` of the
+ *    service account.
+ *
+ *  @return GTLRIamQuery_ProjectsServiceAccountsKeysEnable
+ */
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountKeyRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a ServiceAccountKey.
  *
  *  Method: iam.projects.serviceAccounts.keys.get
@@ -1563,8 +2097,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysGetWithname:]
 
 /**
  *  Required. The resource name of the service account key in the following
@@ -1616,8 +2148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysListWithname:]
 
 /**
  *  Filters the types of keys the user wants to include in the list response.
@@ -1669,8 +2199,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysUpload : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysUploadWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -1709,8 +2237,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsListWithname:]
 
 /**
  *  Required. The resource name of the project associated with the service
@@ -1759,8 +2285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsPatchWithObject:name:]
 
 /**
  *  The resource name of the service account. Use one of the following formats:
@@ -1807,14 +2331,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Sets the IAM policy that is attached to a ServiceAccount. Use this method to
  *  grant or revoke access to the service account. For example, you could grant
- *  a member the ability to impersonate the service account. This method does
+ *  a principal the ability to impersonate the service account. This method does
  *  not enable the service account to access other resources. To grant roles to
  *  a service account on a resource, follow these steps: 1. Call the resource's
  *  `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so
  *  that it binds the service account to an IAM role for the resource. 3. Call
  *  the resource's `setIamPolicy` method to update its IAM policy. For detailed
- *  instructions, see [Granting roles to a service account for specific
- *  resources](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts).
+ *  instructions, see [Manage access to project, folders, and
+ *  organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts)
+ *  or [Manage access to other
+ *  resources](https://cloud.google.com/iam/help/access/manage-other-resources).
  *
  *  Method: iam.projects.serviceAccounts.setIamPolicy
  *
@@ -1822,8 +2348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSetIamPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1836,14 +2360,16 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *
  *  Sets the IAM policy that is attached to a ServiceAccount. Use this method to
  *  grant or revoke access to the service account. For example, you could grant
- *  a member the ability to impersonate the service account. This method does
+ *  a principal the ability to impersonate the service account. This method does
  *  not enable the service account to access other resources. To grant roles to
  *  a service account on a resource, follow these steps: 1. Call the resource's
  *  `getIamPolicy` method to get its current IAM policy. 2. Edit the policy so
  *  that it binds the service account to an IAM role for the resource. 3. Call
  *  the resource's `setIamPolicy` method to update its IAM policy. For detailed
- *  instructions, see [Granting roles to a service account for specific
- *  resources](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts).
+ *  instructions, see [Manage access to project, folders, and
+ *  organizations](https://cloud.google.com/iam/help/service-accounts/granting-access-to-service-accounts)
+ *  or [Manage access to other
+ *  resources](https://cloud.google.com/iam/help/access/manage-other-resources).
  *
  *  @param object The @c GTLRIam_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
@@ -1858,8 +2384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -1873,8 +2398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSignBlob : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSignBlobWithObject:name:]
 
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
@@ -1889,8 +2412,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignBlobResponse.
  *
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -1915,8 +2437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -1930,8 +2451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSignJwt : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSignJwtWithObject:name:]
 
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
@@ -1946,8 +2465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignJwtResponse.
  *
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -1980,8 +2498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsTestIamPermissions : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2020,8 +2536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsUndeleteWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -2064,8 +2578,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsUpdate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsUpdateWithObject:name:]
 
 /**
  *  The resource name of the service account. Use one of the following formats:
@@ -2119,8 +2631,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -2192,8 +2702,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesList]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -2270,8 +2778,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesQueryGrantableRoles : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesQueryGrantableRolesWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryGrantableRolesResponse.

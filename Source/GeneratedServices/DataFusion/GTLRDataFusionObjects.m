@@ -21,6 +21,7 @@
 
 // GTLRDataFusion_Accelerator.acceleratorType
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights = @"CCAI_INSIGHTS";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc = @"CDC";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare = @"HEALTHCARE";
 
@@ -129,6 +130,16 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataFusion_CryptoKeyConfig
+//
+
+@implementation GTLRDataFusion_CryptoKeyConfig
+@dynamic keyReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataFusion_Empty
 //
 
@@ -158,11 +169,12 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_Instance
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
-         dataprocServiceAccount, descriptionProperty, displayName,
-         enableStackdriverLogging, enableStackdriverMonitoring, gcsBucket,
-         labels, name, networkConfig, options, p4ServiceAccount,
-         privateInstance, serviceAccount, serviceEndpoint, state, stateMessage,
-         tenantProjectId, type, updateTime, version, zoneProperty;
+         cryptoKeyConfig, dataprocServiceAccount, descriptionProperty,
+         displayName, enableRbac, enableStackdriverLogging,
+         enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
+         options, p4ServiceAccount, privateInstance, serviceAccount,
+         serviceEndpoint, state, stateMessage, tenantProjectId, type,
+         updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

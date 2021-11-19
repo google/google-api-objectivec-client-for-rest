@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGroupsMigrationAppsGroupsMigration
  */
 @interface GTLRGroupsMigrationQuery_ArchiveInsert : GTLRGroupsMigrationQuery
-// Previous library name was
-//   +[GTLQueryGroupsMigration queryForArchiveInsertWithgroupId:]
 
 /** The group ID */
 @property(nonatomic, copy, nullable) NSString *groupId;

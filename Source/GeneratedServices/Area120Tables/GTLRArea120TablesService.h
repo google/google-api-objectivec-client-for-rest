@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesDrive;
 /**
- *  Authorization scope: View and manage Google Drive files and folders that you
- *  have opened or created with this app
+ *  Authorization scope: See, edit, create, and delete only the specific Google
+ *  Drive files you use with this app
  *
  *  Value "https://www.googleapis.com/auth/drive.file"
  */
@@ -49,14 +49,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesDriveFile;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesDriveReadonly;
 /**
- *  Authorization scope: See, edit, create, and delete your spreadsheets in
- *  Google Drive
+ *  Authorization scope: See, edit, create, and delete all your Google Sheets
+ *  spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesSpreadsheets;
 /**
- *  Authorization scope: View your Google Spreadsheets
+ *  Authorization scope: See all your Google Sheets spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */

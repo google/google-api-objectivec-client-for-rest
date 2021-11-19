@@ -5,7 +5,8 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on HTTP traffic.
+//   based on incoming requests. The Cloud Run Admin API follows the Knative
+//   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -52,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesAuthorizeddomainsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesAuthorizeddomainsListWithparent:]
 
 /** Maximum results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -91,8 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesConfigurationsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesConfigurationsGetWithname:]
 
 /**
  *  The name of the configuration to retrieve. For Cloud Run (fully managed),
@@ -123,11 +120,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesConfigurationsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesConfigurationsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -149,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -194,8 +189,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesDomainmappingsCreate : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesDomainmappingsCreateWithObject:parent:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The namespace in which the domain mapping should be created. For Cloud Run
@@ -229,11 +228,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesDomainmappingsDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesDomainmappingsDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -275,8 +278,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesDomainmappingsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesDomainmappingsGetWithname:]
 
 /**
  *  The name of the domain mapping to retrieve. For Cloud Run (fully managed),
@@ -307,11 +308,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesDomainmappingsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesDomainmappingsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -333,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -378,11 +377,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesRevisionsDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesRevisionsDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -424,8 +427,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesRevisionsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesRevisionsGetWithname:]
 
 /**
  *  The name of the revision to retrieve. For Cloud Run (fully managed), replace
@@ -456,11 +457,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesRevisionsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesRevisionsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -482,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -527,8 +526,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesRoutesGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesRoutesGetWithname:]
 
 /**
  *  The name of the route to retrieve. For Cloud Run (fully managed), replace
@@ -559,11 +556,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesRoutesList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesRoutesListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -585,7 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -630,8 +625,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesServicesCreate : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesServicesCreateWithObject:parent:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The namespace in which the service should be created. For Cloud Run (fully
@@ -666,11 +665,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesServicesDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesServicesDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -713,8 +716,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesServicesGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesServicesGetWithname:]
 
 /**
  *  The name of the service to retrieve. For Cloud Run (fully managed), replace
@@ -745,11 +746,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesServicesList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesServicesListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -771,7 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -819,8 +818,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_NamespacesServicesReplaceService : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForNamespacesServicesReplaceServiceWithObject:name:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The name of the service being replaced. For Cloud Run (fully managed),
@@ -856,8 +859,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsAuthorizeddomainsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsAuthorizeddomainsListWithparent:]
 
 /** Maximum results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -895,8 +896,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsAuthorizeddomainsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsAuthorizeddomainsListWithparent:]
 
 /** Maximum results to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -934,8 +933,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsConfigurationsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsGetWithname:]
 
 /**
  *  The name of the configuration to retrieve. For Cloud Run (fully managed),
@@ -966,11 +963,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsConfigurationsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsConfigurationsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -992,7 +987,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1037,8 +1032,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsDomainmappingsCreate : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsCreateWithObject:parent:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The namespace in which the domain mapping should be created. For Cloud Run
@@ -1072,11 +1071,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsDomainmappingsDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1118,8 +1121,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsDomainmappingsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsGetWithname:]
 
 /**
  *  The name of the domain mapping to retrieve. For Cloud Run (fully managed),
@@ -1150,11 +1151,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsDomainmappingsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsDomainmappingsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1176,7 +1175,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1221,19 +1220,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1262,11 +1269,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsRevisionsDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsRevisionsDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1308,8 +1319,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsRevisionsGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsRevisionsGetWithname:]
 
 /**
  *  The name of the revision to retrieve. For Cloud Run (fully managed), replace
@@ -1340,11 +1349,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsRevisionsList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsRevisionsListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1366,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1411,8 +1418,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsRoutesGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsRoutesGetWithname:]
 
 /**
  *  The name of the route to retrieve. For Cloud Run (fully managed), replace
@@ -1443,11 +1448,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsRoutesList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsRoutesListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1469,7 +1472,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1514,8 +1517,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesCreate : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesCreateWithObject:parent:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The namespace in which the service should be created. For Cloud Run (fully
@@ -1550,11 +1557,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesDelete : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesDeleteWithname:]
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /** Cloud Run currently ignores this parameter. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -1597,8 +1608,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesGet : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesGetWithname:]
 
 /**
  *  The name of the service to retrieve. For Cloud Run (fully managed), replace
@@ -1630,8 +1639,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesGetIamPolicy : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1675,11 +1682,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesList : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesListWithparent:]
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1701,7 +1706,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1749,8 +1754,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesReplaceService : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesReplaceServiceWithObject:name:]
+
+/**
+ *  Indicates that the server should validate the request and populate default
+ *  values without persisting the request. Supported values: `all`
+ */
+@property(nonatomic, copy, nullable) NSString *dryRun;
 
 /**
  *  The name of the service being replaced. For Cloud Run (fully managed),
@@ -1787,8 +1796,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesSetIamPolicy : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1825,8 +1832,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesTestIamPermissions : GTLRCloudRunQuery
-// Previous library name was
-//   +[GTLQueryCloudRun queryForProjectsLocationsServicesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

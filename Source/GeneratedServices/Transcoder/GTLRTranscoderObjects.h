@@ -52,6 +52,7 @@
 @class GTLRTranscoder_OriginUri;
 @class GTLRTranscoder_Output;
 @class GTLRTranscoder_Overlay;
+@class GTLRTranscoder_Pad;
 @class GTLRTranscoder_PreprocessingConfig;
 @class GTLRTranscoder_Progress;
 @class GTLRTranscoder_PubsubDestination;
@@ -239,7 +240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Normalized coordinates based on output video resolution. Valid values:
- *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object.
+ *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object. For
+ *  example, use the x and y coordinates {0,0} to position the top-left corner
+ *  of the overlay animation in the top-left corner of the output video.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *xy;
 
@@ -256,7 +259,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Normalized coordinates based on output video resolution. Valid values:
- *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object.
+ *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object. For
+ *  example, use the x and y coordinates {0,0} to position the top-left corner
+ *  of the overlay animation in the top-left corner of the output video.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *xy;
 
@@ -284,12 +289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Specify audio loudness normalization in loudness units relative to full
- *  scale (LUFS). Enter a value between -24 and 0, where -24 is the Advanced
- *  Television Systems Committee (ATSC A/85), -23 is the EU R128 broadcast
- *  standard, -19 is the prior standard for online mono audio, -18 is the
- *  ReplayGain standard, -16 is the prior standard for stereo audio, -14 is the
- *  new online audio standard recommended by Spotify, as well as Amazon Echo,
- *  and 0 disables normalization. The default is 0.
+ *  scale (LUFS). Enter a value between -24 and 0 (the default), where: * -24 is
+ *  the Advanced Television Systems Committee (ATSC A/85) standard * -23 is the
+ *  EU R128 broadcast standard * -19 is the prior standard for online mono audio
+ *  * -18 is the ReplayGain standard * -16 is the prior standard for stereo
+ *  audio * -14 is the new online audio standard recommended by Spotify, as well
+ *  as Amazon Echo * 0 disables normalization
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -640,7 +645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Image : GTLRObject
 
 /**
- *  Target image opacity. Valid values: `1` (solid, default), `0` (transparent).
+ *  Target image opacity. Valid values are from `1.0` (solid, default) to `0.0`
+ *  (transparent), exclusive. Set this to a value greater than `0.0`.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -655,8 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *resolution;
 
 /**
- *  Required. URI of the image in Cloud Storage. For example,
- *  `gs://bucket/inputs/image.jpeg`.
+ *  Required. URI of the JPEG image in Cloud Storage. For example,
+ *  `gs://bucket/inputs/image.jpeg`. JPEG is the only supported image type.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -678,9 +684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_PreprocessingConfig *preprocessingConfig;
 
 /**
- *  URI of the media. It must be stored in Cloud Storage. Example
- *  `gs://bucket/inputs/file.mp4`. If empty the value will be populated from
- *  `Job.input_uri`.
+ *  URI of the media. Input files must be at least 5 seconds in duration and
+ *  stored in Cloud Storage (for example, `gs://bucket/inputs/file.mp4`). If
+ *  empty, the value will be populated from `Job.input_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -717,8 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  Input only. Specify the `input_uri` to populate empty `uri` fields in each
  *  element of `Job.config.inputs` or `JobTemplate.config.inputs` when using
- *  template. URI of the media. It must be stored in Cloud Storage. For example,
- *  `gs://bucket/inputs/file.mp4`.
+ *  template. URI of the media. Input files must be at least 5 seconds in
+ *  duration and stored in Cloud Storage (for example,
+ *  `gs://bucket/inputs/file.mp4`).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -1069,6 +1076,43 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Pad filter configuration for the input video. The padded input video is
+ *  scaled after padding with black to match the output resolution.
+ */
+@interface GTLRTranscoder_Pad : GTLRObject
+
+/**
+ *  The number of pixels to add to the bottom. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottomPixels;
+
+/**
+ *  The number of pixels to add to the left. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leftPixels;
+
+/**
+ *  The number of pixels to add to the right. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rightPixels;
+
+/**
+ *  The number of pixels to add to the top. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topPixels;
+
+@end
+
+
+/**
  *  Preprocessing configurations.
  */
 @interface GTLRTranscoder_PreprocessingConfig : GTLRObject
@@ -1087,6 +1131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /** Denoise preprocessing configuration. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Denoise *denoise;
+
+/** Specify the video pad filter configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Pad *pad;
 
 @end
 
@@ -1167,7 +1214,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *individualSegments;
 
-/** Duration of the segments in seconds. The default is `"6.0s"`. */
+/**
+ *  Duration of the segments in seconds. The default is `"6.0s"`. Note that
+ *  `segmentDuration` must be greater than or equal to
+ *  [`gopDuration`](#videostream), and `segmentDuration` must be divisible by
+ *  [`gopDuration`](#videostream).
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *segmentDuration;
 
 @end
@@ -1210,6 +1262,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRDuration *interval;
 
 /**
+ *  The quality of the generated sprite sheet. Enter a value between 1 and 100,
+ *  where 1 is the lowest quality and 100 is the highest quality. The default is
+ *  100. A high quality value corresponds to a low image data compression ratio.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quality;
+
+/**
  *  The maximum number of rows per sprite sheet. When the sprite sheet is full,
  *  a new sprite sheet is created. The default is 0, which indicates no maximum
  *  limit.
@@ -1219,14 +1280,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 /**
- *  Required. The height of sprite in pixels. Must be an even integer.
+ *  Required. The height of sprite in pixels. Must be an even integer. To
+ *  preserve the source aspect ratio, set the SpriteSheet.sprite_height_pixels
+ *  field or the SpriteSheet.sprite_width_pixels field, but not both (the API
+ *  will automatically calculate the missing field).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spriteHeightPixels;
 
 /**
- *  Required. The width of sprite in pixels. Must be an even integer.
+ *  Required. The width of sprite in pixels. Must be an even integer. To
+ *  preserve the source aspect ratio, set the SpriteSheet.sprite_width_pixels
+ *  field or the SpriteSheet.sprite_height_pixels field, but not both (the API
+ *  will automatically calculate the missing field).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1342,8 +1409,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *bFrameCount;
 
 /**
- *  Required. The video bitrate in bits per second. Must be between 1 and
- *  1,000,000,000.
+ *  Required. The video bitrate in bits per second. The minimum value is 1,000.
+ *  The maximum value for H264/H265 is 800,000,000. The maximum value for VP9 is
+ *  480,000,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1389,16 +1457,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Required. The target video frame rate in frames per second (FPS). Must be
  *  less than or equal to 120. Will default to the input frame rate if larger
  *  than the input frame rate. The API will generate an output FPS that is
- *  divisible by the input FPS, and smaller or equal to the target FPS. The
- *  following table shows the computed video FPS given the target FPS (in
- *  parenthesis) and input FPS (in the first column): | | (30) | (60) | (25) |
- *  (50) | |--------|--------|--------|------|------| | 240 | Fail | Fail | Fail
- *  | Fail | | 120 | 30 | 60 | 20 | 30 | | 100 | 25 | 50 | 20 | 30 | | 50 | 25 |
- *  50 | 20 | 30 | | 60 | 30 | 60 | 20 | 30 | | 59.94 | 29.97 | 59.94 | 20 | 30
- *  | | 48 | 24 | 48 | 20 | 30 | | 30 | 30 | 30 | 20 | 30 | | 25 | 25 | 25 | 20
- *  | 30 | | 24 | 24 | 24 | 20 | 30 | | 23.976 | 23.976 | 23.976 | 20 | 30 | |
- *  15 | 15 | 15 | 20 | 30 | | 12 | 12 | 12 | 20 | 30 | | 10 | 10 | 10 | 20 | 30
- *  |
+ *  divisible by the input FPS, and smaller or equal to the target FPS. See
+ *  [Calculate frame
+ *  rate](https://cloud.google.com/transcoder/docs/concepts/frame-rate) for more
+ *  information.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1406,6 +1468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Select the GOP size based on the specified duration. The default is `"3s"`.
+ *  Note that `gopDuration` must be less than or equal to
+ *  [`segmentDuration`](#SegmentSettings), and
+ *  [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gopDuration;
 

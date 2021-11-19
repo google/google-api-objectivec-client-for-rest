@@ -36,9 +36,10 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
-@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_Instance_Labels;
@@ -479,9 +480,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Output only. The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Name of the file share in the source Cloud Filestore instance that the
@@ -491,7 +499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the source Cloud Filestore instance, in the format
- *  projects/{project_number}/locations/{location_id}/instances/{instance_id},
+ *  `projects/{project_number}/locations/{location_id}/instances/{instance_id}`,
  *  used to create this backup.
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstance;
@@ -688,8 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}, that
- *  this file share has been restored from.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`,
+ *  that this file share has been restored from.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -739,7 +747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Unique name of the resource. It uses the form:
- *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
+ *  Note: Either project_id or project_number can be used, but keep it
+ *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -890,9 +900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled? By default, it's true and API
- *  needs to do explicitly check whether it's set, if it's set as false
- *  explicitly, it's false
+ *  This field is deprecated, and will be always set to true since reschedule
+ *  can happen multiple times now. This field should not be removed until all
+ *  service producers remove this for their customers.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -911,9 +921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /**
  *  schedule_deadline_time is the time deadline any schedule start time cannot
  *  go beyond, including reschedule. It's normally the initial schedule start
- *  time plus a week. If the reschedule type is next window, simply take this
- *  value as start time. If reschedule type is IMMEDIATELY or BY_TIME, current
- *  or selected time cannot go beyond this deadline.
+ *  time plus maintenance window length (1 day or 1 week). Maintenance cannot be
+ *  scheduled to start beyond this deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
 
@@ -937,6 +946,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exclude;
+
+/**
+ *  Optional. If the update call is triggered from rollback, set the value as
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRollback;
 
 /**
  *  Optional. The MaintenancePolicies that have been attached to the instance.
@@ -978,21 +995,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
 
-/**
- *  By default node is eligible if instance is eligible. But individual node
- *  might be excluded from SLO by adding entry here. For semantic see
- *  SloMetadata.exclusions. If both instance and node level exclusions are
- *  present for time period, the node level's reason will be reported by
- *  Eligibility Exporter.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
-
 /** The location of the node, if different from instance location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
+/**
+ *  If present, this will override eligibility for the node coming from instance
+ *  or exclusions for specified SLIs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
+@end
+
+
+/**
+ *  PerSliSloEligibility is a mapping from an SLI name to eligibility.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility : GTLRObject
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities *eligibilities;
+
+@end
+
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities : GTLRObject
 @end
 
 
@@ -1045,65 +1107,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 
 /**
- *  SloExclusion represents an exclusion in SLI calculation applies to all SLOs.
- */
-@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
-
-/**
- *  Exclusion duration. No restrictions on the possible values. When an ongoing
- *  operation is taking longer than initially expected, an existing entry in the
- *  exclusion list can be updated by extending the duration. This is supported
- *  by the subsystem exporting eligibility data as long as such extension is
- *  committed at least 10 minutes before the original exclusion expiration -
- *  otherwise it is possible that there will be "gaps" in the exclusion
- *  application in the exported timeseries.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
-
-/**
- *  Human-readable reason for the exclusion. This should be a static string
- *  (e.g. "Disruptive update in progress") and should not contain dynamically
- *  generated data (e.g. instance name). Can be left empty.
- */
-@property(nonatomic, copy, nullable) NSString *reason;
-
-/**
- *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
- *  that the instance should be excluded from all SLIs defined in the service
- *  SLO configuration.
- */
-@property(nonatomic, copy, nullable) NSString *sliName;
-
-/**
- *  Start time of the exclusion. No alignment (e.g. to a full minute) needed.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-@end
-
-
-/**
  *  SloMetadata contains resources required for proper SLO classification of the
  *  instance.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
-
-/** Optional. User-defined instance eligibility. */
-@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
-
-/**
- *  List of SLO exclusion windows. When multiple entries in the list match
- *  (matching the exclusion time-window against current time point) the
- *  exclusion reason used in the first matching entry will be published. It is
- *  not needed to include expired exclusion in this list, as only the currently
- *  applicable exclusions are taken into account by the eligibility exporting
- *  subsystem (the historical state of exclusions will be reflected in the
- *  historically produced timeseries regardless of the current state). This
- *  field can be used to mark the instance as temporary ineligible for the
- *  purpose of SLO calculation. For permanent instance SLO exclusion, use of
- *  custom instance eligibility is recommended. See 'eligibility' field below.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
  *  Optional. List of nodes. Some producers need to use per-node metadata to
@@ -1112,6 +1119,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  the form of per node metric to Monarch.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
+
+/**
+ *  Optional. Multiple per-instance SLI eligibilities which apply for individual
+ *  SLIs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
 
 /**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to
@@ -1155,7 +1168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Output only. The resource name of the instance, in the format
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  `projects/{project}/locations/{location}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1164,6 +1177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  single network is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The instance state.
@@ -1244,7 +1264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  A list of backups in the project for the specified location. If the
- *  {location} value in the request is "-", the response contains a list of
+ *  `{location}` value in the request is "-", the response contains a list of
  *  backups from all locations. If any location is unreachable, the response
  *  will only return backups in reachable locations and the "unreachable" field
  *  will be populated with a list of unreachable locations.
@@ -1278,7 +1298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  A list of instances in the project for the specified location. If the
- *  {location} value in the request is "-", the response contains a list of
+ *  `{location}` value in the request is "-", the response contains a list of
  *  instances from all locations. If any location is unreachable, the response
  *  will only return instances in reachable locations and the "unreachable"
  *  field will be populated with a list of unreachable locations.
@@ -1498,9 +1518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_NetworkConfig : GTLRObject
 
 /**
- *  Output only. IPv4 addresses in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4} or IPv6 addresses in the format {block 1}:{block 2}:{block
- *  3}:{block 4}:{block 5}:{block 6}:{block 7}:{block 8}.
+ *  Output only. IPv4 addresses in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format
+ *  `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
@@ -1512,17 +1532,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The name of the Google Compute Engine [VPC
- *  network](/compute/docs/networks-and-firewalls#networks) to which the
- *  instance is connected.
+ *  network](https://cloud.google.com/vpc/docs/vpc) to which the instance is
+ *  connected.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  A /29 CIDR block in one of the [internal IP address
- *  ranges](https://www.arin.net/knowledge/address_filters.html) that identifies
- *  the range of IP addresses reserved for this instance. For example,
- *  10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with
- *  either existing subnets or assigned IP address ranges for other Cloud
+ *  ranges](https://www.arin.net/reference/research/statistics/address_filters/)
+ *  that identifies the range of IP addresses reserved for this instance. For
+ *  example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap
+ *  with either existing subnets or assigned IP address ranges for other Cloud
  *  Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
@@ -1570,12 +1590,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, strong, nullable) NSNumber *anonUid;
 
 /**
- *  List of either an IPv4 addresses in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4} or CIDR ranges in the format {octet 1}.{octet 2}.{octet
- *  3}.{octet 4}/{mask size} which may mount the file share. Overlapping IP
- *  ranges are not allowed, both within and across NfsExportOptions. An error
- *  will be returned. The limit is 64 IP ranges/addresses for each
- *  FileShareConfig among all NfsExportOptions.
+ *  List of either an IPv4 addresses in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}` or CIDR ranges in the format
+ *  `{octet1}.{octet2}.{octet3}.{octet4}/{mask size}` which may mount the file
+ *  share. Overlapping IP ranges are not allowed, both within and across
+ *  NfsExportOptions. An error will be returned. The limit is 64 IP
+ *  ranges/addresses for each FileShareConfig among all NfsExportOptions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipRanges;
 
@@ -1683,12 +1703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @interface GTLRCloudFilestore_OperationMetadata : GTLRObject
 
-/** [Output only] API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
@@ -1696,28 +1716,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** [Output only] The time the operation was created. */
+/** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** [Output only] The time the operation finished running. */
+/** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** [Output only] Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /**
- *  [Output only] Server-defined resource path for the target of the operation.
+ *  Output only. Server-defined resource path for the target of the operation.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** [Output only] Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
 
 /**
- *  RestoreInstanceRequest restores an existing instances's file share from a
+ *  RestoreInstanceRequest restores an existing instance's file share from a
  *  backup.
  */
 @interface GTLRCloudFilestore_RestoreInstanceRequest : GTLRObject
@@ -1730,7 +1750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  The resource name of the backup, in the format
- *  projects/{project_number}/locations/{location_id}/backups/{backup_id}.
+ *  `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -1877,8 +1897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /**
  *  Deny Maintenance Period that is applied to resource to indicate when
  *  maintenance is forbidden. User can specify zero or more non-overlapping deny
- *  periods. For V1, Maximum number of deny_maintenance_periods is expected to
- *  be one.
+ *  periods. Maximum number of deny_maintenance_periods expected is one.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 

@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Identifier of the ACL rule.
+ *  Identifier of the Access Control List (ACL) rule. See Sharing calendars.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -141,14 +141,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/** The scope of the rule. */
+/** The extent to which calendar access is granted by this ACL rule. */
 @property(nonatomic, strong, nullable) GTLRCalendar_AclRule_Scope *scope;
 
 @end
 
 
 /**
- *  The scope of the rule.
+ *  The extent to which calendar access is granted by this ACL rule.
  */
 @interface GTLRCalendar_AclRule_Scope : GTLRObject
 
@@ -456,7 +456,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
-/** The type of delivery mechanism used for this channel. */
+/**
+ *  The type of delivery mechanism used for this channel. Valid values are
+ *  "web_hook" (or "webhook"). Both values refer to a channel where Http
+ *  requests are used to deliver messages.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -499,14 +503,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of calendar colors, mapping from the color ID to its
  *  definition. A calendarListEntry resource refers to one of these color IDs in
- *  its color field. Read-only.
+ *  its colorId field. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_Colors_Calendar *calendar;
 
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
- *  color field. Read-only.
+ *  colorId field. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_Colors_Event *event;
 
@@ -525,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of calendar colors, mapping from the color ID to its
  *  definition. A calendarListEntry resource refers to one of these color IDs in
- *  its color field. Read-only.
+ *  its colorId field. Read-only.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCalendar_ColorDefinition. Use @c -additionalJSONKeys and @c
@@ -539,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
- *  color field. Read-only.
+ *  colorId field. Read-only.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCalendar_ColorDefinition. Use @c -additionalJSONKeys and @c
@@ -559,16 +563,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID of the conference.
  *  Can be used by developers to keep track of conferences, should not be
  *  displayed to users.
- *  Values for solution types:
- *  - "eventHangout": unset.
- *  - "eventNamedHangout": the name of the Hangout.
- *  - "hangoutsMeet": the 10-letter meeting code, for example "aaa-bbbb-ccc".
- *  - "addOn": defined by 3P conference provider. Optional.
+ *  The ID value is formed differently for each conference solution type:
+ *  - eventHangout: ID is not set. (This conference type is deprecated.)
+ *  - eventNamedHangout: ID is the name of the Hangout. (This conference type is
+ *  deprecated.)
+ *  - hangoutsMeet: ID is the 10-letter meeting code, for example aaa-bbbb-ccc.
+ *  - addOn: ID is defined by the third-party provider. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *conferenceId;
 
 /**
- *  The conference solution, such as Hangouts or Google Meet.
+ *  The conference solution, such as Google Meet.
  *  Unset for a conference with a failed create request.
  *  Either conferenceSolution and at least one entryPoint, or createRequest is
  *  required.
@@ -716,9 +721,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  If a client encounters an unfamiliar or empty type, it should still be able
  *  to display the entry points. However, it should disallow modifications.
  *  The possible values are:
- *  - "eventHangout" for Hangouts for consumers (http://hangouts.google.com)
+ *  - "eventHangout" for Hangouts for consumers (deprecated; existing events may
+ *  show this conference solution type but new conferences cannot be created)
  *  - "eventNamedHangout" for classic Hangouts for Google Workspace users
- *  (http://hangouts.google.com)
+ *  (deprecated; existing events may show this conference solution type but new
+ *  conferences cannot be created)
  *  - "hangoutsMeet" for Google Meet (http://meet.google.com)
  *  - "addOn" for 3P conference providers
  */
@@ -884,8 +891,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Event : GTLRObject
 
 /**
- *  Whether anyone can invite themselves to the event (currently works for
- *  Google+ events only). Optional. The default is False.
+ *  Whether anyone can invite themselves to the event (deprecated). Optional.
+ *  The default is False.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -963,6 +970,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/**
+ *  Specific type of the event. Read-only. Possible values are:
+ *  - "default" - A regular event or not further specified.
+ *  - "outOfOffice" - An out-of-office event.
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
+
 /** Extended properties of the event. */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties *extendedProperties;
 
@@ -997,7 +1011,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *guestsCanSeeOtherGuests;
 
 /**
- *  An absolute link to the Google+ hangout associated with this event.
+ *  An absolute link to the Google Hangout associated with this event.
  *  Read-only.
  */
 @property(nonatomic, copy, nullable) NSString *hangoutLink;
@@ -1195,8 +1209,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The creator's Profile ID, if available. It corresponds to the id field in
- *  the People collection of the Google+ API
+ *  The creator's Profile ID, if available.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1303,8 +1316,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The organizer's Profile ID, if available. It corresponds to the id field in
- *  the People collection of the Google+ API
+ *  The organizer's Profile ID, if available.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1462,8 +1474,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  The attendee's Profile ID, if available. It corresponds to the id field in
- *  the People collection of the Google+ API
+ *  The attendee's Profile ID, if available.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

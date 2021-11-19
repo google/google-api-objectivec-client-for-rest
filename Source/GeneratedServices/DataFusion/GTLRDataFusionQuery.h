@@ -58,8 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsGet : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -86,8 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesCreate : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /** The name of the instance to create. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
@@ -123,8 +119,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesDelete : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  The instance resource name in the format
@@ -155,8 +149,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesGet : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  The instance resource name in the format
@@ -188,8 +180,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -233,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesList : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesListWithparent:]
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -290,8 +278,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesPatch : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesPatchWithObject:name:]
 
 /**
  *  Output only. The name of this instance is in the form of
@@ -336,8 +322,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesRestart : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesRestartWithObject:name:]
 
 /**
  *  Name of the Data Fusion instance which need to be restarted in the form of
@@ -374,8 +358,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -416,8 +398,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -456,10 +436,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsList : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -471,10 +453,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -511,8 +499,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsOperationsCancel : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -553,8 +539,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsOperationsDelete : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -586,8 +570,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsOperationsGet : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -624,8 +606,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsOperationsList : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -674,8 +654,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataFusionCloudPlatform
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsVersionsList : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsVersionsListWithparent:]
 
 /**
  *  Whether or not to return the latest patch of every available minor version.

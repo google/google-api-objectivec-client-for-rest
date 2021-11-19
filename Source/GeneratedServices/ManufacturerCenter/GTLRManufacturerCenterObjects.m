@@ -80,6 +80,7 @@ NSString * const kGTLRManufacturerCenter_Issue_Severity_Warning = @"WARNING";
     @"productHighlight" : [NSString class],
     @"productType" : [NSString class],
     @"richProductContent" : [NSString class],
+    @"sizeType" : [NSString class],
     @"videoLink" : [NSString class]
   };
   return map;

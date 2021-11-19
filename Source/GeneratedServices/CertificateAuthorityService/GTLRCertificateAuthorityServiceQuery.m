@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Certificate Authority API (privateca/v1beta1)
+//   Certificate Authority API (privateca/v1)
 // Description:
 //   The Certificate Authority Service API is a highly-available, scalable
 //   service that enables you to simplify and automate the management of private
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesActivate
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesActivate
 
 @dynamic name;
 
@@ -34,40 +34,40 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:activate";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesActivate *query =
+  NSString *pathURITemplate = @"v1/{+name}:activate";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesActivate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.activate";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.activate";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGet
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_CertificateRevocationList class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.get";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
 
@@ -77,39 +77,39 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy *query =
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.resource = resource;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.getIamPolicy";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.getIamPolicy";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsList
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/certificateRevocationLists";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsList *query =
+  NSString *pathURITemplate = @"v1/{+parent}/certificateRevocationLists";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCertificateRevocationListsResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.list";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatch
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch
 
 @dynamic name, requestId, updateMask;
 
@@ -122,21 +122,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatch *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.patch";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy
 
 @dynamic resource;
 
@@ -149,21 +149,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy *query =
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.setIamPolicy";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.setIamPolicy";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions
 
 @dynamic resource;
 
@@ -176,140 +176,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions *query =
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_TestIamPermissionsResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificateRevocationLists.testIamPermissions";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.certificateRevocationLists.testIamPermissions";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesCreate
-
-@dynamic certificateId, parent, requestId;
-
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/certificates";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificates.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificates.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/certificates";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCertificatesResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificates.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesPatch
-
-@dynamic name, requestId, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificates.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesRevoke
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RevokeCertificateRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:revoke";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesRevoke *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.certificates.revoke";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCreate
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCreate
 
 @dynamic certificateAuthorityId, parent, requestId;
 
@@ -322,21 +203,40 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/certificateAuthorities";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCreate *query =
+  NSString *pathURITemplate = @"v1/{+parent}/certificateAuthorities";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.create";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesDisable
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDelete
+
+@dynamic ignoreActiveCertificates, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDisable
 
 @dynamic name;
 
@@ -349,21 +249,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:disable";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesDisable *query =
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesDisable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.disable";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.disable";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesEnable
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesEnable
 
 @dynamic name;
 
@@ -376,101 +276,78 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:enable";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesEnable *query =
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesEnable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.enable";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.enable";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesFetch
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesFetch
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:fetch";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesFetch *query =
+  NSString *pathURITemplate = @"v1/{+name}:fetch";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesFetch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_FetchCertificateAuthorityCsrResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.fetch";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.fetch";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGet
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_CertificateAuthority class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.get";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesList
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/certificateAuthorities";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesList *query =
+  NSString *pathURITemplate = @"v1/{+parent}/certificateAuthorities";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCertificateAuthoritiesResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.list";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesPatch
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch
 
 @dynamic name, requestId, updateMask;
 
@@ -483,25 +360,25 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesPatch *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.patch";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesRestore
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesUndelete
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest *)object
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -510,25 +387,91 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:restore";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesRestore *query =
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificateAuthoritiesUndelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.restore";
+  query.loggingName = @"privateca.projects.locations.caPools.certificateAuthorities.undelete";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesScheduleDelete
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesCreate
+
+@dynamic certificateId, issuingCertificateAuthorityId, parent, requestId,
+         validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificates";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesGet
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest *)object
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificates";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCertificatesResponse class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_Certificate *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -537,21 +480,209 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:scheduleDelete";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesScheduleDelete *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.scheduleDelete";
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificates.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesSetIamPolicy
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_RevokeCertificateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Certificate class];
+  query.loggingName = @"privateca.projects.locations.caPools.certificates.revoke";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCreate
+
+@dynamic caPoolId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CaPool *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/caPools";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.caPools.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.caPools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsFetchCaCerts
+
+@dynamic caPool;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_FetchCaCertsRequest *)object
+                         caPool:(NSString *)caPool {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"caPool" ];
+  NSString *pathURITemplate = @"v1/{+caPool}:fetchCaCerts";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsFetchCaCerts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.caPool = caPool;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_FetchCaCertsResponse class];
+  query.loggingName = @"privateca.projects.locations.caPools.fetchCaCerts";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_CaPool class];
+  query.loggingName = @"privateca.projects.locations.caPools.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
+  query.loggingName = @"privateca.projects.locations.caPools.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/caPools";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCaPoolsResponse class];
+  query.loggingName = @"privateca.projects.locations.caPools.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CaPool *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.caPools.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsSetIamPolicy
 
 @dynamic resource;
 
@@ -564,21 +695,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesSetIamPolicy *query =
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.setIamPolicy";
+  query.loggingName = @"privateca.projects.locations.caPools.setIamPolicy";
   return query;
 }
 
 @end
 
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesTestIamPermissions
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsTestIamPermissions
 
 @dynamic resource;
 
@@ -591,15 +722,203 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesTestIamPermissions *query =
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_TestIamPermissionsResponse class];
-  query.loggingName = @"privateca.projects.locations.certificateAuthorities.testIamPermissions";
+  query.loggingName = @"privateca.projects.locations.caPools.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesCreate
+
+@dynamic certificateTemplateId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateTemplate *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificateTemplates";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_CertificateTemplate class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/certificateTemplates";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_ListCertificateTemplatesResponse class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_CertificateTemplate *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Operation class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateTemplatesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_TestIamPermissionsResponse class];
+  query.loggingName = @"privateca.projects.locations.certificateTemplates.testIamPermissions";
   return query;
 }
 
@@ -611,7 +930,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -630,7 +949,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -656,7 +975,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -676,7 +995,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -695,7 +1014,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -714,7 +1033,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -722,121 +1041,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCertificateAuthorityService_ListOperationsResponse class];
   query.loggingName = @"privateca.projects.locations.operations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_ReusableConfig class];
-  query.loggingName = @"privateca.projects.locations.reusableConfigs.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.reusableConfigs.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/reusableConfigs";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_ListReusableConfigsResponse class];
-  query.loggingName = @"privateca.projects.locations.reusableConfigs.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
-  query.loggingName = @"privateca.projects.locations.reusableConfigs.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCertificateAuthorityService_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
-  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCertificateAuthorityService_TestIamPermissionsResponse class];
-  query.loggingName = @"privateca.projects.locations.reusableConfigs.testIamPermissions";
   return query;
 }
 

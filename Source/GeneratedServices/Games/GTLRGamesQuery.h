@@ -25,7 +25,6 @@
 @class GTLRGames_AchievementUpdateMultipleRequest;
 @class GTLRGames_EventRecordRequest;
 @class GTLRGames_PlayerScoreSubmissionList;
-@class GTLRGames_ResolveSnapshotHeadRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -258,8 +257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementDefinitionsList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementDefinitionsList]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -299,8 +296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsIncrement : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsIncrementWithachievementId:stepsToIncrement:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -341,8 +336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsListWithplayerId:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -408,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsReveal : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsRevealWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -440,8 +431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsSetStepsAtLeast : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsSetStepsAtLeastWithachievementId:steps:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -476,8 +465,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsUnlock : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsUnlockWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -504,8 +491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_AchievementsUpdateMultiple : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForAchievementsUpdateMultipleWithObject:]
 
 /**
  *  Fetches a @c GTLRGames_AchievementUpdateMultipleResponse.
@@ -532,8 +517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ApplicationsGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForApplicationsGetWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -581,8 +564,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ApplicationsGetEndPoint : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForApplicationsGetEndPoint]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -620,8 +601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ApplicationsPlayed : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForApplicationsPlayed]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -645,8 +624,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ApplicationsVerify : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForApplicationsVerifyWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -676,8 +653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_EventsListByPlayer : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForEventsListByPlayer]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -717,8 +692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_EventsListDefinitions : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForEventsListDefinitions]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -758,8 +731,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_EventsRecord : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForEventsRecordWithObject:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -787,8 +758,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_LeaderboardsGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForLeaderboardsGetWithleaderboardId:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -818,8 +787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_LeaderboardsList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForLeaderboardsList]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -858,8 +825,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_MetagameGetMetagameConfig : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForMetagameGetMetagameConfig]
 
 /**
  *  Fetches a @c GTLRGames_MetagameConfig.
@@ -882,8 +847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_MetagameListCategoriesByPlayer : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForMetagameListCategoriesByPlayerWithplayerId:collection:]
 
 /**
  *  The collection of categories for which data will be returned.
@@ -953,8 +916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_PlayersGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForPlayersGetWithplayerId:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -989,8 +950,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_PlayersList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForPlayersListWithcollection:]
 
 /**
  *  Collection of players being retrieved
@@ -1054,8 +1013,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_RevisionsCheck : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForRevisionsCheckWithclientRevision:]
 
 /**
  *  The revision of the client SDK used by your application. Format:
@@ -1095,8 +1052,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ScoresGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForScoresGetWithplayerId:leaderboardId:timeSpan:]
 
 /**
  *  The types of ranks to return. If the parameter is omitted, no ranks will be
@@ -1207,8 +1162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ScoresList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForScoresListWithleaderboardId:collection:timeSpan:]
 
 /**
  *  The collection of scores you're requesting.
@@ -1306,8 +1259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ScoresListWindow : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForScoresListWindowWithleaderboardId:collection:timeSpan:]
 
 /**
  *  The collection of scores you're requesting.
@@ -1419,8 +1370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ScoresSubmit : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForScoresSubmitWithleaderboardId:score:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1474,8 +1423,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_ScoresSubmitMultiple : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForScoresSubmitMultipleWithObject:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1495,40 +1442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Resolves any potential conflicts according to the resolution policy
- *  specified in the request and returns the snapshot head after the resolution.
- *
- *  Method: games.snapshotsExtended.resolveSnapshotHead
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGames
- *    @c kGTLRAuthScopeGamesDriveAppdata
- */
-@interface GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForSnapshotsExtendedResolveSnapshotHeadWithObject:snapshotName:]
-
-/** Required. Name of the snapshot. */
-@property(nonatomic, copy, nullable) NSString *snapshotName;
-
-/**
- *  Fetches a @c GTLRGames_ResolveSnapshotHeadResponse.
- *
- *  Resolves any potential conflicts according to the resolution policy
- *  specified in the request and returns the snapshot head after the resolution.
- *
- *  @param object The @c GTLRGames_ResolveSnapshotHeadRequest to include in the
- *    query.
- *  @param snapshotName Required. Name of the snapshot.
- *
- *  @return GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead
- */
-+ (instancetype)queryWithObject:(GTLRGames_ResolveSnapshotHeadRequest *)object
-                   snapshotName:(NSString *)snapshotName;
-
-@end
-
-/**
  *  Retrieves the metadata for a given snapshot ID.
  *
  *  Method: games.snapshots.get
@@ -1538,8 +1451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGamesDriveAppdata
  */
 @interface GTLRGamesQuery_SnapshotsGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForSnapshotsGetWithsnapshotId:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1571,8 +1482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGamesDriveAppdata
  */
 @interface GTLRGamesQuery_SnapshotsList : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForSnapshotsListWithplayerId:]
 
 /** The preferred language to use for strings returned by this method. */
 @property(nonatomic, copy, nullable) NSString *language;
@@ -1622,8 +1531,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    @c kGTLRAuthScopeGames
  */
 @interface GTLRGamesQuery_StatsGet : GTLRGamesQuery
-// Previous library name was
-//   +[GTLQueryGames queryForStatsGet]
 
 /**
  *  Fetches a @c GTLRGames_StatsResponse.

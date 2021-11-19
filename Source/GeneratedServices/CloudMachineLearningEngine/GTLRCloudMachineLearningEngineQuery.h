@@ -65,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsExplain : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsExplainWithObject:name:]
 
 /**
  *  Required. The resource name of a model or a version. Authorization: requires
@@ -106,8 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsGetConfig : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsGetConfigWithname:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -138,8 +134,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsCancel : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsCancelWithObject:name:]
 
 /** Required. The name of the job to cancel. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -170,8 +164,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsCreate : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsCreateWithObject:parent:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -202,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsGetWithname:]
 
 /** Required. The name of the job to get the description of. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -231,8 +221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -278,8 +266,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsListWithparent:]
 
 /**
  *  Optional. Specifies the subset of jobs to retrieve. You can filter on the
@@ -337,8 +323,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsPatch : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsPatchWithObject:name:]
 
 /** Required. The job name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -387,8 +371,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsSetIamPolicy : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -430,8 +412,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsJobsTestIamPermissions : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -474,8 +454,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsGetWithname:]
 
 /** Required. The name of the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -504,8 +482,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsListWithparent:]
 
 /**
  *  Optional. The number of locations to retrieve per "page" of results. If
@@ -565,8 +541,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsCancel : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -603,8 +577,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsOperationsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -633,8 +605,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesCreate : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesCreateWithObject:parent:]
 
 /**
  *  Required. The project and location that the study belongs to. Format:
@@ -674,8 +644,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesDeleteWithname:]
 
 /** Required. The study name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -702,8 +670,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesGetWithname:]
 
 /** Required. The study name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -730,8 +696,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesListWithparent:]
 
 /**
  *  Required. The project and location that the study belongs to. Format:
@@ -764,8 +728,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsAddMeasurement : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsAddMeasurementWithObject:name:]
 
 /** Required. The trial name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -799,8 +761,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCheckEarlyStoppingState : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsCheckEarlyStoppingStateWithObject:name:]
 
 /** Required. The trial name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -833,8 +793,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsComplete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsCompleteWithObject:name:]
 
 /** Required. The trial name.metat */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -865,8 +823,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsCreate : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsCreateWithObject:parent:]
 
 /** Required. The name of the study that the trial belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -896,8 +852,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsDeleteWithname:]
 
 /** Required. The trial name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -924,8 +878,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsGetWithname:]
 
 /** Required. The trial name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -952,8 +904,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsListWithparent:]
 
 /** Required. The name of the study that the trial belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -983,8 +933,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsListOptimalTrials : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsListOptimalTrialsWithObject:parent:]
 
 /**
  *  Required. The name of the study that the pareto-optimal trial belongs to.
@@ -1021,8 +969,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsStop : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsStopWithObject:name:]
 
 /** Required. The trial name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1056,8 +1002,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsSuggest : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsSuggestWithObject:parent:]
 
 /** Required. The name of the study that the trial belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1093,8 +1037,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsCreate : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsCreateWithObject:parent:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1127,8 +1069,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsDeleteWithname:]
 
 /** Required. The name of the model. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1159,8 +1099,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsGetWithname:]
 
 /** Required. The name of the model. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1190,8 +1128,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1238,8 +1174,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsListWithparent:]
 
 /** Optional. Specifies the subset of models to retrieve. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1293,8 +1227,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsPatch : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsPatchWithObject:name:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1340,8 +1272,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1383,8 +1313,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1430,8 +1358,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsCreate : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsCreateWithObject:parent:]
 
 /** Required. The name of the model. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1469,8 +1395,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsDeleteWithname:]
 
 /**
  *  Required. The name of the version. You can get the names of all the versions
@@ -1506,8 +1430,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsGetWithname:]
 
 /** Required. The name of the version. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1541,8 +1463,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatformReadOnly
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsListWithparent:]
 
 /** Optional. Specifies the subset of versions to retrieve. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1598,8 +1518,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsPatch : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsPatchWithObject:name:]
 
 /** Required. The name of the model. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1650,8 +1568,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsSetDefaultWithObject:name:]
 
 /**
  *  Required. The name of the version to make the default for the model. You can
@@ -1700,8 +1616,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsOperationsCancel : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1738,8 +1652,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsOperationsGet : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1776,8 +1688,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsOperationsList : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1827,8 +1737,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
  */
 @interface GTLRCloudMachineLearningEngineQuery_ProjectsPredict : GTLRCloudMachineLearningEngineQuery
-// Previous library name was
-//   +[GTLQueryCloudMachineLearningEngine queryForProjectsPredictWithObject:name:]
 
 /**
  *  Required. The resource name of a model or a version. Authorization: requires

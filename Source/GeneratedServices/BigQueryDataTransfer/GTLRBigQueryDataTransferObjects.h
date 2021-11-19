@@ -36,6 +36,7 @@
 @class GTLRBigQueryDataTransfer_TransferMessage;
 @class GTLRBigQueryDataTransfer_TransferRun;
 @class GTLRBigQueryDataTransfer_TransferRun_Params;
+@class GTLRBigQueryDataTransfer_UserInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -64,9 +65,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_Authoriz
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
 /**
- *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth doesn't
- *  require a refresh token to get an offline access token. Instead, it uses a
- *  client-signed JWT assertion to retrieve an access token.
+ *  Use First Party OAuth.
  *
  *  Value: "FIRST_PARTY_OAUTH"
  */
@@ -177,38 +176,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter
 // GTLRBigQueryDataTransfer_TransferConfig.state
 
 /**
- *  Data transfer is cancelled.
+ *  Data transfer is cancelled (6).
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled;
 /**
- *  Data transfer failed.
+ *  Data transfer failed (5).
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by data transfer
- *  backend.
+ *  backend (2).
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending;
 /**
- *  Data transfer is in progress.
+ *  Data transfer is in progress (3).
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
 /**
- *  Data transfer completed successfully.
+ *  Data transfer completed successfully (4).
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded;
 /**
- *  State placeholder.
+ *  State placeholder (0).
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
@@ -246,38 +245,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Sev
 // GTLRBigQueryDataTransfer_TransferRun.state
 
 /**
- *  Data transfer is cancelled.
+ *  Data transfer is cancelled (6).
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled;
 /**
- *  Data transfer failed.
+ *  Data transfer failed (5).
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by data transfer
- *  backend.
+ *  backend (2).
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending;
 /**
- *  Data transfer is in progress.
+ *  Data transfer is in progress (3).
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
 /**
- *  Data transfer completed successfully.
+ *  Data transfer completed successfully (4).
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded;
 /**
- *  State placeholder.
+ *  State placeholder (0).
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
@@ -325,10 +324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified
  *        Type unspecified. (Value: "AUTHORIZATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth
- *        Use First Party OAuth based on Loas Owned Clients. First Party OAuth
- *        doesn't require a refresh token to get an offline access token.
- *        Instead, it uses a client-signed JWT assertion to retrieve an access
- *        token. (Value: "FIRST_PARTY_OAUTH")
+ *        Use First Party OAuth. (Value: "FIRST_PARTY_OAUTH")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode
  *        Return an authorization code for a given Google+ page that can then be
  *        exchanged for a refresh token on the backend. (Value:
@@ -595,6 +591,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigQueryDataTransfer_Empty : GTLRObject
+@end
+
+
+/**
+ *  A request to enroll a set of data sources so they are visible in the
+ *  BigQuery UI's `Transfer` tab.
+ */
+@interface GTLRBigQueryDataTransfer_EnrollDataSourcesRequest : GTLRObject
+
+/**
+ *  Data sources that are enrolled. It is required to provide at least one data
+ *  source id.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dataSourceIds;
+
 @end
 
 
@@ -1008,12 +1019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
- *  name is automatically generated based on the config_id specified in
- *  CreateTransferConfigRequest along with project_id and region. If config_id
- *  is not provided, usually a uuid, even though it is not guaranteed or
- *  required, will be generated for config_id.
+ *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
+ *  Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *  required. The name is ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1022,11 +1030,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Pub/Sub topic where notifications will be sent after transfer runs
- *  associated with this transfer config finish.
+ *  associated with this transfer config finish. The format for specifying a
+ *  pubsub topic is: `projects/{project}/topics/{topic}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
-/** Data transfer specific parameters. */
+/**
+ *  Output only. Information about the user whose credentials are used to
+ *  transfer data. Populated only for `transferConfigs.get` requests. In case
+ *  the user information is not available, this field will not be populated.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_UserInfo *ownerInfo;
+
+/**
+ *  Parameters specific to each data source. For more information see the bq tab
+ *  in the 'Setting up a data transfer' section for each data source. For
+ *  example the parameters for Cloud Storage transfers are listed here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferConfig_Params *params;
 
 /**
@@ -1049,18 +1070,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled Data
- *        transfer is cancelled. (Value: "CANCELLED")
+ *        transfer is cancelled (6). (Value: "CANCELLED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Failed Data
- *        transfer failed. (Value: "FAILED")
+ *        transfer failed (5). (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Pending Data
  *        transfer is scheduled and is waiting to be picked up by data transfer
- *        backend. (Value: "PENDING")
+ *        backend (2). (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Running Data
- *        transfer is in progress. (Value: "RUNNING")
+ *        transfer is in progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded Data
- *        transfer completed successfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully (4). (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified
- *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        State placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1080,7 +1101,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Data transfer specific parameters.
+ *  Parameters specific to each data source. For more information see the bq tab
+ *  in the 'Setting up a data transfer' section for each data source. For
+ *  example the parameters for Cloud Storage transfers are listed here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1156,11 +1180,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Output only. Pub/Sub topic where a notification will be sent after this
- *  transfer run finishes
+ *  transfer run finishes. The format for specifying a pubsub topic is:
+ *  `projects/{project}/topics/{topic}`
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
-/** Output only. Data transfer specific parameters. */
+/**
+ *  Output only. Parameters specific to each data source. For more information
+ *  see the bq tab in the 'Setting up a data transfer' section for each data
+ *  source. For example the parameters for Cloud Storage transfers are listed
+ *  here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRun_Params *params;
 
 /**
@@ -1191,18 +1222,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled Data
- *        transfer is cancelled. (Value: "CANCELLED")
+ *        transfer is cancelled (6). (Value: "CANCELLED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Failed Data transfer
- *        failed. (Value: "FAILED")
+ *        failed (5). (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Pending Data transfer
- *        is scheduled and is waiting to be picked up by data transfer backend.
- *        (Value: "PENDING")
+ *        is scheduled and is waiting to be picked up by data transfer backend
+ *        (2). (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Running Data transfer
- *        is in progress. (Value: "RUNNING")
+ *        is in progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded Data
- *        transfer completed successfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully (4). (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified
- *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        State placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1220,7 +1251,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Output only. Data transfer specific parameters.
+ *  Output only. Parameters specific to each data source. For more information
+ *  see the bq tab in the 'Setting up a data transfer' section for each data
+ *  source. For example the parameters for Cloud Storage transfers are listed
+ *  here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1228,6 +1263,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryDataTransfer_TransferRun_Params : GTLRObject
+@end
+
+
+/**
+ *  Information about a user.
+ */
+@interface GTLRBigQueryDataTransfer_UserInfo : GTLRObject
+
+/** E-mail address of the user. */
+@property(nonatomic, copy, nullable) NSString *email;
+
 @end
 
 NS_ASSUME_NONNULL_END

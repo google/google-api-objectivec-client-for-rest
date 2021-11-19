@@ -35,6 +35,8 @@
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
 @class GTLRPubsub_RetryPolicy;
+@class GTLRPubsub_Schema;
+@class GTLRPubsub_SchemaSettings;
 @class GTLRPubsub_Snapshot;
 @class GTLRPubsub_Snapshot_Labels;
 @class GTLRPubsub_Subscription;
@@ -48,6 +50,77 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_Schema.type
+
+/**
+ *  An Avro schema definition.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_Avro;
+/**
+ *  A Protocol Buffer schema definition.
+ *
+ *  Value: "PROTOCOL_BUFFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_ProtocolBuffer;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_SchemaSettings.encoding
+
+/**
+ *  Binary encoding, as defined by the schema type. For some schema types,
+ *  binary encoding may not be available.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_Binary;
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCODING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified;
+/**
+ *  JSON encoding
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_ValidateMessageRequest.encoding
+
+/**
+ *  Binary encoding, as defined by the schema type. For some schema types,
+ *  binary encoding may not be available.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Binary;
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCODING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified;
+/**
+ *  JSON encoding
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json;
 
 /**
  *  Request for the Acknowledge method.
@@ -64,7 +137,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRPubsub_Binding : GTLRObject
 
@@ -73,14 +146,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -112,8 +185,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -273,6 +346,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response for the `ListSchemas` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schemas" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPubsub_ListSchemasResponse : GTLRCollectionObject
+
+/**
+ *  If not empty, indicates that there may be more schemas that match the
+ *  request; this value should be passed in a new `ListSchemasRequest`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting schemas.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Schema *> *schemas;
 
 @end
 
@@ -556,15 +656,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -580,16 +680,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRPubsub_Policy : GTLRObject
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Binding *> *bindings;
 
@@ -826,6 +931,69 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A schema resource.
+ */
+@interface GTLRPubsub_Schema : GTLRObject
+
+/**
+ *  The definition of the schema. This should contain a string representing the
+ *  full definition of the schema that is a valid schema definition of the type
+ *  specified in `type`.
+ */
+@property(nonatomic, copy, nullable) NSString *definition;
+
+/**
+ *  Required. Name of the schema. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of the schema definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Schema_Type_Avro An Avro schema definition. (Value:
+ *        "AVRO")
+ *    @arg @c kGTLRPubsub_Schema_Type_ProtocolBuffer A Protocol Buffer schema
+ *        definition. (Value: "PROTOCOL_BUFFER")
+ *    @arg @c kGTLRPubsub_Schema_Type_TypeUnspecified Default value. This value
+ *        is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Settings for validating messages published against a schema.
+ */
+@interface GTLRPubsub_SchemaSettings : GTLRObject
+
+/**
+ *  The encoding of messages validated against `schema`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_Binary Binary encoding, as
+ *        defined by the schema type. For some schema types, binary encoding may
+ *        not be available. (Value: "BINARY")
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified
+ *        Unspecified (Value: "ENCODING_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_Json JSON encoding (Value:
+ *        "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Required. The name of the schema that messages published should be validated
+ *  against. Format is `projects/{project}/schemas/{schema}`. The value of this
+ *  field will be `_deleted-schema_` if the schema has been deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+@end
+
+
+/**
  *  Request for the `Seek` method.
  */
 @interface GTLRPubsub_SeekRequest : GTLRObject
@@ -988,7 +1156,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  successfully consuming messages from the subscription or is issuing
  *  operations on the subscription. If `expiration_policy` is not set, a
  *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
- *  value for `expiration_policy.ttl` is 1 day.
+ *  value for `expiration_policy.ttl` is 1 day. If `expiration_policy` is set,
+ *  but `expiration_policy.ttl` is not set, the subscription never expires.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_ExpirationPolicy *expirationPolicy;
 
@@ -1033,8 +1202,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Indicates whether to retain acknowledged messages. If true, then messages
  *  are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
- *  window. This must be true if you would like to [Seek to a timestamp]
- *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time).
+ *  window. This must be true if you would like to [`Seek` to a timestamp]
+ *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time) in the
+ *  past to replay previously-acknowledged messages.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1055,6 +1225,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  field will be `_deleted-topic_` if the topic has been deleted.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+/**
+ *  Output only. Indicates the minimum duration for which a message is retained
+ *  after it is published to the subscription's topic. If this field is set,
+ *  messages published to the subscription's topic in the last
+ *  `topic_message_retention_duration` are always available to subscribers. See
+ *  the `message_retention_duration` field in `Topic`. This field is set only in
+ *  responses from the server; it is ignored if it is set in any requests.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *topicMessageRetentionDuration;
 
 @end
 
@@ -1118,6 +1298,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Labels *labels;
 
 /**
+ *  Indicates the minimum duration to retain a message after it is published to
+ *  the topic. If this field is set, messages published to the topic in the last
+ *  `message_retention_duration` are always available to subscribers. For
+ *  instance, it allows any attached subscription to [seek to a
+ *  timestamp](https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time)
+ *  that is up to `message_retention_duration` in the past. If this field is not
+ *  set, message retention is controlled by settings on individual
+ *  subscriptions. Cannot be more than 7 days or less than 10 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
+
+/**
  *  Policy constraining the set of Google Cloud Platform regions where messages
  *  published to the topic may be stored. If not present, then no constraints
  *  are in effect.
@@ -1141,6 +1333,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/** Settings for validating messages published against a schema. */
+@property(nonatomic, strong, nullable) GTLRPubsub_SchemaSettings *schemaSettings;
 
 @end
 
@@ -1215,6 +1410,70 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  Request for the `ValidateMessage` method.
+ */
+@interface GTLRPubsub_ValidateMessageRequest : GTLRObject
+
+/**
+ *  The encoding expected for messages
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_Binary Binary
+ *        encoding, as defined by the schema type. For some schema types, binary
+ *        encoding may not be available. (Value: "BINARY")
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified
+ *        Unspecified (Value: "ENCODING_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_Json JSON encoding
+ *        (Value: "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Message to validate against the provided `schema_spec`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Name of the schema against which to validate. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Ad-hoc schema against which to validate */
+@property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Response for the `ValidateMessage` method. Empty for now.
+ */
+@interface GTLRPubsub_ValidateMessageResponse : GTLRObject
+@end
+
+
+/**
+ *  Request for the `ValidateSchema` method.
+ */
+@interface GTLRPubsub_ValidateSchemaRequest : GTLRObject
+
+/** Required. The schema object to validate. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Response for the `ValidateSchema` method. Empty for now.
+ */
+@interface GTLRPubsub_ValidateSchemaResponse : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

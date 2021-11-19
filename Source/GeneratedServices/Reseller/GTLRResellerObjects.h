@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRReseller_Address;
+@class GTLRReseller_PrimaryAdmin;
 @class GTLRReseller_RenewalSettings;
 @class GTLRReseller_Seats;
 @class GTLRReseller_Subscription;
@@ -37,6 +38,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRReseller_Customer.customerType
+
+/**
+ *  Customer type not known
+ *
+ *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified;
+/**
+ *  Domained or domain-owning customers
+ *
+ *  Value: "DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Domain;
+/**
+ *  Domainless or email-verified customers
+ *
+ *  Value: "TEAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
+
 /**
  *  JSON template for address of a customer.
  */
@@ -44,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A customer's physical address. An address can be composed of one to three
- *  lines. The addressline2 and addressLine3 are optional.
+ *  lines. The `addressline2` and `addressLine3` are optional.
  */
 @property(nonatomic, copy, nullable) NSString *addressLine1;
 
@@ -58,28 +84,30 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *contactName;
 
 /**
- *  For countryCode information, see the ISO 3166 country code elements. Verify
- *  that country is approved for resale of Google products. This property is
- *  required when creating a new customer.
+ *  For `countryCode` information, see the ISO 3166 country code elements.
+ *  Verify that country is approved for resale of Google products. This property
+ *  is required when creating a new customer.
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
-/** Identifies the resource as a customer address. Value: customers#address */
+/**
+ *  Identifies the resource as a customer address. Value: `customers#address`
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** An example of a locality value is the city of San Francisco. */
+/** An example of a `locality` value is the city of `San Francisco`. */
 @property(nonatomic, copy, nullable) NSString *locality;
 
 /** The company or company division name. This is required. */
 @property(nonatomic, copy, nullable) NSString *organizationName;
 
 /**
- *  A postalCode example is a postal zip code such as 94043. This property is
- *  required when creating a new customer.
+ *  A `postalCode` example is a postal zip code such as `94043`. This property
+ *  is required when creating a new customer.
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
-/** An example of a region value is CA for the state of California. */
+/** An example of a `region` value is `CA` for the state of California. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 @end
@@ -92,36 +120,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Google-issued code (100 char max) for discounted pricing on subscription
- *  plans. Deal code must be included in changePlan request in order to receive
- *  discounted rate. This property is optional. If a deal code has already been
- *  added to a subscription, this property may be left empty and the existing
- *  discounted rate will still apply (if not empty, only provide the deal code
- *  that is already present on the subscription). If a deal code has never been
- *  added to a subscription and this property is left blank, regular pricing
- *  will apply.
+ *  plans. Deal code must be included in `changePlan` request in order to
+ *  receive discounted rate. This property is optional. If a deal code has
+ *  already been added to a subscription, this property may be left empty and
+ *  the existing discounted rate will still apply (if not empty, only provide
+ *  the deal code that is already present on the subscription). If a deal code
+ *  has never been added to a subscription and this property is left blank,
+ *  regular pricing will apply.
  */
 @property(nonatomic, copy, nullable) NSString *dealCode;
 
 /**
  *  Identifies the resource as a subscription change plan request. Value:
- *  subscriptions#changePlanRequest
+ *  `subscriptions#changePlanRequest`
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The planName property is required. This is the name of the subscription's
+ *  The `planName` property is required. This is the name of the subscription's
  *  payment plan. For more information about the Google payment plans, see API
- *  concepts. Possible values are: - ANNUAL_MONTHLY_PAY - The annual commitment
- *  plan with monthly payments *Caution: *ANNUAL_MONTHLY_PAY is returned as
- *  ANNUAL in all API responses. - ANNUAL_YEARLY_PAY - The annual commitment
- *  plan with yearly payments - FLEXIBLE - The flexible plan - TRIAL - The
- *  30-day free trial plan
+ *  concepts. Possible values are: - `ANNUAL_MONTHLY_PAY` - The annual
+ *  commitment plan with monthly payments *Caution: *`ANNUAL_MONTHLY_PAY` is
+ *  returned as `ANNUAL` in all API responses. - `ANNUAL_YEARLY_PAY` - The
+ *  annual commitment plan with yearly payments - `FLEXIBLE` - The flexible plan
+ *  - `TRIAL` - The 30-day free trial plan
  */
 @property(nonatomic, copy, nullable) NSString *planName;
 
 /**
  *  This is an optional property. This purchase order (PO) information is for
- *  resellers to use for their company tracking usage. If a purchaseOrderId
+ *  resellers to use for their company tracking usage. If a `purchaseOrderId`
  *  value is given it appears in the API responses and shows up in the invoice.
  *  The property accepts up to 80 plain text characters.
  */
@@ -137,7 +165,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for a customer.
+ *  When a Google customer's account is registered with a reseller, the
+ *  customer's subscriptions for Google services are managed by this reseller. A
+ *  customer is described by a primary domain name and a physical address.
  */
 @interface GTLRReseller_Customer : GTLRObject
 
@@ -145,13 +175,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Like the "Customer email" in the reseller tools, this email is the secondary
  *  contact used if something happens to the customer's service such as service
  *  outage or a security issue. This property is required when creating a new
- *  customer and should not use the same domain as customerDomain .
+ *  "domain" customer and should not use the same domain as `customerDomain`.
+ *  The `alternateEmail` field is not necessary to create a "team" customer.
  */
 @property(nonatomic, copy, nullable) NSString *alternateEmail;
 
 /**
- *  The customer's primary domain name string. customerDomain is required when
- *  creating a new customer. Do not include the www prefix in the domain when
+ *  The customer's primary domain name string. `customerDomain` is required when
+ *  creating a new customer. Do not include the `www` prefix in the domain when
  *  adding a customer.
  */
 @property(nonatomic, copy, nullable) NSString *customerDomain;
@@ -170,7 +201,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Identifies the resource as a customer. Value: reseller#customer */
+/**
+ *  Identifies the type of the customer. Acceptable values include: * `domain`:
+ *  Implies a domain-verified customer (default). * `team`: Implies an
+ *  email-verified customer. For more information, see [managed
+ *  teams](https://support.google.com/a/users/answer/9939479).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified
+ *        Customer type not known (Value: "CUSTOMER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRReseller_Customer_CustomerType_Domain Domained or
+ *        domain-owning customers (Value: "DOMAIN")
+ *    @arg @c kGTLRReseller_Customer_CustomerType_Team Domainless or
+ *        email-verified customers (Value: "TEAM")
+ */
+@property(nonatomic, copy, nullable) NSString *customerType;
+
+/** Identifies the resource as a customer. Value: `reseller#customer` */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -185,6 +232,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  A customer's address information. Each field has a limit of 255 charcters.
  */
 @property(nonatomic, strong, nullable) GTLRReseller_Address *postalAddress;
+
+/**
+ *  The first admin details of the customer, present in case of TEAM customer.
+ */
+@property(nonatomic, strong, nullable) GTLRReseller_PrimaryAdmin *primaryAdmin;
 
 /**
  *  URL to customer's Admin console dashboard. The read-only URL is generated by
@@ -222,20 +274,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  JSON template for primary admin in case of TEAM customers
+ */
+@interface GTLRReseller_PrimaryAdmin : GTLRObject
+
+/**
+ *  The business email of the primary administrator of the customer. The email
+ *  verification link is sent to this email address at the time of customer
+ *  creation. Primary administrators have access to the customer's Admin
+ *  Console, including the ability to invite and evict users and manage the
+ *  administrative needs of the customer.
+ */
+@property(nonatomic, copy, nullable) NSString *primaryEmail;
+
+@end
+
+
+/**
  *  JSON template for a subscription renewal settings.
  */
 @interface GTLRReseller_RenewalSettings : GTLRObject
 
 /**
  *  Identifies the resource as a subscription renewal setting. Value:
- *  subscriptions#renewalSettings
+ *  `subscriptions#renewalSettings`
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Renewal settings for the annual commitment plan. For more detailed
  *  information, see renewal options in the administrator help center. When
- *  renewing a subscription, the renewalType is a required property.
+ *  renewing a subscription, the `renewalType` is a required property.
  */
 @property(nonatomic, copy, nullable) NSString *renewalType;
 
@@ -249,27 +318,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies the resource as a subscription seat setting. Value:
- *  subscriptions#seats
+ *  `subscriptions#seats`
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Read-only field containing the current number of users that are assigned a
- *  license for the product defined in skuId. This field's value is equivalent
+ *  license for the product defined in `skuId`. This field's value is equivalent
  *  to the numerical count of users returned by the Enterprise License Manager
- *  API method: listForProductAndSku
+ *  API method:
+ *  [`listForProductAndSku`](/admin-sdk/licensing/v1/reference/licenseAssignments/listForProductAndSku).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *licensedNumberOfSeats;
 
 /**
- *  This is a required property and is exclusive to subscriptions with FLEXIBLE
- *  or TRIAL plans. This property sets the maximum number of licensed users
- *  allowed on a subscription. This quantity can be increased up to the maximum
- *  limit defined in the reseller's contract. The minimum quantity is the
- *  current number of users in the customer account. *Note: *G Suite
- *  subscriptions automatically assign a license to every user.
+ *  This is a required property and is exclusive to subscriptions with
+ *  `FLEXIBLE` or `TRIAL` plans. This property sets the maximum number of
+ *  licensed users allowed on a subscription. This quantity can be increased up
+ *  to the maximum limit defined in the reseller's contract. The minimum
+ *  quantity is the current number of users in the customer account. *Note: *G
+ *  Suite subscriptions automatically assign a license to every user.
  *
  *  Uses NSNumber of intValue.
  */
@@ -277,12 +347,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  This is a required property and is exclusive to subscriptions with
- *  ANNUAL_MONTHLY_PAY and ANNUAL_YEARLY_PAY plans. This property sets the
+ *  `ANNUAL_MONTHLY_PAY` and `ANNUAL_YEARLY_PAY` plans. This property sets the
  *  maximum number of licenses assignable to users on a subscription. The
- *  reseller can add more licenses, but once set, the numberOfSeats cannot be
- *  reduced until renewal. The reseller is invoiced based on the numberOfSeats
- *  value regardless of how many of these user licenses are assigned. *Note: *G
- *  Suite subscriptions automatically assign a license to every user.
+ *  reseller can add more licenses, but once set, the `numberOfSeats` cannot be
+ *  reduced until renewal. The reseller is invoiced based on the `numberOfSeats`
+ *  value regardless of how many of these user licenses are assigned. *Note:
+ *  *Google Workspace subscriptions automatically assign a license to every
+ *  user.
  *
  *  Uses NSNumber of intValue.
  */
@@ -302,7 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *billingMethod;
 
 /**
- *  The creationTime property is the date when subscription was created. It is
+ *  The `creationTime` property is the date when subscription was created. It is
  *  in milliseconds using the Epoch format. See an example Epoch converter.
  *
  *  Uses NSNumber of longLongValue.
@@ -321,26 +392,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Google-issued code (100 char max) for discounted pricing on subscription
- *  plans. Deal code must be included in insert requests in order to receive
+ *  plans. Deal code must be included in `insert` requests in order to receive
  *  discounted rate. This property is optional, regular pricing applies if left
  *  empty.
  */
 @property(nonatomic, copy, nullable) NSString *dealCode;
 
-/** Identifies the resource as a Subscription. Value: reseller#subscription */
+/**
+ *  Identifies the resource as a Subscription. Value: `reseller#subscription`
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The plan property is required. In this version of the API, the G Suite plans
- *  are the flexible plan, annual commitment plan, and the 30-day free trial
- *  plan. For more information about the API"s payment plans, see the API
+ *  The `plan` property is required. In this version of the API, the G Suite
+ *  plans are the flexible plan, annual commitment plan, and the 30-day free
+ *  trial plan. For more information about the API"s payment plans, see the API
  *  concepts.
  */
 @property(nonatomic, strong, nullable) GTLRReseller_Subscription_Plan *plan;
 
 /**
  *  This is an optional property. This purchase order (PO) information is for
- *  resellers to use for their company tracking usage. If a purchaseOrderId
+ *  resellers to use for their company tracking usage. If a `purchaseOrderId`
  *  value is given it appears in the API responses and shows up in the invoice.
  *  The property accepts up to 80 plain text characters.
  */
@@ -367,9 +440,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRReseller_Seats *seats;
 
 /**
- *  A required property. The skuId is a unique system identifier for a product's
- *  SKU assigned to a customer in the subscription. For products and SKUs
- *  available in this version of the API, see Product and SKU IDs.
+ *  A required property. The `skuId` is a unique system identifier for a
+ *  product's SKU assigned to a customer in the subscription. For products and
+ *  SKUs available in this version of the API, see Product and SKU IDs.
  */
 @property(nonatomic, copy, nullable) NSString *skuId;
 
@@ -385,10 +458,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  The subscriptionId is the subscription identifier and is unique for each
- *  customer. This is a required property. Since a subscriptionId changes when a
- *  subscription is updated, we recommend not using this ID as a key for
- *  persistent data. Use the subscriptionId as described in retrieve all
+ *  The `subscriptionId` is the subscription identifier and is unique for each
+ *  customer. This is a required property. Since a `subscriptionId` changes when
+ *  a subscription is updated, we recommend not using this ID as a key for
+ *  persistent data. Use the `subscriptionId` as described in retrieve all
  *  reseller subscriptions.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
@@ -396,15 +469,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Read-only field containing an enumerable of all the current suspension
  *  reasons for a subscription. It is possible for a subscription to have many
- *  concurrent, overlapping suspension reasons. A subscription's STATUS is
- *  SUSPENDED until all pending suspensions are removed. Possible options
- *  include: - PENDING_TOS_ACCEPTANCE - The customer has not logged in and
- *  accepted the G Suite Resold Terms of Services. - RENEWAL_WITH_TYPE_CANCEL -
- *  The customer's commitment ended and their service was cancelled at the end
- *  of their term. - RESELLER_INITIATED - A manual suspension invoked by a
- *  Reseller. - TRIAL_ENDED - The customer's trial expired without a plan
- *  selected. - OTHER - The customer is suspended for an internal Google reason
- *  (e.g. abuse or otherwise).
+ *  concurrent, overlapping suspension reasons. A subscription's `STATUS` is
+ *  `SUSPENDED` until all pending suspensions are removed. Possible options
+ *  include: - `PENDING_TOS_ACCEPTANCE` - The customer has not logged in and
+ *  accepted the G Suite Resold Terms of Services. - `RENEWAL_WITH_TYPE_CANCEL`
+ *  - The customer's commitment ended and their service was cancelled at the end
+ *  of their term. - `RESELLER_INITIATED` - A manual suspension invoked by a
+ *  Reseller. - `TRIAL_ENDED` - The customer's trial expired without a plan
+ *  selected. - `OTHER` - The customer is suspended for an internal Google
+ *  reason (e.g. abuse or otherwise).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
@@ -424,42 +497,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The plan property is required. In this version of the API, the G Suite plans
- *  are the flexible plan, annual commitment plan, and the 30-day free trial
- *  plan. For more information about the API"s payment plans, see the API
+ *  The `plan` property is required. In this version of the API, the G Suite
+ *  plans are the flexible plan, annual commitment plan, and the 30-day free
+ *  trial plan. For more information about the API"s payment plans, see the API
  *  concepts.
  */
 @interface GTLRReseller_Subscription_Plan : GTLRObject
 
 /**
  *  In this version of the API, annual commitment plan's interval is one year.
- *  *Note: *When billingMethod value is OFFLINE, the subscription property
- *  object plan.commitmentInterval is omitted in all API responses.
+ *  *Note: *When `billingMethod` value is `OFFLINE`, the subscription property
+ *  object `plan.commitmentInterval` is omitted in all API responses.
  */
 @property(nonatomic, strong, nullable) GTLRReseller_Subscription_Plan_CommitmentInterval *commitmentInterval;
 
 /**
- *  The isCommitmentPlan property's boolean value identifies the plan as an
- *  annual commitment plan: - true — The subscription's plan is an annual
- *  commitment plan. - false — The plan is not an annual commitment plan.
+ *  The `isCommitmentPlan` property's boolean value identifies the plan as an
+ *  annual commitment plan: - `true` — The subscription's plan is an annual
+ *  commitment plan. - `false` — The plan is not an annual commitment plan.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isCommitmentPlan;
 
 /**
- *  The planName property is required. This is the name of the subscription's
+ *  The `planName` property is required. This is the name of the subscription's
  *  plan. For more information about the Google payment plans, see the API
- *  concepts. Possible values are: - ANNUAL_MONTHLY_PAY — The annual commitment
- *  plan with monthly payments. *Caution: *ANNUAL_MONTHLY_PAY is returned as
- *  ANNUAL in all API responses. - ANNUAL_YEARLY_PAY — The annual commitment
- *  plan with yearly payments - FLEXIBLE — The flexible plan - TRIAL — The
- *  30-day free trial plan. A subscription in trial will be suspended after the
- *  30th free day if no payment plan is assigned. Calling changePlan will assign
- *  a payment plan to a trial but will not activate the plan. A trial will
- *  automatically begin its assigned payment plan after its 30th free day or
- *  immediately after calling startPaidService. - FREE — The free plan is
- *  exclusive to the Cloud Identity SKU and does not incur any billing.
+ *  concepts. Possible values are: - `ANNUAL_MONTHLY_PAY` — The annual
+ *  commitment plan with monthly payments. *Caution: *`ANNUAL_MONTHLY_PAY` is
+ *  returned as `ANNUAL` in all API responses. - `ANNUAL_YEARLY_PAY` — The
+ *  annual commitment plan with yearly payments - `FLEXIBLE` — The flexible plan
+ *  - `TRIAL` — The 30-day free trial plan. A subscription in trial will be
+ *  suspended after the 30th free day if no payment plan is assigned. Calling
+ *  `changePlan` will assign a payment plan to a trial but will not activate the
+ *  plan. A trial will automatically begin its assigned payment plan after its
+ *  30th free day or immediately after calling `startPaidService`. - `FREE` —
+ *  The free plan is exclusive to the Cloud Identity SKU and does not incur any
+ *  billing.
  */
 @property(nonatomic, copy, nullable) NSString *planName;
 
@@ -471,6 +545,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  information, see retrieve transferable subscriptions for a customer.
  */
 @interface GTLRReseller_Subscription_TransferInfo : GTLRObject
+
+/**
+ *  The `skuId` of the current resold subscription. This is populated only when
+ *  the customer has a subscription with a legacy SKU and the subscription
+ *  resource is populated with the `skuId` of the SKU recommended for the
+ *  transfer.
+ */
+@property(nonatomic, copy, nullable) NSString *currentLegacySkuId;
 
 /**
  *  When inserting a subscription, this is the minimum number of seats listed in
@@ -500,8 +582,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReseller_Subscription_TrialSettings : GTLRObject
 
 /**
- *  Determines if a subscription's plan is in a 30-day free trial or not: - true
- *  — The plan is in trial. - false — The plan is not in trial.
+ *  Determines if a subscription's plan is in a 30-day free trial or not: -
+ *  `true` — The plan is in trial. - `false` — The plan is not in trial.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -520,13 +602,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  In this version of the API, annual commitment plan's interval is one year.
- *  *Note: *When billingMethod value is OFFLINE, the subscription property
- *  object plan.commitmentInterval is omitted in all API responses.
+ *  *Note: *When `billingMethod` value is `OFFLINE`, the subscription property
+ *  object `plan.commitmentInterval` is omitted in all API responses.
  */
 @interface GTLRReseller_Subscription_Plan_CommitmentInterval : GTLRObject
 
 /**
- *  An annual commitment plan's interval's endTime in milliseconds using the
+ *  An annual commitment plan's interval's `endTime` in milliseconds using the
  *  UNIX Epoch format. See an example Epoch converter.
  *
  *  Uses NSNumber of longLongValue.
@@ -534,8 +616,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *endTime;
 
 /**
- *  An annual commitment plan's interval's startTime in milliseconds using UNIX
- *  Epoch format. See an example Epoch converter.
+ *  An annual commitment plan's interval's `startTime` in milliseconds using
+ *  UNIX Epoch format. See an example Epoch converter.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -545,7 +627,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for a subscription list.
+ *  A subscription manages the relationship of a Google customer's payment plan
+ *  with a product's SKU, user licenses, 30-day free trial status, and renewal
+ *  options. A primary role of a reseller is to manage the Google customer's
+ *  subscriptions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "subscriptions" property. If returned as the result of a query, it

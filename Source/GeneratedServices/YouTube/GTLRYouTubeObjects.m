@@ -28,7 +28,7 @@ NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoW
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Facebook = @"facebook";
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus = @"googlePlus";
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter = @"twitter";
-NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified = @"typeUnspecified";
+NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified = @"unspecified";
 
 // GTLRYouTube_ActivitySnippet.type
 NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin    = @"bulletin";
@@ -98,7 +98,7 @@ NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList = @"verti
 
 // GTLRYouTube_ChannelSectionSnippet.type
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists = @"allPlaylists";
-NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified = @"channelsectionTypeUnspecified";
+NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined = @"channelsectionTypeUndefined";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents = @"completedEvents";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists = @"likedPlaylists";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes = @"likes";
@@ -932,6 +932,7 @@ NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary = @"temporary";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent = @"chatEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fanFundingEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType = @"invalidType";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent = @"memberMilestoneChatEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent = @"messageDeletedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent = @"messageRetractedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_NewSponsorEvent = @"newSponsorEvent";
@@ -2374,6 +2375,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_LiveChatMemberMilestoneChatDetails
+//
+
+@implementation GTLRYouTube_LiveChatMemberMilestoneChatDetails
+@dynamic memberLevelName, memberMonth, userComment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_LiveChatMessage
 //
 
@@ -2452,9 +2463,10 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatMessageSnippet
 @dynamic authorChannelId, displayMessage, fanFundingEventDetails,
-         hasDisplayContent, liveChatId, messageDeletedDetails,
-         messageRetractedDetails, publishedAt, superChatDetails,
-         superStickerDetails, textMessageDetails, type, userBannedDetails;
+         hasDisplayContent, liveChatId, memberMilestoneChatDetails,
+         messageDeletedDetails, messageRetractedDetails, newSponsorDetails,
+         publishedAt, superChatDetails, superStickerDetails, textMessageDetails,
+         type, userBannedDetails;
 @end
 
 
@@ -2507,6 +2519,16 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatModeratorSnippet
 @dynamic liveChatId, moderatorDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_LiveChatNewSponsorDetails
+//
+
+@implementation GTLRYouTube_LiveChatNewSponsorDetails
+@dynamic isUpgrade, memberLevelName;
 @end
 
 
@@ -2956,7 +2978,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_PlaylistItemSnippet
 @dynamic channelId, channelTitle, descriptionProperty, playlistId, position,
-         publishedAt, resourceId, thumbnails, title;
+         publishedAt, resourceId, thumbnails, title, videoOwnerChannelId,
+         videoOwnerChannelTitle;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3030,7 +3053,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_PlaylistSnippet
 @dynamic channelId, channelTitle, defaultLanguage, descriptionProperty,
-         localized, publishedAt, tags, thumbnails, title;
+         localized, publishedAt, tags, thumbnails, thumbnailVideoId, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3304,7 +3327,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_TestItem
-@dynamic gaia, identifier, snippet;
+@dynamic featuredPart, gaia, identifier, snippet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -3669,6 +3692,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_VideoGetRatingResponse
+//
+
+@implementation GTLRYouTube_VideoGetRatingResponse
+@dynamic ETag, eventId, items, kind, visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_VideoRating class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_VideoListResponse
 //
 
@@ -3775,28 +3820,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_VideoRating
 @dynamic rating, videoId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_VideoRatingListResponse
-//
-
-@implementation GTLRYouTube_VideoRatingListResponse
-@dynamic ETag, eventId, items, kind, visitorId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_VideoRating class]
-  };
-  return map;
-}
-
 @end
 
 

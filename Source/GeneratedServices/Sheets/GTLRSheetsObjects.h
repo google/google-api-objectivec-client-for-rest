@@ -160,6 +160,7 @@
 @class GTLRSheets_IterativeCalculationSettings;
 @class GTLRSheets_KeyValueFormat;
 @class GTLRSheets_LineStyle;
+@class GTLRSheets_Link;
 @class GTLRSheets_ManualRule;
 @class GTLRSheets_ManualRuleGroup;
 @class GTLRSheets_MatchedDeveloperMetadata;
@@ -1276,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_LegacyWra
 /**
  *  Lines that are longer than the cell width will be written in the next cell
  *  over, so long as that cell is empty. If the next cell over is non-empty,
- *  this behaves the same as CLIP. The text will never wrap to the next line
+ *  this behaves the same as `CLIP`. The text will never wrap to the next line
  *  unless the user manually inserts a new line. Example: | First sentence. | |
  *  Manual newline that is very long. <- Text continues into next cell | Next
  *  newline. |
@@ -1671,7 +1672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteF
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -1717,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -2548,7 +2549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Min;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
 /**
  *  The interpolation point is the given percentage over all the cells in the
- *  range of the conditional format. This is equivalent to NUMBER if the value
+ *  range of the conditional format. This is equivalent to `NUMBER` if the value
  *  was: `=(MAX(FLATTEN(range)) * (value / 100)) + (MIN(FLATTEN(range)) * (1 -
  *  (value / 100)))` (where errors in the range are ignored when flattening).
  *
@@ -2557,7 +2558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
 /**
  *  The interpolation point is the given percentile over all the cells in the
- *  range of the conditional format. This is equivalent to NUMBER if the value
+ *  range of the conditional format. This is equivalent to `NUMBER` if the value
  *  was: `=PERCENTILE(FLATTEN(range), value / 100)` (where errors in the range
  *  are ignored when flattening).
  *
@@ -2761,7 +2762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -3980,7 +3981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *positiveColorStyle;
 
-/** Text formatting options for baseline value. */
+/**
+ *  Text formatting options for baseline value. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
@@ -3994,7 +3997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The format of the title. Only valid if the axis is not associated with the
- *  domain.
+ *  domain. The link field is not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *format;
 
@@ -4407,7 +4410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @interface GTLRSheets_BatchClearValuesRequest : GTLRObject
 
-/** The ranges to clear, in A1 notation. */
+/** The ranges to clear, in A1 or R1C1 notation. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 @end
@@ -4446,7 +4449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString
@@ -4484,7 +4487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  How values should be represented in the output. The default render option is
- *  ValueRenderOption.FORMATTED_VALUE.
+ *  FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue
@@ -4593,7 +4596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The spreadsheet after updates were applied. This is only set if
- *  [BatchUpdateSpreadsheetRequest.include_spreadsheet_in_response] is `true`.
+ *  BatchUpdateSpreadsheetRequest.include_spreadsheet_in_response is `true`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Spreadsheet *updatedSpreadsheet;
 
@@ -4628,8 +4631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString
@@ -4651,7 +4653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue
@@ -4760,8 +4762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString
@@ -4783,7 +4784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_FormattedValue
@@ -5213,15 +5214,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) NSNumber *bubbleOpacity;
 
 /**
- *  The data contianing the bubble sizes. Bubble sizes are used to draw the
+ *  The data containing the bubble sizes. Bubble sizes are used to draw the
  *  bubbles at different sizes relative to each other. If specified, group_ids
  *  must also be specified. This field is optional.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleSizes;
 
 /**
- *  The format of the text inside the bubbles. Strikethrough and underline are
- *  not supported.
+ *  The format of the text inside the bubbles. Strikethrough, underline, and
+ *  link are not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *bubbleTextStyle;
 
@@ -5261,7 +5262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *legendPosition;
 
 /**
- *  The data contianing the bubble y-values. These values locate the bubbles in
+ *  The data containing the bubble y-values. These values locate the bubbles in
  *  the chart vertically.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
@@ -5359,7 +5360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Output only. Information about a data source formula on the cell. The field
  *  is set if user_entered_value is a formula referencing some DATA_SOURCE
- *  sheet, e.g `=SUM(DataSheet!Column)`.
+ *  sheet, e.g. `=SUM(DataSheet!Column)`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DataSourceFormula *dataSourceFormula;
 
@@ -5402,7 +5403,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  A hyperlink this cell points to, if any. If the cell contains multiple
  *  hyperlinks, this field will be empty. This field is read-only. To set it,
- *  use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field.
+ *  use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field. A
+ *  cell-level link can also be set from the userEnteredFormat.textFormat field.
+ *  Alternatively, set a hyperlink in the textFormatRun.format.link field that
+ *  spans the entire cell.
  */
 @property(nonatomic, copy, nullable) NSString *hyperlink;
 
@@ -5515,7 +5519,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *textDirection;
 
-/** The format of the text in the cell (unless overridden by a format run). */
+/**
+ *  The format of the text in the cell (unless overridden by a format run).
+ *  Setting a cell-level link here will clear the cell's existing links. Setting
+ *  the link field in a TextFormatRun will take precedence over the cell-level
+ *  link.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /** The rotation applied to text in a cell */
@@ -5555,7 +5564,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CellFormat_WrapStrategy_OverflowCell Lines that are
  *        longer than the cell width will be written in the next cell over, so
  *        long as that cell is empty. If the next cell over is non-empty, this
- *        behaves the same as CLIP. The text will never wrap to the next line
+ *        behaves the same as `CLIP`. The text will never wrap to the next line
  *        unless the user manually inserts a new line. Example: | First
  *        sentence. | | Manual newline that is very long. <- Text continues into
  *        next cell | Next newline. | (Value: "OVERFLOW_CELL")
@@ -5642,8 +5651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_ChartData : GTLRObject
 
 /**
- *  The aggregation type for the series of a data source chart. Not supported
- *  for regular charts.
+ *  The aggregation type for the series of a data source chart. Only supported
+ *  for data source charts.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_ChartData_AggregateType_Average Average aggregate
@@ -5668,7 +5677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The rule to group the data by if the ChartData backs the domain of a data
- *  source chart. Not supported for regular charts.
+ *  source chart. Only supported for data source charts.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartGroupRule *groupRule;
 
@@ -5907,7 +5916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *subtitle;
 
 /**
- *  The subtitle text format. Strikethrough and underline are not supported.
+ *  The subtitle text format. Strikethrough, underline, and link are not
+ *  supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *subtitleTextFormat;
 
@@ -5917,7 +5927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** The title of the chart. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The title text format. Strikethrough and underline are not supported. */
+/**
+ *  The title text format. Strikethrough, underline, and link are not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *titleTextFormat;
 
 /** The title text position. This field is optional. */
@@ -5975,65 +5987,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Represents a color in the RGBA color space. This representation is designed
  *  for simplicity of conversion to/from color representations in various
- *  languages over compactness; for example, the fields of this representation
- *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
- *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
+ *  languages over compactness. For example, the fields of this representation
+ *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
+ *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
- *  carry information about the absolute color space that should be used to
- *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
- *  default, applications SHOULD assume the sRGB color space. Note: when color
- *  equality needs to be decided, implementations, unless documented otherwise,
- *  will treat two colors to be equal if all their red, green, blue and alpha
- *  values each differ by at most 1e-5. Example (Java): import
- *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
- *  protocolor) { float alpha = protocolor.hasAlpha() ?
- *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
- *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
- *  public static Color toProto(java.awt.Color color) { float red = (float)
- *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
- *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
- *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
- *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
- *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
- *  .setValue(((float) alpha) / denominator) .build()); } return
- *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
- *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
- *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
- *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
- *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
- *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
- *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
- *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
- *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
- *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
- *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
- *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
- *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
- *  || 0.0; var red = Math.floor(redFrac * 255); var green =
- *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
- *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
- *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
- *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
- *  Number((red << 16) | (green << 8) | blue); var hexString =
- *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
- *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
- *  resultBuilder.join(''); }; // ...
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  information about the absolute color space that should be used to interpret
+ *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  applications should assume the sRGB color space. When color equality needs
+ *  to be decided, implementations, unless documented otherwise, treat two
+ *  colors as equal if all their red, green, blue, and alpha values each differ
+ *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
+ *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
+ *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
+ *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
+ *  color) { float red = (float) color.getRed(); float green = (float)
+ *  color.getGreen(); float blue = (float) color.getBlue(); float denominator =
+ *  255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red /
+ *  denominator) .setGreen(green / denominator) .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha(
+ *  FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build());
+ *  } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ...
+ *  static UIColor* fromProto(Color* protocolor) { float red = [protocolor red];
+ *  float green = [protocolor green]; float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if
+ *  (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor
+ *  colorWithRed:red green:green blue:blue alpha:alpha]; } static Color*
+ *  toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color
+ *  getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color*
+ *  result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green];
+ *  [result setBlue:blue]; if (alpha <= 0.9999) { [result
+ *  setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return
+ *  result; } // ... Example (JavaScript): // ... var protoToCssColor =
+ *  function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac =
+ *  rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red =
+ *  Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue
+ *  = Math.floor(blueFrac * 255); if (!('alpha' in rgb_color)) { return
+ *  rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value ||
+ *  0.0; var rgbParams = [red, green, blue].join(','); return ['rgba(',
+ *  rgbParams, ',', alphaFrac, ')'].join(''); }; var rgbToCssColor =
+ *  function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green
+ *  << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6
+ *  - hexString.length; var resultBuilder = ['#']; for (var i = 0; i <
+ *  missingZeros; i++) { resultBuilder.push('0'); }
+ *  resultBuilder.push(hexString); return resultBuilder.join(''); }; // ...
  */
 @interface GTLRSheets_Color : GTLRObject
 
 /**
  *  The fraction of this color that should be applied to the pixel. That is, the
- *  final pixel color is defined by the equation: pixel color = alpha * (this
- *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  final pixel color is defined by the equation: `pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color)` This means that a value of 1.0
  *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
  *  completely transparent color. This uses a wrapper message rather than a
  *  simple float scalar so that it is possible to distinguish between a default
- *  value and the value being unset. If omitted, this color object is to be
- *  rendered as a solid color (as if the alpha value had been explicitly given
- *  with a value of 1.0).
+ *  value and the value being unset. If omitted, this color object is rendered
+ *  as a solid color (as if the alpha value had been explicitly given a value of
+ *  1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6198,7 +6209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteNoBorders Like
- *        PASTE_NORMAL but without borders. (Value: "PASTE_NO_BORDERS")
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteValues Paste the
@@ -6269,7 +6280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders Like
- *        PASTE_NORMAL but without borders. (Value: "PASTE_NO_BORDERS")
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteValues Paste the values
@@ -6479,7 +6490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
-/** The text format used for the data label. */
+/**
+ *  The text format used for the data label. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /**
@@ -7200,8 +7213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_DeleteSheetRequest : GTLRObject
 
 /**
- *  The ID of the sheet to delete. If the sheet is of SheetType.DATA_SOURCE
- *  type, the associated DataSource is also deleted.
+ *  The ID of the sheet to delete. If the sheet is of DATA_SOURCE type, the
+ *  associated DataSource is also deleted.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7764,7 +7777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Represents a double value. Note: Dates, Times and DateTimes are represented
- *  as doubles in "serial number" format.
+ *  as doubles in SERIAL_NUMBER format.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8475,13 +8488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        uses exactly the value in InterpolationPoint.value. (Value: "NUMBER")
  *    @arg @c kGTLRSheets_InterpolationPoint_Type_Percent The interpolation
  *        point is the given percentage over all the cells in the range of the
- *        conditional format. This is equivalent to NUMBER if the value was:
+ *        conditional format. This is equivalent to `NUMBER` if the value was:
  *        `=(MAX(FLATTEN(range)) * (value / 100)) + (MIN(FLATTEN(range)) * (1 -
  *        (value / 100)))` (where errors in the range are ignored when
  *        flattening). (Value: "PERCENT")
  *    @arg @c kGTLRSheets_InterpolationPoint_Type_Percentile The interpolation
  *        point is the given percentile over all the cells in the range of the
- *        conditional format. This is equivalent to NUMBER if the value was:
+ *        conditional format. This is equivalent to `NUMBER` if the value was:
  *        `=PERCENTILE(FLATTEN(range), value / 100)` (where errors in the range
  *        are ignored when flattening). (Value: "PERCENTILE")
  */
@@ -8555,7 +8568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextPosition *position;
 
-/** Text formatting options for key value. */
+/** Text formatting options for key value. The link field is not supported. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
@@ -8597,6 +8610,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  An external or local reference.
+ */
+@interface GTLRSheets_Link : GTLRObject
+
+/** The link identifier. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -8973,8 +8997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        data validation only. (Value: "PASTE_FORMAT")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteFormula Paste the formulas
  *        only. (Value: "PASTE_FORMULA")
- *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNoBorders Like PASTE_NORMAL
- *        but without borders. (Value: "PASTE_NO_BORDERS")
+ *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNoBorders Like
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteValues Paste the values
@@ -9124,7 +9148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  True if the headings in this pivot group should be repeated. This is only
  *  valid for row groupings and is ignored by columns. By default, we minimize
- *  repitition of headings by not showing higher level headings where they are
+ *  repetition of headings by not showing higher level headings where they are
  *  the same. For example, even though the third row below corresponds to "Q1
  *  Mar", "Q1" is not shown because it is redundant with previous rows. Setting
  *  repeat_headings to true would cause "Q1" to be repeated for "Feb" and "Mar".
@@ -10320,7 +10344,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *horizontalAlignment;
 
-/** The text format of title in the slicer. */
+/**
+ *  The text format of title in the slicer. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /** The title of the slicer. */
@@ -10586,6 +10612,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *italic;
+
+/**
+ *  The link destination of the text, if any. Setting the link field in a
+ *  TextFormatRun will clear the cell's existing links or a cell-level link set
+ *  in the same request. When a link is set, the text foreground color will be
+ *  set to the default link color and the text will be underlined. If these
+ *  fields are modified in the same request, those values will be used instead
+ *  of the link defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Link *link;
 
 /**
  *  True if the text has a strikethrough.
@@ -10946,7 +10982,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *sizeData;
 
-/** The text format for all labels on the chart. */
+/**
+ *  The text format for all labels on the chart. The link field is not
+ *  supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end

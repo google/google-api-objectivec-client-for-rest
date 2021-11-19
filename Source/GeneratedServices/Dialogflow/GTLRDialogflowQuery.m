@@ -25,6 +25,7 @@ NSString * const kGTLRDialogflowIntentViewIntentViewUnspecified = @"INTENT_VIEW_
 NSString * const kGTLRDialogflowTypeCoverageTypeUnspecified = @"COVERAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflowTypeIntent                  = @"INTENT";
 NSString * const kGTLRDialogflowTypePageTransition          = @"PAGE_TRANSITION";
+NSString * const kGTLRDialogflowTypeTransitionRouteGroup    = @"TRANSITION_ROUTE_GROUP";
 
 // view
 NSString * const kGTLRDialogflowViewBasic                   = @"BASIC";
@@ -38,6 +39,44 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 @implementation GTLRDialogflowQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog class];
+  query.loggingName = @"dialogflow.projects.locations.agents.changelogs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/changelogs";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsChangelogsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListChangelogsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.changelogs.list";
+  return query;
+}
 
 @end
 
@@ -198,6 +237,25 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/continuousTestResults";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.continuousTestResults.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsCreate
 
 @dynamic parent;
@@ -239,6 +297,236 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
   query.loggingName = @"dialogflow.projects.locations.agents.environments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3DeployFlowRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v3/{+environment}:deployFlow";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeployFlow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.deployFlow";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Deployment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.deployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/deployments";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListDeploymentsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.deployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/experiments";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleProtobufEmpty class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/experiments";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:start";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.start";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:stop";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.experiments.stop";
   return query;
 }
 
@@ -323,6 +611,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.locations.agents.environments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v3/{+environment}:runContinuousTest";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.runContinuousTest";
   return query;
 }
 
@@ -593,6 +908,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:export";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.flows.export";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsGet
 
 @dynamic languageCode, name;
@@ -626,6 +968,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult class];
   query.loggingName = @"dialogflow.projects.locations.agents.flows.getValidationResult";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/flows:import";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.flows.import";
   return query;
 }
 
@@ -948,6 +1317,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult class];
   query.loggingName = @"dialogflow.projects.locations.agents.flows.validate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions
+
+@dynamic baseVersion;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsRequest *)object
+                    baseVersion:(NSString *)baseVersion {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"baseVersion" ];
+  NSString *pathURITemplate = @"v3/{+baseVersion}:compareVersions";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCompareVersions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.baseVersion = baseVersion;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3CompareVersionsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.flows.versions.compareVersions";
   return query;
 }
 
@@ -1724,6 +2120,25 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3TestCaseResult class];
+  query.loggingName = @"dialogflow.projects.locations.agents.testCases.results.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -1745,30 +2160,24 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
 
-@dynamic agentsId, locationsId, projectsId;
+@dynamic name;
 
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest *)object
-                     projectsId:(NSString *)projectsId
-                    locationsId:(NSString *)locationsId
-                       agentsId:(NSString *)agentsId {
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[
-    @"agentsId", @"locationsId", @"projectsId"
-  ];
-  NSString *pathURITemplate = @"v3/projects/{projectsId}/locations/{locationsId}/agents/{agentsId}/testCases:run";
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}:run";
   GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.projectsId = projectsId;
-  query.locationsId = locationsId;
-  query.agentsId = agentsId;
+  query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.locations.agents.testCases.run";
   return query;
@@ -1909,6 +2318,44 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook class];
   query.loggingName = @"dialogflow.projects.locations.agents.webhooks.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRDialogflowQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudLocationLocation class];
+  query.loggingName = @"dialogflow.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/locations";
+  GTLRDialogflowQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudLocationListLocationsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.list";
   return query;
 }
 

@@ -29,7 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: New Service: https://www.googleapis.com/auth/homegraph
+ *  Authorization scope: Private Service:
+ *  https://www.googleapis.com/auth/homegraph
  *
  *  Value "https://www.googleapis.com/auth/homegraph"
  */

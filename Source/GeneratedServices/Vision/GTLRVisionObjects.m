@@ -4136,7 +4136,7 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
 
 @implementation GTLRVision_ImageContext
 @dynamic cropHintsParams, languageHints, latLongRect, productSearchParams,
-         webDetectionParams;
+         textDetectionParams, webDetectionParams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4725,6 +4725,16 @@ NSString * const kGTLRVision_SafeSearchAnnotation_Violence_VeryUnlikely = @"VERY
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVision_TextDetectionParams
+//
+
+@implementation GTLRVision_TextDetectionParams
+@dynamic enableTextDetectionConfidenceScore;
 @end
 
 

@@ -1795,40 +1795,8 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         }
       }
 
-      NSMutableString *builder = [NSMutableString string];
-      [builder appendString:classHDoc.string];
-      [builder appendFormat:@"@interface %@ : %@\n", queryClassName, self.objcQueryBaseClassName];
-
-      // Stick a comment in the header to reference the old name to make it a
-      // little easer to find/match up when updating to use the new library.
-      NSArray *segments = [method.identifier componentsSeparatedByString:@"."];
-      if (segments.count >= 2) {
-        segments = [segments subarrayWithRange:NSMakeRange(1, segments.count - 1)];
-        NSMutableString *oldName = [NSMutableString stringWithString:@"queryFor"];
-        for (NSString *part in segments) {
-          NSString *capPart = [SGUtils objcName:part shouldCapitalize:YES];
-          [oldName appendString:capPart];
-        }
-        BOOL needsWith = YES;
-        if (method.request) {
-          [oldName appendString:@"WithObject:"];
-          needsWith = NO;
-        }
-        for (GTLRDiscovery_JsonSchema *param in method.sg_sortedParameters) {
-          if (param.required.boolValue) {
-            if (needsWith) {
-              [oldName appendFormat:@"With%@:", param.sg_objcName];
-              needsWith = NO;
-            } else {
-              [oldName appendFormat:@"%@:", param.sg_objcName];
-            }
-          }
-        }
-        [builder appendString:@"// Previous library name was\n"];
-        [builder appendFormat:@"//   +[GTLQuery%@ %@]\n", self.formattedAPIName, oldName];
-      }
-
-      atBlock = builder;
+      atBlock = [NSString stringWithFormat:@"%@@interface %@ : %@\n",
+                 classHDoc.string, queryClassName, self.objcQueryBaseClassName];
     } else {
       atBlock = [NSString stringWithFormat:@"@implementation %@\n", queryClassName];
     }
@@ -3647,11 +3615,28 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"bs_isPlistableType",
       @"bs_secureEncoded",
       // New as of Catalina
-      @"bs_isXPCObject",
+      // This seems to have been removed in Big Sur: @"bs_isXPCObject",
       @"supportsBSXPCSecureCoding",
       @"pep_onDetachedThread",
       @"pep_onMainThread",
       @"pep_onMainThreadIfNecessary",
+      // New as of Big Sur
+      @"toPBCodable",
+      @"CKDescription",
+      @"CKPropertiesDescription",
+      @"CKStatusReport",
+      @"CKSingleLineDescription",
+      @"CKExpandedDescription",
+      @"CKHashedDescription",
+      @"NSRepresentation",
+      @"boolValueSafe",
+      @"int64ValueSafe",
+      @"doubleValueSafe",
+      @"stringValueSafe",
+      @"utf8ValueSafe",
+      @"supportsRBSXPCSecureCoding",
+      @"RBSIsXPCObject",
+      @"NSRepresentation",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
@@ -4572,13 +4557,6 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // Set in sg_calculateMediaPaths.
   NSString *result = [self sg_propertyForKey:kSimpleUploadPathOverrideKey];
   return result;
-}
-
-+ (NSArray *)sg_acceptedUnknowns {
-  // "flatPath" has never been documented but is on every method of every
-  // OP api. There have been some indications it might get removed since
-  // it never was used.
-  return @[@"flatPath"];
 }
 
 @end

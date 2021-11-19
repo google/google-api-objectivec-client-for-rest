@@ -47,6 +47,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRTPU_Node.apiVersion
+
+/**
+ *  API version is unknown.
+ *
+ *  Value: "API_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified;
+/**
+ *  TPU API V1 version.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1;
+/**
+ *  TPU API V1Alpha1 version.
+ *
+ *  Value: "V1_ALPHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1Alpha1;
+/**
+ *  TPU API V2Alpha1 version.
+ *
+ *  Value: "V2_ALPHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V2Alpha1;
+
+// ----------------------------------------------------------------------------
 // GTLRTPU_Node.health
 
 /**
@@ -121,7 +149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Hiding;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Preempted;
 /**
- *  TPU node has been created and is fully usable.
+ *  TPU node has been created.
  *
  *  Value: "READY"
  */
@@ -217,6 +245,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail;
  *  Value: "OUT_OF_MEMORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory;
+/**
+ *  Abusive behaviors have been identified on the current project.
+ *
+ *  Value: "PROJECT_ABUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse;
 /**
  *  Unspecified symptom.
  *
@@ -466,6 +500,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
+ *  Output only. The API version that created this Node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified API version is
+ *        unknown. (Value: "API_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V1 TPU API V1 version. (Value: "V1")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V1Alpha1 TPU API V1Alpha1 version.
+ *        (Value: "V1_ALPHA1")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V2Alpha1 TPU API V2Alpha1 version.
+ *        (Value: "V2_ALPHA1")
+ */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
  *  The CIDR block that the TPU node will use when selecting an IP address. This
  *  CIDR block must be a /29 block; the Compute Engine networks API forbids a
  *  smaller block, and using a larger block would be wasteful (a node can only
@@ -569,8 +617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        "HIDING")
  *    @arg @c kGTLRTPU_Node_State_Preempted TPU node has been preempted. Only
  *        applies to Preemptible TPU Nodes. (Value: "PREEMPTED")
- *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created and is fully
- *        usable. (Value: "READY")
+ *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created. (Value:
+ *        "READY")
  *    @arg @c kGTLRTPU_Node_State_Reimaging TPU node is undergoing reimaging.
  *        (Value: "REIMAGING")
  *    @arg @c kGTLRTPU_Node_State_Repairing TPU node is being repaired and may
@@ -711,12 +759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @interface GTLRTPU_OperationMetadata : GTLRObject
 
-/** [Output only] API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
@@ -724,21 +772,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** [Output only] The time the operation was created. */
+/** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** [Output only] The time the operation finished running. */
+/** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** [Output only] Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /**
- *  [Output only] Server-defined resource path for the target of the operation.
+ *  Output only. Server-defined resource path for the target of the operation.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** [Output only] Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end
@@ -862,6 +910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        "MESH_BUILD_FAIL")
  *    @arg @c kGTLRTPU_Symptom_SymptomType_OutOfMemory TPU runtime is out of
  *        memory. (Value: "OUT_OF_MEMORY")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_ProjectAbuse Abusive behaviors have
+ *        been identified on the current project. (Value: "PROJECT_ABUSE")
  *    @arg @c kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified Unspecified
  *        symptom. (Value: "SYMPTOM_TYPE_UNSPECIFIED")
  */

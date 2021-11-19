@@ -87,7 +87,7 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Destination
-@dynamic cloudRun;
+@dynamic cloudRun, gke;
 @end
 
 
@@ -120,6 +120,21 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_GKE
+//
+
+@implementation GTLREventarc_GKE
+@dynamic cluster, location, namespaceProperty, path, service;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
 }
 
 @end
@@ -415,8 +430,8 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Trigger
-@dynamic createTime, destination, ETag, eventFilters, name, serviceAccount,
-         transport, uid, updateTime;
+@dynamic createTime, destination, ETag, eventFilters, labels, name,
+         serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -427,6 +442,20 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
     @"eventFilters" : [GTLREventarc_EventFilter class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Trigger_Labels
+//
+
+@implementation GTLREventarc_Trigger_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -90,8 +90,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsGet : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -118,19 +116,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsList : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -165,8 +171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesCreate : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesCreateWithObject:parent:]
 
 /**
  *  Required. The location name in which the queue will be created. For example:
@@ -214,8 +218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesDelete : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesDeleteWithname:]
 
 /**
  *  Required. The queue name. For example:
@@ -252,8 +254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesGet : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesGetWithname:]
 
 /**
  *  Required. The resource name of the queue. For example:
@@ -287,8 +287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesGetIamPolicy : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -326,8 +324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesList : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesListWithparent:]
 
 /**
  *  `filter` can be used to specify a subset of queues. Any Queue field can be
@@ -398,8 +394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesPatch : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPatchWithObject:name:]
 
 /**
  *  Caller-specified and required in CreateQueue, after which it becomes output
@@ -469,8 +463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesPause : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPauseWithObject:name:]
 
 /**
  *  Required. The queue name. For example:
@@ -509,8 +501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesPurge : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesPurgeWithObject:name:]
 
 /**
  *  Required. The queue name. For example:
@@ -553,8 +543,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesResume : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesResumeWithObject:name:]
 
 /**
  *  Required. The queue name. For example:
@@ -599,8 +587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesSetIamPolicy : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -641,8 +627,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksCreate : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksCreateWithObject:parent:]
 
 /**
  *  Required. The queue name. For example:
@@ -681,8 +665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksDelete : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksDeleteWithname:]
 
 /**
  *  Required. The task name. For example:
@@ -715,8 +697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksGet : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksGetWithname:]
 
 /**
  *  Required. The task name. For example:
@@ -773,8 +753,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksList : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksListWithparent:]
 
 /**
  *  Maximum page size. Fewer tasks than requested might be returned, even if
@@ -862,8 +840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTasksRun : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTasksRunWithObject:name:]
 
 /**
  *  Required. The task name. For example:
@@ -911,8 +887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudTasksCloudPlatform
  */
 @interface GTLRCloudTasksQuery_ProjectsLocationsQueuesTestIamPermissions : GTLRCloudTasksQuery
-// Previous library name was
-//   +[GTLQueryCloudTasks queryForProjectsLocationsQueuesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

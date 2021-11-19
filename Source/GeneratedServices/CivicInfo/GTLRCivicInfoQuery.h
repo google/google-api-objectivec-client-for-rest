@@ -74,6 +74,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesJudge;
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorLowerBody;
 /** Value: "legislatorUpperBody" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorUpperBody;
+/** Value: "otherRole" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesOtherRole;
 /** Value: "schoolBoard" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSchoolBoard;
 /** Value: "specialPurposeOfficer" */
@@ -99,8 +101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Method: civicinfo.divisions.search
  */
 @interface GTLRCivicInfoQuery_DivisionsSearch : GTLRCivicInfoQuery
-// Previous library name was
-//   +[GTLQueryCivicInfo queryForDivisionsSearch]
 
 /**
  *  The search query. Queries can cover any parts of a OCD ID or a human
@@ -128,8 +128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Method: civicinfo.elections.electionQuery
  */
 @interface GTLRCivicInfoQuery_ElectionsElectionQuery : GTLRCivicInfoQuery
-// Previous library name was
-//   +[GTLQueryCivicInfo queryForElectionsElectionQuery]
 
 /**
  *  Fetches a @c GTLRCivicInfo_ElectionsQueryResponse.
@@ -149,8 +147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Method: civicinfo.elections.voterInfoQuery
  */
 @interface GTLRCivicInfoQuery_ElectionsVoterInfoQuery : GTLRCivicInfoQuery
-// Previous library name was
-//   +[GTLQueryCivicInfo queryForElectionsVoterInfoQueryWithaddress:]
 
 /** The registered address of the voter to look up. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -203,8 +199,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Method: civicinfo.representatives.representativeInfoByAddress
  */
 @interface GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByAddress : GTLRCivicInfoQuery
-// Previous library name was
-//   +[GTLQueryCivicInfo queryForRepresentativesRepresentativeInfoByAddress]
 
 /**
  *  The address to look up. May only be specified if the field ocdId is not
@@ -259,6 +253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
+ *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
@@ -280,8 +275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *  Method: civicinfo.representatives.representativeInfoByDivision
  */
 @interface GTLRCivicInfoQuery_RepresentativesRepresentativeInfoByDivision : GTLRCivicInfoQuery
-// Previous library name was
-//   +[GTLQueryCivicInfo queryForRepresentativesRepresentativeInfoByDivisionWithocdId:]
 
 /**
  *  A list of office levels to filter by. Only offices that serve at least one
@@ -333,6 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
+ *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 

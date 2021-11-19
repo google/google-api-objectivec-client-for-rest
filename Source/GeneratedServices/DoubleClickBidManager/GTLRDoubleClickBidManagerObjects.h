@@ -38,9 +38,7 @@
 @class GTLRDoubleClickBidManager_ReportKey;
 @class GTLRDoubleClickBidManager_ReportMetadata;
 @class GTLRDoubleClickBidManager_ReportStatus;
-@class GTLRDoubleClickBidManager_RowStatus;
 @class GTLRDoubleClickBidManager_Rule;
-@class GTLRDoubleClickBidManager_UploadStatus;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -51,60 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
-
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_DownloadLineItemsRequest.fileSpec
-
-/** Value: "EWF" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Ewf;
-
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_DownloadLineItemsRequest.filterType
-
-/** Value: "ADVERTISER_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_AdvertiserId;
-/** Value: "INSERTION_ORDER_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_InsertionOrderId;
-/** Value: "LINE_ITEM_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_LineItemId;
-
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_DownloadLineItemsRequest.format
-
-/** Value: "CSV" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadLineItemsRequest_Format_Csv;
-
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_DownloadRequest.fileTypes
-
-/** Value: "AD" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_Ad;
-/** Value: "AD_GROUP" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_AdGroup;
-/** Value: "CAMPAIGN" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_Campaign;
-/** Value: "INSERTION_ORDER" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_InsertionOrder;
-/** Value: "INVENTORY_SOURCE" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_InventorySource;
-/** Value: "LINE_ITEM" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FileTypes_LineItem;
-
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_DownloadRequest.filterType
-
-/** Value: "ADVERTISER_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_AdvertiserId;
-/** Value: "CAMPAIGN_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_CampaignId;
-/** Value: "INSERTION_ORDER_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId;
-/** Value: "INVENTORY_SOURCE_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InventorySourceId;
-/** Value: "LINE_ITEM_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_LineItemId;
-/** Value: "PARTNER_ID" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_DownloadRequest_FilterType_PartnerId;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_FilterPair.type
@@ -171,8 +115,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrandLiftType;
 /** Value: "FILTER_BROWSER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrowser;
+/** Value: "FILTER_BUDGET_SEGMENT_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentBudget;
 /** Value: "FILTER_BUDGET_SEGMENT_DESCRIPTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentDescription;
+/** Value: "FILTER_BUDGET_SEGMENT_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentEndDate;
+/** Value: "FILTER_BUDGET_SEGMENT_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentPacingPercentage;
+/** Value: "FILTER_BUDGET_SEGMENT_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentStartDate;
+/** Value: "FILTER_BUDGET_SEGMENT_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentType;
 /** Value: "FILTER_CAMPAIGN_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCampaignDailyFrequency;
 /** Value: "FILTER_CARRIER" */
@@ -191,6 +145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -323,8 +279,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderGoalType;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderGoalValue;
 /** Value: "FILTER_INSERTION_ORDER_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderIntegrationCode;
 /** Value: "FILTER_INSERTION_ORDER_NAME" */
@@ -363,18 +325,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLifeEvents;
 /** Value: "FILTER_LINE_ITEM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItem;
+/** Value: "FILTER_LINE_ITEM_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemBudget;
 /** Value: "FILTER_LINE_ITEM_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemDailyFrequency;
+/** Value: "FILTER_LINE_ITEM_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemEndDate;
 /** Value: "FILTER_LINE_ITEM_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemIntegrationCode;
 /** Value: "FILTER_LINE_ITEM_LIFETIME_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemLifetimeFrequency;
 /** Value: "FILTER_LINE_ITEM_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemName;
+/** Value: "FILTER_LINE_ITEM_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemPacingPercentage;
+/** Value: "FILTER_LINE_ITEM_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemStartDate;
 /** Value: "FILTER_LINE_ITEM_STATUS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemStatus;
 /** Value: "FILTER_LINE_ITEM_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemType;
+/** Value: "FILTER_MATCHED_GENRE_TARGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMatchedGenreTarget;
 /** Value: "FILTER_MATCH_RATIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMatchRatio;
 /** Value: "FILTER_MEASUREMENT_SOURCE" */
@@ -403,6 +375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported;
+/** Value: "FILTER_OMID_CAPABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmidCapable;
 /** Value: "FILTER_OM_SDK_AVAILABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
@@ -487,12 +461,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -583,14 +561,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVariantName;
 /** Value: "FILTER_VARIANT_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVariantVersion;
+/** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionCreativeSize;
+/** Value: "FILTER_VIDEO_CONTENT_DURATION" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContentDuration;
+/** Value: "FILTER_VIDEO_CONTENT_LIVE_STREAM" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContentLiveStream;
 /** Value: "FILTER_VIDEO_CONTINUOUS_PLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContinuousPlay;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION" */
@@ -611,8 +611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -703,8 +701,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrandLiftType;
 /** Value: "FILTER_BROWSER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrowser;
+/** Value: "FILTER_BUDGET_SEGMENT_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentBudget;
 /** Value: "FILTER_BUDGET_SEGMENT_DESCRIPTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentDescription;
+/** Value: "FILTER_BUDGET_SEGMENT_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentEndDate;
+/** Value: "FILTER_BUDGET_SEGMENT_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentPacingPercentage;
+/** Value: "FILTER_BUDGET_SEGMENT_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentStartDate;
+/** Value: "FILTER_BUDGET_SEGMENT_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBudgetSegmentType;
 /** Value: "FILTER_CAMPAIGN_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCampaignDailyFrequency;
 /** Value: "FILTER_CARRIER" */
@@ -723,6 +731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -855,8 +865,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrder;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrderGoalType;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrderGoalValue;
 /** Value: "FILTER_INSERTION_ORDER_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterInsertionOrderIntegrationCode;
 /** Value: "FILTER_INSERTION_ORDER_NAME" */
@@ -895,18 +911,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLifeEvents;
 /** Value: "FILTER_LINE_ITEM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItem;
+/** Value: "FILTER_LINE_ITEM_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemBudget;
 /** Value: "FILTER_LINE_ITEM_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemDailyFrequency;
+/** Value: "FILTER_LINE_ITEM_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemEndDate;
 /** Value: "FILTER_LINE_ITEM_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemIntegrationCode;
 /** Value: "FILTER_LINE_ITEM_LIFETIME_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemLifetimeFrequency;
 /** Value: "FILTER_LINE_ITEM_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemName;
+/** Value: "FILTER_LINE_ITEM_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemPacingPercentage;
+/** Value: "FILTER_LINE_ITEM_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemStartDate;
 /** Value: "FILTER_LINE_ITEM_STATUS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemStatus;
 /** Value: "FILTER_LINE_ITEM_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterLineItemType;
+/** Value: "FILTER_MATCHED_GENRE_TARGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMatchedGenreTarget;
 /** Value: "FILTER_MATCH_RATIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMatchRatio;
 /** Value: "FILTER_MEASUREMENT_SOURCE" */
@@ -935,6 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNotSupported;
+/** Value: "FILTER_OMID_CAPABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOmidCapable;
 /** Value: "FILTER_OM_SDK_AVAILABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
@@ -1019,12 +1047,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -1115,14 +1147,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVariantName;
 /** Value: "FILTER_VARIANT_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVariantVersion;
+/** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoCompanionCreativeSize;
+/** Value: "FILTER_VIDEO_CONTENT_DURATION" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoContentDuration;
+/** Value: "FILTER_VIDEO_CONTENT_LIVE_STREAM" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoContentLiveStream;
 /** Value: "FILTER_VIDEO_CONTINUOUS_PLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoContinuousPlay;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION" */
@@ -1143,8 +1197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -1375,6 +1427,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClientCostEcpmAdvertiserCurrency;
 /** Value: "METRIC_CLIENT_COST_VIEWABLE_ECPM_ADVERTISER_CURRENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClientCostViewableEcpmAdvertiserCurrency;
+/** Value: "METRIC_CM360_POST_CLICK_REVENUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostClickRevenue;
+/** Value: "METRIC_CM360_POST_CLICK_REVENUE_CROSS_ENVIRONMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostClickRevenueCrossEnvironment;
+/** Value: "METRIC_CM360_POST_VIEW_REVENUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostViewRevenue;
+/** Value: "METRIC_CM360_POST_VIEW_REVENUE_CROSS_ENVIRONMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostViewRevenueCrossEnvironment;
 /** Value: "METRIC_CM_POST_CLICK_REVENUE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCmPostClickRevenue;
 /** Value: "METRIC_CM_POST_CLICK_REVENUE_CROSS_ENVIRONMENT" */
@@ -1395,10 +1455,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricConversionsPerMille;
 /** Value: "METRIC_CONVERTING_PATHS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricConvertingPaths;
+/** Value: "METRIC_COOKIE_CONSENTED_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieConsentedFloodlightImpressions;
 /** Value: "METRIC_COOKIE_REACH_AVERAGE_IMPRESSION_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachAverageImpressionFrequency;
 /** Value: "METRIC_COOKIE_REACH_IMPRESSION_REACH" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachImpressionReach;
+/** Value: "METRIC_COOKIE_UNCONSENTED_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieUnconsentedFloodlightImpressions;
 /** Value: "METRIC_COUNTERS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCounters;
 /** Value: "METRIC_CPM_FEE1_ADVERTISER" */
@@ -1459,6 +1523,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoCorrectedClicks;
 /** Value: "METRIC_DEMO_POPULATION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoPopulation;
+/** Value: "METRIC_DUPLICATE_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDuplicateFloodlightImpressions;
+/** Value: "METRIC_ENGAGEMENT_RATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagementRate;
 /** Value: "METRIC_ENGAGEMENTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagements;
 /**
@@ -1627,8 +1695,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGmailPotentialViews;
 /** Value: "METRIC_GRP_CORRECTED_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedImpressions;
+/** Value: "METRIC_GRP_CORRECTED_VIEWABLE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedViewableImpressions;
+/** Value: "METRIC_GRP_CORRECTED_VIEWABLE_IMPRESSIONS_SHARE_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedViewableImpressionsSharePercent;
 /** Value: "METRIC_IMPRESSION_CUSTOM_VALUE_COST" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionCustomValueCost;
+/** Value: "METRIC_IMPRESSION_LOSS_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionLossTargetedImpressions;
 /** Value: "METRIC_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressions;
 /** Value: "METRIC_IMPRESSIONS_TO_CONVERSION_RATE" */
@@ -1663,6 +1737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchTotalConversions;
 /** Value: "METRIC_LAST_TOUCH_VIEW_THROUGH_CONVERSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLastTouchViewThroughConversions;
+/** Value: "METRIC_LINEITEM_BID_RESPONSE_COUNT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricLineitemBidResponseCount;
 /** Value: "METRIC_MEDIA_COST_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricMediaCostAdvertiser;
 /** Value: "METRIC_MEDIA_COST_ADVERTISER_CURRENCY_PER_STORE_VISIT_ADX_ONLY" */
@@ -1773,6 +1849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPathConversionRate;
 /** Value: "METRIC_PAUSES_AUDIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPausesAudio;
+/** Value: "METRIC_PERCENTAGE_FROM_CURRENT_IO_GOAL" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPercentageFromCurrentIoGoal;
 /** Value: "METRIC_PERCENT_IMPRESSIONS_WITH_POSITIVE_CUSTOM_VALUE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricPercentImpressionsWithPositiveCustomValue;
 /** Value: "METRIC_PERCENT_INVALID_IMPRESSIONS_PREBID" */
@@ -1993,6 +2071,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalUsers;
 /** Value: "METRIC_TRACKED_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackedAds;
+/** Value: "METRIC_TRACKING_UNCONSENTED_CLICKS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackingUnconsentedClicks;
+/** Value: "METRIC_TRUEVIEW_ALL_AD_SEQUENCE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAllAdSequenceImpressions;
 /** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpeAdvertiser;
 /** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_PARTNER" */
@@ -2071,6 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVendorBlockedAds;
 /** Value: "METRIC_VERIFIABLE_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVerifiableImpressions;
+/** Value: "METRIC_VERIFICATION_VIDEO_PLAYER_SIZE_MEASURABLE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVerificationVideoPlayerSizeMeasurableImpressions;
 /** Value: "METRIC_VIDEO_CLIENT_COST_ECPCV_ADVERTISER_CURRENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoClientCostEcpcvAdvertiserCurrency;
 /** Value: "METRIC_VIDEO_COMPANION_CLICKS" */
@@ -2081,8 +2165,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoCompletionRate;
 /** Value: "METRIC_VIEWABLE_BID_REQUESTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableBidRequests;
+/** Value: "METRIC_VIEWABLE_GROSS_RATING_POINTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableGrossRatingPoints;
 /** Value: "METRIC_VIRTUAL_PEOPLE_AVERAGE_IMPRESSION_FREQUENCY_BY_DEMO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleAverageImpressionFrequencyByDemo;
+/**
+ *  Value: "METRIC_VIRTUAL_PEOPLE_AVERAGE_VIEWABLE_IMPRESSION_FREQUENCY_BY_DEMO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleAverageViewableImpressionFrequencyByDemo;
 /** Value: "METRIC_VIRTUAL_PEOPLE_CLICK_REACH_BY_DEMO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleClickReachByDemo;
 /** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_BY_DEMO" */
@@ -2091,8 +2181,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachPercent;
 /** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_SHARE_PERCENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachSharePercent;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_BY_DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachByDemo;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachPercent;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_SHARE_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachSharePercent;
 /** Value: "METRIC_WATCH_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWatchTime;
+/** Value: "METRIC_WIN_LOSS_DEAL_AVAILABLE_REQUESTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossDealAvailableRequests;
+/** Value: "METRIC_WIN_LOSS_DEAL_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossDealTargetedImpressions;
+/** Value: "METRIC_WIN_LOSS_LINEITEM_AVAILABLE_REQUESTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossLineitemAvailableRequests;
+/** Value: "METRIC_WIN_LOSS_LINEITEM_TARGETED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossLineitemTargetedImpressions;
+/** Value: "METRIC_WIN_LOSS_RATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWinLossRate;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_Parameters.type
@@ -2241,8 +2347,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBrandLiftType;
 /** Value: "FILTER_BROWSER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBrowser;
+/** Value: "FILTER_BUDGET_SEGMENT_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentBudget;
 /** Value: "FILTER_BUDGET_SEGMENT_DESCRIPTION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentDescription;
+/** Value: "FILTER_BUDGET_SEGMENT_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentEndDate;
+/** Value: "FILTER_BUDGET_SEGMENT_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentPacingPercentage;
+/** Value: "FILTER_BUDGET_SEGMENT_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentStartDate;
+/** Value: "FILTER_BUDGET_SEGMENT_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentType;
 /** Value: "FILTER_CAMPAIGN_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCampaignDailyFrequency;
 /** Value: "FILTER_CARRIER" */
@@ -2261,6 +2377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -2393,8 +2511,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterHouseholdIncome;
 /** Value: "FILTER_IMPRESSION_COUNTING_METHOD" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionCountingMethod;
+/** Value: "FILTER_IMPRESSION_LOSS_REJECTION_REASON" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionLossRejectionReason;
 /** Value: "FILTER_INSERTION_ORDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrder;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderGoalType;
+/** Value: "FILTER_INSERTION_ORDER_GOAL_VALUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderGoalValue;
 /** Value: "FILTER_INSERTION_ORDER_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderIntegrationCode;
 /** Value: "FILTER_INSERTION_ORDER_NAME" */
@@ -2433,18 +2557,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLifeEvents;
 /** Value: "FILTER_LINE_ITEM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItem;
+/** Value: "FILTER_LINE_ITEM_BUDGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemBudget;
 /** Value: "FILTER_LINE_ITEM_DAILY_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemDailyFrequency;
+/** Value: "FILTER_LINE_ITEM_END_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemEndDate;
 /** Value: "FILTER_LINE_ITEM_INTEGRATION_CODE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemIntegrationCode;
 /** Value: "FILTER_LINE_ITEM_LIFETIME_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemLifetimeFrequency;
 /** Value: "FILTER_LINE_ITEM_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemName;
+/** Value: "FILTER_LINE_ITEM_PACING_PERCENTAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemPacingPercentage;
+/** Value: "FILTER_LINE_ITEM_START_DATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemStartDate;
 /** Value: "FILTER_LINE_ITEM_STATUS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemStatus;
 /** Value: "FILTER_LINE_ITEM_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemType;
+/** Value: "FILTER_MATCHED_GENRE_TARGET" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMatchedGenreTarget;
 /** Value: "FILTER_MATCH_RATIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMatchRatio;
 /** Value: "FILTER_MEASUREMENT_SOURCE" */
@@ -2473,6 +2607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNotSupported;
+/** Value: "FILTER_OMID_CAPABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmidCapable;
 /** Value: "FILTER_OM_SDK_AVAILABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
@@ -2557,12 +2693,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -2653,14 +2793,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVariantName;
 /** Value: "FILTER_VARIANT_VERSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVariantVersion;
+/** Value: "FILTER_VENDOR_MEASUREMENT_MODE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVendorMeasurementMode;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityComplete;
+/** Value: "FILTER_VERIFICATION_AUDIBILITY_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityStart;
 /** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSize;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeComplete;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeFirstQuartile;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeMidPoint;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeStart;
+/** Value: "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeThirdQuartile;
 /** Value: "FILTER_VERIFICATION_VIDEO_POSITION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPosition;
+/** Value: "FILTER_VERIFICATION_VIDEO_RESIZED" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoResized;
 /** Value: "FILTER_VIDEO_AD_POSITION_IN_STREAM" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoAdPositionInStream;
 /** Value: "FILTER_VIDEO_COMPANION_CREATIVE_SIZE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoCompanionCreativeSize;
+/** Value: "FILTER_VIDEO_CONTENT_DURATION" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContentDuration;
+/** Value: "FILTER_VIDEO_CONTENT_LIVE_STREAM" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContentLiveStream;
 /** Value: "FILTER_VIDEO_CONTINUOUS_PLAY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContinuousPlay;
 /** Value: "FILTER_VIDEO_CREATIVE_DURATION" */
@@ -2681,8 +2843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -2791,6 +2951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Freq
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_SemiMonthly;
 /** Value: "WEEKLY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly;
+/** Value: "YEARLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_ReportFailure.errorCode
@@ -2896,12 +3058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
 /** Value: "YEAR_TO_DATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_DataRange_YearToDate;
 
-// ----------------------------------------------------------------------------
-// GTLRDoubleClickBidManager_UploadLineItemsRequest.format
-
-/** Value: "CSV" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv;
-
 /**
  *  A channel grouping defines a set of rules that can be used to categorize
  *  events in a path report.
@@ -2936,143 +3092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *  match statement.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_EventFilter *> *eventFilters;
-
-@end
-
-
-/**
- *  Request to fetch stored line items.
- */
-@interface GTLRDoubleClickBidManager_DownloadLineItemsRequest : GTLRObject
-
-/**
- *  File specification (column names, types, order) in which the line items will
- *  be returned. Default to EWF.
- *
- *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FileSpec_Ewf
- *        Value "EWF"
- */
-@property(nonatomic, copy, nullable) NSString *fileSpec;
-
-/**
- *  Ids of the specified filter type used to filter line items to fetch. If
- *  omitted, all the line items will be returned.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *filterIds;
-
-/**
- *  Filter type used to filter line items to fetch.
- *
- *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_AdvertiserId
- *        Value "ADVERTISER_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_InsertionOrderId
- *        Value "INSERTION_ORDER_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_FilterType_LineItemId
- *        Value "LINE_ITEM_ID"
- */
-@property(nonatomic, copy, nullable) NSString *filterType;
-
-/**
- *  Format in which the line items will be returned. Default to CSV.
- *
- *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_DownloadLineItemsRequest_Format_Csv
- *        Value "CSV"
- */
-@property(nonatomic, copy, nullable) NSString *format;
-
-@end
-
-
-/**
- *  Download line items response.
- */
-@interface GTLRDoubleClickBidManager_DownloadLineItemsResponse : GTLRObject
-
-/**
- *  Retrieved line items in CSV format. For more information about file formats,
- *  see Entity Write File Format.
- */
-@property(nonatomic, copy, nullable) NSString *lineItems;
-
-@end
-
-
-/**
- *  Request to fetch stored inventory sources, campaigns, insertion orders, line
- *  items, YouTube ad groups and ads.
- */
-@interface GTLRDoubleClickBidManager_DownloadRequest : GTLRObject
-
-/**
- *  File types that will be returned. If INVENTORY_SOURCE is requested, no other
- *  file types may be requested. Acceptable values are: - "AD" - "AD_GROUP" -
- *  "CAMPAIGN" - "INSERTION_ORDER" - "INVENTORY_SOURCE" - "LINE_ITEM"
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
-
-/**
- *  The IDs of the specified filter type. This is used to filter entities to
- *  fetch. At least one ID must be specified.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *filterIds;
-
-/**
- *  Filter type used to filter entities to fetch. PARTNER_ID and
- *  INVENTORY_SOURCE_ID may only be used when downloading inventory sources.
- *
- *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_AdvertiserId
- *        Value "ADVERTISER_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_CampaignId
- *        Value "CAMPAIGN_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InsertionOrderId
- *        Value "INSERTION_ORDER_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_InventorySourceId
- *        Value "INVENTORY_SOURCE_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_LineItemId
- *        Value "LINE_ITEM_ID"
- *    @arg @c kGTLRDoubleClickBidManager_DownloadRequest_FilterType_PartnerId
- *        Value "PARTNER_ID"
- */
-@property(nonatomic, copy, nullable) NSString *filterType;
-
-/**
- *  SDF Version (column names, types, order) in which the entities will be
- *  returned. Default to 5.
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  Download response.
- */
-@interface GTLRDoubleClickBidManager_DownloadResponse : GTLRObject
-
-/** Retrieved ad groups in SDF format. */
-@property(nonatomic, copy, nullable) NSString *adGroups;
-
-/** Retrieved ads in SDF format. */
-@property(nonatomic, copy, nullable) NSString *ads;
-
-/** Retrieved campaigns in SDF format. */
-@property(nonatomic, copy, nullable) NSString *campaigns;
-
-/** Retrieved insertion orders in SDF format. */
-@property(nonatomic, copy, nullable) NSString *insertionOrders;
-
-@property(nonatomic, copy, nullable) NSString *inventorySources;
-
-/** Retrieved line items in SDF format. */
-@property(nonatomic, copy, nullable) NSString *lineItems;
 
 @end
 
@@ -3160,8 +3179,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_BRAND_LIFT_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrowser Value
  *        "FILTER_BROWSER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentBudget
+ *        Value "FILTER_BUDGET_SEGMENT_BUDGET"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentDescription
  *        Value "FILTER_BUDGET_SEGMENT_DESCRIPTION"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentEndDate
+ *        Value "FILTER_BUDGET_SEGMENT_END_DATE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentPacingPercentage
+ *        Value "FILTER_BUDGET_SEGMENT_PACING_PERCENTAGE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentStartDate
+ *        Value "FILTER_BUDGET_SEGMENT_START_DATE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBudgetSegmentType
+ *        Value "FILTER_BUDGET_SEGMENT_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCampaignDailyFrequency
  *        Value "FILTER_CAMPAIGN_DAILY_FREQUENCY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCarrier Value
@@ -3180,6 +3209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        "FILTER_CITY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCityName Value
  *        "FILTER_CITY_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCm360PlacementId
+ *        Value "FILTER_CM360_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCmPlacementId
  *        Value "FILTER_CM_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCompanionCreativeId
@@ -3311,8 +3342,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_HOUSEHOLD_INCOME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionCountingMethod
  *        Value "FILTER_IMPRESSION_COUNTING_METHOD"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterImpressionLossRejectionReason
+ *        Value "FILTER_IMPRESSION_LOSS_REJECTION_REASON"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrder
  *        Value "FILTER_INSERTION_ORDER"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderGoalType
+ *        Value "FILTER_INSERTION_ORDER_GOAL_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderGoalValue
+ *        Value "FILTER_INSERTION_ORDER_GOAL_VALUE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderIntegrationCode
  *        Value "FILTER_INSERTION_ORDER_INTEGRATION_CODE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterInsertionOrderName
@@ -3351,18 +3388,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        "FILTER_LIFE_EVENTS"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItem Value
  *        "FILTER_LINE_ITEM"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemBudget
+ *        Value "FILTER_LINE_ITEM_BUDGET"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemDailyFrequency
  *        Value "FILTER_LINE_ITEM_DAILY_FREQUENCY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemEndDate
+ *        Value "FILTER_LINE_ITEM_END_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemIntegrationCode
  *        Value "FILTER_LINE_ITEM_INTEGRATION_CODE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemLifetimeFrequency
  *        Value "FILTER_LINE_ITEM_LIFETIME_FREQUENCY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemName
  *        Value "FILTER_LINE_ITEM_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemPacingPercentage
+ *        Value "FILTER_LINE_ITEM_PACING_PERCENTAGE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemStartDate
+ *        Value "FILTER_LINE_ITEM_START_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemStatus
  *        Value "FILTER_LINE_ITEM_STATUS"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterLineItemType
  *        Value "FILTER_LINE_ITEM_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMatchedGenreTarget
+ *        Value "FILTER_MATCHED_GENRE_TARGET"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMatchRatio Value
  *        "FILTER_MATCH_RATIO"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMeasurementSource
@@ -3391,6 +3438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_NIELSEN_RESTATEMENT_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported
  *        Value "FILTER_NOT_SUPPORTED"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmidCapable Value
+ *        "FILTER_OMID_CAPABLE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmSdkAvailable
  *        Value "FILTER_OM_SDK_AVAILABLE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId Value
@@ -3475,12 +3524,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_AD_GROUP_AD_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupId
  *        Value "FILTER_TRUEVIEW_AD_GROUP_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdTypeName
+ *        Value "FILTER_TRUEVIEW_AD_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge Value
  *        "FILTER_TRUEVIEW_AGE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory
  *        Value "FILTER_TRUEVIEW_CATEGORY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity
  *        Value "FILTER_TRUEVIEW_CITY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewClickTypeName
+ *        Value "FILTER_TRUEVIEW_CLICK_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType
  *        Value "FILTER_TRUEVIEW_CONVERSION_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCountry
@@ -3571,14 +3624,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        "FILTER_VARIANT_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVariantVersion
  *        Value "FILTER_VARIANT_VERSION"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVendorMeasurementMode
+ *        Value "FILTER_VENDOR_MEASUREMENT_MODE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityComplete
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationAudibilityStart
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_START"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSize
  *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeComplete
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeFirstQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeMidPoint
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeStart
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPlayerSizeThirdQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoPosition
  *        Value "FILTER_VERIFICATION_VIDEO_POSITION"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVerificationVideoResized
+ *        Value "FILTER_VERIFICATION_VIDEO_RESIZED"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoAdPositionInStream
  *        Value "FILTER_VIDEO_AD_POSITION_IN_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCompanionCreativeSize
  *        Value "FILTER_VIDEO_COMPANION_CREATIVE_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContentDuration
+ *        Value "FILTER_VIDEO_CONTENT_DURATION"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContentLiveStream
+ *        Value "FILTER_VIDEO_CONTENT_LIVE_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoContinuousPlay
  *        Value "FILTER_VIDEO_CONTINUOUS_PLAY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoCreativeDuration
@@ -3599,8 +3674,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_VIDEO_RATING_TIER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoSkippableSupport
  *        Value "FILTER_VIDEO_SKIPPABLE_SUPPORT"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoVpaidSupport
- *        Value "FILTER_VIDEO_VPAID_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterWeek Value
  *        "FILTER_WEEK"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYear Value
@@ -3933,8 +4006,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_BRAND_LIFT_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBrowser
  *        Value "FILTER_BROWSER"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentBudget
+ *        Value "FILTER_BUDGET_SEGMENT_BUDGET"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentDescription
  *        Value "FILTER_BUDGET_SEGMENT_DESCRIPTION"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentEndDate
+ *        Value "FILTER_BUDGET_SEGMENT_END_DATE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentPacingPercentage
+ *        Value "FILTER_BUDGET_SEGMENT_PACING_PERCENTAGE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentStartDate
+ *        Value "FILTER_BUDGET_SEGMENT_START_DATE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBudgetSegmentType
+ *        Value "FILTER_BUDGET_SEGMENT_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCampaignDailyFrequency
  *        Value "FILTER_CAMPAIGN_DAILY_FREQUENCY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCarrier
@@ -3953,6 +4036,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_CITY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCityName
  *        Value "FILTER_CITY_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCm360PlacementId
+ *        Value "FILTER_CM360_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCmPlacementId
  *        Value "FILTER_CM_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCompanionCreativeId
@@ -4084,8 +4169,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_HOUSEHOLD_INCOME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionCountingMethod
  *        Value "FILTER_IMPRESSION_COUNTING_METHOD"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterImpressionLossRejectionReason
+ *        Value "FILTER_IMPRESSION_LOSS_REJECTION_REASON"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrder
  *        Value "FILTER_INSERTION_ORDER"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderGoalType
+ *        Value "FILTER_INSERTION_ORDER_GOAL_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderGoalValue
+ *        Value "FILTER_INSERTION_ORDER_GOAL_VALUE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderIntegrationCode
  *        Value "FILTER_INSERTION_ORDER_INTEGRATION_CODE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterInsertionOrderName
@@ -4124,18 +4215,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_LIFE_EVENTS"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItem
  *        Value "FILTER_LINE_ITEM"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemBudget
+ *        Value "FILTER_LINE_ITEM_BUDGET"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemDailyFrequency
  *        Value "FILTER_LINE_ITEM_DAILY_FREQUENCY"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemEndDate
+ *        Value "FILTER_LINE_ITEM_END_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemIntegrationCode
  *        Value "FILTER_LINE_ITEM_INTEGRATION_CODE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemLifetimeFrequency
  *        Value "FILTER_LINE_ITEM_LIFETIME_FREQUENCY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemName
  *        Value "FILTER_LINE_ITEM_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemPacingPercentage
+ *        Value "FILTER_LINE_ITEM_PACING_PERCENTAGE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemStartDate
+ *        Value "FILTER_LINE_ITEM_START_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemStatus
  *        Value "FILTER_LINE_ITEM_STATUS"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterLineItemType
  *        Value "FILTER_LINE_ITEM_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMatchedGenreTarget
+ *        Value "FILTER_MATCHED_GENRE_TARGET"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMatchRatio
  *        Value "FILTER_MATCH_RATIO"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMeasurementSource
@@ -4164,6 +4265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_NIELSEN_RESTATEMENT_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNotSupported
  *        Value "FILTER_NOT_SUPPORTED"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmidCapable
+ *        Value "FILTER_OMID_CAPABLE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmSdkAvailable
  *        Value "FILTER_OM_SDK_AVAILABLE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOrderId
@@ -4248,12 +4351,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_AD_GROUP_AD_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupId
  *        Value "FILTER_TRUEVIEW_AD_GROUP_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdTypeName
+ *        Value "FILTER_TRUEVIEW_AD_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAge
  *        Value "FILTER_TRUEVIEW_AGE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCategory
  *        Value "FILTER_TRUEVIEW_CATEGORY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCity
  *        Value "FILTER_TRUEVIEW_CITY"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewClickTypeName
+ *        Value "FILTER_TRUEVIEW_CLICK_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewConversionType
  *        Value "FILTER_TRUEVIEW_CONVERSION_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCountry
@@ -4344,14 +4451,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_VARIANT_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVariantVersion
  *        Value "FILTER_VARIANT_VERSION"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVendorMeasurementMode
+ *        Value "FILTER_VENDOR_MEASUREMENT_MODE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityComplete
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationAudibilityStart
+ *        Value "FILTER_VERIFICATION_AUDIBILITY_START"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSize
  *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeComplete
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_COMPLETE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeFirstQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_FIRST_QUARTILE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeMidPoint
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_MID_POINT"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeStart
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_START"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPlayerSizeThirdQuartile
+ *        Value "FILTER_VERIFICATION_VIDEO_PLAYER_SIZE_THIRD_QUARTILE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoPosition
  *        Value "FILTER_VERIFICATION_VIDEO_POSITION"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVerificationVideoResized
+ *        Value "FILTER_VERIFICATION_VIDEO_RESIZED"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoAdPositionInStream
  *        Value "FILTER_VIDEO_AD_POSITION_IN_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoCompanionCreativeSize
  *        Value "FILTER_VIDEO_COMPANION_CREATIVE_SIZE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContentDuration
+ *        Value "FILTER_VIDEO_CONTENT_DURATION"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContentLiveStream
+ *        Value "FILTER_VIDEO_CONTENT_LIVE_STREAM"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoContinuousPlay
  *        Value "FILTER_VIDEO_CONTINUOUS_PLAY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoCreativeDuration
@@ -4372,8 +4501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_VIDEO_RATING_TIER"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoSkippableSupport
  *        Value "FILTER_VIDEO_SKIPPABLE_SUPPORT"
- *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoVpaidSupport
- *        Value "FILTER_VIDEO_VPAID_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterWeek
  *        Value "FILTER_WEEK"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterYear
@@ -4627,6 +4754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "SEMI_MONTHLY"
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Value
  *        "WEEKLY"
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly Value
+ *        "YEARLY"
  */
 @property(nonatomic, copy, nullable) NSString *frequency;
 
@@ -4816,52 +4945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 
 /**
- *  Represents the upload status of a row in the request.
- */
-@interface GTLRDoubleClickBidManager_RowStatus : GTLRObject
-
-/**
- *  Whether the stored entity is changed as a result of upload.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *changed;
-
-/**
- *  Entity Id.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *entityId;
-
-/**
- *  Entity name.
- *
- *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
- */
-@property(nonatomic, copy, nullable) NSString *entityNameProperty;
-
-/** Reasons why the entity can't be uploaded. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
-
-/**
- *  Whether the entity is persisted.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *persisted;
-
-/**
- *  Row number.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *rowNumber;
-
-@end
-
-
-/**
  *  A Rule defines a name, and a boolean expression in [conjunctive normal
  *  form](http: //mathworld.wolfram.com/ConjunctiveNormalForm.html){.external}
  *  that can be // applied to a path event to determine if that name should be
@@ -4951,61 +5034,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *  Canonical timezone code for report data time. Defaults to America/New_York.
  */
 @property(nonatomic, copy, nullable) NSString *timezoneCode;
-
-@end
-
-
-/**
- *  Request to upload line items.
- */
-@interface GTLRDoubleClickBidManager_UploadLineItemsRequest : GTLRObject
-
-/**
- *  Set to true to get upload status without actually persisting the line items.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dryRun;
-
-/**
- *  Format the line items are in. Default to CSV.
- *
- *  Likely values:
- *    @arg @c kGTLRDoubleClickBidManager_UploadLineItemsRequest_Format_Csv Value
- *        "CSV"
- */
-@property(nonatomic, copy, nullable) NSString *format;
-
-/**
- *  Line items in CSV to upload. Refer to Entity Write File Format for more
- *  information on file format.
- */
-@property(nonatomic, copy, nullable) NSString *lineItems;
-
-@end
-
-
-/**
- *  Upload line items response.
- */
-@interface GTLRDoubleClickBidManager_UploadLineItemsResponse : GTLRObject
-
-/** Status of upload. */
-@property(nonatomic, strong, nullable) GTLRDoubleClickBidManager_UploadStatus *uploadStatus;
-
-@end
-
-
-/**
- *  Represents the status of upload.
- */
-@interface GTLRDoubleClickBidManager_UploadStatus : GTLRObject
-
-/** Reasons why upload can't be completed. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
-
-/** Per-row upload status. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDoubleClickBidManager_RowStatus *> *rowStatus;
 
 @end
 

@@ -124,8 +124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Method: vectortile.featuretiles.get
  */
 @interface GTLRSemanticTileQuery_FeaturetilesGet : GTLRSemanticTileQuery
-// Previous library name was
-//   +[GTLQuerySemanticTile queryForFeaturetilesGetWithname:]
 
 /**
  *  Flag indicating whether the returned tile will always contain 2.5D
@@ -286,8 +284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Method: vectortile.terraintiles.get
  */
 @interface GTLRSemanticTileQuery_TerraintilesGet : GTLRSemanticTileQuery
-// Previous library name was
-//   +[GTLQuerySemanticTile queryForTerraintilesGetWithname:]
 
 /**
  *  The precision of terrain altitudes in centimeters. Possible values: between
@@ -365,8 +361,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 @property(nonatomic, assign) NSInteger maxElevationResolutionCells;
 
 /**
- *  The minimum allowed resolution for the returned elevation heightmap.
- *  Possible values: between 0 and 1024 (and not more than
+ *  api-linter: core::0131::request-unknown-fields=disabled
+ *  aip.dev/not-precedent: Maintaining existing request parameter pattern. The
+ *  minimum allowed resolution for the returned elevation heightmap. Possible
+ *  values: between 0 and 1024 (and not more than
  *  max_elevation_resolution_cells). Zero is supported for backward
  *  compatibility. Under-sized heightmaps will be non-uniformly up-sampled such
  *  that each edge is no shorter than this value. Non-uniformity is chosen to

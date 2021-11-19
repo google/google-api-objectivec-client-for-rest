@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_OperationsGet : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -89,8 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_OperationsList : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForOperationsList]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -128,95 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: speech.projects.locations.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSpeechCloudPlatform
- */
-@interface GTLRSpeechQuery_ProjectsLocationsOperationsGet : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForProjectsLocationsOperationsGetWithname:]
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRSpeech_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRSpeechQuery_ProjectsLocationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  Method: speech.projects.locations.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeSpeechCloudPlatform
- */
-@interface GTLRSpeechQuery_ProjectsLocationsOperationsList : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForProjectsLocationsOperationsListWithname:]
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRSpeech_ListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRSpeechQuery_ProjectsLocationsOperationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Performs asynchronous speech recognition: receive results via the
  *  google.longrunning.Operations interface. Returns either an `Operation.error`
  *  or an `Operation.response` which contains a `LongRunningRecognizeResponse`
@@ -229,8 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_SpeechLongrunningrecognize : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForSpeechLongrunningrecognizeWithObject:]
 
 /**
  *  Fetches a @c GTLRSpeech_Operation.
@@ -260,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_SpeechRecognize : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForSpeechRecognizeWithObject:]
 
 /**
  *  Fetches a @c GTLRSpeech_RecognizeResponse.

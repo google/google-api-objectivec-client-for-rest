@@ -27,6 +27,7 @@
 @class GTLRServiceNetworking_AddSubnetworkRequest;
 @class GTLRServiceNetworking_CancelOperationRequest;
 @class GTLRServiceNetworking_Connection;
+@class GTLRServiceNetworking_DeleteConnectionRequest;
 @class GTLRServiceNetworking_DisableVpcServiceControlsRequest;
 @class GTLRServiceNetworking_EnableVpcServiceControlsRequest;
 @class GTLRServiceNetworking_PeeredDnsDomain;
@@ -72,8 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_OperationsCancel : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -115,8 +114,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_OperationsDelete : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -149,8 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_OperationsGet : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -188,8 +183,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_OperationsList : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -245,8 +238,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesAddSubnetwork : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesAddSubnetworkWithObject:parent:]
 
 /**
  *  Required. A tenant project in the service producer organization, in the
@@ -305,8 +296,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsCreate : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesConnectionsCreateWithObject:parent:]
 
 /**
  *  The service that is managing peering connectivity for a service producer's
@@ -340,6 +329,48 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a private service access connection.
+ *
+ *  Method: servicenetworking.services.connections.deleteConnection
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesConnectionsDeleteConnection : GTLRServiceNetworkingQuery
+
+/**
+ *  Required. The private service connection that connects to a service producer
+ *  organization. The name includes both the private service name and the VPC
+ *  network peering name in the format of
+ *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google
+ *  services that support this functionality, this is
+ *  `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Deletes a private service access connection.
+ *
+ *  @param object The @c GTLRServiceNetworking_DeleteConnectionRequest to
+ *    include in the query.
+ *  @param name Required. The private service connection that connects to a
+ *    service producer organization. The name includes both the private service
+ *    name and the VPC network peering name in the format of
+ *    `services/{peering_service_name}/connections/{vpc_peering_name}`. For
+ *    Google services that support this functionality, this is
+ *    `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesConnectionsDeleteConnection
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_DeleteConnectionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  List the private connections that are configured in a service consumer's VPC
  *  network.
  *
@@ -350,8 +381,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsList : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesConnectionsListWithparent:]
 
 /**
  *  The name of service consumer's VPC network that's connected with service
@@ -400,8 +429,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesConnectionsPatch : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesConnectionsPatchWithObject:name:]
 
 /**
  *  If a previously defined allocated range is removed, force flag must be set
@@ -458,8 +485,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDisableVpcServiceControlsWithObject:parent:]
 
 /**
  *  The service that is managing peering connectivity for a service producer's
@@ -497,8 +522,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDnsRecordSetsAdd : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDnsRecordSetsAddWithObject:parent:]
 
 /**
  *  Required. The service that is managing peering connectivity for a service
@@ -538,8 +561,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDnsRecordSetsRemove : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDnsRecordSetsRemoveWithObject:parent:]
 
 /**
  *  Required. The service that is managing peering connectivity for a service
@@ -579,8 +600,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDnsRecordSetsUpdate : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDnsRecordSetsUpdateWithObject:parent:]
 
 /**
  *  Required. The service that is managing peering connectivity for a service
@@ -620,8 +639,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDnsZonesAdd : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDnsZonesAddWithObject:parent:]
 
 /**
  *  Required. The service that is managing peering connectivity for a service
@@ -662,8 +679,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesDnsZonesRemove : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesDnsZonesRemoveWithObject:parent:]
 
 /**
  *  Required. The service that is managing peering connectivity for a service
@@ -703,8 +718,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesEnableVpcServiceControlsWithObject:parent:]
 
 /**
  *  The service that is managing peering connectivity for a service producer's
@@ -743,8 +756,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksGetWithname:]
 
 /**
  *  Required. Name of the consumer config to retrieve in the format:
@@ -790,8 +801,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource identifying the connection for which the peered
@@ -842,8 +851,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsDelete : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsDeleteWithname:]
 
 /**
  *  Required. The name of the peered DNS domain to delete in the format:
@@ -888,8 +895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsList : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsListWithparent:]
 
 /**
  *  Required. Parent resource identifying the connection which owns this
@@ -935,8 +940,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksUpdateConsumerConfig : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksUpdateConsumerConfigWithObject:parent:]
 
 /**
  *  Required. Parent resource identifying the connection for which the consumer
@@ -990,8 +993,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesRolesAdd : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesRolesAddWithObject:parent:]
 
 /**
  *  Required. This is in a form services/{service} where {service} is the name
@@ -1036,8 +1037,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesSearchRange : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesSearchRangeWithObject:parent:]
 
 /**
  *  Required. This is in a form services/{service}. {service} the name of the
@@ -1082,8 +1081,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
  */
 @interface GTLRServiceNetworkingQuery_ServicesValidate : GTLRServiceNetworkingQuery
-// Previous library name was
-//   +[GTLQueryServiceNetworking queryForServicesValidateWithObject:parent:]
 
 /**
  *  Required. This is in a form services/{service} where {service} is the name

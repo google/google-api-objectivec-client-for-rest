@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -23,6 +23,7 @@
 #endif
 
 @class GTLRDirectory_Asp;
+@class GTLRDirectory_AuxiliaryMessage;
 @class GTLRDirectory_Building;
 @class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
@@ -30,26 +31,34 @@
 @class GTLRDirectory_Channel_Params;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item;
+@class GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item;
 @class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item;
 @class GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_DeviceFiles_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item;
+@class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
+@class GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item;
 @class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
 @class GTLRDirectory_ChromeosdevicesCommandResult;
+@class GTLRDirectory_CreatePrinterRequest;
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
+@class GTLRDirectory_FailureInfo;
 @class GTLRDirectory_Feature;
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDevice;
 @class GTLRDirectory_MobileDevice_Applications_Item;
 @class GTLRDirectory_OrgUnit;
+@class GTLRDirectory_Printer;
+@class GTLRDirectory_PrinterModel;
 @class GTLRDirectory_Privilege;
-@class GTLRDirectory_RecentUsers;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_Role_RolePrivileges_Item;
 @class GTLRDirectory_RoleAssignment;
@@ -72,6 +81,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_AuxiliaryMessage.severity
+
+/**
+ *  Message of severity: error.
+ *
+ *  Value: "SEVERITY_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityError;
+/**
+ *  Message of severity: info.
+ *
+ *  Value: "SEVERITY_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityInfo;
+/**
+ *  Message type unspecified.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityUnspecified;
+/**
+ *  Message of severity: warning.
+ *
+ *  Value: "SEVERITY_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning;
 
 // ----------------------------------------------------------------------------
 // GTLRDirectory_ChromeosdevicesCommand.state
@@ -245,6 +282,170 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_WipeUsers;
 
+// ----------------------------------------------------------------------------
+// GTLRDirectory_FailureInfo.errorCode
+
+/**
+ *  The operation was aborted, typically due to a concurrency issue such as a
+ *  sequencer check failure or transaction abort. See the guidelines above for
+ *  deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`. HTTP
+ *  Mapping: 409 Conflict
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Aborted;
+/**
+ *  The entity that a client attempted to create (e.g., file or directory)
+ *  already exists. HTTP Mapping: 409 Conflict
+ *
+ *  Value: "ALREADY_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_AlreadyExists;
+/**
+ *  The operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *  Client Closed Request
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Cancelled;
+/**
+ *  Unrecoverable data loss or corruption. HTTP Mapping: 500 Internal Server
+ *  Error
+ *
+ *  Value: "DATA_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_DataLoss;
+/**
+ *  The deadline expired before the operation could complete. For operations
+ *  that change the state of the system, this error may be returned even if the
+ *  operation has completed successfully. For example, a successful response
+ *  from a server could have been delayed long enough for the deadline to
+ *  expire. HTTP Mapping: 504 Gateway Timeout
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_DeadlineExceeded;
+/**
+ *  The operation was rejected because the system is not in a state required for
+ *  the operation's execution. For example, the directory to be deleted is
+ *  non-empty, an rmdir operation is applied to a non-directory, etc. Service
+ *  implementors can use the following guidelines to decide between
+ *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
+ *  if the client can retry just the failing call. (b) Use `ABORTED` if the
+ *  client should retry at a higher level. For example, when a client-specified
+ *  test-and-set fails, indicating the client should restart a read-modify-write
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
+ *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
+ *  since the client should not retry unless the files are deleted from the
+ *  directory. HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "FAILED_PRECONDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_FailedPrecondition;
+/**
+ *  Internal errors. This means that some invariants expected by the underlying
+ *  system have been broken. This error code is reserved for serious errors.
+ *  HTTP Mapping: 500 Internal Server Error
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Internal;
+/**
+ *  The client specified an invalid argument. Note that this differs from
+ *  `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *  problematic regardless of the state of the system (e.g., a malformed file
+ *  name). HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "INVALID_ARGUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_InvalidArgument;
+/**
+ *  Some requested entity (e.g., file or directory) was not found. Note to
+ *  server developers: if a request is denied for an entire class of users, such
+ *  as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may be
+ *  used. If a request is denied for some users within a class of users, such as
+ *  user-based access control, `PERMISSION_DENIED` must be used. HTTP Mapping:
+ *  404 Not Found
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_NotFound;
+/**
+ *  Not an error; returned on success HTTP Mapping: 200 OK
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Ok;
+/**
+ *  The operation was attempted past the valid range. E.g., seeking or reading
+ *  past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *  that may be fixed if the system state changes. For example, a 32-bit file
+ *  system will generate `INVALID_ARGUMENT` if asked to read at an offset that
+ *  is not in the range [0,2^32-1], but it will generate `OUT_OF_RANGE` if asked
+ *  to read from an offset past the current file size. There is a fair bit of
+ *  overlap between `FAILED_PRECONDITION` and `OUT_OF_RANGE`. We recommend using
+ *  `OUT_OF_RANGE` (the more specific error) when it applies so that callers who
+ *  are iterating through a space can easily look for an `OUT_OF_RANGE` error to
+ *  detect when they are done. HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "OUT_OF_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_OutOfRange;
+/**
+ *  The caller does not have permission to execute the specified operation.
+ *  `PERMISSION_DENIED` must not be used for rejections caused by exhausting
+ *  some resource (use `RESOURCE_EXHAUSTED` instead for those errors).
+ *  `PERMISSION_DENIED` must not be used if the caller can not be identified
+ *  (use `UNAUTHENTICATED` instead for those errors). This error code does not
+ *  imply the request is valid or the requested entity exists or satisfies other
+ *  pre-conditions. HTTP Mapping: 403 Forbidden
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_PermissionDenied;
+/**
+ *  Some resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *  entire file system is out of space. HTTP Mapping: 429 Too Many Requests
+ *
+ *  Value: "RESOURCE_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_ResourceExhausted;
+/**
+ *  The request does not have valid authentication credentials for the
+ *  operation. HTTP Mapping: 401 Unauthorized
+ *
+ *  Value: "UNAUTHENTICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unauthenticated;
+/**
+ *  The service is currently unavailable. This is most likely a transient
+ *  condition, which can be corrected by retrying with a backoff. Note that it
+ *  is not always safe to retry non-idempotent operations. See the guidelines
+ *  above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *  `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unavailable;
+/**
+ *  The operation is not implemented or is not supported/enabled in this
+ *  service. HTTP Mapping: 501 Not Implemented
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unimplemented;
+/**
+ *  Unknown error. For example, this error may be returned when a `Status` value
+ *  received from another address space belongs to an error space that is not
+ *  known in this address space. Also errors raised by APIs that do not return
+ *  enough error information may be converted to this error. HTTP Mapping: 500
+ *  Internal Server Error
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
+
 /**
  *  JSON template for Alias object in Directory API.
  */
@@ -290,7 +491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  devices. The ASP access code is used instead of the login and password you
  *  commonly use when accessing an application through a browser. For more
  *  information about ASPs and how to create one, see the [help
- *  center](//http://support.google.com/a/bin/answer.py?amp;answer=1032419).
+ *  center](https://support.google.com/a/answer/2537800#asp).
  */
 @interface GTLRDirectory_Asp : GTLRObject
 
@@ -303,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The time when the ASP was created. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -317,7 +518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The time when the ASP was last used. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -356,6 +557,97 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /** The type of the API resource. This is always `admin#directory#aspList`. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Auxiliary message about issues with printers or settings. Example:
+ *  {message_type:AUXILIARY_MESSAGE_WARNING, field_mask:make_and_model,
+ *  message:"Given printer is invalid or no longer supported."}
+ */
+@interface GTLRDirectory_AuxiliaryMessage : GTLRObject
+
+/**
+ *  Human readable message in English. Example: "Given printer is invalid or no
+ *  longer supported."
+ */
+@property(nonatomic, copy, nullable) NSString *auxiliaryMessage;
+
+/**
+ *  Field that this message concerns.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldMask;
+
+/**
+ *  Message severity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_AuxiliaryMessage_Severity_SeverityError Message of
+ *        severity: error. (Value: "SEVERITY_ERROR")
+ *    @arg @c kGTLRDirectory_AuxiliaryMessage_Severity_SeverityInfo Message of
+ *        severity: info. (Value: "SEVERITY_INFO")
+ *    @arg @c kGTLRDirectory_AuxiliaryMessage_Severity_SeverityUnspecified
+ *        Message type unspecified. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning Message
+ *        of severity: warning. (Value: "SEVERITY_WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  Request for adding new printers in batch.
+ */
+@interface GTLRDirectory_BatchCreatePrintersRequest : GTLRObject
+
+/** A list of Printers to be created. Max 50 at a time. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_CreatePrinterRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response for adding new printers in batch.
+ */
+@interface GTLRDirectory_BatchCreatePrintersResponse : GTLRObject
+
+/**
+ *  A list of create failures. Printer IDs are not populated, as printer were
+ *  not created.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_FailureInfo *> *failures;
+
+/** A list of successfully created printers with their IDs populated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Printer *> *printers;
+
+@end
+
+
+/**
+ *  Request for deleting existing printers in batch.
+ */
+@interface GTLRDirectory_BatchDeletePrintersRequest : GTLRObject
+
+/** A list of Printer.id that should be deleted. Max 100 at a time. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *printerIds;
+
+@end
+
+
+/**
+ *  Response for deleting existing printers in batch.
+ */
+@interface GTLRDirectory_BatchDeletePrintersResponse : GTLRObject
+
+/** A list of update failures. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_FailureInfo *> *failedPrinters;
+
+/** A list of Printer.id that were successfully deleted. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *printerIds;
 
 @end
 
@@ -691,7 +983,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Google Chrome devices run on the [Chrome
- *  OS](http://support.google.com/chromeos). For more information about common
+ *  OS](https://support.google.com/chromeos). For more information about common
  *  API tasks, see the [Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices).
  */
@@ -732,9 +1024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  developer hardware switch is enabled. When booted, the device has a command
  *  line shell. For an example of a developer switch, see the [Chromebook
  *  developer
- *  information](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
+ *  information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
  */
 @property(nonatomic, copy, nullable) NSString *bootMode;
+
+/** Information regarding CPU specs in the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item *> *cpuInfo;
 
 /** Reports of CPU utilization and temperature (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item *> *cpuStatusReports;
@@ -820,10 +1115,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Notes about this device added by the administrator. This property can be
- *  [searched](http://support.google.com/chromeos/a/bin/answer.py?answer=1698333)
- *  with the [list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
- *  method's `query` parameter. Maximum length is 500 characters. Empty values
- *  are allowed.
+ *  [searched](https://support.google.com/chrome/a/answer/1698333) with the
+ *  [list](/admin-sdk/directory/v1/reference/chromeosdevices/list) method's
+ *  `query` parameter. Maximum length is 500 characters. Empty values are
+ *  allowed.
  */
 @property(nonatomic, copy, nullable) NSString *notes;
 
@@ -841,7 +1136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#update_chrome_device)
  *  using the API. For more information about how to create an organizational
  *  structure for your device, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182433).
+ *  center](https://support.google.com/a/answer/182433).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
@@ -852,7 +1147,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *platformVersion;
 
 /** List of recent device users, in descending order, by last login time. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RecentUsers *> *recentUsers;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_RecentUsers_Item *> *recentUsers;
+
+/**
+ *  List of screenshot files to download. Type is always "SCREENSHOT_FILE".
+ *  (Read-only)
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item *> *screenshotFiles;
 
 /**
  *  The Chrome device serial number entered when the device was enabled. This
@@ -909,6 +1210,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *date;
+
+@end
+
+
+/**
+ *  CPU specs for a CPU.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item : GTLRObject
+
+/** The CPU architecture. */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/** Information for the Logical CPUs */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item *> *logicalCpus;
+
+/**
+ *  The max CPU clock speed in kHz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxClockSpeedKhz;
+
+/** The CPU model name. */
+@property(nonatomic, copy, nullable) NSString *model;
 
 @end
 
@@ -980,6 +1305,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
+ *  List of recent device users, in descending order, by last login time.
+ */
+@interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
+
+/**
+ *  The user's email address. This is only present if the user type is
+ *  `USER_TYPE_MANAGED`.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The type of the user. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item
+ */
+@interface GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item : GTLRObject
+
+/** Date and time the file was created */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** File download URL */
+@property(nonatomic, copy, nullable) NSString *downloadUrl;
+
+/** File name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** File type */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item : GTLRObject
@@ -1030,6 +1392,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
+ *  Status of a single logical CPU.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item : GTLRObject
+
+/**
+ *  C-States indicate the power consumption state of the CPU. For more
+ *  information look at documentation published by the CPU maker.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item *> *cStates;
+
+/**
+ *  Current frequency the CPU is running at.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentScalingFrequencyKhz;
+
+/** Idle time since last boot. */
+@property(nonatomic, strong, nullable) GTLRDuration *idleDuration;
+
+/**
+ *  Maximum frequency the CPU is allowed to run at, by policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxScalingFrequencyKhz;
+
+@end
+
+
+/**
  *  GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item : GTLRObject
@@ -1068,6 +1461,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /** Volume id */
 @property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
+ *  Status of a single C-state. C-states are various modes the CPU can
+ *  transition to in order to use more or less power.
+ */
+@interface GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item : GTLRObject
+
+/** Name of the state. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Time spent in the state since the last reboot. */
+@property(nonatomic, strong, nullable) GTLRDuration *sessionDuration;
 
 @end
 
@@ -1311,6 +1719,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
+ *  Request for adding a new printer.
+ */
+@interface GTLRDirectory_CreatePrinterRequest : GTLRObject
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. A printer to create. If you want to place the printer under
+ *  particular OU then populate printer.org_unit_id filed. Otherwise the printer
+ *  will be placed under root OU.
+ */
+@property(nonatomic, strong, nullable) GTLRDirectory_Printer *printer;
+
+@end
+
+
+/**
  *  GTLRDirectory_Customer
  */
 @interface GTLRDirectory_Customer : GTLRObject
@@ -1355,7 +1781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The customer's contact phone number in
- *  [E.164](http://en.wikipedia.org/wiki/E.164) format.
+ *  [E.164](https://en.wikipedia.org/wiki/E.164) format.
  */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
@@ -1387,7 +1813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  This is a required property. For `countryCode` information see the [ISO 3166
- *  country code elements](http://www.iso.org/iso/country_codes.htm).
+ *  country code elements](https://www.iso.org/iso/country_codes.htm).
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -1477,7 +1903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Creation time of the domain. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format. (Read-only).
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format. (Read-only).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1525,6 +1951,140 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRDirectory_Empty : GTLRObject
+@end
+
+
+/**
+ *  Info about failures
+ */
+@interface GTLRDirectory_FailureInfo : GTLRObject
+
+/**
+ *  Canonical code for why the update failed to apply.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Aborted The operation was
+ *        aborted, typically due to a concurrency issue such as a sequencer
+ *        check failure or transaction abort. See the guidelines above for
+ *        deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`.
+ *        HTTP Mapping: 409 Conflict (Value: "ABORTED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_AlreadyExists The entity that
+ *        a client attempted to create (e.g., file or directory) already exists.
+ *        HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Cancelled The operation was
+ *        cancelled, typically by the caller. HTTP Mapping: 499 Client Closed
+ *        Request (Value: "CANCELLED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_DataLoss Unrecoverable data
+ *        loss or corruption. HTTP Mapping: 500 Internal Server Error (Value:
+ *        "DATA_LOSS")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_DeadlineExceeded The deadline
+ *        expired before the operation could complete. For operations that
+ *        change the state of the system, this error may be returned even if the
+ *        operation has completed successfully. For example, a successful
+ *        response from a server could have been delayed long enough for the
+ *        deadline to expire. HTTP Mapping: 504 Gateway Timeout (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_FailedPrecondition The
+ *        operation was rejected because the system is not in a state required
+ *        for the operation's execution. For example, the directory to be
+ *        deleted is non-empty, an rmdir operation is applied to a
+ *        non-directory, etc. Service implementors can use the following
+ *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
+ *        failing call. (b) Use `ABORTED` if the client should retry at a higher
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
+ *        "FAILED_PRECONDITION")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Internal Internal errors.
+ *        This means that some invariants expected by the underlying system have
+ *        been broken. This error code is reserved for serious errors. HTTP
+ *        Mapping: 500 Internal Server Error (Value: "INTERNAL")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_InvalidArgument The client
+ *        specified an invalid argument. Note that this differs from
+ *        `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *        problematic regardless of the state of the system (e.g., a malformed
+ *        file name). HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_NotFound Some requested
+ *        entity (e.g., file or directory) was not found. Note to server
+ *        developers: if a request is denied for an entire class of users, such
+ *        as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may
+ *        be used. If a request is denied for some users within a class of
+ *        users, such as user-based access control, `PERMISSION_DENIED` must be
+ *        used. HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Ok Not an error; returned on
+ *        success HTTP Mapping: 200 OK (Value: "OK")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_OutOfRange The operation was
+ *        attempted past the valid range. E.g., seeking or reading past
+ *        end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *        that may be fixed if the system state changes. For example, a 32-bit
+ *        file system will generate `INVALID_ARGUMENT` if asked to read at an
+ *        offset that is not in the range [0,2^32-1], but it will generate
+ *        `OUT_OF_RANGE` if asked to read from an offset past the current file
+ *        size. There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *        `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
+ *        error) when it applies so that callers who are iterating through a
+ *        space can easily look for an `OUT_OF_RANGE` error to detect when they
+ *        are done. HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_PermissionDenied The caller
+ *        does not have permission to execute the specified operation.
+ *        `PERMISSION_DENIED` must not be used for rejections caused by
+ *        exhausting some resource (use `RESOURCE_EXHAUSTED` instead for those
+ *        errors). `PERMISSION_DENIED` must not be used if the caller can not be
+ *        identified (use `UNAUTHENTICATED` instead for those errors). This
+ *        error code does not imply the request is valid or the requested entity
+ *        exists or satisfies other pre-conditions. HTTP Mapping: 403 Forbidden
+ *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_ResourceExhausted Some
+ *        resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *        entire file system is out of space. HTTP Mapping: 429 Too Many
+ *        Requests (Value: "RESOURCE_EXHAUSTED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Unauthenticated The request
+ *        does not have valid authentication credentials for the operation. HTTP
+ *        Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Unavailable The service is
+ *        currently unavailable. This is most likely a transient condition,
+ *        which can be corrected by retrying with a backoff. Note that it is not
+ *        always safe to retry non-idempotent operations. See the guidelines
+ *        above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable (Value:
+ *        "UNAVAILABLE")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Unimplemented The operation
+ *        is not implemented or is not supported/enabled in this service. HTTP
+ *        Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
+ *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Unknown Unknown error. For
+ *        example, this error may be returned when a `Status` value received
+ *        from another address space belongs to an error space that is not known
+ *        in this address space. Also errors raised by APIs that do not return
+ *        enough error information may be converted to this error. HTTP Mapping:
+ *        500 Internal Server Error (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Failure reason message. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Failed printer. */
+@property(nonatomic, strong, nullable) GTLRDirectory_Printer *printer;
+
+/** Id of a failed printer. */
+@property(nonatomic, copy, nullable) NSString *printerId;
 
 @end
 
@@ -1646,10 +2206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  The group's email address. If your account has multiple domains, select the
  *  appropriate domain for the email address. The `email` must be unique. This
  *  property is required when creating a group. Group email addresses are
- *  subject to the same character usage rules as usernames, see the
- *  [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=33386) for the
- *  details.
+ *  subject to the same character usage rules as usernames, see the [help
+ *  center](https://support.google.com/a/answer/9193374) for details.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
@@ -1716,6 +2274,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
+ *  Response for listing allowed printer models.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "printerModels" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDirectory_ListPrinterModelsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Printer models that are currently allowed to be configured for ChromeOs.
+ *  Some printers may be added or removed over time.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_PrinterModel *> *printerModels;
+
+@end
+
+
+/**
+ *  Response for listing printers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "printers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDirectory_ListPrintersResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of printers. If `org_unit_id` was given in the request, then only
+ *  printers visible for this OU will be returned. If `org_unit_id` was given in
+ *  the request, then all printers will be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Printer *> *printers;
+
+@end
+
+
+/**
  *  A Google Groups member can be a user or another group. This member can be
  *  inside or outside of your account's domains. For more information about
  *  common group member tasks, see the [Developer's
@@ -1759,7 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  memberships. For example, if `group1` is a member of `group2`, `group2`
  *  cannot be a member of `group1`. For more information about a member's role,
  *  see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=167094).
+ *  center](https://support.google.com/a/answer/167094).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1820,9 +2435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Google Workspace Mobile Management includes Android, [Google
- *  Sync](http://support.google.com/a/bin/answer.py?answer=135937), and iOS
- *  devices. For more information about common group mobile device API tasks,
- *  see the [Developer's
+ *  Sync](https://support.google.com/a/answer/135937), and iOS devices. For more
+ *  information about common group mobile device API tasks, see the [Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices.html).
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
@@ -2042,7 +2656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  The list of permissions of this application. These can be either a standard
  *  Android permission or one defined by the application, and are found in an
  *  application's [Android
- *  manifest](http://developer.android.com/guide/topics/manifest/uses-permission-element.html).
+ *  manifest](https://developer.android.com/guide/topics/manifest/uses-permission-element.html).
  *  Examples of a Calendar application's permissions are `READ_CALENDAR`, or
  *  `MANAGE_ACCOUNTS`.
  */
@@ -2106,7 +2720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Managing your account's organizational units allows you to configure your
  *  users' access to services and custom settings. For more information about
  *  common organizational unit tasks, see the [Developer's
- *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html).
+ *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html). The customer's
+ *  organizational unit hierarchy is limited to 35 levels of depth.
  */
 @interface GTLRDirectory_OrgUnit : GTLRObject
 
@@ -2116,7 +2731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  sub-organizational unit inherits the settings of the nearest parent
  *  organizational unit. For more information on inheritance and users in an
  *  organization structure, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182442&topic=1227584&ctx=topic).
+ *  center](https://support.google.com/a/answer/4352075).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2158,9 +2773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  unit determines which Google Workspace services the user has access to. If
  *  the user is moved to a new organization, the user's access changes. For more
  *  information about organization structures, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182433&topic=1227584&ctx=topic).
- *  For more information about moving a user to a different organization, see
- *  [Update a
+ *  center](https://support.google.com/a/answer/4352075). For more information
+ *  about moving a user to a different organization, see [Update a
  *  user](/admin-sdk/directory/v1/guides/manage-users.html#update_user).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
@@ -2197,6 +2811,90 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /** List of organizational unit objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
+
+@end
+
+
+/**
+ *  Printer configuration.
+ */
+@interface GTLRDirectory_Printer : GTLRObject
+
+/**
+ *  Output only. Auxiliary messages about issues with the printer configuration
+ *  if any.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_AuxiliaryMessage *> *auxiliaryMessages;
+
+/** Output only. Time when printer was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Editable. Description of printer.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Editable. Name of printer. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Id of the printer. (During printer creation leave empty)
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Editable. Make and model of printer. e.g. Lexmark MS610de Value must be in
+ *  format as seen in ListPrinterModels response.
+ */
+@property(nonatomic, copy, nullable) NSString *makeAndModel;
+
+/**
+ *  The resource name of the Printer object, in the format
+ *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
+ *  empty)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Organization Unit that owns this printer (Only can be set during Printer
+ *  creation)
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/** Editable. Printer URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+/**
+ *  Editable. flag to use driverless configuration or not. If it's set to be
+ *  true, make_and_model can be ignored
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useDriverlessConfig;
+
+@end
+
+
+/**
+ *  Printer manufacturer and model
+ */
+@interface GTLRDirectory_PrinterModel : GTLRObject
+
+/** Display name. eq. "Brother MFC-8840D" */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Make and model as represented in "make_and_model" field in Printer object.
+ *  eq. "brother mfc-8840d"
+ */
+@property(nonatomic, copy, nullable) NSString *makeAndModel;
+
+/** Manufacturer. eq. "Brother" */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
 
 @end
 
@@ -2272,23 +2970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  List of recent device users, in descending order, by last login time.
- */
-@interface GTLRDirectory_RecentUsers : GTLRObject
-
-/**
- *  The user's email address. This is only present if the user type is
- *  `USER_TYPE_MANAGED`.
- */
-@property(nonatomic, copy, nullable) NSString *email;
-
-/** The type of the user. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  GTLRDirectory_Role
  */
 @interface GTLRDirectory_Role : GTLRObject
@@ -2351,7 +3032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_RoleAssignment
+ *  Defines an assignment of a role.
  */
 @interface GTLRDirectory_RoleAssignment : GTLRObject
 
@@ -2475,7 +3156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** The unique identifier of the schema (Read-only) */
 @property(nonatomic, copy, nullable) NSString *schemaId;
 
-/** The schema's name. */
+/**
+ *  The schema's name. Each `schema_name` must be unique within a customer.
+ *  Reusing a name results in a `409: Entity already exists` error.
+ */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
 @end
@@ -2684,7 +3368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
-/** Output only. List of the user's alias email addresses. */
+/** Output only. A list of the user's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -2717,7 +3401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Custom fields of the user. */
+/**
+ *  Custom fields of the user. The key is a `schema_name` and its values are
+ *  `'field_name': 'field_value'`.
+ */
 @property(nonatomic, strong, nullable) GTLRDirectory_User_CustomSchemas *customSchemas;
 
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
@@ -2752,9 +3439,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Stores the hash format of the password property. We recommend sending the
  *  `password` property value as a base 16 bit hexadecimal-encoded hash value.
  *  Set the `hashFunction` values as either the
- *  [SHA-1](http://wikipedia.org/wiki/SHA-1),
- *  [MD5](http://wikipedia.org/wiki/MD5), or
- *  [crypt](https://en.wikipedia.org/wiki/Crypt_(C)) hash format.
+ *  [SHA-1](https://wikipedia.org/wiki/SHA-1),
+ *  [MD5](https://wikipedia.org/wiki/MD5), or
+ *  [crypt](https://en.wikipedia.org/wiki/Crypt_\\(C\\)) hash format.
  */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 
@@ -2779,15 +3466,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Indicates if the user's profile is visible in the Google Workspace global
  *  address list when the contact sharing feature is enabled for the domain. For
  *  more information about excluding user profiles, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=1285988).
+ *  center](https://support.google.com/a/answer/1285988).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeInGlobalAddressList;
 
 /**
- *  If `true`, the user's IP address is [white
- *  listed](http://support.google.com/a/bin/answer.py?answer=60752).
+ *  If `true`, the user's IP address is
+ *  [whitelisted](https://support.google.com/a/answer/60752).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2813,7 +3500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  administrators are supported by the API but cannot create or undelete users,
  *  or make users administrators. These requests are ignored by the API service.
  *  Roles and privileges for administrators are assigned using the [Admin
- *  console](http://support.google.com/a/bin/answer.py?answer=33325).
+ *  console](https://support.google.com/a/answer/33325).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2878,8 +3565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  characters, and can contain spaces, letters (a-z), numbers (0-9), dashes
  *  (-), forward slashes (/), and periods (.). For more information about
  *  character usage rules, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=33386). Maximum
- *  allowed data size for this field is 1Kb.
+ *  center](https://support.google.com/a/answer/9193374). Maximum allowed data
+ *  size for this field is 1Kb.
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
@@ -2923,7 +3610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) id phones;
 
 /**
- *  A list of [POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
+ *  A list of [POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
  *  account information for the user.
  *
  *  Can be any valid JSON type.
@@ -2992,7 +3679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  Custom fields of the user.
+ *  Custom fields of the user. The key is a `schema_name` and its values are
+ *  `'field_name': 'field_value'`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDirectory_UserCustomProperties. Use @c -additionalJSONKeys and @c
@@ -3448,14 +4136,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The user photo's upload data in [web-safe
- *  Base64](https://code.google.com/p/stringencoders/wiki/WebSafeBase64) format
- *  in bytes. This means: * The slash (/) character is replaced with the
- *  underscore (_) character. * The plus sign (+) character is replaced with the
- *  hyphen (-) character. * The equals sign (=) character is replaced with the
- *  asterisk (*). * For padding, the period (.) character is used instead of the
- *  RFC-4648 baseURL definition which uses the equals sign (=) for padding. This
- *  is done to simplify URL-parsing. * Whatever the size of the photo being
- *  uploaded, the API downsizes it to 96x96 pixels.
+ *  Base64](https://en.wikipedia.org/wiki/Base64#URL_applications) format in
+ *  bytes. This means: * The slash (/) character is replaced with the underscore
+ *  (_) character. * The plus sign (+) character is replaced with the hyphen (-)
+ *  character. * The equals sign (=) character is replaced with the asterisk
+ *  (*). * For padding, the period (.) character is used instead of the RFC-4648
+ *  baseURL definition which uses the equals sign (=) for padding. This is done
+ *  to simplify URL-parsing. * Whatever the size of the photo being uploaded,
+ *  the API downsizes it to 96x96 pixels.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

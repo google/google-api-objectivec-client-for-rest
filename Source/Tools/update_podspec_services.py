@@ -56,7 +56,7 @@ class PodspecUpdater(object):
   end
 """)
     result = self._file_start
-    for x in sorted(services):
+    for x in sorted(services, key=lambda s: s.lower()):
       result += template.safe_substitute({'Name': x})
     result += self._file_end
     return result

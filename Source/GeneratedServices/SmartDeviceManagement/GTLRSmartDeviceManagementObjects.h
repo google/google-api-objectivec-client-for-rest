@@ -211,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Represents device relationships, for instance, structure/room to which the
- *  device is assigned to. For now this is only filled in the enterprise flow.
+ *  device is assigned to.
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ParentRelation : GTLRObject
 

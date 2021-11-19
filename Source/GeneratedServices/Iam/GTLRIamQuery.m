@@ -85,6 +85,44 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_LocationsWorkforcePoolsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_LocationsWorkforcePoolsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.locations.workforcePools.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_LocationsWorkforcePoolsProvidersOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.locations.workforcePools.providers.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_OrganizationsRolesCreate
 
 @dynamic parent;
@@ -249,6 +287,90 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate
+
+@dynamic parent, workloadIdentityPoolId;
+
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workloadIdentityPools";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_WorkloadIdentityPool class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/workloadIdentityPools";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_ListWorkloadIdentityPoolsResponse class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet
 
 @dynamic name;
@@ -268,6 +390,117 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate
+
+@dynamic parent, workloadIdentityPoolProviderId;
+
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/providers";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_WorkloadIdentityPoolProvider class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/providers";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIam_ListWorkloadIdentityPoolProvidersResponse class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet
 
 @dynamic name;
@@ -282,6 +515,87 @@ NSString * const kGTLRIamViewFull  = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRIam_Operation class];
   query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.undelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:undelete";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.undelete";
   return query;
 }
 
@@ -612,6 +926,60 @@ NSString * const kGTLRIamViewFull  = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRIam_Empty class];
   query.loggingName = @"iam.projects.serviceAccounts.keys.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsServiceAccountsKeysDisable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_DisableServiceAccountKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:disable";
+  GTLRIamQuery_ProjectsServiceAccountsKeysDisable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.keys.disable";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsServiceAccountsKeysEnable
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRIam_EnableServiceAccountKeyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:enable";
+  GTLRIamQuery_ProjectsServiceAccountsKeysEnable *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Empty class];
+  query.loggingName = @"iam.projects.serviceAccounts.keys.enable";
   return query;
 }
 

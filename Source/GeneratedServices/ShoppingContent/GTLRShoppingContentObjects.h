@@ -45,6 +45,7 @@
 @class GTLRShoppingContent_AccountTaxTaxRule;
 @class GTLRShoppingContent_AccountUser;
 @class GTLRShoppingContent_AccountYouTubeChannelLink;
+@class GTLRShoppingContent_Address;
 @class GTLRShoppingContent_Amount;
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
@@ -72,8 +73,10 @@
 @class GTLRShoppingContent_Date;
 @class GTLRShoppingContent_DateTime;
 @class GTLRShoppingContent_DeliveryTime;
+@class GTLRShoppingContent_ECommercePlatformLinkInfo;
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
+@class GTLRShoppingContent_FreeListingsProgramStatusRegionStatus;
 @class GTLRShoppingContent_GmbAccounts;
 @class GTLRShoppingContent_GmbAccountsGmbAccount;
 @class GTLRShoppingContent_Headers;
@@ -101,6 +104,7 @@
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
 @class GTLRShoppingContent_MerchantRejectionReason;
+@class GTLRShoppingContent_Metrics;
 @class GTLRShoppingContent_MinimumOrderValueTable;
 @class GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov;
 @class GTLRShoppingContent_MonetaryAmount;
@@ -147,6 +151,7 @@
 @class GTLRShoppingContent_OrderTrackingSignalLineItemDetails;
 @class GTLRShoppingContent_OrderTrackingSignalShipmentLineItemMapping;
 @class GTLRShoppingContent_OrderTrackingSignalShippingInfo;
+@class GTLRShoppingContent_PaymentServiceProviderLinkInfo;
 @class GTLRShoppingContent_PickupCarrierService;
 @class GTLRShoppingContent_PickupServicesPickupService;
 @class GTLRShoppingContent_PosCustomBatchRequestEntry;
@@ -162,6 +167,7 @@
 @class GTLRShoppingContent_PriceAmount;
 @class GTLRShoppingContent_Product;
 @class GTLRShoppingContent_ProductAmount;
+@class GTLRShoppingContent_ProductDimension;
 @class GTLRShoppingContent_ProductProductDetail;
 @class GTLRShoppingContent_ProductsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ProductsCustomBatchResponseEntry;
@@ -177,6 +183,7 @@
 @class GTLRShoppingContent_ProductTax;
 @class GTLRShoppingContent_ProductUnitPricingBaseMeasure;
 @class GTLRShoppingContent_ProductUnitPricingMeasure;
+@class GTLRShoppingContent_ProductWeight;
 @class GTLRShoppingContent_RateGroup;
 @class GTLRShoppingContent_RefundReason;
 @class GTLRShoppingContent_Region;
@@ -186,6 +193,7 @@
 @class GTLRShoppingContent_RegionGeoTargetArea;
 @class GTLRShoppingContent_RegionPostalCodeArea;
 @class GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange;
+@class GTLRShoppingContent_ReportRow;
 @class GTLRShoppingContent_RepricingProductReport;
 @class GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats;
 @class GTLRShoppingContent_RepricingRule;
@@ -206,11 +214,17 @@
 @class GTLRShoppingContent_ReturnPolicy;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchRequestEntry;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry;
+@class GTLRShoppingContent_ReturnPolicyOnline;
+@class GTLRShoppingContent_ReturnPolicyOnlinePolicy;
+@class GTLRShoppingContent_ReturnPolicyOnlineRestockingFee;
+@class GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo;
+@class GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee;
 @class GTLRShoppingContent_ReturnPolicyPolicy;
 @class GTLRShoppingContent_ReturnPolicySeasonalOverride;
 @class GTLRShoppingContent_ReturnPricingInfo;
 @class GTLRShoppingContent_ReturnShipment;
 @class GTLRShoppingContent_Row;
+@class GTLRShoppingContent_Segments;
 @class GTLRShoppingContent_Service;
 @class GTLRShoppingContent_SettlementReport;
 @class GTLRShoppingContent_SettlementTransaction;
@@ -224,6 +238,7 @@
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry;
+@class GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus;
 @class GTLRShoppingContent_Table;
 @class GTLRShoppingContent_TestOrder;
 @class GTLRShoppingContent_TestOrderAddress;
@@ -240,6 +255,9 @@
 @class GTLRShoppingContent_UnitInvoiceAdditionalCharge;
 @class GTLRShoppingContent_UnitInvoiceTaxLine;
 @class GTLRShoppingContent_Value;
+@class GTLRShoppingContent_Warehouse;
+@class GTLRShoppingContent_WarehouseBasedDeliveryTime;
+@class GTLRShoppingContent_WarehouseCutoffTime;
 @class GTLRShoppingContent_Weight;
 
 // Generated comments include content from the discovery document; avoid them
@@ -251,6 +269,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_AccountCredentials.purpose
+
+/**
+ *  Unknown purpose.
+ *
+ *  Value: "ACCOUNT_CREDENTIALS_PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredentialsPurposeUnspecified;
+/**
+ *  The credentials allow Google to manage Shopify integration on behalf of the
+ *  merchant.
+ *
+ *  Value: "SHOPIFY_INTEGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyIntegration;
+/**
+ *  The credentials allow Google to manage Shopify orders on behalf of the
+ *  merchant (deprecated).
+ *
+ *  Value: "SHOPIFY_ORDER_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_AccountLabel.labelType
@@ -297,6 +339,290 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_Car
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_BuyOnGoogleProgramStatus.businessModel
+
+/**
+ *  Default value when business model is not set.
+ *
+ *  Value: "BUSINESS_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_BusinessModelUnspecified;
+/**
+ *  Merchant is an importer.
+ *
+ *  Value: "IMPORTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Importer;
+/**
+ *  Merchant is a manufacturer.
+ *
+ *  Value: "MANUFACTURER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Manufacturer;
+/**
+ *  Merchant has a different business model.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Other;
+/**
+ *  Merchant is a reseller.
+ *
+ *  Value: "RESELLER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_BusinessModel_Reseller;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BuyOnGoogleProgramStatus.onlineSalesChannel
+
+/**
+ *  Merchant is selling on Google and other websites.
+ *
+ *  Value: "GOOGLE_AND_OTHER_WEBSITES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleAndOtherWebsites;
+/**
+ *  Merchant is selling exclusively on Google.
+ *
+ *  Value: "GOOGLE_EXCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleExclusive;
+/**
+ *  Default value when online sales channel is not set.
+ *
+ *  Value: "ONLINE_SALES_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_OnlineSalesChannelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
+
+/**
+ *  Merchant's program participation is active for a specific region code.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active;
+/**
+ *  Merchant is eligible for onboarding to a given program in a specific region
+ *  code.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible;
+/**
+ *  Merchant fulfilled all the requirements and is ready to request review in a
+ *  specific region code.
+ *
+ *  Value: "ELIGIBLE_FOR_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview;
+/**
+ *  Merchant is not eligible for onboarding to a given program in a specific
+ *  region code.
+ *
+ *  Value: "NOT_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible;
+/**
+ *  Merchant is onboarding to a given program in a specific region code.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding;
+/**
+ *  Participation has been paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused;
+/**
+ *  Merchant is waiting for the review to be completed in a specific region
+ *  code.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview;
+/**
+ *  Default value when participation stage is not set.
+ *
+ *  Value: "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified;
+/**
+ *  The review for a merchant has been rejected in a specific region code.
+ *
+ *  Value: "REVIEW_DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_CaptureOrderResponse.executionStatus
+
+/**
+ *  The request was not performed because it already executed once successfully.
+ *
+ *  Value: "DUPLICATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Duplicate;
+/**
+ *  The request was completed successfully.
+ *
+ *  Value: "EXECUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Executed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "EXECUTION_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_FreeListingsProgramStatus.state
+
+/**
+ *  Program is not onboarded for any country.
+ *
+ *  Value: "NOT_ONBOARDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded;
+/**
+ *  Program is onboarded for at least one country.
+ *
+ *  Value: "ONBOARDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded;
+/**
+ *  State is not known.
+ *
+ *  Value: "PROGRAM_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.eligibilityStatus
+
+/**
+ *  If the account has no issues and review is completed successfully.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Approved;
+/**
+ *  There are one or more issues that needs to be resolved for account to be
+ *  active for the program. Detailed list of account issues are available in
+ *  [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *  API.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Disapproved;
+/**
+ *  Program is currently onboarding.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Onboarding;
+/**
+ *  Account is waiting for review to start.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_PendingReview;
+/**
+ *  State is not known.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
+/**
+ *  Account is under review.
+ *
+ *  Value: "UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_UnderReview;
+/**
+ *  If account has issues but offers are servable. Some of the issue can make
+ *  account DISAPPROVED after a certain deadline.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.enhancedEligibilityStatus
+
+/**
+ *  If the account has no issues and review is completed successfully.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Approved;
+/**
+ *  There are one or more issues that needs to be resolved for account to be
+ *  active for the program. Detailed list of account issues are available in
+ *  [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *  API.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Disapproved;
+/**
+ *  Program is currently onboarding.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Onboarding;
+/**
+ *  Account is waiting for review to start.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_PendingReview;
+/**
+ *  State is not known.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_StateUnspecified;
+/**
+ *  Account is under review.
+ *
+ *  Value: "UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_UnderReview;
+/**
+ *  If account has issues but offers are servable. Some of the issue can make
+ *  account DISAPPROVED after a certain deadline.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewEligibilityStatus
+
+/**
+ *  Account for a region code is eligible for review.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible;
+/**
+ *  Account for a region code is not eligible for review.
+ *
+ *  Value: "INELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
+/**
+ *  Review eligibility state is unknown.
+ *
+ *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
 
 /**
@@ -317,6 +643,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_I
  *  Value: "INAPPLICABLE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified;
+/**
+ *  The auto_pricing_min_price is invalid. For example, it is missing or < 0.
+ *
+ *  Value: "INVALID_AUTO_PRICE_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidAutoPriceMin;
+/**
+ *  The floor defined in the rule is invalid. For example, it has the wrong sign
+ *  which results in a floor < 0.
+ *
+ *  Value: "INVALID_FLOOR_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidFloorConfig;
 /**
  *  The rule restrictions are not met. For example, this may be the case if the
  *  calculated rule price is lower than floor price in the restriction.
@@ -366,6 +705,159 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.couponValueType
+
+/**
+ *  Buy M quantity, get money off. buy_this_quantity and money_off_amount must
+ *  be present.
+ *
+ *  Value: "BUY_M_GET_MONEY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetMoneyOff;
+/**
+ *  Buy M quantity, get N money off coupon value type. buy_this_quantity and
+ *  get_this_quantity must be present. money_off_amount must also be present.
+ *
+ *  Value: "BUY_M_GET_N_MONEY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNMoneyOff;
+/**
+ *  Buy M quantity, get N percent off coupon value type. buy_this_quantity and
+ *  get_this_quantity must be present. percent_off_percentage must also be
+ *  present.
+ *
+ *  Value: "BUY_M_GET_N_PERCENT_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNPercentOff;
+/**
+ *  Buy M quantity, get money off. buy_this_quantity and percent_off_percentage
+ *  must be present.
+ *
+ *  Value: "BUY_M_GET_PERCENT_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetPercentOff;
+/**
+ *  Indicates that the coupon value type is unspecified.
+ *
+ *  Value: "COUPON_VALUE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_CouponValueTypeUnspecified;
+/**
+ *  Free gift with description only
+ *
+ *  Value: "FREE_GIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeGift;
+/**
+ *  Free gift with item id (description is optional).
+ *
+ *  Value: "FREE_GIFT_WITH_ITEM_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithItemId;
+/**
+ *  Free gift with value (description is optional).
+ *
+ *  Value: "FREE_GIFT_WITH_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithValue;
+/**
+ *  Overnight free shipping coupon value type.
+ *
+ *  Value: "FREE_SHIPPING_OVERNIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingOvernight;
+/**
+ *  Standard free shipping coupon value type.
+ *
+ *  Value: "FREE_SHIPPING_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingStandard;
+/**
+ *  Two day free shipping coupon value type.
+ *
+ *  Value: "FREE_SHIPPING_TWO_DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingTwoDay;
+/**
+ *  Money off coupon value type.
+ *
+ *  Value: "MONEY_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_MoneyOff;
+/**
+ *  Percent off coupon value type.
+ *
+ *  Value: "PERCENT_OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_CouponValueType_PercentOff;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.offerType
+
+/**
+ *  Offer type with a code.
+ *
+ *  Value: "GENERIC_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_OfferType_GenericCode;
+/**
+ *  Offer type without a code.
+ *
+ *  Value: "NO_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_OfferType_NoCode;
+/**
+ *  Unknown offer type.
+ *
+ *  Value: "OFFER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_OfferType_OfferTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.productApplicability
+
+/**
+ *  Applicable to all products.
+ *
+ *  Value: "ALL_PRODUCTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_AllProducts;
+/**
+ *  Unknown product applicability.
+ *
+ *  Value: "PRODUCT_APPLICABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_ProductApplicabilityUnspecified;
+/**
+ *  Applicable to only a single product or list of products.
+ *
+ *  Value: "SPECIFIC_PRODUCTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_Promotion.redemptionChannel
+
+/**
+ *  Indicates that the channel is in store.
+ *
+ *  Value: "IN_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_InStore;
+/**
+ *  Indicates that the channel is online.
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_Online;
+/**
+ *  Indicates that the channel is unspecified.
+ *
+ *  Value: "REDEMPTION_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Promotion_RedemptionChannel_RedemptionChannelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingProductReport.type
 
 /**
@@ -381,6 +873,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_T
  *  Value: "TYPE_COGS_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased;
+/**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeSalesVolumeBased;
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
@@ -407,6 +913,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_Repri
  *  Value: "TYPE_COGS_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased;
+/**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeSalesVolumeBased;
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
@@ -463,6 +983,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased;
 /**
+ *  Competitive price rule. Repricer will adjust the offer price based on the
+ *  min price from a list of unnamed big competitors.
+ *
+ *  Value: "TYPE_COMPETITIVE_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCompetitivePrice;
+/**
+ *  Sales volume based rule. Repricer will adjust the offer price based on the
+ *  offer's sales volume in the past period of time defined within the rule.
+ *
+ *  Value: "TYPE_SALES_VOLUME_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeSalesVolumeBased;
+/**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
  *  (currently only min is available) among other merchants who sell the same
@@ -472,12 +1006,340 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased;
 
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RequestPhoneVerificationRequest.phoneVerificationMethod
+
+/**
+ *  Receive verification code by phone call.
+ *
+ *  Value: "PHONE_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneCall;
+/**
+ *  Unknown method.
+ *
+ *  Value: "PHONE_VERIFICATION_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified;
+/**
+ *  Receive verification code by SMS.
+ *
+ *  Value: "SMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_Sms;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnline.itemConditions
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ITEM_CONDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_ItemConditionUnspecified;
+/**
+ *  New.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_New;
+/**
+ *  Used.
+ *
+ *  Value: "USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_Used;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnline.returnMethods
+
+/**
+ *  At a kiosk.
+ *
+ *  Value: "AT_A_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_AtAKiosk;
+/**
+ *  By mail.
+ *
+ *  Value: "BY_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ByMail;
+/**
+ *  In store.
+ *
+ *  Value: "IN_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_InStore;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ReturnMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlinePolicy.type
+
+/**
+ *  Life time returns.
+ *
+ *  Value: "LIFETIME_RETURNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_LifetimeReturns;
+/**
+ *  No returns.
+ *
+ *  Value: "NO_RETURNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NoReturns;
+/**
+ *  Number of days after a return is delivered.
+ *
+ *  Value: "NUMBER_OF_DAYS_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NumberOfDaysAfterDelivery;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnLabelSource
+
+/**
+ *  Customers' responsibility to get the label.
+ *
+ *  Value: "CUSTOMER_RESPONSIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_CustomerResponsibility;
+/**
+ *  Download and print the label.
+ *
+ *  Value: "DOWNLOAD_AND_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_DownloadAndPrint;
+/**
+ *  Label in the box.
+ *
+ *  Value: "IN_THE_BOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_InTheBox;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_LABEL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_ReturnLabelSourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnReasonCategory
+
+/**
+ *  Buyer remorse.
+ *
+ *  Value: "BUYER_REMORSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_BuyerRemorse;
+/**
+ *  Item defect.
+ *
+ *  Value: "ITEM_DEFECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ItemDefect;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_REASON_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ReturnReasonCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee.type
+
+/**
+ *  Customer will pay the actual return shipping fee.
+ *
+ *  Value: "CUSTOMER_PAYING_ACTUAL_FEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_CustomerPayingActualFee;
+/**
+ *  The return shipping fee is a fixed value.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_Fixed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_Segments.program
+
+/**
+ *  Buy on Google Listing.
+ *
+ *  Value: "BUY_ON_GOOGLE_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing;
+/**
+ *  Free Local Product Listing.
+ *
+ *  Value: "FREE_LOCAL_PRODUCT_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_FreeLocalProductListing;
+/**
+ *  Free Product Listing.
+ *
+ *  Value: "FREE_PRODUCT_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_FreeProductListing;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROGRAM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_ProgramUnspecified;
+/**
+ *  Shopping Ads.
+ *
+ *  Value: "SHOPPING_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ShoppingAdsProgramStatus.state
+
+/**
+ *  Program is not onboarded for any country.
+ *
+ *  Value: "NOT_ONBOARDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded;
+/**
+ *  Program is onboarded for at least one country.
+ *
+ *  Value: "ONBOARDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded;
+/**
+ *  State is not known.
+ *
+ *  Value: "PROGRAM_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.eligibilityStatus
+
+/**
+ *  If the account has no issues and review is completed successfully.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Approved;
+/**
+ *  There are one or more issues that needs to be resolved for account to be
+ *  active for the program. Detailed list of account issues are available in
+ *  [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *  API.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Disapproved;
+/**
+ *  Program is currently onboarding.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Onboarding;
+/**
+ *  Account is waiting for review to start.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_PendingReview;
+/**
+ *  State is not known.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
+/**
+ *  Account is under review.
+ *
+ *  Value: "UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_UnderReview;
+/**
+ *  If account has issues but offers are servable. Some of the issue can make
+ *  account DISAPPROVED after a certain deadline.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewEligibilityStatus
+
+/**
+ *  Account for a region code is eligible for review.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible;
+/**
+ *  Account for a region code is not eligible for review.
+ *
+ *  Value: "INELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
+/**
+ *  Review eligibility state is unknown.
+ *
+ *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
+
+/**
+ *  Receive verification code by phone call.
+ *
+ *  Value: "PHONE_CALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneCall;
+/**
+ *  Unknown method.
+ *
+ *  Value: "PHONE_VERIFICATION_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified;
+/**
+ *  Receive verification code by SMS.
+ *
+ *  Value: "SMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_Sms;
+
 /**
  *  Account data. After the creation of a new account it may take a few minutes
  *  before it is fully operational. The methods delete, insert, and update
  *  require the admin role.
  */
 @interface GTLRShoppingContent_Account : GTLRObject
+
+/**
+ *  Output only. How the account is managed. Acceptable values are: - "`manual`"
+ *  - "`automatic`"
+ */
+@property(nonatomic, copy, nullable) NSString *accountManagement;
 
 /**
  *  Linked Ads accounts that are active or pending approval. To create a new
@@ -530,7 +1392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "`content#account`"
+ *  "`content#account`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -574,8 +1436,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @interface GTLRShoppingContent_AccountAddress : GTLRObject
 
 /**
- *  CLDR country code (e.g. "US"). This value cannot be set for a sub-account of
- *  an MCA. All MCA sub-accounts inherit the country of their parent MCA.
+ *  CLDR country code (e.g. "US"). All MCA sub-accounts inherit the country of
+ *  their parent MCA by default, however the country can be updated for
+ *  individual sub-accounts.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -640,8 +1503,61 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** The customer service information of the business. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountCustomerService *customerService;
 
-/** The phone number of the business. */
+/**
+ *  The 10-digit [Korean business registration
+ *  number](https://support.google.com/merchants/answer/9037766) separated with
+ *  dashes in the format: XXX-XX-XXXXX. This field will only be updated if
+ *  explicitly set.
+ */
+@property(nonatomic, copy, nullable) NSString *koreanBusinessRegistrationNumber;
+
+/**
+ *  The phone number of the business. This can only be updated if a verified
+ *  phone number is not already set. To replace a verified phone number use the
+ *  `Accounts.requestphoneverification` and `Accounts.verifyphonenumber`.
+ */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Verification status of the phone number of the business. This status is read
+ *  only and can be updated only by successful phone verification. Acceptable
+ *  values are: - "`verified`" - "`unverified`"
+ */
+@property(nonatomic, copy, nullable) NSString *phoneVerificationStatus;
+
+@end
+
+
+/**
+ *  Credentials allowing Google to call a partner's API on behalf of a merchant.
+ */
+@interface GTLRShoppingContent_AccountCredentials : GTLRObject
+
+/** An OAuth access token. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The amount of time, in seconds, after which the access token is no longer
+ *  valid.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/**
+ *  Indicates to Google how Google should use these OAuth tokens.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredentialsPurposeUnspecified
+ *        Unknown purpose. (Value: "ACCOUNT_CREDENTIALS_PURPOSE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyIntegration
+ *        The credentials allow Google to manage Shopify integration on behalf
+ *        of the merchant. (Value: "SHOPIFY_INTEGRATION")
+ *    @arg @c kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement
+ *        The credentials allow Google to manage Shopify orders on behalf of the
+ *        merchant (deprecated). (Value: "SHOPIFY_ORDER_MANAGEMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
 
 @end
 
@@ -810,7 +1726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsAuthInfoResponse".
+ *  "`content#accountsAuthInfoResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -824,7 +1740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsClaimWebsiteResponse".
+ *  "`content#accountsClaimWebsiteResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -931,14 +1847,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Type of the link between the two accounts. Acceptable values are: -
- *  "`channelPartner`" - "`eCommercePlatform`"
+ *  "`channelPartner`" - "`eCommercePlatform`" - "`paymentServiceProvider`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
 /**
  *  Provided services. Acceptable values are: - "`shoppingAdsProductManagement`"
- *  - "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ *  - "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`"
+ *  - "`paymentProcessing`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -955,7 +1871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsCustomBatchResponse".
+ *  "`content#accountsCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1004,19 +1920,25 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/** Additional information required for `eCommercePlatform` link type. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ECommercePlatformLinkInfo *eCommercePlatformLinkInfo;
+
 /** The ID of the linked account. */
 @property(nonatomic, copy, nullable) NSString *linkedAccountId;
 
 /**
  *  Type of the link between the two accounts. Acceptable values are: -
- *  "`channelPartner`" - "`eCommercePlatform`"
+ *  "`channelPartner`" - "`eCommercePlatform`" - "`paymentServiceProvider`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
+/** Additional information required for `paymentServiceProvider` link type. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PaymentServiceProviderLinkInfo *paymentServiceProviderLinkInfo;
+
 /**
  *  Acceptable values are: - "`shoppingAdsProductManagement`" -
- *  "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ *  "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`" -
+ *  "`paymentProcessing`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -1030,7 +1952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsLinkResponse".
+ *  "`content#accountsLinkResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1049,7 +1971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsListLinksResponse".
+ *  "`content#accountsListLinksResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1079,7 +2001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsListResponse".
+ *  "`content#accountsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1108,6 +2030,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /** A list of account level issues. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountStatusAccountLevelIssue *> *accountLevelIssues;
+
+/**
+ *  How the account is managed. Acceptable values are: - "`manual`" -
+ *  "`automatic`"
+ */
+@property(nonatomic, copy, nullable) NSString *accountManagement;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
@@ -1229,7 +2157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountstatusesCustomBatchResponse".
+ *  "`content#accountstatusesCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1272,7 +2200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountstatusesListResponse".
+ *  "`content#accountstatusesListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1414,7 +2342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountsUpdateLabelsResponse".
+ *  "`content#accountsUpdateLabelsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1435,7 +2363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accountTax".
+ *  "`content#accountTax`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1508,7 +2436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accounttaxCustomBatchResponse".
+ *  "`content#accounttaxCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1554,7 +2482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#accounttaxListResponse".
+ *  "`content#accounttaxListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1677,6 +2605,46 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Request message for the ActivateProgram method.
+ */
+@interface GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
+ *  GTLRShoppingContent_Address
+ */
+@interface GTLRShoppingContent_Address : GTLRObject
+
+/**
+ *  Required. Top-level administrative subdivision of the country. For example,
+ *  a state like California ("CA") or a province like Quebec ("QC").
+ */
+@property(nonatomic, copy, nullable) NSString *administrativeArea;
+
+/**
+ *  Required. City, town or commune. May also include dependent localities or
+ *  sublocalities (e.g. neighborhoods or suburbs).
+ */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/**
+ *  Required. [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  (e.g. "US").
+ */
+@property(nonatomic, copy, nullable) NSString *country;
+
+/** Required. Postal code or ZIP (e.g. "94043"). */
+@property(nonatomic, copy, nullable) NSString *postalCode;
+
+/** Street-level part of the address. */
+@property(nonatomic, copy, nullable) NSString *streetAddress;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_Amount
  */
 @interface GTLRShoppingContent_Amount : GTLRObject
@@ -1698,8 +2666,139 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
 
-/** Regular business days. May not be empty. */
+/** Regular business days, such as '"monday"'. May not be empty. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *businessDays;
+
+@end
+
+
+/**
+ *  Response message for the GetProgramStatus method.
+ */
+@interface GTLRShoppingContent_BuyOnGoogleProgramStatus : GTLRObject
+
+/** The business models in which merchant participates. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *businessModel;
+
+/**
+ *  The customer service pending email. After verification this field becomes
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *customerServicePendingEmail;
+
+/**
+ *  The pending phone number specified for BuyOnGoogle program. It might be
+ *  different than account level phone number. In order to update this field the
+ *  customer_service_pending_phone_region_code must also be set. After
+ *  verification this field becomes empty.
+ */
+@property(nonatomic, copy, nullable) NSString *customerServicePendingPhoneNumber;
+
+/**
+ *  Two letter country code for the pending phone number, for example `CA` for
+ *  Canadian numbers. See the [ISO 3166-1
+ *  alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+ *  officially assigned codes. In order to update this field the
+ *  customer_service_pending_phone_number must also be set. After verification
+ *  this field becomes empty.
+ */
+@property(nonatomic, copy, nullable) NSString *customerServicePendingPhoneRegionCode;
+
+/** Output only. The customer service verified email. */
+@property(nonatomic, copy, nullable) NSString *customerServiceVerifiedEmail;
+
+/**
+ *  Output only. The verified phone number specified for BuyOnGoogle program. It
+ *  might be different than account level phone number.
+ */
+@property(nonatomic, copy, nullable) NSString *customerServiceVerifiedPhoneNumber;
+
+/**
+ *  Output only. Two letter country code for the verified phone number, for
+ *  example `CA` for Canadian numbers. See the [ISO 3166-1
+ *  alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+ *  officially assigned codes.
+ */
+@property(nonatomic, copy, nullable) NSString *customerServiceVerifiedPhoneRegionCode;
+
+/**
+ *  The channels through which the merchant is selling.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleAndOtherWebsites
+ *        Merchant is selling on Google and other websites. (Value:
+ *        "GOOGLE_AND_OTHER_WEBSITES")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_GoogleExclusive
+ *        Merchant is selling exclusively on Google. (Value: "GOOGLE_EXCLUSIVE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_OnlineSalesChannel_OnlineSalesChannelUnspecified
+ *        Default value when online sales channel is not set. (Value:
+ *        "ONLINE_SALES_CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *onlineSalesChannel;
+
+/**
+ *  Output only. The current participation stage for the program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active
+ *        Merchant's program participation is active for a specific region code.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible
+ *        Merchant is eligible for onboarding to a given program in a specific
+ *        region code. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview
+ *        Merchant fulfilled all the requirements and is ready to request review
+ *        in a specific region code. (Value: "ELIGIBLE_FOR_REVIEW")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible
+ *        Merchant is not eligible for onboarding to a given program in a
+ *        specific region code. (Value: "NOT_ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding
+ *        Merchant is onboarding to a given program in a specific region code.
+ *        (Value: "ONBOARDING")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused
+ *        Participation has been paused. (Value: "PAUSED")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview
+ *        Merchant is waiting for the review to be completed in a specific
+ *        region code. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified
+ *        Default value when participation stage is not set. (Value:
+ *        "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved
+ *        The review for a merchant has been rejected in a specific region code.
+ *        (Value: "REVIEW_DISAPPROVED")
+ */
+@property(nonatomic, copy, nullable) NSString *participationStage;
+
+@end
+
+
+/**
+ *  Request message for the CaptureOrder method.
+ */
+@interface GTLRShoppingContent_CaptureOrderRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the CaptureOrder method.
+ */
+@interface GTLRShoppingContent_CaptureOrderResponse : GTLRObject
+
+/**
+ *  The status of the execution. Only defined if the request was successful.
+ *  Acceptable values are: * "duplicate" * "executed"
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Duplicate
+ *        The request was not performed because it already executed once
+ *        successfully. (Value: "DUPLICATE")
+ *    @arg @c kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Executed
+ *        The request was completed successfully. (Value: "EXECUTED")
+ *    @arg @c kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "EXECUTION_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *executionStatus;
 
 @end
 
@@ -1753,12 +2852,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** The CLDR country code of the carrier (e.g., "US"). Always present. */
 @property(nonatomic, copy, nullable) NSString *country;
 
+/**
+ *  A list of services supported for EDD (Estimated Delivery Date) calculation.
+ *  This is the list of valid values for
+ *  WarehouseBasedDeliveryTime.carrierService.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eddServices;
+
 /** The name of the carrier (e.g., `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A list of supported services (e.g., `"ground"`) for that carrier. Contains
- *  at least one service.
+ *  at least one service. This is the list of valid values for
+ *  CarrierRate.carrierService.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -1772,7 +2879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Label that you assign to a collection to help organize bidding and reporting
- *  in Shopping campaigns. Custom label
+ *  in Shopping campaigns. [Custom
+ *  label](https://support.google.com/merchants/answer/9674217)
  */
 @property(nonatomic, copy, nullable) NSString *customLabel0;
 
@@ -1805,51 +2913,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  a lookup to the corresponding product ID in your product feeds. Provide a
  *  maximum of 100 featuredProduct (for collections). Provide up to 10
  *  featuredProduct (for Shoppable Images only) with ID and X and Y coordinates.
- *  featured_product attribute
+ *  [featured_product
+ *  attribute](https://support.google.com/merchants/answer/9703736)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionFeaturedProduct *> *featuredProduct;
 
-/** Your collection's name. headline attribute */
+/**
+ *  Your collection's name. [headline
+ *  attribute](https://support.google.com/merchants/answer/9673580)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headline;
 
 /**
  *  Required. The REST ID of the collection. Content API methods that operate on
  *  collections take this as their collectionId parameter. The REST ID for a
- *  collection is of the form collectionId. id attribute
+ *  collection is of the form collectionId. [id
+ *  attribute](https://support.google.com/merchants/answer/9649290)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The URL of a collection’s image. image_link attribute */
+/**
+ *  The URL of a collection’s image. [image_link
+ *  attribute](https://support.google.com/merchants/answer/9703236)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *imageLink;
 
 /**
  *  The language of a collection and the language of any featured products
- *  linked to the collection. language attribute
+ *  linked to the collection. [language
+ *  attribute](https://support.google.com/merchants/answer/9673781)
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  A collection’s landing page. URL directly linking to your collection's page
- *  on your website. link attribute
+ *  on your website. [link
+ *  attribute](https://support.google.com/merchants/answer/9673983)
  */
 @property(nonatomic, copy, nullable) NSString *link;
 
 /**
  *  A collection’s mobile-optimized landing page when you have a different URL
- *  for mobile and desktop traffic. mobile_link attribute
+ *  for mobile and desktop traffic. [mobile_link
+ *  attribute](https://support.google.com/merchants/answer/9646123)
  */
 @property(nonatomic, copy, nullable) NSString *mobileLink;
 
-/** product_country attribute */
+/**
+ *  [product_country
+ *  attribute](https://support.google.com/merchants/answer/9674155)
+ */
 @property(nonatomic, copy, nullable) NSString *productCountry;
 
 @end
 
 
 /**
- *  The message for FeaturedProduct. FeaturedProduct
+ *  The message for FeaturedProduct.
+ *  [FeaturedProduct](https://support.google.com/merchants/answer/9703736)
  */
 @interface GTLRShoppingContent_CollectionFeaturedProduct : GTLRObject
 
@@ -2286,7 +3409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedsCustomBatchResponse".
+ *  "`content#datafeedsCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2323,7 +3446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedsFetchNowResponse".
+ *  "`content#datafeedsFetchNowResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2342,7 +3465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedsListResponse".
+ *  "`content#datafeedsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2515,7 +3638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedstatusesCustomBatchResponse".
+ *  "`content#datafeedstatusesCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2558,7 +3681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#datafeedstatusesListResponse".
+ *  "`content#datafeedstatusesListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2829,6 +3952,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TransitTable *transitTimeTable;
 
+/**
+ *  Indicates that the delivery time should be calculated per warehouse
+ *  (shipping origin location) based on the settings of the selected carrier.
+ *  When set, no other transit time related field in DeliveryTime should be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_WarehouseBasedDeliveryTime *> *warehouseBasedDeliveryTimes;
+
+@end
+
+
+/**
+ *  Additional information required for E_COMMERCE_PLATFORM link type.
+ */
+@interface GTLRShoppingContent_ECommercePlatformLinkInfo : GTLRObject
+
+/**
+ *  The id used by the third party service provider to identify the merchant.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountId;
+
 @end
 
 
@@ -2866,6 +4009,137 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /** The message of the first error in `errors`. */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Response message for GetFreeListingsProgramStatus.
+ */
+@interface GTLRShoppingContent_FreeListingsProgramStatus : GTLRObject
+
+/**
+ *  Status of the program in each region. Regions with the same status and
+ *  review eligibility are grouped together in `regionCodes`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_FreeListingsProgramStatusRegionStatus *> *regionStatuses;
+
+/**
+ *  If program is successfully onboarded for at least one region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded
+ *        Program is not onboarded for any country. (Value: "NOT_ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded
+ *        Program is onboarded for at least one country. (Value: "ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified
+ *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Status of program and region.
+ */
+@interface GTLRShoppingContent_FreeListingsProgramStatusRegionStatus : GTLRObject
+
+/**
+ *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
+ *  It will be present when `eligibility_status` is `WARNING`. Date will be
+ *  provided in ISO 8601 format i.e. YYYY-MM-DD
+ */
+@property(nonatomic, copy, nullable) NSString *disapprovalDate;
+
+/**
+ *  Eligibility status of the standard free listing program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Approved
+ *        If the account has no issues and review is completed successfully.
+ *        (Value: "APPROVED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Disapproved
+ *        There are one or more issues that needs to be resolved for account to
+ *        be active for the program. Detailed list of account issues are
+ *        available in
+ *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *        API. (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Onboarding
+ *        Program is currently onboarding. (Value: "ONBOARDING")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_PendingReview
+ *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
+ *        State is not known. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_UnderReview
+ *        Account is under review. (Value: "UNDER_REVIEW")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning
+ *        If account has issues but offers are servable. Some of the issue can
+ *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *eligibilityStatus;
+
+/**
+ *  Eligibility status of the enhanced free listing program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Approved
+ *        If the account has no issues and review is completed successfully.
+ *        (Value: "APPROVED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Disapproved
+ *        There are one or more issues that needs to be resolved for account to
+ *        be active for the program. Detailed list of account issues are
+ *        available in
+ *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *        API. (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Onboarding
+ *        Program is currently onboarding. (Value: "ONBOARDING")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_PendingReview
+ *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_StateUnspecified
+ *        State is not known. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_UnderReview
+ *        Account is under review. (Value: "UNDER_REVIEW")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Warning
+ *        If account has issues but offers are servable. Some of the issue can
+ *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *enhancedEligibilityStatus;
+
+/**
+ *  Reason if a program in a given country is not eligible for review. Populated
+ *  only if `review_eligibility_status` is `INELIGIBLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *ineligibilityReason;
+
+/**
+ *  The two-letter [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) codes for all the
+ *  regions with the same `eligibilityStatus` and `reviewEligibility`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
+
+/**
+ *  If a program in a given country is eligible for review. It will be present
+ *  only if eligibility status is `DISAPPROVED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
+ *        Account for a region code is eligible for review. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible
+ *        Account for a region code is not eligible for review. (Value:
+ *        "INELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
+ *        Review eligibility state is unknown. (Value:
+ *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
+
+/**
+ *  These issues will be evaluated in review process. Fix all the issues before
+ *  requesting the review.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
 
 @end
 
@@ -3078,6 +4352,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified
  *        Default value. Should not be used. (Value:
  *        "INAPPLICABLE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidAutoPriceMin
+ *        The auto_pricing_min_price is invalid. For example, it is missing or <
+ *        0. (Value: "INVALID_AUTO_PRICE_MIN")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidFloorConfig
+ *        The floor defined in the rule is invalid. For example, it has the
+ *        wrong sign which results in a floor < 0. (Value:
+ *        "INVALID_FLOOR_CONFIG")
  *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet
  *        The rule restrictions are not met. For example, this may be the case
  *        if the calculated rule price is lower than floor price in the
@@ -3395,7 +4676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsCustomBatchResponse".
+ *  "`content#liasettingsCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3452,7 +4733,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsGetAccessibleGmbAccountsResponse".
+ *  "`content#liasettingsGetAccessibleGmbAccountsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3466,7 +4747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsListPosDataProvidersResponse".
+ *  "`content#liasettingsListPosDataProvidersResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3488,7 +4769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsListResponse".
+ *  "`content#liasettingsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3513,7 +4794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsRequestGmbAccessResponse".
+ *  "`content#liasettingsRequestGmbAccessResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3527,7 +4808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsRequestInventoryVerificationResponse".
+ *  "`content#liasettingsRequestInventoryVerificationResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3541,7 +4822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsSetInventoryVerificationContactResponse".
+ *  "`content#liasettingsSetInventoryVerificationContactResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3555,7 +4836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#liasettingsSetPosDataProviderResponse".
+ *  "`content#liasettingsSetPosDataProviderResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3584,7 +4865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /**
  *  Service provided to or by the linked account. Acceptable values are: -
  *  "`shoppingActionsOrderManagement`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingAdsProductManagement`"
+ *  "`shoppingAdsProductManagement`" - "`paymentProcessing`"
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -3825,6 +5106,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Response message for the `ListReturnPolicyOnline` method.
+ */
+@interface GTLRShoppingContent_ListReturnPolicyOnlineResponse : GTLRObject
+
+/** The retrieved return policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicyOnline *> *returnPolicies;
+
+@end
+
+
+/**
  *  Local inventory resource. For accepted attribute values, see the local
  *  product inventory feed specification.
  */
@@ -3848,7 +5140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /**
  *  Supported pickup method for this offer. Unless the value is "not supported",
  *  this field must be submitted together with `pickupSla`. For accepted
- *  attribute values, see the local product inventory feed // specification.
+ *  attribute values, see the local product inventory feed specification.
  */
 @property(nonatomic, copy, nullable) NSString *pickupMethod;
 
@@ -3939,7 +5231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#localinventoryCustomBatchResponse".
+ *  "`content#localinventoryCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -4118,6 +5410,199 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Performance metrics. Values are only set for metrics requested explicitly in
+ *  the request's search query.
+ */
+@interface GTLRShoppingContent_Metrics : GTLRObject
+
+/**
+ *  Average order size - the average number of items in an order. **This metric
+ *  cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aos;
+
+/**
+ *  Average order value - the average value (total price of items) of all placed
+ *  orders. The currency of the returned value is stored in the currency_code
+ *  segment. If this metric is selected, 'segments.currency_code' is
+ *  automatically added to the SELECT clause in the search query (unless it is
+ *  explicitly selected by the user) and the currency_code segment is populated
+ *  in the response. **This metric cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aovMicros;
+
+/**
+ *  Number of clicks.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clicks;
+
+/**
+ *  Click-through rate - the number of clicks merchant's products receive
+ *  (clicks) divided by the number of times the products are shown
+ *  (impressions).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ctr;
+
+/**
+ *  Average number of days between an order being placed and the order being
+ *  fully shipped, reported on the last shipment date. **This metric cannot be
+ *  segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daysToShip;
+
+/**
+ *  Number of times merchant's products are shown.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressions;
+
+/**
+ *  Average number of days between an item being ordered and the item being
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *itemDaysToShip;
+
+/**
+ *  Percentage of shipped items in relation to all finalized items (shipped or
+ *  rejected by the merchant; unshipped items are not taken into account),
+ *  reported on the order date. Item fill rate is lowered by merchant
+ *  rejections.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *itemFillRate;
+
+/**
+ *  Number of ordered items. Excludes customer cancellations that happened
+ *  within 30 minutes of placing the order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderedItems;
+
+/**
+ *  Total price of ordered items. Excludes shipping, taxes (US only), and
+ *  customer cancellations that happened within 30 minutes of placing the order.
+ *  The currency of the returned value is stored in the currency_code segment.
+ *  If this metric is selected, 'segments.currency_code' is automatically added
+ *  to the SELECT clause in the search query (unless it is explicitly selected
+ *  by the user) and the currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderedItemSalesMicros;
+
+/**
+ *  Number of placed orders. Excludes customer cancellations that happened
+ *  within 30 minutes of placing the order. **This metric cannot be segmented by
+ *  product dimensions.**
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orders;
+
+/**
+ *  Number of ordered items canceled by the merchant, reported on the order
+ *  date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rejectedItems;
+
+/**
+ *  Number of ordered items sent back for return, reported on the date when the
+ *  merchant accepted the return.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnedItems;
+
+/**
+ *  Total price of returned items divided by the total price of shipped items,
+ *  reported on the order date. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRate;
+
+/**
+ *  Total price of ordered items sent back for return, reported on the date when
+ *  the merchant accepted the return. The currency of the returned value is
+ *  stored in the currency_code segment. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnsMicros;
+
+/**
+ *  Number of shipped items, reported on the shipment date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedItems;
+
+/**
+ *  Total price of shipped items, reported on the order date. Excludes shipping
+ *  and taxes (US only). The currency of the returned value is stored in the
+ *  currency_code segment. If this metric is selected, 'segments.currency_code'
+ *  is automatically added to the SELECT clause in the search query (unless it
+ *  is explicitly selected by the user) and the currency_code segment is
+ *  populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedItemSalesMicros;
+
+/**
+ *  Number of fully shipped orders, reported on the last shipment date. **This
+ *  metric cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedOrders;
+
+/**
+ *  Number of ordered items not shipped up until the end of the queried day. If
+ *  a multi-day period is specified in the search query, the returned value is
+ *  the average number of unshipped items over the days in the queried period.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unshippedItems;
+
+/**
+ *  Number of orders not shipped or partially shipped up until the end of the
+ *  queried day. If a multi-day period is specified in the search query, the
+ *  returned value is the average number of unshipped orders over the days in
+ *  the queried period. **This metric cannot be segmented by product
+ *  dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unshippedOrders;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_MinimumOrderValueTable
  */
 @interface GTLRShoppingContent_MinimumOrderValueTable : GTLRObject
@@ -4163,6 +5648,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  `currency`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
+
+@end
+
+
+/**
+ *  Request message for the OnboardProgram method.
+ */
+@interface GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest : GTLRObject
+
+/** The customer service email. */
+@property(nonatomic, copy, nullable) NSString *customerServiceEmail;
 
 @end
 
@@ -4378,7 +5874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`noInventory`" - "`orderTimeout`" - "`other`" - "`paymentAbuse`" -
  *  "`paymentDeclined`" - "`priceError`" - "`returnRefundAbuse`" -
  *  "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -4520,7 +6016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderinvoicesCreateChargeInvoiceResponse".
+ *  "`content#orderinvoicesCreateChargeInvoiceResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -4573,7 +6069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderinvoicesCreateRefundInvoiceResponse".
+ *  "`content#orderinvoicesCreateRefundInvoiceResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5231,7 +6727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreportsListDisbursementsResponse".
+ *  "`content#orderreportsListDisbursementsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5253,7 +6749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreportsListTransactionsResponse".
+ *  "`content#orderreportsListTransactionsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5376,7 +6872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreturnsAcknowledgeResponse".
+ *  "`content#orderreturnsAcknowledgeResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5418,7 +6914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreturnsCreateOrderReturnResponse".
+ *  "`content#orderreturnsCreateOrderReturnResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5435,9 +6931,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  The ID of the line item. This value is assigned by Google when an order is
- *  created.
+ *  created. Either lineItemId or productId is required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to cancel. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity of this line item.
@@ -5461,7 +6963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreturnsListResponse".
+ *  "`content#orderreturnsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5539,7 +7041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#orderreturnsProcessResponse".
+ *  "`content#orderreturnsProcessResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5641,7 +7143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersAcknowledgeResponse".
+ *  "`content#ordersAcknowledgeResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5655,7 +7157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersAdvanceTestOrderResponse".
+ *  "`content#ordersAdvanceTestOrderResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5696,7 +7198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`customerInitiatedCancel`" - "`invalidCoupon`" -
  *  "`malformedShippingAddress`" - "`noInventory`" - "`other`" - "`priceError`"
  *  - "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5719,7 +7221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersCancelLineItemResponse".
+ *  "`content#ordersCancelLineItemResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5741,7 +7243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`customerInitiatedCancel`" - "`invalidCoupon`" -
  *  "`malformedShippingAddress`" - "`noInventory`" - "`other`" - "`priceError`"
  *  - "`shippingPriceError`" - "`taxError`" - "`undeliverableShippingAddress`" -
- *  "`unsupportedPoBoxAddress`"
+ *  "`unsupportedPoBoxAddress`" - "`failedToCaptureFunds`"
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
@@ -5764,7 +7266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersCancelResponse".
+ *  "`content#ordersCancelResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5792,7 +7294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersCancelTestOrderByCustomerResponse".
+ *  "`content#ordersCancelTestOrderByCustomerResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5833,7 +7335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersCreateTestOrderResponse".
+ *  "`content#ordersCreateTestOrderResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5869,7 +7371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersCreateTestReturnResponse".
+ *  "`content#ordersCreateTestReturnResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -5950,7 +7452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  If set to true, all shipping costs for the order will be refunded. If this
- *  is true, amount should not be provided and will be ignored.
+ *  is true, amount should not be provided and will be ignored. If set to false,
+ *  submit the amount of the partial shipping refund, excluding the shipping
+ *  tax. The shipping tax is calculated and handled on Google's side.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6006,7 +7510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersGetByMerchantOrderIdResponse".
+ *  "`content#ordersGetByMerchantOrderIdResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6023,7 +7527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersGetTestOrderTemplateResponse".
+ *  "`content#ordersGetTestOrderTemplateResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6064,13 +7568,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  (Best Express) - "`canada post`" (Canada Post) - "`purolator`" (Purolator) -
  *  "`canpar`" (Canpar) - "`india post`" (India Post) - "`blue dart`" (Blue
  *  Dart) - "`delhivery`" (Delhivery) - "`dtdc`" (DTDC) - "`tpc india`" (TPC
- *  India) Supported carriers for FR are: - "`la poste`" (La Poste) *automatic
- *  status updates * - "`colissimo`" (Colissimo by La Poste) *automatic status
- *  updates* - "`ups`" (United Parcel Service) *automatic status updates * -
- *  "`chronopost`" (Chronopost by La Poste) - "`gls`" (General Logistics Systems
- *  France) - "`dpd`" (DPD Group by GeoPost) - "`bpost`" (Belgian Post Group) -
- *  "`colis prive`" (Colis Privé) - "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) -
- *  "`tnt`" (TNT) - "`db schenker`" (DB Schenker) - "`aramex`" (Aramex)
+ *  India) - "`lso`" (Lone Star Overnight) - "`tww`" (Team Worldwide) Supported
+ *  carriers for FR are: - "`la poste`" (La Poste) *automatic status updates * -
+ *  "`colissimo`" (Colissimo by La Poste) *automatic status updates* - "`ups`"
+ *  (United Parcel Service) *automatic status updates * - "`chronopost`"
+ *  (Chronopost by La Poste) - "`gls`" (General Logistics Systems France) -
+ *  "`dpd`" (DPD Group by GeoPost) - "`bpost`" (Belgian Post Group) - "`colis
+ *  prive`" (Colis Privé) - "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) - "`tnt`"
+ *  (TNT) - "`db schenker`" (DB Schenker) - "`aramex`" (Aramex)
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -6226,7 +7731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersInStoreRefundLineItemResponse".
+ *  "`content#ordersInStoreRefundLineItemResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6245,7 +7750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersListResponse".
+ *  "`content#ordersListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6321,7 +7826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersRefundItemResponse".
+ *  "`content#ordersRefundItemResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6377,7 +7882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersRefundOrderResponse".
+ *  "`content#ordersRefundOrderResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6438,7 +7943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersRejectReturnLineItemResponse".
+ *  "`content#ordersRejectReturnLineItemResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6474,7 +7979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The quantity to return and refund.
+ *  The quantity to return and refund. Quantity is required.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -6516,7 +8021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersReturnRefundLineItemResponse".
+ *  "`content#ordersReturnRefundLineItemResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6563,7 +8068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersSetLineItemMetadataResponse".
+ *  "`content#ordersSetLineItemMetadataResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6611,7 +8116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersShipLineItemsResponse".
+ *  "`content#ordersShipLineItemsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6670,7 +8175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersUpdateLineItemShippingDetailsResponse".
+ *  "`content#ordersUpdateLineItemShippingDetailsResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6709,7 +8214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersUpdateMerchantOrderIdResponse".
+ *  "`content#ordersUpdateMerchantOrderIdResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6789,7 +8294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#ordersUpdateShipmentResponse".
+ *  "`content#ordersUpdateShipmentResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -6809,7 +8314,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Required. The delivery postal code, as a continuous string without spaces or
- *  dashes, e.g. "95016".
+ *  dashes, e.g. "95016". This field will be anonymized in returned
+ *  OrderTrackingSignal creation response.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryPostalCode;
 
@@ -6840,7 +8346,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_DateTime *orderCreatedTime;
 
-/** Required. The ID of the order on the merchant side. */
+/**
+ *  Required. The ID of the order on the merchant side. This field will be
+ *  hashed in returned OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
@@ -6864,6 +8373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @interface GTLRShoppingContent_OrderTrackingSignalLineItemDetails : GTLRObject
 
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
 /** The Global Trade Item Number. */
 @property(nonatomic, copy, nullable) NSString *gtin;
 
@@ -6874,10 +8386,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *mpn;
 
 /**
+ *  Plain text description of this product (deprecated: Please use product_title
+ *  instead).
+ */
+@property(nonatomic, copy, nullable) NSString *productDescription;
+
+/**
  *  Required. The Content API REST ID of the product, in the form
  *  channel:contentLanguage:targetCountry:offerId.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+/** Plain text title of this product. */
+@property(nonatomic, copy, nullable) NSString *productTitle;
 
 /**
  *  Required. The quantity of the line item in the order.
@@ -6885,6 +8406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/** Merchant SKU for this item (deprecated). */
+@property(nonatomic, copy, nullable) NSString *sku;
+
+/**
+ *  Universal product code for this item (deprecated: Please use GTIN instead).
+ */
+@property(nonatomic, copy, nullable) NSString *upc;
 
 @end
 
@@ -6905,7 +8434,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
-/** Required. The shipment ID. */
+/**
+ *  Required. The shipment ID. This field will be hashed in returned
+ *  OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
 
 @end
@@ -6949,7 +8481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  The origin postal code, as a continuous string without spaces or dashes,
- *  e.g. "95016".
+ *  e.g. "95016". This field will be anonymized in returned OrderTrackingSignal
+ *  creation response.
  */
 @property(nonatomic, copy, nullable) NSString *originPostalCode;
 
@@ -6960,7 +8493,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, copy, nullable) NSString *originRegionCode;
 
-/** Required. The shipment ID. */
+/**
+ *  Required. The shipment ID. This field will be hashed in returned
+ *  OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
 
 /**
@@ -6989,6 +8525,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  latest_delivery_promise_time, and actual_delivery_time.
  */
 @property(nonatomic, copy, nullable) NSString *trackingId;
+
+@end
+
+
+/**
+ *  Request message for the PauseProgram method.
+ */
+@interface GTLRShoppingContent_PauseBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
+ *  Additional information required for PAYMENT_SERVICE_PROVIDER link type.
+ */
+@interface GTLRShoppingContent_PaymentServiceProviderLinkInfo : GTLRObject
+
+/**
+ *  The business country of the merchant account as identified by the third
+ *  party service provider.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountBusinessCountry;
+
+/**
+ *  The id used by the third party service provider to identify the merchant.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountId;
 
 @end
 
@@ -7105,7 +8667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posCustomBatchResponse".
+ *  "`content#posCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7280,7 +8842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posInventoryResponse".
+ *  "`content#posInventoryResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7316,7 +8878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posListResponse".
+ *  "`content#posListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7433,7 +8995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#posSaleResponse".
+ *  "`content#posSaleResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -7563,15 +9125,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /**
  *  Required product attributes are primarily defined by the products data
  *  specification. See the Products Data Specification Help Center article for
- *  information. Some attributes are country-specific, so make sure you select
- *  the appropriate country in the drop-down selector at the top of the page.
- *  Product data. After inserting, updating, or deleting a product, it may take
- *  several minutes before changes take effect.
+ *  information. Product data. After inserting, updating, or deleting a product,
+ *  it may take several minutes before changes take effect.
  */
 @interface GTLRShoppingContent_Product : GTLRObject
 
 /** Additional URLs of images of the item. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalImageLinks;
+
+/**
+ *  Additional cut of the item. Used together with size_type to represent
+ *  combined size types for apparel items.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalSizeType;
 
 /**
  *  Used to group items in an arbitrary way. Only for CPA%, discouraged
@@ -7766,6 +9332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** URL directly linking to your item's page on your website. */
 @property(nonatomic, copy, nullable) NSString *link;
 
+/** URL template for merchant hosted local storefront. */
+@property(nonatomic, copy, nullable) NSString *linkTemplate;
+
 /**
  *  Loyalty points that users receive after purchasing the item. Japan only.
  */
@@ -7797,6 +9366,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** URL for the mobile-optimized version of your item's landing page. */
 @property(nonatomic, copy, nullable) NSString *mobileLink;
 
+/**
+ *  URL template for merchant hosted local storefront optimized for mobile
+ *  devices.
+ */
+@property(nonatomic, copy, nullable) NSString *mobileLinkTemplate;
+
 /** Manufacturer Part Number (MPN) of the item. */
 @property(nonatomic, copy, nullable) NSString *mpn;
 
@@ -7819,17 +9394,54 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** The item's pattern (e.g. polka dots). */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
+/**
+ *  The pick up option for the item. Acceptable values are: - "`buy`" -
+ *  "`reserve`" - "`ship to store`" - "`not supported`"
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  Item store pickup timeline. Acceptable values are: - "`same day`" - "`next
+ *  day`" - "`2-day`" - "`3-day`" - "`4-day`" - "`5-day`" - "`6-day`" -
+ *  "`7-day`" - "`multi-week`"
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
+
 /** Price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
 /** Technical specification or additional product details. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ProductProductDetail *> *productDetails;
 
+/**
+ *  The height of the product in the units provided. The value must be between 0
+ *  (exclusive) and 3000 (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductDimension *productHeight;
+
 /** Bullet points describing the most relevant highlights of a product. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productHighlights;
 
+/**
+ *  The length of the product in the units provided. The value must be between 0
+ *  (exclusive) and 3000 (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductDimension *productLength;
+
 /** Categories of the item (formatted as in products data specification). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productTypes;
+
+/**
+ *  The weight of the product in the units provided. The value must be between 0
+ *  (exclusive) and 2000 (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductWeight *productWeight;
+
+/**
+ *  The width of the product in the units provided. The value must be between 0
+ *  (exclusive) and 3000 (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ProductDimension *productWidth;
 
 /** The unique ID of a promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *promotionIds;
@@ -7952,6 +9564,25 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  GTLRShoppingContent_ProductDimension
+ */
+@interface GTLRShoppingContent_ProductDimension : GTLRObject
+
+/** Required. The length units. Acceptable values are: - "`in`" - "`cm`" */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  Required. The length value represented as a number. The value can have a
+ *  maximum precision of four decimal places.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_ProductProductDetail
  */
 @interface GTLRShoppingContent_ProductProductDetail : GTLRObject
@@ -7992,7 +9623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, strong, nullable) NSNumber *batchId;
 
 /**
- *  The Content API feed id.
+ *  The Content API Supplemental Feed ID. If present then product insertion or
+ *  deletion applies to a supplemental feed instead of primary Content API feed.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -8007,18 +9639,36 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  The method of the batch entry. Acceptable values are: - "`delete`" - "`get`"
- *  - "`insert`"
+ *  - "`insert`" - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The product to insert. Only required if the method is `insert`. */
+/**
+ *  The product to insert or update. Only required if the method is `insert` or
+ *  `update`. If the `update` method is used with `updateMask` only to delete a
+ *  field, then this isn't required. For example, setting `salePrice` on the
+ *  `updateMask` and not providing a `product` will result in an existing sale
+ *  price on the product specified by `productId` being deleted.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
 
 /**
- *  The ID of the product to get or delete. Only defined if the method is `get`
- *  or `delete`.
+ *  The ID of the product to get or mutate. Only defined if the method is `get`,
+ *  `delete`, or `update`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The comma-separated list of product attributes to be updated. Example:
+ *  `"title,salePrice"`. Attributes specified in the update mask without a value
+ *  specified in the body will be deleted from the product. Only top-level
+ *  product attributes can be updated. If not defined, product attributes with
+ *  set values will be updated and other attributes will stay unchanged. Only
+ *  defined if the method is `update`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -8033,7 +9683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productsCustomBatchResponse".
+ *  "`content#productsCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8091,6 +9741,48 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locationId;
+
+/**
+ *  Maximum handling time (inclusive) between when the order is received and
+ *  shipped in business days. 0 means that the order is shipped on the same day
+ *  as it is received if it happens before the cut-off time. Both
+ *  maxHandlingTime and maxTransitTime are required if providing shipping
+ *  speeds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxHandlingTime;
+
+/**
+ *  Maximum transit time (inclusive) between when the order has shipped and when
+ *  it is delivered in business days. 0 means that the order is delivered on the
+ *  same day as it ships. Both maxHandlingTime and maxTransitTime are required
+ *  if providing shipping speeds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTransitTime;
+
+/**
+ *  Minimum handling time (inclusive) between when the order is received and
+ *  shipped in business days. 0 means that the order is shipped on the same day
+ *  as it is received if it happens before the cut-off time. minHandlingTime can
+ *  only be present together with maxHandlingTime; but it is not required if
+ *  maxHandlingTime is present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minHandlingTime;
+
+/**
+ *  Minimum transit time (inclusive) between when the order has shipped and when
+ *  it is delivered in business days. 0 means that the order is delivered on the
+ *  same day as it ships. minTransitTime can only be present together with
+ *  maxTransitTime; but it is not required if maxTransitTime is present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTransitTime;
 
 /**
  *  The postal code range that the shipping rate applies to, represented by a
@@ -8160,7 +9852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productsListResponse".
+ *  "`content#productsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8307,7 +9999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productstatusesCustomBatchResponse".
+ *  "`content#productstatusesCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8355,7 +10047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#productstatusesListResponse".
+ *  "`content#productstatusesListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8514,6 +10206,247 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_ProductWeight
+ */
+@interface GTLRShoppingContent_ProductWeight : GTLRObject
+
+/**
+ *  Required. The weight unit. Acceptable values are: - "`g`" - "`kg`" - "`oz`"
+ *  - "`lb`"
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  Required. The weight represented as a number. The weight can have a maximum
+ *  precision of four decimal places.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  The Promotions feature is currently in alpha and is not yet publicly
+ *  available via Content API for Shopping. This documentation is provided for
+ *  reference only may be subject to change. Represents a promotion. See the
+ *  following articles for more details. * [Promotions feed
+ *  specification](https://support.google.com/merchants/answer/2906014) * [Local
+ *  promotions feed
+ *  specification](https://support.google.com/merchants/answer/10146130) *
+ *  [Promotions on Buy on Google product data
+ *  specification](https://support.google.com/merchants/answer/9173673)
+ */
+@interface GTLRShoppingContent_Promotion : GTLRObject
+
+/** Product filter by brand for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *brand;
+
+/** Product filter by brand exclusion for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *brandExclusion;
+
+/** Required. The content language used as part of the unique identifier. */
+@property(nonatomic, copy, nullable) NSString *contentLanguage;
+
+/**
+ *  Required. Coupon value type for the promotion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetMoneyOff Buy
+ *        M quantity, get money off. buy_this_quantity and money_off_amount must
+ *        be present. (Value: "BUY_M_GET_MONEY_OFF")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNMoneyOff
+ *        Buy M quantity, get N money off coupon value type. buy_this_quantity
+ *        and get_this_quantity must be present. money_off_amount must also be
+ *        present. (Value: "BUY_M_GET_N_MONEY_OFF")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetNPercentOff
+ *        Buy M quantity, get N percent off coupon value type. buy_this_quantity
+ *        and get_this_quantity must be present. percent_off_percentage must
+ *        also be present. (Value: "BUY_M_GET_N_PERCENT_OFF")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_BuyMGetPercentOff
+ *        Buy M quantity, get money off. buy_this_quantity and
+ *        percent_off_percentage must be present. (Value:
+ *        "BUY_M_GET_PERCENT_OFF")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_CouponValueTypeUnspecified
+ *        Indicates that the coupon value type is unspecified. (Value:
+ *        "COUPON_VALUE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGift Free gift
+ *        with description only (Value: "FREE_GIFT")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithItemId
+ *        Free gift with item id (description is optional). (Value:
+ *        "FREE_GIFT_WITH_ITEM_ID")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeGiftWithValue
+ *        Free gift with value (description is optional). (Value:
+ *        "FREE_GIFT_WITH_VALUE")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingOvernight
+ *        Overnight free shipping coupon value type. (Value:
+ *        "FREE_SHIPPING_OVERNIGHT")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingStandard
+ *        Standard free shipping coupon value type. (Value:
+ *        "FREE_SHIPPING_STANDARD")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_FreeShippingTwoDay
+ *        Two day free shipping coupon value type. (Value:
+ *        "FREE_SHIPPING_TWO_DAY")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_MoneyOff Money off
+ *        coupon value type. (Value: "MONEY_OFF")
+ *    @arg @c kGTLRShoppingContent_Promotion_CouponValueType_PercentOff Percent
+ *        off coupon value type. (Value: "PERCENT_OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *couponValueType;
+
+/** Free gift description for the promotion. */
+@property(nonatomic, copy, nullable) NSString *freeGiftDescription;
+
+/** Free gift item id for the promotion. */
+@property(nonatomic, copy, nullable) NSString *freeGiftItemId;
+
+/** Free gift value for the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *freeGiftValue;
+
+/**
+ *  Generic redemption code for the promotion. To be used with the above field.
+ */
+@property(nonatomic, copy, nullable) NSString *genericRedemptionCode;
+
+/**
+ *  The number of items discounted in the promotion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *getThisQuantityDiscounted;
+
+/**
+ *  Required. Output only. The REST promotion id to uniquely identify the
+ *  promotion. Content API methods that operate on promotions take this as their
+ *  promotionId parameter. The REST ID for a promotion is of the form
+ *  channel:contentLanguage:targetCountry:promotionId The channel field will
+ *  have a value of "online", "in_store", or "online_in_store".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Product filter by item group id for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemGroupId;
+
+/** Product filter by item group id exclusion for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemGroupIdExclusion;
+
+/** Product filter by item id for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemId;
+
+/** Product filter by item id exclusion for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemIdExclusion;
+
+/**
+ *  Maximum purchase quantity for the promotion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limitQuantity;
+
+/** Maximum purchase value for the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *limitValue;
+
+/** Long title for the promotion. */
+@property(nonatomic, copy, nullable) NSString *longTitle;
+
+/** Minimum purchase amount for the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *minimumPurchaseAmount;
+
+/**
+ *  Minimum purchase quantity for the promotion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumPurchaseQuantity;
+
+/** Promotion cost cap of the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *moneyBudget;
+
+/** The money off amount offered in the promotion. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *moneyOffAmount;
+
+/**
+ *  Required. Type of the promotion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Promotion_OfferType_GenericCode Offer type
+ *        with a code. (Value: "GENERIC_CODE")
+ *    @arg @c kGTLRShoppingContent_Promotion_OfferType_NoCode Offer type without
+ *        a code. (Value: "NO_CODE")
+ *    @arg @c kGTLRShoppingContent_Promotion_OfferType_OfferTypeUnspecified
+ *        Unknown offer type. (Value: "OFFER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *offerType;
+
+/**
+ *  Order limit for the promotion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderLimit;
+
+/**
+ *  The percentage discount offered in the promotion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentOff;
+
+/**
+ *  Required. Applicability of the promotion to either all products or only
+ *  specific products.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_AllProducts
+ *        Applicable to all products. (Value: "ALL_PRODUCTS")
+ *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_ProductApplicabilityUnspecified
+ *        Unknown product applicability. (Value:
+ *        "PRODUCT_APPLICABILITY_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Promotion_ProductApplicability_SpecificProducts
+ *        Applicable to only a single product or list of products. (Value:
+ *        "SPECIFIC_PRODUCTS")
+ */
+@property(nonatomic, copy, nullable) NSString *productApplicability;
+
+/** Product filter by product type for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productType;
+
+/** Product filter by product type exclusion for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productTypeExclusion;
+
+/** Destination ID for the promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *promotionDestinationIds;
+
+/** String representation of the promotion display dates. */
+@property(nonatomic, copy, nullable) NSString *promotionDisplayDates;
+
+/** Required. String representation of the promotion effective dates. */
+@property(nonatomic, copy, nullable) NSString *promotionEffectiveDates;
+
+/**
+ *  Required. The user provided promotion id to uniquely identify the promotion.
+ */
+@property(nonatomic, copy, nullable) NSString *promotionId;
+
+/**
+ *  Required. Redemption channel for the promotion. At least one channel is
+ *  required.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *redemptionChannel;
+
+/** Shipping service names for thse promotion. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shippingServiceNames;
+
+/** Required. The target country used as part of the unique identifier. */
+@property(nonatomic, copy, nullable) NSString *targetCountry;
 
 @end
 
@@ -8686,7 +10619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#regionalInventory".
+ *  "`content#regionalInventory`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8763,7 +10696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#regionalinventoryCustomBatchResponse".
+ *  "`content#regionalinventoryCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8787,7 +10720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#regionalinventoryCustomBatchResponseEntry".
+ *  "`content#regionalinventoryCustomBatchResponseEntry`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -8860,6 +10793,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Result row returned from the search query.
+ */
+@interface GTLRShoppingContent_ReportRow : GTLRObject
+
+/**
+ *  Metrics requested by the merchant in the query. Metric values are only set
+ *  for metrics requested explicitly in the query.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Metrics *metrics;
+
+/**
+ *  Segmentation dimensions requested by the merchant in the query. Dimension
+ *  values are only set for dimensions requested explicitly in the query.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Segments *segments;
+
+@end
+
+
+/**
  *  Resource that represents a daily Repricing product report. Each report
  *  contains stats for a single type of Repricing rule for a single product on a
  *  given day. If there are multiple rules of the same type for the product on
@@ -8877,7 +10830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) NSNumber *applicationCount;
 
-/** Stats specific to buybox winning rules for product report. */
+/** Stats specific to buybox winning rules for product report (deprecated). */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats *buyboxWinningProductStats;
 
 /**
@@ -8929,6 +10882,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *        Cost of goods sale based rule. Repricer will adjust the offer price
  *        based on the offer's sale cost which is provided by the merchant.
  *        (Value: "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeSalesVolumeBased
+ *        Sales volume based rule. Repricer will adjust the offer price based on
+ *        the offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on
@@ -8969,7 +10930,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule *cogsBasedRule;
 
-/** Required. Immutable. CLDR country code (e.g. "US"). */
+/**
+ *  Required. Immutable. [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  (e.g. "US").
+ */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /** Required. Time period when the rule should take effect. */
@@ -9027,6 +10992,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *        goods sale based rule. Repricer will adjust the offer price based on
  *        the offer's sale cost which is provided by the merchant. (Value:
  *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeSalesVolumeBased Sales
+ *        volume based rule. Repricer will adjust the offer price based on the
+ *        offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased Statistical
  *        measurement based rules among Google SA merchants. If this rule is
  *        chosen, repricer will adjust the offer price based on statistical
@@ -9161,7 +11134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @interface GTLRShoppingContent_RepricingRuleReport : GTLRObject
 
-/** Stats specific to buybox winning rules for rule report. */
+/** Stats specific to buybox winning rules for rule report (deprecated). */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats *buyboxWinningRuleStats;
 
 /**
@@ -9221,6 +11194,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *        of goods sale based rule. Repricer will adjust the offer price based
  *        on the offer's sale cost which is provided by the merchant. (Value:
  *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeCompetitivePrice
+ *        Competitive price rule. Repricer will adjust the offer price based on
+ *        the min price from a list of unnamed big competitors. (Value:
+ *        "TYPE_COMPETITIVE_PRICE")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeSalesVolumeBased
+ *        Sales volume based rule. Repricer will adjust the offer price based on
+ *        the offer's sales volume in the past period of time defined within the
+ *        rule. (Value: "TYPE_SALES_VOLUME_BASED")
  *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on
@@ -9326,6 +11307,93 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  value means below. Currency code must not be included.
  */
 @property(nonatomic, copy, nullable) NSString *priceDelta;
+
+@end
+
+
+/**
+ *  Request message for the RequestPhoneVerification method.
+ */
+@interface GTLRShoppingContent_RequestPhoneVerificationRequest : GTLRObject
+
+/**
+ *  Language code [IETF BCP 47 syntax](https://tools.ietf.org/html/bcp47) (for
+ *  example, en-US). Language code is used to provide localized `SMS` and
+ *  `PHONE_CALL`. Default language used is en-US if not provided.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Phone number to be verified. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  Required. Two letter country code for the phone number, for example `CA` for
+ *  Canadian numbers. See the [ISO 3166-1
+ *  alpha-2](https://wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)
+ *  officially assigned codes.
+ */
+@property(nonatomic, copy, nullable) NSString *phoneRegionCode;
+
+/**
+ *  Verification method to receive verification code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneCall
+ *        Receive verification code by phone call. (Value: "PHONE_CALL")
+ *    @arg @c kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified
+ *        Unknown method. (Value: "PHONE_VERIFICATION_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_Sms
+ *        Receive verification code by SMS. (Value: "SMS")
+ */
+@property(nonatomic, copy, nullable) NSString *phoneVerificationMethod;
+
+@end
+
+
+/**
+ *  Response message for the RequestPhoneVerification method.
+ */
+@interface GTLRShoppingContent_RequestPhoneVerificationResponse : GTLRObject
+
+/** The verification ID to use in subsequent calls to `verifyphonenumber`. */
+@property(nonatomic, copy, nullable) NSString *verificationId;
+
+@end
+
+
+/**
+ *  Request message for the RequestReviewProgram method.
+ */
+@interface GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for the RequestReviewFreeListings Program method.
+ */
+@interface GTLRShoppingContent_RequestReviewFreeListingsRequest : GTLRObject
+
+/**
+ *  The code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country
+ *  for which review is to be requested.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Request message for the RequestReviewShoppingAds program method.
+ */
+@interface GTLRShoppingContent_RequestReviewShoppingAdsRequest : GTLRObject
+
+/**
+ *  The code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the country
+ *  for which review is to be requested.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 @end
 
@@ -9458,7 +11526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnaddressCustomBatchResponse".
+ *  "`content#returnaddressCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -9504,7 +11572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnaddressListResponse".
+ *  "`content#returnaddressListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -9553,6 +11621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /** Return policy ID generated by Google. */
 @property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/** The return shipping fee that will apply to non free return reasons. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *returnShippingFee;
 
 /** An optional list of seasonal overrides. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicySeasonalOverride *> *seasonalOverrides;
@@ -9621,7 +11692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnpolicyCustomBatchResponse".
+ *  "`content#returnpolicyCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -9662,11 +11733,200 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#returnpolicyListResponse".
+ *  "`content#returnpolicyListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicy *> *resources;
+
+@end
+
+
+/**
+ *  Return policy online object. This is currently used to represent return
+ *  policies for ads and free listings programs.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnline : GTLRObject
+
+/**
+ *  The countries of sale where the return policy is applicable. The values must
+ *  be a valid 2 letter ISO 3166 code, e.g. "US".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
+
+/**
+ *  The item conditions that are accepted for returns. This is required to not
+ *  be empty unless the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemConditions;
+
+/**
+ *  The unique user-defined label of the return policy. The same label cannot be
+ *  used in different return policies for the same country. Policies with the
+ *  label 'default' will apply to all products, unless a product specifies a
+ *  return_policy_label attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the policy as shown in Merchant Center. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The return policy. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlinePolicy *policy;
+
+/**
+ *  The restocking fee that applies to all return reason categories. This would
+ *  be treated as a free restocking fee if the value is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlineRestockingFee *restockingFee;
+
+/**
+ *  The return methods of how customers can return an item. This value is
+ *  required to not be empty unless the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *returnMethods;
+
+/** Output only. Return policy ID generated by Google. */
+@property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/**
+ *  The return policy uri. This can used by Google to do a sanity check for the
+ *  policy.
+ */
+@property(nonatomic, copy, nullable) NSString *returnPolicyUri;
+
+/**
+ *  The return reason category information. This required to not be empty unless
+ *  the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo *> *returnReasonCategoryInfo;
+
+@end
+
+
+/**
+ *  The available policies.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlinePolicy : GTLRObject
+
+/**
+ *  The number of days items can be returned after delivery, where one day is
+ *  defined to be 24 hours after the delivery timestamp. Required for
+ *  `numberOfDaysAfterDelivery` returns.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *days;
+
+/**
+ *  Policy type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_LifetimeReturns
+ *        Life time returns. (Value: "LIFETIME_RETURNS")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NoReturns No
+ *        returns. (Value: "NO_RETURNS")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NumberOfDaysAfterDelivery
+ *        Number of days after a return is delivered. (Value:
+ *        "NUMBER_OF_DAYS_AFTER_DELIVERY")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The restocking fee. This can either be a fixed fee or a micro percent.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineRestockingFee : GTLRObject
+
+/** Fixed restocking fee. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *fixedFee;
+
+/**
+ *  Percent of total price in micros. 15,000,000 means 15% of the total price
+ *  would be charged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *microPercent;
+
+@end
+
+
+/**
+ *  The return reason category info wrapper.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo : GTLRObject
+
+/**
+ *  The corresponding return label source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_CustomerResponsibility
+ *        Customers' responsibility to get the label. (Value:
+ *        "CUSTOMER_RESPONSIBILITY")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_DownloadAndPrint
+ *        Download and print the label. (Value: "DOWNLOAD_AND_PRINT")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_InTheBox
+ *        Label in the box. (Value: "IN_THE_BOX")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_ReturnLabelSourceUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RETURN_LABEL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnLabelSource;
+
+/**
+ *  The return reason category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_BuyerRemorse
+ *        Buyer remorse. (Value: "BUYER_REMORSE")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ItemDefect
+ *        Item defect. (Value: "ITEM_DEFECT")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ReturnReasonCategoryUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RETURN_REASON_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnReasonCategory;
+
+/**
+ *  The corresponding return shipping fee. This is only applicable when
+ *  returnLabelSource is not the customer's responsibility.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee *returnShippingFee;
+
+@end
+
+
+/**
+ *  The return shipping fee. This can either be a fixed fee or a boolean to
+ *  indicate that the customer pays the actual shipping cost.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee : GTLRObject
+
+/**
+ *  Fixed return shipping fee amount. This value is only applicable when type is
+ *  FIXED. We will treat the return shipping fee as free if type is FIXED and
+ *  this value is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *fixedFee;
+
+/**
+ *  Type of return shipping fee.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_CustomerPayingActualFee
+ *        Customer will pay the actual return shipping fee. (Value:
+ *        "CUSTOMER_PAYING_ACTUAL_FEE")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_Fixed
+ *        The return shipping fee is a fixed value. (Value: "FIXED")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -9812,6 +12072,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Return shipping label for a Buy on Google merchant-managed return.
+ */
+@interface GTLRShoppingContent_ReturnShippingLabel : GTLRObject
+
+/** Name of the carrier. */
+@property(nonatomic, copy, nullable) NSString *carrier;
+
+/** The URL for the return shipping label in PDF format */
+@property(nonatomic, copy, nullable) NSString *labelUri;
+
+/** The tracking id of this return label. */
+@property(nonatomic, copy, nullable) NSString *trackingId;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_Row
  */
 @interface GTLRShoppingContent_Row : GTLRObject
@@ -9822,6 +12099,203 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  one-dimensional tables. Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Value *> *cells;
+
+@end
+
+
+/**
+ *  Request message for the ReportService.Search method.
+ */
+@interface GTLRShoppingContent_SearchRequest : GTLRObject
+
+/**
+ *  Number of ReportRows to retrieve in a single page. Defaults to the maximum
+ *  of 1000. Values above 1000 are coerced to 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Token of the page to retrieve. If not specified, the first page of results
+ *  is returned. In order to request the next page of results, the value
+ *  obtained from `next_page_token` in the previous response should be used.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Query that defines performance metrics to retrieve and dimensions
+ *  according to which the metrics are to be segmented. For details on how to
+ *  construct your query, see the [Query Language
+ *  guide](https://developers.google.com/shopping-content/guides/reports/query-language/overview).
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  Response message for the ReportService.Search method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_SearchResponse : GTLRCollectionObject
+
+/**
+ *  Token which can be sent as `page_token` to retrieve the next page. If
+ *  omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Rows that matched the search query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReportRow *> *results;
+
+@end
+
+
+/**
+ *  Dimensions according to which metrics are segmented in the response. Values
+ *  of product dimensions, e.g., offer id, reflect the state of a product at the
+ *  time of the corresponding event, e.g., impression or order. Segment fields
+ *  cannot be selected in queries without also selecting at least one metric
+ *  field. Values are only set for dimensions requested explicitly in the
+ *  request's search query.
+ */
+@interface GTLRShoppingContent_Segments : GTLRObject
+
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/**
+ *  [Product category (1st
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in Google's product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL1;
+
+/**
+ *  [Product category (2nd
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in Google's product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL2;
+
+/**
+ *  [Product category (3rd
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in Google's product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL3;
+
+/**
+ *  [Product category (4th
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in Google's product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL4;
+
+/**
+ *  [Product category (5th
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in Google's product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *categoryL5;
+
+/**
+ *  Currency in which price metrics are represented, e.g., if you select
+ *  `ordered_item_sales_micros`, the returned value will be represented by this
+ *  currency.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Custom label 0 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel0;
+
+/** Custom label 1 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel1;
+
+/** Custom label 2 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel2;
+
+/** Custom label 3 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel3;
+
+/** Custom label 4 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel4;
+
+/** Date in the merchant timezone to which metrics apply. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/** Merchant-provided id of the product. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  [Product type (1st
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in merchant's own product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL1;
+
+/**
+ *  [Product type (2nd
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in merchant's own product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL2;
+
+/**
+ *  [Product type (3rd
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in merchant's own product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL3;
+
+/**
+ *  [Product type (4th
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in merchant's own product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL4;
+
+/**
+ *  [Product type (5th
+ *  level)](https://developers.google.com/shopping-content/guides/reports/segmentation#category_and_product_type)
+ *  in merchant's own product taxonomy.
+ */
+@property(nonatomic, copy, nullable) NSString *productTypeL5;
+
+/**
+ *  Program to which metrics apply, e.g., Free Product Listing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing Buy on
+ *        Google Listing. (Value: "BUY_ON_GOOGLE_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_FreeLocalProductListing Free
+ *        Local Product Listing. (Value: "FREE_LOCAL_PRODUCT_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_FreeProductListing Free
+ *        Product Listing. (Value: "FREE_PRODUCT_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_ProgramUnspecified Not
+ *        specified. (Value: "PROGRAM_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_ShoppingAds Shopping Ads.
+ *        (Value: "SHOPPING_ADS")
+ */
+@property(nonatomic, copy, nullable) NSString *program;
+
+/** Title of the product. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  First day of the week (Monday) of the metrics date in the merchant timezone.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *week;
 
 @end
 
@@ -9969,7 +12443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#settlementreportsListResponse".
+ *  "`content#settlementreportsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10032,8 +12506,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`incorrectItemReceived`" - "`itemMissing`" - "`qualityNotExpected`" -
  *  "`receivedTooLate`" - "`storePackageMissing`" - "`transitPackageMissing`" -
  *  "`unsuccessfulDeliveryUndeliverable`" - "`wrongChargeInStore`" -
- *  "`wrongItem`" - "`returns`" - "`undeliverable`" - "`refundFromMerchant`" -
- *  "`returnLabelShippingFee`" - "`pspFee`"
+ *  "`wrongItem`" - "`returns`" - "`undeliverable`" -
+ *  "`issueRelatedRefundAndReplacementAmountDescription`" -
+ *  "`refundFromMerchant`" - "`returnLabelShippingFee`" - "`lumpSumCorrection`"
+ *  - "`pspFee`" - "`principalRefundDoesNotFit`" -
+ *  "`principalRefundOrderedWrongItem`" - "`principalRefundQualityNotExpected`"
+ *  - "`principalRefundBetterPriceFound`" - "`principalRefundNoLongerNeeded`" -
+ *  "`principalRefundChangedMind`" - "`principalRefundReceivedTooLate`" -
+ *  "`principalRefundIncorrectItemReceived`" -
+ *  "`principalRefundDamagedOrDefectiveItem`" -
+ *  "`principalRefundDidNotMatchDescription`" - "`principalRefundExpiredItem`"
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -10045,7 +12527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /**
  *  The type of the amount. Acceptable values are: - "`itemPrice`" -
  *  "`orderPrice`" - "`refund`" - "`earlyRefund`" - "`courtesyRefund`" -
- *  "`returnRefund`" - "`returnLabelShippingFeeAmount`"
+ *  "`returnRefund`" - "`returnLabelShippingFeeAmount`" -
+ *  "`lumpSumCorrectionAmount`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -10121,7 +12604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#settlementtransactionsListResponse".
+ *  "`content#settlementtransactionsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10152,7 +12635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`order`" - "`reversal`" - "`orderRefund`" - "`reversalRefund`" -
  *  "`issueRelatedRefundAndReplacement`" - "`returnLabelShippingFeeTransaction`"
  *  - "`reversalIssueRelatedRefundAndReplacement`" -
- *  "`reversalReturnLabelShippingFeeTransaction`"
+ *  "`reversalReturnLabelShippingFeeTransaction`" -
+ *  "`lumpSumCorrectionTransaction`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -10253,6 +12737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** The target account's list of services. Optional. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Service *> *services;
 
+/** Optional. A list of warehouses which can be referred to in `services`. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Warehouse *> *warehouses;
+
 @end
 
 
@@ -10317,7 +12804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsCustomBatchResponse".
+ *  "`content#shippingsettingsCustomBatchResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10361,7 +12848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsGetSupportedCarriersResponse".
+ *  "`content#shippingsettingsGetSupportedCarriersResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10378,7 +12865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsGetSupportedHolidaysResponse".
+ *  "`content#shippingsettingsGetSupportedHolidaysResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10392,7 +12879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsGetSupportedPickupServicesResponse".
+ *  "`content#shippingsettingsGetSupportedPickupServicesResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10414,7 +12901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
- *  "content#shippingsettingsListResponse".
+ *  "`content#shippingsettingsListResponse`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -10428,6 +12915,111 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShippingSettings *> *resources;
+
+@end
+
+
+/**
+ *  Response message for GetShoppingAdsProgramStatus.
+ */
+@interface GTLRShoppingContent_ShoppingAdsProgramStatus : GTLRObject
+
+/**
+ *  Status of the program in each region. Regions with the same status and
+ *  review eligibility are grouped together in `regionCodes`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus *> *regionStatuses;
+
+/**
+ *  If program is successfully onboarded for at least one region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded
+ *        Program is not onboarded for any country. (Value: "NOT_ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded
+ *        Program is onboarded for at least one country. (Value: "ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified
+ *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Status of program and region.
+ */
+@interface GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus : GTLRObject
+
+/**
+ *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
+ *  It will be present when `eligibility_status` is `WARNING`. Date will be
+ *  provided in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format i.e.
+ *  YYYY-MM-DD
+ */
+@property(nonatomic, copy, nullable) NSString *disapprovalDate;
+
+/**
+ *  Eligibility status of the Shopping Ads program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Approved
+ *        If the account has no issues and review is completed successfully.
+ *        (Value: "APPROVED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Disapproved
+ *        There are one or more issues that needs to be resolved for account to
+ *        be active for the program. Detailed list of account issues are
+ *        available in
+ *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
+ *        API. (Value: "DISAPPROVED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Onboarding
+ *        Program is currently onboarding. (Value: "ONBOARDING")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_PendingReview
+ *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
+ *        State is not known. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_UnderReview
+ *        Account is under review. (Value: "UNDER_REVIEW")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Warning
+ *        If account has issues but offers are servable. Some of the issue can
+ *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *eligibilityStatus;
+
+/**
+ *  Reason if a program in a given country is not eligible for review. Populated
+ *  only if `review_eligibility_status` is `INELIGIBLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *ineligibilityReason;
+
+/**
+ *  The two-letter [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) codes for all the
+ *  regions with the same `eligibilityStatus` and `reviewEligibility`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
+
+/**
+ *  If a program in a given country is eligible for review. It will be present
+ *  only if eligibility status is `DISAPPROVED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
+ *        Account for a region code is eligible for review. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible
+ *        Account for a region code is not eligible for review. (Value:
+ *        "INELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
+ *        Review eligibility state is unknown. (Value:
+ *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
+
+/**
+ *  These issues will be evaluated in review process. Fix all the issues before
+ *  requesting the review.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
 
 @end
 
@@ -10808,8 +13400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_UnitInvoiceAdditionalCharge *> *additionalCharges;
 
 /**
- *  [required] Pre-tax or post-tax price of the unit depending on the locality
- *  of the order.
+ *  [required] Pre-tax or post-tax price of one unit depending on the locality
+ *  of the order. *Note:* Invoicing works on a per unit basis. The `unitPrice`
+ *  is the price of a single unit, and will be multiplied by the number of
+ *  entries in `shipmentUnitId`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *unitPrice;
 
@@ -10824,7 +13418,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @interface GTLRShoppingContent_UnitInvoiceAdditionalCharge : GTLRObject
 
-/** [required] Amount of the additional charge. */
+/**
+ *  [required] Amount of the additional charge per unit. *Note:* Invoicing works
+ *  on a per unit bases. The `additionalChargeAmount` is the amount charged per
+ *  unit, and will be multiplied by the number of entries in `shipmentUnitID`.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Amount *additionalChargeAmount;
 
 /**
@@ -10899,6 +13497,156 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Request message for the VerifyPhoneNumber method.
+ */
+@interface GTLRShoppingContent_VerifyPhoneNumberRequest : GTLRObject
+
+/**
+ *  Verification method used to receive verification code.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneCall
+ *        Receive verification code by phone call. (Value: "PHONE_CALL")
+ *    @arg @c kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified
+ *        Unknown method. (Value: "PHONE_VERIFICATION_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_Sms
+ *        Receive verification code by SMS. (Value: "SMS")
+ */
+@property(nonatomic, copy, nullable) NSString *phoneVerificationMethod;
+
+/** The verification code that was sent to the phone number for validation. */
+@property(nonatomic, copy, nullable) NSString *verificationCode;
+
+/** The verification ID returned by `requestphoneverification`. */
+@property(nonatomic, copy, nullable) NSString *verificationId;
+
+@end
+
+
+/**
+ *  Response message for the VerifyPhoneNumber method.
+ */
+@interface GTLRShoppingContent_VerifyPhoneNumberResponse : GTLRObject
+
+/**
+ *  Verified phone number if verification is successful. This phone number can
+ *  only be replaced by another verified phone number.
+ */
+@property(nonatomic, copy, nullable) NSString *verifiedPhoneNumber;
+
+@end
+
+
+/**
+ *  A fulfillment warehouse, which stores and handles inventory.
+ */
+@interface GTLRShoppingContent_Warehouse : GTLRObject
+
+/**
+ *  Business days of the warehouse. If not set, will be Monday to Friday by
+ *  default.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_BusinessDayConfig *businessDayConfig;
+
+/**
+ *  Required. The latest time of day that an order can be accepted and begin
+ *  processing. Later orders will be processed in the next day. The time is
+ *  based on the warehouse postal code.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_WarehouseCutoffTime *cutoffTime;
+
+/**
+ *  Required. The number of days it takes for this warehouse to pack up and ship
+ *  an item. This is on the warehouse level, but can be overridden on the offer
+ *  level based on the attributes of an item.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *handlingDays;
+
+/** Required. The name of the warehouse. Must be unique within account. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Shipping address of the warehouse. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Address *shippingAddress;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_WarehouseBasedDeliveryTime
+ */
+@interface GTLRShoppingContent_WarehouseBasedDeliveryTime : GTLRObject
+
+/**
+ *  Required. Carrier, such as `"UPS"` or `"Fedex"`. The list of supported
+ *  carriers can be retrieved via the `listSupportedCarriers` method.
+ */
+@property(nonatomic, copy, nullable) NSString *carrier;
+
+/**
+ *  Required. Carrier service, such as `"ground"` or `"2 days"`. The list of
+ *  supported services for a carrier can be retrieved via the
+ *  `listSupportedCarriers` method. The name of the service must be in the
+ *  eddSupportedServices list.
+ */
+@property(nonatomic, copy, nullable) NSString *carrierService;
+
+/** Shipping origin's state. */
+@property(nonatomic, copy, nullable) NSString *originAdministrativeArea;
+
+/** Shipping origin's city. */
+@property(nonatomic, copy, nullable) NSString *originCity;
+
+/**
+ *  Shipping origin's country represented as a [CLDR territory
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml).
+ */
+@property(nonatomic, copy, nullable) NSString *originCountry;
+
+/** Shipping origin. */
+@property(nonatomic, copy, nullable) NSString *originPostalCode;
+
+/** Shipping origin's street address. */
+@property(nonatomic, copy, nullable) NSString *originStreetAddress;
+
+/**
+ *  The name of the warehouse. Warehouse name need to be matched with name. If
+ *  warehouseName is set, the below fields will be ignored. The warehouse info
+ *  will be read from warehouse.
+ */
+@property(nonatomic, copy, nullable) NSString *warehouseName;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_WarehouseCutoffTime
+ */
+@interface GTLRShoppingContent_WarehouseCutoffTime : GTLRObject
+
+/**
+ *  Required. Hour (24-hour clock) of the cutoff time until which an order has
+ *  to be placed to be processed in the same day by the warehouse. Hour is based
+ *  on the timezone of warehouse.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hour;
+
+/**
+ *  Required. Minute of the cutoff time until which an order has to be placed to
+ *  be processed in the same day by the warehouse. Minute is based on the
+ *  timezone of warehouse.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minute;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_Weight
  */
 @interface GTLRShoppingContent_Weight : GTLRObject
@@ -10906,7 +13654,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** Required. The weight unit. Acceptable values are: - "`kg`" - "`lb`" */
 @property(nonatomic, copy, nullable) NSString *unit;
 
-/** Required. The weight represented as a number. */
+/**
+ *  Required. The weight represented as a number. The weight can have a maximum
+ *  precision of four decimal places.
+ */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end

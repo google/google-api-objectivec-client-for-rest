@@ -1,4 +1,4 @@
 [submodule "Deps/gtm-session-fetcher"]
 	path = Deps/gtm-session-fetcher
 	url = https://github.com/google/gtm-session-fetcher.git
-	branch = master
+	branch = main

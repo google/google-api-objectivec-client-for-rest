@@ -77,16 +77,6 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryReservation_CreateSlotPoolMetadata
-//
-
-@implementation GTLRBigQueryReservation_CreateSlotPoolMetadata
-@dynamic slotPool;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigQueryReservation_Empty
 //
 
@@ -140,28 +130,6 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryReservation_ListOperationsResponse
-//
-
-@implementation GTLRBigQueryReservation_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRBigQueryReservation_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigQueryReservation_ListReservationsResponse
 //
 
@@ -207,44 +175,6 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 
 @implementation GTLRBigQueryReservation_MoveAssignmentRequest
 @dynamic destinationId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigQueryReservation_Operation
-//
-
-@implementation GTLRBigQueryReservation_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigQueryReservation_Operation_Metadata
-//
-
-@implementation GTLRBigQueryReservation_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigQueryReservation_Operation_Response
-//
-
-@implementation GTLRBigQueryReservation_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
 @end
 
 

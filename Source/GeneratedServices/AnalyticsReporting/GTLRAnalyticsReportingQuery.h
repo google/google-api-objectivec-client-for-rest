@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly
  */
 @interface GTLRAnalyticsReportingQuery_ReportsBatchGet : GTLRAnalyticsReportingQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsReporting queryForReportsBatchGetWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalyticsReporting_GetReportsResponse.
@@ -77,8 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAnalyticsReportingAnalyticsReadonly
  */
 @interface GTLRAnalyticsReportingQuery_UserActivitySearch : GTLRAnalyticsReportingQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsReporting queryForUserActivitySearchWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalyticsReporting_SearchUserActivityResponse.

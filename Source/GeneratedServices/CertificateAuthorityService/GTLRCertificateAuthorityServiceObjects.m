@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Certificate Authority API (privateca/v1beta1)
+//   Certificate Authority API (privateca/v1)
 // Description:
 //   The Certificate Authority Service API is a highly-available, scalable
 //   service that enables you to simplify and automate the management of private
@@ -22,11 +22,22 @@ NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_DataRea
 NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCertificateAuthorityService_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCertificateAuthorityService_CaPool.tier
+NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_Devops = @"DEVOPS";
+NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRCertificateAuthorityService_CaPool_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
+
+// GTLRCertificateAuthorityService_Certificate.subjectMode
+NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_Default = @"DEFAULT";
+NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_ReflectedSpiffe = @"REFLECTED_SPIFFE";
+NSString * const kGTLRCertificateAuthorityService_Certificate_SubjectMode_SubjectRequestModeUnspecified = @"SUBJECT_REQUEST_MODE_UNSPECIFIED";
+
 // GTLRCertificateAuthorityService_CertificateAuthority.state
+NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_AwaitingUserActivation = @"AWAITING_USER_ACTIVATION";
+NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Deleted = @"DELETED";
 NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Disabled = @"DISABLED";
 NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Enabled = @"ENABLED";
-NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingActivation = @"PENDING_ACTIVATION";
-NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_PendingDeletion = @"PENDING_DELETION";
+NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_Staged = @"STAGED";
 NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCertificateAuthorityService_CertificateAuthority.tier
@@ -39,40 +50,24 @@ NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_Type_Self
 NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_Type_Subordinate = @"SUBORDINATE";
 NSString * const kGTLRCertificateAuthorityService_CertificateAuthority_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCertificateAuthorityService_CertificateExtensionConstraints.knownExtensions
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_AiaOcspServers = @"AIA_OCSP_SERVERS";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_BaseKeyUsage = @"BASE_KEY_USAGE";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_CaOptions = @"CA_OPTIONS";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_ExtendedKeyUsage = @"EXTENDED_KEY_USAGE";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_KnownCertificateExtensionUnspecified = @"KNOWN_CERTIFICATE_EXTENSION_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_CertificateExtensionConstraints_KnownExtensions_PolicyIds = @"POLICY_IDS";
+
 // GTLRCertificateAuthorityService_CertificateRevocationList.state
 NSString * const kGTLRCertificateAuthorityService_CertificateRevocationList_State_Active = @"ACTIVE";
 NSString * const kGTLRCertificateAuthorityService_CertificateRevocationList_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCertificateAuthorityService_CertificateRevocationList_State_Superseded = @"SUPERSEDED";
 
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry.severity
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Alert = @"ALERT";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Critical = @"CRITICAL";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Debug = @"DEBUG";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Default = @"DEFAULT";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Emergency = @"EMERGENCY";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Error = @"ERROR";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Info = @"INFO";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Notice = @"NOTICE";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Severity_Warning = @"WARNING";
-
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation.importance
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Debug = @"DEBUG";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_High = @"HIGH";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Importance_Low = @"LOW";
-
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties.quotaMode
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Acquire = @"ACQUIRE";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_AcquireBestEffort = @"ACQUIRE_BEST_EFFORT";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Check = @"CHECK";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties_QuotaMode_Release = @"RELEASE";
-
-// GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan.spanKind
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Client = @"CLIENT";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Consumer = @"CONSUMER";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Internal = @"INTERNAL";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Producer = @"PRODUCER";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_Server = @"SERVER";
-NSString * const kGTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
+// GTLRCertificateAuthorityService_EcKeyType.signatureAlgorithm
+NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP256 = @"ECDSA_P256";
+NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcdsaP384 = @"ECDSA_P384";
+NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_EcSignatureAlgorithmUnspecified = @"EC_SIGNATURE_ALGORITHM_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_EcKeyType_SignatureAlgorithm_Eddsa25519 = @"EDDSA_25519";
 
 // GTLRCertificateAuthorityService_KeyVersionSpec.algorithm
 NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_EcP256Sha256 = @"EC_P256_SHA256";
@@ -85,10 +80,14 @@ NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_RsaPs
 NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_RsaPss4096Sha256 = @"RSA_PSS_4096_SHA256";
 NSString * const kGTLRCertificateAuthorityService_KeyVersionSpec_Algorithm_SignHashAlgorithmUnspecified = @"SIGN_HASH_ALGORITHM_UNSPECIFIED";
 
-// GTLRCertificateAuthorityService_PublicKey.type
-NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
-NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_PemEcKey = @"PEM_EC_KEY";
-NSString * const kGTLRCertificateAuthorityService_PublicKey_Type_PemRsaKey = @"PEM_RSA_KEY";
+// GTLRCertificateAuthorityService_PublicKey.format
+NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_KeyFormatUnspecified = @"KEY_FORMAT_UNSPECIFIED";
+NSString * const kGTLRCertificateAuthorityService_PublicKey_Format_Pem = @"PEM";
+
+// GTLRCertificateAuthorityService_ReconciliationOperationMetadata.exclusiveAction
+NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
+NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
+NSString * const kGTLRCertificateAuthorityService_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
 
 // GTLRCertificateAuthorityService_RevocationDetails.revocationState
 NSString * const kGTLRCertificateAuthorityService_RevocationDetails_RevocationState_AffiliationChanged = @"AFFILIATION_CHANGED";
@@ -129,7 +128,15 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_AccessUrls
-@dynamic caCertificateAccessUrl, crlAccessUrl;
+@dynamic caCertificateAccessUrl, crlAccessUrls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"crlAccessUrls" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -145,41 +152,11 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_AllowedConfigList
+//   GTLRCertificateAuthorityService_AllowedKeyType
 //
 
-@implementation GTLRCertificateAuthorityService_AllowedConfigList
-@dynamic allowedConfigValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedConfigValues" : [GTLRCertificateAuthorityService_ReusableConfigWrapper class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_AllowedSubjectAltNames
-//
-
-@implementation GTLRCertificateAuthorityService_AllowedSubjectAltNames
-@dynamic allowCustomSans, allowedDnsNames, allowedEmailAddresses, allowedIps,
-         allowedUris, allowGlobbingDnsWildcards;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedDnsNames" : [NSString class],
-    @"allowedEmailAddresses" : [NSString class],
-    @"allowedIps" : [NSString class],
-    @"allowedUris" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRCertificateAuthorityService_AllowedKeyType
+@dynamic ellipticCurve, rsa;
 @end
 
 
@@ -212,24 +189,6 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"exemptedMembers" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_BillingView
-//
-
-@implementation GTLRCertificateAuthorityService_BillingView
-@dynamic reportRequests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reportRequests" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest class]
   };
   return map;
 }
@@ -276,12 +235,56 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_CaPool
+//
+
+@implementation GTLRCertificateAuthorityService_CaPool
+@dynamic createTime, issuancePolicy, labels, name, publishingOptions, tier,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_CaPool_Labels
+//
+
+@implementation GTLRCertificateAuthorityService_CaPool_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_CertChain
+//
+
+@implementation GTLRCertificateAuthorityService_CertChain
+@dynamic certificates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_Certificate
 //
 
 @implementation GTLRCertificateAuthorityService_Certificate
-@dynamic certificateDescription, config, createTime, labels, lifetime, name,
-         pemCertificate, pemCertificateChain, pemCsr, revocationDetails,
+@dynamic certificateDescription, certificateTemplate, config, createTime,
+         issuerCertificateAuthority, labels, lifetime, name, pemCertificate,
+         pemCertificateChain, pemCsr, revocationDetails, subjectMode,
          updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -314,10 +317,9 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_CertificateAuthority
-@dynamic accessUrls, caCertificateDescriptions, certificatePolicy, config,
-         createTime, deleteTime, gcsBucket, issuingOptions, keySpec, labels,
-         lifetime, name, pemCaCertificates, state, subordinateConfig, tier,
-         type, updateTime;
+@dynamic accessUrls, caCertificateDescriptions, config, createTime, deleteTime,
+         expireTime, gcsBucket, keySpec, labels, lifetime, name,
+         pemCaCertificates, state, subordinateConfig, tier, type, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -346,32 +348,11 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_CertificateAuthorityPolicy
-//
-
-@implementation GTLRCertificateAuthorityService_CertificateAuthorityPolicy
-@dynamic allowedCommonNames, allowedConfigList, allowedIssuanceModes,
-         allowedLocationsAndOrganizations, allowedSans, maximumLifetime,
-         overwriteConfigValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedCommonNames" : [NSString class],
-    @"allowedLocationsAndOrganizations" : [GTLRCertificateAuthorityService_Subject class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCertificateAuthorityService_CertificateConfig
 //
 
 @implementation GTLRCertificateAuthorityService_CertificateConfig
-@dynamic publicKey, reusableConfig, subjectConfig;
+@dynamic publicKey, subjectConfig, x509Config;
 @end
 
 
@@ -382,13 +363,32 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_CertificateDescription
 @dynamic aiaIssuingCertificateUrls, authorityKeyId, certFingerprint,
-         configValues, crlDistributionPoints, publicKey, subjectDescription,
-         subjectKeyId;
+         crlDistributionPoints, publicKey, subjectDescription, subjectKeyId,
+         x509Description;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"aiaIssuingCertificateUrls" : [NSString class],
     @"crlDistributionPoints" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_CertificateExtensionConstraints
+//
+
+@implementation GTLRCertificateAuthorityService_CertificateExtensionConstraints
+@dynamic additionalExtensions, knownExtensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalExtensions" : [GTLRCertificateAuthorityService_ObjectId class],
+    @"knownExtensions" : [NSString class]
   };
   return map;
 }
@@ -408,12 +408,23 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_CertificateIdentityConstraints
+//
+
+@implementation GTLRCertificateAuthorityService_CertificateIdentityConstraints
+@dynamic allowSubjectAltNamesPassthrough, allowSubjectPassthrough,
+         celExpression;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_CertificateRevocationList
 //
 
 @implementation GTLRCertificateAuthorityService_CertificateRevocationList
-@dynamic accessUrl, createTime, labels, name, pemCrl, revokedCertificates,
-         sequenceNumber, state, updateTime;
+@dynamic accessUrl, createTime, labels, name, pemCrl, revisionId,
+         revokedCertificates, sequenceNumber, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -441,11 +452,51 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_CertificateTemplate
+//
+
+@implementation GTLRCertificateAuthorityService_CertificateTemplate
+@dynamic createTime, descriptionProperty, identityConstraints, labels, name,
+         passthroughExtensions, predefinedValues, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_CertificateTemplate_Labels
+//
+
+@implementation GTLRCertificateAuthorityService_CertificateTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest
 //
 
 @implementation GTLRCertificateAuthorityService_DisableCertificateAuthorityRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_EcKeyType
+//
+
+@implementation GTLRCertificateAuthorityService_EcKeyType
+@dynamic signatureAlgorithm;
 @end
 
 
@@ -465,38 +516,6 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_EnableCertificateAuthorityRequest
 @dynamic requestId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_Exemplar
-//
-
-@implementation GTLRCertificateAuthorityService_Exemplar
-@dynamic attachments, timestamp, value;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachments" : [GTLRCertificateAuthorityService_Exemplar_Attachments_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_Exemplar_Attachments_Item
-//
-
-@implementation GTLRCertificateAuthorityService_Exemplar_Attachments_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
 @end
 
 
@@ -528,361 +547,39 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_FetchCaCertsRequest
+//
+
+@implementation GTLRCertificateAuthorityService_FetchCaCertsRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_FetchCaCertsResponse
+//
+
+@implementation GTLRCertificateAuthorityService_FetchCaCertsResponse
+@dynamic caCerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caCerts" : [GTLRCertificateAuthorityService_CertChain class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_FetchCertificateAuthorityCsrResponse
 //
 
 @implementation GTLRCertificateAuthorityService_FetchCertificateAuthorityCsrResponse
 @dynamic pemCsr;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes
-@dynamic attributeMap, droppedAttributesCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes_AttributeMap
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Attributes_AttributeMap
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1AttributeValue
-@dynamic boolValue, intValue, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Distribution
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Distribution
-@dynamic bucketCounts, count, exemplars, explicitBuckets, exponentialBuckets,
-         linearBuckets, maximum, mean, minimum, sumOfSquaredDeviation;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class],
-    @"exemplars" : [GTLRCertificateAuthorityService_Exemplar class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExplicitBuckets
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExplicitBuckets
-@dynamic bounds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bounds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExponentialBuckets
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ExponentialBuckets
-@dynamic growthFactor, numFiniteBuckets, scale;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1HttpRequest
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1HttpRequest
-@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
-         latency, protocol, referer, remoteIp, requestMethod, requestSize,
-         requestUrl, responseSize, serverIp, status, userAgent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LinearBuckets
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LinearBuckets
-@dynamic numFiniteBuckets, offset, width;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry
-@dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
-         sourceLocation, structPayload, textPayload, timestamp, trace;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Labels
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_ProtoPayload
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_ProtoPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_StructPayload
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry_StructPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntryOperation
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntryOperation
-@dynamic first, identifier, last, producer;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntrySourceLocation
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntrySourceLocation
-@dynamic file, function, line;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue
-@dynamic boolValue, distributionValue, doubleValue, endTime, int64Value, labels,
-         moneyValue, startTime, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue_Labels
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet
-@dynamic metricName, metricValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricValues" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation
-@dynamic consumerId, endTime, extensions, importance, labels, logEntries,
-         metricValueSets, operationId, operationName, quotaProperties,
-         resources, startTime, traceSpans, userLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extensions" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item class],
-    @"logEntries" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1LogEntry class],
-    @"metricValueSets" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1MetricValueSet class],
-    @"resources" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo class],
-    @"traceSpans" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Extensions_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Labels
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1QuotaProperties
-@dynamic quotaMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ReportRequest
-@dynamic operations, serviceConfigId, serviceName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1ResourceInfo
-@dynamic resourceContainer, resourceLocation, resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan
-@dynamic attributes, childSpanCount, displayName, endTime, name, parentSpanId,
-         sameProcessAsParentSpan, spanId, spanKind, startTime, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString
-//
-
-@implementation GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TruncatableString
-@dynamic truncatedByteCount, value;
 @end
 
 
@@ -898,11 +595,20 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_IssuingOptions
+//   GTLRCertificateAuthorityService_IssuancePolicy
 //
 
-@implementation GTLRCertificateAuthorityService_IssuingOptions
-@dynamic includeCaCertUrl, includeCrlAccessUrl;
+@implementation GTLRCertificateAuthorityService_IssuancePolicy
+@dynamic allowedIssuanceModes, allowedKeyTypes, baselineValues,
+         identityConstraints, maximumLifetime, passthroughExtensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedKeyTypes" : [GTLRCertificateAuthorityService_AllowedKeyType class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -952,6 +658,29 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 @implementation GTLRCertificateAuthorityService_KeyVersionSpec
 @dynamic algorithm, cloudKmsKeyVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_ListCaPoolsResponse
+//
+
+@implementation GTLRCertificateAuthorityService_ListCaPoolsResponse
+@dynamic caPools, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caPools" : [GTLRCertificateAuthorityService_CaPool class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"caPools";
+}
+
 @end
 
 
@@ -1026,6 +755,29 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_ListCertificateTemplatesResponse
+//
+
+@implementation GTLRCertificateAuthorityService_ListCertificateTemplatesResponse
+@dynamic certificateTemplates, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificateTemplates" : [GTLRCertificateAuthorityService_CertificateTemplate class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"certificateTemplates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_ListLocationsResponse
 //
 
@@ -1070,29 +822,6 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_ListReusableConfigsResponse
-//
-
-@implementation GTLRCertificateAuthorityService_ListReusableConfigsResponse
-@dynamic nextPageToken, reusableConfigs, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reusableConfigs" : [GTLRCertificateAuthorityService_ReusableConfig class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"reusableConfigs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCertificateAuthorityService_Location
 //
 
@@ -1126,16 +855,6 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_Money
-//
-
-@implementation GTLRCertificateAuthorityService_Money
-@dynamic currencyCode, nanos, units;
 @end
 
 
@@ -1235,76 +954,27 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_PublicKey
-@dynamic key, type;
+@dynamic format, key;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest
+//   GTLRCertificateAuthorityService_PublishingOptions
 //
 
-@implementation GTLRCertificateAuthorityService_RestoreCertificateAuthorityRequest
-@dynamic requestId;
+@implementation GTLRCertificateAuthorityService_PublishingOptions
+@dynamic publishCaCert, publishCrl;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_ReusableConfig
+//   GTLRCertificateAuthorityService_ReconciliationOperationMetadata
 //
 
-@implementation GTLRCertificateAuthorityService_ReusableConfig
-@dynamic createTime, descriptionProperty, labels, name, updateTime, values;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_ReusableConfig_Labels
-//
-
-@implementation GTLRCertificateAuthorityService_ReusableConfig_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_ReusableConfigValues
-//
-
-@implementation GTLRCertificateAuthorityService_ReusableConfigValues
-@dynamic additionalExtensions, aiaOcspServers, caOptions, keyUsage, policyIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalExtensions" : [GTLRCertificateAuthorityService_X509Extension class],
-    @"aiaOcspServers" : [NSString class],
-    @"policyIds" : [GTLRCertificateAuthorityService_ObjectId class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCertificateAuthorityService_ReusableConfigWrapper
-//
-
-@implementation GTLRCertificateAuthorityService_ReusableConfigWrapper
-@dynamic reusableConfig, reusableConfigValues;
+@implementation GTLRCertificateAuthorityService_ReconciliationOperationMetadata
+@dynamic deleteResource, exclusiveAction;
 @end
 
 
@@ -1340,11 +1010,11 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest
+//   GTLRCertificateAuthorityService_RsaKeyType
 //
 
-@implementation GTLRCertificateAuthorityService_ScheduleDeleteCertificateAuthorityRequest
-@dynamic ignoreActiveCertificates, requestId;
+@implementation GTLRCertificateAuthorityService_RsaKeyType
+@dynamic maxModulusSize, minModulusSize;
 @end
 
 
@@ -1396,8 +1066,8 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_Subject
-@dynamic countryCode, locality, organization, organizationalUnit, postalCode,
-         province, streetAddress;
+@dynamic commonName, countryCode, locality, organization, organizationalUnit,
+         postalCode, province, streetAddress;
 @end
 
 
@@ -1429,7 +1099,7 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_SubjectConfig
-@dynamic commonName, subject, subjectAltName;
+@dynamic subject, subjectAltName;
 @end
 
 
@@ -1439,8 +1109,8 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_SubjectDescription
-@dynamic commonName, hexSerialNumber, lifetime, notAfterTime, notBeforeTime,
-         subject, subjectAltName;
+@dynamic hexSerialNumber, lifetime, notAfterTime, notBeforeTime, subject,
+         subjectAltName;
 @end
 
 
@@ -1510,9 +1180,39 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest
+//
+
+@implementation GTLRCertificateAuthorityService_UndeleteCertificateAuthorityRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateAuthorityService_X509Extension
 //
 
 @implementation GTLRCertificateAuthorityService_X509Extension
 @dynamic critical, objectId, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateAuthorityService_X509Parameters
+//
+
+@implementation GTLRCertificateAuthorityService_X509Parameters
+@dynamic additionalExtensions, aiaOcspServers, caOptions, keyUsage, policyIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalExtensions" : [GTLRCertificateAuthorityService_X509Extension class],
+    @"aiaOcspServers" : [NSString class],
+    @"policyIds" : [GTLRCertificateAuthorityService_ObjectId class]
+  };
+  return map;
+}
+
 @end

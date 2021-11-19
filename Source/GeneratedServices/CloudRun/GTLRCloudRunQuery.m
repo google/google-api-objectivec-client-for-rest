@@ -5,7 +5,8 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on HTTP traffic.
+//   based on incoming requests. The Cloud Run Admin API follows the Knative
+//   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -83,7 +84,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesDomainmappingsCreate
 
-@dynamic parent;
+@dynamic dryRun, parent;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_DomainMapping *)object
                          parent:(NSString *)parent {
@@ -110,7 +111,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesDomainmappingsDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -172,7 +173,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesRevisionsDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -277,7 +278,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesServicesCreate
 
-@dynamic parent;
+@dynamic dryRun, parent;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_Service *)object
                          parent:(NSString *)parent {
@@ -304,7 +305,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesServicesDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -366,7 +367,7 @@
 
 @implementation GTLRCloudRunQuery_NamespacesServicesReplaceService
 
-@dynamic name;
+@dynamic dryRun, name;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_Service *)object
                            name:(NSString *)name {
@@ -474,7 +475,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsDomainmappingsCreate
 
-@dynamic parent;
+@dynamic dryRun, parent;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_DomainMapping *)object
                          parent:(NSString *)parent {
@@ -501,7 +502,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsDomainmappingsDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -582,7 +583,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsRevisionsDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -687,7 +688,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesCreate
 
-@dynamic parent;
+@dynamic dryRun, parent;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_Service *)object
                          parent:(NSString *)parent {
@@ -714,7 +715,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesDelete
 
-@dynamic apiVersion, kind, name, propagationPolicy;
+@dynamic apiVersion, dryRun, kind, name, propagationPolicy;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -799,7 +800,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesReplaceService
 
-@dynamic name;
+@dynamic dryRun, name;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_Service *)object
                            name:(NSString *)name {

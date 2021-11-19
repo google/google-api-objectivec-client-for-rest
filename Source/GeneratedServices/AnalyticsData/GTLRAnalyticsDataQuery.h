@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
@@ -22,6 +22,7 @@
 
 @class GTLRAnalyticsData_BatchRunPivotReportsRequest;
 @class GTLRAnalyticsData_BatchRunReportsRequest;
+@class GTLRAnalyticsData_CheckCompatibilityRequest;
 @class GTLRAnalyticsData_RunPivotReportRequest;
 @class GTLRAnalyticsData_RunRealtimeReportRequest;
 @class GTLRAnalyticsData_RunReportRequest;
@@ -44,6 +45,156 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns multiple pivot reports in a batch. All reports must be for the same
+ *  GA4 Property.
+ *
+ *  Method: analyticsdata.properties.batchRunPivotReports
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesBatchRunPivotReports : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  This property must be specified for the batch. The property within
+ *  RunPivotReportRequest may either be unspecified or consistent with this
+ *  property. Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_BatchRunPivotReportsResponse.
+ *
+ *  Returns multiple pivot reports in a batch. All reports must be for the same
+ *  GA4 Property.
+ *
+ *  @param object The @c GTLRAnalyticsData_BatchRunPivotReportsRequest to
+ *    include in the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. Specified in the URL path and not the body. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    This property must be specified for the batch. The property within
+ *    RunPivotReportRequest may either be unspecified or consistent with this
+ *    property. Example: properties/1234
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesBatchRunPivotReports
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunPivotReportsRequest *)object
+                       property:(NSString *)property;
+
+@end
+
+/**
+ *  Returns multiple reports in a batch. All reports must be for the same GA4
+ *  Property.
+ *
+ *  Method: analyticsdata.properties.batchRunReports
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesBatchRunReports : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  This property must be specified for the batch. The property within
+ *  RunReportRequest may either be unspecified or consistent with this property.
+ *  Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_BatchRunReportsResponse.
+ *
+ *  Returns multiple reports in a batch. All reports must be for the same GA4
+ *  Property.
+ *
+ *  @param object The @c GTLRAnalyticsData_BatchRunReportsRequest to include in
+ *    the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. Specified in the URL path and not the body. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    This property must be specified for the batch. The property within
+ *    RunReportRequest may either be unspecified or consistent with this
+ *    property. Example: properties/1234
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesBatchRunReports
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object
+                       property:(NSString *)property;
+
+@end
+
+/**
+ *  This compatibility method lists dimensions and metrics that can be added to
+ *  a report request and maintain compatibility. This method fails if the
+ *  request's dimensions and metrics are incompatible. In Google Analytics,
+ *  reports fail if they request incompatible dimensions and/or metrics; in that
+ *  case, you will need to remove dimensions and/or metrics from the
+ *  incompatible report until the report is compatible. The Realtime and Core
+ *  reports have different compatibility rules. This method checks compatibility
+ *  for Core reports.
+ *
+ *  Method: analyticsdata.properties.checkCompatibility
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesCheckCompatibility : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked. To
+ *  learn more, see [where to find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  `property` should be the same value as in your `runReport` request. Example:
+ *  properties/1234 Set the Property ID to 0 for compatibility checking on
+ *  dimensions and metrics common to all properties. In this special mode, this
+ *  method will not return custom dimensions and metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_CheckCompatibilityResponse.
+ *
+ *  This compatibility method lists dimensions and metrics that can be added to
+ *  a report request and maintain compatibility. This method fails if the
+ *  request's dimensions and metrics are incompatible. In Google Analytics,
+ *  reports fail if they request incompatible dimensions and/or metrics; in that
+ *  case, you will need to remove dimensions and/or metrics from the
+ *  incompatible report until the report is compatible. The Realtime and Core
+ *  reports have different compatibility rules. This method checks compatibility
+ *  for Core reports.
+ *
+ *  @param object The @c GTLRAnalyticsData_CheckCompatibilityRequest to include
+ *    in the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. To learn more, see [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    `property` should be the same value as in your `runReport` request.
+ *    Example: properties/1234 Set the Property ID to 0 for compatibility
+ *    checking on dimensions and metrics common to all properties. In this
+ *    special mode, this method will not return custom dimensions and metrics.
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesCheckCompatibility
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_CheckCompatibilityRequest *)object
+                       property:(NSString *)property;
+
+@end
+
+/**
  *  Returns metadata for dimensions and metrics available in reporting methods.
  *  Used to explore the dimensions and metrics. In this method, a Google
  *  Analytics GA4 Property Identifier is specified in the request, and the
@@ -60,8 +211,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
  */
 @interface GTLRAnalyticsDataQuery_PropertiesGetMetadata : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForPropertiesGetMetadataWithname:]
 
 /**
  *  Required. The resource name of the metadata to retrieve. This name field is
@@ -103,6 +252,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns a customized pivot report of your Google Analytics event data. Pivot
+ *  reports are more advanced and expressive formats than regular reports. In a
+ *  pivot report, dimensions are only visible if they are included in a pivot.
+ *  Multiple pivots can be specified to further dissect your data.
+ *
+ *  Method: analyticsdata.properties.runPivotReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesRunPivotReport : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  Within a batch request, this property should either be unspecified or
+ *  consistent with the batch-level property. Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_RunPivotReportResponse.
+ *
+ *  Returns a customized pivot report of your Google Analytics event data. Pivot
+ *  reports are more advanced and expressive formats than regular reports. In a
+ *  pivot report, dimensions are only visible if they are included in a pivot.
+ *  Multiple pivots can be specified to further dissect your data.
+ *
+ *  @param object The @c GTLRAnalyticsData_RunPivotReportRequest to include in
+ *    the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. Specified in the URL path and not the body. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    Within a batch request, this property should either be unspecified or
+ *    consistent with the batch-level property. Example: properties/1234
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesRunPivotReport
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunPivotReportRequest *)object
+                       property:(NSString *)property;
+
+@end
+
+/**
  *  The Google Analytics Realtime API returns a customized report of realtime
  *  event data for your property. These reports show events and usage from the
  *  last 30 minutes.
@@ -114,8 +311,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
  */
 @interface GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForPropertiesRunRealtimeReportWithObject:property:]
 
 /**
  *  A Google Analytics GA4 property identifier whose events are tracked.
@@ -149,97 +344,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns multiple pivot reports in a batch. All reports must be for the same
- *  Entity.
- *
- *  Method: analyticsdata.batchRunPivotReports
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsDataAnalytics
- *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
- */
-@interface GTLRAnalyticsDataQuery_V1alphaBatchRunPivotReports : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForBatchRunPivotReportsWithObject:]
-
-/**
- *  Fetches a @c GTLRAnalyticsData_BatchRunPivotReportsResponse.
- *
- *  Returns multiple pivot reports in a batch. All reports must be for the same
- *  Entity.
- *
- *  @param object The @c GTLRAnalyticsData_BatchRunPivotReportsRequest to
- *    include in the query.
- *
- *  @return GTLRAnalyticsDataQuery_V1alphaBatchRunPivotReports
- */
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunPivotReportsRequest *)object;
-
-@end
-
-/**
- *  Returns multiple reports in a batch. All reports must be for the same
- *  Entity.
- *
- *  Method: analyticsdata.batchRunReports
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsDataAnalytics
- *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
- */
-@interface GTLRAnalyticsDataQuery_V1alphaBatchRunReports : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForBatchRunReportsWithObject:]
-
-/**
- *  Fetches a @c GTLRAnalyticsData_BatchRunReportsResponse.
- *
- *  Returns multiple reports in a batch. All reports must be for the same
- *  Entity.
- *
- *  @param object The @c GTLRAnalyticsData_BatchRunReportsRequest to include in
- *    the query.
- *
- *  @return GTLRAnalyticsDataQuery_V1alphaBatchRunReports
- */
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object;
-
-@end
-
-/**
- *  Returns a customized pivot report of your Google Analytics event data. Pivot
- *  reports are more advanced and expressive formats than regular reports. In a
- *  pivot report, dimensions are only visible if they are included in a pivot.
- *  Multiple pivots can be specified to further dissect your data.
- *
- *  Method: analyticsdata.runPivotReport
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsDataAnalytics
- *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
- */
-@interface GTLRAnalyticsDataQuery_V1alphaRunPivotReport : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForRunPivotReportWithObject:]
-
-/**
- *  Fetches a @c GTLRAnalyticsData_RunPivotReportResponse.
- *
- *  Returns a customized pivot report of your Google Analytics event data. Pivot
- *  reports are more advanced and expressive formats than regular reports. In a
- *  pivot report, dimensions are only visible if they are included in a pivot.
- *  Multiple pivots can be specified to further dissect your data.
- *
- *  @param object The @c GTLRAnalyticsData_RunPivotReportRequest to include in
- *    the query.
- *
- *  @return GTLRAnalyticsDataQuery_V1alphaRunPivotReport
- */
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_RunPivotReportRequest *)object;
-
-@end
-
-/**
  *  Returns a customized report of your Google Analytics event data. Reports
  *  contain statistics derived from data collected by the Google Analytics
  *  tracking code. The data returned from the API is as a table with columns for
@@ -248,15 +352,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Dimensions break down metrics across some common criteria, such as country
  *  or event name.
  *
- *  Method: analyticsdata.runReport
+ *  Method: analyticsdata.properties.runReport
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAnalyticsDataAnalytics
  *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
  */
-@interface GTLRAnalyticsDataQuery_V1alphaRunReport : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForRunReportWithObject:]
+@interface GTLRAnalyticsDataQuery_PropertiesRunReport : GTLRAnalyticsDataQuery
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  Within a batch request, this property should either be unspecified or
+ *  consistent with the batch-level property. Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
 
 /**
  *  Fetches a @c GTLRAnalyticsData_RunReportResponse.
@@ -271,10 +383,17 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAnalyticsData_RunReportRequest to include in the
  *    query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. Specified in the URL path and not the body. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *    Within a batch request, this property should either be unspecified or
+ *    consistent with the batch-level property. Example: properties/1234
  *
- *  @return GTLRAnalyticsDataQuery_V1alphaRunReport
+ *  @return GTLRAnalyticsDataQuery_PropertiesRunReport
  */
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_RunReportRequest *)object;
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunReportRequest *)object
+                       property:(NSString *)property;
 
 @end
 

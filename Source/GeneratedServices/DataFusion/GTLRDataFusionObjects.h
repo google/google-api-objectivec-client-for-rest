@@ -30,6 +30,7 @@
 @class GTLRDataFusion_AuditConfig;
 @class GTLRDataFusion_AuditLogConfig;
 @class GTLRDataFusion_Binding;
+@class GTLRDataFusion_CryptoKeyConfig;
 @class GTLRDataFusion_Expr;
 @class GTLRDataFusion_Instance;
 @class GTLRDataFusion_Instance_Labels;
@@ -66,6 +67,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified;
+/**
+ *  Contact Center AI Insights This accelerator is used to enable import and
+ *  export pipelines custom built to streamline CCAI Insights processing.
+ *
+ *  Value: "CCAI_INSIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights;
 /**
  *  Change Data Capture accelerator for CDF.
  *
@@ -249,6 +257,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnspecified
  *        Default value, if unspecified. (Value: "ACCELERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_CcaiInsights Contact
+ *        Center AI Insights This accelerator is used to enable import and
+ *        export pipelines custom built to streamline CCAI Insights processing.
+ *        (Value: "CCAI_INSIGHTS")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Cdc Change Data
  *        Capture accelerator for CDF. (Value: "CDC")
  *    @arg @c kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare Cloud
@@ -408,6 +420,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
+ *  The crypto key configuration. This field is used by the Customer-managed
+ *  encryption keys (CMEK) feature.
+ */
+@interface GTLRDataFusion_CryptoKeyConfig : GTLRObject
+
+/**
+ *  The name of the key which is used to encrypt/decrypt customer data. For key
+ *  in Cloud KMS, the key should be in the format of `projects/ * /locations/ *
+ *  /keyRings/ * /cryptoKeys/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *keyReference;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -488,6 +516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  The crypto key configuration. This field is used by the Customer-Managed
+ *  Encryption Keys (CMEK) feature.
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_CryptoKeyConfig *cryptoKeyConfig;
+
+/**
  *  User-managed service account to set on Dataproc when Cloud Data Fusion
  *  creates Dataproc to run data processing pipelines. This allows users to have
  *  fine-grained access control on Dataproc's accesses to cloud resources.
@@ -503,6 +537,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /** Display name for an instance. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Option to enable granular role-based access control.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRbac;
 
 /**
  *  Option to enable Stackdriver Logging.
@@ -526,8 +567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as GCE VMs. The character '=' is not allowed to be used
- *  within the labels.
+ *  resources such as Compute Engine VMs. The character '=' is not allowed to be
+ *  used within the labels.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
@@ -649,8 +690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as GCE VMs. The character '=' is not allowed to be used
- *  within the labels.
+ *  resources such as Compute Engine VMs. The character '=' is not allowed to be
+ *  used within the labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -954,7 +995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_OperationMetadata : GTLRObject
 
 /**
- *  Map to hold any additonal status info for the operation If there is an
+ *  Map to hold any additional status info for the operation If there is an
  *  accelerator being enabled/disabled/deleted, this will be populated with
  *  accelerator name as key and status as ENABLING, DISABLING or DELETING
  */
@@ -991,7 +1032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Map to hold any additonal status info for the operation If there is an
+ *  Map to hold any additional status info for the operation If there is an
  *  accelerator being enabled/disabled/deleted, this will be populated with
  *  accelerator name as key and status as ENABLING, DISABLING or DELETING
  *

@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsGet : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -72,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ApplyParameters will restart the set of specified nodes in order to update
+ *  `ApplyParameters` restarts the set of specified nodes in order to update
  *  them to the current set of parameters for the Memcached Instance.
  *
  *  Method: memcache.projects.locations.instances.applyParameters
@@ -81,8 +79,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesApplyParameters : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesApplyParametersWithObject:name:]
 
 /**
  *  Required. Resource name of the Memcached instance for which parameter group
@@ -93,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
  *
- *  ApplyParameters will restart the set of specified nodes in order to update
+ *  `ApplyParameters` restarts the set of specified nodes in order to update
  *  them to the current set of parameters for the Memcached Instance.
  *
  *  @param object The @c GTLRCloudMemorystoreforMemcached_ApplyParametersRequest
@@ -117,16 +113,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesCreate : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The logical name of the Memcached instance in the user project
  *  with the following restrictions: * Must contain only lowercase letters,
  *  numbers, and hyphens. * Must start with a letter. * Must be between 1-40
  *  characters. * Must end with a number or a letter. * Must be unique within
- *  the user project / location If any of the above are not met, will raise an
- *  invalid argument error.
+ *  the user project / location. If any of the above are not met, the API raises
+ *  an invalid argument error.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
@@ -164,8 +158,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesDelete : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  Required. Memcached instance resource name in the format:
@@ -198,8 +190,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGet : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  Required. Memcached instance resource name in the format:
@@ -232,12 +222,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesList : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesListWithparent:]
 
 /**
  *  List filter. For example, exclude all Memcached instances with name as
- *  my-instance by specifying "name != my-instance".
+ *  my-instance by specifying `"name != my-instance"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -248,15 +236,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of items to return. If not specified, a default value of
- *  1000 will be used by the service. Regardless of the page_size value, the
+ *  1000 will be used by the service. Regardless of the `page_size` value, the
  *  response may include a partial list and a caller should only rely on
- *  response's next_page_token to determine if there are more instances left to
- *  be queried.
+ *  response's `next_page_token` to determine if there are more instances left
+ *  to be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous List request, if any.
+ *  The `next_page_token` value returned from a previous List request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -295,17 +283,15 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesPatch : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesPatchWithObject:name:]
 
 /**
  *  Required. Unique name of the resource in this scope including project and
  *  location using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *  Note: Memcached instances are managed and addressed at regional level so
- *  location_id here refers to a GCP region; however, users may choose which
- *  zones Memcached nodes within an instances should be provisioned in. Refer to
- *  [zones] field for more details.
+ *  Note: Memcached instances are managed and addressed at the regional level so
+ *  `location_id` here refers to a Google Cloud region; however, users may
+ *  choose which zones Memcached nodes should be provisioned in within an
+ *  instance. Refer to zones field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -326,10 +312,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. Unique name of the resource in this scope including
  *    project and location using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *    Note: Memcached instances are managed and addressed at regional level so
- *    location_id here refers to a GCP region; however, users may choose which
- *    zones Memcached nodes within an instances should be provisioned in. Refer
- *    to [zones] field for more details.
+ *    Note: Memcached instances are managed and addressed at the regional level
+ *    so `location_id` here refers to a Google Cloud region; however, users may
+ *    choose which zones Memcached nodes should be provisioned in within an
+ *    instance. Refer to zones field for more details.
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesPatch
  */
@@ -339,9 +325,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the defined Memcached Parameters for an existing Instance. This
- *  method only stages the parameters, it must be followed by ApplyParameters to
- *  apply the parameters to nodes of the Memcached Instance.
+ *  Updates the defined Memcached parameters for an existing instance. This
+ *  method only stages the parameters, it must be followed by `ApplyParameters`
+ *  to apply the parameters to nodes of the Memcached instance.
  *
  *  Method: memcache.projects.locations.instances.updateParameters
  *
@@ -349,8 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpdateParameters : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesUpdateParametersWithObject:name:]
 
 /**
  *  Required. Resource name of the Memcached instance for which the parameters
@@ -361,9 +345,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
  *
- *  Updates the defined Memcached Parameters for an existing Instance. This
- *  method only stages the parameters, it must be followed by ApplyParameters to
- *  apply the parameters to nodes of the Memcached Instance.
+ *  Updates the defined Memcached parameters for an existing instance. This
+ *  method only stages the parameters, it must be followed by `ApplyParameters`
+ *  to apply the parameters to nodes of the Memcached instance.
  *
  *  @param object The @c
  *    GTLRCloudMemorystoreforMemcached_UpdateParametersRequest to include in the
@@ -387,19 +371,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsList : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -436,8 +428,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsCancel : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -478,8 +468,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsDelete : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -511,8 +499,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsGet : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -549,8 +535,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
  */
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsList : GTLRCloudMemorystoreforMemcachedQuery
-// Previous library name was
-//   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

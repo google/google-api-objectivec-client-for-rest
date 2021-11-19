@@ -25,6 +25,7 @@
 @class GTLRNetworkManagement_AuditConfig;
 @class GTLRNetworkManagement_AuditLogConfig;
 @class GTLRNetworkManagement_Binding;
+@class GTLRNetworkManagement_CloudSQLInstanceInfo;
 @class GTLRNetworkManagement_ConnectivityTest;
 @class GTLRNetworkManagement_ConnectivityTest_Labels;
 @class GTLRNetworkManagement_DeliverInfo;
@@ -35,6 +36,7 @@
 @class GTLRNetworkManagement_FirewallInfo;
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
+@class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_LoadBalancerBackend;
 @class GTLRNetworkManagement_LoadBalancerInfo;
@@ -75,6 +77,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified;
 /**
+ *  Aborted because the destination endpoint could not be found.
+ *
+ *  Value: "DESTINATION_ENDPOINT_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound;
+/**
  *  Aborted due to internal server error.
  *
  *  Value: "INTERNAL_ERROR"
@@ -90,6 +98,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Intern
  *  Value: "INVALID_ARGUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument;
+/**
+ *  Aborted because the destination network does not match the destination
+ *  endpoint.
+ *
+ *  Value: "MISMATCHED_DESTINATION_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork;
+/**
+ *  Aborted because the source network does not match the source endpoint.
+ *
+ *  Value: "MISMATCHED_SOURCE_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork;
 /**
  *  Aborted because traffic is sent from a public IP to an instance without an
  *  external IP.
@@ -111,6 +132,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSour
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
+/**
+ *  Aborted because the source endpoint could not be found.
+ *
+ *  Value: "SOURCE_ENDPOINT_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound;
 /**
  *  Aborted because the number of steps in the trace exceeding a certain limit
  *  which may be caused by routing loop.
@@ -147,6 +174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unknow
  *  Value: "UNKNOWN_PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject;
+/**
+ *  Aborted because the test scenario is not supported.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_AuditLogConfig.logType
@@ -180,6 +213,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AuditLogConfig_LogType
 // GTLRNetworkManagement_DeliverInfo.target
 
 /**
+ *  Target is a Cloud SQL instance.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance;
+/**
+ *  Target is a Google Kubernetes Engine cluster master.
+ *
+ *  Value: "GKE_MASTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster;
+/**
  *  Target is a Google API.
  *
  *  Value: "GOOGLE_API"
@@ -192,7 +237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Goo
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Instance;
 /**
- *  Target is the Internet.
+ *  Target is the internet.
  *
  *  Value: "INTERNET"
  */
@@ -214,23 +259,51 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
 /**
+ *  Packet was dropped because the Cloud SQL instance has neither a private nor
+ *  a public IP address.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress;
+/**
+ *  Access to the Cloud SQL instance endpoint is not authorized. See
+ *  [Authorizing with authorized
+ *  networks](https://cloud.google.com/sql/docs/mysql/authorize-networks) for
+ *  more details.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess;
+/**
+ *  Packet was dropped inside Cloud SQL Service.
+ *
+ *  Value: "DROPPED_INSIDE_CLOUD_SQL_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService;
+/**
+ *  Packet was dropped inside Google Kubernetes Engine Service.
+ *
+ *  Value: "DROPPED_INSIDE_GKE_SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService;
+/**
  *  Firewalls block the health check probes to the backends and cause the
- *  backends to be unavailable for traffic from the load balancer. See [Health
- *  check firewall rules](/load-balancing/docs/ health-checks#firewall_rules)
- *  for more details.
+ *  backends to be unavailable for traffic from the load balancer. For more
+ *  details, see [Health check firewall
+ *  rules](https://cloud.google.com/load-balancing/docs/health-checks#firewall_rules).
  *
  *  Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck;
 /**
- *  Dropped due to a firewall rule unless allowed due to connection tracking.
+ *  Dropped due to a firewall rule, unless allowed due to connection tracking.
  *
  *  Value: "FIREWALL_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule;
 /**
- *  a Compute Engine instance can only send or receive a packet with a foreign
- *  IP if ip_forward is enabled.
+ *  A Compute Engine instance can only send or receive a packet with a foreign
+ *  IP address if ip_forward is enabled.
  *
  *  Value: "FOREIGN_IP_DISALLOWED"
  */
@@ -248,13 +321,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Forward
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances;
 /**
- *  Access to GKE master's endpoint is not authorized. See [Access to the
- *  cluster endpoints](/kubernetes-engine/docs/how-to/
- *  private-clusters#access_to_the_cluster_endpoints) for more details.
+ *  Access to Google Kubernetes Engine cluster master's endpoint is not
+ *  authorized. See [Access to the cluster
+ *  endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
+ *  for more details.
  *
  *  Value: "GKE_MASTER_UNAUTHORIZED_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
+/**
+ *  Packet was dropped because there is no peering between the originating
+ *  network and the Google Managed Services Network.
+ *
+ *  Value: "GOOGLE_MANAGED_SERVICE_NO_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering;
 /**
  *  Packet is sent from or to a Compute Engine instance that is not in a running
  *  state.
@@ -263,10 +344,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMast
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
 /**
- *  Instance with only internal IP tries to access external hosts, but Cloud NAT
- *  is not enabled in the subnet, unless special configurations on a VM allows
- *  this connection. See [Special Configurations for VM
- *  instances](/vpc/docs/special-configurations) for details.
+ *  Instance with only an internal IP address tries to access external hosts,
+ *  but Cloud NAT is not enabled in the subnet, unless special configurations on
+ *  a VM allow this connection. For more details, see [Special configurations
+ *  for VM instances](https://cloud.google.com/vpc/docs/special-configurations).
  *
  *  Value: "NO_EXTERNAL_ADDRESS"
  */
@@ -278,14 +359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExter
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute;
 /**
- *  Instance with only an internal IP tries to access Google API and Services,
- *  and private Google access is not enabled.
+ *  Instance with only an internal IP address tries to access Google API and
+ *  services, but private Google access is not enabled.
  *
  *  Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed;
 /**
- *  Packet with internal destination address sent to Internet gateway.
+ *  Packet with internal destination address sent to the internet gateway.
  *
  *  Value: "PRIVATE_TRAFFIC_TO_INTERNET"
  */
@@ -297,29 +378,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole;
 /**
- *  Packet is sent to a wrong (unintended) network. Example: user traces a
- *  packet from VM1:Network1 to VM2:Network2, however, the route configured in
- *  Network1 sends the packet destined for VM2's IP addresss to Network3.
+ *  Packet is sent to a wrong (unintended) network. Example: you trace a packet
+ *  from VM1:Network1 to VM2:Network2, however, the route configured in Network1
+ *  sends the packet destined for VM2's IP addresss to Network3.
  *
  *  Value: "ROUTE_WRONG_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork;
 /**
  *  The type of traffic is blocked and the user cannot configure a firewall rule
- *  to enable it. See [Always blocked traffic](/vpc/docs/firewalls#
- *  blockedtraffic) for more details.
+ *  to enable it. See [Always blocked
+ *  traffic](https://cloud.google.com/vpc/docs/firewalls#blockedtraffic) for
+ *  more details.
  *
  *  Value: "TRAFFIC_TYPE_BLOCKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked;
 /**
- *  Destination external address cannot be resolved to a known target.
+ *  Destination external address cannot be resolved to a known target. If the
+ *  address is used in a Google Cloud project, provide the project ID as test
+ *  input.
  *
  *  Value: "UNKNOWN_EXTERNAL_ADDRESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress;
 /**
- *  Destination internal address cannot be resolved to a known target.
+ *  Destination internal address cannot be resolved to a known target. If this
+ *  is a shared VPC scenario, verify if the service project ID is provided as
+ *  test input. Otherwise, verify if the IP address is being used in the
+ *  project.
  *
  *  Value: "UNKNOWN_INTERNAL_ADDRESS"
  */
@@ -350,8 +437,45 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_N
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_FirewallInfo.firewallRuleType
+
+/**
+ *  Unspecified type.
+ *
+ *  Value: "FIREWALL_RULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified;
+/**
+ *  Hierarchical firewall policy rule. For details, see [Hierarchical firewall
+ *  policies overview](https://cloud.google.com/vpc/docs/firewall-policies).
+ *
+ *  Value: "HIERARCHICAL_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule;
+/**
+ *  Implied VPC firewall rule. For details, see [Implied
+ *  rules](https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules).
+ *
+ *  Value: "IMPLIED_VPC_FIREWALL_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule;
+/**
+ *  VPC firewall rule. For details, see [VPC firewall rules
+ *  overview](https://cloud.google.com/vpc/docs/firewalls).
+ *
+ *  Value: "VPC_FIREWALL_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ForwardInfo.target
 
+/**
+ *  Forwarded to a Cloud SQL instance.
+ *
+ *  Value: "CLOUD_SQL_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance;
 /**
  *  Forwarded to a Google Kubernetes Engine Container cluster master.
  *
@@ -365,7 +489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Gke
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_ImportedCustomRouteNextHop;
 /**
- *  Forwarded to an Cloud Interconnect connection.
+ *  Forwarded to a Cloud Interconnect connection.
  *
  *  Value: "INTERCONNECT"
  */
@@ -481,41 +605,43 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
 // GTLRNetworkManagement_ReachabilityDetails.result
 
 /**
- *  If the source and destination endpoint does not uniquely identify the test
+ *  The source and destination endpoints do not uniquely identify the test
  *  location in the network, and the reachability result contains multiple
- *  traces with mixed reachable and unreachable states, then this result is
- *  returned.
+ *  traces. For some traces, a packet could be delivered, and for others, it
+ *  would not be.
  *
  *  Value: "AMBIGUOUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous;
 /**
- *  Packet originating from source is expected to reach destination.
+ *  Possible scenarios are: * The configuration analysis determined that a
+ *  packet originating from the source is expected to reach the destination. *
+ *  The analysis didn't complete because the user lacks permission for some of
+ *  the resources in the trace. However, at the time the user's permission
+ *  became insufficient, the trace had been successful so far.
  *
  *  Value: "REACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable;
 /**
- *  Result is not specified.
+ *  No result was specified.
  *
  *  Value: "RESULT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified;
 /**
- *  The reachability could not be determined. Possible reasons are: * Analysis
- *  is aborted due to permission error. User does not have read permission to
- *  the projects listed in the test. * Analysis is aborted due to internal
- *  errors. * Analysis is partially complete based on configurations where the
- *  user has permission. The Final state indicates that the packet is forwarded
- *  to another network where the user has no permission to access the
- *  configurations.
+ *  The configuration analysis did not complete. Possible reasons are: * A
+ *  permissions error occurred--for example, the user might not have read
+ *  permission for all of the resources named in the test. * An internal error
+ *  occurred. * The analyzer received an invalid or unsupported argument or was
+ *  unable to identify a known endpoint.
  *
  *  Value: "UNDETERMINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined;
 /**
- *  Packet originating from source is expected to be dropped before reaching
- *  destination.
+ *  A packet originating from the source is expected to be dropped before
+ *  reaching the destination.
  *
  *  Value: "UNREACHABLE"
  */
@@ -574,16 +700,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering;
 /**
+ *  Next hop is a [router appliance
+ *  instance](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
+ *
+ *  Value: "NEXT_HOP_ROUTER_APPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance;
+/**
  *  Unspecified type. Default value.
  *
  *  Value: "NEXT_HOP_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified;
 /**
- *  Next hop is a VPN Gateway. This scenario only happens when tracing
- *  connectivity from an on-premises network to GCP through a VPN. The analysis
- *  simulates a packet departing from the on-premises network through a VPN
- *  tunnel and arrives at a Cloud VPN gateway.
+ *  Next hop is a VPN gateway. This scenario only happens when tracing
+ *  connectivity from an on-premises network to Google Cloud through a VPN. The
+ *  analysis simulates a packet departing from the on-premises network through a
+ *  VPN tunnel and arriving at a Cloud VPN gateway.
  *
  *  Value: "NEXT_HOP_VPN_GATEWAY"
  */
@@ -629,8 +762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_Pe
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified;
 /**
- *  Static route created by the user including the default route to the
- *  Internet.
+ *  Static route created by the user, including the default route to the
+ *  internet.
  *
  *  Value: "STATIC"
  */
@@ -706,19 +839,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpn
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel;
 /**
- *  Final state: packet delivered.
+ *  Final state: packet could be delivered.
  *
  *  Value: "DELIVER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Deliver;
 /**
- *  Final state: packet dropped.
+ *  Final state: packet could be dropped.
  *
  *  Value: "DROP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Drop;
 /**
- *  Final state: packet forwarded to a network with an unknown configuration.
+ *  Final state: packet could be forwarded to a network with an unknown
+ *  configuration.
  *
  *  Value: "FORWARD"
  */
@@ -744,15 +878,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
 /**
+ *  Initial state: packet originating from a Cloud SQL instance. A
+ *  CloudSQLInstanceInfo is populated with starting instance information.
+ *
+ *  Value: "START_FROM_CLOUD_SQL_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance;
+/**
+ *  Initial state: packet originating from a Google Kubernetes Engine cluster
+ *  master. A GKEMasterInfo is populated with starting instance information.
+ *
+ *  Value: "START_FROM_GKE_MASTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster;
+/**
  *  Initial state: packet originating from a Compute Engine instance. An
- *  InstanceInfo will be populated with starting instance info.
+ *  InstanceInfo is populated with starting instance information.
  *
  *  Value: "START_FROM_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance;
 /**
- *  Initial state: packet originating from Internet. The endpoint info will be
- *  populated.
+ *  Initial state: packet originating from the internet. The endpoint
+ *  information is populated.
  *
  *  Value: "START_FROM_INTERNET"
  */
@@ -760,7 +908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromIn
 /**
  *  Initial state: packet originating from a VPC or on-premises network with
  *  internal source IP. If the source is a VPC network visible to the user, a
- *  NetworkInfo will be populated with details of the network.
+ *  NetworkInfo is populated with details of the network.
  *
  *  Value: "START_FROM_PRIVATE_NETWORK"
  */
@@ -818,6 +966,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_DestinationEndpointNotFound
+ *        Aborted because the destination endpoint could not be found. (Value:
+ *        "DESTINATION_ENDPOINT_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
@@ -827,6 +978,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        not in the range of specified network URI; and instance not owning the
  *        network interface in the specified network. (Value:
  *        "INVALID_ARGUMENT")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedDestinationNetwork
+ *        Aborted because the destination network does not match the destination
+ *        endpoint. (Value: "MISMATCHED_DESTINATION_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_MismatchedSourceNetwork
+ *        Aborted because the source network does not match the source endpoint.
+ *        (Value: "MISMATCHED_SOURCE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp Aborted
  *        because traffic is sent from a public IP to an instance without an
  *        external IP. (Value: "NO_EXTERNAL_IP")
@@ -837,6 +994,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        because the user lacks the permission to access all or part of the
  *        network configurations required to run the test. (Value:
  *        "PERMISSION_DENIED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound
+ *        Aborted because the source endpoint could not be found. (Value:
+ *        "SOURCE_ENDPOINT_NOT_FOUND")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong Aborted
  *        because the number of steps in the trace exceeding a certain limit
  *        which may be caused by routing loop. (Value: "TRACE_TOO_LONG")
@@ -854,6 +1014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject Aborted
  *        because no project information can be derived from the test input.
  *        (Value: "UNKNOWN_PROJECT")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_Unsupported Aborted because
+ *        the test scenario is not supported. (Value: "UNSUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
@@ -934,8 +1096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_Binding : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
@@ -992,6 +1152,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetworkManagement_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  For display only. Metadata associated with a Cloud SQL instance.
+ */
+@interface GTLRNetworkManagement_CloudSQLInstanceInfo : GTLRObject
+
+/** Name of a Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** External IP address of a Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *externalIp;
+
+/** Internal IP address of a Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *internalIp;
+
+/**
+ *  URI of a Cloud SQL instance network or empty string if the instance does not
+ *  have one.
+ */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** Region in which the Cloud SQL instance is running. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** URI of a Cloud SQL instance. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -1102,12 +1291,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Target type where the packet is delivered to.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_CloudSqlInstance Target
+ *        is a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster Target is a
+ *        Google Kubernetes Engine cluster master. (Value: "GKE_MASTER")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi Target is a
  *        Google API. (Value: "GOOGLE_API")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Instance Target is a
  *        Compute Engine instance. (Value: "INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_Internet Target is the
- *        Internet. (Value: "INTERNET")
+ *        internet. (Value: "INTERNET")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_TargetUnspecified Target
  *        not specified. (Value: "TARGET_UNSPECIFIED")
  */
@@ -1127,18 +1320,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceNoIpAddress
+ *        Packet was dropped because the Cloud SQL instance has neither a
+ *        private nor a public IP address. (Value:
+ *        "CLOUD_SQL_INSTANCE_NO_IP_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CloudSqlInstanceUnauthorizedAccess
+ *        Access to the Cloud SQL instance endpoint is not authorized. See
+ *        [Authorizing with authorized
+ *        networks](https://cloud.google.com/sql/docs/mysql/authorize-networks)
+ *        for more details. (Value: "CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideCloudSqlService
+ *        Packet was dropped inside Cloud SQL Service. (Value:
+ *        "DROPPED_INSIDE_CLOUD_SQL_SERVICE")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_DroppedInsideGkeService
+ *        Packet was dropped inside Google Kubernetes Engine Service. (Value:
+ *        "DROPPED_INSIDE_GKE_SERVICE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck
  *        Firewalls block the health check probes to the backends and cause the
- *        backends to be unavailable for traffic from the load balancer. See
- *        [Health check firewall rules](/load-balancing/docs/
- *        health-checks#firewall_rules) for more details. (Value:
- *        "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK")
+ *        backends to be unavailable for traffic from the load balancer. For
+ *        more details, see [Health check firewall
+ *        rules](https://cloud.google.com/load-balancing/docs/health-checks#firewall_rules).
+ *        (Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallRule Dropped due to
- *        a firewall rule unless allowed due to connection tracking. (Value:
+ *        a firewall rule, unless allowed due to connection tracking. (Value:
  *        "FIREWALL_RULE")
- *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed a
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed A
  *        Compute Engine instance can only send or receive a packet with a
- *        foreign IP if ip_forward is enabled. (Value: "FOREIGN_IP_DISALLOWED")
+ *        foreign IP address if ip_forward is enabled. (Value:
+ *        "FOREIGN_IP_DISALLOWED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleMismatch
  *        Forwarding rule's protocol and ports do not match the packet header.
  *        (Value: "FORWARDING_RULE_MISMATCH")
@@ -1146,46 +1355,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Forwarding rule does not have backends configured. (Value:
  *        "FORWARDING_RULE_NO_INSTANCES")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess
- *        Access to GKE master's endpoint is not authorized. See [Access to the
- *        cluster endpoints](/kubernetes-engine/docs/how-to/
- *        private-clusters#access_to_the_cluster_endpoints) for more details.
- *        (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
+ *        Access to Google Kubernetes Engine cluster master's endpoint is not
+ *        authorized. See [Access to the cluster
+ *        endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
+ *        for more details. (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering
+ *        Packet was dropped because there is no peering between the originating
+ *        network and the Google Managed Services Network. (Value:
+ *        "GOOGLE_MANAGED_SERVICE_NO_PEERING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
  *        sent from or to a Compute Engine instance that is not in a running
  *        state. (Value: "INSTANCE_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
- *        with only internal IP tries to access external hosts, but Cloud NAT is
- *        not enabled in the subnet, unless special configurations on a VM
- *        allows this connection. See [Special Configurations for VM
- *        instances](/vpc/docs/special-configurations) for details. (Value:
- *        "NO_EXTERNAL_ADDRESS")
+ *        with only an internal IP address tries to access external hosts, but
+ *        Cloud NAT is not enabled in the subnet, unless special configurations
+ *        on a VM allow this connection. For more details, see [Special
+ *        configurations for VM
+ *        instances](https://cloud.google.com/vpc/docs/special-configurations).
+ *        (Value: "NO_EXTERNAL_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRoute Dropped due to no
  *        routes. (Value: "NO_ROUTE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed
- *        Instance with only an internal IP tries to access Google API and
- *        Services, and private Google access is not enabled. (Value:
+ *        Instance with only an internal IP address tries to access Google API
+ *        and services, but private Google access is not enabled. (Value:
  *        "PRIVATE_GOOGLE_ACCESS_DISALLOWED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateTrafficToInternet
- *        Packet with internal destination address sent to Internet gateway.
+ *        Packet with internal destination address sent to the internet gateway.
  *        (Value: "PRIVATE_TRAFFIC_TO_INTERNET")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole Dropped due
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork Packet is
- *        sent to a wrong (unintended) network. Example: user traces a packet
- *        from VM1:Network1 to VM2:Network2, however, the route configured in
+ *        sent to a wrong (unintended) network. Example: you trace a packet from
+ *        VM1:Network1 to VM2:Network2, however, the route configured in
  *        Network1 sends the packet destined for VM2's IP addresss to Network3.
  *        (Value: "ROUTE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked The type
  *        of traffic is blocked and the user cannot configure a firewall rule to
- *        enable it. See [Always blocked traffic](/vpc/docs/firewalls#
- *        blockedtraffic) for more details. (Value: "TRAFFIC_TYPE_BLOCKED")
+ *        enable it. See [Always blocked
+ *        traffic](https://cloud.google.com/vpc/docs/firewalls#blockedtraffic)
+ *        for more details. (Value: "TRAFFIC_TYPE_BLOCKED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress
- *        Destination external address cannot be resolved to a known target.
- *        (Value: "UNKNOWN_EXTERNAL_ADDRESS")
+ *        Destination external address cannot be resolved to a known target. If
+ *        the address is used in a Google Cloud project, provide the project ID
+ *        as test input. (Value: "UNKNOWN_EXTERNAL_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_UnknownInternalAddress
- *        Destination internal address cannot be resolved to a known target.
- *        (Value: "UNKNOWN_INTERNAL_ADDRESS")
+ *        Destination internal address cannot be resolved to a known target. If
+ *        this is a shared VPC scenario, verify if the service project ID is
+ *        provided as test input. Otherwise, verify if the IP address is being
+ *        used in the project. (Value: "UNKNOWN_INTERNAL_ADDRESS")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
@@ -1210,6 +1428,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Source or destination of the Connectivity Test.
  */
 @interface GTLRNetworkManagement_Endpoint : GTLRObject
+
+/** A [Cloud SQL](https://cloud.google.com/sql) instance URI. */
+@property(nonatomic, copy, nullable) NSString *cloudSqlInstance;
+
+/**
+ *  A cluster URI for [Google Kubernetes Engine
+ *  master](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture).
+ */
+@property(nonatomic, copy, nullable) NSString *gkeMasterCluster;
 
 /** A Compute Engine instance URI. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1353,7 +1580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  For display only. Metadata associated with a Compute Engine firewall rule.
+ *  For display only. Metadata associated with a VPC firewall rule, an implied
+ *  VPC firewall rule, or a hierarchical firewall policy rule.
  */
 @interface GTLRNetworkManagement_FirewallInfo : GTLRObject
 
@@ -1363,28 +1591,65 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Possible values: INGRESS, EGRESS */
 @property(nonatomic, copy, nullable) NSString *direction;
 
-/** Name of a Compute Engine firewall rule. */
+/**
+ *  The display name of the VPC firewall rule. This field is not applicable to
+ *  hierarchical firewall policy rules.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** URI of a Compute Engine network. */
+/**
+ *  The firewall rule's type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified
+ *        Unspecified type. (Value: "FIREWALL_RULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule
+ *        Hierarchical firewall policy rule. For details, see [Hierarchical
+ *        firewall policies
+ *        overview](https://cloud.google.com/vpc/docs/firewall-policies).
+ *        (Value: "HIERARCHICAL_FIREWALL_POLICY_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule
+ *        Implied VPC firewall rule. For details, see [Implied
+ *        rules](https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules).
+ *        (Value: "IMPLIED_VPC_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule
+ *        VPC firewall rule. For details, see [VPC firewall rules
+ *        overview](https://cloud.google.com/vpc/docs/firewalls). (Value:
+ *        "VPC_FIREWALL_RULE")
+ */
+@property(nonatomic, copy, nullable) NSString *firewallRuleType;
+
+/**
+ *  The URI of the VPC network that the firewall rule is associated with. This
+ *  field is not applicable to hierarchical firewall policy rules.
+ */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
 /**
- *  Priority of the firewall rule.
+ *  The hierarchical firewall policy that this rule is associated with. This
+ *  field is not applicable to VPC firewall rules.
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+/**
+ *  The priority of the firewall rule.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
-/** Target service accounts of the firewall rule. */
+/** The target service accounts specified by the firewall rule. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetServiceAccounts;
 
-/** Target tags of the firewall rule. */
+/**
+ *  The target tags defined by the VPC firewall rule. This field is not
+ *  applicable to hierarchical firewall policy rules.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTags;
 
 /**
- *  URI of a Compute Engine firewall rule. Implied default rule does not have
- *  URI.
+ *  The URI of the VPC firewall rule. This field is not applicable to implied
+ *  firewall rules or hierarchical firewall policy rules.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1403,6 +1668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Target type where this packet is forwarded to.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_CloudSqlInstance
+ *        Forwarded to a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster Forwarded to a
  *        Google Kubernetes Engine Container cluster master. (Value:
  *        "GKE_MASTER")
@@ -1410,7 +1677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Forwarded to the next hop of a custom route imported from a peering
  *        VPC. (Value: "IMPORTED_CUSTOM_ROUTE_NEXT_HOP")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_Interconnect Forwarded
- *        to an Cloud Interconnect connection. (Value: "INTERCONNECT")
+ *        to a Cloud Interconnect connection. (Value: "INTERCONNECT")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_PeeringVpc Forwarded to
  *        a VPC peering network. (Value: "PEERING_VPC")
  *    @arg @c kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified Target
@@ -1448,6 +1715,27 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** VIP of the forwarding rule. */
 @property(nonatomic, copy, nullable) NSString *vip;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with a Google Kubernetes Engine (GKE)
+ *  cluster master.
+ */
+@interface GTLRNetworkManagement_GKEMasterInfo : GTLRObject
+
+/** URI of a GKE cluster network. */
+@property(nonatomic, copy, nullable) NSString *clusterNetworkUri;
+
+/** URI of a GKE cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterUri;
+
+/** External IP address of a GKE cluster master. */
+@property(nonatomic, copy, nullable) NSString *externalIp;
+
+/** Internal IP address of a GKE cluster master. */
+@property(nonatomic, copy, nullable) NSString *internalIp;
 
 @end
 
@@ -1875,7 +2163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1934,7 +2222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  The details of reachability state from the latest run.
+ *  Results of the configuration analysis from the last run of the test.
  */
 @interface GTLRNetworkManagement_ReachabilityDetails : GTLRObject
 
@@ -1942,31 +2230,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Status *error;
 
 /**
- *  The overall reachability result of the test.
+ *  The overall result of the test's configuration analysis.
  *
  *  Likely values:
- *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous If the
- *        source and destination endpoint does not uniquely identify the test
+ *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous The
+ *        source and destination endpoints do not uniquely identify the test
  *        location in the network, and the reachability result contains multiple
- *        traces with mixed reachable and unreachable states, then this result
- *        is returned. (Value: "AMBIGUOUS")
- *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable Packet
- *        originating from source is expected to reach destination. (Value:
- *        "REACHABLE")
+ *        traces. For some traces, a packet could be delivered, and for others,
+ *        it would not be. (Value: "AMBIGUOUS")
+ *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable
+ *        Possible scenarios are: * The configuration analysis determined that a
+ *        packet originating from the source is expected to reach the
+ *        destination. * The analysis didn't complete because the user lacks
+ *        permission for some of the resources in the trace. However, at the
+ *        time the user's permission became insufficient, the trace had been
+ *        successful so far. (Value: "REACHABLE")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified
- *        Result is not specified. (Value: "RESULT_UNSPECIFIED")
+ *        No result was specified. (Value: "RESULT_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined The
- *        reachability could not be determined. Possible reasons are: * Analysis
- *        is aborted due to permission error. User does not have read permission
- *        to the projects listed in the test. * Analysis is aborted due to
- *        internal errors. * Analysis is partially complete based on
- *        configurations where the user has permission. The Final state
- *        indicates that the packet is forwarded to another network where the
- *        user has no permission to access the configurations. (Value:
+ *        configuration analysis did not complete. Possible reasons are: * A
+ *        permissions error occurred--for example, the user might not have read
+ *        permission for all of the resources named in the test. * An internal
+ *        error occurred. * The analyzer received an invalid or unsupported
+ *        argument or was unable to identify a known endpoint. (Value:
  *        "UNDETERMINED")
- *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable
- *        Packet originating from source is expected to be dropped before
- *        reaching destination. (Value: "UNREACHABLE")
+ *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable A
+ *        packet originating from the source is expected to be dropped before
+ *        reaching the destination. (Value: "UNREACHABLE")
  */
 @property(nonatomic, copy, nullable) NSString *result;
 
@@ -1977,7 +2267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Trace *> *traces;
 
-/** The time the reachability state was verified. */
+/** The time of the configuration analysis. */
 @property(nonatomic, strong, nullable) GTLRDateTime *verifyTime;
 
 @end
@@ -2032,14 +2322,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        hop is a VPC network gateway. (Value: "NEXT_HOP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering Next
  *        hop is a peering VPC. (Value: "NEXT_HOP_PEERING")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance
+ *        Next hop is a [router appliance
+ *        instance](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
+ *        (Value: "NEXT_HOP_ROUTER_APPLIANCE")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified
  *        Unspecified type. Default value. (Value: "NEXT_HOP_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway
- *        Next hop is a VPN Gateway. This scenario only happens when tracing
- *        connectivity from an on-premises network to GCP through a VPN. The
- *        analysis simulates a packet departing from the on-premises network
- *        through a VPN tunnel and arrives at a Cloud VPN gateway. (Value:
- *        "NEXT_HOP_VPN_GATEWAY")
+ *        Next hop is a VPN gateway. This scenario only happens when tracing
+ *        connectivity from an on-premises network to Google Cloud through a
+ *        VPN. The analysis simulates a packet departing from the on-premises
+ *        network through a VPN tunnel and arriving at a Cloud VPN gateway.
+ *        (Value: "NEXT_HOP_VPN_GATEWAY")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel Next
  *        hop is a VPN tunnel. (Value: "NEXT_HOP_VPN_TUNNEL")
  */
@@ -2068,7 +2362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified
  *        Unspecified type. Default value. (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Static Static route
- *        created by the user including the default route to the Internet.
+ *        created by the user, including the default route to the internet.
  *        (Value: "STATIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Subnet Route is a
  *        subnet route automatically created by the system. (Value: "SUBNET")
@@ -2160,7 +2454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @interface GTLRNetworkManagement_Step : GTLRObject
 
-/** Display info of the final state "abort" and reason. */
+/** Display information of the final state "abort" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_AbortInfo *abort;
 
 /**
@@ -2170,7 +2464,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, strong, nullable) NSNumber *causesDrop;
 
-/** Display info of the final state "deliver" and reason. */
+/** Display information of a Cloud SQL instance. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudSQLInstanceInfo *cloudSqlInstance;
+
+/** Display information of the final state "deliver" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DeliverInfo *deliver;
 
 /**
@@ -2180,38 +2477,41 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display info of the final state "drop" and reason. */
+/** Display information of the final state "drop" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DropInfo *drop;
 
 /**
- *  Display info of the source and destination under analysis. The endpiont info
- *  in an intermediate state may differ with the initial input, as it might be
- *  modified by state like NAT, or Connection Proxy.
+ *  Display information of the source and destination under analysis. The
+ *  endpoint information in an intermediate state may differ with the initial
+ *  input, as it might be modified by state like NAT, or Connection Proxy.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpoint;
 
-/** Display info of a Compute Engine firewall rule. */
+/** Display information of a Compute Engine firewall rule. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_FirewallInfo *firewall;
 
-/** Display info of the final state "forward" and reason. */
+/** Display information of the final state "forward" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ForwardInfo *forward;
 
-/** Display info of a Compute Engine forwarding rule. */
+/** Display information of a Compute Engine forwarding rule. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ForwardingRuleInfo *forwardingRule;
 
-/** Display info of a Compute Engine instance. */
+/** Display information of a Google Kubernetes Engine cluster master. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GKEMasterInfo *gkeMaster;
+
+/** Display information of a Compute Engine instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InstanceInfo *instance;
 
-/** Display info of the load balancers. */
+/** Display information of the load balancers. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_LoadBalancerInfo *loadBalancer;
 
-/** Display info of a GCP network. */
+/** Display information of a Google Cloud network. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_NetworkInfo *network;
 
 /** Project ID that contains the configuration this step is validating. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Display info of a Compute Engine route. */
+/** Display information of a Compute Engine route. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_RouteInfo *route;
 
 /**
@@ -2246,11 +2546,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtVpnTunnel Forwarding
  *        state: arriving at a Cloud VPN tunnel. (Value: "ARRIVE_AT_VPN_TUNNEL")
  *    @arg @c kGTLRNetworkManagement_Step_State_Deliver Final state: packet
- *        delivered. (Value: "DELIVER")
- *    @arg @c kGTLRNetworkManagement_Step_State_Drop Final state: packet
- *        dropped. (Value: "DROP")
+ *        could be delivered. (Value: "DELIVER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_Drop Final state: packet could
+ *        be dropped. (Value: "DROP")
  *    @arg @c kGTLRNetworkManagement_Step_State_Forward Final state: packet
- *        forwarded to a network with an unknown configuration. (Value:
+ *        could be forwarded to a network with an unknown configuration. (Value:
  *        "FORWARD")
  *    @arg @c kGTLRNetworkManagement_Step_State_Nat Transition state: packet
  *        header translated. (Value: "NAT")
@@ -2260,18 +2560,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance
+ *        Initial state: packet originating from a Cloud SQL instance. A
+ *        CloudSQLInstanceInfo is populated with starting instance information.
+ *        (Value: "START_FROM_CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromGkeMaster Initial
+ *        state: packet originating from a Google Kubernetes Engine cluster
+ *        master. A GKEMasterInfo is populated with starting instance
+ *        information. (Value: "START_FROM_GKE_MASTER")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromInstance Initial state:
- *        packet originating from a Compute Engine instance. An InstanceInfo
- *        will be populated with starting instance info. (Value:
+ *        packet originating from a Compute Engine instance. An InstanceInfo is
+ *        populated with starting instance information. (Value:
  *        "START_FROM_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromInternet Initial state:
- *        packet originating from Internet. The endpoint info will be populated.
- *        (Value: "START_FROM_INTERNET")
+ *        packet originating from the internet. The endpoint information is
+ *        populated. (Value: "START_FROM_INTERNET")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork Initial
  *        state: packet originating from a VPC or on-premises network with
  *        internal source IP. If the source is a VPC network visible to the
- *        user, a NetworkInfo will be populated with details of the network.
- *        (Value: "START_FROM_PRIVATE_NETWORK")
+ *        user, a NetworkInfo is populated with details of the network. (Value:
+ *        "START_FROM_PRIVATE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_Step_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Step_State_ViewerPermissionMissing Special
@@ -2280,10 +2588,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Display info of a Compute Engine VPN gateway. */
+/** Display information of a Compute Engine VPN gateway. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpnGatewayInfo *vpnGateway;
 
-/** Display info of a Compute Engine VPN tunnel. */
+/** Display information of a Compute Engine VPN tunnel. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_VpnTunnelInfo *vpnTunnel;
 
 @end
@@ -2318,21 +2626,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Trace represents one simulated packet forwarding path. - Each trace contains
- *  multiple ordered steps. - Each step is in a particular state and has an
- *  associated configuration. - State is categorized as a final or non-final
- *  state. - Each final state has a reason associated with it. - Each trace must
- *  end with a final state (the last step).
+ *  Trace represents one simulated packet forwarding path. * Each trace contains
+ *  multiple ordered steps. * Each step is in a particular state with associated
+ *  configuration. * State is categorized as final or non-final states. * Each
+ *  final state has a reason associated. * Each trace must end with a final
+ *  state (the last step). ```
  *  |---------------------Trace----------------------| Step1(State) Step2(State)
- *  --- StepN(State(final))
+ *  --- StepN(State(final)) ```
  */
 @interface GTLRNetworkManagement_Trace : GTLRObject
 
 /**
- *  Derived from the source and destination endpoints definition, and validated
- *  by the data plane model. If there are multiple traces starting from
- *  different source locations, then the endpoint_info may be different between
- *  traces.
+ *  Derived from the source and destination endpoints definition specified by
+ *  user request, and validated by the data plane model. If there are multiple
+ *  traces starting from different source locations, then the endpoint_info may
+ *  be different between traces.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpointInfo;
 
@@ -2362,7 +2670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** URI of a Compute Engine network where the VPN gateway is configured. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
-/** Name of a GCP region where this VPN gateway is configured. */
+/** Name of a Google Cloud region where this VPN gateway is configured. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /** URI of a VPN gateway. */
@@ -2389,7 +2697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** URI of a Compute Engine network where the VPN tunnel is configured. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
-/** Name of a GCP region where this VPN tunnel is configured. */
+/** Name of a Google Cloud region where this VPN tunnel is configured. */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /** URI of a VPN gateway at remote end of the tunnel. */

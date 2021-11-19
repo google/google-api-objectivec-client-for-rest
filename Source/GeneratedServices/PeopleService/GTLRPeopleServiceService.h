@@ -69,7 +69,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserBirthdayRead;
 /**
- *  Authorization scope: View your email addresses
+ *  Authorization scope: See and download all of your Google Account email
+ *  addresses
  *
  *  Value "https://www.googleapis.com/auth/user.emails.read"
  */
@@ -81,7 +82,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserGenderRead;
 /**
- *  Authorization scope: View your email address
+ *  Authorization scope: See your primary Google Account email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */

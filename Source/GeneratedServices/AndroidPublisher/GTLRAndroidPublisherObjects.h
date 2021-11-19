@@ -24,6 +24,9 @@
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_Comment;
+@class GTLRAndroidPublisher_ConvertedOtherRegionsPrice;
+@class GTLRAndroidPublisher_ConvertedRegionPrice;
+@class GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices;
 @class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
@@ -31,6 +34,7 @@
 @class GTLRAndroidPublisher_DeviceSpec;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
+@class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_Image;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_InAppProduct_Listings;
@@ -39,17 +43,24 @@
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
+@class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings;
+@class GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode;
+@class GTLRAndroidPublisher_Money;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_Price;
+@class GTLRAndroidPublisher_RegionalTaxRateInfo;
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
 @class GTLRAndroidPublisher_SubscriptionPriceChange;
+@class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings;
+@class GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode;
 @class GTLRAndroidPublisher_Timestamp;
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
+@class GTLRAndroidPublisher_User;
 @class GTLRAndroidPublisher_UserComment;
 @class GTLRAndroidPublisher_UsesPermission;
 @class GTLRAndroidPublisher_Variant;
@@ -86,6 +97,76 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_Symbo
  *  Value: "proguard"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_Grant.appLevelPermissions
+
+/**
+ *  Unknown or unspecified permission.
+ *
+ *  Value: "APP_LEVEL_PERMISSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified;
+/**
+ *  View app information (read-only).
+ *
+ *  Value: "CAN_ACCESS_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp;
+/**
+ *  Edit and delete draft apps.
+ *
+ *  Value: "CAN_MANAGE_DRAFT_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps;
+/**
+ *  Manage orders and subscriptions.
+ *
+ *  Value: "CAN_MANAGE_ORDERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders;
+/**
+ *  Admin (all permissions).
+ *
+ *  Value: "CAN_MANAGE_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions;
+/**
+ *  Release to production, exclude devices, and use app signing by Google Play.
+ *
+ *  Value: "CAN_MANAGE_PUBLIC_APKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePublicApks;
+/**
+ *  Manage store presence.
+ *
+ *  Value: "CAN_MANAGE_PUBLIC_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePublicListing;
+/**
+ *  Release to testing tracks.
+ *
+ *  Value: "CAN_MANAGE_TRACK_APKS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackApks;
+/**
+ *  Manage testing tracks and edit tester lists.
+ *
+ *  Value: "CAN_MANAGE_TRACK_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackUsers;
+/**
+ *  Reply to reviews.
+ *
+ *  Value: "CAN_REPLY_TO_REVIEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanReplyToReviews;
+/**
+ *  View financial data.
+ *
+ *  Value: "CAN_VIEW_FINANCIAL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewFinancialData;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_InAppProduct.purchaseType
@@ -132,6 +213,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Ina
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
+
+/** Value: "WITHDRAWAL_RIGHT_DIGITAL_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent;
+/** Value: "WITHDRAWAL_RIGHT_SERVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService;
+/** Value: "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
+
+/** Value: "TAX_TIER_BOOKS_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1;
+/** Value: "TAX_TIER_NEWS_1" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1;
+/** Value: "TAX_TIER_NEWS_2" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2;
+/** Value: "TAX_TIER_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings.eeaWithdrawalRightType
+
+/** Value: "WITHDRAWAL_RIGHT_DIGITAL_CONTENT" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent;
+/** Value: "WITHDRAWAL_RIGHT_SERVICE" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService;
+/** Value: "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_TrackRelease.status
 
 /**
@@ -167,6 +280,134 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InP
  *  Value: "statusUnspecified"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_User.accessState
+
+/**
+ *  Account access has expired.
+ *
+ *  Value: "ACCESS_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_AccessExpired;
+/**
+ *  User has accepted an invitation and has access to the Play Console.
+ *
+ *  Value: "ACCESS_GRANTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_AccessGranted;
+/**
+ *  Unknown or unspecified access state.
+ *
+ *  Value: "ACCESS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_AccessStateUnspecified;
+/**
+ *  Invitation has expired.
+ *
+ *  Value: "INVITATION_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_InvitationExpired;
+/**
+ *  User is invited but has not yet accepted the invitation.
+ *
+ *  Value: "INVITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_AccessState_Invited;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_User.developerAccountPermissions
+
+/**
+ *  Choose whether apps are public, or only available to your organization.
+ *
+ *  Value: "CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal;
+/**
+ *  Create and publish private apps to your organization.
+ *
+ *  Value: "CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal;
+/**
+ *  Edit Play Games Services projects.
+ *
+ *  Value: "CAN_EDIT_GAMES_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal;
+/**
+ *  Create, edit, and delete draft apps.
+ *
+ *  Value: "CAN_MANAGE_DRAFT_APPS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal;
+/**
+ *  Manage orders and subscriptions.
+ *
+ *  Value: "CAN_MANAGE_ORDERS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal;
+/**
+ *  Admin (all permissions).
+ *
+ *  Value: "CAN_MANAGE_PERMISSIONS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal;
+/**
+ *  Release to production, exclude devices, and use app signing by Google Play.
+ *
+ *  Value: "CAN_MANAGE_PUBLIC_APKS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePublicApksGlobal;
+/**
+ *  Manage store presence.
+ *
+ *  Value: "CAN_MANAGE_PUBLIC_LISTING_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePublicListingGlobal;
+/**
+ *  Release to testing tracks.
+ *
+ *  Value: "CAN_MANAGE_TRACK_APKS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageTrackApksGlobal;
+/**
+ *  Manage testing tracks and edit tester lists.
+ *
+ *  Value: "CAN_MANAGE_TRACK_USERS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageTrackUsersGlobal;
+/**
+ *  Publish Play Games Services projects.
+ *
+ *  Value: "CAN_PUBLISH_GAMES_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanPublishGamesGlobal;
+/**
+ *  Reply to reviews.
+ *
+ *  Value: "CAN_REPLY_TO_REVIEWS_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReplyToReviewsGlobal;
+/**
+ *  View app information and download bulk reports (read-only).
+ *
+ *  Value: "CAN_SEE_ALL_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps;
+/**
+ *  View financial data, orders, and cancellation survey responses.
+ *
+ *  Value: "CAN_VIEW_FINANCIAL_DATA_GLOBAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal;
+/**
+ *  Unknown or unspecified permission.
+ *
+ *  Value: "DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified;
 
 /**
  *  Information about an APK. The resource for ApksService.
@@ -284,7 +525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
- *  Information about a bundle. The resource for BundlesService.
+ *  Information about an app bundle. The resource for BundlesService.
  */
 @interface GTLRAndroidPublisher_Bundle : GTLRObject
 
@@ -312,11 +553,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
- *  Response listing all bundles.
+ *  Response listing all app bundles.
  */
 @interface GTLRAndroidPublisher_BundlesListResponse : GTLRObject
 
-/** All bundles. */
+/** All app bundles. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Bundle *> *bundles;
 
 /** The kind of this response ("androidpublisher#bundlesListResponse"). */
@@ -336,6 +577,82 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 /** A comment from a user. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_UserComment *userComment;
 
+@end
+
+
+/**
+ *  Converted other regions prices.
+ */
+@interface GTLRAndroidPublisher_ConvertedOtherRegionsPrice : GTLRObject
+
+/**
+ *  Price in EUR to use for the "Other regions" location exclusive of taxes.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *eurPrice;
+
+/**
+ *  Price in USD to use for the "Other regions" location exclusive of taxes.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *usdPrice;
+
+@end
+
+
+/**
+ *  A converted region price.
+ */
+@interface GTLRAndroidPublisher_ConvertedRegionPrice : GTLRObject
+
+/** The converted price tax inclusive. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *price;
+
+/** The region code of the region. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/** The tax amount of the converted price. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *taxAmount;
+
+@end
+
+
+/**
+ *  Request message for ConvertRegionPrices.
+ */
+@interface GTLRAndroidPublisher_ConvertRegionPricesRequest : GTLRObject
+
+/** The intital price to convert other regions from. Tax exclusive. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *price;
+
+@end
+
+
+/**
+ *  Response message for ConvertRegionPrices.
+ */
+@interface GTLRAndroidPublisher_ConvertRegionPricesResponse : GTLRObject
+
+/**
+ *  Converted other regions prices in USD and EUR, to use for countries where
+ *  Play doesn't support a country's local currency.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ConvertedOtherRegionsPrice *convertedOtherRegionsPrice;
+
+/** Map from region code to converted region price. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices *convertedRegionPrices;
+
+@end
+
+
+/**
+ *  Map from region code to converted region price.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAndroidPublisher_ConvertedRegionPrice. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices : GTLRObject
 @end
 
 
@@ -608,6 +925,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
+ *  An access grant resource.
+ */
+@interface GTLRAndroidPublisher_Grant : GTLRObject
+
+/** The permissions granted to the user for this app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appLevelPermissions;
+
+/**
+ *  Required. Resource name for this grant, following the pattern
+ *  "developers/{developer}/users/{email}/grants/{package_name}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Immutable. The package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
  *  An uploaded image. The resource for ImagesService.
  */
 @interface GTLRAndroidPublisher_Image : GTLRObject
@@ -694,6 +1031,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Listings *listings;
 
+/**
+ *  Details about taxes and legal compliance. Only applicable to managed
+ *  products.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings *managedProductTaxesAndComplianceSettings;
+
 /** Package name of the parent app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -738,6 +1081,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  *  (one year).
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionPeriod;
+
+/**
+ *  Details about taxes and legal compliance. Only applicable to subscription
+ *  products.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings *subscriptionTaxesAndComplianceSettings;
 
 /**
  *  Trial period, specified in ISO 8601 format. Acceptable values are anything
@@ -809,7 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Information about the current page. */
+/** Deprecated and unset. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
 
 /** Pagination token, to handle a number of products that is over one page. */
@@ -926,6 +1275,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
+ *  A response containing one or more users with access to an account.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "users" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidPublisher_ListUsersResponse : GTLRCollectionObject
+
+/**
+ *  A token to pass to subsequent calls in order to retrieve subsequent results.
+ *  This will not be set if there are no more results to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting users.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_User *> *users;
+
+@end
+
+
+/**
  *  Release notes specification, i.e. language and text.
  */
 @interface GTLRAndroidPublisher_LocalizedText : GTLRObject
@@ -938,6 +1314,81 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 /** The text in the given language. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Details about taxation and legal compliance for managed products.
+ */
+@interface GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings : GTLRObject
+
+/**
+ *  Digital content or service classification for products distributed to users
+ *  in the European Economic Area (EEA). The withdrawal regime under EEA
+ *  consumer laws depends on this classification. Refer to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/10463498)
+ *  for more information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent
+ *        Value "WITHDRAWAL_RIGHT_DIGITAL_CONTENT"
+ *    @arg @c kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService
+ *        Value "WITHDRAWAL_RIGHT_SERVICE"
+ *    @arg @c kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified
+ *        Value "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *eeaWithdrawalRightType;
+
+/**
+ *  A mapping from region code to tax rate details. The keys are region codes as
+ *  defined by Unicode's "CLDR".
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode *taxRateInfoByRegionCode;
+
+@end
+
+
+/**
+ *  A mapping from region code to tax rate details. The keys are region codes as
+ *  defined by Unicode's "CLDR".
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAndroidPublisher_RegionalTaxRateInfo. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode : GTLRObject
+@end
+
+
+/**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRAndroidPublisher_Money : GTLRObject
+
+/** The three-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 
@@ -1101,6 +1552,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 /** Payload to attach to the purchase. */
 @property(nonatomic, copy, nullable) NSString *developerPayload;
+
+@end
+
+
+/**
+ *  Specified details about taxation in a given geographical region.
+ */
+@interface GTLRAndroidPublisher_RegionalTaxRateInfo : GTLRObject
+
+/**
+ *  You must tell us if your app contains streaming products to correctly charge
+ *  US state and local sales tax. Field only supported in United States.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *eligibleForStreamingServiceTaxRate;
+
+/**
+ *  Tax tier to specify reduced tax rate. Developers who sell digital news,
+ *  magazines, newspapers, books, or audiobooks in various regions may be
+ *  eligible for reduced tax rates. [Learn
+ *  more](https://support.google.com/googleplay/android-developer/answer/10463498).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1
+ *        Value "TAX_TIER_BOOKS_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1
+ *        Value "TAX_TIER_NEWS_1"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2
+ *        Value "TAX_TIER_NEWS_2"
+ *    @arg @c kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified
+ *        Value "TAX_TIER_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *taxTier;
 
 @end
 
@@ -1398,7 +1883,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 /**
  *  The order id of the latest recurring order associated with the purchase of
- *  the subscription.
+ *  the subscription. If the subscription was canceled because payment was
+ *  declined, this will be the order id from the payment declined order.
  */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
@@ -1412,9 +1898,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 @property(nonatomic, strong, nullable) NSNumber *paymentState;
 
 /**
- *  Price of the subscription, not including tax. Price is expressed in
- *  micro-units, where 1,000,000 micro-units represents one unit of the
- *  currency. For example, if the subscription price is €1.99,
+ *  Price of the subscription, For tax exclusive countries, the price doesn't
+ *  include tax. For tax inclusive countries, the price includes tax. Price is
+ *  expressed in micro-units, where 1,000,000 micro-units represents one unit of
+ *  the currency. For example, if the subscription price is €1.99,
  *  price_amount_micros is 1990000.
  *
  *  Uses NSNumber of longLongValue.
@@ -1524,6 +2011,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  */
 @property(nonatomic, strong, nullable) NSNumber *newExpiryTimeMillis NS_RETURNS_NOT_RETAINED;
 
+@end
+
+
+/**
+ *  Details about taxation, Google Play policy and legal compliance for
+ *  subscription products.
+ */
+@interface GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings : GTLRObject
+
+/**
+ *  Digital content or service classification for products distributed to users
+ *  in the European Economic Area (EEA). The withdrawal regime under EEA
+ *  consumer laws depends on this classification. Refer to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/10463498)
+ *  for more information.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent
+ *        Value "WITHDRAWAL_RIGHT_DIGITAL_CONTENT"
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService
+ *        Value "WITHDRAWAL_RIGHT_SERVICE"
+ *    @arg @c kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified
+ *        Value "WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *eeaWithdrawalRightType;
+
+/**
+ *  A mapping from region code to tax rate details. The keys are region codes as
+ *  defined by Unicode's "CLDR".
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode *taxRateInfoByRegionCode;
+
+@end
+
+
+/**
+ *  A mapping from region code to tax rate details. The keys are region codes as
+ *  defined by Unicode's "CLDR".
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAndroidPublisher_RegionalTaxRateInfo. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode : GTLRObject
 @end
 
 
@@ -1694,6 +2227,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 /** All tracks. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Track *> *tracks;
+
+@end
+
+
+/**
+ *  A user resource.
+ */
+@interface GTLRAndroidPublisher_User : GTLRObject
+
+/**
+ *  Output only. The state of the user's access to the Play Console.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_User_AccessState_AccessExpired Account
+ *        access has expired. (Value: "ACCESS_EXPIRED")
+ *    @arg @c kGTLRAndroidPublisher_User_AccessState_AccessGranted User has
+ *        accepted an invitation and has access to the Play Console. (Value:
+ *        "ACCESS_GRANTED")
+ *    @arg @c kGTLRAndroidPublisher_User_AccessState_AccessStateUnspecified
+ *        Unknown or unspecified access state. (Value:
+ *        "ACCESS_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_User_AccessState_InvitationExpired
+ *        Invitation has expired. (Value: "INVITATION_EXPIRED")
+ *    @arg @c kGTLRAndroidPublisher_User_AccessState_Invited User is invited but
+ *        has not yet accepted the invitation. (Value: "INVITED")
+ */
+@property(nonatomic, copy, nullable) NSString *accessState;
+
+/** Permissions for the user which apply across the developer account. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *developerAccountPermissions;
+
+/** Immutable. The user's email address. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The time at which the user's access expires, if set. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
+
+/** Output only. Per-app permissions for the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Grant *> *grants;
+
+/**
+ *  Required. Resource name for this user, following the pattern
+ *  "developers/{developer}/users/{email}".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether there are more permissions for the user that are not
+ *  represented here.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partial;
 
 @end
 

@@ -175,7 +175,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_EditsCommit
 
-@dynamic editId, packageName;
+@dynamic changesNotSentForReview, editId, packageName;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId {
@@ -1007,6 +1007,78 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_GrantsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Grant *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+parent}/grants";
+  GTLRAndroidPublisherQuery_GrantsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Grant class];
+  query.loggingName = @"androidpublisher.grants.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_GrantsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}";
+  GTLRAndroidPublisherQuery_GrantsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.loggingName = @"androidpublisher.grants.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_GrantsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Grant *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}";
+  GTLRAndroidPublisherQuery_GrantsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_Grant class];
+  query.loggingName = @"androidpublisher.grants.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_InappproductsDelete
 
 @dynamic packageName, sku;
@@ -1131,7 +1203,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_InappproductsUpdate
 
-@dynamic autoConvertMissingPrices, packageName, sku;
+@dynamic allowMissing, autoConvertMissingPrices, packageName, sku;
 
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName
@@ -1197,6 +1269,33 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRAndroidPublisher_InternalAppSharingArtifact class];
   query.loggingName = @"androidpublisher.internalappsharingartifacts.uploadbundle";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_MonetizationConvertRegionPrices
+
+@dynamic packageName;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_ConvertRegionPricesRequest *)object
+                    packageName:(NSString *)packageName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"packageName" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/pricing:convertRegionPrices";
+  GTLRAndroidPublisherQuery_MonetizationConvertRegionPrices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ConvertRegionPricesResponse class];
+  query.loggingName = @"androidpublisher.monetization.convertRegionPrices";
   return query;
 }
 
@@ -1646,6 +1745,97 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.versionCode = versionCode;
   query.expectedObjectClass = [GTLRAndroidPublisher_SystemApksListResponse class];
   query.loggingName = @"androidpublisher.systemapks.variants.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_UsersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_User *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+parent}/users";
+  GTLRAndroidPublisherQuery_UsersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidPublisher_User class];
+  query.loggingName = @"androidpublisher.users.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_UsersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}";
+  GTLRAndroidPublisherQuery_UsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.loggingName = @"androidpublisher.users.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_UsersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+parent}/users";
+  GTLRAndroidPublisherQuery_UsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListUsersResponse class];
+  query.loggingName = @"androidpublisher.users.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_UsersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_User *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+name}";
+  GTLRAndroidPublisherQuery_UsersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidPublisher_User class];
+  query.loggingName = @"androidpublisher.users.patch";
   return query;
 }
 

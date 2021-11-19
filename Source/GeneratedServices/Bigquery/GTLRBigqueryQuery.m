@@ -210,6 +210,28 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @end
 
+@implementation GTLRBigqueryQuery_JobsDelete
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                             jobId:(NSString *)jobId {
+  NSArray *pathParams = @[
+    @"jobId", @"projectId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/jobs/{+jobId}/delete";
+  GTLRBigqueryQuery_JobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.jobId = jobId;
+  query.loggingName = @"bigquery.jobs.delete";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_JobsGet
 
 @dynamic jobId, location, projectId;

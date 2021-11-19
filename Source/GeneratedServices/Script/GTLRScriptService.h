@@ -64,7 +64,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeployments;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeploymentsReadonly;
 /**
- *  Authorization scope: View and manage your Google Docs documents
+ *  Authorization scope: See, edit, create, and delete all your Google Docs
+ *  documents
  *
  *  Value "https://www.googleapis.com/auth/documents"
  */
@@ -134,14 +135,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjects;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjectsReadonly;
 /**
- *  Authorization scope: See, edit, create, and delete your spreadsheets in
- *  Google Drive
+ *  Authorization scope: See, edit, create, and delete all your Google Sheets
+ *  spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptSpreadsheets;
 /**
- *  Authorization scope: View your email address
+ *  Authorization scope: See your primary Google Account email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */

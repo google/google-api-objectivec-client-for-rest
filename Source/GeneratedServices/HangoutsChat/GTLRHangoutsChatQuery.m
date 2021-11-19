@@ -2,9 +2,11 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Hangouts Chat API (chat/v1)
+//   Google Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in Hangouts Chat.
+//   Enables bots to fetch information and perform actions in Google Chat.
+//   Authentication using a service account is a prerequisite for using the
+//   Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -20,7 +22,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsConversationsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -47,7 +49,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -74,7 +76,7 @@
 
 @implementation GTLRHangoutsChatQuery_DmsWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -128,7 +130,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsConversationsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -155,7 +157,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsMessages
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -182,7 +184,7 @@
 
 @implementation GTLRHangoutsChatQuery_RoomsWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -302,7 +304,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesCreate
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -394,7 +396,7 @@
 
 @implementation GTLRHangoutsChatQuery_SpacesWebhooks
 
-@dynamic parent, threadKey;
+@dynamic parent, requestId, threadKey;
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {

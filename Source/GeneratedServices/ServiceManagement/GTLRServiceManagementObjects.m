@@ -318,8 +318,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -579,15 +579,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceManagement_DisableServiceResponse
-//
-
-@implementation GTLRServiceManagement_DisableServiceResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceManagement_Documentation
 //
 
@@ -622,16 +613,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceManagement_EnableServiceRequest
-//
-
-@implementation GTLRServiceManagement_EnableServiceRequest
-@dynamic consumerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceManagement_EnableServiceResponse
 //
 
@@ -645,15 +626,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Endpoint
-@dynamic aliases, allowCors, name, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic allowCors, name, target;
 @end
 
 
@@ -1239,6 +1212,16 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_OperationInfo
+//
+
+@implementation GTLRServiceManagement_OperationInfo
+@dynamic metadataType, responseType;
 @end
 
 

@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #import "GTLRCompute.h"
 
@@ -71,6 +71,10 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#externalVpnGatewayList" : [GTLRCompute_ExternalVpnGatewayList class],
     @"compute#firewall" : [GTLRCompute_Firewall class],
     @"compute#firewallList" : [GTLRCompute_FirewallList class],
+    @"compute#firewallPoliciesListAssociationsResponse" : [GTLRCompute_FirewallPoliciesListAssociationsResponse class],
+    @"compute#firewallPolicy" : [GTLRCompute_FirewallPolicy class],
+    @"compute#firewallPolicyList" : [GTLRCompute_FirewallPolicyList class],
+    @"compute#firewallPolicyRule" : [GTLRCompute_FirewallPolicyRule class],
     @"compute#forwardingRule" : [GTLRCompute_ForwardingRule class],
     @"compute#forwardingRuleAggregatedList" : [GTLRCompute_ForwardingRuleAggregatedList class],
     @"compute#forwardingRuleList" : [GTLRCompute_ForwardingRuleList class],
@@ -139,6 +143,11 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#packetMirroringList" : [GTLRCompute_PacketMirroringList class],
     @"compute#project" : [GTLRCompute_Project class],
     @"compute#projectsGetXpnResources" : [GTLRCompute_ProjectsGetXpnResources class],
+    @"compute#publicAdvertisedPrefix" : [GTLRCompute_PublicAdvertisedPrefix class],
+    @"compute#publicAdvertisedPrefixList" : [GTLRCompute_PublicAdvertisedPrefixList class],
+    @"compute#publicDelegatedPrefix" : [GTLRCompute_PublicDelegatedPrefix class],
+    @"compute#publicDelegatedPrefixAggregatedList" : [GTLRCompute_PublicDelegatedPrefixAggregatedList class],
+    @"compute#publicDelegatedPrefixList" : [GTLRCompute_PublicDelegatedPrefixList class],
     @"compute#reference" : [GTLRCompute_Reference class],
     @"compute#region" : [GTLRCompute_Region class],
     @"compute#regionAutoscalerList" : [GTLRCompute_RegionAutoscalerList class],
@@ -164,6 +173,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#securityPolicyList" : [GTLRCompute_SecurityPolicyList class],
     @"compute#securityPolicyRule" : [GTLRCompute_SecurityPolicyRule class],
     @"compute#serialPortOutput" : [GTLRCompute_SerialPortOutput class],
+    @"compute#serviceAttachment" : [GTLRCompute_ServiceAttachment class],
+    @"compute#serviceAttachmentAggregatedList" : [GTLRCompute_ServiceAttachmentAggregatedList class],
+    @"compute#serviceAttachmentList" : [GTLRCompute_ServiceAttachmentList class],
     @"compute#shieldedInstanceIdentity" : [GTLRCompute_ShieldedInstanceIdentity class],
     @"compute#snapshot" : [GTLRCompute_Snapshot class],
     @"compute#snapshotList" : [GTLRCompute_SnapshotList class],

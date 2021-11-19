@@ -46,8 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTrafficDirectorServiceCloudPlatform
  */
 @interface GTLRTrafficDirectorServiceQuery_DiscoveryClientStatus : GTLRTrafficDirectorServiceQuery
-// Previous library name was
-//   +[GTLQueryTrafficDirectorService queryForDiscoveryClientStatusWithObject:]
 
 /**
  *  Fetches a @c GTLRTrafficDirectorService_ClientStatusResponse.

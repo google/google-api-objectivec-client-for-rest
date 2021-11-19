@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_OperationsGet : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -93,8 +91,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_OperationsList : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForOperationsList]
 
 /**
  *  Required. A filter for matching the requested operations. The supported
@@ -156,8 +152,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCall : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsCallWithObject:name:]
 
 /** Required. The name of the function to be called. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -192,8 +186,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsCreateWithObject:location:]
 
 /**
  *  Required. The project and location in which the function should be created,
@@ -231,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsDelete : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsDeleteWithname:]
 
 /** Required. The name of the function which should be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -264,8 +254,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGenerateDownloadUrlWithObject:name:]
 
 /**
  *  The name of function for which source code Google Cloud Storage signed URL
@@ -316,8 +304,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGenerateUploadUrlWithObject:parent:]
 
 /**
  *  The project and location in which the Google Cloud Storage signed URL should
@@ -366,8 +352,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGet : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGetWithname:]
 
 /** Required. The name of the function which details should be obtained. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -396,8 +380,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -441,8 +423,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsListWithparent:]
 
 /** Maximum number of functions to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -495,8 +475,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsPatchWithObject:name:]
 
 /**
  *  A user-defined name of the function. Function names must be unique globally
@@ -539,8 +517,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -578,8 +554,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -616,19 +590,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
  */
 @interface GTLRCloudFunctionsQuery_ProjectsLocationsList : GTLRCloudFunctionsQuery
-// Previous library name was
-//   +[GTLQueryCloudFunctions queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

@@ -6,7 +6,7 @@
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:
-//   https://cloud.google.com/access-approval/docs
+//   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -31,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

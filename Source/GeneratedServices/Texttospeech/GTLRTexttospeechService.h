@@ -29,15 +29,21 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTexttospeechCloudPlatform;
+/**
+ *  Authorization scope: View, manage and query your Dialogflow agents
+ *
+ *  Value "https://www.googleapis.com/auth/dialogflow"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTexttospeechDialogflow;
 
 // ----------------------------------------------------------------------------
 //   GTLRTexttospeechService

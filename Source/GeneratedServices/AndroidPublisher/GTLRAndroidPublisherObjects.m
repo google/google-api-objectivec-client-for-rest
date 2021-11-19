@@ -18,6 +18,19 @@ NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Deobfuscatio
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard = @"proguard";
 
+// GTLRAndroidPublisher_Grant.appLevelPermissions
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_AppLevelPermissionUnspecified = @"APP_LEVEL_PERMISSION_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanAccessApp = @"CAN_ACCESS_APP";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageDraftApps = @"CAN_MANAGE_DRAFT_APPS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageOrders = @"CAN_MANAGE_ORDERS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePermissions = @"CAN_MANAGE_PERMISSIONS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePublicApks = @"CAN_MANAGE_PUBLIC_APKS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManagePublicListing = @"CAN_MANAGE_PUBLIC_LISTING";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackApks = @"CAN_MANAGE_TRACK_APKS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanManageTrackUsers = @"CAN_MANAGE_TRACK_USERS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanReplyToReviews = @"CAN_REPLY_TO_REVIEWS";
+NSString * const kGTLRAndroidPublisher_Grant_AppLevelPermissions_CanViewFinancialData = @"CAN_VIEW_FINANCIAL_DATA";
+
 // GTLRAndroidPublisher_InAppProduct.purchaseType
 NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser = @"managedUser";
 NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified = @"purchaseTypeUnspecified";
@@ -28,12 +41,52 @@ NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Active = @"active";
 NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Inactive = @"inactive";
 NSString * const kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified = @"statusUnspecified";
 
+// GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
+NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
+NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
+NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1 = @"TAX_TIER_BOOKS_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1 = @"TAX_TIER_NEWS_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";
+
+// GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings.eeaWithdrawalRightType
+NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
+NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
+NSString * const kGTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightTypeUnspecified = @"WITHDRAWAL_RIGHT_TYPE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_TrackRelease.status
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Completed = @"completed";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Draft = @"draft";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Halted = @"halted";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InProgress = @"inProgress";
 NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @"statusUnspecified";
+
+// GTLRAndroidPublisher_User.accessState
+NSString * const kGTLRAndroidPublisher_User_AccessState_AccessExpired = @"ACCESS_EXPIRED";
+NSString * const kGTLRAndroidPublisher_User_AccessState_AccessGranted = @"ACCESS_GRANTED";
+NSString * const kGTLRAndroidPublisher_User_AccessState_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_User_AccessState_InvitationExpired = @"INVITATION_EXPIRED";
+NSString * const kGTLRAndroidPublisher_User_AccessState_Invited = @"INVITED";
+
+// GTLRAndroidPublisher_User.developerAccountPermissions
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanChangeManagedPlaySettingGlobal = @"CAN_CHANGE_MANAGED_PLAY_SETTING_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanCreateManagedPlayAppsGlobal = @"CAN_CREATE_MANAGED_PLAY_APPS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanEditGamesGlobal = @"CAN_EDIT_GAMES_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageDraftAppsGlobal = @"CAN_MANAGE_DRAFT_APPS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageOrdersGlobal = @"CAN_MANAGE_ORDERS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePermissionsGlobal = @"CAN_MANAGE_PERMISSIONS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePublicApksGlobal = @"CAN_MANAGE_PUBLIC_APKS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManagePublicListingGlobal = @"CAN_MANAGE_PUBLIC_LISTING_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageTrackApksGlobal = @"CAN_MANAGE_TRACK_APKS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanManageTrackUsersGlobal = @"CAN_MANAGE_TRACK_USERS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanPublishGamesGlobal = @"CAN_PUBLISH_GAMES_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanReplyToReviewsGlobal = @"CAN_REPLY_TO_REVIEWS_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanSeeAllApps = @"CAN_SEE_ALL_APPS";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_CanViewFinancialDataGlobal = @"CAN_VIEW_FINANCIAL_DATA_GLOBAL";
+NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_DeveloperLevelPermissionUnspecified = @"DEVELOPER_LEVEL_PERMISSION_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -170,6 +223,60 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ConvertedOtherRegionsPrice
+//
+
+@implementation GTLRAndroidPublisher_ConvertedOtherRegionsPrice
+@dynamic eurPrice, usdPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ConvertedRegionPrice
+//
+
+@implementation GTLRAndroidPublisher_ConvertedRegionPrice
+@dynamic price, regionCode, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ConvertRegionPricesRequest
+//
+
+@implementation GTLRAndroidPublisher_ConvertRegionPricesRequest
+@dynamic price;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ConvertRegionPricesResponse
+//
+
+@implementation GTLRAndroidPublisher_ConvertRegionPricesResponse
+@dynamic convertedOtherRegionsPrice, convertedRegionPrices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices
+//
+
+@implementation GTLRAndroidPublisher_ConvertRegionPricesResponse_ConvertedRegionPrices
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAndroidPublisher_ConvertedRegionPrice class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_CountryTargeting
 //
 
@@ -293,6 +400,24 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_Grant
+//
+
+@implementation GTLRAndroidPublisher_Grant
+@dynamic appLevelPermissions, name, packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appLevelPermissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Image
 //
 
@@ -358,8 +483,10 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 //
 
 @implementation GTLRAndroidPublisher_InAppProduct
-@dynamic defaultLanguage, defaultPrice, gracePeriod, listings, packageName,
-         prices, purchaseType, sku, status, subscriptionPeriod, trialPeriod;
+@dynamic defaultLanguage, defaultPrice, gracePeriod, listings,
+         managedProductTaxesAndComplianceSettings, packageName, prices,
+         purchaseType, sku, status, subscriptionPeriod,
+         subscriptionTaxesAndComplianceSettings, trialPeriod;
 @end
 
 
@@ -494,11 +621,67 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ListUsersResponse
+//
+
+@implementation GTLRAndroidPublisher_ListUsersResponse
+@dynamic nextPageToken, users;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"users" : [GTLRAndroidPublisher_User class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"users";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_LocalizedText
 //
 
 @implementation GTLRAndroidPublisher_LocalizedText
 @dynamic language, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings
+//
+
+@implementation GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings
+@dynamic eeaWithdrawalRightType, taxRateInfoByRegionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode
+//
+
+@implementation GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_TaxRateInfoByRegionCode
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAndroidPublisher_RegionalTaxRateInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_Money
+//
+
+@implementation GTLRAndroidPublisher_Money
+@dynamic currencyCode, nanos, units;
 @end
 
 
@@ -549,6 +732,16 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 
 @implementation GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
 @dynamic developerPayload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalTaxRateInfo
+//
+
+@implementation GTLRAndroidPublisher_RegionalTaxRateInfo
+@dynamic eligibleForStreamingServiceTaxRate, taxTier;
 @end
 
 
@@ -704,6 +897,30 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings
+@dynamic eeaWithdrawalRightType, taxRateInfoByRegionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode
+//
+
+@implementation GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings_TaxRateInfoByRegionCode
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAndroidPublisher_RegionalTaxRateInfo class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_SystemApksListResponse
 //
 
@@ -815,6 +1032,26 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_User
+//
+
+@implementation GTLRAndroidPublisher_User
+@dynamic accessState, developerAccountPermissions, email, expirationTime,
+         grants, name, partial;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"developerAccountPermissions" : [NSString class],
+    @"grants" : [GTLRAndroidPublisher_Grant class]
+  };
+  return map;
 }
 
 @end

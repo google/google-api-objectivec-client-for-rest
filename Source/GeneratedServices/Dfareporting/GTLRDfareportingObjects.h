@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.5)
 // Description:
-//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
+//   Build applications to efficiently manage large or complex trafficking,
+//   reporting, and attribution workflows for Campaign Manager 360.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -35,7 +36,6 @@
 @class GTLRDfareporting_Browser;
 @class GTLRDfareporting_Campaign;
 @class GTLRDfareporting_CampaignCreativeAssociation;
-@class GTLRDfareporting_CampaignManagerIds;
 @class GTLRDfareporting_ChangeLog;
 @class GTLRDfareporting_ChannelGrouping;
 @class GTLRDfareporting_ChannelGroupingRule;
@@ -66,15 +66,8 @@
 @class GTLRDfareporting_CreativeOptimizationConfiguration;
 @class GTLRDfareporting_CreativeRotation;
 @class GTLRDfareporting_CrossDimensionReachReportCompatibleFields;
-@class GTLRDfareporting_CustomEvent;
-@class GTLRDfareporting_CustomEventClickAnnotation;
-@class GTLRDfareporting_CustomEventError;
-@class GTLRDfareporting_CustomEventImpressionAnnotation;
-@class GTLRDfareporting_CustomEventInsert;
-@class GTLRDfareporting_CustomEventStatus;
 @class GTLRDfareporting_CustomFloodlightVariable;
 @class GTLRDfareporting_CustomRichMediaEvents;
-@class GTLRDfareporting_CustomVariable;
 @class GTLRDfareporting_CustomViewabilityMetric;
 @class GTLRDfareporting_CustomViewabilityMetricConfiguration;
 @class GTLRDfareporting_DateRange;
@@ -89,7 +82,6 @@
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DirectorySiteSettings;
 @class GTLRDfareporting_DisjunctiveMatchStatement;
-@class GTLRDfareporting_DV3Ids;
 @class GTLRDfareporting_DynamicTargetingKey;
 @class GTLRDfareporting_EncryptionInfo;
 @class GTLRDfareporting_EventFilter;
@@ -118,6 +110,9 @@
 @class GTLRDfareporting_ListPopulationTerm;
 @class GTLRDfareporting_ListTargetingExpression;
 @class GTLRDfareporting_LookbackConfiguration;
+@class GTLRDfareporting_MeasurementPartnerAdvertiserLink;
+@class GTLRDfareporting_MeasurementPartnerCampaignLink;
+@class GTLRDfareporting_MeasurementPartnerWrappingData;
 @class GTLRDfareporting_Metric;
 @class GTLRDfareporting_Metro;
 @class GTLRDfareporting_MobileApp;
@@ -1050,6 +1045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_Warne
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagHardCoded;
 /** Value: "CLICK_TAG_IN_GWD" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInGwd;
+/** Value: "CLICK_TAG_IN_RICH_MEDIA" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInRichMedia;
 /** Value: "CLICK_TAG_INVALID" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeAssetMetadata_WarnedValidationRules_ClickTagInvalid;
 /** Value: "CLICK_TAG_MISSING" */
@@ -1166,40 +1163,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalc
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyHighestCtr;
 /** Value: "WEIGHT_STRATEGY_OPTIMIZED" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CreativeRotation_WeightCalculationStrategy_WeightStrategyOptimized;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_CustomEvent.eventType
-
-/** Value: "ANNOTATE" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Annotate;
-/** Value: "INSERT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Insert;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEvent_EventType_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_CustomEventError.code
-
-/** Value: "INTERNAL" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Internal;
-/** Value: "INVALID_ARGUMENT" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_InvalidArgument;
-/** Value: "NOT_FOUND" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_NotFound;
-/** Value: "PERMISSION_DENIED" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_PermissionDenied;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventError_Code_Unknown;
-
-// ----------------------------------------------------------------------------
-// GTLRDfareporting_CustomEventInsert.insertEventType
-
-/** Value: "CLICK" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Click;
-/** Value: "IMPRESSION" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Impression;
-/** Value: "UNKNOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_CustomEventInsert_InsertEventType_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_CustomFloodlightVariable.type
@@ -1574,10 +1537,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EncryptionInfo_EncryptionSo
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.siteFilterType
 
-/** Value: "BLACKLIST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Blacklist;
-/** Value: "WHITELIST" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Whitelist;
+/** Value: "ALLOWLIST" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Allowlist;
+/** Value: "BLOCKLIST" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_EventTag_SiteFilterType_Blocklist;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_EventTag.status
@@ -1956,6 +1919,106 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_Cus
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ListMembershipTerm;
 /** Value: "REFERRER_TERM" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ListPopulationTerm_Type_ReferrerTerm;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerAdvertiserLink.linkStatus
+
+/** Value: "MEASUREMENT_PARTNER_LINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinked;
+/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkFailure;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOut;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOutPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkWrappingPending;
+/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerModeChangePending;
+/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerAdvertiserLink.measurementPartner
+
+/** Value: "INTEGRAL_AD_SCIENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_IntegralAdScience;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_None;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerCampaignLink.linkStatus
+
+/** Value: "MEASUREMENT_PARTNER_LINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinked;
+/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkFailure;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOut;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOutPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkWrappingPending;
+/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerModeChangePending;
+/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerCampaignLink.measurementPartner
+
+/** Value: "INTEGRAL_AD_SCIENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_IntegralAdScience;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_None;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerWrappingData.linkStatus
+
+/** Value: "MEASUREMENT_PARTNER_LINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinked;
+/** Value: "MEASUREMENT_PARTNER_LINK_FAILURE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkFailure;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOut;
+/** Value: "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOutPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkPending;
+/** Value: "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkWrappingPending;
+/** Value: "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerModeChangePending;
+/** Value: "MEASUREMENT_PARTNER_UNLINKED" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerWrappingData.measurementPartner
+
+/** Value: "INTEGRAL_AD_SCIENCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_IntegralAdScience;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_None;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_MeasurementPartnerWrappingData.tagWrappingMode
+
+/** Value: "BLOCKING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking;
+/** Value: "MONITORING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring;
+/** Value: "MONITORING_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None;
+/** Value: "TRACKING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking;
+/** Value: "VIDEO_PIXEL_MONITORING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_MobileApp.directory
@@ -2730,6 +2793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availabi
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountAlways;
 /** Value: "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault;
+/** Value: "USER_PROFILE_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoFormat.fileType
@@ -3591,21 +3656,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_AdBlockingConfiguration : GTLRObject
 
 /**
- *  Click-through URL used by brand-neutral ads. This is a required field when
- *  overrideClickThroughUrl is set to true.
- */
-@property(nonatomic, copy, nullable) NSString *clickThroughUrl;
-
-/**
- *  ID of a creative bundle to use for this campaign. If set, brand-neutral ads
- *  will select creatives from this bundle. Otherwise, a default transparent
- *  pixel will be used.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *creativeBundleId;
-
-/**
  *  Whether this campaign has enabled ad blocking. When true, ad blocking is
  *  enabled for placements in the campaign, but this may be overridden by site
  *  and placement settings. When false, ad blocking is disabled for all
@@ -3614,15 +3664,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Whether the brand-neutral ad's click-through URL comes from the campaign's
- *  creative bundle or the override URL. Must be set to true if ad blocking is
- *  enabled and no creative bundle is configured.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *overrideClickThroughUrl;
 
 @end
 
@@ -3811,6 +3852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  "dfareporting#advertiser".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Measurement partner advertiser link for tag wrapping. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_MeasurementPartnerAdvertiserLink *measurementPartnerLink;
 
 /**
  *  Name of this advertiser. This is a required field and must be less than 256
@@ -4255,6 +4299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
 
+/** Measurement partner campaign link for tag wrapping. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_MeasurementPartnerCampaignLink *measurementPartnerLink;
+
 /**
  *  Name of this campaign. This is a required field and must be less than 256
  *  characters long and unique among campaigns of the same advertiser.
@@ -4336,55 +4383,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /** Pagination token to be used for the next list operation. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Campaign Manager IDs related to the custom event.
- */
-@interface GTLRDfareporting_CampaignManagerIds : GTLRObject
-
-/**
- *  Ad ID for Campaign Manager.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *adId;
-
-/**
- *  Campaign ID for Campaign Manager.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *campaignId;
-
-/**
- *  Creative ID for Campaign Manager.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *creativeId;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#campaignManagerIds".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Placement ID for Campaign Manager.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *placementId;
-
-/**
- *  Site ID for Campaign Manager.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *siteId;
 
 @end
 
@@ -7260,260 +7258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  Experimental feature (no support provided) A custom event represents a third
- *  party impression, a third party click, an annotation on a first party
- *  impression, or an annotation on a first party click.
- */
-@interface GTLRDfareporting_CustomEvent : GTLRObject
-
-/**
- *  Annotate a click event. This field is mutually exclusive with insertEvent
- *  and annotateImpressionEvent. This or insertEvent and annotateImpressionEvent
- *  is a required field.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventClickAnnotation *annotateClickEvent;
-
-/**
- *  Annotate an impression. This field is mutually exclusive with insertEvent
- *  and annotateClickEvent. This or insertEvent and annotateClickEvent is a
- *  required field.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventImpressionAnnotation *annotateImpressionEvent;
-
-/** Custom variables associated with the event. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomVariable *> *customVariables;
-
-/**
- *  The type of event. If INSERT, the fields in insertEvent need to be
- *  populated. If ANNOTATE, the fields in either annotateClickEvent or
- *  annotateImpressionEvent need to be populated.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Annotate Value "ANNOTATE"
- *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Insert Value "INSERT"
- *    @arg @c kGTLRDfareporting_CustomEvent_EventType_Unknown Value "UNKNOWN"
- */
-@property(nonatomic, copy, nullable) NSString *eventType;
-
-/**
- *  Floodlight configuration ID of the advertiser the event is linked to. This
- *  is a required field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *floodlightConfigurationId;
-
-/**
- *  Insert custom event. This field is mutually exclusive with
- *  annotateClickEvent and annotateImpressionEvent. This or annotateClickEvent
- *  and annotateImpressionEvent is a required field.
- */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEventInsert *insertEvent;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEvent".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The ordinal of this custom event. This is a required field. */
-@property(nonatomic, copy, nullable) NSString *ordinal;
-
-/**
- *  The timestamp of this custom event, in Unix epoch micros. This is a required
- *  field.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *timestampMicros;
-
-@end
-
-
-/**
- *  Annotate a click event.
- */
-@interface GTLRDfareporting_CustomEventClickAnnotation : GTLRObject
-
-/**
- *  The Google click ID. Use this field to annotate the click associated with
- *  the gclid.
- */
-@property(nonatomic, copy, nullable) NSString *gclid;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventClickAnnotation".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  The error code and description for a custom event that failed to insert.
- */
-@interface GTLRDfareporting_CustomEventError : GTLRObject
-
-/**
- *  The error code.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_CustomEventError_Code_Internal Value "INTERNAL"
- *    @arg @c kGTLRDfareporting_CustomEventError_Code_InvalidArgument Value
- *        "INVALID_ARGUMENT"
- *    @arg @c kGTLRDfareporting_CustomEventError_Code_NotFound Value "NOT_FOUND"
- *    @arg @c kGTLRDfareporting_CustomEventError_Code_PermissionDenied Value
- *        "PERMISSION_DENIED"
- *    @arg @c kGTLRDfareporting_CustomEventError_Code_Unknown Value "UNKNOWN"
- */
-@property(nonatomic, copy, nullable) NSString *code;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventError".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** A description of the error. */
-@property(nonatomic, copy, nullable) NSString *message;
-
-@end
-
-
-/**
- *  Annotate an impression.
- */
-@interface GTLRDfareporting_CustomEventImpressionAnnotation : GTLRObject
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventImpressionAnnotation".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The path impression ID. Use this field to annotate the impression associated
- *  with the pathImpressionId.
- */
-@property(nonatomic, copy, nullable) NSString *pathImpressionId;
-
-@end
-
-
-/**
- *  Custom event to be inserted.
- */
-@interface GTLRDfareporting_CustomEventInsert : GTLRObject
-
-/** Campaign Manager dimensions associated with the event. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CampaignManagerIds *cmDimensions;
-
-/** DV360 dimensions associated with the event. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_DV3Ids *dv3Dimensions;
-
-/**
- *  The type of event to insert.
- *
- *  Likely values:
- *    @arg @c kGTLRDfareporting_CustomEventInsert_InsertEventType_Click Value
- *        "CLICK"
- *    @arg @c kGTLRDfareporting_CustomEventInsert_InsertEventType_Impression
- *        Value "IMPRESSION"
- *    @arg @c kGTLRDfareporting_CustomEventInsert_InsertEventType_Unknown Value
- *        "UNKNOWN"
- */
-@property(nonatomic, copy, nullable) NSString *insertEventType;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventInsert".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The match ID field. A match ID is your own first-party identifier that has
- *  been synced with Google using the match ID feature in Floodlight. This field
- *  is mutually exclusive with mobileDeviceId, and at least one of the two
- *  fields is required.
- */
-@property(nonatomic, copy, nullable) NSString *matchId;
-
-/**
- *  The mobile device ID. This field is mutually exclusive with matchId, and at
- *  least one of the two fields is required.
- */
-@property(nonatomic, copy, nullable) NSString *mobileDeviceId;
-
-@end
-
-
-/**
- *  Insert Custom Events Request.
- */
-@interface GTLRDfareporting_CustomEventsBatchInsertRequest : GTLRObject
-
-/** The set of custom events to insert. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEvent *> *customEvents;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventsBatchInsertRequest".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  Insert Custom Events Response.
- */
-@interface GTLRDfareporting_CustomEventsBatchInsertResponse : GTLRObject
-
-/**
- *  Indicates that some or all custom events failed to insert.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hasFailures;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventsBatchInsertResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The insert status of each custom event. Statuses are returned in the same
- *  order that conversions are inserted.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEventStatus *> *status;
-
-@end
-
-
-/**
- *  The original custom event that was inserted and whether there were any
- *  errors.
- */
-@interface GTLRDfareporting_CustomEventStatus : GTLRObject
-
-/** The original custom event that was inserted. */
-@property(nonatomic, strong, nullable) GTLRDfareporting_CustomEvent *customEvent;
-
-/** A list of errors related to this custom event. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomEventError *> *errors;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customEventStatus".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
  *  A custom floodlight variable.
  */
 @interface GTLRDfareporting_CustomFloodlightVariable : GTLRObject
@@ -7634,7 +7378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The value of the custom floodlight variable. The length of string must not
- *  exceed 50 characters.
+ *  exceed 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -7657,33 +7401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  dfareporting#customRichMediaEvents.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  Custom variable.
- */
-@interface GTLRDfareporting_CustomVariable : GTLRObject
-
-/**
- *  The index of the custom variable.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *index;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#customVariable".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The value of the custom variable. The length of string must not exceed 50
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -8302,55 +8019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  DV360 IDs related to the custom event.
- */
-@interface GTLRDfareporting_DV3Ids : GTLRObject
-
-/**
- *  Campaign ID for DV360.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dvCampaignId;
-
-/**
- *  Creative ID for DV360.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dvCreativeId;
-
-/**
- *  Insertion Order ID for DV360.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dvInsertionOrderId;
-
-/**
- *  Line Item ID for DV360.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dvLineItemId;
-
-/**
- *  Site ID for DV360.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dvSiteId;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "dfareporting#dV3Ids".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
  *  Contains properties of a dynamic targeting key. Dynamic targeting keys are
  *  unique, user-friendly labels, created at the advertiser level in DCM, that
  *  can be assigned to ads, creatives, and placements and used for targeting
@@ -8572,10 +8240,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  tag will be applied to all sites.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Blacklist Value
- *        "BLACKLIST"
- *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Whitelist Value
- *        "WHITELIST"
+ *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Allowlist Value
+ *        "ALLOWLIST"
+ *    @arg @c kGTLRDfareporting_EventTag_SiteFilterType_Blocklist Value
+ *        "BLOCKLIST"
  */
 @property(nonatomic, copy, nullable) NSString *siteFilterType;
 
@@ -10164,6 +9832,163 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
+ *  GTLRDfareporting_MeasurementPartnerAdvertiserLink
+ */
+@interface GTLRDfareporting_MeasurementPartnerAdvertiserLink : GTLRObject
+
+/**
+ *  .
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinked
+ *        Value "MEASUREMENT_PARTNER_LINKED"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkFailure
+ *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOut
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkOptOutPending
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkPending
+ *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerLinkWrappingPending
+ *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerModeChangePending
+ *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_LinkStatus_MeasurementPartnerUnlinked
+ *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ */
+@property(nonatomic, copy, nullable) NSString *linkStatus;
+
+/**
+ *  Measurement partner used for tag wrapping.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_IntegralAdScience
+ *        Value "INTEGRAL_AD_SCIENCE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerAdvertiserLink_MeasurementPartner_None
+ *        Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *measurementPartner;
+
+/** . */
+@property(nonatomic, copy, nullable) NSString *partnerAdvertiserId;
+
+@end
+
+
+/**
+ *  GTLRDfareporting_MeasurementPartnerCampaignLink
+ */
+@interface GTLRDfareporting_MeasurementPartnerCampaignLink : GTLRObject
+
+/**
+ *  .
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinked
+ *        Value "MEASUREMENT_PARTNER_LINKED"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkFailure
+ *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOut
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkOptOutPending
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkPending
+ *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerLinkWrappingPending
+ *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerModeChangePending
+ *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_LinkStatus_MeasurementPartnerUnlinked
+ *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ */
+@property(nonatomic, copy, nullable) NSString *linkStatus;
+
+/**
+ *  Measurement partner used for tag wrapping.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_IntegralAdScience
+ *        Value "INTEGRAL_AD_SCIENCE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerCampaignLink_MeasurementPartner_None
+ *        Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *measurementPartner;
+
+/**
+ *  Partner campaign ID needed for establishing linking with Measurement
+ *  partner.
+ */
+@property(nonatomic, copy, nullable) NSString *partnerCampaignId;
+
+@end
+
+
+/**
+ *  Placement tag wrapping
+ */
+@interface GTLRDfareporting_MeasurementPartnerWrappingData : GTLRObject
+
+/**
+ *  Placement wrapping status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinked
+ *        Value "MEASUREMENT_PARTNER_LINKED"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkFailure
+ *        Value "MEASUREMENT_PARTNER_LINK_FAILURE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOut
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkOptOutPending
+ *        Value "MEASUREMENT_PARTNER_LINK_OPT_OUT_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkPending
+ *        Value "MEASUREMENT_PARTNER_LINK_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerLinkWrappingPending
+ *        Value "MEASUREMENT_PARTNER_LINK_WRAPPING_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerModeChangePending
+ *        Value "MEASUREMENT_PARTNER_MODE_CHANGE_PENDING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_LinkStatus_MeasurementPartnerUnlinked
+ *        Value "MEASUREMENT_PARTNER_UNLINKED"
+ */
+@property(nonatomic, copy, nullable) NSString *linkStatus;
+
+/**
+ *  Measurement partner used for wrapping the placement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_IntegralAdScience
+ *        Value "INTEGRAL_AD_SCIENCE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_MeasurementPartner_None
+ *        Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *measurementPartner;
+
+/**
+ *  Measurement mode for the wrapped placement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Blocking
+ *        Value "BLOCKING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring
+ *        Value "MONITORING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly
+ *        Value "MONITORING_ONLY"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None
+ *        Value "NONE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking
+ *        Value "TRACKING"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring
+ *        Value "VIDEO_PIXEL_MONITORING"
+ */
+@property(nonatomic, copy, nullable) NSString *tagWrappingMode;
+
+/** Tag provided by the measurement partner during wrapping. */
+@property(nonatomic, copy, nullable) NSString *wrappedTag;
+
+@end
+
+
+/**
  *  Represents a metric.
  */
 @interface GTLRDfareporting_Metric : GTLRObject
@@ -11250,6 +11075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Measurement partner provided settings for a wrapped placement. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_MeasurementPartnerWrappingData *partnerWrappingData;
+
 /**
  *  Whether payment was approved for this placement. This is a read-only field
  *  relevant only to publisher-paid placements.
@@ -11415,6 +11243,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Html5 Value "HTML5"
  */
 @property(nonatomic, copy, nullable) NSString *vpaidAdapterChoice;
+
+/**
+ *  Whether this placement opts out of tag wrapping.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wrappingOptOut;
 
 @end
 
@@ -13204,7 +13039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_Report_PathToConversionCriteria_ReportProperties : GTLRObject
 
 /**
- *  DFA checks to see if a click interaction occurred within the specified
+ *  CM360 checks to see if a click interaction occurred within the specified
  *  period of time before a conversion. By default the value is pulled from
  *  Floodlight or you can manually enter a custom value. Valid values: 1-90.
  *
@@ -13213,9 +13048,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *clicksLookbackWindow;
 
 /**
- *  DFA checks to see if an impression interaction occurred within the specified
- *  period of time before a conversion. By default the value is pulled from
- *  Floodlight or you can manually enter a custom value. Valid values: 1-90.
+ *  CM360 checks to see if an impression interaction occurred within the
+ *  specified period of time before a conversion. By default the value is pulled
+ *  from Floodlight or you can manually enter a custom value. Valid values:
+ *  1-90.
  *
  *  Uses NSNumber of intValue.
  */
@@ -15036,6 +14872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        Value "SUBACCOUNT_AND_ACCOUNT_ALWAYS"
  *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_SubaccountAndAccountByDefault
  *        Value "SUBACCOUNT_AND_ACCOUNT_BY_DEFAULT"
+ *    @arg @c kGTLRDfareporting_UserRolePermission_Availability_UserProfileOnly
+ *        Value "USER_PROFILE_ONLY"
  */
 @property(nonatomic, copy, nullable) NSString *availability;
 
@@ -15253,6 +15091,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  placement.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_CompanionSetting *companionSettings;
+
+/**
+ *  Duration of a video placement in seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationSeconds;
 
 /**
  *  Identifies what kind of resource this is. Value: the fixed string

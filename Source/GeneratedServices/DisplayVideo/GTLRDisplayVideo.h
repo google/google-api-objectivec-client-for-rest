@@ -4,8 +4,9 @@
 // API:
 //   Display & Video 360 API (displayvideo/v1)
 // Description:
-//   Display & Video 360 API allows users to manage and create campaigns and
-//   reports.
+//   Display & Video 360 API allows users to automate complex Display & Video
+//   360 workflows, such as creating insertion orders and setting targeting
+//   options for individual line items.
 // Documentation:
 //   https://developers.google.com/display-video/
 

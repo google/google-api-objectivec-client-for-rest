@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: Manage messages in groups on your domain
+ *  Authorization scope: Upload messages to any Google group in your domain
  *
  *  Value "https://www.googleapis.com/auth/apps.groups.migration"
  */

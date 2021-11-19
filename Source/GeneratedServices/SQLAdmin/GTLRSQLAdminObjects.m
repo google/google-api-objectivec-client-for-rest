@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -43,6 +43,33 @@ NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
 
+// GTLRSQLAdmin_ConnectSettings.backendType
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External = @"EXTERNAL";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen = @"FIRST_GEN";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SecondGen = @"SECOND_GEN";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SqlBackendTypeUnspecified = @"SQL_BACKEND_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_ConnectSettings.databaseVersion
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51 = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+
 // GTLRSQLAdmin_DatabaseInstance.backendType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External = @"EXTERNAL";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen = @"FIRST_GEN";
@@ -65,6 +92,10 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Ent
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
 
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
@@ -75,6 +106,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_SqlInstanceTypeUnsp
 // GTLRSQLAdmin_DatabaseInstance.state
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed   = @"FAILED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance = @"MAINTENANCE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance = @"ONLINE_MAINTENANCE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate = @"PENDING_CREATE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete = @"PENDING_DELETE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable = @"RUNNABLE";
@@ -110,6 +142,10 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSER
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
 
 // GTLRSQLAdmin_Flag.type
 NSString * const kGTLRSQLAdmin_Flag_Type_Boolean               = @"BOOLEAN";
@@ -217,6 +253,7 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRON
 
 // GTLRSQLAdmin_SqlExternalSyncSettingError.type
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogNotEnabled = @"BINLOG_NOT_ENABLED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_BinlogRetentionSetting = @"BINLOG_RETENTION_SETTING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_IncompatibleDatabaseVersion = @"INCOMPATIBLE_DATABASE_VERSION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
@@ -230,14 +267,32 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPre
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel = @"INVALID_WAL_LEVEL";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedBinlogFormat = @"UNSUPPORTED_BINLOG_FORMAT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
+
+// GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncMode
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_ExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Offline = @"OFFLINE";
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Online = @"ONLINE";
+
+// GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncMode
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_ExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Offline = @"OFFLINE";
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Online = @"ONLINE";
+
+// GTLRSQLAdmin_SqlOutOfDiskReport.sqlOutOfDiskState
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal = @"NORMAL";
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SoftShutdown = @"SOFT_SHUTDOWN";
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified = @"SQL_OUT_OF_DISK_STATE_UNSPECIFIED";
 
 // GTLRSQLAdmin_User.type
 NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
@@ -406,6 +461,30 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_ConnectSettings
+//
+
+@implementation GTLRSQLAdmin_ConnectSettings
+@dynamic backendType, databaseVersion, ipAddresses, kind, region, serverCaCert;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_Database
 //
 
@@ -442,13 +521,13 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic backendType, connectionName, currentDiskSize, databaseVersion,
-         diskEncryptionConfiguration, diskEncryptionStatus, ETag,
-         failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
-         masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
-         project, region, replicaConfiguration, replicaNames, rootPassword,
-         satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
-         serverCaCert, serviceAccountEmailAddress, settings, state,
+@dynamic backendType, connectionName, createTime, currentDiskSize,
+         databaseVersion, diskEncryptionConfiguration, diskEncryptionStatus,
+         ETag, failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address,
+         kind, masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
+         outOfDiskReport, project, region, replicaConfiguration, replicaNames,
+         rootPassword, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
+         selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
          suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -530,7 +609,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DemoteMasterContext
-@dynamic kind, masterInstanceName, replicaConfiguration, verifyGtidConsistency;
+@dynamic kind, masterInstanceName, replicaConfiguration, skipReplicationSetup,
+         verifyGtidConsistency;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -633,7 +713,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ExportContext_CsvExportOptions
-@dynamic selectQuery;
+@dynamic escapeCharacter, fieldsTerminatedBy, linesTerminatedBy, quoteCharacter,
+         selectQuery;
 @end
 
 
@@ -735,6 +816,35 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_GenerateEphemeralCertRequest
+//
+
+@implementation GTLRSQLAdmin_GenerateEphemeralCertRequest
+@dynamic accessToken, publicKey, readTime, validDuration;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"publicKey" : @"public_key"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_GenerateEphemeralCertResponse
+//
+
+@implementation GTLRSQLAdmin_GenerateEphemeralCertResponse
+@dynamic ephemeralCert;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_ImportContext
 //
 
@@ -767,7 +877,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ImportContext_CsvImportOptions
-@dynamic columns, table;
+@dynamic columns, escapeCharacter, fieldsTerminatedBy, linesTerminatedBy,
+         quoteCharacter, table;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -795,8 +906,18 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_InsightsConfig
-@dynamic queryInsightsEnabled, queryStringLength, recordApplicationTags,
-         recordClientAddress;
+@dynamic queryInsightsEnabled, queryPlansPerMinute, queryStringLength,
+         recordApplicationTags, recordClientAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_InstanceReference
+//
+
+@implementation GTLRSQLAdmin_InstanceReference
+@dynamic name, project, region;
 @end
 
 
@@ -935,7 +1056,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_IpConfiguration
-@dynamic authorizedNetworks, ipv4Enabled, privateNetwork, requireSsl;
+@dynamic allocatedIpRange, authorizedNetworks, ipv4Enabled, privateNetwork,
+         requireSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1016,12 +1138,30 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_MySqlSyncConfig
+//
+
+@implementation GTLRSQLAdmin_MySqlSyncConfig
+@dynamic initialSyncFlags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"initialSyncFlags" : [GTLRSQLAdmin_SyncFlags class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_OnPremisesConfiguration
 //
 
 @implementation GTLRSQLAdmin_OnPremisesConfiguration
 @dynamic caCertificate, clientCertificate, clientKey, dumpFilePath, hostPort,
-         kind, password, username;
+         kind, password, sourceInstance, username;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1188,8 +1328,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
          dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, insightsConfig,
          ipConfiguration, kind, locationPreference, maintenanceWindow,
-         pricingPlan, replicationType, settingsVersion, storageAutoResize,
-         storageAutoResizeLimit, tier, userLabels;
+         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
+         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1269,15 +1409,36 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest
+@dynamic mysqlSyncConfig, skipVerification, syncMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
+@dynamic mysqlSyncConfig, syncMode, verifyConnectionOnly, verifyReplicationOnly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse
-@dynamic errors, kind;
+@dynamic errors, kind, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRSQLAdmin_SqlExternalSyncSettingError class]
+    @"errors" : [GTLRSQLAdmin_SqlExternalSyncSettingError class],
+    @"warnings" : [GTLRSQLAdmin_SqlExternalSyncSettingError class]
   };
   return map;
 }
@@ -1293,11 +1454,38 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlOutOfDiskReport
+//
+
+@implementation GTLRSQLAdmin_SqlOutOfDiskReport
+@dynamic sqlMinRecommendedIncreaseSizeGb, sqlOutOfDiskState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SqlScheduledMaintenance
 //
 
 @implementation GTLRSQLAdmin_SqlScheduledMaintenance
-@dynamic canDefer, canReschedule, startTime;
+@dynamic canDefer, canReschedule, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlServerAuditConfig
+//
+
+@implementation GTLRSQLAdmin_SqlServerAuditConfig
+@dynamic bucket, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1424,6 +1612,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SyncFlags
+//
+
+@implementation GTLRSQLAdmin_SyncFlags
+@dynamic name, value;
 @end
 
 

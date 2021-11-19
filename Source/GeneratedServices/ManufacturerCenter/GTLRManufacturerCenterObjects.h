@@ -232,7 +232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 /**
  *  Attributes of the product. For more information, see
- *  https://support.google.com/manufacturers/answer/6124116. Next tag: 48
+ *  https://support.google.com/manufacturers/answer/6124116.
  */
 @interface GTLRManufacturerCenter_Attributes : GTLRObject
 
@@ -423,7 +423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  The size type of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#sizetype.
  */
-@property(nonatomic, copy, nullable) NSString *sizeType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sizeType;
 
 /**
  *  The suggested retail price (MSRP) of the product. For more information, see

@@ -8,12 +8,18 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #import "GTLRDirectoryObjects.h"
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRDirectory_AuxiliaryMessage.severity
+NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityError = @"SEVERITY_ERROR";
+NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityInfo = @"SEVERITY_INFO";
+NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRDirectory_AuxiliaryMessage_Severity_SeverityWarning = @"SEVERITY_WARNING";
 
 // GTLRDirectory_ChromeosdevicesCommand.state
 NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient = @"ACKED_BY_CLIENT";
@@ -45,6 +51,25 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_R
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume = @"SET_VOLUME";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_TakeAScreenshot = @"TAKE_A_SCREENSHOT";
 NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_WipeUsers = @"WIPE_USERS";
+
+// GTLRDirectory_FailureInfo.errorCode
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Aborted  = @"ABORTED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Cancelled = @"CANCELLED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Internal = @"INTERNAL";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_NotFound = @"NOT_FOUND";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Ok       = @"OK";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
@@ -117,6 +142,90 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"items" : [GTLRDirectory_Asp class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_AuxiliaryMessage
+//
+
+@implementation GTLRDirectory_AuxiliaryMessage
+@dynamic auxiliaryMessage, fieldMask, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchCreatePrintersRequest
+//
+
+@implementation GTLRDirectory_BatchCreatePrintersRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRDirectory_CreatePrinterRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchCreatePrintersResponse
+//
+
+@implementation GTLRDirectory_BatchCreatePrintersResponse
+@dynamic failures, printers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failures" : [GTLRDirectory_FailureInfo class],
+    @"printers" : [GTLRDirectory_Printer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchDeletePrintersRequest
+//
+
+@implementation GTLRDirectory_BatchDeletePrintersRequest
+@dynamic printerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printerIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_BatchDeletePrintersResponse
+//
+
+@implementation GTLRDirectory_BatchDeletePrintersResponse
+@dynamic failedPrinters, printerIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failedPrinters" : [GTLRDirectory_FailureInfo class],
+    @"printerIds" : [NSString class]
   };
   return map;
 }
@@ -274,12 +383,12 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
+         autoUpdateExpiration, bootMode, cpuInfo, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
          ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
          lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
          notes, orderNumber, orgUnitPath, osVersion, platformVersion,
-         recentUsers, serialNumber, status, supportEndDate,
+         recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
          systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -289,11 +398,13 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
+    @"cpuInfo" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item class],
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
     @"lastKnownNetwork" : [GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item class],
-    @"recentUsers" : [GTLRDirectory_RecentUsers class],
+    @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
+    @"screenshotFiles" : [GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item class],
     @"systemRamFreeReports" : [GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item class]
   };
   return map;
@@ -309,6 +420,24 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 @implementation GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item
 @dynamic activeTime, date;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item
+@dynamic architecture, logicalCpus, maxClockSpeedKhz, model;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logicalCpus" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -371,6 +500,26 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_RecentUsers_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_RecentUsers_Item
+@dynamic email, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item
+@dynamic createTime, downloadUrl, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
 //
 
@@ -400,6 +549,25 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item
+@dynamic cStates, currentScalingFrequencyKhz, idleDuration,
+         maxScalingFrequencyKhz;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cStates" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item_CpuTemperatureInfo_Item
 //
 
@@ -415,6 +583,16 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 @implementation GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item
 @dynamic storageFree, storageTotal, volumeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_CpuInfo_Item_LogicalCpus_Item_CStates_Item
+@dynamic displayName, sessionDuration;
 @end
 
 
@@ -510,6 +688,16 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_CreatePrinterRequest
+//
+
+@implementation GTLRDirectory_CreatePrinterRequest
+@dynamic parent, printer;
 @end
 
 
@@ -628,6 +816,25 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_Empty
+//
+
+@implementation GTLRDirectory_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_FailureInfo
+//
+
+@implementation GTLRDirectory_FailureInfo
+@dynamic errorCode, errorMessage, printer, printerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Feature
 //
 
@@ -732,6 +939,50 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 + (NSString *)collectionItemsKey {
   return @"groups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ListPrinterModelsResponse
+//
+
+@implementation GTLRDirectory_ListPrinterModelsResponse
+@dynamic nextPageToken, printerModels;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printerModels" : [GTLRDirectory_PrinterModel class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printerModels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ListPrintersResponse
+//
+
+@implementation GTLRDirectory_ListPrintersResponse
+@dynamic nextPageToken, printers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"printers" : [GTLRDirectory_Printer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"printers";
 }
 
 @end
@@ -924,6 +1175,43 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_Printer
+//
+
+@implementation GTLRDirectory_Printer
+@dynamic auxiliaryMessages, createTime, descriptionProperty, displayName,
+         identifier, makeAndModel, name, orgUnitId, uri, useDriverlessConfig;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auxiliaryMessages" : [GTLRDirectory_AuxiliaryMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_PrinterModel
+//
+
+@implementation GTLRDirectory_PrinterModel
+@dynamic displayName, makeAndModel, manufacturer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Privilege
 //
 
@@ -964,16 +1252,6 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDirectory_RecentUsers
-//
-
-@implementation GTLRDirectory_RecentUsers
-@dynamic email, type;
 @end
 
 

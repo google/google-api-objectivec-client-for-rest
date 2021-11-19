@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #import "GTLRComputeQuery.h"
 
@@ -1616,6 +1616,397 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_FirewallPoliciesAddAssociation
+
+@dynamic firewallPolicy, replaceExistingAssociation, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/addAssociation";
+  GTLRComputeQuery_FirewallPoliciesAddAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.addAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesAddRule
+
+@dynamic firewallPolicy, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/addRule";
+  GTLRComputeQuery_FirewallPoliciesAddRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.addRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesCloneRules
+
+@dynamic firewallPolicy, requestId, sourceFirewallPolicy;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/cloneRules";
+  GTLRComputeQuery_FirewallPoliciesCloneRules *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.cloneRules";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesDelete
+
+@dynamic firewallPolicy, requestId;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_FirewallPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesGet
+
+@dynamic firewallPolicy;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_FirewallPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicy class];
+  query.loggingName = @"compute.firewallPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesGetAssociation
+
+@dynamic firewallPolicy, name;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/getAssociation";
+  GTLRComputeQuery_FirewallPoliciesGetAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyAssociation class];
+  query.loggingName = @"compute.firewallPolicies.getAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{resource}/getIamPolicy";
+  GTLRComputeQuery_FirewallPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.firewallPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesGetRule
+
+@dynamic firewallPolicy, priority;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/getRule";
+  GTLRComputeQuery_FirewallPoliciesGetRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyRule class];
+  query.loggingName = @"compute.firewallPolicies.getRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesInsert
+
+@dynamic parentId, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"locations/global/firewallPolicies";
+  GTLRComputeQuery_FirewallPoliciesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesList
+
+@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"locations/global/firewallPolicies";
+  GTLRComputeQuery_FirewallPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCompute_FirewallPolicyList class];
+  query.loggingName = @"compute.firewallPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesListAssociations
+
+@dynamic targetResource;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/listAssociations";
+  GTLRComputeQuery_FirewallPoliciesListAssociations *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCompute_FirewallPoliciesListAssociationsResponse class];
+  query.loggingName = @"compute.firewallPolicies.listAssociations";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesMove
+
+@dynamic firewallPolicy, parentId, requestId;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/move";
+  GTLRComputeQuery_FirewallPoliciesMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.move";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesPatch
+
+@dynamic firewallPolicy, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}";
+  GTLRComputeQuery_FirewallPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesPatchRule
+
+@dynamic firewallPolicy, priority, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                 firewallPolicy:(NSString *)firewallPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/patchRule";
+  GTLRComputeQuery_FirewallPoliciesPatchRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.patchRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesRemoveAssociation
+
+@dynamic firewallPolicy, name, requestId;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/removeAssociation";
+  GTLRComputeQuery_FirewallPoliciesRemoveAssociation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.removeAssociation";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesRemoveRule
+
+@dynamic firewallPolicy, priority, requestId;
+
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy {
+  NSArray *pathParams = @[ @"firewallPolicy" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{firewallPolicy}/removeRule";
+  GTLRComputeQuery_FirewallPoliciesRemoveRule *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.firewallPolicy = firewallPolicy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.firewallPolicies.removeRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalOrganizationSetPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{resource}/setIamPolicy";
+  GTLRComputeQuery_FirewallPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.firewallPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_FirewallPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"locations/global/firewallPolicies/{resource}/testIamPermissions";
+  GTLRComputeQuery_FirewallPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.firewallPolicies.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_FirewallsDelete
 
 @dynamic firewall, project, requestId;
@@ -1928,6 +2319,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_ForwardingRulesSetLabels
+
+@dynamic project, region, requestId, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules/{resource}/setLabels";
+  GTLRComputeQuery_ForwardingRulesSetLabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.forwardingRules.setLabels";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_ForwardingRulesSetTarget
 
 @dynamic forwardingRule, project, region, requestId;
@@ -2171,6 +2595,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.forwardingRule = forwardingRule;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.globalForwardingRules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalForwardingRulesSetLabels
+
+@dynamic project, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules/{resource}/setLabels";
+  GTLRComputeQuery_GlobalForwardingRulesSetLabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalForwardingRules.setLabels";
   return query;
 }
 
@@ -2541,6 +2996,129 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRCompute_OperationList class];
   query.loggingName = @"compute.globalOrganizationOperations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete
+
+@dynamic project, publicDelegatedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet
+
+@dynamic project, publicDelegatedPrefix;
+
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefix class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixList class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch
+
+@dynamic project, publicDelegatedPrefix, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.patch";
   return query;
 }
 
@@ -3023,6 +3601,35 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.httpsHealthCheck = httpsHealthCheck;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.httpsHealthChecks.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ImageFamilyViewsGet
+
+@dynamic family, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                          family:(NSString *)family {
+  NSArray *pathParams = @[
+    @"family", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/imageFamilyViews/{family}";
+  GTLRComputeQuery_ImageFamilyViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.family = family;
+  query.expectedObjectClass = [GTLRCompute_ImageFamilyView class];
+  query.loggingName = @"compute.imageFamilyViews.get";
   return query;
 }
 
@@ -4413,6 +5020,41 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstancesBulkInsert
+
+@dynamic project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertInstanceResource *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/bulkInsert";
+  GTLRComputeQuery_InstancesBulkInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instances.bulkInsert";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesDelete
 
 @dynamic instance, project, requestId, zoneProperty;
@@ -4531,6 +5173,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instance = instance;
   query.expectedObjectClass = [GTLRCompute_Instance class];
   query.loggingName = @"compute.instances.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesGetEffectiveFirewalls
+
+@dynamic instance, networkInterface, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance
+                networkInterface:(NSString *)networkInterface {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/getEffectiveFirewalls";
+  GTLRComputeQuery_InstancesGetEffectiveFirewalls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.networkInterface = networkInterface;
+  query.expectedObjectClass = [GTLRCompute_InstancesGetEffectiveFirewallsResponse class];
+  query.loggingName = @"compute.instances.getEffectiveFirewalls";
   return query;
 }
 
@@ -4835,6 +5508,34 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instance = instance;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instances.reset";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesSendDiagnosticInterrupt
+
+@dynamic instance, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/sendDiagnosticInterrupt";
+  GTLRComputeQuery_InstancesSendDiagnosticInterrupt *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.loggingName = @"compute.instances.sendDiagnosticInterrupt";
   return query;
 }
 
@@ -6821,6 +7522,29 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_NetworksGetEffectiveFirewalls
+
+@dynamic network, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                         network:(NSString *)network {
+  NSArray *pathParams = @[
+    @"network", @"project"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/getEffectiveFirewalls";
+  GTLRComputeQuery_NetworksGetEffectiveFirewalls *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.network = network;
+  query.expectedObjectClass = [GTLRCompute_NetworksGetEffectiveFirewallsResponse class];
+  query.loggingName = @"compute.networks.getEffectiveFirewalls";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_NetworksInsert
 
 @dynamic project, requestId;
@@ -8221,6 +8945,287 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.projects.setUsageExportBucket";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesDelete
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesGet
+
+@dynamic project, publicAdvertisedPrefix;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicAdvertisedPrefix class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes";
+  GTLRComputeQuery_PublicAdvertisedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes";
+  GTLRComputeQuery_PublicAdvertisedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicAdvertisedPrefixList class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesPatch
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project
+         publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
+
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/aggregated/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixAggregatedList class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesDelete
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesGet
+
+@dynamic project, publicDelegatedPrefix, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefix class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixList class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesPatch
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.patch";
   return query;
 }
 
@@ -10100,6 +11105,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroup = instanceGroup;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionInstanceGroups.setNamedPorts";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionInstancesBulkInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertInstanceResource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instances/bulkInsert";
+  GTLRComputeQuery_RegionInstancesBulkInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstances.bulkInsert";
   return query;
 }
 
@@ -12187,6 +13223,255 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_ServiceAttachmentsAggregatedList
+
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/aggregated/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachmentAggregatedList class];
+  query.loggingName = @"compute.serviceAttachments.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsDelete
+
+@dynamic project, region, requestId, serviceAttachment;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment {
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsGet
+
+@dynamic project, region, serviceAttachment;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment {
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachment class];
+  query.loggingName = @"compute.serviceAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/getIamPolicy";
+  GTLRComputeQuery_ServiceAttachmentsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.serviceAttachments.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachmentList class];
+  query.loggingName = @"compute.serviceAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsPatch
+
+@dynamic project, region, requestId, serviceAttachment;
+
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+              serviceAttachment:(NSString *)serviceAttachment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/setIamPolicy";
+  GTLRComputeQuery_ServiceAttachmentsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.serviceAttachments.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/testIamPermissions";
+  GTLRComputeQuery_ServiceAttachmentsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.serviceAttachments.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_SnapshotsDelete
 
 @dynamic project, requestId, snapshot;
@@ -13360,6 +14645,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_TargetHttpsProxyList class];
   query.loggingName = @"compute.targetHttpsProxies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetHttpsProxiesPatch
+
+@dynamic project, requestId, targetHttpsProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxy *)object
+                        project:(NSString *)project
+               targetHttpsProxy:(NSString *)targetHttpsProxy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetHttpsProxy"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}";
+  GTLRComputeQuery_TargetHttpsProxiesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetHttpsProxy = targetHttpsProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetHttpsProxies.patch";
   return query;
 }
 

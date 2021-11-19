@@ -5,8 +5,9 @@
 //   Firebase Hosting API (firebasehosting/v1)
 // Description:
 //   The Firebase Hosting REST API enables programmatic and customizable
-//   deployments to your Firebase-hosted sites. Use this REST API to deploy new
-//   or updated hosting configurations and content files.
+//   management and deployments to your Firebase-hosted sites. Use this REST API
+//   to create and manage channels and sites as well as to deploy new or updated
+//   hosting configurations and content files.
 // Documentation:
 //   https://firebase.google.com/docs/hosting/
 
@@ -55,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.cancel
  */
 @interface GTLRFirebaseHostingQuery_OperationsCancel : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -94,8 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.delete
  */
 @interface GTLRFirebaseHostingQuery_OperationsDelete : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -130,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.list
  */
 @interface GTLRFirebaseHostingQuery_OperationsList : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

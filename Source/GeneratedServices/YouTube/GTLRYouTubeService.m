@@ -90,7 +90,7 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#videoAbuseReportReasonListResponse" : [GTLRYouTube_VideoAbuseReportReasonListResponse class],
     @"youtube#videoCategory" : [GTLRYouTube_VideoCategory class],
     @"youtube#videoCategoryListResponse" : [GTLRYouTube_VideoCategoryListResponse class],
-    @"youtube#videoGetRatingResponse" : [GTLRYouTube_VideoRatingListResponse class],
+    @"youtube#videoGetRatingResponse" : [GTLRYouTube_VideoGetRatingResponse class],
     @"youtube#videoListResponse" : [GTLRYouTube_VideoListResponse class],
   };
 }

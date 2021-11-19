@@ -164,6 +164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_CryptoKeyPurp
  *  Value: "ENCRYPT_DECRYPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecrypt;
+/**
+ *  CryptoKeys with this purpose may be used with MacSign.
+ *
+ *  Value: "MAC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKey_Purpose_Mac;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersion.algorithm
@@ -187,6 +193,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -199,17 +212,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_Exte
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -270,6 +307,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaS
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
@@ -309,8 +364,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. A
- *  version may not leave this state once entered.
+ *  This version is destroyed, and the key material is no longer stored. This
+ *  version may only become ENABLED again if this version is reimport_eligible
+ *  and the original key material is reimported with a call to
+ *  KeyManagementService.ImportCryptoKeyVersion.
  *
  *  Value: "DESTROYED"
  */
@@ -382,6 +439,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -394,17 +458,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -465,6 +553,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
@@ -551,6 +657,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_GenerateRandomBytesRequest.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
 
 /**
@@ -572,6 +706,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -584,17 +725,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -655,6 +820,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportJob.importMethod
@@ -769,6 +952,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_MacSignResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_MacVerifyResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_PublicKey.algorithm
 
 /**
@@ -790,6 +1029,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256S
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -802,17 +1048,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_ExternalSym
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption;
 /**
+ *  HMAC-SHA256 signing with a 256 bit key.
+ *
+ *  Value: "HMAC_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256;
+/**
+ *  RSAES-OAEP 2048 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_2048_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1;
+/**
  *  RSAES-OAEP 2048 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_2048_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256;
 /**
+ *  RSAES-OAEP 3072 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_3072_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha1;
+/**
  *  RSAES-OAEP 3072 bit key with a SHA256 digest.
  *
  *  Value: "RSA_DECRYPT_OAEP_3072_SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256;
+/**
+ *  RSAES-OAEP 4096 bit key with a SHA1 digest.
+ *
+ *  Value: "RSA_DECRYPT_OAEP_4096_SHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha1;
 /**
  *  RSAES-OAEP 4096 bit key with a SHA256 digest.
  *
@@ -873,6 +1143,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  Value: "RSA_SIGN_PSS_4096_SHA512"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_2048"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs12048;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_3072"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs13072;
+/**
+ *  RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *
+ *  Value: "RSA_SIGN_RAW_PKCS1_4096"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudKMS_PublicKey.protectionLevel
@@ -928,8 +1216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  computation of the CRC32C checksum. Note: This field is defined as int64 for
  *  reasons of compatibility across different languages. However, it is a
  *  non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -962,7 +1249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  defined as int64 for reasons of compatibility across different languages.
  *  However, it is a non-negative integer, which will never exceed 2^32-1, and
  *  can be safely downconverted to uint32 in languages that support this type.
- *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -992,8 +1278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  AsymmetricDecryptRequest.ciphertext_crc32c was left unset or that it was not
  *  delivered to KeyManagementService. If you've set
  *  AsymmetricDecryptRequest.ciphertext_crc32c but this field is still false,
- *  discard the response and perform a limited number of retries. NOTE: This
- *  field is in Beta.
+ *  discard the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1006,6 +1291,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Request message for KeyManagementService.AsymmetricSign.
  */
 @interface GTLRCloudKMS_AsymmetricSignRequest : GTLRObject
+
+/**
+ *  Optional. This field will only be honored for RAW_PKCS1 keys. The data to
+ *  sign. A digest is computed over the data that will be signed, PKCS #1
+ *  padding is applied to the digest directly and then encrypted.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Optional. An optional CRC32C checksum of the AsymmetricSignRequest.data. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  AsymmetricSignRequest.data using this checksum. KeyManagementService will
+ *  report an error if the checksum verification fails. If you receive a
+ *  checksum error, your client should verify that
+ *  CRC32C(AsymmetricSignRequest.data) is equal to
+ *  AsymmetricSignRequest.data_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
 
 /**
  *  Optional. The digest of the data to sign. The digest must be produced with
@@ -1025,7 +1338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1041,8 +1354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /**
  *  The resource name of the CryptoKeyVersion used for signing. Check this field
- *  to verify that the intended resource was used for signing. NOTE: This field
- *  is in Beta.
+ *  to verify that the intended resource was used for signing.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1081,11 +1393,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  defined as int64 for reasons of compatibility across different languages.
  *  However, it is a non-negative integer, which will never exceed 2^32-1, and
  *  can be safely downconverted to uint32 in languages that support this type.
- *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *signatureCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  AsymmetricSignRequest.data_crc32c was received by KeyManagementService and
+ *  used for the integrity verification of the data. A false value of this field
+ *  indicates either that AsymmetricSignRequest.data_crc32c was left unset or
+ *  that it was not delivered to KeyManagementService. If you've set
+ *  AsymmetricSignRequest.data_crc32c but this field is still false, discard the
+ *  response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedDataCrc32c;
 
 /**
  *  Integrity verification field. A flag indicating whether
@@ -1094,8 +1418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  field indicates either that AsymmetricSignRequest.digest_crc32c was left
  *  unset or that it was not delivered to KeyManagementService. If you've set
  *  AsymmetricSignRequest.digest_crc32c but this field is still false, discard
- *  the response and perform a limited number of retries. NOTE: This field is in
- *  Beta.
+ *  the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1171,7 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
 
@@ -1180,14 +1503,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1219,8 +1542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1255,6 +1578,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /** Output only. The time at which this CryptoKey was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. The period of time that versions of this key spend in the
+ *  DESTROY_SCHEDULED state before transitioning to DESTROYED. If not specified
+ *  at creation time, the default duration is 24 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *destroyScheduledDuration;
+
+/**
+ *  Immutable. Whether this key may contain imported versions only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importOnly;
 
 /**
  *  Labels with user-defined metadata. For more information, see [Labeling
@@ -1302,6 +1639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_EncryptDecrypt CryptoKeys with
  *        this purpose may be used with Encrypt and Decrypt. (Value:
  *        "ENCRYPT_DECRYPT")
+ *    @arg @c kGTLRCloudKMS_CryptoKey_Purpose_Mac CryptoKeys with this purpose
+ *        may be used with MacSign. (Value: "MAC")
  */
 @property(nonatomic, copy, nullable) NSString *purpose;
 
@@ -1360,18 +1699,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384 ECDSA on
  *        the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_HmacSha256 HMAC-SHA256
+ *        signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -1402,6 +1755,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -1441,20 +1803,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) GTLRDateTime *generateTime;
 
 /**
- *  Output only. The root cause of an import failure. Only present if state is
- *  IMPORT_FAILED.
+ *  Output only. The root cause of the most recent import failure. Only present
+ *  if state is IMPORT_FAILED.
  */
 @property(nonatomic, copy, nullable) NSString *importFailureReason;
 
 /**
- *  Output only. The name of the ImportJob used to import this CryptoKeyVersion.
- *  Only present if the underlying key material was imported.
+ *  Output only. The name of the ImportJob used in the most recent import of
+ *  this CryptoKeyVersion. Only present if the underlying key material was
+ *  imported.
  */
 @property(nonatomic, copy, nullable) NSString *importJob;
 
 /**
- *  Output only. The time at which this CryptoKeyVersion's key material was
- *  imported.
+ *  Output only. The time at which this CryptoKeyVersion's key material was most
+ *  recently imported.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *importTime;
 
@@ -1483,14 +1846,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, copy, nullable) NSString *protectionLevel;
 
 /**
+ *  Output only. Whether or not this key version is eligible for reimport, by
+ *  being specified as a target in
+ *  ImportCryptoKeyVersionRequest.crypto_key_version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reimportEligible;
+
+/**
  *  The current state of the CryptoKeyVersion.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This version is
- *        destroyed, and the key material is no longer stored. A version may not
- *        leave this state once entered. (Value: "DESTROYED")
+ *        destroyed, and the key material is no longer stored. This version may
+ *        only become ENABLED again if this version is reimport_eligible and the
+ *        original key material is reimported with a call to
+ *        KeyManagementService.ImportCryptoKeyVersion. (Value: "DESTROYED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled This version
  *        is scheduled for destruction, and will be destroyed soon. Call
  *        RestoreCryptoKeyVersion to put it back into the DISABLED state.
@@ -1542,18 +1916,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384
  *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_HmacSha256
+ *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -1584,6 +1972,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -1634,8 +2031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  your computation of the CRC32C checksum. Note: This field is defined as
  *  int64 for reasons of compatibility across different languages. However, it
  *  is a non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1662,7 +2058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1696,7 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  ciphertext. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1798,8 +2194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  your computation of the CRC32C checksum. Note: This field is defined as
  *  int64 for reasons of compatibility across different languages. However, it
  *  is a non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1829,7 +2224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1861,8 +2256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  computation of the CRC32C checksum. Note: This field is defined as int64 for
  *  reasons of compatibility across different languages. However, it is a
  *  non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1898,8 +2292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  EncryptRequest.additional_authenticated_data_crc32c was left unset or that
  *  it was not delivered to KeyManagementService. If you've set
  *  EncryptRequest.additional_authenticated_data_crc32c but this field is still
- *  false, discard the response and perform a limited number of retries. NOTE:
- *  This field is in Beta.
+ *  false, discard the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1912,8 +2305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  field indicates either that EncryptRequest.plaintext_crc32c was left unset
  *  or that it was not delivered to KeyManagementService. If you've set
  *  EncryptRequest.plaintext_crc32c but this field is still false, discard the
- *  response and perform a limited number of retries. NOTE: This field is in
- *  Beta.
+ *  response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1985,6 +2377,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
+ *  Request message for KeyManagementService.GenerateRandomBytes.
+ */
+@interface GTLRCloudKMS_GenerateRandomBytesRequest : GTLRObject
+
+/**
+ *  The length in bytes of the amount of randomness to retrieve. Minimum 8
+ *  bytes, maximum 1024 bytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lengthBytes;
+
+/**
+ *  The ProtectionLevel to use when generating the random data. Defaults to
+ *  SOFTWARE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External
+ *        Crypto operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm
+ *        Crypto operations are performed in a Hardware Security Module. (Value:
+ *        "HSM")
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Software
+ *        Crypto operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.GenerateRandomBytes.
+ */
+@interface GTLRCloudKMS_GenerateRandomBytesResponse : GTLRObject
+
+/**
+ *  The generated data.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  GenerateRandomBytesResponse.data. An integrity check of
+ *  GenerateRandomBytesResponse.data can be performed by computing the CRC32C
+ *  checksum of GenerateRandomBytesResponse.data and comparing your results to
+ *  this field. Discard the response in case of non-matching checksum values,
+ *  and perform a limited number of retries. A persistent mismatch may indicate
+ *  an issue in your computation of the CRC32C checksum. Note: This field is
+ *  defined as int64 for reasons of compatibility across different languages.
+ *  However, it is a non-negative integer, which will never exceed 2^32-1, and
+ *  can be safely downconverted to uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
+
+@end
+
+
+/**
  *  Request message for KeyManagementService.ImportCryptoKeyVersion.
  */
 @interface GTLRCloudKMS_ImportCryptoKeyVersionRequest : GTLRObject
@@ -2002,18 +2460,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384
  *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_HmacSha256
+ *        HMAC-SHA256 signing with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -2044,8 +2516,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignPss4096Sha512
  *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
  *        "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
+
+/**
+ *  Optional. The optional name of an existing CryptoKeyVersion to target for an
+ *  import operation. If this field is not present, a new CryptoKeyVersion
+ *  containing the supplied key material is created. If this field is present,
+ *  the supplied key material is imported into the existing CryptoKeyVersion. To
+ *  import into an existing CryptoKeyVersion, the CryptoKeyVersion must be a
+ *  child of ImportCryptoKeyVersionRequest.parent, have been previously created
+ *  via ImportCryptoKeyVersion, and be in DESTROYED or IMPORT_FAILED state. The
+ *  key material and algorithm must match the previous CryptoKeyVersion exactly
+ *  if the CryptoKeyVersion has ever contained key material.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyVersion;
 
 /**
  *  Required. The name of the ImportJob that was used to wrap this key material.
@@ -2495,17 +2989,251 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
+ *  Request message for KeyManagementService.MacSign.
+ */
+@interface GTLRCloudKMS_MacSignRequest : GTLRObject
+
+/**
+ *  Required. The data to sign. The MAC tag is computed over this data field
+ *  based on the specific algorithm.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Optional. An optional CRC32C checksum of the MacSignRequest.data. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  MacSignRequest.data using this checksum. KeyManagementService will report an
+ *  error if the checksum verification fails. If you receive a checksum error,
+ *  your client should verify that CRC32C(MacSignRequest.data) is equal to
+ *  MacSignRequest.data_crc32c, and if so, perform a limited number of retries.
+ *  A persistent mismatch may indicate an issue in your computation of the
+ *  CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.MacSign.
+ */
+@interface GTLRCloudKMS_MacSignResponse : GTLRObject
+
+/**
+ *  The created signature.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *mac;
+
+/**
+ *  Integrity verification field. A CRC32C checksum of the returned
+ *  MacSignResponse.mac. An integrity check of MacSignResponse.mac can be
+ *  performed by computing the CRC32C checksum of MacSignResponse.mac and
+ *  comparing your results to this field. Discard the response in case of
+ *  non-matching checksum values, and perform a limited number of retries. A
+ *  persistent mismatch may indicate an issue in your computation of the CRC32C
+ *  checksum. Note: This field is defined as int64 for reasons of compatibility
+ *  across different languages. However, it is a non-negative integer, which
+ *  will never exceed 2^32-1, and can be safely downconverted to uint32 in
+ *  languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *macCrc32c;
+
+/**
+ *  The resource name of the CryptoKeyVersion used for signing. Check this field
+ *  to verify that the intended resource was used for signing.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used for signing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  MacSignRequest.data_crc32c was received by KeyManagementService and used for
+ *  the integrity verification of the data. A false value of this field
+ *  indicates either that MacSignRequest.data_crc32c was left unset or that it
+ *  was not delivered to KeyManagementService. If you've set
+ *  MacSignRequest.data_crc32c but this field is still false, discard the
+ *  response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedDataCrc32c;
+
+@end
+
+
+/**
+ *  Request message for KeyManagementService.MacVerify.
+ */
+@interface GTLRCloudKMS_MacVerifyRequest : GTLRObject
+
+/**
+ *  Required. The data used previously as a MacSignRequest.data to generate the
+ *  MAC tag.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Optional. An optional CRC32C checksum of the MacVerifyRequest.data. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  MacVerifyRequest.data using this checksum. KeyManagementService will report
+ *  an error if the checksum verification fails. If you receive a checksum
+ *  error, your client should verify that CRC32C(MacVerifyRequest.data) is equal
+ *  to MacVerifyRequest.data_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
+
+/**
+ *  Required. The signature to verify.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *mac;
+
+/**
+ *  Optional. An optional CRC32C checksum of the MacVerifyRequest.mac. If
+ *  specified, KeyManagementService will verify the integrity of the received
+ *  MacVerifyRequest.mac using this checksum. KeyManagementService will report
+ *  an error if the checksum verification fails. If you receive a checksum
+ *  error, your client should verify that CRC32C(MacVerifyRequest.tag) is equal
+ *  to MacVerifyRequest.mac_crc32c, and if so, perform a limited number of
+ *  retries. A persistent mismatch may indicate an issue in your computation of
+ *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
+ *  compatibility across different languages. However, it is a non-negative
+ *  integer, which will never exceed 2^32-1, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *macCrc32c;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.MacVerify.
+ */
+@interface GTLRCloudKMS_MacVerifyResponse : GTLRObject
+
+/**
+ *  The resource name of the CryptoKeyVersion used for verification. Check this
+ *  field to verify that the intended resource was used for verification.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used for verification.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  This field indicates whether or not the verification operation for
+ *  MacVerifyRequest.mac over MacVerifyRequest.data was successful.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *success;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  MacVerifyRequest.data_crc32c was received by KeyManagementService and used
+ *  for the integrity verification of the data. A false value of this field
+ *  indicates either that MacVerifyRequest.data_crc32c was left unset or that it
+ *  was not delivered to KeyManagementService. If you've set
+ *  MacVerifyRequest.data_crc32c but this field is still false, discard the
+ *  response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedDataCrc32c;
+
+/**
+ *  Integrity verification field. A flag indicating whether
+ *  MacVerifyRequest.mac_crc32c was received by KeyManagementService and used
+ *  for the integrity verification of the data. A false value of this field
+ *  indicates either that MacVerifyRequest.mac_crc32c was left unset or that it
+ *  was not delivered to KeyManagementService. If you've set
+ *  MacVerifyRequest.mac_crc32c but this field is still false, discard the
+ *  response and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedMacCrc32c;
+
+/**
+ *  Integrity verification field. This value is used for the integrity
+ *  verification of [MacVerifyResponse.success]. If the value of this field
+ *  contradicts the value of [MacVerifyResponse.success], discard the response
+ *  and perform a limited number of retries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedSuccessIntegrity;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -2521,7 +3249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -2531,9 +3259,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Binding *> *bindings;
 
@@ -2594,18 +3327,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        NIST P-256 curve with a SHA256 digest. (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384 ECDSA on the
  *        NIST P-384 curve with a SHA384 digest. (Value: "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256 ECDSA on
+ *        the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *        protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_GoogleSymmetricEncryption
  *        Creates symmetric encryption keys. (Value:
  *        "GOOGLE_SYMMETRIC_ENCRYPTION")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_HmacSha256 HMAC-SHA256 signing
+ *        with a 256 bit key. (Value: "HMAC_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha1
+ *        RSAES-OAEP 2048 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_2048_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep2048Sha256
  *        RSAES-OAEP 2048 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_2048_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha1
+ *        RSAES-OAEP 3072 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_3072_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep3072Sha256
  *        RSAES-OAEP 3072 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_3072_SHA256")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha1
+ *        RSAES-OAEP 4096 bit key with a SHA1 digest. (Value:
+ *        "RSA_DECRYPT_OAEP_4096_SHA1")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaDecryptOaep4096Sha256
  *        RSAES-OAEP 4096 bit key with a SHA256 digest. (Value:
  *        "RSA_DECRYPT_OAEP_4096_SHA256")
@@ -2632,6 +3379,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        4096 bit key with a SHA256 digest. (Value: "RSA_SIGN_PSS_4096_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 RSASSA-PSS
  *        4096 bit key with a SHA512 digest. (Value: "RSA_SIGN_PSS_4096_SHA512")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs12048
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 2048 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_2048")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs13072
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 3072 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_3072")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096
+ *        RSASSA-PKCS1-v1_5 signing without encoding, with a 4096 bit key.
+ *        (Value: "RSA_SIGN_RAW_PKCS1_4096")
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 

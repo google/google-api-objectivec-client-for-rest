@@ -35,6 +35,7 @@ NSString * const kGTLRCivicInfo_Contest_Roles_HighestCourtJudge = @"highestCourt
 NSString * const kGTLRCivicInfo_Contest_Roles_Judge            = @"judge";
 NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorLowerBody = @"legislatorLowerBody";
 NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorUpperBody = @"legislatorUpperBody";
+NSString * const kGTLRCivicInfo_Contest_Roles_OtherRole        = @"otherRole";
 NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard      = @"schoolBoard";
 NSString * const kGTLRCivicInfo_Contest_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
 
@@ -75,6 +76,7 @@ NSString * const kGTLRCivicInfo_Office_Roles_HighestCourtJudge = @"highestCourtJ
 NSString * const kGTLRCivicInfo_Office_Roles_Judge             = @"judge";
 NSString * const kGTLRCivicInfo_Office_Roles_LegislatorLowerBody = @"legislatorLowerBody";
 NSString * const kGTLRCivicInfo_Office_Roles_LegislatorUpperBody = @"legislatorUpperBody";
+NSString * const kGTLRCivicInfo_Office_Roles_OtherRole         = @"otherRole";
 NSString * const kGTLRCivicInfo_Office_Roles_SchoolBoard       = @"schoolBoard";
 NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPurposeOfficer";
 

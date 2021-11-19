@@ -35,9 +35,12 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1OperationGroup;
 @class GTLRRecommender_GoogleCloudRecommenderV1Recommendation;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata;
+@class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection;
+@class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details;
 @class GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher;
 @class GTLRRecommender_GoogleTypeMoney;
 
@@ -120,6 +123,40 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security;
 
 // ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1Insight.severity
+
+/**
+ *  Insight has critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical;
+/**
+ *  Insight has high severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_High;
+/**
+ *  Insight has low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Low;
+/**
+ *  Insight has medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Medium;
+/**
+ *  Insight has unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo.state
 
 /**
@@ -152,6 +189,40 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1Recommendation.priority
+
+/**
+ *  Recommendation has P1 priority (highest priority).
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P1;
+/**
+ *  Recommendation has P2 priority (second highest priority).
+ *
+ *  Value: "P2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P2;
+/**
+ *  Recommendation has P3 priority (second lowest priority).
+ *
+ *  Value: "P3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P3;
+/**
+ *  Recommendation has P4 priority (lowest priority).
+ *
+ *  Value: "P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P4;
+/**
+ *  Recommendation has unspecified priority.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_PriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo.state
@@ -249,6 +320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
 
+/** Use with CategoryType.SECURITY */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection *securityProjection;
+
 @end
 
 
@@ -315,6 +389,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  observation_period).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *observationPeriod;
+
+/**
+ *  Insight's severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical
+ *        Insight has critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_High
+ *        Insight has high severity. (Value: "HIGH")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Low
+ *        Insight has low severity. (Value: "LOW")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Medium
+ *        Insight has medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_SeverityUnspecified
+ *        Insight has unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /** Information state and metadata. */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo *stateInfo;
@@ -598,7 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @interface GTLRRecommender_GoogleCloudRecommenderV1Operation : GTLRObject
 
 /**
- *  Type of this operation. Contains one of 'and', 'remove', 'replace', 'move',
+ *  Type of this operation. Contains one of 'add', 'remove', 'replace', 'move',
  *  'copy', 'test' and custom operations. This field is case-insensitive and
  *  always populated.
  */
@@ -625,7 +716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Similar to path_filters, this contains set of filters to apply if `path`
- *  field referes to array elements. This is meant to support value matching
+ *  field refers to array elements. This is meant to support value matching
  *  beyond exact match. To perform exact match, use path_filters. When both
  *  path_filters and path_value_matchers are set, an implicit AND must be
  *  performed.
@@ -699,7 +790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Similar to path_filters, this contains set of filters to apply if `path`
- *  field referes to array elements. This is meant to support value matching
+ *  field refers to array elements. This is meant to support value matching
  *  beyond exact match. To perform exact match, use path_filters. When both
  *  path_filters and path_value_matchers are set, an implicit AND must be
  *  performed.
@@ -779,6 +870,25 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Impact *primaryImpact;
 
 /**
+ *  Recommendation's priority.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P1
+ *        Recommendation has P1 priority (highest priority). (Value: "P1")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P2
+ *        Recommendation has P2 priority (second highest priority). (Value:
+ *        "P2")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P3
+ *        Recommendation has P3 priority (second lowest priority). (Value: "P3")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P4
+ *        Recommendation has P4 priority (lowest priority). (Value: "P4")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_PriorityUnspecified
+ *        Recommendation has unspecified priority. (Value:
+ *        "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/**
  *  Contains an identifier for a subtype of recommendations produced for the
  *  same recommender. Subtype is a function of content and impact, meaning a new
  *  subtype might be added when significant changes to `content` or
@@ -807,6 +917,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1OperationGroup *> *operationGroups;
 
+/** Condensed overview information about the recommendation. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview *overview;
+
+@end
+
+
+/**
+ *  Condensed overview information about the recommendation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview : GTLRObject
 @end
 
 
@@ -875,6 +1000,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        fetch them all at once.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Contains various ways of describing the impact on Security.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection : GTLRObject
+
+/** Additional security impact details that is provided by the recommender. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details *details;
+
+@end
+
+
+/**
+ *  Additional security impact details that is provided by the recommender.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details : GTLRObject
 @end
 
 

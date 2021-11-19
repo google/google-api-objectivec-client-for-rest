@@ -877,12 +877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  `Authentication` defines the authentication configuration for an API.
- *  Example for an API targeted for external use: name: calendar.googleapis.com
+ *  `Authentication` defines the authentication configuration for API methods
+ *  provided by an API service. Example: name: calendar.googleapis.com
  *  authentication: providers: - id: google_calendar_auth jwks_uri:
  *  https://www.googleapis.com/oauth2/v1/certs issuer:
  *  https://securetoken.google.com rules: - selector: "*" requirements:
- *  provider_id: google_calendar_auth
+ *  provider_id: google_calendar_auth - selector: google.calendar.Delegate
+ *  oauth: canonical_scopes: https://www.googleapis.com/auth/calendar.read
  */
 @interface GTLRServiceConsumerManagement_Authentication : GTLRObject
 
@@ -1083,14 +1084,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  the backend.
  */
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
-
-/**
- *  Minimum deadline in seconds needed for this method. Calls having deadline
- *  value lower than this will be rejected.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minDeadline;
 
 /**
  *  The number of seconds to wait for the completion of a long running
@@ -1457,8 +1450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *serviceRootUrl;
 
 /**
- *  A short summary of what the service does. Can only be provided by plain
- *  text.
+ *  A short description of what the service does. The summary must be plain
+ *  text. It becomes the overview of the service displayed in Google Cloud
+ *  Console. NOTE: This field is equivalent to the standard field `description`.
  */
 @property(nonatomic, copy, nullable) NSString *summary;
 
@@ -1477,19 +1471,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
 /**
- *  Description of the selected API(s).
+ *  Description of the selected proto element (e.g. a message, a method, a
+ *  'service' definition, or a field). Defaults to leading & trailing comments
+ *  taken from the proto source definition of the proto element.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The selector is a comma-separated list of patterns. Each pattern is a
- *  qualified name of the element which may end in "*", indicating a wildcard.
- *  Wildcards are only allowed at the end and for a whole component of the
- *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
- *  wildcard will match one or more components. To specify a default for all
- *  applicable elements, the whole pattern "*" is used.
+ *  The selector is a comma-separated list of patterns for any element such as a
+ *  method, a field, an enum value. Each pattern is a qualified name of the
+ *  element which may end in "*", indicating a wildcard. Wildcards are only
+ *  allowed at the end and for a whole component of the qualified name, i.e.
+ *  "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match one or
+ *  more components. To specify a default for all applicable elements, the whole
+ *  pattern "*" is used.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
@@ -1508,25 +1505,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  `Endpoint` describes a network endpoint of a service that serves a set of
+ *  `Endpoint` describes a network address of a service that serves a set of
  *  APIs. It is commonly known as a service endpoint. A service may expose any
  *  number of service endpoints, and all service endpoints share the same
- *  service definition, such as quota limits and monitoring metrics. Example
- *  service configuration: name: library-example.googleapis.com endpoints: #
- *  Below entry makes 'google.example.library.v1.Library' # API be served from
- *  endpoint address library-example.googleapis.com. # It also allows HTTP
- *  OPTIONS calls to be passed to the backend, for # it to decide whether the
- *  subsequent cross-origin request is # allowed to proceed. - name:
- *  library-example.googleapis.com allow_cors: true
+ *  service definition, such as quota limits and monitoring metrics. Example:
+ *  type: google.api.Service name: library-example.googleapis.com endpoints: #
+ *  Declares network address `https://library-example.googleapis.com` # for
+ *  service `library-example.googleapis.com`. The `https` scheme # is implicit
+ *  for all service endpoints. Other schemes may be # supported in the future. -
+ *  name: library-example.googleapis.com allow_cors: false - name:
+ *  content-staging-library-example.googleapis.com # Allows HTTP OPTIONS calls
+ *  to be passed to the API frontend, for it # to decide whether the subsequent
+ *  cross-origin request is allowed # to proceed. allow_cors: true
  */
 @interface GTLRServiceConsumerManagement_Endpoint : GTLRObject
-
-/**
- *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intended
- *  aliases. Additional names that this endpoint will be hosted on.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -2638,7 +2630,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `"cloudsql_database"` represents databases in Google Cloud SQL.
+ *  `"cloudsql_database"` represents databases in Google Cloud SQL. For a list
+ *  of types, see [Monitoring resource
+ *  types](https://cloud.google.com/monitoring/api/resources) and [Logging
+ *  resource types](https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2873,7 +2868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file.
+ *  include content from a Markdown file. The content can be used to produce the
+ *  documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3106,14 +3102,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  `Service` is the root object of Google service configuration schema. It
- *  describes basic information about a service, such as the name and the title,
- *  and delegates other aspects to sub-sections. Each sub-section is either a
- *  proto message or a repeated proto message that configures a specific aspect,
- *  such as auth. See each proto message definition for details. Example: type:
- *  google.api.Service config_version: 3 name: calendar.googleapis.com title:
- *  Google Calendar API apis: - name: google.calendar.v3.Calendar
- *  authentication: providers: - id: google_calendar_auth jwks_uri:
+ *  `Service` is the root object of Google API service configuration (service
+ *  config). It describes the basic information about a logical service, such as
+ *  the service name and the user-facing title, and delegates other aspects to
+ *  sub-sections. Each sub-section is either a proto message or a repeated proto
+ *  message that configures a specific aspect, such as auth. For more
+ *  information, see each proto message definition. Example: type:
+ *  google.api.Service name: calendar.googleapis.com title: Google Calendar API
+ *  apis: - name: google.calendar.v3.Calendar visibility: rules: - selector:
+ *  "google.calendar.v3.*" restriction: PREVIEW backend: rules: - selector:
+ *  "google.calendar.v3.*" address: calendar.example.com authentication:
+ *  providers: - id: google_calendar_auth jwks_uri:
  *  https://www.googleapis.com/oauth2/v1/certs issuer:
  *  https://securetoken.google.com rules: - selector: "*" requirements:
  *  provider_id: google_calendar_auth
@@ -3139,7 +3138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Billing *billing;
 
 /**
- *  Deprecated. The service config compiler always sets this field to `3`.
+ *  Obsolete. Do not use. This field has no semantic meaning. The service config
+ *  compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -3167,8 +3167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  A list of all enum types included in this API service. Enums referenced
  *  directly or indirectly by the `apis` are automatically included. Enums which
- *  are not referenced but shall be included should be listed here by name.
- *  Example: enums: - name: google.someapi.v1.SomeEnum
+ *  are not referenced but shall be included should be listed here by name by
+ *  the configuration author. Example: enums: - name: google.someapi.v1.SomeEnum
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Enum *> *enums;
 
@@ -3234,15 +3234,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Type *> *systemTypes;
 
-/** The product title for this service. */
+/**
+ *  The product title for this service, it is the name displayed in Google Cloud
+ *  Console.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  A list of all proto message types included in this API service. Types
  *  referenced directly or indirectly by the `apis` are automatically included.
  *  Messages which are not referenced but shall be included, such as types used
- *  by the `google.protobuf.Any` type, should be listed here by name. Example:
- *  types: - name: google.protobuf.Int32
+ *  by the `google.protobuf.Any` type, should be listed here by name by the
+ *  configuration author. Example: types: - name: google.protobuf.Int32
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Type *> *types;
 
@@ -3525,9 +3528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Policy bindings to be applied to the tenant project, in addition to the
  *  'roles/owner' role granted to the Service Consumer Management service
- *  account. At least one binding must have the role `roles/owner`. Among the
- *  list of members for `roles/owner`, at least one of them must be either the
- *  `user` or `group` type.
+ *  account. At least one binding must have the role `roles/owner`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_PolicyBinding *> *policyBindings;
 
@@ -3991,6 +3992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  `services/serviceconsumermanagement.googleapis.com/projects/123/defaultIdentity`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Default Identity tag. If specified when creating the account, the tag
+ *  must be present in activation_grants. If not specified when creating the
+ *  account, the tag is set to the tag specified in activation_grants.
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
 
 /** The unique and stable id of the default identity. */
 @property(nonatomic, copy, nullable) NSString *uniqueId;

@@ -397,9 +397,9 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
 @implementation GTLRDeploymentManager_Operation
 @dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
          error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
-         kind, name, operationType, progress, region, selfLink, startTime,
-         status, statusMessage, targetId, targetLink, user, warnings,
-         zoneProperty;
+         kind, name, operationGroupId, operationType, progress, region,
+         selfLink, startTime, status, statusMessage, targetId, targetLink, user,
+         warnings, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

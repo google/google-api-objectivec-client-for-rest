@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
@@ -18,13 +18,94 @@
 
 @end
 
+@implementation GTLRAnalyticsDataQuery_PropertiesBatchRunPivotReports
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunPivotReportsRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:batchRunPivotReports";
+  GTLRAnalyticsDataQuery_PropertiesBatchRunPivotReports *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_BatchRunPivotReportsResponse class];
+  query.loggingName = @"analyticsdata.properties.batchRunPivotReports";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesBatchRunReports
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:batchRunReports";
+  GTLRAnalyticsDataQuery_PropertiesBatchRunReports *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_BatchRunReportsResponse class];
+  query.loggingName = @"analyticsdata.properties.batchRunReports";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesCheckCompatibility
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_CheckCompatibilityRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:checkCompatibility";
+  GTLRAnalyticsDataQuery_PropertiesCheckCompatibility *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_CheckCompatibilityResponse class];
+  query.loggingName = @"analyticsdata.properties.checkCompatibility";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsDataQuery_PropertiesGetMetadata
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
+  NSString *pathURITemplate = @"v1beta/{+name}";
   GTLRAnalyticsDataQuery_PropertiesGetMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -32,6 +113,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAnalyticsData_Metadata class];
   query.loggingName = @"analyticsdata.properties.getMetadata";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesRunPivotReport
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunPivotReportRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:runPivotReport";
+  GTLRAnalyticsDataQuery_PropertiesRunPivotReport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_RunPivotReportResponse class];
+  query.loggingName = @"analyticsdata.properties.runPivotReport";
   return query;
 }
 
@@ -50,7 +158,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"property" ];
-  NSString *pathURITemplate = @"v1alpha/{+property}:runRealtimeReport";
+  NSString *pathURITemplate = @"v1beta/{+property}:runRealtimeReport";
   GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -64,89 +172,28 @@
 
 @end
 
-@implementation GTLRAnalyticsDataQuery_V1alphaBatchRunPivotReports
+@implementation GTLRAnalyticsDataQuery_PropertiesRunReport
 
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunPivotReportsRequest *)object {
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunReportRequest *)object
+                       property:(NSString *)property {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1alpha:batchRunPivotReports";
-  GTLRAnalyticsDataQuery_V1alphaBatchRunPivotReports *query =
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1beta/{+property}:runReport";
+  GTLRAnalyticsDataQuery_PropertiesRunReport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
-                       pathParameterNames:nil];
+                       pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAnalyticsData_BatchRunPivotReportsResponse class];
-  query.loggingName = @"analyticsdata.batchRunPivotReports";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsDataQuery_V1alphaBatchRunReports
-
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1alpha:batchRunReports";
-  GTLRAnalyticsDataQuery_V1alphaBatchRunReports *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAnalyticsData_BatchRunReportsResponse class];
-  query.loggingName = @"analyticsdata.batchRunReports";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsDataQuery_V1alphaRunPivotReport
-
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_RunPivotReportRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1alpha:runPivotReport";
-  GTLRAnalyticsDataQuery_V1alphaRunPivotReport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAnalyticsData_RunPivotReportResponse class];
-  query.loggingName = @"analyticsdata.runPivotReport";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsDataQuery_V1alphaRunReport
-
-+ (instancetype)queryWithObject:(GTLRAnalyticsData_RunReportRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1alpha:runReport";
-  GTLRAnalyticsDataQuery_V1alphaRunReport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
+  query.property = property;
   query.expectedObjectClass = [GTLRAnalyticsData_RunReportResponse class];
-  query.loggingName = @"analyticsdata.runReport";
+  query.loggingName = @"analyticsdata.properties.runReport";
   return query;
 }
 

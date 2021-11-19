@@ -372,37 +372,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedP
 // GTLRDatastore_PropertyFilter.op
 
 /**
- *  Equal.
+ *  The given `property` is equal to the given `value`.
  *
  *  Value: "EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_Equal;
 /**
- *  Greater than.
+ *  The given `property` is greater than the given `value`. Requires: * That
+ *  `property` comes first in `order_by`.
  *
  *  Value: "GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan;
 /**
- *  Greater than or equal.
+ *  The given `property` is greater than or equal to the given `value`.
+ *  Requires: * That `property` comes first in `order_by`.
  *
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual;
 /**
- *  Has ancestor.
+ *  Limit the result set to the given entity and its descendants. Requires: *
+ *  That `value` is an entity key.
  *
  *  Value: "HAS_ANCESTOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_HasAncestor;
 /**
- *  Less than.
+ *  The given `property` is less than the given `value`. Requires: * That
+ *  `property` comes first in `order_by`.
  *
  *  Value: "LESS_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_PropertyFilter_Op_LessThan;
 /**
- *  Less than or equal.
+ *  The given `property` is less than or equal to the given `value`. Requires: *
+ *  That `property` comes first in `order_by`.
  *
  *  Value: "LESS_THAN_OR_EQUAL"
  */
@@ -1627,10 +1632,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the WGS84 standard. Values must be
- *  within normalized ranges.
+ *  An object that represents a latitude/longitude pair. This is expressed as a
+ *  pair of doubles to represent degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this object must conform to the WGS84 standard. Values
+ *  must be within normalized ranges.
  */
 @interface GTLRDatastore_LatLng : GTLRObject
 
@@ -1844,17 +1849,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The operator to filter by.
  *
  *  Likely values:
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_Equal Equal. (Value: "EQUAL")
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_GreaterThan Greater than. (Value:
- *        "GREATER_THAN")
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual Greater than
- *        or equal. (Value: "GREATER_THAN_OR_EQUAL")
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_HasAncestor Has ancestor. (Value:
- *        "HAS_ANCESTOR")
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThan Less than. (Value:
- *        "LESS_THAN")
- *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual Less than or
- *        equal. (Value: "LESS_THAN_OR_EQUAL")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_Equal The given `property` is
+ *        equal to the given `value`. (Value: "EQUAL")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_GreaterThan The given `property`
+ *        is greater than the given `value`. Requires: * That `property` comes
+ *        first in `order_by`. (Value: "GREATER_THAN")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_GreaterThanOrEqual The given
+ *        `property` is greater than or equal to the given `value`. Requires: *
+ *        That `property` comes first in `order_by`. (Value:
+ *        "GREATER_THAN_OR_EQUAL")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_HasAncestor Limit the result set
+ *        to the given entity and its descendants. Requires: * That `value` is
+ *        an entity key. (Value: "HAS_ANCESTOR")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThan The given `property` is
+ *        less than the given `value`. Requires: * That `property` comes first
+ *        in `order_by`. (Value: "LESS_THAN")
+ *    @arg @c kGTLRDatastore_PropertyFilter_Op_LessThanOrEqual The given
+ *        `property` is less than or equal to the given `value`. Requires: *
+ *        That `property` comes first in `order_by`. (Value:
+ *        "LESS_THAN_OR_EQUAL")
  *    @arg @c kGTLRDatastore_PropertyFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */

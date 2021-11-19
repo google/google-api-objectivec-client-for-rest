@@ -120,8 +120,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_BlogsGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForBlogsGetWithblogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -161,8 +159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_BlogsGetByUrl : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForBlogsGetByUrlWithurl:]
 
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -200,8 +196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_BlogsListByUser : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForBlogsListByUserWithuserId:]
 
 @property(nonatomic, assign) BOOL fetchUserInfo;
 
@@ -222,6 +216,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *  Likely values:
  *    @arg @c kGTLRBloggerStatusLive Value "LIVE"
  *    @arg @c kGTLRBloggerStatusDeleted Value "DELETED"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRBloggerStatusLive.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 
@@ -261,8 +258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_BlogUserInfosGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForBlogUserInfosGetWithuserId:blogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -294,8 +289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_CommentsApprove : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsApproveWithblogId:postId:commentId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -329,8 +322,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_CommentsDelete : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsDeleteWithblogId:postId:commentId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -366,8 +357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_CommentsGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsGetWithblogId:postId:commentId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -413,8 +402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_CommentsList : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsListWithblogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -481,8 +468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_CommentsListByBlog : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsListByBlogWithblogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -533,8 +518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_CommentsMarkAsSpam : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsMarkAsSpamWithblogId:postId:commentId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -568,8 +551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_CommentsRemoveContent : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForCommentsRemoveContentWithblogId:postId:commentId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -603,8 +584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesDelete : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesDeleteWithblogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -636,8 +615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PagesGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesGetWithblogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -678,8 +655,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesInsert : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesInsertWithObject:blogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -710,8 +685,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PagesList : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesListWithblogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -767,8 +740,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesPatch : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesPatchWithObject:blogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -804,8 +775,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesPublish : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesPublishWithblogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -835,8 +804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesRevert : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesRevertWithblogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -866,8 +833,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PagesUpdate : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPagesUpdateWithObject:blogId:pageId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -903,8 +868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PageViewsGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPageViewsGetWithblogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -940,8 +903,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsDelete : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsDeleteWithblogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -973,8 +934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostsGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsGetWithblogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1027,8 +986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostsGetByPath : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsGetByPathWithblogId:path:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1071,8 +1028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsInsert : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsInsertWithObject:blogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1112,8 +1067,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostsList : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsListWithblogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1196,8 +1149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsPatch : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsPatchWithObject:blogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1244,8 +1195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsPublish : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsPublishWithblogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1277,8 +1226,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsRevert : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsRevertWithblogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1309,8 +1256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostsSearch : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsSearchWithblogId:q:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1360,8 +1305,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBlogger
  */
 @interface GTLRBloggerQuery_PostsUpdate : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostsUpdateWithObject:blogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1409,8 +1352,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostUserInfosGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostUserInfosGetWithuserId:blogId:postId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1447,8 +1388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_PostUserInfosList : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForPostUserInfosListWithuserId:blogId:]
 
 @property(nonatomic, copy, nullable) NSString *blogId;
 
@@ -1534,8 +1473,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *    @c kGTLRAuthScopeBloggerReadonly
  */
 @interface GTLRBloggerQuery_UsersGet : GTLRBloggerQuery
-// Previous library name was
-//   +[GTLQueryBlogger queryForUsersGetWithuserId:]
 
 @property(nonatomic, copy, nullable) NSString *userId;
 

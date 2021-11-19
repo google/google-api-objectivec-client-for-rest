@@ -140,8 +140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_AccountsGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForAccountsGetWithidentifier:]
 
 /**
  *  The account id
@@ -172,8 +170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_AccountsList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForAccountsList]
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_AccountsList.
@@ -195,8 +191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_AccountsPatch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForAccountsPatchWithObject:identifier:]
 
 /** Confirmation for erasing bidder and cookie matching urls. */
 @property(nonatomic, assign) BOOL confirmUnsafeAccountChange;
@@ -232,8 +226,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_AccountsUpdate : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForAccountsUpdateWithObject:identifier:]
 
 /** Confirmation for erasing bidder and cookie matching urls. */
 @property(nonatomic, assign) BOOL confirmUnsafeAccountChange;
@@ -269,8 +261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_BillingInfoGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForBillingInfoGetWithaccountId:]
 
 /** The account id. */
 @property(nonatomic, assign) NSInteger accountId;
@@ -298,8 +288,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_BillingInfoList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForBillingInfoList]
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_BillingInfoList.
@@ -323,8 +311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_BudgetGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForBudgetGetWithaccountId:billingId:]
 
 /** The account id to get the budget information for. */
 @property(nonatomic, assign) long long accountId;
@@ -359,8 +345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_BudgetPatch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForBudgetPatchWithObject:accountId:billingId:]
 
 /** The account id associated with the budget being updated. */
 @property(nonatomic, assign) long long accountId;
@@ -397,8 +381,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_BudgetUpdate : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForBudgetUpdateWithObject:accountId:billingId:]
 
 /** The account id associated with the budget being updated. */
 @property(nonatomic, assign) long long accountId;
@@ -433,8 +415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesAddDeal : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesAddDealWithaccountId:buyerCreativeId:dealId:]
 
 /** The id for the account that will serve this creative. */
 @property(nonatomic, assign) NSInteger accountId;
@@ -473,8 +453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesGetWithaccountId:buyerCreativeId:]
 
 /** The id for the account that will serve this creative. */
 @property(nonatomic, assign) NSInteger accountId;
@@ -507,8 +485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesInsert : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_Creative.
@@ -533,8 +509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesList]
 
 /**
  *  When specified, only creatives for the given account ids are returned.
@@ -624,8 +598,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesListDeals : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesListDealsWithaccountId:buyerCreativeId:]
 
 /** The id for the account that will serve this creative. */
 @property(nonatomic, assign) NSInteger accountId;
@@ -657,8 +629,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_CreativesRemoveDeal : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForCreativesRemoveDealWithaccountId:buyerCreativeId:dealId:]
 
 /** The id for the account that will serve this creative. */
 @property(nonatomic, assign) NSInteger accountId;
@@ -696,8 +666,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacedealsDelete : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsDeleteWithObject:proposalId:]
 
 /** The proposalId to delete deals from. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -727,8 +695,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacedealsInsert : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsInsertWithObject:proposalId:]
 
 /** proposalId for which deals need to be added. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -758,8 +724,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacedealsList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsListWithproposalId:]
 
 /** Query string to retrieve specific deals. */
 @property(nonatomic, copy, nullable) NSString *pqlQuery;
@@ -793,8 +757,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacedealsUpdate : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacedealsUpdateWithObject:proposalId:]
 
 /** The proposalId to edit deals on. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -824,8 +786,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacenotesInsert : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacenotesInsertWithObject:proposalId:]
 
 /** The proposalId to add notes for. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -855,8 +815,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplacenotesList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplacenotesListWithproposalId:]
 
 /**
  *  Query string to retrieve specific notes. To search the text contents of
@@ -894,8 +852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_MarketplaceprivateauctionUpdateproposal : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForMarketplaceprivateauctionUpdateproposalWithObject:privateAuctionId:]
 
 /** The private auction id to be updated. */
 @property(nonatomic, copy, nullable) NSString *privateAuctionId;
@@ -926,8 +882,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PerformanceReportList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPerformanceReportListWithaccountId:endDateTime:startDateTime:]
 
 /** The account id to get the reports. */
 @property(nonatomic, assign) long long accountId;
@@ -981,8 +935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigDelete : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigDeleteWithaccountId:configId:]
 
 /** The account id to delete the pretargeting config for. */
 @property(nonatomic, assign) long long accountId;
@@ -1015,8 +967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigGetWithaccountId:configId:]
 
 /** The account id to get the pretargeting config for. */
 @property(nonatomic, assign) long long accountId;
@@ -1048,8 +998,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigInsert : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigInsertWithObject:accountId:]
 
 /** The account id to insert the pretargeting config for. */
 @property(nonatomic, assign) long long accountId;
@@ -1079,8 +1027,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigListWithaccountId:]
 
 /** The account id to get the pretargeting configs for. */
 @property(nonatomic, assign) long long accountId;
@@ -1108,8 +1054,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigPatch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigPatchWithObject:accountId:configId:]
 
 /** The account id to update the pretargeting config for. */
 @property(nonatomic, assign) long long accountId;
@@ -1145,8 +1089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PretargetingConfigUpdate : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPretargetingConfigUpdateWithObject:accountId:configId:]
 
 /** The account id to update the pretargeting config for. */
 @property(nonatomic, assign) long long accountId;
@@ -1181,8 +1123,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProductsGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProductsGetWithproductId:]
 
 /** The id for the product to get the head revision for. */
 @property(nonatomic, copy, nullable) NSString *productId;
@@ -1209,8 +1149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProductsSearch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProductsSearch]
 
 /** The pql query used to query for products. */
 @property(nonatomic, copy, nullable) NSString *pqlQuery;
@@ -1235,8 +1173,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsGet : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsGetWithproposalId:]
 
 /** Id of the proposal to retrieve. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -1263,8 +1199,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsInsert : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRAdExchangeBuyer_CreateOrdersResponse.
@@ -1289,8 +1223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsPatch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsPatchWithObject:proposalId:revisionNumber:updateAction:]
 
 /** The proposal id to update. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -1363,8 +1295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsSearch : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsSearch]
 
 /** Query string to retrieve specific proposals. */
 @property(nonatomic, copy, nullable) NSString *pqlQuery;
@@ -1389,8 +1319,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsSetupcomplete : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsSetupcompleteWithproposalId:]
 
 /** The proposal id for which the setup is complete */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -1418,8 +1346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_ProposalsUpdate : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForProposalsUpdateWithObject:proposalId:revisionNumber:updateAction:]
 
 /** The proposal id to update. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
@@ -1492,8 +1418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerUpdateActionUpdateNonTerm
  *    @c kGTLRAuthScopeAdExchangeBuyerAdexchangeBuyer
  */
 @interface GTLRAdExchangeBuyerQuery_PubprofilesList : GTLRAdExchangeBuyerQuery
-// Previous library name was
-//   +[GTLQueryAdExchangeBuyer queryForPubprofilesListWithaccountId:]
 
 /** The accountId of the publisher to get profiles for. */
 @property(nonatomic, assign) NSInteger accountId;

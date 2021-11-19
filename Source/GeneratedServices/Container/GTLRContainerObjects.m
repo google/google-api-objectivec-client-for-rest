@@ -28,6 +28,16 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_ClusterAutoscaling.autoscalingProfile
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced = @"BALANCED";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization = @"OPTIMIZE_UTILIZATION";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified = @"PROFILE_UNSPECIFIED";
+
+// GTLRContainer_ClusterUpdate.desiredDatapathProvider
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath = @"LEGACY_DATAPATH";
+
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
 NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled = @"PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED";
@@ -38,6 +48,29 @@ NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_Pri
 NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
+
+// GTLRContainer_DNSConfig.clusterDns
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns  = @"CLOUD_DNS";
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault = @"PLATFORM_DEFAULT";
+NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
+
+// GTLRContainer_DNSConfig.clusterDnsScope
+NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
+NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope = @"VPC_SCOPE";
+
+// GTLRContainer_LoggingComponentConfig.enableComponents
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
+
+// GTLRContainer_MonitoringComponentConfig.enableComponents
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
+
+// GTLRContainer_NetworkConfig.datapathProvider
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath = @"LEGACY_DATAPATH";
 
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
 NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
@@ -125,13 +158,38 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword = @"SET_
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername = @"SET_USERNAME";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN";
 
+// GTLRContainer_StatusCondition.canonicalCode
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Aborted = @"ABORTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Internal = @"INTERNAL";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_NotFound = @"NOT_FOUND";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Ok = @"OK";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unknown = @"UNKNOWN";
+
 // GTLRContainer_StatusCondition.code
+NSString * const kGTLRContainer_StatusCondition_Code_CaExpiring = @"CA_EXPIRING";
 NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError = @"CLOUD_KMS_KEY_ERROR";
 NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded = @"GCE_QUOTA_EXCEEDED";
 NSString * const kGTLRContainer_StatusCondition_Code_GceStockout = @"GCE_STOCKOUT";
 NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = @"GKE_SERVICE_ACCOUNT_DELETED";
 NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator = @"SET_BY_OPERATOR";
 NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
+
+// GTLRContainer_UpgradeAvailableEvent.resourceType
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master = @"MASTER";
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool = @"NODE_POOL";
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified = @"UPGRADE_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRContainer_UpgradeEvent.resourceType
 NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Master = @"MASTER";
@@ -156,7 +214,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AcceleratorConfig
-@dynamic acceleratorCount, acceleratorType;
+@dynamic acceleratorCount, acceleratorType, gpuPartitionSize;
 @end
 
 
@@ -167,8 +225,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
-         gcePersistentDiskCsiDriverConfig, horizontalPodAutoscaling,
-         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
+         gcePersistentDiskCsiDriverConfig, gcpFilestoreCsiDriverConfig,
+         horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
+         networkPolicyConfig;
 @end
 
 
@@ -184,12 +243,23 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Autopilot
+//
+
+@implementation GTLRContainer_Autopilot
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AutoprovisioningNodePoolDefaults
 //
 
 @implementation GTLRContainer_AutoprovisioningNodePoolDefaults
-@dynamic bootDiskKmsKey, diskSizeGb, diskType, management, minCpuPlatform,
-         oauthScopes, serviceAccount, shieldedInstanceConfig, upgradeSettings;
+@dynamic bootDiskKmsKey, diskSizeGb, diskType, imageType, management,
+         minCpuPlatform, oauthScopes, serviceAccount, shieldedInstanceConfig,
+         upgradeSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -287,24 +357,26 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, authenticatorGroupsConfig, autoscaling,
-         binaryAuthorization, clusterIpv4Cidr, conditions, createTime,
-         currentMasterVersion, currentNodeCount, currentNodeVersion,
+@dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
+         binaryAuthorization, clusterIpv4Cidr, conditions, confidentialNodes,
+         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
          databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
-         enableKubernetesAlpha, enableTpu, endpoint, expireTime,
+         enableKubernetesAlpha, enableTpu, endpoint, expireTime, identifier,
          initialClusterVersion, initialNodeCount, instanceGroupUrls,
          ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
-         loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, monitoringService, name, network,
-         networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
-         privateClusterConfig, releaseChannel, resourceLabels,
-         resourceUsageExportConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         loggingConfig, loggingService, maintenancePolicy, masterAuth,
+         masterAuthorizedNetworksConfig, meshCertificates, monitoringConfig,
+         monitoringService, name, network, networkConfig, networkPolicy,
+         nodeConfig, nodeIpv4CidrSize, nodePoolDefaults, nodePools,
+         notificationConfig, privateClusterConfig, releaseChannel,
+         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
          verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
     @"zoneProperty" : @"zone"
   };
   return map;
@@ -344,7 +416,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterAutoscaling
 @dynamic autoprovisioningLocations, autoprovisioningNodePoolDefaults,
-         enableNodeAutoprovisioning, resourceLimits;
+         autoscalingProfile, enableNodeAutoprovisioning, resourceLimits;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -363,13 +435,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ClusterUpdate
-@dynamic desiredAddonsConfig, desiredBinaryAuthorization,
-         desiredClusterAutoscaling, desiredDatabaseEncryption,
-         desiredDefaultSnatStatus, desiredImageType,
-         desiredIntraNodeVisibilityConfig, desiredLocations,
+@dynamic desiredAddonsConfig, desiredAuthenticatorGroupsConfig,
+         desiredBinaryAuthorization, desiredClusterAutoscaling,
+         desiredDatabaseEncryption, desiredDatapathProvider,
+         desiredDefaultSnatStatus, desiredDnsConfig, desiredGcfsConfig,
+         desiredImageType, desiredIntraNodeVisibilityConfig,
+         desiredL4ilbSubsettingConfig, desiredLocations, desiredLoggingConfig,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
-         desiredMasterVersion, desiredMonitoringService,
-         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
+         desiredMasterVersion, desiredMeshCertificates, desiredMonitoringConfig,
+         desiredMonitoringService, desiredNodePoolAutoscaling,
+         desiredNodePoolId, desiredNodeVersion, desiredNotificationConfig,
          desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
          desiredReleaseChannel, desiredResourceUsageExportConfig,
          desiredShieldedNodes, desiredVerticalPodAutoscaling,
@@ -397,6 +472,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ConfidentialNodes
+//
+
+@implementation GTLRContainer_ConfidentialNodes
+@dynamic enabled;
 @end
 
 
@@ -492,6 +577,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_DNSConfig
+//
+
+@implementation GTLRContainer_DNSConfig
+@dynamic clusterDns, clusterDnsDomain, clusterDnsScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Empty
 //
 
@@ -505,6 +600,26 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_GcePersistentDiskCsiDriverConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GcfsConfig
+//
+
+@implementation GTLRContainer_GcfsConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GcpFilestoreCsiDriverConfig
+//
+
+@implementation GTLRContainer_GcpFilestoreCsiDriverConfig
 @dynamic enabled;
 @end
 
@@ -595,6 +710,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_ILBSubsettingConfig
+//
+
+@implementation GTLRContainer_ILBSubsettingConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_IntraNodeVisibilityConfig
 //
 
@@ -643,6 +768,30 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_LegacyAbac
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LinuxNodeConfig
+//
+
+@implementation GTLRContainer_LinuxNodeConfig
+@dynamic sysctls;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LinuxNodeConfig_Sysctls
+//
+
+@implementation GTLRContainer_LinuxNodeConfig_Sysctls
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -726,6 +875,34 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_LoggingComponentConfig
+//
+
+@implementation GTLRContainer_LoggingComponentConfig
+@dynamic enableComponents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableComponents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LoggingConfig
+//
+
+@implementation GTLRContainer_LoggingConfig
+@dynamic componentConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MaintenancePolicy
 //
 
@@ -799,6 +976,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_MeshCertificates
+//
+
+@implementation GTLRContainer_MeshCertificates
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Metric
 //
 
@@ -809,11 +995,40 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_MonitoringComponentConfig
+//
+
+@implementation GTLRContainer_MonitoringComponentConfig
+@dynamic enableComponents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableComponents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MonitoringConfig
+//
+
+@implementation GTLRContainer_MonitoringConfig
+@dynamic componentConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NetworkConfig
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic defaultSnatStatus, enableIntraNodeVisibility, network,
+@dynamic datapathProvider, defaultSnatStatus, dnsConfig,
+         enableIntraNodeVisibility, enableL4ilbSubsetting, network,
          privateIpv6GoogleAccess, subnetwork;
 @end
 
@@ -844,11 +1059,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType, labels,
-         localSsdCount, machineType, metadata, minCpuPlatform, nodeGroup,
-         oauthScopes, preemptible, reservationAffinity, sandboxConfig,
-         serviceAccount, shieldedInstanceConfig, tags, taints,
-         workloadMetadataConfig;
+@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, gcfsConfig, gvnic,
+         imageType, kubeletConfig, labels, linuxNodeConfig, localSsdCount,
+         machineType, metadata, minCpuPlatform, nodeGroup, oauthScopes,
+         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
+         shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -893,6 +1108,26 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodeConfigDefaults
+//
+
+@implementation GTLRContainer_NodeConfigDefaults
+@dynamic gcfsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeKubeletConfig
+//
+
+@implementation GTLRContainer_NodeKubeletConfig
+@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodeManagement
 //
 
@@ -903,13 +1138,24 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodeNetworkConfig
+//
+
+@implementation GTLRContainer_NodeNetworkConfig
+@dynamic createPodRange, podIpv4CidrBlock, podRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodePool
 //
 
 @implementation GTLRContainer_NodePool
 @dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
-         locations, management, maxPodsConstraint, name, podIpv4CidrSize,
-         selfLink, status, statusMessage, upgradeSettings, version;
+         locations, management, maxPodsConstraint, name, networkConfig,
+         podIpv4CidrSize, selfLink, status, statusMessage, upgradeSettings,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -935,6 +1181,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodePoolDefaults
+//
+
+@implementation GTLRContainer_NodePoolDefaults
+@dynamic nodeConfigDefaults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodeTaint
 //
 
@@ -945,13 +1201,23 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NotificationConfig
+//
+
+@implementation GTLRContainer_NotificationConfig
+@dynamic pubsub;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_Operation
 //
 
 @implementation GTLRContainer_Operation
-@dynamic clusterConditions, detail, endTime, location, name, nodepoolConditions,
-         operationType, progress, selfLink, startTime, status, statusMessage,
-         targetLink, zoneProperty;
+@dynamic clusterConditions, detail, endTime, error, location, name,
+         nodepoolConditions, operationType, progress, selfLink, startTime,
+         status, statusMessage, targetLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1005,6 +1271,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PrivateClusterMasterGlobalAccessConfig
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PubSub
+//
+
+@implementation GTLRContainer_PubSub
+@dynamic enabled, topic;
 @end
 
 
@@ -1371,11 +1647,43 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Status
+//
+
+@implementation GTLRContainer_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRContainer_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_Status_Details_Item
+//
+
+@implementation GTLRContainer_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_StatusCondition
 //
 
 @implementation GTLRContainer_StatusCondition
-@dynamic code, message;
+@dynamic canonicalCode, code, message;
 @end
 
 
@@ -1425,8 +1733,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, imageType, locations, name, nodePoolId, nodeVersion,
-         projectId, upgradeSettings, workloadMetadataConfig, zoneProperty;
+@dynamic clusterId, gcfsConfig, gvnic, imageType, kubeletConfig,
+         linuxNodeConfig, locations, name, nodePoolId, nodeVersion, projectId,
+         upgradeSettings, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1439,6 +1748,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpgradeAvailableEvent
+//
+
+@implementation GTLRContainer_UpgradeAvailableEvent
+@dynamic releaseChannel, resource, resourceType, version;
 @end
 
 
@@ -1497,6 +1816,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_VerticalPodAutoscaling
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_VirtualNIC
+//
+
+@implementation GTLRContainer_VirtualNIC
 @dynamic enabled;
 @end
 

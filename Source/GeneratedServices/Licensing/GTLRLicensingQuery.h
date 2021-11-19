@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsDelete : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsDeleteWithproductId:skuId:userId:]
 
 /**
  *  A product's unique identifier. For more information about products in this
@@ -106,8 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsGet : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsGetWithproductId:skuId:userId:]
 
 /**
  *  A product's unique identifier. For more information about products in this
@@ -162,8 +158,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsInsert : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsInsertWithObject:productId:skuId:]
 
 /**
  *  A product's unique identifier. For more information about products in this
@@ -206,8 +200,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsListForProduct : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductWithproductId:customerId:]
 
 /**
  *  Customer's `customerId`. A previous version of this API accepted the primary
@@ -271,8 +263,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductAndSkuWithproductId:skuId:customerId:]
 
 /**
  *  Customer's `customerId`. A previous version of this API accepted the primary
@@ -346,8 +336,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsPatch : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsPatchWithObject:productId:skuId:userId:]
 
 /**
  *  A product's unique identifier. For more information about products in this
@@ -406,8 +394,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLicensingAppsLicensing
  */
 @interface GTLRLicensingQuery_LicenseAssignmentsUpdate : GTLRLicensingQuery
-// Previous library name was
-//   +[GTLQueryLicensing queryForLicenseAssignmentsUpdateWithObject:productId:skuId:userId:]
 
 /**
  *  A product's unique identifier. For more information about products in this

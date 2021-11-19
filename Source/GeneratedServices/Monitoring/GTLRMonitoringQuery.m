@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -859,6 +859,33 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRMonitoring_Empty class];
   query.loggingName = @"monitoring.projects.timeSeries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsTimeSeriesCreateService
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries:createService";
+  GTLRMonitoringQuery_ProjectsTimeSeriesCreateService *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Empty class];
+  query.loggingName = @"monitoring.projects.timeSeries.createService";
   return query;
 }
 

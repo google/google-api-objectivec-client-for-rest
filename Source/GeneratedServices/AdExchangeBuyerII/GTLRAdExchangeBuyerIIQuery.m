@@ -562,6 +562,68 @@ NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql         = @"PQL";
 
 @end
 
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_PauseProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/finalizedProposals/{proposalId}:pause";
+  GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.finalizedProposals.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume
+
+@dynamic accountId, proposalId;
+
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ResumeProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"proposalId"
+  ];
+  NSString *pathURITemplate = @"v2beta1/accounts/{accountId}/finalizedProposals/{proposalId}:resume";
+  GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.proposalId = proposalId;
+  query.expectedObjectClass = [GTLRAdExchangeBuyerII_Proposal class];
+  query.loggingName = @"adexchangebuyer2.accounts.finalizedProposals.resume";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdExchangeBuyerIIQuery_AccountsProductsGet
 
 @dynamic accountId, productId;

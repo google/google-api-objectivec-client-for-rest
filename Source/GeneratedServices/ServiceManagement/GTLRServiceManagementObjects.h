@@ -1033,12 +1033,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  `Authentication` defines the authentication configuration for an API.
- *  Example for an API targeted for external use: name: calendar.googleapis.com
+ *  `Authentication` defines the authentication configuration for API methods
+ *  provided by an API service. Example: name: calendar.googleapis.com
  *  authentication: providers: - id: google_calendar_auth jwks_uri:
  *  https://www.googleapis.com/oauth2/v1/certs issuer:
  *  https://securetoken.google.com rules: - selector: "*" requirements:
- *  provider_id: google_calendar_auth
+ *  provider_id: google_calendar_auth - selector: google.calendar.Delegate
+ *  oauth: canonical_scopes: https://www.googleapis.com/auth/calendar.read
  */
 @interface GTLRServiceManagement_Authentication : GTLRObject
 
@@ -1241,14 +1242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
- *  Minimum deadline in seconds needed for this method. Calls having deadline
- *  value lower than this will be rejected.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minDeadline;
-
-/**
  *  The number of seconds to wait for the completion of a long running
  *  operation. The default is no deadline.
  *
@@ -1367,7 +1360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRServiceManagement_Binding : GTLRObject
 
@@ -1376,14 +1369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -1415,8 +1408,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1752,13 +1745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Operation payload for DisableService method.
- */
-@interface GTLRServiceManagement_DisableServiceResponse : GTLRObject
-@end
-
-
-/**
  *  `Documentation` provides the information for describing a service. Example:
  *  documentation: summary: > The Google Calendar API gives access to most
  *  calendar features. pages: - name: Overview content: (== include
@@ -1819,8 +1805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *serviceRootUrl;
 
 /**
- *  A short summary of what the service does. Can only be provided by plain
- *  text.
+ *  A short description of what the service does. The summary must be plain
+ *  text. It becomes the overview of the service displayed in Google Cloud
+ *  Console. NOTE: This field is equivalent to the standard field `description`.
  */
 @property(nonatomic, copy, nullable) NSString *summary;
 
@@ -1839,37 +1826,24 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
 /**
- *  Description of the selected API(s).
+ *  Description of the selected proto element (e.g. a message, a method, a
+ *  'service' definition, or a field). Defaults to leading & trailing comments
+ *  taken from the proto source definition of the proto element.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The selector is a comma-separated list of patterns. Each pattern is a
- *  qualified name of the element which may end in "*", indicating a wildcard.
- *  Wildcards are only allowed at the end and for a whole component of the
- *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
- *  wildcard will match one or more components. To specify a default for all
- *  applicable elements, the whole pattern "*" is used.
+ *  The selector is a comma-separated list of patterns for any element such as a
+ *  method, a field, an enum value. Each pattern is a qualified name of the
+ *  element which may end in "*", indicating a wildcard. Wildcards are only
+ *  allowed at the end and for a whole component of the qualified name, i.e.
+ *  "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match one or
+ *  more components. To specify a default for all applicable elements, the whole
+ *  pattern "*" is used.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
-
-@end
-
-
-/**
- *  Request message for EnableService method.
- */
-@interface GTLRServiceManagement_EnableServiceRequest : GTLRObject
-
-/**
- *  Required. The identity of consumer resource which service enablement will be
- *  applied to. The Google Service Management implementation accepts the
- *  following forms: - "project:" Note: this is made compatible with
- *  google.api.servicecontrol.v1.Operation.consumer_id.
- */
-@property(nonatomic, copy, nullable) NSString *consumerId;
 
 @end
 
@@ -1882,25 +1856,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  `Endpoint` describes a network endpoint of a service that serves a set of
+ *  `Endpoint` describes a network address of a service that serves a set of
  *  APIs. It is commonly known as a service endpoint. A service may expose any
  *  number of service endpoints, and all service endpoints share the same
- *  service definition, such as quota limits and monitoring metrics. Example
- *  service configuration: name: library-example.googleapis.com endpoints: #
- *  Below entry makes 'google.example.library.v1.Library' # API be served from
- *  endpoint address library-example.googleapis.com. # It also allows HTTP
- *  OPTIONS calls to be passed to the backend, for # it to decide whether the
- *  subsequent cross-origin request is # allowed to proceed. - name:
- *  library-example.googleapis.com allow_cors: true
+ *  service definition, such as quota limits and monitoring metrics. Example:
+ *  type: google.api.Service name: library-example.googleapis.com endpoints: #
+ *  Declares network address `https://library-example.googleapis.com` # for
+ *  service `library-example.googleapis.com`. The `https` scheme # is implicit
+ *  for all service endpoints. Other schemes may be # supported in the future. -
+ *  name: library-example.googleapis.com allow_cors: false - name:
+ *  content-staging-library-example.googleapis.com # Allows HTTP OPTIONS calls
+ *  to be passed to the API frontend, for it # to decide whether the subsequent
+ *  cross-origin request is allowed # to proceed. allow_cors: true
  */
 @interface GTLRServiceManagement_Endpoint : GTLRObject
-
-/**
- *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intended
- *  aliases. Additional names that this endpoint will be hosted on.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing
@@ -2936,44 +2905,45 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the `value_type` is `INT64`, `DOUBLE`, or `DISTRIBUTION`. The `unit` defines
- *  the representation of the stored metric values. Different systems may scale
- *  the values to be more easily displayed (so a value of `0.02KBy` _might_ be
- *  displayed as `20By`, and a value of `3523KBy` _might_ be displayed as
- *  `3.5MBy`). However, if the `unit` is `KBy`, then the value of the metric is
- *  always in thousands of bytes, no matter how it may be displayed.. If you
- *  want a custom metric to record the exact number of CPU-seconds used by a
- *  job, you can create an `INT64 CUMULATIVE` metric whose `unit` is `s{CPU}`
- *  (or equivalently `1s{CPU}` or just `s`). If the job uses 12,005 CPU-seconds,
- *  then the value is written as `12005`. Alternatively, if you want a custom
- *  metric to record data in a more granular way, you can create a `DOUBLE
- *  CUMULATIVE` metric whose `unit` is `ks{CPU}`, and then write the value
- *  `12.005` (which is `12005/1000`), or use `Kis{CPU}` and write `11.723`
- *  (which is `12005/1024`). The supported units are a subset of [The Unified
- *  Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard:
- *  **Basic units (UNIT)** * `bit` bit * `By` byte * `s` second * `min` minute *
- *  `h` hour * `d` day * `1` dimensionless **Prefixes (PREFIX)** * `k` kilo
- *  (10^3) * `M` mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta
- *  (10^15) * `E` exa (10^18) * `Z` zetta (10^21) * `Y` yotta (10^24) * `m`
- *  milli (10^-3) * `u` micro (10^-6) * `n` nano (10^-9) * `p` pico (10^-12) *
- *  `f` femto (10^-15) * `a` atto (10^-18) * `z` zepto (10^-21) * `y` yocto
- *  (10^-24) * `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi (2^30) * `Ti`
- *  tebi (2^40) * `Pi` pebi (2^50) **Grammar** The grammar also includes these
- *  connectors: * `/` division or ratio (as an infix operator). For examples,
- *  `kBy/{email}` or `MiBy/10ms` (although you should almost never have `/s` in
- *  a metric `unit`; rates should always be computed at query time from the
- *  underlying cumulative or delta value). * `.` multiplication or composition
- *  (as an infix operator). For examples, `GBy.d` or `k{watt}.h`. The grammar
- *  for a unit is as follows: Expression = Component { "." Component } { "/"
- *  Component } ; Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ] |
- *  Annotation | "1" ; Annotation = "{" NAME "}" ; Notes: * `Annotation` is just
- *  a comment if it follows a `UNIT`. If the annotation is used alone, then the
- *  unit is equivalent to `1`. For examples, `{request}/s == 1/s`,
- *  `By{transmitted}/s == By/s`. * `NAME` is a sequence of non-blank printable
- *  ASCII characters not containing `{` or `}`. * `1` represents a unitary
- *  [dimensionless unit](https://en.wikipedia.org/wiki/Dimensionless_quantity)
- *  of 1, such as in `1/s`. It is typically used when none of the basic units
- *  are appropriate. For example, "new users per day" can be represented as
- *  `1/d` or `{new-users}/d` (and a metric value `5` would mean "5 new users).
+ *  the representation of the stored metric values. Different systems might
+ *  scale the values to be more easily displayed (so a value of `0.02kBy`
+ *  _might_ be displayed as `20By`, and a value of `3523kBy` _might_ be
+ *  displayed as `3.5MBy`). However, if the `unit` is `kBy`, then the value of
+ *  the metric is always in thousands of bytes, no matter how it might be
+ *  displayed. If you want a custom metric to record the exact number of
+ *  CPU-seconds used by a job, you can create an `INT64 CUMULATIVE` metric whose
+ *  `unit` is `s{CPU}` (or equivalently `1s{CPU}` or just `s`). If the job uses
+ *  12,005 CPU-seconds, then the value is written as `12005`. Alternatively, if
+ *  you want a custom metric to record data in a more granular way, you can
+ *  create a `DOUBLE CUMULATIVE` metric whose `unit` is `ks{CPU}`, and then
+ *  write the value `12.005` (which is `12005/1000`), or use `Kis{CPU}` and
+ *  write `11.723` (which is `12005/1024`). The supported units are a subset of
+ *  [The Unified Code for Units of
+ *  Measure](https://unitsofmeasure.org/ucum.html) standard: **Basic units
+ *  (UNIT)** * `bit` bit * `By` byte * `s` second * `min` minute * `h` hour *
+ *  `d` day * `1` dimensionless **Prefixes (PREFIX)** * `k` kilo (10^3) * `M`
+ *  mega (10^6) * `G` giga (10^9) * `T` tera (10^12) * `P` peta (10^15) * `E`
+ *  exa (10^18) * `Z` zetta (10^21) * `Y` yotta (10^24) * `m` milli (10^-3) *
+ *  `u` micro (10^-6) * `n` nano (10^-9) * `p` pico (10^-12) * `f` femto
+ *  (10^-15) * `a` atto (10^-18) * `z` zepto (10^-21) * `y` yocto (10^-24) *
+ *  `Ki` kibi (2^10) * `Mi` mebi (2^20) * `Gi` gibi (2^30) * `Ti` tebi (2^40) *
+ *  `Pi` pebi (2^50) **Grammar** The grammar also includes these connectors: *
+ *  `/` division or ratio (as an infix operator). For examples, `kBy/{email}` or
+ *  `MiBy/10ms` (although you should almost never have `/s` in a metric `unit`;
+ *  rates should always be computed at query time from the underlying cumulative
+ *  or delta value). * `.` multiplication or composition (as an infix operator).
+ *  For examples, `GBy.d` or `k{watt}.h`. The grammar for a unit is as follows:
+ *  Expression = Component { "." Component } { "/" Component } ; Component = ( [
+ *  PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{"
+ *  NAME "}" ; Notes: * `Annotation` is just a comment if it follows a `UNIT`.
+ *  If the annotation is used alone, then the unit is equivalent to `1`. For
+ *  examples, `{request}/s == 1/s`, `By{transmitted}/s == By/s`. * `NAME` is a
+ *  sequence of non-blank printable ASCII characters not containing `{` or `}`.
+ *  * `1` represents a unitary [dimensionless
+ *  unit](https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in
+ *  `1/s`. It is typically used when none of the basic units are appropriate.
+ *  For example, "new users per day" can be represented as `1/d` or
+ *  `{new-users}/d` (and a metric value `5` would mean "5 new users).
  *  Alternatively, "thousands of page views per day" would be represented as
  *  `1000/d` or `k1/d` or `k{page_views}/d` (and a metric value of `5.3` would
  *  mean "5300 page views per day"). * `%` represents dimensionless value of
@@ -3258,7 +3228,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `"cloudsql_database"` represents databases in Google Cloud SQL.
+ *  `"cloudsql_database"` represents databases in Google Cloud SQL. For a list
+ *  of types, see [Monitoring resource
+ *  types](https://cloud.google.com/monitoring/api/resources) and [Logging
+ *  resource types](https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3446,6 +3419,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
+ *  A message representing the message types used by a long-running operation.
+ *  Example: rpc Export(ExportRequest) returns (google.longrunning.Operation) {
+ *  option (google.longrunning.operation_info) = { response_type:
+ *  "ExportResponse" metadata_type: "ExportMetadata" }; }
+ */
+@interface GTLRServiceManagement_OperationInfo : GTLRObject
+
+/**
+ *  Required. The message name of the metadata type for this long-running
+ *  operation. If the response is in a different package from the rpc, a
+ *  fully-qualified message name must be used (e.g. `google.protobuf.Struct`).
+ *  Note: Altering this value constitutes a breaking change.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataType;
+
+/**
+ *  Required. The message name of the primary return type for this long-running
+ *  operation. This type will be used to deserialize the LRO's response. If the
+ *  response is in a different package from the rpc, a fully-qualified message
+ *  name must be used (e.g. `google.protobuf.Struct`). Note: Altering this value
+ *  constitutes a breaking change.
+ */
+@property(nonatomic, copy, nullable) NSString *responseType;
+
+@end
+
+
+/**
  *  The metadata associated with a long running operation resource.
  */
 @interface GTLRServiceManagement_OperationMetadata : GTLRObject
@@ -3520,7 +3521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file.
+ *  include content from a Markdown file. The content can be used to produce the
+ *  documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3547,15 +3549,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -3571,7 +3573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -3581,9 +3583,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Binding *> *bindings;
 
@@ -3879,14 +3886,17 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  `Service` is the root object of Google service configuration schema. It
- *  describes basic information about a service, such as the name and the title,
- *  and delegates other aspects to sub-sections. Each sub-section is either a
- *  proto message or a repeated proto message that configures a specific aspect,
- *  such as auth. See each proto message definition for details. Example: type:
- *  google.api.Service config_version: 3 name: calendar.googleapis.com title:
- *  Google Calendar API apis: - name: google.calendar.v3.Calendar
- *  authentication: providers: - id: google_calendar_auth jwks_uri:
+ *  `Service` is the root object of Google API service configuration (service
+ *  config). It describes the basic information about a logical service, such as
+ *  the service name and the user-facing title, and delegates other aspects to
+ *  sub-sections. Each sub-section is either a proto message or a repeated proto
+ *  message that configures a specific aspect, such as auth. For more
+ *  information, see each proto message definition. Example: type:
+ *  google.api.Service name: calendar.googleapis.com title: Google Calendar API
+ *  apis: - name: google.calendar.v3.Calendar visibility: rules: - selector:
+ *  "google.calendar.v3.*" restriction: PREVIEW backend: rules: - selector:
+ *  "google.calendar.v3.*" address: calendar.example.com authentication:
+ *  providers: - id: google_calendar_auth jwks_uri:
  *  https://www.googleapis.com/oauth2/v1/certs issuer:
  *  https://securetoken.google.com rules: - selector: "*" requirements:
  *  provider_id: google_calendar_auth
@@ -3912,7 +3922,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Billing *billing;
 
 /**
- *  Deprecated. The service config compiler always sets this field to `3`.
+ *  Obsolete. Do not use. This field has no semantic meaning. The service config
+ *  compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -3940,8 +3951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  A list of all enum types included in this API service. Enums referenced
  *  directly or indirectly by the `apis` are automatically included. Enums which
- *  are not referenced but shall be included should be listed here by name.
- *  Example: enums: - name: google.someapi.v1.SomeEnum
+ *  are not referenced but shall be included should be listed here by name by
+ *  the configuration author. Example: enums: - name: google.someapi.v1.SomeEnum
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Enum *> *enums;
 
@@ -4007,15 +4018,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Type *> *systemTypes;
 
-/** The product title for this service. */
+/**
+ *  The product title for this service, it is the name displayed in Google Cloud
+ *  Console.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  A list of all proto message types included in this API service. Types
  *  referenced directly or indirectly by the `apis` are automatically included.
  *  Messages which are not referenced but shall be included, such as types used
- *  by the `google.protobuf.Any` type, should be listed here by name. Example:
- *  types: - name: google.protobuf.Int32
+ *  by the `google.protobuf.Any` type, should be listed here by name by the
+ *  configuration author. Example: types: - name: google.protobuf.Int32
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Type *> *types;
 

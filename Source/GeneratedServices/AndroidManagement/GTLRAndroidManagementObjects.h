@@ -35,11 +35,16 @@
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_CommonCriteriaModeInfo;
 @class GTLRAndroidManagement_ComplianceRule;
+@class GTLRAndroidManagement_ContactInfo;
+@class GTLRAndroidManagement_ContentProviderEndpoint;
+@class GTLRAndroidManagement_CrossProfilePolicies;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
+@class GTLRAndroidManagement_Enterprise;
+@class GTLRAndroidManagement_ExtensionConfig;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_FreezePeriod;
 @class GTLRAndroidManagement_HardwareInfo;
@@ -56,6 +61,7 @@
 @class GTLRAndroidManagement_NetworkInfo;
 @class GTLRAndroidManagement_NonComplianceDetail;
 @class GTLRAndroidManagement_NonComplianceDetailCondition;
+@class GTLRAndroidManagement_OncCertificateProvider;
 @class GTLRAndroidManagement_Operation;
 @class GTLRAndroidManagement_Operation_Metadata;
 @class GTLRAndroidManagement_Operation_Response;
@@ -120,6 +126,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "COMMON_CRITERIA_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
+
+/**
+ *  Allows all developer settings. The user can access and optionally configure
+ *  the settings.
+ *
+ *  Value: "DEVELOPER_SETTINGS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed;
+/**
+ *  Default. Disables all developer settings and prevents the user from
+ *  accessing them.
+ *
+ *  Value: "DEVELOPER_SETTINGS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled;
+/**
+ *  Unspecified. Defaults to DEVELOPER_SETTINGS_DISABLED.
+ *
+ *  Value: "DEVELOPER_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.googlePlayProtectVerifyApps
+
+/**
+ *  Unspecified. Defaults to VERIFY_APPS_ENFORCED.
+ *
+ *  Value: "GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified;
+/**
+ *  Default. Force-enables app verification.
+ *
+ *  Value: "VERIFY_APPS_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced;
+/**
+ *  Allows the user to choose whether to enable app verification.
+ *
+ *  Value: "VERIFY_APPS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
@@ -212,25 +264,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 
 /**
- *  This feature is not generally available.
+ *  The app is automatically updated with low priority to minimize the impact on
+ *  the user.The app is updated when all of the following constraints are met:
+ *  The device is not actively used. The device is connected to an unmetered
+ *  network. The device is charging.The device is notified about a new update
+ *  within 24 hours after it is published by the developer, after which the app
+ *  is updated the next time the constraints above are met.
  *
  *  Value: "AUTO_UPDATE_DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
- *  This feature is not generally available.
+ *  The app is updated as soon as possible. No constraints are applied.The
+ *  device is notified immediately about a new update after it becomes
+ *  available.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority;
 /**
- *  This feature is not generally available.
+ *  Unspecified. Defaults to AUTO_UPDATE_DEFAULT.
  *
  *  Value: "AUTO_UPDATE_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified;
 /**
- *  This feature is not generally available.
+ *  The app is not automatically updated for a maximum of 90 days after the app
+ *  becomes out of date.90 days after the app becomes out of date, the latest
+ *  available version is installed automatically with low priority (see
+ *  AUTO_UPDATE_DEFAULT). After the app is updated it is not automatically
+ *  updated again until 90 days after it becomes out of date again.The user can
+ *  still manually update the app from the Play Store at any time.
  *
  *  Value: "AUTO_UPDATE_POSTPONED"
  */
@@ -590,6 +654,85 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo
  *  Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileCopyPaste
+
+/**
+ *  Default. Prevents users from pasting into the personal profile text copied
+ *  from the work profile. Text copied from the personal profile can be pasted
+ *  into the work profile, and text copied from the work profile can be pasted
+ *  into the work profile.
+ *
+ *  Value: "COPY_FROM_WORK_TO_PERSONAL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed;
+/**
+ *  Text copied in either profile can be pasted in the other profile.
+ *
+ *  Value: "CROSS_PROFILE_COPY_PASTE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed;
+/**
+ *  Unspecified. Defaults to COPY_FROM_WORK_TO_PERSONAL_DISALLOWED
+ *
+ *  Value: "CROSS_PROFILE_COPY_PASTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.crossProfileDataSharing
+
+/**
+ *  Data from either profile can be shared with the other profile.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed;
+/**
+ *  Prevents data from being shared from both the personal profile to the work
+ *  profile and the work profile to the personal profile.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed;
+/**
+ *  Unspecified. Defaults to DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED.
+ *
+ *  Value: "CROSS_PROFILE_DATA_SHARING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified;
+/**
+ *  Default. Prevents users from sharing data from the work profile to apps in
+ *  the personal profile. Personal data can be shared with work apps.
+ *
+ *  Value: "DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CrossProfilePolicies.showWorkContactsInPersonalProfile
+
+/**
+ *  Default. Allows work profile contacts to appear in personal profile contact
+ *  searches and incoming calls
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed;
+/**
+ *  Prevents work profile contacts from appearing in personal profile contact
+ *  searches and incoming calls
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed;
+/**
+ *  Unspecified. Defaults to SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED.
+ *
+ *  Value: "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -1329,14 +1472,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
 // GTLRAndroidManagement_PasswordRequirements.passwordQuality
 
 /**
- *  The password must contain alphabetic (or symbol) characters.
+ *  The password must contain alphabetic (or symbol) characters.This, when
+ *  applied on personally owned work profile devices on Android 12
+ *  device-scoped, will be treated as COMPLEXITY_HIGH for application. See
+ *  PasswordQuality for details.
  *
  *  Value: "ALPHABETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic;
 /**
  *  The password must contain both numeric and alphabetic (or symbol)
- *  characters.
+ *  characters.This, when applied on personally owned work profile devices on
+ *  Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *  application. See PasswordQuality for details.
  *
  *  Value: "ALPHANUMERIC"
  */
@@ -1345,7 +1493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  *  The device must be secured with a low-security biometric recognition
  *  technology, at minimum. This includes technologies that can recognize the
  *  identity of an individual that are roughly equivalent to a 3-digit PIN
- *  (false detection is less than 1 in 1,000).
+ *  (false detection is less than 1 in 1,000).This, when applied on personally
+ *  owned work profile devices on Android 12 device-scoped, will be treated as
+ *  COMPLEXITY_LOW for application. See PasswordQuality for details.
  *
  *  Value: "BIOMETRIC_WEAK"
  */
@@ -1354,20 +1504,61 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  *  The password must meet the minimum requirements specified in
  *  passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols, etc.
  *  For example, if passwordMinimumSymbols is 2, the password must contain at
- *  least two symbols.
+ *  least two symbols.This, when applied on personally owned work profile
+ *  devices on Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *  application. In this case, the requirements in passwordMinimumLength,
+ *  passwordMinimumLetters, passwordMinimumSymbols, etc are not applied. See
+ *  PasswordQuality for details.
  *
  *  Value: "COMPLEX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex;
 /**
- *  The password must contain numeric characters.
+ *  Define the high password complexity band as:On Android 12 and above: PIN
+ *  with no repeating (4444) or ordered (1234, 4321, 2468) sequences, length at
+ *  least 8 alphabetic, length at least 6 alphanumeric, length at least 6This
+ *  sets the minimum complexity band which the password must meet.Enforcement
+ *  varies among different Android versions, management modes and password
+ *  scopes. See PasswordQuality for details.
+ *
+ *  Value: "COMPLEXITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh;
+/**
+ *  Define the low password complexity band as: pattern PIN with repeating
+ *  (4444) or ordered (1234, 4321, 2468) sequencesThis sets the minimum
+ *  complexity band which the password must meet.Enforcement varies among
+ *  different Android versions, management modes and password scopes. See
+ *  PasswordQuality for details.
+ *
+ *  Value: "COMPLEXITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow;
+/**
+ *  Define the medium password complexity band as: PIN with no repeating (4444)
+ *  or ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic,
+ *  length at least 4 alphanumeric, length at least 4This sets the minimum
+ *  complexity band which the password must meet.Enforcement varies among
+ *  different Android versions, management modes and password scopes. See
+ *  PasswordQuality for details.
+ *
+ *  Value: "COMPLEXITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium;
+/**
+ *  The password must contain numeric characters.This, when applied on
+ *  personally owned work profile devices on Android 12 device-scoped, will be
+ *  treated as COMPLEXITY_MEDIUM for application. See PasswordQuality for
+ *  details.
  *
  *  Value: "NUMERIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric;
 /**
  *  The password must contain numeric characters with no repeating (4444) or
- *  ordered (1234, 4321, 2468) sequences.
+ *  ordered (1234, 4321, 2468) sequences.This, when applied on personally owned
+ *  work profile devices on Android 12 device-scoped, will be treated as
+ *  COMPLEXITY_MEDIUM for application. See PasswordQuality for details.
  *
  *  Value: "NUMERIC_COMPLEX"
  */
@@ -1380,7 +1571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified;
 /**
  *  A password is required, but there are no restrictions on what the password
- *  must contain.
+ *  must contain.This, when applied on personally owned work profile devices on
+ *  Android 12 device-scoped, will be treated as COMPLEXITY_LOW for application.
+ *  See PasswordQuality for details.
  *
  *  Value: "SOMETHING"
  */
@@ -1977,7 +2170,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Syst
  *  Install automatically within a daily maintenance window. This also
  *  configures Play apps to be updated within the window. This is strongly
  *  recommended for kiosk devices because this is the only way apps persistently
- *  pinned to the foreground can be updated by Play.
+ *  pinned to the foreground can be updated by Play.If autoUpdateMode is set to
+ *  AUTO_UPDATE_HIGH_PRIORITY for an app, then the maintenance window is ignored
+ *  for that app and it is updated as soon as possible even outside of the
+ *  maintenance window.
  *
  *  Value: "WINDOWED"
  */
@@ -2096,6 +2292,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatur
  *  Value: "WEB_APPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps;
+/**
+ *  The zero-touch iframe
+ *  (https://developers.google.com/android/management/zero-touch-iframe).
+ *
+ *  Value: "ZERO_TOUCH_CUSTOMER_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustomerManagement;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.permissions
@@ -2114,9 +2317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_A
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
 /**
- *  Security policies set to the most secure values by default. To maintain the
- *  security posture of a device, we don't recommend overriding any of the
- *  default values.
+ *  Security policies set to secure values by default. To maintain the security
+ *  posture of a device, we don't recommend overriding any of the default
+ *  values.
  */
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
 
@@ -2142,6 +2345,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "COMMON_CRITERIA_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *commonCriteriaMode;
+
+/**
+ *  Controls access to developer settings: developer options and safe boot.
+ *  Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed
+ *  (deprecated).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed
+ *        Allows all developer settings. The user can access and optionally
+ *        configure the settings. (Value: "DEVELOPER_SETTINGS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled
+ *        Default. Disables all developer settings and prevents the user from
+ *        accessing them. (Value: "DEVELOPER_SETTINGS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified
+ *        Unspecified. Defaults to DEVELOPER_SETTINGS_DISABLED. (Value:
+ *        "DEVELOPER_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *developerSettings;
+
+/**
+ *  Whether Google Play Protect verification
+ *  (https://support.google.com/accounts/answer/2812853) is enforced. Replaces
+ *  ensureVerifyAppsEnabled (deprecated).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified
+ *        Unspecified. Defaults to VERIFY_APPS_ENFORCED. (Value:
+ *        "GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced
+ *        Default. Force-enables app verification. (Value:
+ *        "VERIFY_APPS_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice
+ *        Allows the user to choose whether to enable app verification. (Value:
+ *        "VERIFY_APPS_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *googlePlayProtectVerifyApps;
+
+/**
+ *  Personal apps that can read work profile notifications using a
+ *  NotificationListenerService
+ *  (https://developer.android.com/reference/android/service/notification/NotificationListenerService).
+ *  By default, no personal apps (aside from system apps) can read work
+ *  notifications. Each value in the list must be a package name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *personalAppsThatCanReadWorkNotifications;
 
 /**
  *  The policy for untrusted apps (apps from unknown sources) enforced on the
@@ -2308,21 +2556,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
- *  This feature is not generally available.
+ *  Controls the auto-update mode for the app.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault
- *        This feature is not generally available. (Value:
- *        "AUTO_UPDATE_DEFAULT")
+ *        The app is automatically updated with low priority to minimize the
+ *        impact on the user.The app is updated when all of the following
+ *        constraints are met: The device is not actively used. The device is
+ *        connected to an unmetered network. The device is charging.The device
+ *        is notified about a new update within 24 hours after it is published
+ *        by the developer, after which the app is updated the next time the
+ *        constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
- *        This feature is not generally available. (Value:
- *        "AUTO_UPDATE_HIGH_PRIORITY")
+ *        The app is updated as soon as possible. No constraints are applied.The
+ *        device is notified immediately about a new update after it becomes
+ *        available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
- *        This feature is not generally available. (Value:
+ *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed
- *        This feature is not generally available. (Value:
- *        "AUTO_UPDATE_POSTPONED")
+ *        The app is not automatically updated for a maximum of 90 days after
+ *        the app becomes out of date.90 days after the app becomes out of date,
+ *        the latest available version is installed automatically with low
+ *        priority (see AUTO_UPDATE_DEFAULT). After the app is updated it is not
+ *        automatically updated again until 90 days after it becomes out of date
+ *        again.The user can still manually update the app from the Play Store
+ *        at any time. (Value: "AUTO_UPDATE_POSTPONED")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdateMode;
 
@@ -2372,6 +2631,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Configuration to enable this app as an extension app, with the capability of
+ *  interacting with Android Device Policy offline.This field can be set for at
+ *  most one app.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ExtensionConfig *extensionConfig;
 
 /**
  *  The type of installation to perform.
@@ -2630,18 +2896,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  A rule for automatically choosing a private key and certificate to
- *  authenticate the device to a server.
+ *  Controls apps' access to private keys. The rule determines which private
+ *  key, if any, Android Device Policy grants to the specified app. Access is
+ *  granted either when the app calls KeyChain.choosePrivateKeyAlias
+ *  (https://developer.android.com/reference/android/security/KeyChain#choosePrivateKeyAlias%28android.app.Activity,%20android.security.KeyChainAliasCallback,%20java.lang.String[],%20java.security.Principal[],%20java.lang.String,%20int,%20java.lang.String%29)
+ *  (or any overloads) to request a private key alias for a given URL, or for
+ *  rules that are not URL-specific (that is, if urlPattern is not set, or set
+ *  to the empty string or .*) on Android 11 and above, directly so that the app
+ *  can call KeyChain.getPrivateKey
+ *  (https://developer.android.com/reference/android/security/KeyChain#getPrivateKey%28android.content.Context,%20java.lang.String%29),
+ *  without first having to call KeyChain.choosePrivateKeyAlias.When an app
+ *  calls KeyChain.choosePrivateKeyAlias if more than one choosePrivateKeyRules
+ *  matches, the last matching rule defines which key alias to return.
  */
 @interface GTLRAndroidManagement_ChoosePrivateKeyRule : GTLRObject
 
 /**
- *  The package names for which outgoing requests are subject to this rule. If
- *  no package names are specified, then the rule applies to all packages. For
- *  each package name listed, the rule applies to that package and all other
- *  packages that shared the same Android UID. The SHA256 hash of the signing
- *  key signatures of each package_name will be verified against those provided
- *  by Play
+ *  The package names to which this rule applies. The hash of the signing
+ *  certificate for each app is verified against the hash provided by Play. If
+ *  no package names are specified, then the alias is provided to all apps that
+ *  call KeyChain.choosePrivateKeyAlias
+ *  (https://developer.android.com/reference/android/security/KeyChain#choosePrivateKeyAlias%28android.app.Activity,%20android.security.KeyChainAliasCallback,%20java.lang.String[],%20java.security.Principal[],%20java.lang.String,%20int,%20java.lang.String%29)
+ *  or any overloads (but not without calling KeyChain.choosePrivateKeyAlias,
+ *  even on Android 11 and above). Any app with the same Android UID as a
+ *  package specified here will have access when they call
+ *  KeyChain.choosePrivateKeyAlias.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageNames;
 
@@ -2649,9 +2928,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *privateKeyAlias;
 
 /**
- *  The URL pattern to match against the URL of the outgoing request. The
- *  pattern may contain asterisk (*) wildcards. Any URL is matched if
- *  unspecified.
+ *  The URL pattern to match against the URL of the request. If not set or
+ *  empty, it matches all URLs. This uses the regular expression syntax of
+ *  java.util.regex.Pattern.
  */
 @property(nonatomic, copy, nullable) NSString *urlPattern;
 
@@ -2807,6 +3086,140 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Contact details for managed Google Play enterprises.
+ */
+@interface GTLRAndroidManagement_ContactInfo : GTLRObject
+
+/**
+ *  Email address for a point of contact, which will be used to send important
+ *  announcements related to managed Google Play.
+ */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/**
+ *  The email of the data protection officer. The email is validated but not
+ *  verified.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerEmail;
+
+/** The name of the data protection officer. */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerName;
+
+/**
+ *  The phone number of the data protection officer The phone number is
+ *  validated but not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerPhone;
+
+/**
+ *  The email of the EU representative. The email is validated but not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *euRepresentativeEmail;
+
+/** The name of the EU representative. */
+@property(nonatomic, copy, nullable) NSString *euRepresentativeName;
+
+/**
+ *  The phone number of the EU representative. The phone number is validated but
+ *  not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *euRepresentativePhone;
+
+@end
+
+
+/**
+ *  This feature is not generally available.
+ */
+@interface GTLRAndroidManagement_ContentProviderEndpoint : GTLRObject
+
+/** This feature is not generally available. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingCertsSha256;
+
+/** This feature is not generally available. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Cross-profile policies applied on the device.
+ */
+@interface GTLRAndroidManagement_CrossProfilePolicies : GTLRObject
+
+/**
+ *  Whether text copied from one profile (personal or work) can be pasted in the
+ *  other profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CopyFromWorkToPersonalDisallowed
+ *        Default. Prevents users from pasting into the personal profile text
+ *        copied from the work profile. Text copied from the personal profile
+ *        can be pasted into the work profile, and text copied from the work
+ *        profile can be pasted into the work profile. (Value:
+ *        "COPY_FROM_WORK_TO_PERSONAL_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteAllowed
+ *        Text copied in either profile can be pasted in the other profile.
+ *        (Value: "CROSS_PROFILE_COPY_PASTE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileCopyPaste_CrossProfileCopyPasteUnspecified
+ *        Unspecified. Defaults to COPY_FROM_WORK_TO_PERSONAL_DISALLOWED (Value:
+ *        "CROSS_PROFILE_COPY_PASTE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProfileCopyPaste;
+
+/**
+ *  Whether data from one profile (personal or work) can be shared with apps in
+ *  the other profile. Specifically controls simple data sharing via intents.
+ *  Management of other cross-profile communication channels, such as contact
+ *  search, copy/paste, or connected work & personal apps, are configured
+ *  separately.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingAllowed
+ *        Data from either profile can be shared with the other profile. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingDisallowed
+ *        Prevents data from being shared from both the personal profile to the
+ *        work profile and the work profile to the personal profile. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_CrossProfileDataSharingUnspecified
+ *        Unspecified. Defaults to
+ *        DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED. (Value:
+ *        "CROSS_PROFILE_DATA_SHARING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_CrossProfileDataSharing_DataSharingFromWorkToPersonalDisallowed
+ *        Default. Prevents users from sharing data from the work profile to
+ *        apps in the personal profile. Personal data can be shared with work
+ *        apps. (Value: "DATA_SHARING_FROM_WORK_TO_PERSONAL_DISALLOWED")
+ */
+@property(nonatomic, copy, nullable) NSString *crossProfileDataSharing;
+
+/**
+ *  Whether contacts stored in the work profile can be shown in personal profile
+ *  contact searches and incoming calls.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileAllowed
+ *        Default. Allows work profile contacts to appear in personal profile
+ *        contact searches and incoming calls (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileDisallowed
+ *        Prevents work profile contacts from appearing in personal profile
+ *        contact searches and incoming calls (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_CrossProfilePolicies_ShowWorkContactsInPersonalProfile_ShowWorkContactsInPersonalProfileUnspecified
+ *        Unspecified. Defaults to
+ *        SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_ALLOWED. (Value:
+ *        "SHOW_WORK_CONTACTS_IN_PERSONAL_PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *showWorkContactsInPersonalProfile;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -2864,6 +3277,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  when application_reports_enabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationReport *> *applicationReports;
+
+/**
+ *  The password requirements currently applied to the device. The applied
+ *  requirements may be slightly different from those specified in
+ *  passwordPolicies in some cases. fieldPath is set based on passwordPolicies.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *appliedPasswordPolicies;
 
 /** The name of the policy currently applied to the device. */
 @property(nonatomic, copy, nullable) NSString *appliedPolicyName;
@@ -2980,8 +3400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_MemoryEvent *> *memoryEvents;
 
 /**
- *  Memory information. This information is only available if memoryInfoEnabled
- *  is true in the device's policy.
+ *  Memory information: contains information about device memory and storage.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_MemoryInfo *memoryInfo;
 
@@ -3178,8 +3597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *unknownSourcesEnabled;
 
 /**
- *  Whether Verify Apps (Google Play Protect
- *  (https://support.google.com/googleplay/answer/2812853)) is enabled on the
+ *  Whether Google Play Protect verification
+ *  (https://support.google.com/accounts/answer/2812853) is enforced on the
  *  device.
  *
  *  Uses NSNumber of boolValue.
@@ -3373,6 +3792,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *appAutoApprovalEnabled;
 
+/** The enterprise contact info of an EMM-managed enterprise. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ContactInfo *contactInfo;
+
 /** The types of Google Pub/Sub notifications enabled for the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledNotificationTypes;
 
@@ -3417,6 +3839,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  this enterprise. A page of terms is generated for each value in this list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TermsAndConditions *> *termsAndConditions;
+
+@end
+
+
+/**
+ *  Configuration to enable an app as an extension app, with the capability of
+ *  interacting with Android Device Policy offline.
+ */
+@interface GTLRAndroidManagement_ExtensionConfig : GTLRObject
+
+/**
+ *  Fully qualified class name of the receiver service class for Android Device
+ *  Policy to notify the extension app of any local command status updates.
+ */
+@property(nonatomic, copy, nullable) NSString *notificationReceiver;
+
+/**
+ *  Hex-encoded SHA256 hash of the signing certificate of the extension app.
+ *  Only hexadecimal string representations of 64 characters are valid.If not
+ *  specified, the signature for the corresponding package name is obtained from
+ *  the Play Store instead.If this list is empty, the signature of the extension
+ *  app on the device must match the signature obtained from the Play Store for
+ *  the app to be able to communicate with Android Device Policy.If this list is
+ *  not empty, the signature of the extension app on the device must match one
+ *  of the entries in this list for the app to be able to communicate with
+ *  Android Device Policy.In production use cases, it is recommended to leave
+ *  this empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingKeyFingerprintsSha256;
 
 @end
 
@@ -3620,6 +4071,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Response on issuing a command. This is currently empty as a placeholder.
+ */
+@interface GTLRAndroidManagement_IssueCommandResponse : GTLRObject
+@end
+
+
+/**
  *  Keyed app state reported by the app.
  */
 @interface GTLRAndroidManagement_KeyedAppState : GTLRObject
@@ -3800,6 +4258,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Device *> *devices;
+
+/** If there are more results, a token to retrieve next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response to a request to list enterprises.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "enterprises" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidManagement_ListEnterprisesResponse : GTLRCollectionObject
+
+/**
+ *  The list of enterprises.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Enterprise *> *enterprises;
 
 /** If there are more results, a token to retrieve next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -4078,8 +4560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Provides telephony information associated with each SIM card on the device.
- *  Only supported on fully managed devices starting from Android API level 23
- *  and above.
+ *  Only supported on fully managed devices starting from Android API level 23.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TelephonyInfo *> *telephonyInfos;
 
@@ -4272,6 +4753,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  This feature is not generally available.
+ */
+@interface GTLRAndroidManagement_OncCertificateProvider : GTLRObject
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *certificateReferences;
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ContentProviderEndpoint *contentProviderEndpoint;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -4448,33 +4943,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic
- *        The password must contain alphabetic (or symbol) characters. (Value:
- *        "ALPHABETIC")
+ *        The password must contain alphabetic (or symbol) characters.This, when
+ *        applied on personally owned work profile devices on Android 12
+ *        device-scoped, will be treated as COMPLEXITY_HIGH for application. See
+ *        PasswordQuality for details. (Value: "ALPHABETIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric
  *        The password must contain both numeric and alphabetic (or symbol)
- *        characters. (Value: "ALPHANUMERIC")
+ *        characters.This, when applied on personally owned work profile devices
+ *        on Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *        application. See PasswordQuality for details. (Value: "ALPHANUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak
  *        The device must be secured with a low-security biometric recognition
  *        technology, at minimum. This includes technologies that can recognize
  *        the identity of an individual that are roughly equivalent to a 3-digit
- *        PIN (false detection is less than 1 in 1,000). (Value:
- *        "BIOMETRIC_WEAK")
+ *        PIN (false detection is less than 1 in 1,000).This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_LOW for application. See PasswordQuality
+ *        for details. (Value: "BIOMETRIC_WEAK")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex
  *        The password must meet the minimum requirements specified in
  *        passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols,
  *        etc. For example, if passwordMinimumSymbols is 2, the password must
- *        contain at least two symbols. (Value: "COMPLEX")
+ *        contain at least two symbols.This, when applied on personally owned
+ *        work profile devices on Android 12 device-scoped, will be treated as
+ *        COMPLEXITY_HIGH for application. In this case, the requirements in
+ *        passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols,
+ *        etc are not applied. See PasswordQuality for details. (Value:
+ *        "COMPLEX")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh
+ *        Define the high password complexity band as:On Android 12 and above:
+ *        PIN with no repeating (4444) or ordered (1234, 4321, 2468) sequences,
+ *        length at least 8 alphabetic, length at least 6 alphanumeric, length
+ *        at least 6This sets the minimum complexity band which the password
+ *        must meet.Enforcement varies among different Android versions,
+ *        management modes and password scopes. See PasswordQuality for details.
+ *        (Value: "COMPLEXITY_HIGH")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow
+ *        Define the low password complexity band as: pattern PIN with repeating
+ *        (4444) or ordered (1234, 4321, 2468) sequencesThis sets the minimum
+ *        complexity band which the password must meet.Enforcement varies among
+ *        different Android versions, management modes and password scopes. See
+ *        PasswordQuality for details. (Value: "COMPLEXITY_LOW")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium
+ *        Define the medium password complexity band as: PIN with no repeating
+ *        (4444) or ordered (1234, 4321, 2468) sequences, length at least 4
+ *        alphabetic, length at least 4 alphanumeric, length at least 4This sets
+ *        the minimum complexity band which the password must meet.Enforcement
+ *        varies among different Android versions, management modes and password
+ *        scopes. See PasswordQuality for details. (Value: "COMPLEXITY_MEDIUM")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric
- *        The password must contain numeric characters. (Value: "NUMERIC")
+ *        The password must contain numeric characters.This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_MEDIUM for application. See
+ *        PasswordQuality for details. (Value: "NUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex
  *        The password must contain numeric characters with no repeating (4444)
- *        or ordered (1234, 4321, 2468) sequences. (Value: "NUMERIC_COMPLEX")
+ *        or ordered (1234, 4321, 2468) sequences.This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_MEDIUM for application. See
+ *        PasswordQuality for details. (Value: "NUMERIC_COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified
  *        There are no password requirements. (Value:
  *        "PASSWORD_QUALITY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something
  *        A password is required, but there are no restrictions on what the
- *        password must contain. (Value: "SOMETHING")
+ *        password must contain.This, when applied on personally owned work
+ *        profile devices on Android 12 device-scoped, will be treated as
+ *        COMPLEXITY_LOW for application. See PasswordQuality for details.
+ *        (Value: "SOMETHING")
  */
 @property(nonatomic, copy, nullable) NSString *passwordQuality;
 
@@ -4627,7 +5163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
 
 /**
- *  Controls how long the work profile can stay off.
+ *  Controls how long the work profile can stay off. The duration must be at
+ *  least 3 days.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4686,16 +5223,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *addUserDisabled;
 
 /**
- *  Whether adjusting the master volume is disabled.
+ *  Whether adjusting the master volume is disabled. Also mutes the device.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adjustVolumeDisabled;
 
 /**
- *  Security policies set to the most secure values by default. To maintain the
- *  security posture of a device, we don't recommend overriding any of the
- *  default values.
+ *  Security policies set to secure values by default. To maintain the security
+ *  posture of a device, we don't recommend overriding any of the default
+ *  values.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_AdvancedSecurityOverrides *advancedSecurityOverrides;
 
@@ -4713,8 +5250,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
 
 /**
- *  The app auto update policy, which controls when automatic app updates can be
- *  applied.
+ *  Deprecated. Use autoUpdateMode instead.When autoUpdateMode is set to
+ *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
+ *  effect.The app auto update policy, which controls when automatic app updates
+ *  can be applied.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always Apps are
@@ -4807,10 +5346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *cellBroadcastsConfigDisabled;
 
 /**
- *  Rules for automatically choosing a private key and certificate to
- *  authenticate the device to a server. The rules are ordered by increasing
- *  precedence, so if an outgoing request matches more than one rule, the last
- *  rule defines which private key to use.
+ *  Rules for determining apps' access to private keys. See ChoosePrivateKeyRule
+ *  for details.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ChoosePrivateKeyRule *> *choosePrivateKeyRules;
 
@@ -4835,6 +5372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *credentialsConfigDisabled;
+
+/** Cross-profile policies applied on the device. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_CrossProfilePolicies *crossProfilePolicies;
 
 /**
  *  Whether roaming data services are disabled.
@@ -4924,8 +5464,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *installAppsDisabled;
 
 /**
- *  Whether the user is allowed to enable the "Unknown Sources" setting, which
- *  allows installation of apps from unknown sources.
+ *  This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5043,7 +5582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  policy, the temporary network will be forgotten and the device will continue
  *  booting. This prevents being unable to connect to a network if there is no
  *  suitable network in the last policy and the device boots into an app in lock
- *  task mode, or the user is otherwise unable to reach device settings.
+ *  task mode, or the user is otherwise unable to reach device settings.Note:
+ *  Setting wifiConfigDisabled to true will override this setting under specific
+ *  circumstances. Please see wifiConfigDisabled for further details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5055,6 +5596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *networkResetDisabled;
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_OncCertificateProvider *> *oncCertificateProviders;
 
 /**
  *  Network configuration for the device. See configure networks for more
@@ -5086,7 +5630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Password requirements. The field
  *  password_requirements.require_password_unlock must not be set. DEPRECATED -
- *  Use password_policies.
+ *  Use password_policies.Note:Complexity-based values of PasswordQuality, that
+ *  is, COMPLEXITY_LOW, COMPLEXITY_MEDIUM, and COMPLEXITY_HIGH, cannot be used
+ *  here.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 
@@ -5307,7 +5853,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *vpnConfigDisabled;
 
 /**
- *  Whether configuring Wi-Fi access points is disabled.
+ *  Whether configuring Wi-Fi access points is disabled.Note: If a network
+ *  connection can't be made at boot time and configuring Wi-Fi is disabled then
+ *  network escape hatch will be shown in order to refresh the device policy
+ *  (see networkEscapeHatchEnabled).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5738,7 +6287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *hardwareStatusEnabled;
 
 /**
- *  Whether memory reporting is enabled.
+ *  Whether memory event reporting is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5826,7 +6375,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        automatically within a daily maintenance window. This also configures
  *        Play apps to be updated within the window. This is strongly
  *        recommended for kiosk devices because this is the only way apps
- *        persistently pinned to the foreground can be updated by Play. (Value:
+ *        persistently pinned to the foreground can be updated by Play.If
+ *        autoUpdateMode is set to AUTO_UPDATE_HIGH_PRIORITY for an app, then
+ *        the maintenance window is ignored for that app and it is updated as
+ *        soon as possible even outside of the maintenance window. (Value:
  *        "WINDOWED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -5874,8 +6426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Telephony information associated with a given SIM card on the device. Only
- *  supported on fully managed devices starting from Android API level 23 and
- *  above.
+ *  supported on fully managed devices starting from Android API level 23.
  */
 @interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
 

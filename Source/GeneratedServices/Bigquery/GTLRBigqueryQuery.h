@@ -106,8 +106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_DatasetsDelete : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsDeleteWithprojectId:datasetId:]
 
 /** Dataset ID of dataset being deleted */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -149,11 +147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_DatasetsGet : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsGetWithprojectId:datasetId:]
 
 /** Dataset ID of the requested dataset */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -186,8 +181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_DatasetsInsert : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsInsertWithObject:projectId:]
 
 /** Project ID of the new dataset */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -217,11 +210,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_DatasetsList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsListWithprojectId:]
 
 /** Whether to list all datasets, including hidden ones */
 @property(nonatomic, assign) BOOL all;
@@ -276,8 +266,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_DatasetsPatch : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsPatchWithObject:projectId:datasetId:]
 
 /** Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -317,8 +305,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_DatasetsUpdate : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForDatasetsUpdateWithObject:projectId:datasetId:]
 
 /** Dataset ID of the dataset being updated */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -357,8 +343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_JobsCancel : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsCancelWithprojectId:jobId:]
 
 /** [Required] Job ID of the job to cancel */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -391,6 +375,56 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
+ *  Requests the deletion of the metadata of a job. This call returns when the
+ *  job's metadata is deleted.
+ *
+ *  Method: bigquery.jobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ */
+@interface GTLRBigqueryQuery_JobsDelete : GTLRBigqueryQuery
+
+/**
+ *  Required. Job ID of the job for which metadata is to be deleted. If this is
+ *  a parent job which has child jobs, the metadata from all child jobs will be
+ *  deleted as well. Direct deletion of the metadata of child jobs is not
+ *  allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The geographic location of the job. Required. See details at:
+ *  https://cloud.google.com/bigquery/docs/locations#specifying_your_location.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** Required. Project ID of the job for which metadata is to be deleted. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Requests the deletion of the metadata of a job. This call returns when the
+ *  job's metadata is deleted.
+ *
+ *  @param projectId Required. Project ID of the job for which metadata is to be
+ *    deleted.
+ *  @param jobId Required. Job ID of the job for which metadata is to be
+ *    deleted. If this is a parent job which has child jobs, the metadata from
+ *    all child jobs will be deleted as well. Direct deletion of the metadata of
+ *    child jobs is not allowed.
+ *
+ *  @return GTLRBigqueryQuery_JobsDelete
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
  *  Returns information about a specific job. Job information is available for a
  *  six month period after creation. Requires that you're the person who ran the
  *  job, or have the Is Owner project role.
@@ -401,11 +435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsGet : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsGetWithprojectId:jobId:]
 
 /** [Required] Job ID of the requested job */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -446,11 +477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsGetQueryResults : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsGetQueryResultsWithprojectId:jobId:]
 
 /** [Required] Job ID of the query job */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -511,8 +539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryDevstorageReadWrite
  */
 @interface GTLRBigqueryQuery_JobsInsert : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsInsertWithObject:projectId:]
 
 /** Project ID of the project that will be billed for the job */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -547,11 +573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsListWithprojectId:]
 
 /**
  *  Whether to display jobs owned by all users in the project. Default false
@@ -637,11 +660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsQuery : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForJobsQueryWithObject:projectId:]
 
 /** Project ID of the project billed for the query */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -672,8 +692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_ModelsDelete : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForModelsDeleteWithprojectId:datasetId:modelId:]
 
 /** Required. Dataset ID of the model to delete. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -711,11 +729,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ModelsGet : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForModelsGetWithprojectId:datasetId:modelId:]
 
 /** Required. Dataset ID of the requested model. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -745,6 +760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  Lists all models in the specified dataset. Requires the READER dataset role.
+ *  After retrieving the list of models, you can get information about a
+ *  particular model by calling the models.get method.
  *
  *  Method: bigquery.models.list
  *
@@ -752,11 +769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ModelsList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForModelsListWithprojectId:datasetId:]
 
 /** Required. Dataset ID of the models to list. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -779,6 +793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  Fetches a @c GTLRBigquery_ListModelsResponse.
  *
  *  Lists all models in the specified dataset. Requires the READER dataset role.
+ *  After retrieving the list of models, you can get information about a
+ *  particular model by calling the models.get method.
  *
  *  @param projectId Required. Project ID of the models to list.
  *  @param datasetId Required. Dataset ID of the models to list.
@@ -804,8 +820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_ModelsPatch : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForModelsPatchWithObject:projectId:datasetId:modelId:]
 
 /** Required. Dataset ID of the model to patch. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -845,11 +859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ProjectsGetServiceAccount : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForProjectsGetServiceAccountWithprojectId:]
 
 /** Project ID for which the service account is requested. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -877,11 +888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ProjectsList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForProjectsList]
 
 /** Maximum number of results to return */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -916,8 +924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_RoutinesDelete : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRoutinesDeleteWithprojectId:datasetId:routineId:]
 
 /** Required. Dataset ID of the routine to delete */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -955,11 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RoutinesGet : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRoutinesGetWithprojectId:datasetId:routineId:]
 
 /** Required. Dataset ID of the requested routine */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1005,8 +1008,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_RoutinesInsert : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRoutinesInsertWithObject:projectId:datasetId:]
 
 /** Required. Dataset ID of the new routine */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1041,11 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RoutinesList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRoutinesListWithprojectId:datasetId:]
 
 /** Required. Dataset ID of the routines to list */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1113,8 +1111,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_RoutinesUpdate : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRoutinesUpdateWithObject:projectId:datasetId:routineId:]
 
 /** Required. Dataset ID of the routine to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1155,11 +1151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRowAccessPoliciesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1195,11 +1188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRowAccessPoliciesListWithprojectId:datasetId:tableId:]
 
 /** Required. Dataset ID of row access policies to list. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1255,8 +1245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRowAccessPoliciesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1297,11 +1285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForRowAccessPoliciesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1343,8 +1328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryInsertdata
  */
 @interface GTLRBigqueryQuery_TabledataInsertAll : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTabledataInsertAllWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the destination table. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1386,11 +1369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TabledataList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTabledataListWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the table to read */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1445,8 +1425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesDelete : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesDeleteWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the table to delete */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1487,11 +1465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesGet : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesGetWithprojectId:datasetId:tableId:]
 
 /** Dataset ID of the requested table */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1537,11 +1512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesGetIamPolicy : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1578,8 +1550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesInsert : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesInsertWithObject:projectId:datasetId:]
 
 /** Dataset ID of the new table */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1613,11 +1583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesList : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesListWithprojectId:datasetId:]
 
 /** Dataset ID of the tables to list */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1665,8 +1632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesPatch : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesPatchWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -1711,8 +1676,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesSetIamPolicy : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1753,11 +1716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesTestIamPermissions : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1799,8 +1759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesUpdate : GTLRBigqueryQuery
-// Previous library name was
-//   +[GTLQueryBigquery queryForTablesUpdateWithObject:projectId:datasetId:tableId:]
 
 /** Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;

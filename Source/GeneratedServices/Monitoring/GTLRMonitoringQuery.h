@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -719,8 +719,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_FoldersTimeSeriesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForFoldersTimeSeriesListWithname:]
 
 /**
  *  The alignment_period specifies a time interval, in seconds, that is used to
@@ -1000,9 +998,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The project, organization or folder on which to execute the
- *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *  folder on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1304,9 +1304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists time series that match a filter. This method does not require a
  *  Workspace.
  *
- *  @param name Required. The project, organization or folder on which to
- *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *    folder on which to execute the request. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *    folders/[FOLDER_ID]
  *
  *  @return GTLRMonitoringQuery_FoldersTimeSeriesList
  */
@@ -1326,8 +1328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_OrganizationsTimeSeriesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForOrganizationsTimeSeriesListWithname:]
 
 /**
  *  The alignment_period specifies a time interval, in seconds, that is used to
@@ -1607,9 +1607,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The project, organization or folder on which to execute the
- *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *  folder on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1911,9 +1913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists time series that match a filter. This method does not require a
  *  Workspace.
  *
- *  @param name Required. The project, organization or folder on which to
- *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *    folder on which to execute the request. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *    folders/[FOLDER_ID]
  *
  *  @return GTLRMonitoringQuery_OrganizationsTimeSeriesList
  */
@@ -1931,18 +1935,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsAlertPoliciesCreateWithObject:name:]
 
 /**
- *  Required. The project in which to create the alerting policy. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
- *  container in which the alerting policy will be written, not the name of the
- *  created policy. |name| must be a host project of a workspace, otherwise
- *  INVALID_ARGUMENT error will return. The alerting policy that is returned
- *  will have a name that contains a normalized representation of this name as a
- *  prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID],
- *  identifying the policy in the container.
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) in which to create
+ *  the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER] Note
+ *  that this field names the parent container in which the alerting policy will
+ *  be written, not the name of the created policy. |name| must be a host
+ *  project of a workspace, otherwise INVALID_ARGUMENT error will return. The
+ *  alerting policy that is returned will have a name that contains a normalized
+ *  representation of this name as a prefix but adds a suffix of the form
+ *  /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1952,14 +1955,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Creates a new alerting policy.
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
- *  @param name Required. The project in which to create the alerting policy.
- *    The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names
- *    the parent container in which the alerting policy will be written, not the
- *    name of the created policy. |name| must be a host project of a workspace,
- *    otherwise INVALID_ARGUMENT error will return. The alerting policy that is
- *    returned will have a name that contains a normalized representation of
- *    this name as a prefix but adds a suffix of the form
- *    /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) in which to
+ *    create the alerting policy. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *    Note that this field names the parent container in which the alerting
+ *    policy will be written, not the name of the created policy. |name| must be
+ *    a host project of a workspace, otherwise INVALID_ARGUMENT error will
+ *    return. The alerting policy that is returned will have a name that
+ *    contains a normalized representation of this name as a prefix but adds a
+ *    suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the
+ *    policy in the container.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
  */
@@ -1978,8 +1983,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsAlertPoliciesDeleteWithname:]
 
 /**
  *  Required. The alerting policy to delete. The format is:
@@ -2014,8 +2017,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsAlertPoliciesGetWithname:]
 
 /**
  *  Required. The alerting policy to retrieve. The format is:
@@ -2048,8 +2049,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsAlertPoliciesListWithname:]
 
 /**
  *  If provided, this field specifies the criteria that must be met by alert
@@ -2060,11 +2059,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project whose alert policies are to be listed. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
- *  container in which the alerting policies to be listed are stored. To
- *  retrieve a single alerting policy by name, use the GetAlertPolicy operation,
- *  instead.
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) whose alert
+ *  policies are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  Note that this field names the parent container in which the alerting
+ *  policies to be listed are stored. To retrieve a single alerting policy by
+ *  name, use the GetAlertPolicy operation, instead.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2092,11 +2092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Lists the existing alerting policies for the workspace.
  *
- *  @param name Required. The project whose alert policies are to be listed. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the
- *    parent container in which the alerting policies to be listed are stored.
- *    To retrieve a single alerting policy by name, use the GetAlertPolicy
- *    operation, instead.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) whose alert
+ *    policies are to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *    Note that this field names the parent container in which the alerting
+ *    policies to be listed are stored. To retrieve a single alerting policy by
+ *    name, use the GetAlertPolicy operation, instead.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesList
  *
@@ -2121,8 +2122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsAlertPoliciesPatch : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsAlertPoliciesPatchWithObject:name:]
 
 /**
  *  Required if the policy exists. The resource name for this policy. The format
@@ -2190,11 +2189,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsCollectdTimeSeriesCreateWithObject:name:]
 
 /**
- *  The project in which to create the time series. The format is:
+ *  The project (https://cloud.google.com/monitoring/api/v3#project_name) in
+ *  which to create the time series. The format is:
  *  projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2208,8 +2206,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_CreateCollectdTimeSeriesRequest to
  *    include in the query.
- *  @param name The project in which to create the time series. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) in which to
+ *    create the time series. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
  */
@@ -2228,12 +2227,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsCreateWithObject:name:]
 
 /**
- *  Required. The project in which to create the group. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) in which to create
+ *  the group. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2246,8 +2244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Creates a new group.
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
- *  @param name Required. The project in which to create the group. The format
- *    is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) in which to
+ *    create the group. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsCreate
  */
@@ -2266,8 +2265,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsDeleteWithname:]
 
 /**
  *  Required. The group to delete. The format is:
@@ -2307,8 +2304,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsGetWithname:]
 
 /**
  *  Required. The group to retrieve. The format is:
@@ -2341,8 +2336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsListWithname:]
 
 /**
  *  A group name. The format is:
@@ -2370,8 +2363,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *descendantsOfGroup;
 
 /**
- *  Required. The project whose groups are to be listed. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) whose groups are
+ *  to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2390,8 +2384,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Lists the existing groups.
  *
- *  @param name Required. The project whose groups are to be listed. The format
- *    is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) whose groups are
+ *    to be listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsList
  *
@@ -2414,8 +2409,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsMembersList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsMembersListWithname:]
 
 /**
  *  An optional list filter
@@ -2481,8 +2474,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsGroupsUpdate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsGroupsUpdateWithObject:name:]
 
 /**
  *  Output only. The name of this group. The format is:
@@ -2516,8 +2507,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously and
+ *  callers may check the returned operation to track its progress. User-created
+ *  metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  Method: monitoring.projects.metricDescriptors.create
  *
@@ -2527,25 +2520,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMetricDescriptorsCreateWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: 4 projects/PROJECT_ID_OR_NUMBER
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMonitoring_MetricDescriptor.
  *
- *  Creates a new metric descriptor. User-created metric descriptors define
- *  custom metrics (https://cloud.google.com/monitoring/custom-metrics).
+ *  Creates a new metric descriptor. The creation is executed asynchronously and
+ *  callers may check the returned operation to track its progress. User-created
+ *  metric descriptors define custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics).
  *
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: 4 projects/PROJECT_ID_OR_NUMBER
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
  */
@@ -2565,8 +2560,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMetricDescriptorsDeleteWithname:]
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
@@ -2604,8 +2597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMetricDescriptorsGetWithname:]
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
@@ -2645,8 +2636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsMetricDescriptorsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMetricDescriptorsListWithname:]
 
 /**
  *  If this field is empty, all custom and system-defined metric descriptors are
@@ -2659,8 +2648,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2680,8 +2670,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists metric descriptors that match a filter. This method does not require a
  *  Workspace.
  *
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsList
  *
@@ -2706,8 +2697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMonitoredResourceDescriptorsGetWithname:]
 
 /**
  *  Required. The monitored resource descriptor to get. The format is:
@@ -2746,8 +2735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsMonitoredResourceDescriptorsListWithname:]
 
 /**
  *  An optional filter (https://cloud.google.com/monitoring/api/v3/filters)
@@ -2759,8 +2746,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2780,8 +2768,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists monitored resource descriptors that match a filter. This method does
  *  not require a Workspace.
  *
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
  *
@@ -2805,8 +2794,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelDescriptorsGetWithname:]
 
 /**
  *  Required. The channel type for which to execute the request. The format is:
@@ -2842,15 +2829,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelDescriptorsListWithname:]
 
 /**
  *  Required. The REST resource name of the parent from which to retrieve the
  *  notification channel descriptors. The expected syntax is:
- *  projects/[PROJECT_ID_OR_NUMBER] Note that this names the parent container in
- *  which to look for the descriptors; to retrieve a single descriptor by name,
- *  use the GetNotificationChannelDescriptor operation, instead.
+ *  projects/[PROJECT_ID_OR_NUMBER] Note that this names
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) the parent
+ *  container in which to look for the descriptors; to retrieve a single
+ *  descriptor by name, use the GetNotificationChannelDescriptor operation,
+ *  instead.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2874,9 +2861,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param name Required. The REST resource name of the parent from which to
  *    retrieve the notification channel descriptors. The expected syntax is:
- *    projects/[PROJECT_ID_OR_NUMBER] Note that this names the parent container
- *    in which to look for the descriptors; to retrieve a single descriptor by
- *    name, use the GetNotificationChannelDescriptor operation, instead.
+ *    projects/[PROJECT_ID_OR_NUMBER] Note that this names
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) the parent
+ *    container in which to look for the descriptors; to retrieve a single
+ *    descriptor by name, use the GetNotificationChannelDescriptor operation,
+ *    instead.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList
  *
@@ -2899,16 +2888,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsCreateWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER] This names the container into which the
- *  channel will be written, this does not name the newly created channel. The
- *  resulting channel's name will have a normalized version of this field as a
- *  prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the
- *  channel.
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This
+ *  names the container into which the channel will be written, this does not
+ *  name the newly created channel. The resulting channel's name will have a
+ *  normalized version of this field as a prefix, but will add
+ *  /notificationChannels/[CHANNEL_ID] to identify the channel.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2920,12 +2908,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into
- *    which the channel will be written, this does not name the newly created
- *    channel. The resulting channel's name will have a normalized version of
- *    this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to
- *    identify the channel.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This
+ *    names the container into which the channel will be written, this does not
+ *    name the newly created channel. The resulting channel's name will have a
+ *    normalized version of this field as a prefix, but will add
+ *    /notificationChannels/[CHANNEL_ID] to identify the channel.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
  */
@@ -2944,8 +2933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsDeleteWithname:]
 
 /**
  *  If true, the notification channel will be deleted regardless of its use in
@@ -2991,8 +2978,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsGetWithname:]
 
 /**
  *  Required. The channel for which to execute the request. The format is:
@@ -3046,8 +3031,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsGetVerificationCode : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsGetVerificationCodeWithObject:name:]
 
 /**
  *  Required. The notification channel for which a verification code is to be
@@ -3103,8 +3086,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsListWithname:]
 
 /**
  *  If provided, this field specifies the criteria that must be met by
@@ -3115,11 +3096,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER] This names the container in which to look
- *  for the notification channels; it does not name a specific channel. To query
- *  a specific channel by REST resource name, use the GetNotificationChannel
- *  operation.
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This
+ *  names the container in which to look for the notification channels; it does
+ *  not name a specific channel. To query a specific channel by REST resource
+ *  name, use the GetNotificationChannel operation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3149,11 +3131,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  Lists the notification channels that have been created for the project.
  *
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER] This names the container in
- *    which to look for the notification channels; it does not name a specific
- *    channel. To query a specific channel by REST resource name, use the
- *    GetNotificationChannel operation.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER] This
+ *    names the container in which to look for the notification channels; it
+ *    does not name a specific channel. To query a specific channel by REST
+ *    resource name, use the GetNotificationChannel operation.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsList
  *
@@ -3176,8 +3159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsPatch : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsPatchWithObject:name:]
 
 /**
  *  The full REST resource name for this channel. The format is:
@@ -3223,8 +3204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsSendVerificationCode : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsSendVerificationCodeWithObject:name:]
 
 /**
  *  Required. The notification channel to which to send a verification code.
@@ -3261,8 +3240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsNotificationChannelsVerify : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsNotificationChannelsVerifyWithObject:name:]
 
 /** Required. The notification channel to verify. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3297,12 +3274,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringWrite
  */
 @interface GTLRMonitoringQuery_ProjectsTimeSeriesCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsTimeSeriesCreateWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3315,10 +3291,60 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
  *    the query.
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates or adds data to one or more service time series. A service time
+ *  series is a time series for a metric from a Google Cloud service. The
+ *  response is empty if all time series in the request were written. If any
+ *  time series could not be written, a corresponding failure message is
+ *  included in the error response. This endpoint rejects writes to user-defined
+ *  metrics. This method is only for use by Google Cloud services. Use
+ *  projects.timeSeries.create instead.
+ *
+ *  Method: monitoring.projects.timeSeries.createService
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringWrite
+ */
+@interface GTLRMonitoringQuery_ProjectsTimeSeriesCreateService : GTLRMonitoringQuery
+
+/**
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Empty.
+ *
+ *  Creates or adds data to one or more service time series. A service time
+ *  series is a time series for a metric from a Google Cloud service. The
+ *  response is empty if all time series in the request were written. If any
+ *  time series could not be written, a corresponding failure message is
+ *  included in the error response. This endpoint rejects writes to user-defined
+ *  metrics. This method is only for use by Google Cloud services. Use
+ *  projects.timeSeries.create instead.
+ *
+ *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
+ *    the query.
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *
+ *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreateService
  */
 + (instancetype)queryWithObject:(GTLRMonitoring_CreateTimeSeriesRequest *)object
                            name:(NSString *)name;
@@ -3337,8 +3363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsTimeSeriesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsTimeSeriesListWithname:]
 
 /**
  *  The alignment_period specifies a time interval, in seconds, that is used to
@@ -3618,9 +3642,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The project, organization or folder on which to execute the
- *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *  folder on which to execute the request. The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *  folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3922,9 +3948,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists time series that match a filter. This method does not require a
  *  Workspace.
  *
- *  @param name Required. The project, organization or folder on which to
- *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
- *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name), organization or
+ *    folder on which to execute the request. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER] organizations/[ORGANIZATION_ID]
+ *    folders/[FOLDER_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  */
@@ -3944,12 +3972,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsTimeSeriesQuery : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsTimeSeriesQueryWithObject:name:]
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *  execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3961,8 +3988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_QueryTimeSeriesRequest to include in the
  *    query.
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesQuery
  */
@@ -3981,12 +4009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsCreateWithObject:parent:]
 
 /**
- *  Required. The project in which to create the Uptime check. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) in which to create
+ *  the Uptime check. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3997,8 +4024,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
- *  @param parent Required. The project in which to create the Uptime check. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param parent Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) in which to
+ *    create the Uptime check. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
  */
@@ -4019,8 +4047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsDeleteWithname:]
 
 /**
  *  Required. The Uptime check configuration to delete. The format is:
@@ -4055,8 +4081,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsGetWithname:]
 
 /**
  *  Required. The Uptime check configuration to retrieve. The format is:
@@ -4090,8 +4114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsListWithparent:]
 
 /**
  *  The maximum number of results to return in a single response. The server may
@@ -4109,8 +4131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The project whose Uptime check configurations are listed. The
- *  format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) whose Uptime check
+ *  configurations are listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4120,8 +4143,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the existing valid Uptime check configurations for the project
  *  (leaving out any invalid configurations).
  *
- *  @param parent Required. The project whose Uptime check configurations are
- *    listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param parent Required. The project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) whose Uptime
+ *    check configurations are listed. The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
  *
@@ -4146,8 +4171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForProjectsUptimeCheckConfigsPatchWithObject:name:]
 
 /**
  *  A unique resource name for this Uptime check configuration. The format is:
@@ -4204,12 +4227,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesCreateWithObject:parent:]
 
 /**
- *  Required. Resource name of the parent workspace. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. Resource name
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) of the parent
+ *  workspace. The format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4225,8 +4247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Create a Service.
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
- *  @param parent Required. Resource name of the parent workspace. The format
- *    is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param parent Required. Resource name
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) of the parent
+ *    workspace. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesCreate
  */
@@ -4245,8 +4268,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesDeleteWithname:]
 
 /**
  *  Required. Resource name of the Service to delete. The format is:
@@ -4279,8 +4300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ServicesGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesGetWithname:]
 
 /**
  *  Required. Resource name of the Service. The format is:
@@ -4313,8 +4332,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ServicesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesListWithparent:]
 
 /**
  *  A filter specifying what Services to return. The filter currently supports
@@ -4347,8 +4364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. Resource name of the parent containing the listed services, either
- *  a project or a Monitoring Workspace. The formats are:
- *  projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+ *  a project (https://cloud.google.com/monitoring/api/v3#project_name) or a
+ *  Monitoring Workspace. The formats are: projects/[PROJECT_ID_OR_NUMBER]
+ *  workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4358,8 +4376,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  List Services for this workspace.
  *
  *  @param parent Required. Resource name of the parent containing the listed
- *    services, either a project or a Monitoring Workspace. The formats are:
- *    projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+ *    services, either a project
+ *    (https://cloud.google.com/monitoring/api/v3#project_name) or a Monitoring
+ *    Workspace. The formats are: projects/[PROJECT_ID_OR_NUMBER]
+ *    workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesList
  *
@@ -4381,8 +4401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesPatch : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesPatchWithObject:name:]
 
 /**
  *  Resource name for this Service. The format is:
@@ -4423,8 +4441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesCreate : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the parent Service. The format is:
@@ -4466,8 +4482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesDelete : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesDeleteWithname:]
 
 /**
  *  Required. Resource name of the ServiceLevelObjective to delete. The format
@@ -4502,8 +4516,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesGet : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesGetWithname:]
 
 /**
  *  Required. Resource name of the ServiceLevelObjective to get. The format is:
@@ -4558,8 +4570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesListWithparent:]
 
 /** A filter specifying what ServiceLevelObjectives to return. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -4636,8 +4646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringCloudPlatform
  */
 @interface GTLRMonitoringQuery_ServicesServiceLevelObjectivesPatch : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForServicesServiceLevelObjectivesPatchWithObject:name:]
 
 /**
  *  Resource name for this ServiceLevelObjective. The format is:
@@ -4680,8 +4688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    @c kGTLRAuthScopeMonitoringRead
  */
 @interface GTLRMonitoringQuery_UptimeCheckIpsList : GTLRMonitoringQuery
-// Previous library name was
-//   +[GTLQueryMonitoring queryForUptimeCheckIpsList]
 
 /**
  *  The maximum number of results to return in a single response. The server may

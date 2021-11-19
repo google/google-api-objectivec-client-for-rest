@@ -167,8 +167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsDeleteEvents : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsDeleteEventsWithprojectName:]
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written as
@@ -204,8 +202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsEventsList : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsEventsListWithprojectName:]
 
 /** Required. The group for which events shall be returned. */
 @property(nonatomic, copy, nullable) NSString *groupId;
@@ -288,11 +284,17 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @end
 
 /**
- *  Report an individual error event. This endpoint accepts **either** an OAuth
- *  token, **or** an [API key](https://support.google.com/cloud/answer/6158862)
- *  for authentication. To use an API key, append it to the URL as the value of
- *  a `key` parameter. For example: `POST
+ *  Report an individual error event and record the event to a log. This
+ *  endpoint accepts **either** an OAuth token, **or** an [API
+ *  key](https://support.google.com/cloud/answer/6158862) for authentication. To
+ *  use an API key, append it to the URL as the value of a `key` parameter. For
+ *  example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
+ *  **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a
+ *  global service built on Cloud Logging and doesn't analyze logs stored in
+ *  regional log buckets or logs routed to other Google Cloud projects. For more
+ *  information, see [Using Error Reporting with regionalized logs]
+ *  (https://cloud.google.com/error-reporting/docs/regionalization).
  *
  *  Method: clouderrorreporting.projects.events.report
  *
@@ -300,8 +302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsEventsReport : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsEventsReportWithObject:projectName:]
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written as
@@ -314,11 +314,17 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 /**
  *  Fetches a @c GTLRClouderrorreporting_ReportErrorEventResponse.
  *
- *  Report an individual error event. This endpoint accepts **either** an OAuth
- *  token, **or** an [API key](https://support.google.com/cloud/answer/6158862)
- *  for authentication. To use an API key, append it to the URL as the value of
- *  a `key` parameter. For example: `POST
+ *  Report an individual error event and record the event to a log. This
+ *  endpoint accepts **either** an OAuth token, **or** an [API
+ *  key](https://support.google.com/cloud/answer/6158862) for authentication. To
+ *  use an API key, append it to the URL as the value of a `key` parameter. For
+ *  example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
+ *  **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a
+ *  global service built on Cloud Logging and doesn't analyze logs stored in
+ *  regional log buckets or logs routed to other Google Cloud projects. For more
+ *  information, see [Using Error Reporting with regionalized logs]
+ *  (https://cloud.google.com/error-reporting/docs/regionalization).
  *
  *  @param object The @c GTLRClouderrorreporting_ReportedErrorEvent to include
  *    in the query.
@@ -344,8 +350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupsGet : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupsGetWithgroupName:]
 
 /**
  *  Required. The group resource name. Written as
@@ -382,8 +386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupStatsList : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupStatsListWithprojectName:]
 
 /**
  *  Optional. The alignment of the timed counts to be returned. Default is
@@ -452,9 +454,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written as
- *  `projects/{projectID}`, where `{projectID}` is the [Google Cloud Platform
- *  project ID](https://support.google.com/cloud/answer/6158840). Example:
- *  `projects/my-project-123`.
+ *  `projects/{projectID}` or `projects/{projectNumber}`, where `{projectID}`
+ *  and `{projectNumber}` can be found in the [Google Cloud
+ *  Console](https://support.google.com/cloud/answer/6158840). Examples:
+ *  `projects/my-project-123`, `projects/5551234`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -512,10 +515,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Lists the specified groups.
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
- *    project. Written as `projects/{projectID}`, where `{projectID}` is the
- *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840). Example:
- *    `projects/my-project-123`.
+ *    project. Written as `projects/{projectID}` or `projects/{projectNumber}`,
+ *    where `{projectID}` and `{projectNumber}` can be found in the [Google
+ *    Cloud Console](https://support.google.com/cloud/answer/6158840). Examples:
+ *    `projects/my-project-123`, `projects/5551234`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupStatsList
  *
@@ -536,8 +539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupsUpdate : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupsUpdateWithObject:name:]
 
 /**
  *  The group resource name. Example:

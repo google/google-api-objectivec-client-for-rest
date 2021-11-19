@@ -16,9 +16,223 @@
 
 @end
 
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}:cancel";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Empty class];
+  query.loggingName = @"pubsublite.admin.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Empty class];
+  query.loggingName = @"pubsublite.admin.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Operation class];
+  query.loggingName = @"pubsublite.admin.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}/operations";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_ListOperationsResponse class];
+  query.loggingName = @"pubsublite.admin.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsCreate
+
+@dynamic parent, reservationId;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_Reservation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/admin/{+parent}/reservations";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsubLite_Reservation class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Empty class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Reservation class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/admin/{+parent}/reservations";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsubLite_ListReservationsResponse class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_Reservation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Reservation class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsTopicsList
+
+@dynamic name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}/topics";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsReservationsTopicsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_ListReservationTopicsResponse class];
+  query.loggingName = @"pubsublite.admin.projects.locations.reservations.topics.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsCreate
 
-@dynamic parent, subscriptionId;
+@dynamic parent, skipBacklog, subscriptionId;
 
 + (instancetype)queryWithObject:(GTLRPubsubLite_Subscription *)object
                          parent:(NSString *)parent {
@@ -122,6 +336,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRPubsubLite_Subscription class];
   query.loggingName = @"pubsublite.admin.projects.locations.subscriptions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsSeek
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_SeekSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/admin/{+name}:seek";
+  GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsSeek *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsubLite_Operation class];
+  query.loggingName = @"pubsublite.admin.projects.locations.subscriptions.seek";
   return query;
 }
 
@@ -276,6 +517,33 @@
 
 @end
 
+@implementation GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCommitCursor
+
+@dynamic subscription;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_CommitCursorRequest *)object
+                   subscription:(NSString *)subscription {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"subscription" ];
+  NSString *pathURITemplate = @"v1/cursor/{+subscription}:commitCursor";
+  GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCommitCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.subscription = subscription;
+  query.expectedObjectClass = [GTLRPubsubLite_CommitCursorResponse class];
+  query.loggingName = @"pubsublite.cursor.projects.locations.subscriptions.commitCursor";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCursorsList
 
 @dynamic pageSize, pageToken, parent;
@@ -290,6 +558,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRPubsubLite_ListPartitionCursorsResponse class];
   query.loggingName = @"pubsublite.cursor.projects.locations.subscriptions.cursors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeHeadCursor
+
+@dynamic topic;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeHeadCursorRequest *)object
+                          topic:(NSString *)topic {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/topicStats/{+topic}:computeHeadCursor";
+  GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeHeadCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsubLite_ComputeHeadCursorResponse class];
+  query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeHeadCursor";
   return query;
 }
 
@@ -317,6 +612,33 @@
   query.topic = topic;
   query.expectedObjectClass = [GTLRPubsubLite_ComputeMessageStatsResponse class];
   query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeMessageStats";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor
+
+@dynamic topic;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeTimeCursorRequest *)object
+                          topic:(NSString *)topic {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/topicStats/{+topic}:computeTimeCursor";
+  GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsubLite_ComputeTimeCursorResponse class];
+  query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeTimeCursor";
   return query;
 }
 

@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsGet : GTLRPostmasterToolsQuery
-// Previous library name was
-//   +[GTLQueryPostmasterTools queryForDomainsGetWithname:]
 
 /**
  *  The resource name of the domain. It should have the form
@@ -86,8 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsList : GTLRPostmasterToolsQuery
-// Previous library name was
-//   +[GTLQueryPostmasterTools queryForDomainsList]
 
 /**
  *  Requested page size. Server may return fewer domains than requested. If
@@ -130,8 +126,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsTrafficStatsGet : GTLRPostmasterToolsQuery
-// Previous library name was
-//   +[GTLQueryPostmasterTools queryForDomainsTrafficStatsGetWithname:]
 
 /**
  *  The resource name of the traffic statistics to get. E.g.,
@@ -165,8 +159,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePostmasterToolsPostmasterReadonly
  */
 @interface GTLRPostmasterToolsQuery_DomainsTrafficStatsList : GTLRPostmasterToolsQuery
-// Previous library name was
-//   +[GTLQueryPostmasterTools queryForDomainsTrafficStatsListWithparent:]
 
 /**
  *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0

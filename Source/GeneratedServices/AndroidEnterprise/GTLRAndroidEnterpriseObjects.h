@@ -26,6 +26,7 @@
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue;
@@ -696,12 +697,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_Stat
 /**
  *  The app is automatically updated with low priority to minimize the impact on
  *  the user. The app is updated when the following constraints are met: * The
- *  device is not actively used * The device is connected to a Wi-Fi network. *
- *  The device is charging * If the system update policy is set to `WINDOWED`:
- *  the local time of the device is within the daily maintenance window The
- *  device is notified about a new update within 24 hours after it is published
- *  by the developer, after which the app is updated the next time the
- *  constraints above are met.
+ *  device is not actively used * The device is connected to an unmetered
+ *  network * The device is charging The device is notified about a new update
+ *  within 24 hours after it is published by the developer, after which the app
+ *  is updated the next time the constraints above are met.
  *
  *  Value: "autoUpdateDefault"
  */
@@ -938,6 +937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /** Options for displaying the Web Apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps *webApps;
 
+/** Options for displaying the Zero Touch page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch *zeroTouch;
+
 @end
 
 
@@ -1015,6 +1017,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /**
  *  Whether the Web Apps page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch : GTLRObject
+
+/**
+ *  Whether zero-touch embedded UI is usable with this token. If enabled, the
+ *  admin can link zero-touch customers to this enterprise.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2365,10 +2383,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 @interface GTLRAndroidEnterprise_Policy : GTLRObject
 
 /**
- *  The auto-update policy for apps installed on the device. "choiceToTheUser"
- *  allows the device's user to configure the app update policy. "always"
- *  enables auto updates. "never" disables auto updates. "wifiOnly" enables auto
- *  updates only when the device is connected to wifi.
+ *  Deprecated. Use autoUpdateMode instead. When autoUpdateMode is set to
+ *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
+ *  effect. "choiceToTheUser" allows the device's user to configure the app
+ *  update policy. "always" enables auto updates. "never" disables auto updates.
+ *  "wifiOnly" enables auto updates only when the device is connected to wifi.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidEnterprise_Policy_AutoUpdatePolicy_Always Apps are
@@ -2713,12 +2732,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
  *        The app is automatically updated with low priority to minimize the
  *        impact on the user. The app is updated when the following constraints
  *        are met: * The device is not actively used * The device is connected
- *        to a Wi-Fi network. * The device is charging * If the system update
- *        policy is set to `WINDOWED`: the local time of the device is within
- *        the daily maintenance window The device is notified about a new update
- *        within 24 hours after it is published by the developer, after which
- *        the app is updated the next time the constraints above are met.
- *        (Value: "autoUpdateDefault")
+ *        to an unmetered network * The device is charging The device is
+ *        notified about a new update within 24 hours after it is published by
+ *        the developer, after which the app is updated the next time the
+ *        constraints above are met. (Value: "autoUpdateDefault")
  *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority
  *        The app is updated as soon as possible. No constraints are applied.
  *        The device is notified immediately about a new app update after it is

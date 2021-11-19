@@ -27,6 +27,7 @@
 @class GTLRPubsub_ModifyPushConfigRequest;
 @class GTLRPubsub_PublishRequest;
 @class GTLRPubsub_PullRequest;
+@class GTLRPubsub_Schema;
 @class GTLRPubsub_SeekRequest;
 @class GTLRPubsub_SetIamPolicyRequest;
 @class GTLRPubsub_Subscription;
@@ -35,6 +36,8 @@
 @class GTLRPubsub_UpdateSnapshotRequest;
 @class GTLRPubsub_UpdateSubscriptionRequest;
 @class GTLRPubsub_UpdateTopicRequest;
+@class GTLRPubsub_ValidateMessageRequest;
+@class GTLRPubsub_ValidateSchemaRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -43,6 +46,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Include the name and type of the schema, but not the definition.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewBasic;
+/**
+ *  Include all Schema object fields.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Pubsub query classes.
  */
@@ -50,6 +82,379 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a schema.
+ *
+ *  Method: pubsub.projects.schemas.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasCreate : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the project in which to create the schema. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The ID to use for the schema, which will become the final component of the
+ *  schema's resource name. See
+ *  https://cloud.google.com/pubsub/docs/admin#resource_names for resource name
+ *  constraints.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaId;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Creates a schema.
+ *
+ *  @param object The @c GTLRPubsub_Schema to include in the query.
+ *  @param parent Required. The name of the project in which to create the
+ *    schema. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasCreate
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_Schema *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema.
+ *
+ *  Method: pubsub.projects.schemas.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasDelete : GTLRPubsubQuery
+
+/**
+ *  Required. Name of the schema to delete. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsub_Empty.
+ *
+ *  Deletes a schema.
+ *
+ *  @param name Required. Name of the schema to delete. Format is
+ *    `projects/{project}/schemas/{schema}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a schema.
+ *
+ *  Method: pubsub.projects.schemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasGet : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the schema to get. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The set of fields to return in the response. If not set, returns a Schema
+ *  with all fields filled out. Set to `BASIC` to omit the `definition`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRPubsubViewBasic Include the name and type of the schema, but
+ *        not the definition. (Value: "BASIC")
+ *    @arg @c kGTLRPubsubViewFull Include all Schema object fields. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Gets a schema.
+ *
+ *  @param name Required. The name of the schema to get. Format is
+ *    `projects/{project}/schemas/{schema}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: pubsub.projects.schemas.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasGetIamPolicy : GTLRPubsubQuery
+
+/**
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists schemas in a project.
+ *
+ *  Method: pubsub.projects.schemas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasList : GTLRPubsubQuery
+
+/** Maximum number of schemas to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListSchemasResponse`; indicates that this is
+ *  a continuation of a prior `ListSchemas` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project in which to list schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The set of Schema fields to return in the response. If not set, returns
+ *  Schemas with `name` and `type`, but not `definition`. Set to `FULL` to
+ *  retrieve all fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRPubsubViewBasic Include the name and type of the schema, but
+ *        not the definition. (Value: "BASIC")
+ *    @arg @c kGTLRPubsubViewFull Include all Schema object fields. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRPubsub_ListSchemasResponse.
+ *
+ *  Lists schemas in a project.
+ *
+ *  @param parent Required. The name of the project in which to list schemas.
+ *    Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: pubsub.projects.schemas.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasSetIamPolicy : GTLRPubsubQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: pubsub.projects.schemas.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasTestIamPermissions : GTLRPubsubQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Validates a schema.
+ *
+ *  Method: pubsub.projects.schemas.validate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasValidate : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the project in which to validate schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPubsub_ValidateSchemaResponse.
+ *
+ *  Validates a schema.
+ *
+ *  @param object The @c GTLRPubsub_ValidateSchemaRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the project in which to validate
+ *    schemas. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasValidate
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateSchemaRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Validates a message against a schema.
+ *
+ *  Method: pubsub.projects.schemas.validateMessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasValidateMessage : GTLRPubsubQuery
+
+/**
+ *  Required. The name of the project in which to validate schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPubsub_ValidateMessageResponse.
+ *
+ *  Validates a message against a schema.
+ *
+ *  @param object The @c GTLRPubsub_ValidateMessageRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the project in which to validate
+ *    schemas. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasValidateMessage
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateMessageRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -77,8 +482,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsCreateWithObject:name:]
 
 /**
  *  Required. User-provided name for this snapshot. If the name is not provided
@@ -141,8 +544,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsDeleteWithsnapshot:]
 
 /**
  *  Required. The name of the snapshot to delete. Format is
@@ -185,8 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsGetWithsnapshot:]
 
 /**
  *  Required. The name of the snapshot to get. Format is
@@ -222,8 +621,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -272,8 +669,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsListWithproject:]
 
 /** Maximum number of snapshots to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -326,8 +721,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsPatchWithObject:name:]
 
 /** The name of the snapshot. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -363,8 +756,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -405,8 +796,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -450,8 +839,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsAcknowledge : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsAcknowledgeWithObject:subscription:]
 
 /**
  *  Required. The subscription whose message is being acknowledged. Format is
@@ -497,8 +884,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsCreateWithObject:name:]
 
 /**
  *  Required. The name of the subscription. It must have the format
@@ -552,8 +937,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsDeleteWithsubscription:]
 
 /**
  *  Required. The subscription to delete. Format is
@@ -592,8 +975,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDetach : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsDetachWithsubscription:]
 
 /**
  *  Required. The subscription to detach. Format is
@@ -628,8 +1009,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsGetWithsubscription:]
 
 /**
  *  Required. The name of the subscription to get. Format is
@@ -662,8 +1041,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -708,8 +1085,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsListWithproject:]
 
 /** Maximum number of subscriptions to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -759,8 +1134,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsModifyAckDeadline : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyAckDeadlineWithObject:subscription:]
 
 /**
  *  Required. The name of the subscription. Format is
@@ -803,8 +1176,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsModifyPushConfig : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyPushConfigWithObject:subscription:]
 
 /**
  *  Required. The name of the subscription. Format is
@@ -844,8 +1215,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsPatchWithObject:name:]
 
 /**
  *  Required. The name of the subscription. It must have the format
@@ -890,8 +1259,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsPull : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsPullWithObject:subscription:]
 
 /**
  *  Required. The subscription from which messages should be pulled. Format is
@@ -932,8 +1299,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsSeek : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsSeekWithObject:subscription:]
 
 /** Required. The subscription to affect. */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -971,8 +1336,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1013,8 +1376,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1055,8 +1416,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsCreateWithObject:name:]
 
 /**
  *  Required. The name of the topic. It must have the format
@@ -1103,8 +1462,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsDeleteWithtopic:]
 
 /**
  *  Required. Name of the topic to delete. Format is
@@ -1140,8 +1497,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsGetWithtopic:]
 
 /**
  *  Required. The name of the topic to get. Format is
@@ -1174,8 +1529,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1220,8 +1573,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsListWithproject:]
 
 /** Maximum number of topics to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1268,8 +1619,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsPatchWithObject:name:]
 
 /**
  *  Required. The name of the topic. It must have the format
@@ -1313,8 +1662,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsPublish : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsPublishWithObject:topic:]
 
 /**
  *  Required. The messages in the request will be published on this topic.
@@ -1351,8 +1698,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1393,8 +1738,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSnapshotsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSnapshotsListWithtopic:]
 
 /** Maximum number of snapshot names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1440,8 +1783,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSubscriptionsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSubscriptionsListWithtopic:]
 
 /** Maximum number of subscription names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1487,8 +1828,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

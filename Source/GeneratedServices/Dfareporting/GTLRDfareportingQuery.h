@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.5)
 // Description:
-//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
+//   Build applications to efficiently manage large or complex trafficking,
+//   reporting, and attribution workflows for Campaign Manager 360.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -35,7 +36,6 @@
 @class GTLRDfareporting_CreativeField;
 @class GTLRDfareporting_CreativeFieldValue;
 @class GTLRDfareporting_CreativeGroup;
-@class GTLRDfareporting_CustomEventsBatchInsertRequest;
 @class GTLRDfareporting_DimensionValueRequest;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DynamicTargetingKey;
@@ -463,8 +463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountActiveAdSummariesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountActiveAdSummariesGetWithprofileId:summaryAccountId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -496,8 +494,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountPermissionGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountPermissionGroupsGetWithprofileId:identifier:]
 
 /**
  *  Account permission group ID.
@@ -533,8 +529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountPermissionGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountPermissionGroupsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -561,8 +555,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountPermissionsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountPermissionsGetWithprofileId:identifier:]
 
 /**
  *  Account permission ID.
@@ -598,8 +590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountPermissionsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountPermissionsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -626,8 +616,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountsGetWithprofileId:identifier:]
 
 /**
  *  Account ID.
@@ -664,8 +652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountsListWithprofileId:]
 
 /**
  *  Select only active accounts. Don't set this field to select both active and
@@ -755,8 +741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountsPatchWithObject:profileId:identifier:]
 
 /**
  *  Account ID.
@@ -794,8 +778,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -824,8 +806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountUserProfilesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountUserProfilesGetWithprofileId:identifier:]
 
 /**
  *  User profile ID.
@@ -861,8 +841,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountUserProfilesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountUserProfilesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -893,8 +871,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountUserProfilesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountUserProfilesListWithprofileId:]
 
 /** Select only active user profiles. */
 @property(nonatomic, assign) BOOL active;
@@ -989,8 +965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountUserProfilesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountUserProfilesPatchWithObject:profileId:identifier:]
 
 /**
  *  AccountUserProfile ID.
@@ -1030,8 +1004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AccountUserProfilesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAccountUserProfilesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1061,8 +1033,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdsGetWithprofileId:identifier:]
 
 /**
  *  Ad ID.
@@ -1098,8 +1068,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1128,8 +1096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdsListWithprofileId:]
 
 /** Select only active ads. */
 @property(nonatomic, assign) BOOL active;
@@ -1332,8 +1298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdsPatchWithObject:profileId:identifier:]
 
 /**
  *  Ad ID.
@@ -1371,8 +1335,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1401,8 +1363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsDeleteWithprofileId:identifier:]
 
 /**
  *  Advertiser group ID.
@@ -1439,8 +1399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsGetWithprofileId:identifier:]
 
 /**
  *  Advertiser group ID.
@@ -1476,8 +1434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1508,8 +1464,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsListWithprofileId:]
 
 /**
  *  Select only advertiser groups with these IDs.
@@ -1594,8 +1548,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsPatchWithObject:profileId:identifier:]
 
 /**
  *  AdvertiserGroup ID.
@@ -1634,8 +1586,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserGroupsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserGroupsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1665,8 +1615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesGetWithprofileId:identifier:]
 
 /**
  *  Landing page ID.
@@ -1702,8 +1650,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1732,8 +1678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesListWithprofileId:]
 
 /**
  *  Select only landing pages that belong to these advertisers.
@@ -1841,8 +1785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesPatchWithObject:profileId:identifier:]
 
 /**
  *  LandingPage ID.
@@ -1881,8 +1823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertiserLandingPagesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertiserLandingPagesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1911,8 +1851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertisersGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertisersGetWithprofileId:identifier:]
 
 /**
  *  Advertiser ID.
@@ -1948,8 +1886,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertisersInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertisersInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -1979,8 +1915,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertisersList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertisersListWithprofileId:]
 
 /**
  *  Select only advertisers with these advertiser group IDs.
@@ -2100,8 +2034,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertisersPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertisersPatchWithObject:profileId:identifier:]
 
 /**
  *  Advertiser ID.
@@ -2139,8 +2071,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_AdvertisersUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForAdvertisersUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2169,8 +2099,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_BrowsersList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForBrowsersListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2199,8 +2127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignCreativeAssociationsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignCreativeAssociationsInsertWithObject:profileId:campaignId:]
 
 /** Campaign ID in this association. */
 @property(nonatomic, assign) long long campaignId;
@@ -2238,8 +2164,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignCreativeAssociationsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignCreativeAssociationsListWithprofileId:campaignId:]
 
 /** Campaign ID in this association. */
 @property(nonatomic, assign) long long campaignId;
@@ -2299,8 +2223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsGetWithprofileId:identifier:]
 
 /**
  *  Campaign ID.
@@ -2336,8 +2258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2367,8 +2287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsListWithprofileId:]
 
 /**
  *  Select only campaigns whose advertisers belong to these advertiser groups.
@@ -2488,8 +2406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsPatchWithObject:profileId:identifier:]
 
 /**
  *  Campaign ID.
@@ -2527,8 +2443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CampaignsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCampaignsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2557,8 +2471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ChangeLogsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForChangeLogsGetWithprofileId:identifier:]
 
 /**
  *  Change log ID.
@@ -2594,8 +2506,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ChangeLogsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForChangeLogsListWithprofileId:]
 
 /**
  *  Select only change logs with the specified action.
@@ -2786,8 +2696,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CitiesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCitiesListWithprofileId:]
 
 /**
  *  Select only cities from these countries.
@@ -2838,8 +2746,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ConnectionTypesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForConnectionTypesGetWithprofileId:identifier:]
 
 /**
  *  Connection type ID.
@@ -2875,8 +2781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ConnectionTypesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForConnectionTypesListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -2903,8 +2807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesDeleteWithprofileId:identifier:]
 
 /**
  *  Content category ID.
@@ -2941,8 +2843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesGetWithprofileId:identifier:]
 
 /**
  *  Content category ID.
@@ -2978,8 +2878,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3010,8 +2908,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesListWithprofileId:]
 
 /**
  *  Select only content categories with these IDs.
@@ -3096,8 +2992,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesPatchWithObject:profileId:identifier:]
 
 /**
  *  ContentCategory ID.
@@ -3136,8 +3030,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ContentCategoriesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForContentCategoriesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3167,8 +3059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDdmconversions
  */
 @interface GTLRDfareportingQuery_ConversionsBatchinsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForConversionsBatchinsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3198,8 +3088,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDdmconversions
  */
 @interface GTLRDfareportingQuery_ConversionsBatchupdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForConversionsBatchupdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3229,8 +3117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CountriesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCountriesGetWithprofileId:dartId:]
 
 /** Country DART ID. */
 @property(nonatomic, assign) long long dartId;
@@ -3262,8 +3148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CountriesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCountriesListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3290,8 +3174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeAssetsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeAssetsInsertWithObject:profileId:advertiserId:]
 
 /** Advertiser ID of this creative. This is a required field. */
 @property(nonatomic, assign) long long advertiserId;
@@ -3330,8 +3212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsDeleteWithprofileId:identifier:]
 
 /**
  *  Creative Field ID
@@ -3368,8 +3248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsGetWithprofileId:identifier:]
 
 /**
  *  Creative Field ID
@@ -3405,8 +3283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3436,8 +3312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsListWithprofileId:]
 
 /**
  *  Select only creative fields that belong to these advertisers.
@@ -3529,8 +3403,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsPatchWithObject:profileId:identifier:]
 
 /**
  *  CreativeField ID.
@@ -3568,8 +3440,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3598,8 +3468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesDeleteWithprofileId:creativeFieldId:identifier:]
 
 /** Creative field ID for this creative field value. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3641,8 +3509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesGetWithprofileId:creativeFieldId:identifier:]
 
 /** Creative field ID for this creative field value. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3683,8 +3549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesInsertWithObject:profileId:creativeFieldId:]
 
 /** Creative field ID for this creative field value. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3720,8 +3584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesListWithprofileId:creativeFieldId:]
 
 /** Creative field ID for this creative field value. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3807,8 +3669,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesPatchWithObject:profileId:creativeFieldId:identifier:]
 
 /** CreativeField ID. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3853,8 +3713,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeFieldValuesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeFieldValuesUpdateWithObject:profileId:creativeFieldId:]
 
 /** Creative field ID for this creative field value. */
 @property(nonatomic, assign) long long creativeFieldId;
@@ -3889,8 +3747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeGroupsGetWithprofileId:identifier:]
 
 /**
  *  Creative group ID.
@@ -3926,8 +3782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeGroupsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeGroupsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -3957,8 +3811,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeGroupsListWithprofileId:]
 
 /**
  *  Select only creative groups that belong to these advertisers.
@@ -4057,8 +3909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeGroupsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeGroupsPatchWithObject:profileId:identifier:]
 
 /**
  *  CreativeGroup ID.
@@ -4096,8 +3946,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativeGroupsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativeGroupsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4126,8 +3974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativesGetWithprofileId:identifier:]
 
 /**
  *  Creative ID.
@@ -4163,8 +4009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4194,8 +4038,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativesListWithprofileId:]
 
 /**
  *  Select only active creatives. Leave blank to select active and inactive
@@ -4374,8 +4216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativesPatchWithObject:profileId:identifier:]
 
 /**
  *  Creative ID.
@@ -4413,8 +4253,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_CreativesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCreativesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4435,37 +4273,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Inserts custom events.
- *
- *  Method: dfareporting.customEvents.batchinsert
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDdmconversions
- */
-@interface GTLRDfareportingQuery_CustomEventsBatchinsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForCustomEventsBatchinsertWithObject:profileId:]
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_CustomEventsBatchInsertResponse.
- *
- *  Inserts custom events.
- *
- *  @param object The @c GTLRDfareporting_CustomEventsBatchInsertRequest to
- *    include in the query.
- *  @param profileId User profile ID associated with this request.
- *
- *  @return GTLRDfareportingQuery_CustomEventsBatchinsert
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_CustomEventsBatchInsertRequest *)object
-                      profileId:(long long)profileId;
-
-@end
-
-/**
  *  Retrieves list of report dimension values for a list of filters.
  *
  *  Method: dfareporting.dimensionValues.query
@@ -4474,8 +4281,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_DimensionValuesQuery : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDimensionValuesQueryWithObject:profileId:]
 
 /**
  *  Maximum number of results to return.
@@ -4520,8 +4325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DirectorySitesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDirectorySitesGetWithprofileId:identifier:]
 
 /**
  *  Directory site ID.
@@ -4557,8 +4360,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DirectorySitesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDirectorySitesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4588,8 +4389,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DirectorySitesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDirectorySitesListWithprofileId:]
 
 /**
  *  This search filter is no longer supported and will have no effect on the
@@ -4701,8 +4500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DynamicTargetingKeysDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDynamicTargetingKeysDeleteWithprofileId:objectId:name:objectType:]
 
 /**
  *  Name of this dynamic targeting key. This is a required field. Must be less
@@ -4776,8 +4573,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DynamicTargetingKeysInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDynamicTargetingKeysInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4810,8 +4605,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_DynamicTargetingKeysList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForDynamicTargetingKeysListWithprofileId:]
 
 /** Select only dynamic targeting keys whose object has this advertiser ID. */
 @property(nonatomic, assign) long long advertiserId;
@@ -4860,8 +4653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsDeleteWithprofileId:identifier:]
 
 /**
  *  Event tag ID.
@@ -4898,8 +4689,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsGetWithprofileId:identifier:]
 
 /**
  *  Event tag ID.
@@ -4935,8 +4724,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -4965,8 +4752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsListWithprofileId:]
 
 /** Select only event tags that belong to this ad. */
 @property(nonatomic, assign) long long adId;
@@ -5080,8 +4865,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsPatchWithObject:profileId:identifier:]
 
 /**
  *  EventTag ID.
@@ -5119,8 +4902,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_EventTagsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForEventTagsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -5150,8 +4931,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_FilesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFilesGetWithreportId:fileId:]
 
 /** The ID of the report file. */
 @property(nonatomic, assign) long long fileId;
@@ -5198,8 +4977,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_FilesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFilesListWithprofileId:]
 
 /**
  *  Maximum number of results to return.
@@ -5282,8 +5059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesDeleteWithprofileId:identifier:]
 
 /**
  *  Floodlight activity ID.
@@ -5320,8 +5095,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesGeneratetag : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesGeneratetagWithprofileId:]
 
 /** Floodlight activity ID for which we want to generate a tag. */
 @property(nonatomic, assign) long long floodlightActivityId;
@@ -5351,8 +5124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesGetWithprofileId:identifier:]
 
 /**
  *  Floodlight activity ID.
@@ -5388,8 +5159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -5420,8 +5189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesListWithprofileId:]
 
 /**
  *  Select only floodlight activities for the specified advertiser ID. Must
@@ -5558,8 +5325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesPatchWithObject:profileId:identifier:]
 
 /**
  *  FloodlightActivity ID.
@@ -5599,8 +5364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivitiesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivitiesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -5630,8 +5393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivityGroupsGetWithprofileId:identifier:]
 
 /**
  *  Floodlight activity Group ID.
@@ -5667,8 +5428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivityGroupsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -5699,8 +5458,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivityGroupsListWithprofileId:]
 
 /**
  *  Select only floodlight activity groups with the specified advertiser ID.
@@ -5812,8 +5569,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivityGroupsPatchWithObject:profileId:identifier:]
 
 /**
  *  FloodlightActivityGroup ID.
@@ -5853,8 +5608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightActivityGroupsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightActivityGroupsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -5884,8 +5637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightConfigurationsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightConfigurationsGetWithprofileId:identifier:]
 
 /**
  *  Floodlight configuration ID.
@@ -5921,8 +5672,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightConfigurationsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightConfigurationsListWithprofileId:]
 
 /**
  *  Set of IDs of floodlight configurations to retrieve. Required field;
@@ -5958,8 +5707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightConfigurationsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightConfigurationsPatchWithObject:profileId:identifier:]
 
 /**
  *  FloodlightConfiguration ID.
@@ -5999,8 +5746,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_FloodlightConfigurationsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForFloodlightConfigurationsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6030,8 +5775,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_InventoryItemsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForInventoryItemsGetWithprofileId:projectId:identifier:]
 
 /**
  *  Inventory item ID.
@@ -6073,8 +5816,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_InventoryItemsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForInventoryItemsListWithprofileId:projectId:]
 
 /**
  *  Select only inventory items with these IDs.
@@ -6181,8 +5922,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_LanguagesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForLanguagesListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6209,8 +5948,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_MetrosList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForMetrosListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6237,8 +5974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_MobileAppsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForMobileAppsGetWithprofileId:identifier:]
 
 /**
  *  Mobile app ID.
@@ -6274,8 +6009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_MobileAppsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForMobileAppsListWithprofileId:]
 
 /**
  *  Select only apps from these directories.
@@ -6341,8 +6074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_MobileCarriersGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForMobileCarriersGetWithprofileId:identifier:]
 
 /**
  *  Mobile carrier ID.
@@ -6378,8 +6109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_MobileCarriersList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForMobileCarriersListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6406,8 +6135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OperatingSystemsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOperatingSystemsGetWithprofileId:dartId:]
 
 /** Operating system DART ID. */
 @property(nonatomic, assign) long long dartId;
@@ -6439,8 +6166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OperatingSystemsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOperatingSystemsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6467,8 +6192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OperatingSystemVersionsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOperatingSystemVersionsGetWithprofileId:identifier:]
 
 /**
  *  Operating system version ID.
@@ -6504,8 +6227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OperatingSystemVersionsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOperatingSystemVersionsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6532,8 +6253,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OrderDocumentsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOrderDocumentsGetWithprofileId:projectId:identifier:]
 
 /**
  *  Order document ID.
@@ -6575,8 +6294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OrderDocumentsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOrderDocumentsListWithprofileId:projectId:]
 
 /**
  *  Select only order documents that have been approved by at least one user.
@@ -6685,8 +6402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OrdersGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOrdersGetWithprofileId:projectId:identifier:]
 
 /**
  *  Order ID.
@@ -6727,8 +6442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_OrdersList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForOrdersListWithprofileId:projectId:]
 
 /**
  *  Select only orders with these IDs.
@@ -6823,8 +6536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementGroupsGetWithprofileId:identifier:]
 
 /**
  *  Placement group ID.
@@ -6860,8 +6571,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementGroupsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementGroupsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -6892,8 +6601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementGroupsListWithprofileId:]
 
 /**
  *  Select only placement groups that belong to these advertisers.
@@ -7087,8 +6794,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementGroupsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementGroupsPatchWithObject:profileId:identifier:]
 
 /**
  *  PlacementGroup ID.
@@ -7127,8 +6832,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementGroupsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementGroupsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7158,8 +6861,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsGeneratetags : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsGeneratetagsWithprofileId:]
 
 /**
  *  Generate placements belonging to this campaign. This is a required field.
@@ -7244,8 +6945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsGetWithprofileId:identifier:]
 
 /**
  *  Placement ID.
@@ -7281,8 +6980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7312,8 +7009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsListWithprofileId:]
 
 /**
  *  Select only placements that belong to these advertisers.
@@ -7535,8 +7230,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsPatchWithObject:profileId:identifier:]
 
 /**
  *  Placement ID.
@@ -7574,8 +7267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesDeleteWithprofileId:identifier:]
 
 /**
  *  Placement strategy ID.
@@ -7612,8 +7303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesGetWithprofileId:identifier:]
 
 /**
  *  Placement strategy ID.
@@ -7649,8 +7338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7681,8 +7368,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesListWithprofileId:]
 
 /**
  *  Select only placement strategies with these IDs.
@@ -7768,8 +7453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesPatchWithObject:profileId:identifier:]
 
 /**
  *  PlacementStrategy ID.
@@ -7809,8 +7492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementStrategiesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementStrategiesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7840,8 +7521,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlacementsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlacementsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7870,8 +7549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlatformTypesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlatformTypesGetWithprofileId:identifier:]
 
 /**
  *  Platform type ID.
@@ -7907,8 +7584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PlatformTypesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPlatformTypesListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7935,8 +7610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PostalCodesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPostalCodesGetWithprofileId:code:]
 
 /** Postal code ID. */
 @property(nonatomic, copy, nullable) NSString *code;
@@ -7968,8 +7641,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_PostalCodesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForPostalCodesListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -7996,8 +7667,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ProjectsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForProjectsGetWithprofileId:identifier:]
 
 /**
  *  Project ID.
@@ -8034,8 +7703,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_ProjectsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForProjectsListWithprofileId:]
 
 /**
  *  Select only projects with these advertiser IDs.
@@ -8126,8 +7793,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RegionsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRegionsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -8154,8 +7819,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListsGetWithprofileId:identifier:]
 
 /**
  *  Remarketing list ID.
@@ -8191,8 +7854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListSharesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListSharesGetWithprofileId:remarketingListId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -8225,8 +7886,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListSharesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListSharesPatchWithObject:profileId:identifier:]
 
 /**
  *  RemarketingList ID.
@@ -8266,8 +7925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListSharesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListSharesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -8297,8 +7954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -8329,8 +7984,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListsListWithprofileId:advertiserId:]
 
 /** Select only active or only inactive remarketing lists. */
 @property(nonatomic, assign) BOOL active;
@@ -8419,8 +8072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListsPatchWithObject:profileId:identifier:]
 
 /**
  *  RemarketingList ID.
@@ -8459,8 +8110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_RemarketingListsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -8492,8 +8141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsCompatibleFieldsQuery : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsCompatibleFieldsQueryWithObject:profileId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8524,8 +8171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsDeleteWithprofileId:reportId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8559,8 +8204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsFilesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsFilesGetWithprofileId:reportId:fileId:]
 
 /** The ID of the report file. */
 @property(nonatomic, assign) long long fileId;
@@ -8614,8 +8257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsFilesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsFilesListWithprofileId:reportId:]
 
 /**
  *  Maximum number of results to return.
@@ -8687,8 +8328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsGetWithprofileId:reportId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8720,8 +8359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsInsertWithObject:profileId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8750,8 +8387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsListWithprofileId:]
 
 /**
  *  Maximum number of results to return.
@@ -8834,8 +8469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsPatchWithObject:profileId:reportId:]
 
 /** The DFA user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8869,8 +8502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsRun : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsRunWithprofileId:reportId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8909,8 +8540,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareporting
  */
 @interface GTLRDfareportingQuery_ReportsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForReportsUpdateWithObject:profileId:reportId:]
 
 /** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -8944,8 +8573,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SitesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSitesGetWithprofileId:identifier:]
 
 /**
  *  Site ID.
@@ -8981,8 +8608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SitesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSitesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9011,8 +8636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SitesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSitesListWithprofileId:]
 
 /**
  *  This search filter is no longer supported and will have no effect on the
@@ -9136,8 +8759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SitesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSitesPatchWithObject:profileId:identifier:]
 
 /**
  *  Site ID.
@@ -9175,8 +8796,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SitesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSitesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9205,8 +8824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SizesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSizesGetWithprofileId:identifier:]
 
 /**
  *  Size ID.
@@ -9242,8 +8859,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SizesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSizesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9275,8 +8890,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SizesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSizesListWithprofileId:]
 
 /**
  *  Select only sizes with this height.
@@ -9330,8 +8943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SubaccountsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSubaccountsGetWithprofileId:identifier:]
 
 /**
  *  Subaccount ID.
@@ -9367,8 +8978,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SubaccountsInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSubaccountsInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9397,8 +9006,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SubaccountsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSubaccountsListWithprofileId:]
 
 /**
  *  Select only subaccounts with these IDs.
@@ -9482,8 +9089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SubaccountsPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSubaccountsPatchWithObject:profileId:identifier:]
 
 /**
  *  Subaccount ID.
@@ -9521,8 +9126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_SubaccountsUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForSubaccountsUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9551,8 +9154,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetableRemarketingListsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetableRemarketingListsGetWithprofileId:identifier:]
 
 /**
  *  Remarketing list ID.
@@ -9589,8 +9190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetableRemarketingListsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetableRemarketingListsListWithprofileId:advertiserId:]
 
 /** Select only active or only inactive targetable remarketing lists. */
 @property(nonatomic, assign) BOOL active;
@@ -9679,8 +9278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetingTemplatesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetingTemplatesGetWithprofileId:identifier:]
 
 /**
  *  Targeting template ID.
@@ -9716,8 +9313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetingTemplatesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetingTemplatesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9748,8 +9343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetingTemplatesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetingTemplatesListWithprofileId:]
 
 /** Select only targeting templates with this advertiser ID. */
 @property(nonatomic, assign) long long advertiserId;
@@ -9837,8 +9430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetingTemplatesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetingTemplatesPatchWithObject:profileId:identifier:]
 
 /**
  *  TargetingTemplate ID.
@@ -9878,8 +9469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_TargetingTemplatesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForTargetingTemplatesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -9911,8 +9500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserProfilesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserProfilesGetWithprofileId:]
 
 /** The user profile ID. */
 @property(nonatomic, assign) long long profileId;
@@ -9941,8 +9528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserProfilesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserProfilesList]
 
 /**
  *  Fetches a @c GTLRDfareporting_UserProfileList.
@@ -9964,8 +9549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolePermissionGroupsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolePermissionGroupsGetWithprofileId:identifier:]
 
 /**
  *  User role permission group ID.
@@ -10001,8 +9584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolePermissionGroupsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolePermissionGroupsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -10029,8 +9610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolePermissionsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolePermissionsGetWithprofileId:identifier:]
 
 /**
  *  User role permission ID.
@@ -10066,8 +9645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolePermissionsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolePermissionsListWithprofileId:]
 
 /**
  *  Select only user role permissions with these IDs.
@@ -10101,8 +9678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesDelete : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesDeleteWithprofileId:identifier:]
 
 /**
  *  User role ID.
@@ -10139,8 +9714,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesGetWithprofileId:identifier:]
 
 /**
  *  User role ID.
@@ -10176,8 +9749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesInsert : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesInsertWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -10207,8 +9778,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesListWithprofileId:]
 
 /**
  *  Select only account level user roles not associated with any specific
@@ -10301,8 +9870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesPatch : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesPatchWithObject:profileId:identifier:]
 
 /**
  *  UserRole ID.
@@ -10340,8 +9907,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserRolesUpdate : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForUserRolesUpdateWithObject:profileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
@@ -10370,8 +9935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_VideoFormatsGet : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForVideoFormatsGetWithprofileId:identifier:]
 
 /**
  *  Video format ID.
@@ -10407,8 +9970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_VideoFormatsList : GTLRDfareportingQuery
-// Previous library name was
-//   +[GTLQueryDfareporting queryForVideoFormatsListWithprofileId:]
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;

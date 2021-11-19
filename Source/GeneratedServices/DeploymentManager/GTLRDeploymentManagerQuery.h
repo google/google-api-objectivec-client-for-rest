@@ -78,8 +78,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsCancelPreview : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsCancelPreviewWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -115,8 +113,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsDelete : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsDeleteWithproject:deployment:]
 
 /**
  *  Sets the policy to use for deleting resources.
@@ -163,8 +159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsGetWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -198,8 +192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -237,8 +229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsInsert : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsInsertWithObject:project:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -296,26 +286,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -379,8 +370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsPatch : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsPatchWithObject:project:deployment:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -459,8 +448,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -498,8 +485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsStop : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsStopWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -536,8 +521,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -574,8 +557,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsUpdate : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsUpdateWithObject:project:deployment:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -655,8 +636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ManifestsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForManifestsGetWithproject:deployment:manifest:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -696,29 +675,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ManifestsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForManifestsListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -785,8 +765,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_OperationsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForOperationsGetWithproject:operation:]
 
 /** The name of the operation for this request. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -821,26 +799,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_OperationsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForOperationsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -905,8 +884,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ResourcesGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForResourcesGetWithproject:deployment:resource:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -946,29 +923,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ResourcesList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForResourcesListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1035,26 +1013,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_TypesList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForTypesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

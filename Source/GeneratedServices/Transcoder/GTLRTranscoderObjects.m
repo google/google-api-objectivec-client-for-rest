@@ -486,11 +486,21 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranscoder_Pad
+//
+
+@implementation GTLRTranscoder_Pad
+@dynamic bottomPixels, leftPixels, rightPixels, topPixels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranscoder_PreprocessingConfig
 //
 
 @implementation GTLRTranscoder_PreprocessingConfig
-@dynamic audio, color, crop, deblock, denoise;
+@dynamic audio, color, crop, deblock, denoise, pad;
 @end
 
 
@@ -540,8 +550,9 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_SpriteSheet
-@dynamic columnCount, endTimeOffset, filePrefix, format, interval, rowCount,
-         spriteHeightPixels, spriteWidthPixels, startTimeOffset, totalCount;
+@dynamic columnCount, endTimeOffset, filePrefix, format, interval, quality,
+         rowCount, spriteHeightPixels, spriteWidthPixels, startTimeOffset,
+         totalCount;
 @end
 
 

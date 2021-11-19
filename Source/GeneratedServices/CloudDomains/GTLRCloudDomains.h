@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Domains API (domains/v1beta1)
+//   Cloud Domains API (domains/v1)
 // Description:
 //   Enables management and configuration of domain names.
 // Documentation:

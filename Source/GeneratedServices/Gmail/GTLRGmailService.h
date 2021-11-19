@@ -65,13 +65,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailAddonsCurrentMessageReadon
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailCompose;
 /**
- *  Authorization scope: Insert mail into your mailbox
+ *  Authorization scope: Add emails into your Gmail mailbox
  *
  *  Value "https://www.googleapis.com/auth/gmail.insert"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailInsert;
 /**
- *  Authorization scope: Manage mailbox labels
+ *  Authorization scope: See and edit your email labels
  *
  *  Value "https://www.googleapis.com/auth/gmail.labels"
  */
@@ -91,7 +91,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMailGoogleCom;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
 /**
- *  Authorization scope: View and modify but not delete your email
+ *  Authorization scope: Read, compose, and send emails from your Gmail account
  *
  *  Value "https://www.googleapis.com/auth/gmail.modify"
  */
@@ -109,7 +109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailReadonly;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailSend;
 /**
- *  Authorization scope: Manage your basic mail settings
+ *  Authorization scope: See, edit, create, or change your email settings and
+ *  filters in Gmail
  *
  *  Value "https://www.googleapis.com/auth/gmail.settings.basic"
  */

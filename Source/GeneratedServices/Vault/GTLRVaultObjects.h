@@ -2,9 +2,15 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Vault API (vault/v1)
+//   Google Vault API (vault/v1)
 // Description:
-//   Archiving and eDiscovery for G Suite.
+//   Retention and eDiscovery for Google Workspace. To work with Vault
+//   resources, the account must have the [required Vault
+//   privileges](https://support.google.com/vault/answer/2799699) and access to
+//   the matter. To access a matter, the account must have created the matter,
+//   have the matter shared with them, or have the **View All Matters**
+//   privilege. For example, to download an export, an account needs the
+//   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
 //   https://developers.google.com/vault
 
@@ -119,20 +125,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_AccountCountError_ErrorType_Wildca
 // GTLRVault_CountArtifactsRequest.view
 
 /**
- *  Response includes additional breakdown of account count.
+ *  Response includes the same details as **TOTAL_COUNT**, plus additional
+ *  account breakdown.
  *
  *  Value: "ALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CountArtifactsRequest_View_All;
 /**
- *  Default. It works the same as TOTAL_COUNT.
+ *  Default. Same as **TOTAL_COUNT**.
  *
  *  Value: "COUNT_RESULT_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_CountArtifactsRequest_View_CountResultViewUnspecified;
 /**
- *  Response includes: total count, queried accounts count, matching accounts
- *  count, non-queryable accounts, queried account errors.
+ *  Response includes counts of the total accounts, queried accounts, matching
+ *  accounts, non-queryable accounts, and queried account errors.
  *
  *  Value: "TOTAL_COUNT"
  */
@@ -160,7 +167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_ExportStatusUnspecif
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Export_Status_Failed;
 /**
- *  The export is still being executed.
+ *  The export is in progress.
  *
  *  Value: "IN_PROGRESS"
  */
@@ -182,13 +189,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Any;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Europe;
 /**
- *  The region is unspecified. Will be treated the same as ANY.
+ *  The region is unspecified. Defaults to ANY.
  *
  *  Value: "EXPORT_REGION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_ExportRegionUnspecified;
 /**
- *  US region.
+ *  United States region.
  *
  *  Value: "US"
  */
@@ -204,13 +211,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_ExportOptions_Region_Us;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  MBOX as export format.
+ *  Export as MBOX.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_Mbox;
 /**
- *  PST as export format
+ *  Export as PST.
  *
  *  Value: "PST"
  */
@@ -226,13 +233,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_GroupsExportOptions_ExportFormat_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  MBOX as export format.
+ *  Export as MBOX.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox;
 /**
- *  PST as export format
+ *  Export as PST.
  *
  *  Value: "PST"
  */
@@ -242,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
 // GTLRVault_HeldVoiceQuery.coveredData
 
 /**
- *  Call logs will be covered.
+ *  Call logs.
  *
  *  Value: "CALL_LOGS"
  */
@@ -254,13 +261,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CallLog
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CoveredDataUnspecified;
 /**
- *  Voice text message will be covered.
+ *  Voice text messages.
  *
  *  Value: "TEXT_MESSAGES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_TextMessages;
 /**
- *  Voicemail will be covered.
+ *  Voicemails and their transcripts.
  *
  *  Value: "VOICEMAILS"
  */
@@ -270,13 +277,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_Voicema
 // GTLRVault_Hold.corpus
 
 /**
- *  No corpus specified.
+ *  No service specified.
  *
  *  Value: "CORPUS_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified;
 /**
- *  Drive.
+ *  Drive, including Meet and Sites.
  *
  *  Value: "DRIVE"
  */
@@ -288,13 +295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Drive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Groups;
 /**
- *  Hangouts Chat.
+ *  For search, Google Chat only. For holds, Google Chat and classic Hangouts.
  *
  *  Value: "HANGOUTS_CHAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_HangoutsChat;
 /**
- *  Mail.
+ *  For search, Gmail and classic Hangouts. For holds, Gmail only.
  *
  *  Value: "MAIL"
  */
@@ -316,13 +323,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Voice;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  MBOX as export format.
+ *  Export as MBOX.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Mbox;
 /**
- *  PST as export format
+ *  Export as PST.
  *
  *  Value: "PST"
  */
@@ -332,19 +339,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MailExportOptions_ExportFormat_Pst
 // GTLRVault_Matter.state
 
 /**
- *  This matter is closed.
+ *  The matter is closed.
  *
  *  Value: "CLOSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_Closed;
 /**
- *  This matter is deleted.
+ *  The matter is deleted.
  *
  *  Value: "DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_Deleted;
 /**
- *  This matter is open.
+ *  The matter is open.
  *
  *  Value: "OPEN"
  */
@@ -360,7 +367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Matter_State_StateUnspecified;
 // GTLRVault_MatterPermission.role
 
 /**
- *  A collaborator to the matter.
+ *  A collaborator on the matter.
  *
  *  Value: "COLLABORATOR"
  */
@@ -382,13 +389,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_MatterPermission_Role_RoleUnspecif
 // GTLRVault_Query.corpus
 
 /**
- *  No corpus specified.
+ *  No service specified.
  *
  *  Value: "CORPUS_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_CorpusTypeUnspecified;
 /**
- *  Drive.
+ *  Drive, including Meet and Sites.
  *
  *  Value: "DRIVE"
  */
@@ -400,13 +407,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Drive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Groups;
 /**
- *  Hangouts Chat.
+ *  For search, Google Chat only. For holds, Google Chat and classic Hangouts.
  *
  *  Value: "HANGOUTS_CHAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_HangoutsChat;
 /**
- *  Mail.
+ *  For search, Gmail and classic Hangouts. For holds, Gmail only.
  *
  *  Value: "MAIL"
  */
@@ -428,19 +435,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Voice;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_AllData;
 /**
- *  No data scope specified.
+ *  No data source specified.
  *
  *  Value: "DATA_SCOPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_DataScopeUnspecified;
 /**
- *  Data on hold.
+ *  Only data on hold.
  *
  *  Value: "HELD_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_HeldData;
 /**
- *  Data not processed.
+ *  Only data not yet processed by Vault. (Gmail and Groups only)
  *
  *  Value: "UNPROCESSED_DATA"
  */
@@ -450,46 +457,49 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
 // GTLRVault_Query.method
 
 /**
- *  Will search all accounts provided in account_info.
+ *  Search the data of the accounts specified in
+ *  [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
  *
  *  Value: "ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Account;
 /**
- *  Will search for all accounts in the organization. No need to set
- *  account_info or org_unit_info.
+ *  Search the data of all accounts in the organization. Supported only for
+ *  Gmail. When specified, you don't need to specify **AccountInfo** or
+ *  **OrgUnitInfo**.
  *
  *  Value: "ENTIRE_ORG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
 /**
- *  Will search all accounts in the OU specified in org_unit_info.
+ *  Search the data of all accounts in the organizational unit specified in
+ *  [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
  *
  *  Value: "ORG_UNIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
 /**
- *  Will search in the Room specified in hangout_chats_info. (read-only)
+ *  Search messages in the Chat spaces specified in
+ *  [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
  *
  *  Value: "ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Room;
 /**
- *  A search method must be specified. If a request does not specify a search
- *  method, it will be rejected.
+ *  A search method must be specified or else it is rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
 /**
- *  Will search for all accounts in the shared drive specified in
- *  shared_drive_info.
+ *  Search the files in the shared drives specified in
+ *  [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
 /**
- *  Will search for all accounts in the Team Drive specified in team_drive_info.
+ *  Search the data in the Team Drive specified in **team_drive_info**.
  *
  *  Value: "TEAM_DRIVE"
  */
@@ -499,46 +509,49 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
 // GTLRVault_Query.searchMethod
 
 /**
- *  Will search all accounts provided in account_info.
+ *  Search the data of the accounts specified in
+ *  [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
  *
  *  Value: "ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
 /**
- *  Will search for all accounts in the organization. No need to set
- *  account_info or org_unit_info.
+ *  Search the data of all accounts in the organization. Supported only for
+ *  Gmail. When specified, you don't need to specify **AccountInfo** or
+ *  **OrgUnitInfo**.
  *
  *  Value: "ENTIRE_ORG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_EntireOrg;
 /**
- *  Will search all accounts in the OU specified in org_unit_info.
+ *  Search the data of all accounts in the organizational unit specified in
+ *  [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
  *
  *  Value: "ORG_UNIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_OrgUnit;
 /**
- *  Will search in the Room specified in hangout_chats_info. (read-only)
+ *  Search messages in the Chat spaces specified in
+ *  [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
  *
  *  Value: "ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
 /**
- *  A search method must be specified. If a request does not specify a search
- *  method, it will be rejected.
+ *  A search method must be specified or else it is rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
 /**
- *  Will search for all accounts in the shared drive specified in
- *  shared_drive_info.
+ *  Search the files in the shared drives specified in
+ *  [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
 /**
- *  Will search for all accounts in the Team Drive specified in team_drive_info.
+ *  Search the data in the Team Drive specified in **team_drive_info**.
  *
  *  Value: "TEAM_DRIVE"
  */
@@ -554,13 +567,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified;
 /**
- *  MBOX as export format.
+ *  Export as MBOX.
  *
  *  Value: "MBOX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox;
 /**
- *  PST as export format
+ *  Export as PST.
  *
  *  Value: "PST"
  */
@@ -570,7 +583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Ps
 // GTLRVault_VoiceOptions.coveredData
 
 /**
- *  Call logs will be covered.
+ *  Call logs.
  *
  *  Value: "CALL_LOGS"
  */
@@ -582,20 +595,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_CallLogs;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_CoveredDataUnspecified;
 /**
- *  Voice text message will be covered.
+ *  Voice text messages.
  *
  *  Value: "TEXT_MESSAGES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_TextMessages;
 /**
- *  Voicemail will be covered.
+ *  Voicemails and their transcripts.
  *
  *  Value: "VOICEMAILS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails;
 
 /**
- *  Count number for each account.
+ *  The results count for each account.
  */
 @interface GTLRVault_AccountCount : GTLRObject
 
@@ -603,7 +616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) GTLRVault_UserInfo *account;
 
 /**
- *  The number of artifacts found for this account.
+ *  The number of results (messages or files) found for this account.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -645,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Accounts to search
+ *  The accounts to search
  */
 @interface GTLRVault_AccountInfo : GTLRObject
 
@@ -656,15 +669,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  A status detailing the status of each account creation, and the HeldAccount,
- *  if successful.
+ *  The status of each account creation, and the **HeldAccount**, if successful.
  */
 @interface GTLRVault_AddHeldAccountResult : GTLRObject
 
-/** If present, this account was successfully created. */
+/** Returned when the account was successfully created. */
 @property(nonatomic, strong, nullable) GTLRVault_HeldAccount *account;
 
-/** This represents the success status. If failed, check message. */
+/** Reports the request status. If it failed, returns an error message. */
 @property(nonatomic, strong, nullable) GTLRVault_Status *status;
 
 @end
@@ -676,14 +688,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @interface GTLRVault_AddHeldAccountsRequest : GTLRObject
 
 /**
- *  Account IDs to identify which accounts to add. Only account_ids or only
- *  emails should be specified, but not both.
+ *  A comma-separated list of the account IDs of the accounts to add to the
+ *  hold. Specify either **emails** or **account_ids**, but not both.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountIds;
 
 /**
- *  Emails to identify which accounts to add. Only emails or only account_ids
- *  should be specified, but not both.
+ *  A comma-separated list of the emails of the accounts to add to the hold.
+ *  Specify either **emails** or **account_ids**, but not both.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
 
@@ -703,24 +715,25 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  Add an account with the permission specified. The role cannot be owner. If
- *  an account already has a role in the matter, it will be overwritten.
+ *  an account already has a role in the matter, the existing role is
+ *  overwritten.
  */
 @interface GTLRVault_AddMatterPermissionsRequest : GTLRObject
 
 /**
- *  Only relevant if send_emails is true. True to CC requestor in the email
- *  message. False to not CC requestor.
+ *  Only relevant if **sendEmails** is **true**. To CC the requestor in the
+ *  email message, set to **true**. To not CC requestor, set to **false**.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ccMe;
 
-/** The MatterPermission to add. */
+/** The account and its role to add. */
 @property(nonatomic, strong, nullable) GTLRVault_MatterPermission *matterPermission;
 
 /**
- *  True to send notification email to the added account. False to not send
- *  notification email.
+ *  To send a notification email to the added account, set to **true**. To not
+ *  send a notification email, set to **false**.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -748,21 +761,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @interface GTLRVault_CloseMatterResponse : GTLRObject
 
-/** The updated matter, with state CLOSED. */
+/** The updated matter, with state **CLOSED**. */
 @property(nonatomic, strong, nullable) GTLRVault_Matter *matter;
 
 @end
 
 
 /**
- *  An export file on cloud storage
+ *  The export file in Cloud Storage
  */
 @interface GTLRVault_CloudStorageFile : GTLRObject
 
 /**
- *  The cloud storage bucket name of this export file. Can be used in cloud
- *  storage JSON/XML API, but not to list the bucket contents. Instead, you can
- *  get individual export files by object name.
+ *  The name of the Cloud Storage bucket for the export file. You can use this
+ *  value in the [Cloud Storage JSON or XML
+ *  APIs](https://cloud.google.com/storage/docs/apis), but not to list the
+ *  bucket contents. Instead, you can [get individual export
+ *  files](https://cloud.google.com/storage/docs/json_api/v1/objects/get) by
+ *  object name.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
@@ -770,13 +786,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, copy, nullable) NSString *md5Hash;
 
 /**
- *  The cloud storage object name of this export file. Can be used in cloud
- *  storage JSON/XML API.
+ *  The name of the Cloud Storage object for the export file. You can use this
+ *  value in the [Cloud Storage JSON or XML
+ *  APIs](https://cloud.google.com/storage/docs/apis).
  */
 @property(nonatomic, copy, nullable) NSString *objectName;
 
 /**
- *  The size of the export file.
+ *  The export file size.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -786,37 +803,49 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Export sink for cloud storage files.
+ *  Export sink for Cloud Storage files.
  */
 @interface GTLRVault_CloudStorageSink : GTLRObject
 
-/** Output only. The exported files on cloud storage. */
+/** Output only. The exported files in Cloud Storage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_CloudStorageFile *> *files;
 
 @end
 
 
 /**
- *  Corpus specific queries.
+ *  Service-specific options for holds.
  */
 @interface GTLRVault_CorpusQuery : GTLRObject
 
-/** Details pertaining to Drive holds. If set, corpus must be Drive. */
+/**
+ *  Service-specific options for Drive holds. If set, **CorpusType** must be
+ *  **DRIVE**.
+ */
 @property(nonatomic, strong, nullable) GTLRVault_HeldDriveQuery *driveQuery;
 
-/** Details pertaining to Groups holds. If set, corpus must be Groups. */
+/**
+ *  Service-specific options for Groups holds. If set, **CorpusType** must be
+ *  **GROUPS**.
+ */
 @property(nonatomic, strong, nullable) GTLRVault_HeldGroupsQuery *groupsQuery;
 
 /**
- *  Details pertaining to Hangouts Chat holds. If set, corpus must be Hangouts
- *  Chat.
+ *  Service-specific options for Chat holds. If set, **CorpusType** must be
+ *  **HANGOUTS_CHAT**.
  */
 @property(nonatomic, strong, nullable) GTLRVault_HeldHangoutsChatQuery *hangoutsChatQuery;
 
-/** Details pertaining to mail holds. If set, corpus must be mail. */
+/**
+ *  Service-specific options for Gmail holds. If set, **CorpusType** must be
+ *  **MAIL**.
+ */
 @property(nonatomic, strong, nullable) GTLRVault_HeldMailQuery *mailQuery;
 
-/** Details pertaining to Voice holds. If set, corpus must be Voice. */
+/**
+ *  Service-specific options for Voice holds. If set, **CorpusType** must be
+ *  **VOICE**.
+ */
 @property(nonatomic, strong, nullable) GTLRVault_HeldVoiceQuery *voiceQuery;
 
 @end
@@ -851,17 +880,18 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) GTLRVault_Query *query;
 
 /**
- *  Specifies the granularity of the count result returned in response.
+ *  Sets the granularity of the count results.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_CountArtifactsRequest_View_All Response includes
- *        additional breakdown of account count. (Value: "ALL")
+ *    @arg @c kGTLRVault_CountArtifactsRequest_View_All Response includes the
+ *        same details as **TOTAL_COUNT**, plus additional account breakdown.
+ *        (Value: "ALL")
  *    @arg @c kGTLRVault_CountArtifactsRequest_View_CountResultViewUnspecified
- *        Default. It works the same as TOTAL_COUNT. (Value:
+ *        Default. Same as **TOTAL_COUNT**. (Value:
  *        "COUNT_RESULT_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRVault_CountArtifactsRequest_View_TotalCount Response
- *        includes: total count, queried accounts count, matching accounts
- *        count, non-queryable accounts, queried account errors. (Value:
+ *    @arg @c kGTLRVault_CountArtifactsRequest_View_TotalCount Response includes
+ *        counts of the total accounts, queried accounts, matching accounts,
+ *        non-queryable accounts, and queried account errors. (Value:
  *        "TOTAL_COUNT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -874,14 +904,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @interface GTLRVault_CountArtifactsResponse : GTLRObject
 
-/** Count metrics of Groups. */
+/** Count metrics for Groups. */
 @property(nonatomic, strong, nullable) GTLRVault_GroupsCountResult *groupsCountResult;
 
-/** Count metrics of Mail. */
+/** Count metrics for Gmail and classic Hangouts. */
 @property(nonatomic, strong, nullable) GTLRVault_MailCountResult *mailCountResult;
 
 /**
- *  Total count of artifacts. For mail and groups, artifacts refers to messages.
+ *  Total count of messages.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -891,13 +921,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for Drive export.
+ *  Options for Drive exports.
  */
 @interface GTLRVault_DriveExportOptions : GTLRObject
 
 /**
- *  Set to true to include access level information for users with indirect
- *  access to files.
+ *  To include access level information for users with [indirect
+ *  access](https://support.google.com/vault/answer/6099459#metadata) to files,
+ *  set to **true**.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -907,12 +938,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Drive search advanced options
+ *  Additional options for Drive search
  */
 @interface GTLRVault_DriveOptions : GTLRObject
 
 /**
- *  Set to true to include shared drive.
+ *  Set to **true** to include shared drives.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -926,8 +957,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) NSNumber *includeTeamDrives;
 
 /**
- *  Search the versions of the Drive file as of the reference date. These
- *  timestamps are in GMT and rounded down to the given date.
+ *  Search the current version of the Drive file, but export the contents of the
+ *  last version saved before 12:00 AM UTC on the specified date. Enter the date
+ *  in UTC.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *versionDate;
 
@@ -946,17 +978,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  An export
+ *  An export. To work with Vault resources, the account must have the [required
+ *  Vault privileges](https://support.google.com/vault/answer/2799699) and
+ *  access to the matter. To access a matter, the account must have created the
+ *  matter, have the matter shared with them, or have the **View All Matters**
+ *  privilege.
  */
 @interface GTLRVault_Export : GTLRObject
 
-/** Output only. Export sink for cloud storage files. */
+/** Output only. The sink for export files in Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRVault_CloudStorageSink *cloudStorageSink;
 
 /** Output only. The time when the export was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Advanced options of the export. */
+/** Additional export options. */
 @property(nonatomic, strong, nullable) GTLRVault_ExportOptions *exportOptions;
 
 /**
@@ -972,17 +1008,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /** The export name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The search query being exported. */
+/** The query parameters used to create the export. */
 @property(nonatomic, strong, nullable) GTLRVault_Query *query;
 
 /** Output only. The requester of the export. */
 @property(nonatomic, strong, nullable) GTLRVault_UserInfo *requester;
 
-/** Output only. Export statistics. */
+/** Output only. Details about the export progress and size. */
 @property(nonatomic, strong, nullable) GTLRVault_ExportStats *stats;
 
 /**
- *  Output only. The export status.
+ *  Output only. The status of the export.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_Export_Status_Completed The export completed. (Value:
@@ -991,8 +1027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        unspecified. (Value: "EXPORT_STATUS_UNSPECIFIED")
  *    @arg @c kGTLRVault_Export_Status_Failed The export failed. (Value:
  *        "FAILED")
- *    @arg @c kGTLRVault_Export_Status_InProgress The export is still being
- *        executed. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRVault_Export_Status_InProgress The export is in progress.
+ *        (Value: "IN_PROGRESS")
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -1000,49 +1036,49 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Export advanced options
+ *  Additional options for exports
  */
 @interface GTLRVault_ExportOptions : GTLRObject
 
-/** Option available for Drive export. */
+/** Options for Drive exports. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveExportOptions *driveOptions;
 
-/** Option available for groups export. */
+/** Options for Groups exports. */
 @property(nonatomic, strong, nullable) GTLRVault_GroupsExportOptions *groupsOptions;
 
-/** Option available for hangouts chat export. */
+/** Options for Chat exports. */
 @property(nonatomic, strong, nullable) GTLRVault_HangoutsChatExportOptions *hangoutsChatOptions;
 
-/** Option available for mail export. */
+/** Options for Gmail exports. */
 @property(nonatomic, strong, nullable) GTLRVault_MailExportOptions *mailOptions;
 
 /**
- *  The requested export location.
+ *  The requested data region for the export.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_ExportOptions_Region_Any Any region. (Value: "ANY")
  *    @arg @c kGTLRVault_ExportOptions_Region_Europe Europe region. (Value:
  *        "EUROPE")
  *    @arg @c kGTLRVault_ExportOptions_Region_ExportRegionUnspecified The region
- *        is unspecified. Will be treated the same as ANY. (Value:
- *        "EXPORT_REGION_UNSPECIFIED")
- *    @arg @c kGTLRVault_ExportOptions_Region_Us US region. (Value: "US")
+ *        is unspecified. Defaults to ANY. (Value: "EXPORT_REGION_UNSPECIFIED")
+ *    @arg @c kGTLRVault_ExportOptions_Region_Us United States region. (Value:
+ *        "US")
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Option available for voice export. */
+/** Options for Voice exports. */
 @property(nonatomic, strong, nullable) GTLRVault_VoiceExportOptions *voiceOptions;
 
 @end
 
 
 /**
- *  Stats of an export.
+ *  Progress information for an export.
  */
 @interface GTLRVault_ExportStats : GTLRObject
 
 /**
- *  The number of documents already processed by the export.
+ *  The number of messages or files already processed for export.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1056,7 +1092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) NSNumber *sizeInBytes;
 
 /**
- *  The number of documents to be exported.
+ *  The number of messages or files to be exported.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1085,9 +1121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) NSNumber *matchingAccountsCount;
 
 /**
- *  When data scope is HELD_DATA in the request Query, these accounts in the
- *  request are not queried because they are not on hold. For other data scope,
- *  this field is not set.
+ *  When **DataScope** is **HELD_DATA**, these accounts in the request are not
+ *  queried because they are not on hold. For other data scope, this field is
+ *  not set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonQueryableAccounts;
 
@@ -1102,20 +1138,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for groups export.
+ *  Options for Groups exports.
  */
 @interface GTLRVault_GroupsExportOptions : GTLRObject
 
 /**
- *  The export format for groups export.
+ *  The file format for exported messages.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox MBOX as export
- *        format. (Value: "MBOX")
- *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst PST as export
- *        format (Value: "PST")
+ *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Mbox Export as MBOX.
+ *        (Value: "MBOX")
+ *    @arg @c kGTLRVault_GroupsExportOptions_ExportFormat_Pst Export as PST.
+ *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1123,20 +1159,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for hangouts chat export.
+ *  Options for Chat exports.
  */
 @interface GTLRVault_HangoutsChatExportOptions : GTLRObject
 
 /**
- *  The export format for hangouts chat export.
+ *  The file format for exported messages.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox MBOX as
- *        export format. (Value: "MBOX")
- *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst PST as
- *        export format (Value: "PST")
+ *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox Export as
+ *        MBOX. (Value: "MBOX")
+ *    @arg @c kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst Export as
+ *        PST. (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -1144,23 +1180,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Accounts to search
+ *  The Chat spaces to search
  */
 @interface GTLRVault_HangoutsChatInfo : GTLRObject
 
-/** A set of rooms to search. */
+/**
+ *  A list of Chat spaces IDs, as provided by the [Chat
+ *  API](https://developers.google.com/hangouts/chat).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roomId;
 
 @end
 
 
 /**
- *  Hangouts chat search advanced options
+ *  Additional options for Google Chat search
  */
 @interface GTLRVault_HangoutsChatOptions : GTLRObject
 
 /**
- *  Set to true to include rooms.
+ *  For searches by account or organizational unit, set to **true** to include
+ *  rooms.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1170,17 +1210,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  An account being held in a particular hold. This structure is immutable.
- *  This can be either a single user or a google group, depending on the corpus.
+ *  An account covered by a hold. This structure is immutable. It can be an
+ *  individual account or a Google Group, depending on the service. To work with
+ *  Vault resources, the account must have the [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_HeldAccount : GTLRObject
 
-/** The account's ID as provided by the Admin SDK. */
+/**
+ *  The account ID, as provided by the [Admin
+ *  SDK](https://developers.google.com/admin-sdk/).
+ */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
  *  The primary email address of the account. If used as an input, this takes
- *  precedence over account ID.
+ *  precedence over **accountId**.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
@@ -1197,19 +1244,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Query options for Drive holds.
+ *  Options for Drive holds.
  */
 @interface GTLRVault_HeldDriveQuery : GTLRObject
 
 /**
- *  If true, include files in shared drives in the hold.
+ *  To include files in shared drives in the hold, set to **true**.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeSharedDriveFiles;
 
 /**
- *  If true, include files in Team Drives in the hold.
+ *  To include files in Team Drives in the hold, set to **true**.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1224,30 +1271,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @interface GTLRVault_HeldGroupsQuery : GTLRObject
 
 /**
- *  The end time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The end time for the query. Specify in GMT. The value is rounded to 12 AM on
+ *  the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The start time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The start time for the query. Specify in GMT. The value is rounded to 12 AM
+ *  on the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** The search terms for the hold. */
+/**
+ *  The [search operators](https://support.google.com/vault/answer/2474474) used
+ *  to refine the messages covered by the hold.
+ */
 @property(nonatomic, copy, nullable) NSString *terms;
 
 @end
 
 
 /**
- *  Query options for hangouts chat holds.
+ *  Options for Chat holds.
  */
 @interface GTLRVault_HeldHangoutsChatQuery : GTLRObject
 
 /**
- *  If true, include rooms the user has participated in.
+ *  To include messages in Chat spaces the user was a member of, set to
+ *  **true**.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1257,51 +1308,58 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Query options for mail holds.
+ *  Query options for Gmail holds.
  */
 @interface GTLRVault_HeldMailQuery : GTLRObject
 
 /**
- *  The end time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The end time for the query. Specify in GMT. The value is rounded to 12 AM on
+ *  the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The start time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The start time for the query. Specify in GMT. The value is rounded to 12 AM
+ *  on the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/** The search terms for the hold. */
+/**
+ *  The [search operators](https://support.google.com/vault/answer/2474474) used
+ *  to refine the messages covered by the hold.
+ */
 @property(nonatomic, copy, nullable) NSString *terms;
 
 @end
 
 
 /**
- *  A organizational unit being held in a particular hold. This structure is
- *  immutable.
+ *  The organizational unit covered by a hold. This structure is immutable.
  */
 @interface GTLRVault_HeldOrgUnit : GTLRObject
 
-/** When the org unit was put on hold. This property is immutable. */
+/**
+ *  When the organizational unit was put on hold. This property is immutable.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *holdTime;
 
-/** The org unit's immutable ID as provided by the Admin SDK. */
+/**
+ *  The organizational unit's immutable ID as provided by the [Admin
+ *  SDK](https://developers.google.com/admin-sdk/).
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
 
 
 /**
- *  Query options for Voice holds.
+ *  Options for Voice holds.
  */
 @interface GTLRVault_HeldVoiceQuery : GTLRObject
 
 /**
- *  Data covered by this rule. Should be non-empty. Order does not matter and
- *  duplicates will be ignored.
+ *  A list of data types covered by the hold. Should be non-empty. Order does
+ *  not matter and duplicates are ignored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *coveredData;
 
@@ -1309,30 +1367,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Represents a hold within Vault. A hold restricts purging of artifacts based
- *  on the combination of the query and accounts restrictions. A hold can be
- *  configured to either apply to an explicitly configured set of accounts, or
- *  can be applied to all members of an organizational unit.
+ *  A hold. A hold prevents the specified Google Workspace service from purging
+ *  data for specific accounts or all members of an organizational unit. To work
+ *  with Vault resources, the account must have the [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_Hold : GTLRObject
 
 /**
- *  If set, the hold applies to the enumerated accounts and org_unit must be
+ *  If set, the hold applies to the specified accounts and **orgUnit** must be
  *  empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_HeldAccount *> *accounts;
 
 /**
- *  The corpus to be searched.
+ *  The service to be searched.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_Hold_Corpus_CorpusTypeUnspecified No corpus specified.
+ *    @arg @c kGTLRVault_Hold_Corpus_CorpusTypeUnspecified No service specified.
  *        (Value: "CORPUS_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive. (Value: "DRIVE")
+ *    @arg @c kGTLRVault_Hold_Corpus_Drive Drive, including Meet and Sites.
+ *        (Value: "DRIVE")
  *    @arg @c kGTLRVault_Hold_Corpus_Groups Groups. (Value: "GROUPS")
- *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat Hangouts Chat. (Value:
- *        "HANGOUTS_CHAT")
- *    @arg @c kGTLRVault_Hold_Corpus_Mail Mail. (Value: "MAIL")
+ *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat For search, Google Chat only.
+ *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
+ *    @arg @c kGTLRVault_Hold_Corpus_Mail For search, Gmail and classic
+ *        Hangouts. For holds, Gmail only. (Value: "MAIL")
  *    @arg @c kGTLRVault_Hold_Corpus_Voice Google Voice. (Value: "VOICE")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
@@ -1345,13 +1407,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 /**
  *  If set, the hold applies to all members of the organizational unit and
- *  accounts must be empty. This property is mutable. For groups holds, set the
- *  accounts field.
+ *  **accounts** must be empty. This property is mutable. For Groups holds, set
+ *  **accounts**.
  */
 @property(nonatomic, strong, nullable) GTLRVault_HeldOrgUnit *orgUnit;
 
 /**
- *  The corpus-specific query. If set, the corpusQuery must match corpus type.
+ *  Service-specific options. If set, **CorpusQuery** must match **CorpusType**.
  */
 @property(nonatomic, strong, nullable) GTLRVault_CorpusQuery *query;
 
@@ -1362,7 +1424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The holds for a matter.
+ *  The exports for a matter.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "exports" property. If returned as the result of a query, it
@@ -1386,7 +1448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Returns a list of held accounts for a hold.
+ *  Returns a list of the accounts covered by a hold.
  */
 @interface GTLRVault_ListHeldAccountsResponse : GTLRObject
 
@@ -1488,7 +1550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  List of output saved queries.
+ *  List of saved queries.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1499,11 +1561,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Mail specific count metrics.
+ *  Gmail and classic Hangouts-specific count metrics.
  */
 @interface GTLRVault_MailCountResult : GTLRObject
 
-/** Error occurred when querying these accounts. */
+/** Errors occurred when querying these accounts. */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_AccountCountError *> *accountCountErrors;
 
 /** Subtotal count per matching account that have more than zero messages. */
@@ -1518,8 +1580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) NSNumber *matchingAccountsCount;
 
 /**
- *  When data scope is HELD_DATA in the request Query, these accounts in the
- *  request are not queried because they are not on hold. For other data scope,
+ *  When **DataScope** is **HELD_DATA**, the number of accounts in the request
+ *  that are not queried because they are not on hold. For other data scopes,
  *  this field is not set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonQueryableAccounts;
@@ -1535,25 +1597,25 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for mail export.
+ *  Options for Gmail exports.
  */
 @interface GTLRVault_MailExportOptions : GTLRObject
 
 /**
- *  The export file format.
+ *  The file format for exported messages.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox MBOX as export
- *        format. (Value: "MBOX")
- *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst PST as export format
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Mbox Export as MBOX.
+ *        (Value: "MBOX")
+ *    @arg @c kGTLRVault_MailExportOptions_ExportFormat_Pst Export as PST.
  *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
 /**
- *  Set to true to export confidential mode content.
+ *  To export confidential mode content, set to **true**.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1563,12 +1625,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Mail search advanced options
+ *  Additional options for Gmail search
  */
 @interface GTLRVault_MailOptions : GTLRObject
 
 /**
- *  Set to true to exclude drafts.
+ *  Set to **true** to exclude drafts.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1578,26 +1640,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Represents a matter.
+ *  Represents a matter. To work with Vault resources, the account must have the
+ *  [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_Matter : GTLRObject
 
 /**
- *  The description of the matter.
+ *  An optional description for the matter.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The matter ID which is generated by the server. Should be blank when
- *  creating a new matter.
+ *  The matter ID, which is generated by the server. Leave blank when creating a
+ *  matter.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /**
- *  List of users and access to the matter. Currently there is no programmer
- *  defined limit on the number of permissions a matter can have.
+ *  Lists the users and their permission for the matter. Currently there is no
+ *  programmer defined limit on the number of permissions a matter can have.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_MatterPermission *> *matterPermissions;
 
@@ -1608,11 +1674,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  The state of the matter.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_Matter_State_Closed This matter is closed. (Value:
+ *    @arg @c kGTLRVault_Matter_State_Closed The matter is closed. (Value:
  *        "CLOSED")
- *    @arg @c kGTLRVault_Matter_State_Deleted This matter is deleted. (Value:
+ *    @arg @c kGTLRVault_Matter_State_Deleted The matter is deleted. (Value:
  *        "DELETED")
- *    @arg @c kGTLRVault_Matter_State_Open This matter is open. (Value: "OPEN")
+ *    @arg @c kGTLRVault_Matter_State_Open The matter is open. (Value: "OPEN")
  *    @arg @c kGTLRVault_Matter_State_StateUnspecified The matter has no
  *        specified state. (Value: "STATE_UNSPECIFIED")
  */
@@ -1622,20 +1688,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Currently each matter only has one owner, and all others are collaborators.
- *  When an account is purged, its corresponding MatterPermission resources
- *  cease to exist.
+ *  Users can be matter owners or collaborators. Each matter has only one owner.
+ *  All others users who can access the matter are collaborators. When an
+ *  account is purged, its corresponding MatterPermission resources cease to
+ *  exist.
  */
 @interface GTLRVault_MatterPermission : GTLRObject
 
-/** The account ID, as provided by Admin SDK. */
+/**
+ *  The account ID, as provided by the [Admin
+ *  SDK](https://developers.google.com/admin-sdk/).
+ */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  The user's role in this matter.
+ *  The user's role for the matter.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_MatterPermission_Role_Collaborator A collaborator to
+ *    @arg @c kGTLRVault_MatterPermission_Role_Collaborator A collaborator on
  *        the matter. (Value: "COLLABORATOR")
  *    @arg @c kGTLRVault_MatterPermission_Role_Owner The owner of the matter.
  *        (Value: "OWNER")
@@ -1728,166 +1798,176 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Org Unit to search
+ *  The organizational unit to search
  */
 @interface GTLRVault_OrgUnitInfo : GTLRObject
 
-/** Org unit to search, as provided by the Admin SDK Directory API. */
+/**
+ *  The name of the organizational unit to search, as provided by the [Admin SDK
+ *  Directory API](https://developers.google.com/admin-sdk/directory/).
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
 
 
 /**
- *  A query definition relevant for search & export.
+ *  The query definition used for search and export.
  */
 @interface GTLRVault_Query : GTLRObject
 
-/**
- *  When 'ACCOUNT' is chosen as search method, account_info needs to be
- *  specified.
- */
+/** Required when **SearchMethod** is **ACCOUNT**. */
 @property(nonatomic, strong, nullable) GTLRVault_AccountInfo *accountInfo;
 
 /**
- *  The corpus to search.
+ *  The Google Workspace service to search.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_Query_Corpus_CorpusTypeUnspecified No corpus specified.
- *        (Value: "CORPUS_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRVault_Query_Corpus_Drive Drive. (Value: "DRIVE")
+ *    @arg @c kGTLRVault_Query_Corpus_CorpusTypeUnspecified No service
+ *        specified. (Value: "CORPUS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Query_Corpus_Drive Drive, including Meet and Sites.
+ *        (Value: "DRIVE")
  *    @arg @c kGTLRVault_Query_Corpus_Groups Groups. (Value: "GROUPS")
- *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat Hangouts Chat. (Value:
- *        "HANGOUTS_CHAT")
- *    @arg @c kGTLRVault_Query_Corpus_Mail Mail. (Value: "MAIL")
+ *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat For search, Google Chat only.
+ *        For holds, Google Chat and classic Hangouts. (Value: "HANGOUTS_CHAT")
+ *    @arg @c kGTLRVault_Query_Corpus_Mail For search, Gmail and classic
+ *        Hangouts. For holds, Gmail only. (Value: "MAIL")
  *    @arg @c kGTLRVault_Query_Corpus_Voice Google Voice. (Value: "VOICE")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
 
 /**
- *  The data source to search from.
+ *  The data source to search.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_Query_DataScope_AllData All available data. (Value:
  *        "ALL_DATA")
- *    @arg @c kGTLRVault_Query_DataScope_DataScopeUnspecified No data scope
+ *    @arg @c kGTLRVault_Query_DataScope_DataScopeUnspecified No data source
  *        specified. (Value: "DATA_SCOPE_UNSPECIFIED")
- *    @arg @c kGTLRVault_Query_DataScope_HeldData Data on hold. (Value:
+ *    @arg @c kGTLRVault_Query_DataScope_HeldData Only data on hold. (Value:
  *        "HELD_DATA")
- *    @arg @c kGTLRVault_Query_DataScope_UnprocessedData Data not processed.
- *        (Value: "UNPROCESSED_DATA")
+ *    @arg @c kGTLRVault_Query_DataScope_UnprocessedData Only data not yet
+ *        processed by Vault. (Gmail and Groups only) (Value:
+ *        "UNPROCESSED_DATA")
  */
 @property(nonatomic, copy, nullable) NSString *dataScope;
 
-/** For Drive search, specify more options in this field. */
+/** Set Drive search-specific options. */
 @property(nonatomic, strong, nullable) GTLRVault_DriveOptions *driveOptions;
 
 /**
- *  The end time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The end time for the search query. Specify in GMT. The value is rounded to
+ *  12 AM on the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/**
- *  When 'ROOM' is chosen as search method, hangout_chats_info needs to be
- *  specified. (read-only)
- */
+/** Required when **SearchMethod** is **ROOM**. (read-only) */
 @property(nonatomic, strong, nullable) GTLRVault_HangoutsChatInfo *hangoutsChatInfo;
 
-/**
- *  For hangouts chat search, specify more options in this field. (read-only)
- */
+/** Set Chat search-specific options. (read-only) */
 @property(nonatomic, strong, nullable) GTLRVault_HangoutsChatOptions *hangoutsChatOptions;
 
-/** For mail search, specify more options in this field. */
+/** Set Gmail search-specific options. */
 @property(nonatomic, strong, nullable) GTLRVault_MailOptions *mailOptions;
 
 /**
- *  The search method to use. This field is similar to the search_method field
- *  but is introduced to support shared drives. It supports all search method
- *  types. In case the search_method is TEAM_DRIVE the response of this field
- *  will be SHARED_DRIVE only.
+ *  The entity to search. This field replaces **searchMethod** to support shared
+ *  drives. When **searchMethod** is **TEAM_DRIVE**, the response of this field
+ *  is **SHARED_DRIVE**.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_Query_Method_Account Will search all accounts provided
- *        in account_info. (Value: "ACCOUNT")
- *    @arg @c kGTLRVault_Query_Method_EntireOrg Will search for all accounts in
- *        the organization. No need to set account_info or org_unit_info.
- *        (Value: "ENTIRE_ORG")
- *    @arg @c kGTLRVault_Query_Method_OrgUnit Will search all accounts in the OU
- *        specified in org_unit_info. (Value: "ORG_UNIT")
- *    @arg @c kGTLRVault_Query_Method_Room Will search in the Room specified in
- *        hangout_chats_info. (read-only) (Value: "ROOM")
+ *    @arg @c kGTLRVault_Query_Method_Account Search the data of the accounts
+ *        specified in
+ *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *        (Value: "ACCOUNT")
+ *    @arg @c kGTLRVault_Query_Method_EntireOrg Search the data of all accounts
+ *        in the organization. Supported only for Gmail. When specified, you
+ *        don't need to specify **AccountInfo** or **OrgUnitInfo**. (Value:
+ *        "ENTIRE_ORG")
+ *    @arg @c kGTLRVault_Query_Method_OrgUnit Search the data of all accounts in
+ *        the organizational unit specified in
+ *        [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *        (Value: "ORG_UNIT")
+ *    @arg @c kGTLRVault_Query_Method_Room Search messages in the Chat spaces
+ *        specified in
+ *        [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *        (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_Method_SearchMethodUnspecified A search method
- *        must be specified. If a request does not specify a search method, it
- *        will be rejected. (Value: "SEARCH_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRVault_Query_Method_SharedDrive Will search for all accounts
- *        in the shared drive specified in shared_drive_info. (Value:
- *        "SHARED_DRIVE")
- *    @arg @c kGTLRVault_Query_Method_TeamDrive Will search for all accounts in
- *        the Team Drive specified in team_drive_info. (Value: "TEAM_DRIVE")
+ *        must be specified or else it is rejected. (Value:
+ *        "SEARCH_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Query_Method_SharedDrive Search the files in the shared
+ *        drives specified in
+ *        [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        (Value: "SHARED_DRIVE")
+ *    @arg @c kGTLRVault_Query_Method_TeamDrive Search the data in the Team
+ *        Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/**
- *  When 'ORG_UNIT' is chosen as as search method, org_unit_info needs to be
- *  specified.
- */
+/** Required when **SearchMethod** is **ORG_UNIT**. */
 @property(nonatomic, strong, nullable) GTLRVault_OrgUnitInfo *orgUnitInfo;
 
 /**
  *  The search method to use.
  *
  *  Likely values:
- *    @arg @c kGTLRVault_Query_SearchMethod_Account Will search all accounts
- *        provided in account_info. (Value: "ACCOUNT")
- *    @arg @c kGTLRVault_Query_SearchMethod_EntireOrg Will search for all
- *        accounts in the organization. No need to set account_info or
- *        org_unit_info. (Value: "ENTIRE_ORG")
- *    @arg @c kGTLRVault_Query_SearchMethod_OrgUnit Will search all accounts in
- *        the OU specified in org_unit_info. (Value: "ORG_UNIT")
- *    @arg @c kGTLRVault_Query_SearchMethod_Room Will search in the Room
- *        specified in hangout_chats_info. (read-only) (Value: "ROOM")
+ *    @arg @c kGTLRVault_Query_SearchMethod_Account Search the data of the
+ *        accounts specified in
+ *        [AccountInfo](https://developers.google.com/vault/reference/rest/v1/Query#accountinfo).
+ *        (Value: "ACCOUNT")
+ *    @arg @c kGTLRVault_Query_SearchMethod_EntireOrg Search the data of all
+ *        accounts in the organization. Supported only for Gmail. When
+ *        specified, you don't need to specify **AccountInfo** or
+ *        **OrgUnitInfo**. (Value: "ENTIRE_ORG")
+ *    @arg @c kGTLRVault_Query_SearchMethod_OrgUnit Search the data of all
+ *        accounts in the organizational unit specified in
+ *        [OrgUnitInfo](https://developers.google.com/vault/reference/rest/v1/Query#orgunitinfo).
+ *        (Value: "ORG_UNIT")
+ *    @arg @c kGTLRVault_Query_SearchMethod_Room Search messages in the Chat
+ *        spaces specified in
+ *        [HangoutsChatInfo](https://developers.google.com/vault/reference/rest/v1/Query#hangoutschatinfo).
+ *        (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_SearchMethod_SearchMethodUnspecified A search
- *        method must be specified. If a request does not specify a search
- *        method, it will be rejected. (Value: "SEARCH_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Will search for all
- *        accounts in the shared drive specified in shared_drive_info. (Value:
- *        "SHARED_DRIVE")
- *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Will search for all
- *        accounts in the Team Drive specified in team_drive_info. (Value:
- *        "TEAM_DRIVE")
+ *        method must be specified or else it is rejected. (Value:
+ *        "SEARCH_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Search the files in the
+ *        shared drives specified in
+ *        [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        (Value: "SHARED_DRIVE")
+ *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Search the data in the
+ *        Team Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *searchMethod;
 
-/**
- *  When 'SHARED_DRIVE' is chosen as search method, shared_drive_info needs to
- *  be specified.
- */
+/** Required when **SearchMethod** is **SHARED_DRIVE**. */
 @property(nonatomic, strong, nullable) GTLRVault_SharedDriveInfo *sharedDriveInfo;
 
 /**
- *  The start time range for the search query. These timestamps are in GMT and
- *  rounded down to the start of the given date.
+ *  The start time for the search query. Specify in GMT. The value is rounded to
+ *  12 AM on the specified date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
-/**
- *  When 'TEAM_DRIVE' is chosen as search method, team_drive_info needs to be
- *  specified.
- */
+/** Required when **SearchMethod** is **TEAM_DRIVE**. */
 @property(nonatomic, strong, nullable) GTLRVault_TeamDriveInfo *teamDriveInfo;
 
-/** The corpus-specific search operators used to generate search results. */
+/**
+ *  Service-specific [search
+ *  operators](https://support.google.com/vault/answer/2474474) to filter search
+ *  results.
+ */
 @property(nonatomic, copy, nullable) NSString *terms;
 
 /**
  *  The time zone name. It should be an IANA TZ name, such as
- *  "America/Los_Angeles". For more information, see Time Zone.
+ *  "America/Los_Angeles". For a list of time zone names, see [Time
+ *  Zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For
+ *  more information about how Vault uses time zones, see [the Vault help
+ *  center](https://support.google.com/vault/answer/6092995#time).
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
-/** For voice search, specify more options in this field. */
+/** Set Voice search-specific options. */
 @property(nonatomic, strong, nullable) GTLRVault_VoiceOptions *voiceOptions;
 
 @end
@@ -1898,7 +1978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @interface GTLRVault_RemoveHeldAccountsRequest : GTLRObject
 
-/** Account IDs to identify HeldAccounts to remove. */
+/** The account IDs of the accounts to remove from the hold. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountIds;
 
 @end
@@ -1910,8 +1990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @interface GTLRVault_RemoveHeldAccountsResponse : GTLRObject
 
 /**
- *  A list of statuses for deleted accounts. Results have the same order as the
- *  request.
+ *  A list of statuses for the deleted accounts. Results have the same order as
+ *  the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_Status *> *statuses;
 
@@ -1941,36 +2021,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @interface GTLRVault_ReopenMatterResponse : GTLRObject
 
-/** The updated matter, with state OPEN. */
+/** The updated matter, with state **OPEN**. */
 @property(nonatomic, strong, nullable) GTLRVault_Matter *matter;
 
 @end
 
 
 /**
- *  Definition of the saved query.
+ *  The definition of a saved query. To work with Vault resources, the account
+ *  must have the [required Vault
+ *  privileges](https://support.google.com/vault/answer/2799699) and access to
+ *  the matter. To access a matter, the account must have created the matter,
+ *  have the matter shared with them, or have the **View All Matters**
+ *  privilege.
  */
 @interface GTLRVault_SavedQuery : GTLRObject
 
 /**
- *  Output only. The server generated timestamp at which saved query was
+ *  Output only. The server-generated timestamp when the saved query was
  *  created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Name of the saved query. */
+/** The name of the saved query. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The matter ID of the associated matter. The server does not
- *  look at this field during create and always uses matter id in the URL.
+ *  Output only. The matter ID of the matter the saved query is saved in. The
+ *  server does not use this field during create and always uses matter ID in
+ *  the URL.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/**
- *  The underlying Query object which contains all the information of the saved
- *  query.
- */
+/** The search parameters of the saved query. */
 @property(nonatomic, strong, nullable) GTLRVault_Query *query;
 
 /** A unique identifier for the saved query. */
@@ -1980,11 +2063,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Shared drives to search
+ *  The shared drives to search
  */
 @interface GTLRVault_SharedDriveInfo : GTLRObject
 
-/** List of Shared drive IDs, as provided by Drive API. */
+/**
+ *  A list of shared drive IDs, as provided by the [Drive
+ *  API](https://developers.google.com/drive).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sharedDriveIds;
 
 @end
@@ -2040,7 +2126,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @interface GTLRVault_TeamDriveInfo : GTLRObject
 
-/** List of Team Drive IDs, as provided by Drive API. */
+/**
+ *  List of Team Drive IDs, as provided by the [Drive
+ *  API](https://developers.google.com/drive).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *teamDriveIds;
 
 @end
@@ -2068,20 +2157,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  The options for voice export.
+ *  The options for Voice exports.
  */
 @interface GTLRVault_VoiceExportOptions : GTLRObject
 
 /**
- *  The export format for voice export.
+ *  The file format for exported text messages.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified
  *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox MBOX as export
- *        format. (Value: "MBOX")
- *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst PST as export
- *        format (Value: "PST")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox Export as MBOX.
+ *        (Value: "MBOX")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst Export as PST.
+ *        (Value: "PST")
  */
 @property(nonatomic, copy, nullable) NSString *exportFormat;
 
@@ -2089,7 +2178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Voice search options
+ *  Additional options for Voice search
  */
 @interface GTLRVault_VoiceOptions : GTLRObject
 

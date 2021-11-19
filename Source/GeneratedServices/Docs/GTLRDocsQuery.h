@@ -107,8 +107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  *    @c kGTLRAuthScopeDocsDriveFile
  */
 @interface GTLRDocsQuery_DocumentsBatchUpdate : GTLRDocsQuery
-// Previous library name was
-//   +[GTLQueryDocs queryForDocumentsBatchUpdateWithObject:documentId:]
 
 /** The ID of the document to update. */
 @property(nonatomic, copy, nullable) NSString *documentId;
@@ -154,8 +152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  *    @c kGTLRAuthScopeDocsDriveFile
  */
 @interface GTLRDocsQuery_DocumentsCreate : GTLRDocsQuery
-// Previous library name was
-//   +[GTLQueryDocs queryForDocumentsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRDocs_Document.
@@ -185,8 +181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  *    @c kGTLRAuthScopeDocsDriveReadonly
  */
 @interface GTLRDocsQuery_DocumentsGet : GTLRDocsQuery
-// Previous library name was
-//   +[GTLQueryDocs queryForDocumentsGetWithdocumentId:]
 
 /** The ID of the document to retrieve. */
 @property(nonatomic, copy, nullable) NSString *documentId;

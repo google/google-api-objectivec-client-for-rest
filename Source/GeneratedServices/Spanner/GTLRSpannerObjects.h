@@ -25,18 +25,37 @@
 @class GTLRSpanner_BackupInfo;
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChildLink;
+@class GTLRSpanner_CommitStats;
+@class GTLRSpanner_ContextValue;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_Delete;
+@class GTLRSpanner_DerivedMetric;
+@class GTLRSpanner_DiagnosticMessage;
+@class GTLRSpanner_EncryptionConfig;
+@class GTLRSpanner_EncryptionInfo;
 @class GTLRSpanner_ExecuteSqlRequest_Params;
 @class GTLRSpanner_ExecuteSqlRequest_ParamTypes;
 @class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
 @class GTLRSpanner_GetPolicyOptions;
+@class GTLRSpanner_IndexedHotKey;
+@class GTLRSpanner_IndexedHotKey_SparseHotKeys;
+@class GTLRSpanner_IndexedKeyRangeInfos;
+@class GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos;
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
 @class GTLRSpanner_InstanceConfig;
 @class GTLRSpanner_KeyRange;
+@class GTLRSpanner_KeyRangeInfo;
+@class GTLRSpanner_KeyRangeInfos;
 @class GTLRSpanner_KeySet;
+@class GTLRSpanner_LocalizedString;
+@class GTLRSpanner_LocalizedString_Args;
+@class GTLRSpanner_Metric;
+@class GTLRSpanner_Metric_IndexedHotKeys;
+@class GTLRSpanner_Metric_IndexedKeyRangeInfos;
+@class GTLRSpanner_MetricMatrix;
+@class GTLRSpanner_MetricMatrixRow;
 @class GTLRSpanner_Mutation;
 @class GTLRSpanner_Operation;
 @class GTLRSpanner_Operation_Metadata;
@@ -51,16 +70,22 @@
 @class GTLRSpanner_PlanNode_ExecutionStats;
 @class GTLRSpanner_PlanNode_Metadata;
 @class GTLRSpanner_Policy;
+@class GTLRSpanner_PrefixNode;
 @class GTLRSpanner_QueryOptions;
 @class GTLRSpanner_QueryPlan;
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
 @class GTLRSpanner_ReplicaInfo;
+@class GTLRSpanner_RequestOptions;
+@class GTLRSpanner_RestoreDatabaseEncryptionConfig;
 @class GTLRSpanner_RestoreInfo;
 @class GTLRSpanner_ResultSet;
 @class GTLRSpanner_ResultSetMetadata;
 @class GTLRSpanner_ResultSetStats;
 @class GTLRSpanner_ResultSetStats_QueryStats;
+@class GTLRSpanner_Scan;
+@class GTLRSpanner_Scan_Details;
+@class GTLRSpanner_ScanData;
 @class GTLRSpanner_Session;
 @class GTLRSpanner_Session_Labels;
 @class GTLRSpanner_ShortRepresentation;
@@ -75,6 +100,7 @@
 @class GTLRSpanner_TransactionOptions;
 @class GTLRSpanner_TransactionSelector;
 @class GTLRSpanner_Type;
+@class GTLRSpanner_VisualizationData;
 @class GTLRSpanner_Write;
 
 // Generated comments include content from the discovery document; avoid them
@@ -111,6 +137,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_ContextValue.severity
+
+/**
+ *  Severity level signaling an error "Error"
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Error;
+/**
+ *  Severity level signaling a non recoverable error "Fatal"
+ *
+ *  Value: "FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Fatal;
+/**
+ *  Lowest severity level "Info".
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Info;
+/**
+ *  Required default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUnspecified;
+/**
+ *  Middle severity level "Warning".
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Database.state
 
 /**
@@ -143,6 +203,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_ReadyOptimizing;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_DiagnosticMessage.severity
+
+/**
+ *  Severity level signaling an error "Error"
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Error;
+/**
+ *  Severity level signaling a non recoverable error "Fatal"
+ *
+ *  Value: "FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Fatal;
+/**
+ *  Lowest severity level "Info".
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Info;
+/**
+ *  Required default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_SeverityUnspecified;
+/**
+ *  Middle severity level "Warning".
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_EncryptionInfo.encryptionType
+
+/**
+ *  The data is encrypted at rest with a key that is managed by the customer.
+ *  The active version of the key. `kms_key_version` will be populated, and
+ *  `encryption_status` may be populated.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption;
+/**
+ *  The data is encrypted at rest with a key that is fully managed by Google. No
+ *  key version or status will be populated. This is the default state.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  Encryption type was not specified, though data at rest remains encrypted.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ExecuteSqlRequest.queryMode
@@ -191,6 +310,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Metric.aggregation
+
+/**
+ *  Required default value.
+ *
+ *  Value: "AGGREGATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified;
+/**
+ *  Use the maximum of all values.
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_Max;
+/**
+ *  Use the sum of all values.
+ *
+ *  Value: "SUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_PlanNode.kind
@@ -254,6 +395,63 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified
  *  Value: "WITNESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_RequestOptions.priority
+
+/**
+ *  This specifies that the request is high priority.
+ *
+ *  Value: "PRIORITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityHigh;
+/**
+ *  This specifies that the request is low priority.
+ *
+ *  Value: "PRIORITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityLow;
+/**
+ *  This specifies that the request is medium priority.
+ *
+ *  Value: "PRIORITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityMedium;
+/**
+ *  `PRIORITY_UNSPECIFIED` is equivalent to `PRIORITY_HIGH`.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_RestoreDatabaseEncryptionConfig.encryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must must
+ *  contain a valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  This is the default option when encryption_config is not specified.
+ *
+ *  Value: "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_RestoreDatabaseMetadata.sourceType
@@ -328,6 +526,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
 /**
+ *  Encoded as a JSON-formatted `string` as described in RFC 7159. The following
+ *  rules are applied when parsing JSON input: - Whitespace characters are not
+ *  preserved. - If a JSON object has duplicate keys, only the first key is
+ *  preserved. - Members of a JSON object are not guaranteed to have their order
+ *  preserved. - JSON array elements will have their order preserved.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Json;
+/**
  *  Encoded as `string`, in decimal format or scientific notation format.
  *  Decimal format: `[+-]Digits[.[Digits]]` or `+-.Digits` Scientific notation:
  *  `[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits]` or
@@ -367,15 +575,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRSpanner_VisualizationData.keyUnit
+
+/**
+ *  Each entry corresponds to a chunk of keys
+ *
+ *  Value: "CHUNK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk;
+/**
+ *  Each entry corresponds to one key
+ *
+ *  Value: "KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key;
+/**
+ *  Required default value
+ *
+ *  Value: "KEY_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified;
+
 /**
  *  A backup of a Cloud Spanner database.
  */
 @interface GTLRSpanner_Backup : GTLRObject
 
 /**
- *  Output only. The backup will contain an externally consistent copy of the
- *  database at the timestamp specified by `create_time`. `create_time` is
- *  approximately the time the CreateBackup request is received.
+ *  Output only. The time the CreateBackup request is received. If the request
+ *  does not specify `version_time`, the `version_time` of the backup will be
+ *  equivalent to the `create_time`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -385,6 +615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  backup. Values are of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/** Output only. The encryption information for the backup. */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionInfo *encryptionInfo;
 
 /**
  *  Required for the CreateBackup operation. The expiration time of the backup,
@@ -437,6 +670,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  The backup will contain an externally consistent copy of the database at the
+ *  timestamp specified by `version_time`. If `version_time` is not specified,
+ *  the system will set `version_time` to the `create_time` of the backup.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionTime;
+
 @end
 
 
@@ -448,14 +688,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /** Name of the backup. */
 @property(nonatomic, copy, nullable) NSString *backup;
 
-/**
- *  The backup contains an externally consistent copy of `source_database` at
- *  the timestamp specified by `create_time`.
- */
+/** The time the CreateBackup request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Name of the database the backup was created from. */
 @property(nonatomic, copy, nullable) NSString *sourceDatabase;
+
+/**
+ *  The backup contains an externally consistent copy of `source_database` at
+ *  the timestamp specified by `version_time`. If the CreateBackup request did
+ *  not specify `version_time`, the `version_time` of the backup is equivalent
+ *  to the `create_time`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionTime;
 
 @end
 
@@ -499,6 +744,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** Required. Options for the new transaction. */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionOptions *options;
+
+/**
+ *  Common options for this request. Priority is ignored for this request.
+ *  Setting the priority in this request_options struct will not do anything. To
+ *  set the priority for a transaction, set it on the reads and writes that are
+ *  part of this transaction instead.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 @end
 
@@ -606,6 +859,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Mutation *> *mutations;
 
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
+/**
+ *  If `true`, then statistics related to the transaction will be included in
+ *  the CommitResponse. Default value is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnCommitStats;
+
 /**
  *  Execute mutations in a temporary transaction. Note that unlike commit of a
  *  previously-started transaction, commit with a temporary transaction is
@@ -632,8 +896,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_CommitResponse : GTLRObject
 
+/**
+ *  The statistics about this Commit. Not returned by default. For more
+ *  information, see CommitRequest.return_commit_stats.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_CommitStats *commitStats;
+
 /** The Cloud Spanner timestamp at which the transaction committed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTimestamp;
+
+@end
+
+
+/**
+ *  Additional statistics about a commit.
+ */
+@interface GTLRSpanner_CommitStats : GTLRObject
+
+/**
+ *  The total number of mutations for the transaction. Knowing the
+ *  `mutation_count` value can help you maximize the number of mutations in a
+ *  transaction and minimize the number of API round trips. You can also monitor
+ *  this value to prevent transactions from exceeding the system
+ *  [limit](https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data).
+ *  If the number of mutations exceeds the limit, the server returns
+ *  [INVALID_ARGUMENT](https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mutationCount;
+
+@end
+
+
+/**
+ *  A message representing context for a KeyRangeInfo, including a label, value,
+ *  unit, and severity.
+ */
+@interface GTLRSpanner_ContextValue : GTLRObject
+
+/** The label for the context value. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *label;
+
+/**
+ *  The severity of this context.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Error Severity level signaling
+ *        an error "Error" (Value: "ERROR")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Fatal Severity level signaling
+ *        a non recoverable error "Fatal" (Value: "FATAL")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Info Lowest severity level
+ *        "Info". (Value: "INFO")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_SeverityUnspecified Required
+ *        default value. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Warning Middle severity level
+ *        "Warning". (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** The unit of the context value. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  The value for the context.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -692,6 +1022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  enclosed in backticks (`` ` ``).
  */
 @property(nonatomic, copy, nullable) NSString *createStatement;
+
+/**
+ *  Optional. The encryption configuration for the database. If this field is
+ *  not specified, Cloud Spanner will encrypt/decrypt all data at rest using
+ *  Google default encryption.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionConfig *encryptionConfig;
 
 /**
  *  Optional. A list of DDL statements to run inside the newly created database.
@@ -770,6 +1107,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The read-write region which contains the database's leader
+ *  replicas. This is the same as the value of default_leader database option
+ *  set using DatabaseAdmin.CreateDatabase or DatabaseAdmin.UpdateDatabaseDdl.
+ *  If not explicitly set, this is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLeader;
+
+/**
+ *  Output only. Earliest timestamp at which older versions of the data can be
+ *  read. This value is continuously updated by Cloud Spanner and becomes stale
+ *  the moment it is queried. If you are using this value to recover data, make
+ *  sure to account for the time from the moment when the value is queried to
+ *  the moment when you initiate the recovery.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
+
+/**
+ *  Output only. For databases that are using customer managed encryption, this
+ *  field contains the encryption configuration for the database. For databases
+ *  that are using Google default or other types of encryption, this field is
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionConfig *encryptionConfig;
+
+/**
+ *  Output only. For databases that are using customer managed encryption, this
+ *  field contains the encryption information for the database, such as
+ *  encryption state and the Cloud KMS key versions that are in use. For
+ *  databases that are using Google default or other types of encryption, this
+ *  field is empty. This field is propagated lazily from the backend. There
+ *  might be a delay from when a key version is being used and when it appears
+ *  in this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_EncryptionInfo *> *encryptionInfo;
+
+/**
  *  Required. The name of the database. Values are of the form
  *  `projects//instances//databases/`, where `` is as specified in the `CREATE
  *  DATABASE` statement. This name can be passed to other API methods to
@@ -804,6 +1177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Output only. The period in which Cloud Spanner retains all versions of data
+ *  for the database. This is the same as the value of version_retention_period
+ *  database option set using UpdateDatabaseDdl. Defaults to 1 hour, if not set.
+ */
+@property(nonatomic, copy, nullable) NSString *versionRetentionPeriod;
+
 @end
 
 
@@ -828,6 +1208,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  A message representing a derived metric.
+ */
+@interface GTLRSpanner_DerivedMetric : GTLRObject
+
+/** The name of the denominator metric. e.g. "rows". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *denominator;
+
+/** The name of the numerator metric. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *numerator;
+
+@end
+
+
+/**
+ *  A message representing the key visualizer diagnostic messages.
+ */
+@interface GTLRSpanner_DiagnosticMessage : GTLRObject
+
+/** Information about this diagnostic information. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/** The metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *metric;
+
+/**
+ *  Whether this message is specific only for the current metric. By default
+ *  Diagnostics are shown for all metrics, regardless which metric is the
+ *  currently selected metric in the UI. However occasionally a metric will
+ *  generate so many messages that the resulting visual clutter becomes
+ *  overwhelming. In this case setting this to true, will show the diagnostic
+ *  messages for that metric only if it is the currently selected metric.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metricSpecific;
+
+/**
+ *  The severity of the diagnostic message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Error Severity level
+ *        signaling an error "Error" (Value: "ERROR")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Fatal Severity level
+ *        signaling a non recoverable error "Fatal" (Value: "FATAL")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Info Lowest severity level
+ *        "Info". (Value: "INFO")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_SeverityUnspecified
+ *        Required default value. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Warning Middle severity
+ *        level "Warning". (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** The short message. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *shortMessage;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -839,9 +1279,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Encryption configuration for a Cloud Spanner database.
+ */
+@interface GTLRSpanner_EncryptionConfig : GTLRObject
+
+/**
+ *  The Cloud KMS key to be used for encrypting and decrypting the database.
+ *  Values are of the form `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Encryption information for a Cloud Spanner database or backup.
+ */
+@interface GTLRSpanner_EncryptionInfo : GTLRObject
+
+/**
+ *  Output only. If present, the status of a recent encrypt/decrypt call on
+ *  underlying data for this database or backup. Regardless of status, data is
+ *  always encrypted at rest.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Status *encryptionStatus;
+
+/**
+ *  Output only. The type of encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption
+ *        The data is encrypted at rest with a key that is managed by the
+ *        customer. The active version of the key. `kms_key_version` will be
+ *        populated, and `encryption_status` may be populated. (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_GoogleDefaultEncryption
+ *        The data is encrypted at rest with a key that is fully managed by
+ *        Google. No key version or status will be populated. This is the
+ *        default state. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified
+ *        Encryption type was not specified, though data at rest remains
+ *        encrypted. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Output only. A Cloud KMS key version that is being used to protect the
+ *  database or backup.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
+@end
+
+
+/**
  *  The request for ExecuteBatchDml.
  */
 @interface GTLRSpanner_ExecuteBatchDmlRequest : GTLRObject
+
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 /**
  *  Required. A per-transaction sequence number used to identify this request.
@@ -971,6 +1468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** Query optimizer configuration to use for the given query. */
 @property(nonatomic, strong, nullable) GTLRSpanner_QueryOptions *queryOptions;
+
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 /**
  *  If this request is resuming a previously interrupted SQL statement
@@ -1170,6 +1670,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  A message representing a (sparse) collection of hot keys for specific key
+ *  buckets.
+ */
+@interface GTLRSpanner_IndexedHotKey : GTLRObject
+
+/**
+ *  A (sparse) mapping from key bucket index to the index of the specific hot
+ *  row key for that key bucket. The index of the hot row key can be translated
+ *  to the actual row key via the ScanData.VisualizationData.indexed_keys
+ *  repeated field.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_IndexedHotKey_SparseHotKeys *sparseHotKeys;
+
+@end
+
+
+/**
+ *  A (sparse) mapping from key bucket index to the index of the specific hot
+ *  row key for that key bucket. The index of the hot row key can be translated
+ *  to the actual row key via the ScanData.VisualizationData.indexed_keys
+ *  repeated field.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_IndexedHotKey_SparseHotKeys : GTLRObject
+@end
+
+
+/**
+ *  A message representing a (sparse) collection of KeyRangeInfos for specific
+ *  key buckets.
+ */
+@interface GTLRSpanner_IndexedKeyRangeInfos : GTLRObject
+
+/**
+ *  A (sparse) mapping from key bucket index to the KeyRangeInfos for that key
+ *  bucket.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos *keyRangeInfos;
+
+@end
+
+
+/**
+ *  A (sparse) mapping from key bucket index to the KeyRangeInfos for that key
+ *  bucket.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_KeyRangeInfos. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos : GTLRObject
+@end
+
+
+/**
  *  An isolated set of Cloud Spanner resources on which databases can be hosted.
  */
 @interface GTLRSpanner_Instance : GTLRObject
@@ -1198,16 +1758,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  And they can be used as arguments to policy management rules (e.g. route,
  *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
- *  `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values must be between 0 and 63
- *  characters long and must conform to the regular expression
- *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64 labels can be associated
- *  with a given resource. See https://goo.gl/xmQnxf for more information on and
- *  examples of labels. If you plan to use labels in your own code, please note
- *  that additional characters may be allowed in the future. And so you are
- *  advised to use an internal label representation, such as JSON, which doesn't
- *  rely upon specific characters being disallowed. For example, representing
- *  labels as the string: name + "_" + value would prove problematic if we were
- *  to allow "_" in a future release.
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. And so you are advised to use an internal label representation, such
+ *  as JSON, which doesn't rely upon specific characters being disallowed. For
+ *  example, representing labels as the string: name + "_" + value would prove
+ *  problematic if we were to allow "_" in a future release.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance_Labels *labels;
 
@@ -1220,14 +1779,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The number of nodes allocated to this instance. This may be zero in API
- *  responses for instances that are not yet in state `READY`. See [the
- *  documentation](https://cloud.google.com/spanner/docs/instances#node_count)
- *  for more information about nodes.
+ *  The number of nodes allocated to this instance. At most one of either
+ *  node_count or processing_units should be present in the message. This may be
+ *  zero in API responses for instances that are not yet in state `READY`. See
+ *  [the documentation](https://cloud.google.com/spanner/docs/compute-capacity)
+ *  for more information about nodes and processing units.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  The number of processing units allocated to this instance. At most one of
+ *  processing_units or node_count should be present in the message. This may be
+ *  zero in API responses for instances that are not yet in state `READY`. See
+ *  [the documentation](https://cloud.google.com/spanner/docs/compute-capacity)
+ *  for more information about nodes and processing units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processingUnits;
 
 /**
  *  Output only. The current instance state. For CreateInstance, the state must
@@ -1256,16 +1827,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  And they can be used as arguments to policy management rules (e.g. route,
  *  firewall, load balancing, etc.). * Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
- *  `[a-z]([-a-z0-9]*[a-z0-9])?`. * Label values must be between 0 and 63
- *  characters long and must conform to the regular expression
- *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. * No more than 64 labels can be associated
- *  with a given resource. See https://goo.gl/xmQnxf for more information on and
- *  examples of labels. If you plan to use labels in your own code, please note
- *  that additional characters may be allowed in the future. And so you are
- *  advised to use an internal label representation, such as JSON, which doesn't
- *  rely upon specific characters being disallowed. For example, representing
- *  labels as the string: name + "_" + value would prove problematic if we were
- *  to allow "_" in a future release.
+ *  `a-z{0,62}`. * Label values must be between 0 and 63 characters long and
+ *  must conform to the regular expression `[a-z0-9_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. See https://goo.gl/xmQnxf
+ *  for more information on and examples of labels. If you plan to use labels in
+ *  your own code, please note that additional characters may be allowed in the
+ *  future. And so you are advised to use an internal label representation, such
+ *  as JSON, which doesn't rely upon specific characters being disallowed. For
+ *  example, representing labels as the string: name + "_" + value would prove
+ *  problematic if we were to allow "_" in a future release.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1286,8 +1856,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Allowed values of the “default_leader” schema option for databases in
+ *  instances that use this instance configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *leaderOptions;
+
+/**
  *  A unique identifier for the instance configuration. Values are of the form
- *  `projects//instanceConfigs/a-z*`
+ *  `projects//instanceConfigs/a-z*`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1369,6 +1945,81 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *startOpen;
+
+@end
+
+
+/**
+ *  A message representing information for a key range (possibly one key).
+ */
+@interface GTLRSpanner_KeyRangeInfo : GTLRObject
+
+/** The list of context values for this key range. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ContextValue *> *contextValues;
+
+/**
+ *  The index of the end key in indexed_keys.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endKeyIndex;
+
+/** Information about this key range, for all metrics. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/**
+ *  The number of keys this range covers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keysCount;
+
+/** The name of the metric. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *metric;
+
+/**
+ *  The index of the start key in indexed_keys.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startKeyIndex;
+
+/** The time offset. This is the time since the start of the time interval. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+/**
+ *  The unit of the metric. This is an unstructured field and will be mapped as
+ *  is to the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *unit;
+
+/**
+ *  The value of the metric.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  A message representing a list of specific information for multiple key
+ *  ranges.
+ */
+@interface GTLRSpanner_KeyRangeInfos : GTLRObject
+
+/** The list individual KeyRangeInfos. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_KeyRangeInfo *> *infos;
+
+/**
+ *  The total size of the list of all KeyRangeInfos. This may be larger than the
+ *  number of repeated messages above. If that is the case, this number may be
+ *  used to determine how many are not being shown.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -1610,6 +2261,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Response method from the ListScans method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scans" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListScansResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Available scans based on the list query parameters.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Scan *> *scans;
+
+@end
+
+
+/**
  *  The response for ListSessions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1632,6 +2310,181 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Session *> *sessions;
+
+@end
+
+
+/**
+ *  A message representing a user-facing string whose value may need to be
+ *  translated before being displayed.
+ */
+@interface GTLRSpanner_LocalizedString : GTLRObject
+
+/**
+ *  A map of arguments used when creating the localized message. Keys represent
+ *  parameter names which may be used by the localized version when substituting
+ *  dynamic values.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString_Args *args;
+
+/**
+ *  The canonical English version of this message. If no token is provided or
+ *  the front-end has no message associated with the token, this text will be
+ *  displayed as-is.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The token identifying the message, e.g. 'METRIC_READ_CPU'. This should be
+ *  unique within the service.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  A map of arguments used when creating the localized message. Keys represent
+ *  parameter names which may be used by the localized version when substituting
+ *  dynamic values.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpanner_LocalizedString_Args : GTLRObject
+@end
+
+
+/**
+ *  A message representing the actual monitoring data, values for each key
+ *  bucket over time, of a metric.
+ */
+@interface GTLRSpanner_Metric : GTLRObject
+
+/**
+ *  The aggregation function used to aggregate each key bucket
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_AggregationUnspecified Required
+ *        default value. (Value: "AGGREGATION_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_Max Use the maximum of all values.
+ *        (Value: "MAX")
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_Sum Use the sum of all values.
+ *        (Value: "SUM")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregation;
+
+/** The category of the metric, e.g. "Activity", "Alerts", "Reads", etc. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *category;
+
+/**
+ *  The references to numerator and denominator metrics for a derived metric.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_DerivedMetric *derived;
+
+/** The displayed label of the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *displayLabel;
+
+/**
+ *  Whether the metric has any non-zero data.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasNonzeroData;
+
+/**
+ *  The value that is considered hot for the metric. On a per metric basis
+ *  hotness signals high utilization and something that might potentially be a
+ *  cause for concern by the end user. hot_value is used to calibrate and scale
+ *  visual color scales.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotValue;
+
+/**
+ *  The (sparse) mapping from time index to an IndexedHotKey message,
+ *  representing those time intervals for which there are hot keys.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Metric_IndexedHotKeys *indexedHotKeys;
+
+/**
+ *  The (sparse) mapping from time interval index to an IndexedKeyRangeInfos
+ *  message, representing those time intervals for which there are informational
+ *  messages concerning key ranges.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Metric_IndexedKeyRangeInfos *indexedKeyRangeInfos;
+
+/** Information about the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/** The data for the metric as a matrix. */
+@property(nonatomic, strong, nullable) GTLRSpanner_MetricMatrix *matrix;
+
+/** The unit of the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *unit;
+
+/**
+ *  Whether the metric is visible to the end user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visible;
+
+@end
+
+
+/**
+ *  The (sparse) mapping from time index to an IndexedHotKey message,
+ *  representing those time intervals for which there are hot keys.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_IndexedHotKey. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Metric_IndexedHotKeys : GTLRObject
+@end
+
+
+/**
+ *  The (sparse) mapping from time interval index to an IndexedKeyRangeInfos
+ *  message, representing those time intervals for which there are informational
+ *  messages concerning key ranges.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_IndexedKeyRangeInfos. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Metric_IndexedKeyRangeInfos : GTLRObject
+@end
+
+
+/**
+ *  A message representing a matrix of floats.
+ */
+@interface GTLRSpanner_MetricMatrix : GTLRObject
+
+/** The rows of the matrix. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_MetricMatrixRow *> *rows;
+
+@end
+
+
+/**
+ *  A message representing a row of a matrix of floats.
+ */
+@interface GTLRSpanner_MetricMatrixRow : GTLRObject
+
+/**
+ *  The columns of the row.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *cols;
 
 @end
 
@@ -2201,7 +3054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -2257,22 +3110,82 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  A message representing a key prefix node in the key prefix hierarchy. for
+ *  eg. Bigtable keyspaces are lexicographically ordered mappings of keys to
+ *  values. Keys often have a shared prefix structure where users use the keys
+ *  to organize data. Eg ///employee In this case Keysight will possibly use one
+ *  node for a company and reuse it for all employees that fall under the
+ *  company. Doing so improves legibility in the UI.
+ */
+@interface GTLRSpanner_PrefixNode : GTLRObject
+
+/**
+ *  Whether this corresponds to a data_source name.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataSourceNode;
+
+/**
+ *  The depth in the prefix hierarchy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/**
+ *  The index of the end key bucket of the range that this node spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  The index of the start key bucket of the range that this node spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+/** The string represented by the prefix node. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
  *  Query optimizer configuration.
  */
 @interface GTLRSpanner_QueryOptions : GTLRObject
 
 /**
+ *  An option to control the selection of optimizer statistics package. This
+ *  parameter allows individual queries to use a different query optimizer
+ *  statistics package. Specifying `latest` as a value instructs Cloud Spanner
+ *  to use the latest generated statistics package. If not specified, Cloud
+ *  Spanner uses the statistics package set at the database level options, or
+ *  the latest package if the database option is not set. The statistics package
+ *  requested by the query has to be exempt from garbage collection. This can be
+ *  achieved with the following DDL statement: ``` ALTER STATISTICS SET OPTIONS
+ *  (allow_gc=false) ``` The list of available statistics packages can be
+ *  queried from `INFORMATION_SCHEMA.SPANNER_STATISTICS`. Executing a SQL
+ *  statement with an invalid optimizer statistics package or with a statistics
+ *  package that allows garbage collection fails with an `INVALID_ARGUMENT`
+ *  error.
+ */
+@property(nonatomic, copy, nullable) NSString *optimizerStatisticsPackage;
+
+/**
  *  An option to control the selection of optimizer version. This parameter
  *  allows individual queries to pick different query optimizer versions.
- *  Specifying "latest" as a value instructs Cloud Spanner to use the latest
- *  supported query optimizer version. If not specified, Cloud Spanner uses
+ *  Specifying `latest` as a value instructs Cloud Spanner to use the latest
+ *  supported query optimizer version. If not specified, Cloud Spanner uses the
  *  optimizer version set at the database level options. Any other positive
  *  integer (from the list of supported optimizer versions) overrides the
  *  default optimizer version for query execution. The list of supported
  *  optimizer versions can be queried from
  *  SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS. Executing a SQL statement with an
- *  invalid optimizer version will fail with a syntax error (`INVALID_ARGUMENT`)
- *  status. See
+ *  invalid optimizer version fails with an `INVALID_ARGUMENT` error. See
  *  https://cloud.google.com/spanner/docs/query-optimizer/manage-query-optimizer
  *  for more information on managing the query optimizer. The
  *  `optimizer_version` statement hint has precedence over this setting.
@@ -2415,6 +3328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *partitionToken;
 
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
 /**
  *  If this request is resuming a previously interrupted read, `resume_token`
  *  should be copied from the last PartialResultSet yielded before the
@@ -2492,6 +3408,89 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Common request options for various APIs.
+ */
+@interface GTLRSpanner_RequestOptions : GTLRObject
+
+/**
+ *  Priority for the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityHigh This specifies
+ *        that the request is high priority. (Value: "PRIORITY_HIGH")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityLow This specifies
+ *        that the request is low priority. (Value: "PRIORITY_LOW")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityMedium This specifies
+ *        that the request is medium priority. (Value: "PRIORITY_MEDIUM")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityUnspecified
+ *        `PRIORITY_UNSPECIFIED` is equivalent to `PRIORITY_HIGH`. (Value:
+ *        "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/**
+ *  A per-request tag which can be applied to queries or reads, used for
+ *  statistics collection. Both request_tag and transaction_tag can be specified
+ *  for a read or query that belongs to a transaction. This field is ignored for
+ *  requests where it's not applicable (e.g. CommitRequest). Legal characters
+ *  for `request_tag` values are all printable characters (ASCII 32 - 126) and
+ *  the length of a request_tag is limited to 50 characters. Values that exceed
+ *  this limit are truncated. Any leading underscore (_) characters will be
+ *  removed from the string.
+ */
+@property(nonatomic, copy, nullable) NSString *requestTag;
+
+/**
+ *  A tag used for statistics collection about this transaction. Both
+ *  request_tag and transaction_tag can be specified for a read or query that
+ *  belongs to a transaction. The value of transaction_tag should be the same
+ *  for all requests belonging to the same transaction. If this request doesn’t
+ *  belong to any transaction, transaction_tag will be ignored. Legal characters
+ *  for `transaction_tag` values are all printable characters (ASCII 32 - 126)
+ *  and the length of a transaction_tag is limited to 50 characters. Values that
+ *  exceed this limit are truncated. Any leading underscore (_) characters will
+ *  be removed from the string.
+ */
+@property(nonatomic, copy, nullable) NSString *transactionTag;
+
+@end
+
+
+/**
+ *  Encryption configuration for the restored database.
+ */
+@interface GTLRSpanner_RestoreDatabaseEncryptionConfig : GTLRObject
+
+/**
+ *  Required. The encryption type of the restored database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        must contain a valid Cloud KMS key. (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_GoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption
+ *        This is the default option when encryption_config is not specified.
+ *        (Value: "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to encrypt/decrypt the
+ *  restored database. This field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  Metadata type for the long-running operation returned by RestoreDatabase.
  */
 @interface GTLRSpanner_RestoreDatabaseMetadata : GTLRObject
@@ -2562,6 +3561,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  full database name of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. An encryption configuration describing the encryption type and key
+ *  resources in Cloud KMS used to encrypt/decrypt the database to restore to.
+ *  If this field is not specified, the restored database will use the same
+ *  encryption configuration as the backup by default, namely encryption_type =
+ *  `USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION`.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_RestoreDatabaseEncryptionConfig *encryptionConfig;
 
 @end
 
@@ -2704,6 +3712,75 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *transactionId;
+
+@end
+
+
+/**
+ *  Scan is a structure which describes Cloud Key Visualizer scan information.
+ */
+@interface GTLRSpanner_Scan : GTLRObject
+
+/** Additional information provided by the implementer. */
+@property(nonatomic, strong, nullable) GTLRSpanner_Scan_Details *details;
+
+/** The upper bound for when the scan is defined. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name of the scan, specific to the Database service implementing
+ *  this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Cloud Key Visualizer scan data. Note, this field is not
+ *  available to the ListScans method.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_ScanData *scanData;
+
+/**
+ *  A range of time (inclusive) for when the scan is defined. The lower bound
+ *  for when the scan is defined.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Additional information provided by the implementer.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Scan_Details : GTLRObject
+@end
+
+
+/**
+ *  ScanData contains Cloud Key Visualizer scan data used by the caller to
+ *  construct a visualization.
+ */
+@interface GTLRSpanner_ScanData : GTLRObject
+
+/**
+ *  Cloud Key Visualizer scan data. The range of time this information covers is
+ *  captured via the above time range fields. Note, this field is not available
+ *  to the ListScans method.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_VisualizationData *data;
+
+/** The upper bound for when the contained data is defined. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  A range of time (inclusive) for when the contained data is defined. The
+ *  lower bound for when the contained data is defined.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -2997,67 +4074,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
- *  # Transactions Each session can have at most one active transaction at a
- *  time (note that standalone reads and queries use a transaction internally
- *  and do count towards the one transaction limit). After the active
- *  transaction is completed, the session can immediately be re-used for the
- *  next transaction. It is not necessary to create a new session for each
- *  transaction. # Transaction Modes Cloud Spanner supports three transaction
- *  modes: 1. Locking read-write. This type of transaction is the only way to
- *  write data into Cloud Spanner. These transactions rely on pessimistic
- *  locking and, if necessary, two-phase commit. Locking read-write transactions
- *  may abort, requiring the application to retry. 2. Snapshot read-only. This
- *  transaction type provides guaranteed consistency across several reads, but
- *  does not allow writes. Snapshot read-only transactions can be configured to
- *  read at timestamps in the past. Snapshot read-only transactions do not need
- *  to be committed. 3. Partitioned DML. This type of transaction is used to
- *  execute a single Partitioned DML statement. Partitioned DML partitions the
- *  key space and runs the DML statement over each partition in parallel using
- *  separate, internal transactions that commit independently. Partitioned DML
+ *  Transactions: Each session can have at most one active transaction at a time
+ *  (note that standalone reads and queries use a transaction internally and do
+ *  count towards the one transaction limit). After the active transaction is
+ *  completed, the session can immediately be re-used for the next transaction.
+ *  It is not necessary to create a new session for each transaction.
+ *  Transaction Modes: Cloud Spanner supports three transaction modes: 1.
+ *  Locking read-write. This type of transaction is the only way to write data
+ *  into Cloud Spanner. These transactions rely on pessimistic locking and, if
+ *  necessary, two-phase commit. Locking read-write transactions may abort,
+ *  requiring the application to retry. 2. Snapshot read-only. This transaction
+ *  type provides guaranteed consistency across several reads, but does not
+ *  allow writes. Snapshot read-only transactions can be configured to read at
+ *  timestamps in the past. Snapshot read-only transactions do not need to be
+ *  committed. 3. Partitioned DML. This type of transaction is used to execute a
+ *  single Partitioned DML statement. Partitioned DML partitions the key space
+ *  and runs the DML statement over each partition in parallel using separate,
+ *  internal transactions that commit independently. Partitioned DML
  *  transactions do not need to be committed. For transactions that only read,
  *  snapshot read-only transactions provide simpler semantics and are almost
  *  always faster. In particular, read-only transactions do not take locks, so
  *  they do not conflict with read-write transactions. As a consequence of not
  *  taking locks, they also do not abort, so retry loops are not needed.
  *  Transactions may only read/write data in a single database. They may,
- *  however, read/write data in different tables within that database. ##
- *  Locking Read-Write Transactions Locking transactions may be used to
- *  atomically read-modify-write data anywhere in a database. This type of
- *  transaction is externally consistent. Clients should attempt to minimize the
- *  amount of time a transaction is active. Faster transactions commit with
- *  higher probability and cause less contention. Cloud Spanner attempts to keep
- *  read locks active as long as the transaction continues to do reads, and the
- *  transaction has not been terminated by Commit or Rollback. Long periods of
- *  inactivity at the client may cause Cloud Spanner to release a transaction's
- *  locks and abort it. Conceptually, a read-write transaction consists of zero
- *  or more reads or SQL statements followed by Commit. At any time before
- *  Commit, the client can send a Rollback request to abort the transaction. ###
- *  Semantics Cloud Spanner can commit the transaction if all read locks it
- *  acquired are still valid at commit time, and it is able to acquire write
- *  locks for all writes. Cloud Spanner can abort the transaction for any
- *  reason. If a commit attempt returns `ABORTED`, Cloud Spanner guarantees that
- *  the transaction has not modified any user data in Cloud Spanner. Unless the
- *  transaction commits, Cloud Spanner makes no guarantees about how long the
- *  transaction's locks were held for. It is an error to use Cloud Spanner locks
- *  for any sort of mutual exclusion other than between Cloud Spanner
- *  transactions themselves. ### Retrying Aborted Transactions When a
- *  transaction aborts, the application can choose to retry the whole
- *  transaction again. To maximize the chances of successfully committing the
- *  retry, the client should execute the retry in the same session as the
- *  original attempt. The original session's lock priority increases with each
- *  consecutive abort, meaning that each attempt has a slightly better chance of
- *  success than the previous. Under some circumstances (e.g., many transactions
- *  attempting to modify the same row(s)), a transaction can abort many times in
- *  a short period before successfully committing. Thus, it is not a good idea
- *  to cap the number of retries a transaction can attempt; instead, it is
- *  better to limit the total amount of wall time spent retrying. ### Idle
- *  Transactions A transaction is considered idle if it has no outstanding reads
- *  or SQL queries and has not started a read or SQL query within the last 10
- *  seconds. Idle transactions can be aborted by Cloud Spanner so that they
- *  don't hold on to locks indefinitely. In that case, the commit will fail with
+ *  however, read/write data in different tables within that database. Locking
+ *  Read-Write Transactions: Locking transactions may be used to atomically
+ *  read-modify-write data anywhere in a database. This type of transaction is
+ *  externally consistent. Clients should attempt to minimize the amount of time
+ *  a transaction is active. Faster transactions commit with higher probability
+ *  and cause less contention. Cloud Spanner attempts to keep read locks active
+ *  as long as the transaction continues to do reads, and the transaction has
+ *  not been terminated by Commit or Rollback. Long periods of inactivity at the
+ *  client may cause Cloud Spanner to release a transaction's locks and abort
+ *  it. Conceptually, a read-write transaction consists of zero or more reads or
+ *  SQL statements followed by Commit. At any time before Commit, the client can
+ *  send a Rollback request to abort the transaction. Semantics: Cloud Spanner
+ *  can commit the transaction if all read locks it acquired are still valid at
+ *  commit time, and it is able to acquire write locks for all writes. Cloud
+ *  Spanner can abort the transaction for any reason. If a commit attempt
+ *  returns `ABORTED`, Cloud Spanner guarantees that the transaction has not
+ *  modified any user data in Cloud Spanner. Unless the transaction commits,
+ *  Cloud Spanner makes no guarantees about how long the transaction's locks
+ *  were held for. It is an error to use Cloud Spanner locks for any sort of
+ *  mutual exclusion other than between Cloud Spanner transactions themselves.
+ *  Retrying Aborted Transactions: When a transaction aborts, the application
+ *  can choose to retry the whole transaction again. To maximize the chances of
+ *  successfully committing the retry, the client should execute the retry in
+ *  the same session as the original attempt. The original session's lock
+ *  priority increases with each consecutive abort, meaning that each attempt
+ *  has a slightly better chance of success than the previous. Under some
+ *  circumstances (for example, many transactions attempting to modify the same
+ *  row(s)), a transaction can abort many times in a short period before
+ *  successfully committing. Thus, it is not a good idea to cap the number of
+ *  retries a transaction can attempt; instead, it is better to limit the total
+ *  amount of time spent retrying. Idle Transactions: A transaction is
+ *  considered idle if it has no outstanding reads or SQL queries and has not
+ *  started a read or SQL query within the last 10 seconds. Idle transactions
+ *  can be aborted by Cloud Spanner so that they don't hold on to locks
+ *  indefinitely. If an idle transaction is aborted, the commit will fail with
  *  error `ABORTED`. If this behavior is undesirable, periodically executing a
- *  simple SQL query in the transaction (e.g., `SELECT 1`) prevents the
- *  transaction from becoming idle. ## Snapshot Read-Only Transactions Snapshot
+ *  simple SQL query in the transaction (for example, `SELECT 1`) prevents the
+ *  transaction from becoming idle. Snapshot Read-Only Transactions: Snapshot
  *  read-only transactions provides a simpler method than locking read-write
  *  transactions for doing several consistent reads. However, this type of
  *  transaction does not support writes. Snapshot transactions do not take
@@ -3075,7 +4152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Cloud Spanner database to be read is geographically distributed, stale
  *  read-only transactions can execute more quickly than strong or read-write
  *  transaction, because they are able to execute far from the leader replica.
- *  Each type of timestamp bound is discussed in detail below. ### Strong Strong
+ *  Each type of timestamp bound is discussed in detail below. Strong: Strong
  *  reads are guaranteed to see the effects of all transactions that have
  *  committed before the start of the read. Furthermore, all rows yielded by a
  *  single read are consistent with each other -- if any part of the read
@@ -3084,21 +4161,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  might return inconsistent results if there are concurrent writes. If
  *  consistency across reads is required, the reads should be executed within a
  *  transaction or at an exact read timestamp. See
- *  TransactionOptions.ReadOnly.strong. ### Exact Staleness These timestamp
- *  bounds execute reads at a user-specified timestamp. Reads at a timestamp are
+ *  TransactionOptions.ReadOnly.strong. Exact Staleness: These timestamp bounds
+ *  execute reads at a user-specified timestamp. Reads at a timestamp are
  *  guaranteed to see a consistent prefix of the global transaction history:
  *  they observe modifications done by all transactions with a commit timestamp
- *  <= the read timestamp, and observe none of the modifications done by
- *  transactions with a larger commit timestamp. They will block until all
- *  conflicting transactions that may be assigned commit timestamps <= the read
- *  timestamp have finished. The timestamp can either be expressed as an
- *  absolute Cloud Spanner commit timestamp or a staleness relative to the
- *  current time. These modes do not require a "negotiation phase" to pick a
- *  timestamp. As a result, they execute slightly faster than the equivalent
- *  boundedly stale concurrency modes. On the other hand, boundedly stale reads
- *  usually return fresher results. See
+ *  less than or equal to the read timestamp, and observe none of the
+ *  modifications done by transactions with a larger commit timestamp. They will
+ *  block until all conflicting transactions that may be assigned commit
+ *  timestamps <= the read timestamp have finished. The timestamp can either be
+ *  expressed as an absolute Cloud Spanner commit timestamp or a staleness
+ *  relative to the current time. These modes do not require a "negotiation
+ *  phase" to pick a timestamp. As a result, they execute slightly faster than
+ *  the equivalent boundedly stale concurrency modes. On the other hand,
+ *  boundedly stale reads usually return fresher results. See
  *  TransactionOptions.ReadOnly.read_timestamp and
- *  TransactionOptions.ReadOnly.exact_staleness. ### Bounded Staleness Bounded
+ *  TransactionOptions.ReadOnly.exact_staleness. Bounded Staleness: Bounded
  *  staleness modes allow Cloud Spanner to pick the read timestamp, subject to a
  *  user-provided staleness bound. Cloud Spanner chooses the newest timestamp
  *  within the staleness bound that allows execution of the reads at the closest
@@ -3116,15 +4193,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Because the timestamp negotiation requires up-front knowledge of which rows
  *  will be read, it can only be used with single-use read-only transactions.
  *  See TransactionOptions.ReadOnly.max_staleness and
- *  TransactionOptions.ReadOnly.min_read_timestamp. ### Old Read Timestamps and
- *  Garbage Collection Cloud Spanner continuously garbage collects deleted and
+ *  TransactionOptions.ReadOnly.min_read_timestamp. Old Read Timestamps and
+ *  Garbage Collection: Cloud Spanner continuously garbage collects deleted and
  *  overwritten data in the background to reclaim storage space. This process is
  *  known as "version GC". By default, version GC reclaims versions after they
  *  are one hour old. Because of this, Cloud Spanner cannot perform reads at
  *  read timestamps more than one hour in the past. This restriction also
  *  applies to in-progress reads and/or SQL queries whose timestamp become too
  *  old while executing. Reads and SQL queries with too-old read timestamps fail
- *  with the error `FAILED_PRECONDITION`. ## Partitioned DML Transactions
+ *  with the error `FAILED_PRECONDITION`. Partitioned DML Transactions:
  *  Partitioned DML transactions are used to execute DML statements with a
  *  different execution strategy that provides different, and often better,
  *  scalability properties for large, table-wide operations than DML in a
@@ -3251,6 +4328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal
  *        format. (Value: "INT64")
+ *    @arg @c kGTLRSpanner_Type_Code_Json Encoded as a JSON-formatted `string`
+ *        as described in RFC 7159. The following rules are applied when parsing
+ *        JSON input: - Whitespace characters are not preserved. - If a JSON
+ *        object has duplicate keys, only the first key is preserved. - Members
+ *        of a JSON object are not guaranteed to have their order preserved. -
+ *        JSON array elements will have their order preserved. (Value: "JSON")
  *    @arg @c kGTLRSpanner_Type_Code_Numeric Encoded as `string`, in decimal
  *        format or scientific notation format. Decimal format:
  *        `[+-]Digits[.[Digits]]` or `+-.Digits` Scientific notation:
@@ -3297,6 +4380,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** The database being modified. */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  The progress of the UpdateDatabaseDdl operations. Currently, only index
+ *  creation statements will have a continuously updating progress. For
+ *  non-index creation statements, `progress[i]` will have start time and end
+ *  time populated with commit timestamp of operation, as well as a progress of
+ *  100% once the operation has completed. `progress[i]` is the operation
+ *  progress for `statements[i]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_OperationProgress *> *progress;
 
 /**
  *  For an update this list contains all the statements. For an individual
@@ -3396,6 +4489,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  name. Otherwise, only fields mentioned in field_mask need be included.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance *instance;
+
+@end
+
+
+/**
+ *  GTLRSpanner_VisualizationData
+ */
+@interface GTLRSpanner_VisualizationData : GTLRObject
+
+/** The token signifying the end of a data_source. */
+@property(nonatomic, copy, nullable) NSString *dataSourceEndToken;
+
+/**
+ *  The token delimiting a datasource name from the rest of a key in a
+ *  data_source.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSourceSeparatorToken;
+
+/** The list of messages (info, alerts, ...) */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_DiagnosticMessage *> *diagnosticMessages;
+
+/**
+ *  We discretize the entire keyspace into buckets. Assuming each bucket has an
+ *  inclusive keyrange and covers keys from k(i) ... k(n). In this case k(n)
+ *  would be an end key for a given range. end_key_string is the collection of
+ *  all such end keys
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *endKeyStrings;
+
+/**
+ *  Whether this scan contains PII.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPii;
+
+/**
+ *  Keys of key ranges that contribute significantly to a given metric Can be
+ *  thought of as heavy hitters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *indexedKeys;
+
+/** The token delimiting the key prefixes. */
+@property(nonatomic, copy, nullable) NSString *keySeparator;
+
+/**
+ *  The unit for the key: e.g. 'key' or 'chunk'.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_Chunk Each entry
+ *        corresponds to a chunk of keys (Value: "CHUNK")
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_Key Each entry corresponds
+ *        to one key (Value: "KEY")
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified Required
+ *        default value (Value: "KEY_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyUnit;
+
+/** The list of data objects for each metric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Metric *> *metrics;
+
+/**
+ *  The list of extracted key prefix nodes used in the key prefix hierarchy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_PrefixNode *> *prefixNodes;
 
 @end
 

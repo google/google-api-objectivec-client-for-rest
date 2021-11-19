@@ -89,6 +89,7 @@
 @class GTLRYouTube_LiveBroadcastStatus;
 @class GTLRYouTube_LiveChatBanSnippet;
 @class GTLRYouTube_LiveChatFanFundingEventDetails;
+@class GTLRYouTube_LiveChatMemberMilestoneChatDetails;
 @class GTLRYouTube_LiveChatMessage;
 @class GTLRYouTube_LiveChatMessageAuthorDetails;
 @class GTLRYouTube_LiveChatMessageDeletedDetails;
@@ -96,6 +97,7 @@
 @class GTLRYouTube_LiveChatMessageSnippet;
 @class GTLRYouTube_LiveChatModerator;
 @class GTLRYouTube_LiveChatModeratorSnippet;
+@class GTLRYouTube_LiveChatNewSponsorDetails;
 @class GTLRYouTube_LiveChatSuperChatDetails;
 @class GTLRYouTube_LiveChatSuperStickerDetails;
 @class GTLRYouTube_LiveChatTextMessageDetails;
@@ -215,8 +217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Typ
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus;
 /** Value: "twitter" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter;
-/** Value: "typeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified;
+/** Value: "unspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ActivitySnippet.type
@@ -355,8 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_Vert
 
 /** Value: "allPlaylists" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists;
-/** Value: "channelsectionTypeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified;
+/** Value: "channelsectionTypeUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined;
 /** Value: "completedEvents" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents;
 /** Value: "likedPlaylists" */
@@ -3720,6 +3722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_Chat
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
 /** Value: "invalidType" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType;
+/** Value: "memberMilestoneChatEvent" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent;
 /** Value: "messageDeletedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent;
 /** Value: "messageRetractedEvent" */
@@ -4857,8 +4861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        "googlePlus"
  *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter Value
  *        "twitter"
- *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified
- *        Value "typeUnspecified"
+ *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified Value
+ *        "unspecified"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5788,8 +5792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  Likely values:
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists Value
  *        "allPlaylists"
- *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified
- *        Value "channelsectionTypeUnspecified"
+ *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined
+ *        Value "channelsectionTypeUndefined"
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents Value
  *        "completedEvents"
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists Value
@@ -8657,10 +8661,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
-/** The date and time that the broadcast is scheduled to start. */
+/** The date and time that the broadcast is scheduled to end. */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
-/** The date and time that the broadcast is scheduled to end. */
+/** The date and time that the broadcast is scheduled to start. */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 /**
@@ -8892,6 +8896,36 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  GTLRYouTube_LiveChatMemberMilestoneChatDetails
+ */
+@interface GTLRYouTube_LiveChatMemberMilestoneChatDetails : GTLRObject
+
+/**
+ *  The name of the Level at which the viever is a member. The Level names are
+ *  defined by the YouTube channel offering the Membership. In some situations
+ *  this field isn't filled.
+ */
+@property(nonatomic, copy, nullable) NSString *memberLevelName;
+
+/**
+ *  The total amount of months (rounded up) the viewer has been a member that
+ *  granted them this Member Milestone Chat. This is the same number of months
+ *  as is being displayed to YouTube users.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memberMonth;
+
+/**
+ *  The comment added by the member to this Member Milestone Chat. This field is
+ *  empty for messages without a comment from the member.
+ */
+@property(nonatomic, copy, nullable) NSString *userComment;
+
+@end
+
+
+/**
  *  A *liveChatMessage* resource represents a chat message in a YouTube Live
  *  Chat.
  */
@@ -9047,7 +9081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  GTLRYouTube_LiveChatMessageSnippet
+ *  Next ID: 31
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9055,10 +9089,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The ID of the user that authored this message, this field is not always
  *  filled. textMessageEvent - the user that wrote the message fanFundingEvent -
  *  the user that funded the broadcast newSponsorEvent - the user that just
- *  became a sponsor messageDeletedEvent - the moderator that took the action
+ *  became a sponsor memberMilestoneChatEvent - the member that sent the message
+ *  messageDeletedEvent - the moderator that took the action
  *  messageRetractedEvent - the author that retracted their message
  *  userBannedEvent - the moderator that took the action superChatEvent - the
- *  user that made the purchase
+ *  user that made the purchase superStickerEvent - the user that made the
+ *  purchase
  */
 @property(nonatomic, copy, nullable) NSString *authorChannelId;
 
@@ -9083,8 +9119,22 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) NSNumber *hasDisplayContent;
 
 @property(nonatomic, copy, nullable) NSString *liveChatId;
+
+/**
+ *  Details about the Member Milestone Chat event, this is only set if the type
+ *  is 'memberMilestoneChatEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMemberMilestoneChatDetails *memberMilestoneChatDetails;
+
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
+
+/**
+ *  Details about the New Member Announcement event, this is only set if the
+ *  type is 'newSponsorEvent'. Please note that "member" is the new term for
+ *  "sponsor".
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatNewSponsorDetails *newSponsorDetails NS_RETURNS_NOT_RETAINED;
 
 /** The date and time when the message was orignally published. */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
@@ -9118,6 +9168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        "fanFundingEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType Value
  *        "invalidType"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent
+ *        Value "memberMilestoneChatEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageDeletedEvent Value
  *        "messageDeletedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_MessageRetractedEvent
@@ -9238,6 +9290,29 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** Details about the moderator. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *moderatorDetails;
+
+@end
+
+
+/**
+ *  GTLRYouTube_LiveChatNewSponsorDetails
+ */
+@interface GTLRYouTube_LiveChatNewSponsorDetails : GTLRObject
+
+/**
+ *  If the viewer just had upgraded from a lower level. For viewers that were
+ *  not members at the time of purchase, this field is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isUpgrade;
+
+/**
+ *  The name of the Level that the viewer just had joined. The Level names are
+ *  defined by the YouTube channel offering the Membership. In some situations
+ *  this field isn't filled.
+ */
+@property(nonatomic, copy, nullable) NSString *memberLevelName;
 
 @end
 
@@ -10236,7 +10311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  Basic details about a playlist, including title, description and thumbnails.
- *  Basic details of a YouTube Playlist item provided by the author. Next ID: 13
+ *  Basic details of a YouTube Playlist item provided by the author. Next ID: 15
  */
 @interface GTLRYouTube_PlaylistItemSnippet : GTLRObject
 
@@ -10289,6 +10364,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The item's title. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/** Channel id for the channel this video belongs to. */
+@property(nonatomic, copy, nullable) NSString *videoOwnerChannelId;
+
+/** Channel title for the channel this video belongs to. */
+@property(nonatomic, copy, nullable) NSString *videoOwnerChannelTitle;
 
 @end
 
@@ -10435,6 +10516,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  object that contains other information about the thumbnail.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+
+/**
+ *  Note: if the playlist has a custom thumbnail, this field will not be
+ *  populated. The video id selected by the user that will be used as the
+ *  thumbnail of this playlist. This field defaults to the first publicly
+ *  viewable video in the playlist, if: 1. The user has never selected a video
+ *  to be the thumbnail of the playlist. 2. The user selects a video to be the
+ *  thumbnail, and then removes that video from the playlist. 3. The user
+ *  selects a non-owned video to be the thumbnail, but that video becomes
+ *  private, or gets deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailVideoId;
 
 /** The playlist's title. */
 @property(nonatomic, copy, nullable) NSString *title;
@@ -11024,6 +11117,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  GTLRYouTube_TestItem
  */
 @interface GTLRYouTube_TestItem : GTLRObject
+
+/**
+ *  featuredPart
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *featuredPart;
 
 /**
  *  gaia
@@ -11948,6 +12048,40 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  GTLRYouTube_VideoGetRatingResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_VideoGetRatingResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  A list of ratings that match the request criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#videoGetRatingResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
  *  GTLRYouTube_VideoListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -12265,40 +12399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The ID that YouTube uses to uniquely identify the video. */
 @property(nonatomic, copy, nullable) NSString *videoId;
-
-@end
-
-
-/**
- *  GTLRYouTube_VideoRatingListResponse
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRYouTube_VideoRatingListResponse : GTLRCollectionObject
-
-/** Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
-
-/**
- *  A list of ratings that match the request criteria.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#videoGetRatingResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 

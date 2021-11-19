@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: acceleratedmobilepageurl.ampUrls.batchGet
  */
 @interface GTLRAcceleratedmobilepageurlQuery_AmpUrlsBatchGet : GTLRAcceleratedmobilepageurlQuery
-// Previous library name was
-//   +[GTLQueryAcceleratedmobilepageurl queryForAmpUrlsBatchGetWithObject:]
 
 /**
  *  Fetches a @c GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsResponse.

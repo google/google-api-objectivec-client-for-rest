@@ -20,11 +20,13 @@
 
 @class GTLRArea120Tables_ColumnDescription;
 @class GTLRArea120Tables_CreateRowRequest;
+@class GTLRArea120Tables_DateDetails;
 @class GTLRArea120Tables_LabeledItem;
 @class GTLRArea120Tables_LookupDetails;
 @class GTLRArea120Tables_RelationshipDetails;
 @class GTLRArea120Tables_Row;
 @class GTLRArea120Tables_Row_Values;
+@class GTLRArea120Tables_SavedView;
 @class GTLRArea120Tables_Table;
 @class GTLRArea120Tables_UpdateRowRequest;
 @class GTLRArea120Tables_Workspace;
@@ -150,6 +152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @property(nonatomic, copy, nullable) NSString *dataType;
 
+/** Optional. Additional details about a date column. */
+@property(nonatomic, strong, nullable) GTLRArea120Tables_DateDetails *dateDetails;
+
 /**
  *  Internal id for a column.
  *
@@ -173,8 +178,23 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @property(nonatomic, strong, nullable) GTLRArea120Tables_LookupDetails *lookupDetails;
 
+/**
+ *  Optional. Indicates whether or not multiple values are allowed for array
+ *  types where such a restriction is possible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multipleValuesDisallowed;
+
 /** column name */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates that values for the column cannot be set by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readonly;
 
 /**
  *  Optional. Additional details about a relationship column. Specified when
@@ -211,6 +231,21 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *        to user entered text. (Value: "VIEW_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
+ *  Details about a date column.
+ */
+@interface GTLRArea120Tables_DateDetails : GTLRObject
+
+/**
+ *  Whether the date column includes time.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasTime;
 
 @end
 
@@ -356,11 +391,17 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @interface GTLRArea120Tables_Row : GTLRObject
 
+/** Time when the row was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  The resource name of the row. Row names have the form
  *  `tables/{table}/rows/{row}`. The name is ignored when creating a row.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Time when the row was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  The values of the row. This is a map of column key to value. Key is user
@@ -387,7 +428,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 
 /**
- *  A single table.
+ *  A saved view of a table. NextId: 3
+ */
+@interface GTLRArea120Tables_SavedView : GTLRObject
+
+/**
+ *  Internal id associated with the saved view.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Display name of the saved view. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A single table. NextId: 8
  */
 @interface GTLRArea120Tables_Table : GTLRObject
 
@@ -396,6 +455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_ColumnDescription *> *columns;
 
+/** Time when the table was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** The human readable title of the table. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -403,6 +465,20 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *  The resource name of the table. Table names have the form `tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Saved views for this table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_SavedView *> *savedViews;
+
+/**
+ *  The time zone of the table. IANA Time Zone Database time zone, e.g.
+ *  "America/New_York".
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Time when the table was last updated excluding updates to individual rows
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -443,6 +519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @interface GTLRArea120Tables_Workspace : GTLRObject
 
+/** Time when the workspace was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** The human readable title of the workspace. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -454,6 +533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 /** The list of tables in the workspace. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_Table *> *tables;
+
+/** Time when the workspace was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

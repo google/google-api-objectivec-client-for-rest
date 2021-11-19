@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 // applicationName
 
 /**
- *  The G Suite Access Transparency activity reports return information about
- *  different types of Access Transparency activity events.
+ *  The Google Workspace Access Transparency activity reports return information
+ *  about different types of Access Transparency activity events.
  *
  *  Value: "access_transparency"
  */
@@ -51,12 +51,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency
  *  Value: "admin"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
-/** Value: "application_name_undefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUndefined;
-/** Value: "application_name_unspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified;
 /**
- *  The G Suite Calendar application's activity reports return information about
+ *  The Google Calendar application's activity reports return information about
  *  various Calendar activity events.
  *
  *  Value: "calendar"
@@ -70,8 +66,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
 /**
- *  The Chrome activity reports return information about unsafe events reported
- *  in the context of the WebProtect features of BeyondCorp.
+ *  The Chrome activity reports return information about Chrome browser and
+ *  Chrome OS events.
  *
  *  Value: "chrome"
  */
@@ -90,13 +86,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContextAwareAccess
  *  Value: "data_studio"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDataStudio;
-/**
- *  The Google Drive application's activity reports return information about
- *  various Google Drive activity events. The Drive activity report is only
- *  available for G Suite Business customers.
- *
- *  Value: "drive"
- */
+/** Value: "drive" */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
 /**
  *  The Google Cloud Platform application's activity reports return information
@@ -134,6 +124,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGroupsEnterprise;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
 /**
+ *  The Keep application's activity reports return information about various
+ *  Google Keep activity events. The Keep activity report is only available for
+ *  Google Workspace Business and Enterprise customers.
+ *
+ *  Value: "keep"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameKeep;
+/**
  *  The Login application's activity reports return account information about
  *  different types of Login activity events.
  *
@@ -141,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
 /**
- *  The Meet Audit activity report return information about different types of
+ *  The Meet Audit activity report returns information about different types of
  *  Meet Audit activity events.
  *
  *  Value: "meet"
@@ -200,14 +198,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyAll;
  *  Value: "entityKey"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
-/** Value: "entityKeyUndefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKeyUndefined;
 
 // ----------------------------------------------------------------------------
 // entityType
 
-/** Value: "entity_type_undefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeEntityTypeUndefined;
 /**
  *  Returns a report on Google+ communities.
  *
@@ -242,8 +236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ActivitiesList : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForActivitiesListWithuserKey:applicationName:]
 
 /**
  *  The Internet Protocol (IP) Address of host where the event was performed.
@@ -259,23 +251,22 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
- *        "application_name_undefined"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Enterprise customers. (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -295,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -318,11 +309,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -348,14 +343,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  The name of the event being queried by the API. Each `eventName` is related
- *  to a specific G Suite service or feature which the API organizes into types
- *  of events. An example is the Google Calendar events in the Admin console
- *  application's reports. The Calendar Settings `type` structure has all of the
- *  Calendar `eventName` activities reported by the API. When an administrator
- *  changes a Calendar setting, the API reports this activity in the Calendar
- *  Settings `type` and `eventName` parameters. For more information about
- *  `eventName` query strings and parameters, see the list of event names for
- *  various applications above in `applicationName`.
+ *  to a specific Google Workspace service or feature which the API organizes
+ *  into types of events. An example is the Google Calendar events in the Admin
+ *  console application's reports. The Calendar Settings `type` structure has
+ *  all of the Calendar `eventName` activities reported by the API. When an
+ *  administrator changes a Calendar setting, the API reports this activity in
+ *  the Calendar Settings `type` and `eventName` parameters. For more
+ *  information about `eventName` query strings and parameters, see the list of
+ *  event names for various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
@@ -396,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  Comma separated group ids (obfuscated) on which user activities are
- *  filtered, i.e, the response will contain activities for only those users
+ *  filtered, i.e. the response will contain activities for only those users
  *  that are a part of at least one of the group ids mentioned here. Format:
  *  "id:abc123,id:xyz456"
  */
@@ -441,7 +436,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address. Must not be a
+ *  deleted user. For a deleted user, call `users.list` in Directory API with
+ *  `showDeleted=true`, then use the returned `ID` as the `userKey`.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -456,28 +453,30 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address. Must not be a deleted user. For a deleted user, call `users.list`
+ *    in Directory API with `showDeleted=true`, then use the returned `ID` as
+ *    the `userKey`.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
  *  Likely values for @c applicationName:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
- *        "application_name_undefined"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Enterprise customers. (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -497,7 +496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -520,11 +519,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -547,8 +550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ActivitiesWatch : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForActivitiesWatchWithObject:userKey:applicationName:]
 
 /**
  *  The Internet Protocol (IP) Address of host where the event was performed.
@@ -564,23 +565,23 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
- *        "application_name_unspecified"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Google Workspace Enterprise customers.
+ *        (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -600,7 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -623,11 +624,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -653,14 +658,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  The name of the event being queried by the API. Each `eventName` is related
- *  to a specific G Suite service or feature which the API organizes into types
- *  of events. An example is the Google Calendar events in the Admin console
- *  application's reports. The Calendar Settings `type` structure has all of the
- *  Calendar `eventName` activities reported by the API. When an administrator
- *  changes a Calendar setting, the API reports this activity in the Calendar
- *  Settings `type` and `eventName` parameters. For more information about
- *  `eventName` query strings and parameters, see the list of event names for
- *  various applications above in `applicationName`.
+ *  to a specific Google Workspace service or feature which the API organizes
+ *  into types of events. An example is the Google Calendar events in the Admin
+ *  console application's reports. The Calendar Settings `type` structure has
+ *  all of the Calendar `eventName` activities reported by the API. When an
+ *  administrator changes a Calendar setting, the API reports this activity in
+ *  the Calendar Settings `type` and `eventName` parameters. For more
+ *  information about `eventName` query strings and parameters, see the list of
+ *  event names for various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
@@ -701,7 +706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  Comma separated group ids (obfuscated) on which user activities are
- *  filtered, i.e, the response will contain activities for only those users
+ *  filtered, i.e. the response will contain activities for only those users
  *  that are a part of at least one of the group ids mentioned here. Format:
  *  "id:abc123,id:xyz456"
  */
@@ -746,7 +751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address. Must not be a
+ *  deleted user. For a deleted user, call `users.list` in Directory API with
+ *  `showDeleted=true`, then use the returned `ID` as the `userKey`.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -759,28 +766,31 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  @param object The @c GTLRReports_Channel to include in the query.
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address. Must not be a deleted user. For a deleted user, call `users.list`
+ *    in Directory API with `showDeleted=true`, then use the returned `ID` as
+ *    the `userKey`.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
  *  Likely values for @c applicationName:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
- *        "application_name_unspecified"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Google Workspace Enterprise customers.
+ *        (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -800,7 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        reports return account information about different types of Login
  *        activity events. (Value: "login")
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
- *        return information about different types of Meet Audit activity
+ *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
  *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
  *        return information about different types of Mobile Audit activity
@@ -823,11 +833,15 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        events due to Context-aware access rules. (Value:
  *        "context_aware_access")
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
- *        return information about unsafe events reported in the context of the
- *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *        return information about Chrome browser and Chrome OS events. (Value:
+ *        "chrome")
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */
@@ -846,8 +860,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ChannelsStop : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -875,8 +887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_CustomerUsageReportsGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForCustomerUsageReportsGetWithdate:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -943,8 +953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_EntityUsageReportsGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForEntityUsageReportsGetWithentityType:entityKey:date:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -959,7 +967,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the key of the object to filter the data with.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -973,8 +980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the type of entity for the report.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
- *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  */
@@ -1051,13 +1056,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    for this.
  *
  *  Likely values for @c entityType:
- *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
- *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  *
  *  Likely values for @c entityKey:
- *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -1085,8 +1087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_UserUsageReportGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForUserUsageReportGetWithuserKey:date:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -1119,7 +1119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  Comma separated group ids (obfuscated) on which user activities are
- *  filtered, i.e, the response will contain activities for only those users
+ *  filtered, i.e. the response will contain activities for only those users
  *  that are a part of at least one of the group ids mentioned here. Format:
  *  "id:abc123,id:xyz456"
  */
@@ -1173,7 +1173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address. Must not be a
+ *  deleted user. For a deleted user, call `users.list` in Directory API with
+ *  `showDeleted=true`, then use the returned `ID` as the `userKey`.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -1187,7 +1189,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address. Must not be a deleted user. For a deleted user, call `users.list`
+ *    in Directory API with `showDeleted=true`, then use the returned `ID` as
+ *    the `userKey`.
  *  @param date Represents the date the usage occurred. The timestamp is in the
  *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
  *    for this.

@@ -33,6 +33,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting = @"D
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance = @"PERFORMING_MAINTENANCE";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Updating = @"UPDATING";
 
 // GTLRCloudMemorystoreforMemcached_InstanceMessage.code
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
@@ -133,12 +134,45 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata
+@dynamic availableZones;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata
 @end
 
 
@@ -250,7 +284,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude, maintenancePolicies;
+@dynamic exclude, isRollback, maintenancePolicies;
 @end
 
 
@@ -274,13 +308,29 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
-@dynamic exclusions, location, nodeId;
+@dynamic location, nodeId, perSliEligibility;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class]
-  };
-  return map;
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+@dynamic eligibilities;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility class];
 }
 
 @end
@@ -308,25 +358,14 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion
-@dynamic duration, reason, sliName, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic eligibility, exclusions, nodes, tier;
+@dynamic nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exclusions" : [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion class],
     @"nodes" : [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata class]
   };
   return map;

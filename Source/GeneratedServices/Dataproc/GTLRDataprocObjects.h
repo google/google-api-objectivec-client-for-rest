@@ -23,8 +23,10 @@
 @class GTLRDataproc_AcceleratorConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
+@class GTLRDataproc_AutoscalingPolicy_Labels;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
 @class GTLRDataproc_BasicYarnAutoscalingConfig;
+@class GTLRDataproc_BatchOperationMetadata_Labels;
 @class GTLRDataproc_Binding;
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_Cluster_Labels;
@@ -38,6 +40,7 @@
 @class GTLRDataproc_ClusterSelector;
 @class GTLRDataproc_ClusterSelector_ClusterLabels;
 @class GTLRDataproc_ClusterStatus;
+@class GTLRDataproc_ConfidentialInstanceConfig;
 @class GTLRDataproc_DiskConfig;
 @class GTLRDataproc_EncryptionConfig;
 @class GTLRDataproc_EndpointConfig;
@@ -46,11 +49,14 @@
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
 @class GTLRDataproc_GetPolicyOptions;
+@class GTLRDataproc_GkeClusterConfig;
 @class GTLRDataproc_HadoopJob;
 @class GTLRDataproc_HadoopJob_Properties;
 @class GTLRDataproc_HiveJob;
 @class GTLRDataproc_HiveJob_Properties;
 @class GTLRDataproc_HiveJob_ScriptVariables;
+@class GTLRDataproc_IdentityConfig;
+@class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
@@ -58,6 +64,7 @@
 @class GTLRDataproc_Job;
 @class GTLRDataproc_Job_Labels;
 @class GTLRDataproc_JobPlacement;
+@class GTLRDataproc_JobPlacement_ClusterLabels;
 @class GTLRDataproc_JobReference;
 @class GTLRDataproc_JobScheduling;
 @class GTLRDataproc_JobStatus;
@@ -68,6 +75,8 @@
 @class GTLRDataproc_ManagedCluster;
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
+@class GTLRDataproc_MetastoreConfig;
+@class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
 @class GTLRDataproc_Operation;
@@ -88,6 +97,7 @@
 @class GTLRDataproc_RegexValidation;
 @class GTLRDataproc_ReservationAffinity;
 @class GTLRDataproc_SecurityConfig;
+@class GTLRDataproc_SessionOperationMetadata_Labels;
 @class GTLRDataproc_ShieldedInstanceConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
@@ -98,6 +108,7 @@
 @class GTLRDataproc_SparkSqlJob;
 @class GTLRDataproc_SparkSqlJob_Properties;
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
+@class GTLRDataproc_SparkStandaloneAutoscalingConfig;
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
 @class GTLRDataproc_TemplateParameter;
@@ -119,6 +130,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_BatchOperationMetadata.operationType
+
+/**
+ *  Batch operation type.
+ *
+ *  Value: "BATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch;
+/**
+ *  Batch operation type is unknown.
+ *
+ *  Value: "BATCH_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterOperationStatus.state
@@ -170,11 +197,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
 /**
+ *  The cluster has encountered an error while being updated. Jobs can be
+ *  submitted to the cluster, but the cluster cannot be updated.
+ *
+ *  Value: "ERROR_DUE_TO_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate;
+/**
  *  The cluster is currently running and healthy. It is ready for use.
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Running;
+/**
+ *  The cluster is being started. It is not ready for use.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Starting;
+/**
+ *  The cluster is currently stopped. It is not ready for use.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Stopped;
+/**
+ *  The cluster is being stopped. It cannot be used.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Stopping;
 /**
  *  The cluster state is unknown.
  *
@@ -453,12 +505,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_SessionOperationMetadata.operationType
+
+/**
+ *  Create Session operation type.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Create;
+/**
+ *  Delete Session operation type.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Delete;
+/**
+ *  Session operation type is unknown.
+ *
+ *  Value: "SESSION_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified;
+/**
+ *  Terminate Session operation type.
+ *
+ *  Value: "TERMINATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
 /**
  *  The Anaconda python distribution. The Anaconda component is not supported in
- *  the Dataproc preview 2.0 image. The 2.0 preview image is pre-installed with
- *  Miniconda.
+ *  the Dataproc 2.0 image. The 2.0 image is pre-installed with Miniconda.
  *
  *  Value: "ANACONDA"
  */
@@ -476,11 +555,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker;
 /**
+ *  The Druid query engine. (alpha)
+ *
+ *  Value: "DRUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Druid;
+/**
  *  Flink
  *
  *  Value: "FLINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink;
+/**
+ *  HBase. (beta)
+ *
+ *  Value: "HBASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase;
 /**
  *  The Hive Web HCatalog (the REST service for accessing HCatalog).
  *
@@ -716,6 +807,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Optional. The labels to associate with this autoscaling policy. Label keys
+ *  must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with an autoscaling policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_AutoscalingPolicy_Labels *labels;
+
+/**
  *  Output only. The "resource name" of the autoscaling policy, as described in
  *  https://cloud.google.com/apis/design/resource_names. For
  *  projects.regions.autoscalingPolicies, the resource name of the policy has
@@ -741,6 +842,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Optional. The labels to associate with this autoscaling policy. Label keys
+ *  must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with an autoscaling policy.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_AutoscalingPolicy_Labels : GTLRObject
+@end
+
+
+/**
  *  Basic algorithm for autoscaling.
  */
 @interface GTLRDataproc_BasicAutoscalingAlgorithm : GTLRObject
@@ -752,7 +870,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDuration *cooldownPeriod;
 
-/** Required. YARN autoscaling configuration. */
+/** Optional. Spark Standalone autoscaling configuration */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkStandaloneAutoscalingConfig *sparkStandaloneConfig;
+
+/** Optional. YARN autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_BasicYarnAutoscalingConfig *yarnConfig;
 
 @end
@@ -825,7 +946,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Associates members with a role.
+ *  Metadata describing the Batch operation.
+ */
+@interface GTLRDataproc_BatchOperationMetadata : GTLRObject
+
+/** Name of the batch for the operation. */
+@property(nonatomic, copy, nullable) NSString *batch;
+
+/** Batch UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *batchUuid;
+
+/** The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The time when the operation finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_BatchOperationMetadata_Labels *labels;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_BatchOperationMetadata_OperationType_Batch Batch
+ *        operation type. (Value: "BATCH")
+ *    @arg @c kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified
+ *        Batch operation type is unknown. (Value:
+ *        "BATCH_OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_BatchOperationMetadata_Labels : GTLRObject
+@end
+
+
+/**
+ *  Associates members, or principals, with a role.
  */
 @interface GTLRDataproc_Binding : GTLRObject
 
@@ -834,14 +1012,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  evaluates to true, then this binding applies to the current request.If the
  *  condition evaluates to false, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding.To learn which resources
+ *  to one or more of the principals in this binding.To learn which resources
  *  support conditions in their IAM policies, see the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  members can have the following values: allUsers: A special identifier that
  *  represents anyone who is on the internet; with or without a Google account.
  *  allAuthenticatedUsers: A special identifier that represents anyone who is
@@ -872,8 +1050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to members. For example, roles/viewer, roles/editor,
- *  or roles/owner.
+ *  Role that is assigned to the list of members, or principals. For example,
+ *  roles/viewer, roles/editor, or roles/owner.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -888,8 +1066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Describes the identifying information, config, and status of a cluster of
- *  Compute Engine instances.
+ *  Describes the identifying information, config, and status of a Dataproc
+ *  cluster
  */
 @interface GTLRDataproc_Cluster : GTLRObject
 
@@ -906,8 +1084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Required. The cluster config. Note that Dataproc may set default values, and
- *  values may change when clusters are updated.
+ *  Optional. The cluster config for a cluster of Compute Engine Instances. Note
+ *  that Dataproc may set default values, and values may change when clusters
+ *  are updated.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterConfig *config;
 
@@ -976,10 +1155,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
  *  EU) for your cluster's staging bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Dataproc staging bucket
+ *  project-level, per-location bucket (see Dataproc staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
- *  This field requires a Cloud Storage bucket name, not a URI to a Cloud
- *  Storage bucket.
+ *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
+ *  Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
@@ -994,6 +1173,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  cluster.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig *gceClusterConfig;
+
+/**
+ *  Optional. BETA. The Kubernetes Engine config for Dataproc clusters deployed
+ *  to Kubernetes. Setting this is considered mutually exclusive with Compute
+ *  Engine-based options such as gce_cluster_config, master_config,
+ *  worker_config, secondary_worker_config, and autoscaling_config.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
 
 /**
  *  Optional. Commands to execute on each node after config is completed. By
@@ -1011,21 +1198,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDataproc_LifecycleConfig *lifecycleConfig;
 
 /**
- *  Optional. The Compute Engine config settings for the master instance in a
- *  cluster.
+ *  Optional. The Compute Engine config settings for the cluster's master
+ *  instance.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *masterConfig;
 
+/** Optional. Metastore configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_MetastoreConfig *metastoreConfig;
+
 /**
- *  Optional. The Compute Engine config settings for additional worker instances
- *  in a cluster.
+ *  Optional. The Compute Engine config settings for a cluster's secondary
+ *  worker instances
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *secondaryWorkerConfig;
 
 /** Optional. Security settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SecurityConfig *securityConfig;
 
-/** Optional. The config settings for software inside the cluster. */
+/** Optional. The config settings for cluster software. */
 @property(nonatomic, strong, nullable) GTLRDataproc_SoftwareConfig *softwareConfig;
 
 /**
@@ -1035,14 +1225,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  EU) for your cluster's temp bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
  *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
- *  but you can use any TTL (or none) if you specify a bucket. This field
- *  requires a Cloud Storage bucket name, not a URI to a Cloud Storage bucket.
+ *  but you can use any TTL (or none) if you specify a bucket (see Dataproc
+ *  staging and temp buckets
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
+ *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
+ *  Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *tempBucket;
 
 /**
- *  Optional. The Compute Engine config settings for worker instances in a
- *  cluster.
+ *  Optional. The Compute Engine config settings for the cluster's worker
+ *  instances.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *workerConfig;
 
@@ -1240,8 +1433,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        deleted. It cannot be used. (Value: "DELETING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Error The cluster encountered an
  *        error. It is not ready for use. (Value: "ERROR")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate The cluster has
+ *        encountered an error while being updated. Jobs can be submitted to the
+ *        cluster, but the cluster cannot be updated. (Value:
+ *        "ERROR_DUE_TO_UPDATE")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
  *        running and healthy. It is ready for use. (Value: "RUNNING")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Starting The cluster is being
+ *        started. It is not ready for use. (Value: "STARTING")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopped The cluster is currently
+ *        stopped. It is not ready for use. (Value: "STOPPED")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopping The cluster is being
+ *        stopped. It cannot be used. (Value: "STOPPING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Unknown The cluster state is
  *        unknown. (Value: "UNKNOWN")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Updating The cluster is being
@@ -1273,6 +1476,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        substate is unknown. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *substate;
+
+@end
+
+
+/**
+ *  Confidential Instance Config for clusters using Confidential VMs
+ *  (https://cloud.google.com/compute/confidential-vm/docs)
+ */
+@interface GTLRDataproc_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines whether the instance should have confidential compute
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 @end
 
@@ -1312,8 +1532,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Type of the boot disk (default is "pd-standard"). Valid values:
- *  "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent
- *  Disk Hard Disk Drive).
+ *  "pd-balanced" (Persistent Disk Balanced Solid State Drive), "pd-ssd"
+ *  (Persistent Disk Solid State Drive), or "pd-standard" (Persistent Disk Hard
+ *  Disk Drive). See Disk types
+ *  (https://cloud.google.com/compute/docs/disks#disk-types).
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskType;
 
@@ -1447,6 +1669,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
 
 /**
+ *  Optional. Confidential Instance Config for clusters using Confidential VMs
+ *  (https://cloud.google.com/compute/confidential-vm/docs).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConfidentialInstanceConfig *confidentialInstanceConfig;
+
+/**
  *  Optional. If true, all instances in the cluster will only have internal IP
  *  addresses. By default, clusters are not restricted to internal IP addresses,
  *  and will have ephemeral external IP addresses assigned to each instance.
@@ -1530,7 +1758,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountScopes;
 
-/** Optional. Shielded Instance Config for clusters using shielded VMs. */
+/**
+ *  Optional. Shielded Instance Config for clusters using Compute Engine
+ *  Shielded VMs (https://cloud.google.com/security/shielded-cloud/shielded-vm).
+ */
 @property(nonatomic, strong, nullable) GTLRDataproc_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
@@ -1606,6 +1837,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requestedPolicyVersion;
+
+@end
+
+
+/**
+ *  The cluster's GKE config.
+ */
+@interface GTLRDataproc_GkeClusterConfig : GTLRObject
+
+/** Optional. A target for the deployment. */
+@property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget;
 
 @end
 
@@ -1761,6 +2003,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Identity related configuration, including service account based secure
+ *  multi-tenancy user mappings.
+ */
+@interface GTLRDataproc_IdentityConfig : GTLRObject
+
+/** Required. Map of user to service account. */
+@property(nonatomic, strong, nullable) GTLRDataproc_IdentityConfig_UserServiceAccountMapping *userServiceAccountMapping;
+
+@end
+
+
+/**
+ *  Required. Map of user to service account.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_IdentityConfig_UserServiceAccountMapping : GTLRObject
+@end
+
+
+/**
  *  A request to inject credentials into a cluster.
  */
 @interface GTLRDataproc_InjectCredentialsRequest : GTLRObject
@@ -1899,8 +2165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Optional. The number of VM instances in the instance group. For master
- *  instance groups, must be set to 1.
+ *  Optional. The number of VM instances in the instance group. For HA cluster
+ *  master_config groups, must be set to 3. For standard cluster master_config
+ *  groups, must be set to 1.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1939,7 +2206,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** The user-friendly name of the Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *instanceName;
 
-/** The public key used for sharing data with this instance. */
+/** The public ECIES key used for sharing data with this instance. */
+@property(nonatomic, copy, nullable) NSString *publicEciesKey;
+
+/** The public RSA key used for sharing data with this instance. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
 @end
@@ -2136,6 +2406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_JobPlacement : GTLRObject
 
+/**
+ *  Optional. Cluster labels to identify a cluster where the job will be
+ *  submitted.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobPlacement_ClusterLabels *clusterLabels;
+
 /** Required. The name of the cluster where the job will be submitted. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -2145,6 +2421,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
+@end
+
+
+/**
+ *  Optional. Cluster labels to identify a cluster where the job will be
+ *  submitted.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_JobPlacement_ClusterLabels : GTLRObject
 @end
 
 
@@ -2397,7 +2686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  are running). Passing this threshold will cause the cluster to be deleted.
  *  Minimum value is 5 minutes; maximum value is 14 days (see JSON
  *  representation of Duration
- *  (https://developers.google.com/protocol-buffers/docs/proto3#json).
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleDeleteTtl;
 
@@ -2635,6 +2924,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Group.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplateName;
+
+@end
+
+
+/**
+ *  Specifies a Metastore configuration.
+ */
+@interface GTLRDataproc_MetastoreConfig : GTLRObject
+
+/**
+ *  Required. Resource name of an existing Dataproc Metastore service.Example:
+ *  projects/[project_id]/locations/[dataproc_region]/services/[service-name]
+ */
+@property(nonatomic, copy, nullable) NSString *dataprocMetastoreService;
+
+@end
+
+
+/**
+ *  A full, namespace-isolated deployment target for an existing GKE cluster.
+ */
+@interface GTLRDataproc_NamespacedGkeDeploymentTarget : GTLRObject
+
+/** Optional. A namespace within the GKE cluster to deploy into. */
+@property(nonatomic, copy, nullable) NSString *clusterNamespace;
+
+/**
+ *  Optional. The target GKE cluster to deploy to. Format:
+ *  'projects/{project}/locations/{location}/clusters/{cluster_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *targetGkeCluster;
 
 @end
 
@@ -2929,15 +3249,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources.A Policy is a collection of bindings. A
- *  binding binds one or more members to a single role. Members can be user
- *  accounts, service accounts, Google groups, and domains (such as G Suite). A
- *  role is a named list of permissions; each role can be an IAM predefined role
- *  or a user-created custom role.For some types of Google Cloud resources, a
- *  binding can also specify a condition, which is a logical expression that
- *  allows access to a resource only if the expression evaluates to true. A
- *  condition can add constraints based on attributes of the request, the
- *  resource, or both. To learn which resources support conditions in their IAM
- *  policies, see the IAM documentation
+ *  binding binds one or more members, or principals, to a single role.
+ *  Principals can be user accounts, service accounts, Google groups, and
+ *  domains (such as G Suite). A role is a named list of permissions; each role
+ *  can be an IAM predefined role or a user-created custom role.For some types
+ *  of Google Cloud resources, a binding can also specify a condition, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to true. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the IAM documentation
  *  (https://cloud.google.com/iam/help/conditions/resource-policies).JSON
  *  example: { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -2953,16 +3273,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the IAM
  *  documentation (https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataproc_Policy : GTLRObject
 
 /**
- *  Associates a list of members to a role. Optionally, may specify a condition
- *  that determines how and when the bindings are applied. Each of the bindings
- *  must contain at least one member.
+ *  Associates a list of members, or principals, with a role. Optionally, may
+ *  specify a condition that determines how and when the bindings are applied.
+ *  Each of the bindings must contain at least one principal.The bindings in a
+ *  Policy can refer to up to 1,500 principals; up to 250 of these principals
+ *  can be Google groups. Each occurrence of a principal counts towards these
+ *  limits. For example, if the bindings grant 50 different roles to
+ *  user:alice\@example.com, and not to any other principal, then you can add
+ *  another 1,450 principals to the bindings in the Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Binding *> *bindings;
 
@@ -3173,6 +3498,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to repair a cluster.
+ */
+@interface GTLRDataproc_RepairClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two RepairClusterRequests with the same ID, the second request is ignored,
+ *  and the first google.longrunning.Operation created and stored in the backend
+ *  is returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Reservation Affinity for consuming Zonal reservation.
  */
 @interface GTLRDataproc_ReservationAffinity : GTLRObject
@@ -3204,13 +3554,80 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Security related configuration, including Kerberos.
+ *  Security related configuration, including encryption, Kerberos, etc.
  */
 @interface GTLRDataproc_SecurityConfig : GTLRObject
 
-/** Kerberos related configuration. */
+/**
+ *  Optional. Identity related configuration, including service account based
+ *  secure multi-tenancy user mappings.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_IdentityConfig *identityConfig;
+
+/** Optional. Kerberos related configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KerberosConfig *kerberosConfig;
 
+@end
+
+
+/**
+ *  Metadata describing the Session operation.
+ */
+@interface GTLRDataproc_SessionOperationMetadata : GTLRObject
+
+/** The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The time when the operation was finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SessionOperationMetadata_Labels *labels;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Create Create
+ *        Session operation type. (Value: "CREATE")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Delete Delete
+ *        Session operation type. (Value: "DELETE")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_SessionOperationTypeUnspecified
+ *        Session operation type is unknown. (Value:
+ *        "SESSION_OPERATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_SessionOperationMetadata_OperationType_Terminate
+ *        Terminate Session operation type. (Value: "TERMINATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Name of the session for the operation. */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/** Session UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *sessionUuid;
+
+/** Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SessionOperationMetadata_Labels : GTLRObject
 @end
 
 
@@ -3230,7 +3647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Shielded Instance Config for clusters using shielded VMs.
+ *  Shielded Instance Config for clusters using Compute Engine Shielded VMs
+ *  (https://cloud.google.com/security/shielded-cloud/shielded-vm).
  */
 @interface GTLRDataproc_ShieldedInstanceConfig : GTLRObject
 
@@ -3502,6 +3920,93 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Basic autoscaling configurations for Spark Standalone.
+ */
+@interface GTLRDataproc_SparkStandaloneAutoscalingConfig : GTLRObject
+
+/**
+ *  Required. Timeout for Spark graceful decommissioning of spark workers.
+ *  Specifies the duration to wait for spark worker to complete spark
+ *  decomissioning tasks before forcefully removing workers. Only applicable to
+ *  downscaling operations.Bounds: 0s, 1d.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gracefulDecommissionTimeout;
+
+/**
+ *  Required. Fraction of required executors to remove from Spark Serverless
+ *  clusters. A scale-down factor of 1.0 will result in scaling down so that
+ *  there are no more executors for the Spark Job.(more aggressive scaling). A
+ *  scale-down factor closer to 0 will result in a smaller magnitude of scaling
+ *  donw (less aggressive scaling).Bounds: 0.0, 1.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleDownFactor;
+
+/**
+ *  Optional. Minimum scale-down threshold as a fraction of total cluster size
+ *  before scaling occurs. For example, in a 20-worker cluster, a threshold of
+ *  0.1 means the autoscaler must recommend at least a 2 worker scale-down for
+ *  the cluster to scale. A threshold of 0 means the autoscaler will scale down
+ *  on any recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleDownMinWorkerFraction;
+
+/**
+ *  Required. Fraction of required workers to add to Spark Standalone clusters.
+ *  A scale-up factor of 1.0 will result in scaling up so that there are no more
+ *  required workers for the Spark Job (more aggressive scaling). A scale-up
+ *  factor closer to 0 will result in a smaller magnitude of scaling up (less
+ *  aggressive scaling).Bounds: 0.0, 1.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleUpFactor;
+
+/**
+ *  Optional. Minimum scale-up threshold as a fraction of total cluster size
+ *  before scaling occurs. For example, in a 20-worker cluster, a threshold of
+ *  0.1 means the autoscaler must recommend at least a 2-worker scale-up for the
+ *  cluster to scale. A threshold of 0 means the autoscaler will scale up on any
+ *  recommended change.Bounds: 0.0, 1.0. Default: 0.0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleUpMinWorkerFraction;
+
+@end
+
+
+/**
+ *  A request to start a cluster.
+ */
+@interface GTLRDataproc_StartClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two StartClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StartClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  The Status type defines a logical error model that is suitable for different
  *  programming environments, including REST APIs and RPC APIs. It is used by
  *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
@@ -3547,6 +4052,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to stop a cluster.
+ */
+@interface GTLRDataproc_StopClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two StopClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StopClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  A request to submit a job.
  */
 @interface GTLRDataproc_SubmitJobRequest : GTLRObject
@@ -3556,9 +4088,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A unique id used to identify the request. If the server receives
- *  two SubmitJobRequest requests with the same id, then the second request will
- *  be ignored and the first Job created and stored in the backend is
- *  returned.It is recommended to always set this value to a UUID
+ *  two SubmitJobRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.SubmitJobRequest)s
+ *  with the same id, then the second request will be ignored and the first Job
+ *  created and stored in the backend is returned.It is recommended to always
+ *  set this value to a UUID
  *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.

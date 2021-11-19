@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -28,6 +28,7 @@
 @class GTLRMonitoring_Aggregation;
 @class GTLRMonitoring_AlertPolicy;
 @class GTLRMonitoring_AlertPolicy_UserLabels;
+@class GTLRMonitoring_AlertStrategy;
 @class GTLRMonitoring_AppEngine;
 @class GTLRMonitoring_AvailabilityCriteria;
 @class GTLRMonitoring_BasicAuthentication;
@@ -64,6 +65,8 @@
 @class GTLRMonitoring_LabelValue;
 @class GTLRMonitoring_LatencyCriteria;
 @class GTLRMonitoring_Linear;
+@class GTLRMonitoring_LogMatch;
+@class GTLRMonitoring_LogMatch_LabelExtractors;
 @class GTLRMonitoring_MeshIstio;
 @class GTLRMonitoring_Metric;
 @class GTLRMonitoring_Metric_Labels;
@@ -83,6 +86,7 @@
 @class GTLRMonitoring_NotificationChannel_Labels;
 @class GTLRMonitoring_NotificationChannel_UserLabels;
 @class GTLRMonitoring_NotificationChannelDescriptor;
+@class GTLRMonitoring_NotificationRateLimit;
 @class GTLRMonitoring_Option;
 @class GTLRMonitoring_Option_Value;
 @class GTLRMonitoring_PerformanceThreshold;
@@ -93,8 +97,10 @@
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
 @class GTLRMonitoring_Service;
+@class GTLRMonitoring_Service_UserLabels;
 @class GTLRMonitoring_ServiceLevelIndicator;
 @class GTLRMonitoring_ServiceLevelObjective;
+@class GTLRMonitoring_ServiceLevelObjective_UserLabels;
 @class GTLRMonitoring_SourceContext;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
@@ -522,7 +528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_Contai
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
  *  Selects regular-expression matching. The match succeeds of the output
- *  matches the regular expression specified in the content string.
+ *  matches the regular expression specified in the content string. Regex
+ *  matching is only supported for HTTP/HTTPS checks.
  *
  *  Value: "MATCHES_REGEX"
  */
@@ -537,7 +544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotCon
 /**
  *  Selects negation of regular-expression matching. The match succeeds if the
  *  output does NOT match the regular expression specified in the content
- *  string.
+ *  string. Regex matching is only supported for HTTP/HTTPS checks.
  *
  *  Value: "NOT_MATCHES_REGEX"
  */
@@ -1225,6 +1232,71 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_NotificationChannelDescriptor.supportedTiers
+
+/**
+ *  The Stackdriver Basic tier, a free tier of service that provides basic
+ *  features, a moderate allotment of logs, and access to built-in metrics. A
+ *  number of features are not available in this tier. For more details, see the
+ *  service tiers documentation
+ *  (https://cloud.google.com/monitoring/workspaces/tiers).
+ *
+ *  Value: "SERVICE_TIER_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierBasic;
+/**
+ *  The Stackdriver Premium tier, a higher, more expensive tier of service that
+ *  provides access to all Stackdriver features, lets you use Stackdriver with
+ *  AWS accounts, and has a larger allotments for logs and metrics. For more
+ *  details, see the service tiers documentation
+ *  (https://cloud.google.com/monitoring/workspaces/tiers).
+ *
+ *  Value: "SERVICE_TIER_PREMIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierPremium;
+/**
+ *  An invalid sentinel value, used to indicate that a tier has not been
+ *  provided explicitly.
+ *
+ *  Value: "SERVICE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_SupportedTiers_ServiceTierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_OperationMetadata.state
+
+/**
+ *  The batch processing was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Cancelled;
+/**
+ *  Request has been received.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Created;
+/**
+ *  The batch processing is done.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Done;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Running;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
 
 /**
@@ -1843,6 +1915,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_AlertPolicy : GTLRObject
 
 /**
+ *  Control over how this alert policy's notification channels are notified.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_AlertStrategy *alertStrategy;
+
+/**
  *  How to combine the results of multiple conditions to determine if an
  *  incident should be opened. If condition_time_series_query_language is
  *  present, this must be COMBINE_UNSPECIFIED.
@@ -1965,6 +2042,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        fetch them all at once.
  */
 @interface GTLRMonitoring_AlertPolicy_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  Control over how the notification channels in notification_channels are
+ *  notified when this alert fires.
+ */
+@interface GTLRMonitoring_AlertStrategy : GTLRObject
+
+/**
+ *  If an alert policy that was active has no data for this long, any open
+ *  incidents will close
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *autoClose;
+
+/**
+ *  Required for alert policies with a LogMatch condition.This limit is not
+ *  implemented for alert policies that are not log-based.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_NotificationRateLimit *notificationRateLimit;
+
 @end
 
 
@@ -2284,6 +2382,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricAbsence *conditionAbsent;
 
+/**
+ *  A condition that checks for log messages matching given constraints. If set,
+ *  no other conditions can be present.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_LogMatch *conditionMatchedLog;
+
 /** A condition that uses the Monitoring Query Language to define alerts. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_QueryLanguageCondition *conditionMonitoringQueryLanguage;
 
@@ -2349,15 +2453,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
  *        regular-expression matching. The match succeeds of the output matches
- *        the regular expression specified in the content string. (Value:
- *        "MATCHES_REGEX")
+ *        the regular expression specified in the content string. Regex matching
+ *        is only supported for HTTP/HTTPS checks. (Value: "MATCHES_REGEX")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
  *        negation of substring matching. The match succeeds if the output does
  *        NOT contain the content string. (Value: "NOT_CONTAINS_STRING")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Selects
  *        negation of regular-expression matching. The match succeeds if the
  *        output does NOT match the regular expression specified in the content
- *        string. (Value: "NOT_MATCHES_REGEX")
+ *        string. Regex matching is only supported for HTTP/HTTPS checks.
+ *        (Value: "NOT_MATCHES_REGEX")
  */
 @property(nonatomic, copy, nullable) NSString *matcher;
 
@@ -2545,8 +2650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  A DistributionCut defines a TimeSeries and thresholds used for measuring
  *  good service and total service. The TimeSeries must have ValueType =
  *  DISTRIBUTION and MetricKind = DELTA or MetricKind = CUMULATIVE. The computed
- *  good_service will be the count of values x in the Distribution such that
- *  range.min <= x < range.max.
+ *  good_service will be the estimated count of values in the Distribution that
+ *  fall within the specified min and max.
  */
 @interface GTLRMonitoring_DistributionCut : GTLRObject
 
@@ -2905,9 +3010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  Range of numerical values, inclusive of min and exclusive of max. If the
- *  open range "< range.max" is desired, set range.min = -infinity. If the open
- *  range ">= range.min" is desired, set range.max = infinity.
+ *  Range of numerical values within min and max.
  */
 @interface GTLRMonitoring_GoogleMonitoringV3Range : GTLRObject
 
@@ -3710,6 +3813,57 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  A condition type that checks whether a log message in the scoping project
+ *  (https://cloud.google.com/monitoring/api/v3#project_name) satisfies the
+ *  given filter. Logs from other projects in the metrics scope are not
+ *  evaluated.
+ */
+@interface GTLRMonitoring_LogMatch : GTLRObject
+
+/**
+ *  Required. A logs-based filter. See Advanced Logs Queries
+ *  (https://cloud.google.com/logging/docs/view/advanced-queries) for how this
+ *  filter should be constructed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A map from a label key to an extractor expression, which is used
+ *  to extract the value for this label key. Each entry in this map is a
+ *  specification for how data should be extracted from log entries that match
+ *  filter. Each combination of extracted values is treated as a separate rule
+ *  for the purposes of triggering notifications. Label keys and corresponding
+ *  values can be used in notifications generated by this condition.Please see
+ *  the documentation on logs-based metric valueExtractors
+ *  (https://cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics#LogMetric.FIELDS.value_extractor)
+ *  for syntax and examples.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_LogMatch_LabelExtractors *labelExtractors;
+
+@end
+
+
+/**
+ *  Optional. A map from a label key to an extractor expression, which is used
+ *  to extract the value for this label key. Each entry in this map is a
+ *  specification for how data should be extracted from log entries that match
+ *  filter. Each combination of extracted values is treated as a separate rule
+ *  for the purposes of triggering notifications. Label keys and corresponding
+ *  values can be used in notifications generated by this condition.Please see
+ *  the documentation on logs-based metric valueExtractors
+ *  (https://cloud.google.com/logging/docs/reference/v2/rest/v2/projects.metrics#LogMetric.FIELDS.value_extractor)
+ *  for syntax and examples.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_LogMatch_LabelExtractors : GTLRObject
+@end
+
+
+/**
  *  Istio service scoped to an Istio mesh. Anthos clusters running ASM < 1.6.8
  *  will have their services ingested as this type.
  */
@@ -3783,7 +3937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Specifies the alignment of data points in individual time series as well as
  *  how to combine the retrieved time series together (such as when aggregating
  *  multiple streams on each resource to a single stream for each resource or
- *  when aggregating streams across all members of a group of resrouces).
+ *  when aggregating streams across all members of a group of resources).
  *  Multiple aggregations are applied in the order specified.This field is
  *  similar to the one in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
@@ -3793,14 +3947,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The amount of time that a time series must fail to report new data to be
- *  considered failing. Currently, only values that are a multiple of a
- *  minute--e.g. 60, 120, or 300 seconds--are supported. If an invalid value is
- *  given, an error will be returned. The Duration.nanos field is ignored.
+ *  considered failing. The minimum value of this field is 120 seconds. Larger
+ *  values that are a multiple of a minute--for example, 240 or 300 seconds--are
+ *  supported. If an invalid value is given, an error will be returned. The
+ *  Duration.nanos field is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
@@ -3946,11 +4101,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
- *  representation of the stored metric values.Different systems may scale the
- *  values to be more easily displayed (so a value of 0.02KBy might be displayed
- *  as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if
- *  the unit is KBy, then the value of the metric is always in thousands of
- *  bytes, no matter how it may be displayed..If you want a custom metric to
+ *  representation of the stored metric values.Different systems might scale the
+ *  values to be more easily displayed (so a value of 0.02kBy might be displayed
+ *  as 20By, and a value of 3523kBy might be displayed as 3.5MBy). However, if
+ *  the unit is kBy, then the value of the metric is always in thousands of
+ *  bytes, no matter how it might be displayed.If you want a custom metric to
  *  record the exact number of CPU-seconds used by a job, you can create an
  *  INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or
  *  just s). If the job uses 12,005 CPU-seconds, then the value is written as
@@ -3959,8 +4114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
  *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
  *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By
- *  byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
+ *  (https://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit
+ *  By byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
  *  kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa
  *  (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n
  *  nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto
@@ -4091,7 +4246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A MetricRange is used when each window is good when the value x of a single
- *  TimeSeries satisfies range.min <= x < range.max. The provided TimeSeries
+ *  TimeSeries satisfies range.min <= x <= range.max. The provided TimeSeries
  *  must have ValueType = INT64 or ValueType = DOUBLE and MetricKind = GAUGE.
  */
 @interface GTLRMonitoring_MetricRange : GTLRObject
@@ -4121,7 +4276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Specifies the alignment of data points in individual time series as well as
  *  how to combine the retrieved time series together (such as when aggregating
  *  multiple streams on each resource to a single stream for each resource or
- *  when aggregating streams across all members of a group of resrouces).
+ *  when aggregating streams across all members of a group of resources).
  *  Multiple aggregations are applied in the order specified.This field is
  *  similar to the one in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list).
@@ -4197,7 +4352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
@@ -4252,7 +4407,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Required. The monitored resource type. This field must match the type field
  *  of a MonitoredResourceDescriptor object. For example, the type of a Compute
  *  Engine VM instance is gce_instance. For a list of types, see Monitoring
- *  resource types and Logging resource types.
+ *  resource types (https://cloud.google.com/monitoring/api/resources) and
+ *  Logging resource types
+ *  (https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4366,7 +4523,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  "cloudsql_database" represents databases in Google Cloud SQL.
+ *  "cloudsql_database" represents databases in Google Cloud SQL. For a list of
+ *  types, see Monitoring resource types
+ *  (https://cloud.google.com/monitoring/api/resources) and Logging resource
+ *  types (https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4450,6 +4610,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @interface GTLRMonitoring_NotificationChannel : GTLRObject
 
+/** Record of the creation of this channel. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MutationRecord *creationRecord;
+
 /**
  *  An optional human-readable description of this notification channel. This
  *  description may provide additional details, beyond the display name, for the
@@ -4486,6 +4649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  corresponding to the type field.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_NotificationChannel_Labels *labels;
+
+/** Records of the modification of this channel. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_MutationRecord *> *mutationRecords;
 
 /**
  *  The full REST resource name for this channel. The format is:
@@ -4663,12 +4829,62 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The tiers that support this notification channel; the project service tier
+ *  must be one of the supported_tiers.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedTiers;
+
+/**
  *  The type of notification channel, such as "email" and "sms". To view the
  *  full list of channels, see Channel descriptors
  *  (https://cloud.google.com/monitoring/alerts/using-channels-api#ncd).
  *  Notification channel types are globally unique.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Control over the rate of notifications sent to this alert policy's
+ *  notification channels.
+ */
+@interface GTLRMonitoring_NotificationRateLimit : GTLRObject
+
+/** Not more than one notification per period. */
+@property(nonatomic, strong, nullable) GTLRDuration *period;
+
+@end
+
+
+/**
+ *  Contains metadata for longrunning operation for the edit Metrics Scope
+ *  endpoints.
+ */
+@interface GTLRMonitoring_OperationMetadata : GTLRObject
+
+/** The time when the batch request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Cancelled The batch
+ *        processing was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Created Request has been
+ *        received. (Value: "CREATED")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Done The batch processing
+ *        is done. (Value: "DONE")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Running Request is
+ *        actively being processed. (Value: "RUNNING")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_StateUnspecified Invalid.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the operation result was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -4989,6 +5205,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** Configuration for how to query telemetry on a Service. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Telemetry *telemetry;
 
+/**
+ *  Labels which have been used to annotate the service. Label keys must start
+ *  with a letter. Label keys and values may contain lowercase letters, numbers,
+ *  underscores, and dashes. Label keys and values have a maximum length of 63
+ *  characters, and must be less than 128 bytes in size. Up to 64 label entries
+ *  may be stored. For labels which do not have a semantic value, the empty
+ *  string may be supplied for the label value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Service_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Labels which have been used to annotate the service. Label keys must start
+ *  with a letter. Label keys and values may contain lowercase letters, numbers,
+ *  underscores, and dashes. Label keys and values have a maximum length of 63
+ *  characters, and must be less than 128 bytes in size. Up to 64 label entries
+ *  may be stored. For labels which do not have a semantic value, the empty
+ *  string may be supplied for the label value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_Service_UserLabels : GTLRObject
 @end
 
 
@@ -5091,6 +5334,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_ServiceLevelIndicator *serviceLevelIndicator;
 
+/**
+ *  Labels which have been used to annotate the service-level objective. Label
+ *  keys must start with a letter. Label keys and values may contain lowercase
+ *  letters, numbers, underscores, and dashes. Label keys and values have a
+ *  maximum length of 63 characters, and must be less than 128 bytes in size. Up
+ *  to 64 label entries may be stored. For labels which do not have a semantic
+ *  value, the empty string may be supplied for the label value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ServiceLevelObjective_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Labels which have been used to annotate the service-level objective. Label
+ *  keys must start with a letter. Label keys and values may contain lowercase
+ *  letters, numbers, underscores, and dashes. Label keys and values have a
+ *  maximum length of 63 characters, and must be less than 128 bytes in size. Up
+ *  to 64 label entries may be stored. For labels which do not have a semantic
+ *  value, the empty string may be supplied for the label value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_ServiceLevelObjective_UserLabels : GTLRObject
 @end
 
 
@@ -5110,8 +5380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  The context of a span, attached to Exemplars in Distribution values during
- *  aggregation.It contains the name of a span with format:
+ *  The context of a span. This is attached to an Exemplar in Distribution
+ *  values during aggregation.It contains the name of a span with format:
  *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
  */
 @interface GTLRMonitoring_SpanContext : GTLRObject
@@ -5208,24 +5478,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A closed time interval. It extends from the start time to the end time, and
  *  includes both: [startTime, endTime]. Valid time intervals depend on the
- *  MetricKind of the metric value. The end time must not be earlier than the
- *  start time. When writing data points, the start time must not be more than
- *  25 hours in the past and the end time must not be more than five minutes in
- *  the future. For GAUGE metrics, the startTime value is technically optional;
- *  if no value is specified, the start time defaults to the value of the end
- *  time, and the interval represents a single point in time. If both start and
- *  end times are specified, they must be identical. Such an interval is valid
- *  only for GAUGE metrics, which are point-in-time measurements. The end time
- *  of a new interval must be at least a millisecond after the end time of the
- *  previous interval. For DELTA metrics, the start time and end time must
- *  specify a non-zero interval, with subsequent points specifying contiguous
- *  and non-overlapping intervals. For DELTA metrics, the start time of the next
+ *  MetricKind
+ *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors#MetricKind)
+ *  of the metric value. The end time must not be earlier than the start time.
+ *  When writing data points, the start time must not be more than 25 hours in
+ *  the past and the end time must not be more than five minutes in the future.
+ *  For GAUGE metrics, the startTime value is technically optional; if no value
+ *  is specified, the start time defaults to the value of the end time, and the
+ *  interval represents a single point in time. If both start and end times are
+ *  specified, they must be identical. Such an interval is valid only for GAUGE
+ *  metrics, which are point-in-time measurements. The end time of a new
+ *  interval must be at least a millisecond after the end time of the previous
+ *  interval. For DELTA metrics, the start time and end time must specify a
+ *  non-zero interval, with subsequent points specifying contiguous and
+ *  non-overlapping intervals. For DELTA metrics, the start time of the next
  *  interval must be at least a millisecond after the end time of the previous
  *  interval. For CUMULATIVE metrics, the start time and end time must specify a
- *  a non-zero interval, with subsequent points specifying the same start time
- *  and increasing end times, until an event resets the cumulative value to zero
- *  and sets a new start time for the following points. The new start time must
- *  be at least a millisecond after the end time of the previous interval. The
+ *  non-zero interval, with subsequent points specifying the same start time and
+ *  increasing end times, until an event resets the cumulative value to zero and
+ *  sets a new start time for the following points. The new start time must be
+ *  at least a millisecond after the end time of the previous interval. The
  *  start time of a new interval must be at least a millisecond after the end
  *  time of the previous interval because intervals are closed. If the start
  *  time of a new interval is the same as the end time of the previous interval,
@@ -5304,7 +5576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The associated monitored resource. Custom metrics can use only certain
- *  monitored resource types in their time series data.
+ *  monitored resource types in their time series data. For more information,
+ *  see Monitored resources for custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources).
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 
@@ -5558,8 +5832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
- *  are supported for Uptime checks: uptime_url, gce_instance, gae_app,
- *  aws_ec2_instance, aws_elb_load_balancer
+ *  are valid for this field: uptime_url, gce_instance, gae_app,
+ *  aws_ec2_instance, aws_elb_load_balancer k8s_service
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 

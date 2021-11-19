@@ -73,14 +73,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudBigtableAdminTable;
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigtableAdminCloudPlatform;
 /**
- *  Authorization scope: View your data across Google Cloud Platform services
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
  */

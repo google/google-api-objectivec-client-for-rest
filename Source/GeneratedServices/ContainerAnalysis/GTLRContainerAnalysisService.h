@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Container Analysis API (containeranalysis/v1beta1)
+//   Container Analysis API (containeranalysis/v1)
 // Description:
 //   An implementation of the Grafeas API, which stores, and enables querying
 //   and retrieval of critical metadata about all of your software artifacts.
@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

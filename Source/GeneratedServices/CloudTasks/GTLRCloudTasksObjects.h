@@ -1101,7 +1101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1239,7 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTasks_StackdriverLoggingConfig *stackdriverLoggingConfig;
 
 /**
- *  Output only. The state of the queue. `state` can only be changed by called
+ *  Output only. The state of the queue. `state` can only be changed by calling
  *  PauseQueue, ResumeQueue, or uploading
  *  [queue.yaml/xml](https://cloud.google.com/appengine/docs/python/config/queueref).
  *  UpdateQueue cannot be used to change `state`.

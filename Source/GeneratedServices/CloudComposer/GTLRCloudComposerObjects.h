@@ -21,8 +21,10 @@
 #endif
 
 @class GTLRCloudComposer_AllowedIpRange;
+@class GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_Date;
+@class GTLRCloudComposer_EncryptionConfig;
 @class GTLRCloudComposer_Environment;
 @class GTLRCloudComposer_Environment_Labels;
 @class GTLRCloudComposer_EnvironmentConfig;
@@ -52,6 +54,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
+
+/**
+ *  There were python packages conflicts.
+ *
+ *  Value: "CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict;
+/**
+ *  It is unknown whether build had conflicts or not.
+ *
+ *  Value: "CONFLICT_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified;
+/**
+ *  There were no python packages conflicts.
+ *
+ *  Value: "NO_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_Environment.state
@@ -97,6 +121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_OperationMetadata.operationType
 
+/**
+ *  A resource check operation.
+ *
+ *  Value: "CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check;
 /**
  *  A resource creation operation.
  *
@@ -184,8 +214,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  Message containing information about the result of an upgrade check
+ *  operation.
+ */
+@interface GTLRCloudComposer_CheckUpgradeResponse : GTLRObject
+
+/** Output only. Url for a docker build log of an upgraded image. */
+@property(nonatomic, copy, nullable) NSString *buildLogUri;
+
+/**
+ *  Output only. Whether build has succeeded or failed on modules conflicts.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict
+ *        There were python packages conflicts. (Value: "CONFLICT")
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified
+ *        It is unknown whether build had conflicts or not. (Value:
+ *        "CONFLICT_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict
+ *        There were no python packages conflicts. (Value: "NO_CONFLICT")
+ */
+@property(nonatomic, copy, nullable) NSString *containsPypiModulesConflict;
+
+/** Composer image for which the build was happening. */
+@property(nonatomic, copy, nullable) NSString *imageVersion;
+
+/**
+ *  Output only. Extract from a docker image build log containing information
+ *  about pypi modules conflicts.
+ */
+@property(nonatomic, copy, nullable) NSString *pypiConflictBuildLogExtract;
+
+/**
+ *  Pypi dependencies specified in the environment configuration, at the time
+ *  when the build was triggered.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies *pypiDependencies;
+
+@end
+
+
+/**
+ *  Pypi dependencies specified in the environment configuration, at the time
+ *  when the build was triggered.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies : GTLRObject
+@end
+
+
+/**
  *  The configuration of Cloud SQL instance that is used by the Apache Airflow
- *  software.
+ *  software. Supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @interface GTLRCloudComposer_DatabaseConfig : GTLRObject
 
@@ -247,6 +332,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudComposer_Empty : GTLRObject
+@end
+
+
+/**
+ *  The encryption options for the Cloud Composer environment and its
+ *  dependencies.Supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
+ */
+@interface GTLRCloudComposer_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. Customer-managed Encryption Key available through Google's Key
+ *  Management Service. Cannot be updated. If not specified, Google-managed key
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 @end
 
 
@@ -351,9 +453,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  Optional. The configuration settings for Cloud SQL instance used internally
- *  by Apache Airflow software.
+ *  by Apache Airflow software. This field is supported for Cloud Composer
+ *  environments in versions composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_DatabaseConfig *databaseConfig;
+
+/**
+ *  Optional. The encryption options for the Cloud Composer environment and its
+ *  dependencies. Cannot be updated. This field is supported for Cloud Composer
+ *  environments in versions composer-1.*.*-airflow-*.*.*.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_EncryptionConfig *encryptionConfig;
 
 /**
  *  Output only. The Kubernetes Engine cluster used to run this environment.
@@ -365,7 +475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  The number of nodes in the Kubernetes Engine cluster that will be used to
- *  run this environment.
+ *  run this environment. This field is supported for Cloud Composer
+ *  environments in versions composer-1.*.*-airflow-*.*.*.
  *
  *  Uses NSNumber of intValue.
  */
@@ -386,7 +497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /**
  *  Optional. The network-level access control policy for the Airflow web
  *  server. If unspecified, no network-level access restrictions will be
- *  applied.
+ *  applied. This field is supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_WebServerNetworkAccessControl *webServerNetworkAccessControl;
 
@@ -444,10 +556,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  Optional. The IP address range used to allocate IP addresses to pods in the
- *  GKE cluster. This field is applicable only when `use_ip_aliases` is true.
- *  Set to blank to have GKE choose a range with the default size. Set to
- *  /netmask (e.g. `/14`) to have GKE choose a range with a specific netmask.
- *  Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  GKE cluster. For Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*, this field is applicable only when
+ *  `use_ip_aliases` is true. Set to blank to have GKE choose a range with the
+ *  default size. Set to /netmask (e.g. `/14`) to have GKE choose a range with a
+ *  specific netmask. Set to a
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
  *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
  *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
  *  use.
@@ -456,32 +570,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  Optional. The name of the GKE cluster's secondary range used to allocate IP
- *  addresses to pods. This field is applicable only when `use_ip_aliases` is
- *  true.
+ *  addresses to pods. For Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*, this field is applicable only when
+ *  `use_ip_aliases` is true.
  */
 @property(nonatomic, copy, nullable) NSString *clusterSecondaryRangeName;
 
 /**
  *  Optional. The IP address range of the services IP addresses in this GKE
- *  cluster. This field is applicable only when `use_ip_aliases` is true. Set to
- *  blank to have GKE choose a range with the default size. Set to /netmask
- *  (e.g. `/14`) to have GKE choose a range with a specific netmask. Set to a
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
+ *  cluster. For Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*, this field is applicable only when
+ *  `use_ip_aliases` is true. Set to blank to have GKE choose a range with the
+ *  default size. Set to /netmask (e.g. `/14`) to have GKE choose a range with a
+ *  specific netmask. Set to a
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
+ *  use.
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
 
 /**
  *  Optional. The name of the services' secondary range used to allocate IP
- *  addresses to the GKE cluster. This field is applicable only when
+ *  addresses to the GKE cluster. For Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*, this field is applicable only when
  *  `use_ip_aliases` is true.
  */
 @property(nonatomic, copy, nullable) NSString *servicesSecondaryRangeName;
 
 /**
  *  Optional. Whether or not to enable Alias IPs in the GKE cluster. If `true`,
- *  a VPC-native cluster is created.
+ *  a VPC-native cluster is created. This field is only supported for Cloud
+ *  Composer environments in versions composer-1.*.*-airflow-*.*.*. Environments
+ *  in newer versions always use VPC-native GKE clusters.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -570,7 +691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  Optional. The disk size in GB used for node VMs. Minimum size is 20GB. If
- *  unspecified, defaults to 100GB. Cannot be updated.
+ *  unspecified, defaults to 100GB. Cannot be updated. This field is supported
+ *  for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
  *
  *  Uses NSNumber of intValue.
  */
@@ -594,7 +716,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  the Compute Engine region corresponding to the Cloud Composer location, and
  *  propagate that choice to both fields. If only one field (`location` or
  *  `nodeConfig.machineType`) is specified, the location information from the
- *  specified field will be propagated to the unspecified field.
+ *  specified field will be propagated to the unspecified field. This field is
+ *  supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -612,7 +736,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  specified, the location information from the specified field will be
  *  propagated to the unspecified field. The `machineTypeId` must not be a
  *  [shared-core machine type](/compute/docs/machine-types#sharedcore). If this
- *  field is unspecified, the `machineTypeId` defaults to "n1-standard-1".
+ *  field is unspecified, the `machineTypeId` defaults to "n1-standard-1". This
+ *  field is supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -620,19 +746,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Optional. The Compute Engine network to be used for machine communications,
  *  specified as a [relative resource
  *  name](/apis/design/resource_names#relative_resource_name). For example:
- *  "projects/{projectId}/global/networks/{networkId}". [Shared
- *  VPC](/vpc/docs/shared-vpc) is not currently supported. The network must
- *  belong to the environment's project. If unspecified, the "default" network
- *  ID in the environment's project is used. If a [Custom Subnet
- *  Network](/vpc/docs/vpc#vpc_networks_and_subnets) is provided,
- *  `nodeConfig.subnetwork` must also be provided.
+ *  "projects/{projectId}/global/networks/{networkId}". If unspecified, the
+ *  "default" network ID in the environment's project is used. If a [Custom
+ *  Subnet Network](/vpc/docs/vpc#vpc_networks_and_subnets) is provided,
+ *  `nodeConfig.subnetwork` must also be provided. For [Shared
+ *  VPC](/vpc/docs/shared-vpc) subnetwork requirements, see
+ *  `nodeConfig.subnetwork`.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  Optional. The set of Google API scopes to be made available on all node VMs.
  *  If `oauth_scopes` is empty, defaults to
- *  ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+ *  ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated. This
+ *  field is supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
@@ -657,7 +785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Optional. The list of instance tags applied to all node VMs. Tags are used
  *  to identify valid sources or targets for network firewalls. Each tag within
  *  the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
- *  Cannot be updated.
+ *  Cannot be updated. This field is supported for Cloud Composer environments
+ *  in versions composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -762,6 +891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Output only. The type of operation being performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Check A
+ *        resource check operation. (Value: "CHECK")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Create A
  *        resource creation operation. (Value: "CREATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Delete A
@@ -852,7 +983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /**
  *  Optional. If `true`, a Private IP Cloud Composer environment is created. If
  *  this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be set
- *  to true.
+ *  to true for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -868,12 +1000,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Optional. The CIDR block from which IP range for web server will be
  *  reserved. Needs to be disjoint from
  *  `private_cluster_config.master_ipv4_cidr_block` and
- *  `cloud_sql_ipv4_cidr_block`.
+ *  `cloud_sql_ipv4_cidr_block`. This field is supported for Cloud Composer
+ *  environments in versions composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *webServerIpv4CidrBlock;
 
 /**
  *  Output only. The IP range reserved for the tenant project's App Engine VMs.
+ *  This field is supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *webServerIpv4ReservedRange;
 
@@ -946,9 +1081,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /**
  *  Optional. The major version of Python used to run the Apache Airflow
  *  scheduler, worker, and webserver processes. Can be set to '2' or '3'. If not
- *  specified, the default is '2'. Cannot be updated.
+ *  specified, the default is '3'. Cannot be updated. This field is only
+ *  supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+ *  Python major version 3.
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
+
+/**
+ *  Optional. The number of schedulers for Airflow. This field is supported for
+ *  Cloud Composer environments in versions composer-1.*.*-airflow-2.*.*.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *schedulerCount;
 
 @end
 
@@ -1059,6 +1205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /**
  *  The configuration settings for the Airflow web server App Engine instance.
+ *  Supported for Cloud Composer environments in versions
+ *  composer-1.*.*-airflow-*.*.*
  */
 @interface GTLRCloudComposer_WebServerConfig : GTLRObject
 
@@ -1075,7 +1223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
- *  Network-level access control policy for the Airflow web server.
+ *  Network-level access control policy for the Airflow web server. Supported
+ *  for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
  */
 @interface GTLRCloudComposer_WebServerNetworkAccessControl : GTLRObject
 

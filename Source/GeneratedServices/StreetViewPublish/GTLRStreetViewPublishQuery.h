@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Server reponses do not include the download URL for the photo bytes. The
+ *  Server responses do not include the download URL for the photo bytes. The
  *  default value.
  *
  *  Value: "BASIC"
@@ -88,8 +88,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoCreate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_Photo.
@@ -127,8 +125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoDelete : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoDeleteWithphotoId:]
 
 /** Required. ID of the Photo. */
 @property(nonatomic, copy, nullable) NSString *photoId;
@@ -162,8 +158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoGet : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoGetWithphotoId:]
 
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -182,8 +176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  in the Photo response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
@@ -221,8 +216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchDelete : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchDeleteWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_BatchDeletePhotosResponse.
@@ -257,8 +250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchGet : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchGet]
 
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -280,8 +271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  in the Photo response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
@@ -324,8 +316,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchUpdate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchUpdateWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_BatchUpdatePhotosResponse.
@@ -362,13 +352,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosList : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosList]
 
 /**
- *  Required. The filter expression. For example:
- *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The only filter supported at the
- *  moment is `placeId`.
+ *  Optional. The filter expression. For example:
+ *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The filters supported at the moment
+ *  are: `placeId`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -399,8 +387,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  returned in the Photos response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
@@ -442,8 +431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoStartUpload : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoStartUploadWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_UploadRef.
@@ -485,11 +472,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoUpdate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoUpdateWithObject:identifier:]
 
 /**
- *  Required. A unique identifier for a photo.
+ *  A unique identifier for a photo.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -525,7 +510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  still being indexed.
  *
  *  @param object The @c GTLRStreetViewPublish_Photo to include in the query.
- *  @param identifier Required. A unique identifier for a photo.
+ *  @param identifier A unique identifier for a photo.
  *
  *  @return GTLRStreetViewPublishQuery_PhotoUpdate
  */

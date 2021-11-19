@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRSASPortal_Assignment;
+@class GTLRSASPortal_ChannelWithScore;
 @class GTLRSASPortal_Customer;
 @class GTLRSASPortal_Deployment;
 @class GTLRSASPortal_Device;
@@ -273,13 +274,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for CreateSignedDevice method.
+ *  The channel with score.
+ */
+@interface GTLRSASPortal_ChannelWithScore : GTLRObject
+
+/** The frequency range of the channel. */
+@property(nonatomic, strong, nullable) GTLRSASPortal_FrequencyRange *frequencyRange;
+
+/**
+ *  The channel score, normalized to be in [0,100].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
+ *  Request for CreateSignedDevice.
  */
 @interface GTLRSASPortal_CreateSignedDeviceRequest : GTLRObject
 
 /**
  *  Required. JSON Web Token signed using a CPI private key. Payload must be the
- *  JSON encoding of the [Device]. The user_id field must be set.
+ *  JSON encoding of the device. The user_id field must be set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -287,7 +306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, copy, nullable) NSString *encodedDevice;
 
 /**
- *  Required. Unique installer id (cpiId) from the Certified Professional
+ *  Required. Unique installer id (CPI ID) from the Certified Professional
  *  Installers database.
  */
 @property(nonatomic, copy, nullable) NSString *installerId;
@@ -339,12 +358,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** The deployment's display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Output only. The FRNs copied from its direct parent. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *frns;
+
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  User id used by the devices belonging to this deployment. Each deployment
- *  should be associated with one unique user_id.
+ *  User ID used by the devices belonging to this deployment. Each deployment
+ *  should be associated with one unique user ID.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sasUserIds;
 
@@ -361,6 +383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_DeviceConfig *activeConfig;
 
+/** Output only. Current channels with scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_ChannelWithScore *> *currentChannels;
+
 /**
  *  Device parameters that can be overridden by both SAS Portal and SAS
  *  registration requests.
@@ -372,6 +397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /** The FCC identifier of the device. */
 @property(nonatomic, copy, nullable) NSString *fccId;
+
+/** Only ranges within the allowlists are available for new grants. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_FrequencyRange *> *grantRangeAllowlists;
 
 /** Output only. Grants held by the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_DeviceGrant *> *grants;
@@ -409,8 +437,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_DeviceAirInterface : GTLRObject
 
 /**
- *  This field specifies the radio access technology that is used for the CBSD.
- *  Conditional
+ *  Conditional. This field specifies the radio access technology that is used
+ *  for the CBSD.
  *
  *  Likely values:
  *    @arg @c kGTLRSASPortal_DeviceAirInterface_RadioTechnology_CambiumNetworks
@@ -433,9 +461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, copy, nullable) NSString *radioTechnology;
 
 /**
- *  This field is related to the radioTechnology field and provides the air
- *  interface specification that the CBSD is compliant with at the time of
- *  registration. Optional
+ *  Optional. This field is related to the `radioTechnology` and provides the
+ *  air interface specification that the CBSD is compliant with at the time of
+ *  registration.
  */
 @property(nonatomic, copy, nullable) NSString *supportedSpec;
 
@@ -470,7 +498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) GTLRSASPortal_InstallationParams *installationParams;
 
 /**
- *  Output-only. Whether the configuration has been signed by a CPI.
+ *  Output only. Whether the configuration has been signed by a CPI.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -493,7 +521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output-only. The last time the device configuration was edited. */
+/** Output only. The last time the device configuration was edited. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /** The identifier of a device user. */
@@ -533,7 +561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /**
  *  Maximum Equivalent Isotropically Radiated Power (EIRP) permitted by the
- *  grant. The maximum EIRP is in units of dBm/MHz. The value of maxEirp
+ *  grant. The maximum EIRP is in units of dBm/MHz. The value of `maxEirp`
  *  represents the average (RMS) EIRP that would be measured by the procedure
  *  defined in FCC part 96.41(e)(3).
  *
@@ -574,6 +602,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  Device data overridable by both SAS Portal and registration requests.
  */
 @interface GTLRSASPortal_DeviceMetadata : GTLRObject
+
+/**
+ *  If populated, the Antenna Model Pattern to use. Format is:
+ *  RecordCreatorId:PatternId
+ */
+@property(nonatomic, copy, nullable) NSString *antennaModel;
+
+/**
+ *  CCG. A group of CBSDs in the same ICG requesting a common primary channel
+ *  assignment. See CBRSA-TS-2001 V3.0.0 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *commonChannelGroup;
+
+/**
+ *  ICG. A group of CBSDs that manage their own interference with the group. See
+ *  CBRSA-TS-2001 V3.0.0 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *interferenceCoordinationGroup;
+
 @end
 
 
@@ -648,21 +695,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for GenerateSecret method]
- *  [spectrum.sas.portal.v1alpha1.DeviceManager.GenerateSecret].
+ *  Request for GenerateSecret.
  */
 @interface GTLRSASPortal_GenerateSecretRequest : GTLRObject
 @end
 
 
 /**
- *  Response for GenerateSecret method.
+ *  Response for GenerateSecret.
  */
 @interface GTLRSASPortal_GenerateSecretResponse : GTLRObject
 
-/**
- *  The secret generated by the string and used by [ValidateInstaller] method.
- */
+/** The secret generated by the string and used by ValidateInstaller. */
 @property(nonatomic, copy, nullable) NSString *secret;
 
 @end
@@ -747,9 +791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSNumber *eirpCapability;
 
 /**
- *  Device antenna height in meters. When the heightType parameter value is
+ *  Device antenna height in meters. When the `heightType` parameter value is
  *  "AGL", the antenna height should be given relative to ground level. When the
- *  heightType parameter value is "AMSL", it is given with respect to WGS84
+ *  `heightType` parameter value is "AMSL", it is given with respect to WGS84
  *  datum.
  *
  *  Uses NSNumber of doubleValue.
@@ -781,7 +825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSNumber *horizontalAccuracy;
 
 /**
- *  Whether the device antenna is indoor or not. True: indoor. False: outdoor.
+ *  Whether the device antenna is indoor or not. `true`: indoor. `false`:
+ *  outdoor.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -798,7 +843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
- *  Longitude of the device antenna location. in degrees relative to the WGS 84
+ *  Longitude of the device antenna location in degrees relative to the WGS 84
  *  datum. The allowed range is from -180.000000 to +180.000000. Positive values
  *  represent longitudes east of the prime meridian; negative values west of the
  *  prime meridian.
@@ -838,9 +883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Customer *> *customers;
 
 /**
- *  A pagination token returned from a previous call to ListCustomers method
- *  that indicates from where listing should continue. If the field is missing
- *  or empty, it means there are no more customers.
+ *  A pagination token returned from a previous call to ListCustomers that
+ *  indicates from where listing should continue. If the field is missing or
+ *  empty, it means there are no more customers.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -848,7 +893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Response for ListDeployments method.
+ *  Response for ListDeployments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "deployments" property. If returned as the result of a query, it
@@ -866,9 +911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Deployment *> *deployments;
 
 /**
- *  A pagination token returned from a previous call to ListDeployments method
- *  that indicates from where listing should continue. If the field is missing
- *  or empty, it means there is no more deployments.
+ *  A pagination token returned from a previous call to ListDeployments that
+ *  indicates from where listing should continue. If the field is missing or
+ *  empty, it means there are no more deployments.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -876,7 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Response for ListDevices method.
+ *  Response for ListDevices.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "devices" property. If returned as the result of a query, it
@@ -894,7 +939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Device *> *devices;
 
 /**
- *  A pagination token returned from a previous call to ListDevices method that
+ *  A pagination token returned from a previous call to ListDevices that
  *  indicates from where listing should continue. If the field is missing or
  *  empty, it means there is no more devices.
  */
@@ -904,7 +949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Response for ListNodes method.
+ *  Response for ListNodes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "nodes" property. If returned as the result of a query, it should
@@ -914,9 +959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_ListNodesResponse : GTLRCollectionObject
 
 /**
- *  A pagination token returned from a previous call to ListNodes method that
- *  indicates from where listing should continue. If the field is missing or
- *  empty, it means there is no more nodes.
+ *  A pagination token returned from a previous call to ListNodes that indicates
+ *  from where listing should continue. If the field is missing or empty, it
+ *  means there is no more nodes.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -932,12 +977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for MoveDeployment method.
+ *  Request for MoveDeployment.
  */
 @interface GTLRSASPortal_MoveDeploymentRequest : GTLRObject
 
 /**
- *  Required. The name of the new parent resource Node or Customer to reparent
+ *  Required. The name of the new parent resource node or customer to reparent
  *  the deployment under.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -946,12 +991,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for MoveDevice method.
+ *  Request for MoveDevice.
  */
 @interface GTLRSASPortal_MoveDeviceRequest : GTLRObject
 
 /**
- *  Required. The name of the new parent resource (Node or Customer) to reparent
+ *  Required. The name of the new parent resource node or customer to reparent
  *  the device under.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -960,12 +1005,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for MoveNode method.
+ *  Request for MoveNode.
  */
 @interface GTLRSASPortal_MoveNodeRequest : GTLRObject
 
 /**
- *  Required. The name of the new parent resource node or Customer) to reparent
+ *  Required. The name of the new parent resource node or customer to reparent
  *  the node under.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -1075,18 +1120,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @interface GTLRSASPortal_Policy : GTLRObject
 
+/** List of assignments */
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Assignment *> *assignments;
 
 /**
- *  The [etag] is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other. It is
- *  strongly suggested that systems make use of the [etag] in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An [etag] is returned in the response to [GetPolicy], and
- *  systems are expected to put that etag in the request to [SetPolicy] to
- *  ensure that their change will be applied to the same version of the policy.
- *  If no [etag] is provided in the call to [SetPolicy], then the existing
- *  policy is overwritten blindly.
+ *  The etag is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the etag in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An etag is
+ *  returned in the response to GetPolicy, and systems are expected to put that
+ *  etag in the request to SetPolicy to ensure that their change will be applied
+ *  to the same version of the policy. If no etag is provided in the call to
+ *  GetPolicy, then the existing policy is overwritten blindly.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1101,6 +1146,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @interface GTLRSASPortal_SetPolicyRequest : GTLRObject
 
+/**
+ *  Optional. Set the field as true when we would like to disable the onboarding
+ *  notification.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableNotification;
+
 /** Required. The policy to be applied to the `resource`. */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Policy *policy;
 
@@ -1114,7 +1167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for SignDevice method.
+ *  Request for SignDevice.
  */
 @interface GTLRSASPortal_SignDeviceRequest : GTLRObject
 
@@ -1198,7 +1251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for UpdateSignedDevice method.
+ *  Request for UpdateSignedDevice.
  */
 @interface GTLRSASPortal_UpdateSignedDeviceRequest : GTLRObject
 
@@ -1221,7 +1274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Request for ValidateInstaller method.
+ *  Request for ValidateInstaller.
  */
 @interface GTLRSASPortal_ValidateInstallerRequest : GTLRObject
 
@@ -1232,20 +1285,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, copy, nullable) NSString *encodedSecret;
 
 /**
- *  Required. Unique installer id (cpiId) from the Certified Professional
+ *  Required. Unique installer id (CPI ID) from the Certified Professional
  *  Installers database.
  */
 @property(nonatomic, copy, nullable) NSString *installerId;
 
-/** Required. Secret returned by the GenerateSecret method. */
+/** Required. Secret returned by the GenerateSecret. */
 @property(nonatomic, copy, nullable) NSString *secret;
 
 @end
 
 
 /**
- *  Response for ValidateInstaller method]
- *  [spectrum.sas.portal.v1alpha1.DeviceManager.ValidateInstaller].
+ *  Response for ValidateInstaller.
  */
 @interface GTLRSASPortal_ValidateInstallerResponse : GTLRObject
 @end

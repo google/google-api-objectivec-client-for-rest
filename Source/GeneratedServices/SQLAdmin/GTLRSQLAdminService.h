@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -31,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

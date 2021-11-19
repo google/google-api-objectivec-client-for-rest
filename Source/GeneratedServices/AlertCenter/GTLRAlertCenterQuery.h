@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsBatchDelete : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsBatchDeleteWithObject:]
 
 /**
  *  Fetches a @c GTLRAlertCenter_BatchDeleteAlertsResponse.
@@ -78,8 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsBatchUndelete : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsBatchUndeleteWithObject:]
 
 /**
  *  Fetches a @c GTLRAlertCenter_BatchUndeleteAlertsResponse.
@@ -108,8 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsDelete : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsDeleteWithalertId:]
 
 /** Required. The identifier of the alert to delete. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -150,8 +144,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsFeedbackCreate : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsFeedbackCreateWithObject:alertId:]
 
 /** Required. The identifier of the alert this feedback belongs to. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -192,8 +184,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsFeedbackList : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsFeedbackListWithalertId:]
 
 /**
  *  Required. The alert identifier. The "-" wildcard could be used to represent
@@ -210,9 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A query string for filtering alert feedback results. For more
- *  details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters)
+ *  details, see [Query
+ *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
  *  and [Supported query filter
- *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
+ *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -241,8 +232,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsGet : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsGetWithalertId:]
 
 /** Required. The identifier of the alert to retrieve. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -278,8 +267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsGetMetadata : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsGetMetadataWithalertId:]
 
 /** Required. The identifier of the alert this metadata belongs to. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -315,8 +302,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsList : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsList]
 
 /**
  *  Optional. The unique identifier of the Google Workspace organization account
@@ -327,9 +312,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A query string for filtering alert results. For more details, see
- *  [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
- *  query filter
- *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
+ *  [Query
+ *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
+ *  and [Supported query filter
+ *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -383,8 +369,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_AlertsUndelete : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForAlertsUndeleteWithObject:alertId:]
 
 /** Required. The identifier of the alert to undelete. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -418,8 +402,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_V1beta1GetSettings : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForGetSettings]
 
 /**
  *  Optional. The unique identifier of the Google Workspace organization account
@@ -448,8 +430,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAlertCenterAppsAlerts
  */
 @interface GTLRAlertCenterQuery_V1beta1UpdateSettings : GTLRAlertCenterQuery
-// Previous library name was
-//   +[GTLQueryAlertCenter queryForUpdateSettingsWithObject:]
 
 /**
  *  Optional. The unique identifier of the Google Workspace organization account

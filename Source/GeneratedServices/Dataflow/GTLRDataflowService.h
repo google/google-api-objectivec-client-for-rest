@@ -31,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -50,7 +50,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataflowCompute;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataflowComputeReadonly;
 /**
- *  Authorization scope: View your email address
+ *  Authorization scope: See your primary Google Account email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */

@@ -53,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsGetConfig : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsGetConfigWithname:]
 
 /** The name of the requested project. Values are of the form `projects/`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -84,8 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposCreate : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposCreateWithObject:parent:]
 
 /**
  *  The project in which to create the repo. Values are of the form `projects/`.
@@ -120,8 +116,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposDelete : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposDeleteWithname:]
 
 /**
  *  The name of the repo to delete. Values are of the form `projects//repos/`.
@@ -154,8 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposGet : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposGetWithname:]
 
 /**
  *  The name of the requested repository. Values are of the form
@@ -190,8 +182,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposGetIamPolicy : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -239,8 +229,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposList : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposListWithname:]
 
 /**
  *  The project ID whose repos should be listed. Values are of the form
@@ -289,8 +277,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposPatch : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposPatchWithObject:name:]
 
 /**
  *  The name of the requested repository. Values are of the form
@@ -326,8 +312,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceFullControl
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposSetIamPolicy : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -364,8 +348,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposSync : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposSyncWithObject:name:]
 
 /**
  *  The name of the repo to synchronize. Values are of the form
@@ -405,8 +387,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesSourceReadWrite
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsReposTestIamPermissions : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsReposTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -443,8 +423,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudSourceRepositoriesCloudPlatform
  */
 @interface GTLRCloudSourceRepositoriesQuery_ProjectsUpdateConfig : GTLRCloudSourceRepositoriesQuery
-// Previous library name was
-//   +[GTLQueryCloudSourceRepositories queryForProjectsUpdateConfigWithObject:name:]
 
 /** The name of the requested project. Values are of the form `projects/`. */
 @property(nonatomic, copy, nullable) NSString *name;

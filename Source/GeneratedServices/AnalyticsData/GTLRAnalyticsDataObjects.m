@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
@@ -13,17 +13,37 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAnalyticsData_ActiveMetricRestriction.restrictedMetricTypes
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_CostData = @"COST_DATA";
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_ActiveMetricRestriction_RestrictedMetricTypes_RevenueData = @"REVENUE_DATA";
+
+// GTLRAnalyticsData_CheckCompatibilityRequest.compatibilityFilter
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_CheckCompatibilityRequest_CompatibilityFilter_Incompatible = @"INCOMPATIBLE";
+
 // GTLRAnalyticsData_CohortsRange.granularity
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Daily = @"DAILY";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_GranularityUnspecified = @"GRANULARITY_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Monthly = @"MONTHLY";
 NSString * const kGTLRAnalyticsData_CohortsRange_Granularity_Weekly = @"WEEKLY";
 
+// GTLRAnalyticsData_DimensionCompatibility.compatibility
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_DimensionCompatibility_Compatibility_Incompatible = @"INCOMPATIBLE";
+
 // GTLRAnalyticsData_DimensionOrderBy.orderType
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_Alphanumeric = @"ALPHANUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_CaseInsensitiveAlphanumeric = @"CASE_INSENSITIVE_ALPHANUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_Numeric = @"NUMERIC";
 NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_OrderTypeUnspecified = @"ORDER_TYPE_UNSPECIFIED";
+
+// GTLRAnalyticsData_MetricCompatibility.compatibility
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_CompatibilityUnspecified = @"COMPATIBILITY_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Compatible = @"COMPATIBLE";
+NSString * const kGTLRAnalyticsData_MetricCompatibility_Compatibility_Incompatible = @"INCOMPATIBLE";
 
 // GTLRAnalyticsData_MetricHeader.type
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
@@ -39,6 +59,11 @@ NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMilliseconds = @"TYPE_
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMinutes = @"TYPE_MINUTES";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeSeconds = @"TYPE_SECONDS";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeStandard = @"TYPE_STANDARD";
+
+// GTLRAnalyticsData_MetricMetadata.blockedReasons
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_BlockedReasonUnspecified = @"BLOCKED_REASON_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_NoCostMetrics = @"NO_COST_METRICS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_BlockedReasons_NoRevenueMetrics = @"NO_REVENUE_METRICS";
 
 // GTLRAnalyticsData_MetricMetadata.type
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
@@ -95,11 +120,29 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_ActiveMetricRestriction
+//
+
+@implementation GTLRAnalyticsData_ActiveMetricRestriction
+@dynamic metricName, restrictedMetricTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictedMetricTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_BatchRunPivotReportsRequest
 //
 
 @implementation GTLRAnalyticsData_BatchRunPivotReportsRequest
-@dynamic entity, requests;
+@dynamic requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -117,13 +160,19 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunPivotReportsResponse
-@dynamic pivotReports;
+@dynamic kind, pivotReports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pivotReports" : [GTLRAnalyticsData_RunPivotReportResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -135,7 +184,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunReportsRequest
-@dynamic entity, requests;
+@dynamic requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -153,13 +202,19 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunReportsResponse
-@dynamic reports;
+@dynamic kind, reports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"reports" : [GTLRAnalyticsData_RunReportResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -182,6 +237,45 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_CaseExpression
 @dynamic dimensionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_CheckCompatibilityRequest
+//
+
+@implementation GTLRAnalyticsData_CheckCompatibilityRequest
+@dynamic compatibilityFilter, dimensionFilter, dimensions, metricFilter,
+         metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRAnalyticsData_Dimension class],
+    @"metrics" : [GTLRAnalyticsData_Metric class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_CheckCompatibilityResponse
+//
+
+@implementation GTLRAnalyticsData_CheckCompatibilityResponse
+@dynamic dimensionCompatibilities, metricCompatibilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionCompatibilities" : [GTLRAnalyticsData_DimensionCompatibility class],
+    @"metricCompatibilities" : [GTLRAnalyticsData_MetricCompatibility class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -273,6 +367,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_DimensionCompatibility
+//
+
+@implementation GTLRAnalyticsData_DimensionCompatibility
+@dynamic compatibility, dimensionMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_DimensionExpression
 //
 
@@ -297,8 +401,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_DimensionMetadata
-@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
-         uiName;
+@dynamic apiName, category, customDefinition, deprecatedApiNames,
+         descriptionProperty, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -336,22 +440,11 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAnalyticsData_Entity
-//
-
-@implementation GTLRAnalyticsData_Entity
-@dynamic propertyId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAnalyticsData_Filter
 //
 
 @implementation GTLRAnalyticsData_Filter
-@dynamic betweenFilter, fieldName, inListFilter, nullFilter, numericFilter,
-         stringFilter;
+@dynamic betweenFilter, fieldName, inListFilter, numericFilter, stringFilter;
 @end
 
 
@@ -432,6 +525,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_MetricCompatibility
+//
+
+@implementation GTLRAnalyticsData_MetricCompatibility
+@dynamic compatibility, metricMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_MetricHeader
 //
 
@@ -446,8 +549,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_MetricMetadata
-@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
-         expression, type, uiName;
+@dynamic apiName, blockedReasons, category, customDefinition,
+         deprecatedApiNames, descriptionProperty, expression, type, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -455,6 +558,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"blockedReasons" : [NSString class],
     @"deprecatedApiNames" : [NSString class]
   };
   return map;
@@ -480,6 +584,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_MetricValue
 @dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_MinuteRange
+//
+
+@implementation GTLRAnalyticsData_MinuteRange
+@dynamic endMinutesAgo, name, startMinutesAgo;
 @end
 
 
@@ -603,8 +717,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_PropertyQuota
-@dynamic concurrentRequests, serverErrorsPerProjectPerHour, tokensPerDay,
-         tokensPerHour;
+@dynamic concurrentRequests, potentiallyThresholdedRequestsPerHour,
+         serverErrorsPerProjectPerHour, tokensPerDay, tokensPerHour;
 @end
 
 
@@ -624,7 +738,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_ResponseMetaData
-@dynamic dataLossFromOtherRow;
+@dynamic currencyCode, dataLossFromOtherRow, emptyReason,
+         schemaRestrictionResponse, timeZone;
 @end
 
 
@@ -654,7 +769,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunPivotReportRequest
 @dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         entity, keepEmptyRows, metricFilter, metrics, pivots,
+         keepEmptyRows, metricFilter, metrics, pivots, property,
          returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -676,8 +791,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunPivotReportResponse
-@dynamic aggregates, dimensionHeaders, metadata, metricHeaders, pivotHeaders,
-         propertyQuota, rows;
+@dynamic aggregates, dimensionHeaders, kind, metadata, metricHeaders,
+         pivotHeaders, propertyQuota, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -690,6 +805,12 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -700,13 +821,14 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunRealtimeReportRequest
 @dynamic dimensionFilter, dimensions, limit, metricAggregations, metricFilter,
-         metrics, orderBys, returnPropertyQuota;
+         metrics, minuteRanges, orderBys, returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dimensions" : [GTLRAnalyticsData_Dimension class],
     @"metricAggregations" : [NSString class],
     @"metrics" : [GTLRAnalyticsData_Metric class],
+    @"minuteRanges" : [GTLRAnalyticsData_MinuteRange class],
     @"orderBys" : [GTLRAnalyticsData_OrderBy class]
   };
   return map;
@@ -721,8 +843,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunRealtimeReportResponse
-@dynamic dimensionHeaders, maximums, metricHeaders, minimums, propertyQuota,
-         rowCount, rows, totals;
+@dynamic dimensionHeaders, kind, maximums, metricHeaders, minimums,
+         propertyQuota, rowCount, rows, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -736,6 +858,12 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -746,8 +874,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunReportRequest
 @dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         entity, keepEmptyRows, limit, metricAggregations, metricFilter,
-         metrics, offset, orderBys, returnPropertyQuota;
+         keepEmptyRows, limit, metricAggregations, metricFilter, metrics,
+         offset, orderBys, property, returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -769,7 +897,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunReportResponse
-@dynamic dimensionHeaders, maximums, metadata, metricHeaders, minimums,
+@dynamic dimensionHeaders, kind, maximums, metadata, metricHeaders, minimums,
          propertyQuota, rowCount, rows, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -780,6 +908,30 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
     @"minimums" : [GTLRAnalyticsData_Row class],
     @"rows" : [GTLRAnalyticsData_Row class],
     @"totals" : [GTLRAnalyticsData_Row class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_SchemaRestrictionResponse
+//
+
+@implementation GTLRAnalyticsData_SchemaRestrictionResponse
+@dynamic activeMetricRestrictions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeMetricRestrictions" : [GTLRAnalyticsData_ActiveMetricRestriction class]
   };
   return map;
 }

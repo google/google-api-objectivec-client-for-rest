@@ -16,11 +16,12 @@
 //
 
 @implementation GTLRStorage_Bucket
-@dynamic acl, billing, cors, defaultEventBasedHold, defaultObjectAcl,
-         encryption, ETag, iamConfiguration, identifier, kind, labels,
-         lifecycle, location, locationType, logging, metageneration, name,
-         owner, projectNumber, retentionPolicy, selfLink, storageClass,
-         timeCreated, updated, versioning, website, zoneAffinity;
+@dynamic acl, autoclass, billing, cors, customPlacementConfig,
+         defaultEventBasedHold, defaultObjectAcl, encryption, ETag,
+         iamConfiguration, identifier, kind, labels, lifecycle, location,
+         locationType, logging, metageneration, name, owner, projectNumber,
+         retentionPolicy, rpo, satisfiesPZS, selfLink, storageClass,
+         timeCreated, updated, versioning, website;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -34,12 +35,21 @@
   NSDictionary<NSString *, Class> *map = @{
     @"acl" : [GTLRStorage_BucketAccessControl class],
     @"cors" : [GTLRStorage_Bucket_Cors_Item class],
-    @"defaultObjectAcl" : [GTLRStorage_ObjectAccessControl class],
-    @"zoneAffinity" : [NSString class]
+    @"defaultObjectAcl" : [GTLRStorage_ObjectAccessControl class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_Autoclass
+//
+
+@implementation GTLRStorage_Bucket_Autoclass
+@dynamic enabled, toggleTime;
 @end
 
 
@@ -66,6 +76,24 @@
     @"method" : [NSString class],
     @"origin" : [NSString class],
     @"responseHeader" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorage_Bucket_CustomPlacementConfig
+//
+
+@implementation GTLRStorage_Bucket_CustomPlacementConfig
+@dynamic dataLocations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataLocations" : [NSString class]
   };
   return map;
 }

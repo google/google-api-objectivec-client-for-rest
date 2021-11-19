@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -18,6 +18,11 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// state
+NSString * const kGTLRApigeeStateDraft            = @"DRAFT";
+NSString * const kGTLRApigeeStatePublished        = @"PUBLISHED";
+NSString * const kGTLRApigeeStateStateUnspecified = @"STATE_UNSPECIFIED";
 
 // view
 NSString * const kGTLRApigeeViewBasic                        = @"BASIC";
@@ -386,6 +391,117 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/rateplans";
+  GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RatePlan class];
+  query.loggingName = @"apigee.organizations.apiproducts.rateplans.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RatePlan class];
+  query.loggingName = @"apigee.organizations.apiproducts.rateplans.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsApiproductsRateplansGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsApiproductsRateplansGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RatePlan class];
+  query.loggingName = @"apigee.organizations.apiproducts.rateplans.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsApiproductsRateplansList
+
+@dynamic count, expand, orderBy, parent, startKey, state;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/rateplans";
+  GTLRApigeeQuery_OrganizationsApiproductsRateplansList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse class];
+  query.loggingName = @"apigee.organizations.apiproducts.rateplans.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RatePlan class];
+  query.loggingName = @"apigee.organizations.apiproducts.rateplans.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsApiproductsUpdate
 
 @dynamic name;
@@ -557,6 +673,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.parent = parent;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListApiProxiesResponse class];
   query.loggingName = @"apigee.organizations.apis.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsApisPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApiProxy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsApisPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ApiProxy class];
+  query.loggingName = @"apigee.organizations.apis.patch";
   return query;
 }
 
@@ -1402,6 +1545,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CreditDeveloperBalanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:credit";
+  GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperBalance class];
+  query.loggingName = @"apigee.organizations.developers.balance.credit";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsDevelopersCreate
 
 @dynamic parent;
@@ -1467,6 +1637,44 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsDevelopersGetBalance
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersGetBalance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperBalance class];
+  query.loggingName = @"apigee.organizations.developers.getBalance";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersGetMonetizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig class];
+  query.loggingName = @"apigee.organizations.developers.getMonetizationConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsDevelopersList
 
 @dynamic app, count, expand, ids, includeCompany, parent, startKey;
@@ -1505,6 +1713,98 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subscriptions";
+  GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription class];
+  query.loggingName = @"apigee.organizations.developers.subscriptions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:expire";
+  GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription class];
+  query.loggingName = @"apigee.organizations.developers.subscriptions.expire";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription class];
+  query.loggingName = @"apigee.organizations.developers.subscriptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList
+
+@dynamic count, parent, startKey;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/subscriptions";
+  GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse class];
+  query.loggingName = @"apigee.organizations.developers.subscriptions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsDevelopersUpdate
 
 @dynamic name;
@@ -1527,6 +1827,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1Developer class];
   query.loggingName = @"apigee.organizations.developers.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsDevelopersUpdateMonetizationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperMonetizationConfig class];
+  query.loggingName = @"apigee.organizations.developers.updateMonetizationConfig";
   return query;
 }
 
@@ -1729,7 +2056,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
 
-@dynamic name, type;
+@dynamic disableCache, name, type;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1935,7 +2262,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy
 
-@dynamic name, override, sequencedRollout;
+@dynamic name, override, sequencedRollout, serviceAccount;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2023,6 +2350,171 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleProtobufEmpty class];
   query.loggingName = @"apigee.organizations.environments.apis.revisions.undeploy";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/archiveDeployments";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleLongrunningOperation class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleProtobufEmpty class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateDownloadUrl";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateDownloadUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1GenerateDownloadUrlResponse class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.generateDownloadUrl";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/archiveDeployments:generateUploadUrl";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGenerateUploadUrl *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1GenerateUploadUrlResponse class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.generateUploadUrl";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/archiveDeployments";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListArchiveDeploymentsResponse class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsArchiveDeploymentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment class];
+  query.loggingName = @"apigee.organizations.environments.archiveDeployments.patch";
   return query;
 }
 
@@ -2252,6 +2744,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.resource = resource;
   query.expectedObjectClass = [GTLRApigee_GoogleIamV1Policy class];
   query.loggingName = @"apigee.organizations.environments.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1TraceConfig class];
+  query.loggingName = @"apigee.organizations.environments.getTraceConfig";
   return query;
 }
 
@@ -2900,7 +3411,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy
 
-@dynamic name, override;
+@dynamic name, override, serviceAccount;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -3113,6 +3624,117 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/overrides";
+  GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride class];
+  query.loggingName = @"apigee.organizations.environments.traceConfig.overrides.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleProtobufEmpty class];
+  query.loggingName = @"apigee.organizations.environments.traceConfig.overrides.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride class];
+  query.loggingName = @"apigee.organizations.environments.traceConfig.overrides.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/overrides";
+  GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse class];
+  query.loggingName = @"apigee.organizations.environments.traceConfig.overrides.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride class];
+  query.loggingName = @"apigee.organizations.environments.traceConfig.overrides.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsUnsubscribe
 
 @dynamic parent;
@@ -3221,6 +3843,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1TraceConfig class];
+  query.loggingName = @"apigee.organizations.environments.updateTraceConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsGet
 
 @dynamic name;
@@ -3254,6 +3903,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1IngressConfig class];
   query.loggingName = @"apigee.organizations.getDeployedIngressConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsGetRuntimeConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsGetRuntimeConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RuntimeConfig class];
+  query.loggingName = @"apigee.organizations.getRuntimeConfig";
   return query;
 }
 
@@ -3735,6 +4403,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsInstancesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Instance *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsInstancesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleLongrunningOperation class];
+  query.loggingName = @"apigee.organizations.instances.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsInstancesReportStatus
 
 @dynamic instance;
@@ -3991,6 +4686,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
   query.name = name;
   query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1CustomReport class];
   query.loggingName = @"apigee.organizations.reports.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRApigeeQuery_OrganizationsSetAddons
+
+@dynamic org;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest *)object
+                            org:(NSString *)org {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"org" ];
+  NSString *pathURITemplate = @"v1/{+org}:setAddons";
+  GTLRApigeeQuery_OrganizationsSetAddons *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.org = org;
+  query.expectedObjectClass = [GTLRApigee_GoogleLongrunningOperation class];
+  query.loggingName = @"apigee.organizations.setAddons";
   return query;
 }
 

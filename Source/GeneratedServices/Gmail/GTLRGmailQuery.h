@@ -128,8 +128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersDraftsCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsCreateWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -171,8 +169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersDraftsDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsDeleteWithuserId:identifier:]
 
 /**
  *  The ID of the draft to delete.
@@ -219,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersDraftsGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsGetWithuserId:identifier:]
 
 /**
  *  The format to return the draft in.
@@ -288,8 +282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersDraftsList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsListWithuserId:]
 
 /**
  *  Include drafts from `SPAM` and `TRASH` in the results.
@@ -299,7 +291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, assign) BOOL includeSpamTrash;
 
 /**
- *  Maximum number of drafts to return.
+ *  Maximum number of drafts to return. This field defaults to 100. The maximum
+ *  allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -354,8 +347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersDraftsSend : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsSendWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -397,8 +388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersDraftsUpdate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersDraftsUpdateWithObject:userId:identifier:]
 
 /**
  *  The ID of the draft to update.
@@ -449,8 +438,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersGetProfile : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersGetProfileWithuserId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -487,8 +474,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersHistoryList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersHistoryListWithuserId:]
 
 /**
  *  History types to be returned by the function
@@ -505,7 +490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *labelId;
 
 /**
- *  The maximum number of history records to return.
+ *  Maximum number of history records to return. This field defaults to 100. The
+ *  maximum allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -567,8 +553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersLabelsCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsCreateWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -606,8 +590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersLabelsDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsDeleteWithuserId:identifier:]
 
 /**
  *  The ID of the label to delete.
@@ -655,8 +637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersLabelsGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsGetWithuserId:identifier:]
 
 /**
  *  The ID of the label to retrieve.
@@ -702,8 +682,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersLabelsList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsListWithuserId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -738,8 +716,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersLabelsPatch : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsPatchWithObject:userId:identifier:]
 
 /**
  *  The ID of the label to update.
@@ -785,8 +761,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersLabelsUpdate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersLabelsUpdateWithObject:userId:identifier:]
 
 /**
  *  The ID of the label to update.
@@ -834,8 +808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersMessagesAttachmentsGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesAttachmentsGetWithuserId:messageId:identifier:]
 
 /**
  *  The ID of the attachment.
@@ -883,8 +855,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  */
 @interface GTLRGmailQuery_UsersMessagesBatchDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesBatchDeleteWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -923,8 +893,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesBatchModify : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesBatchModifyWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -962,8 +930,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  */
 @interface GTLRGmailQuery_UsersMessagesDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesDeleteWithuserId:identifier:]
 
 /**
  *  The ID of the message to delete.
@@ -1013,8 +979,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersMessagesGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesGetWithuserId:identifier:]
 
 /**
  *  The format to return the message in.
@@ -1092,8 +1056,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesImport : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesImportWithObject:userId:]
 
 /**
  *  Mark the email as permanently deleted (not TRASH) and only visible in Google
@@ -1176,8 +1138,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesInsert : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesInsertWithObject:userId:]
 
 /**
  *  Mark the email as permanently deleted (not TRASH) and only visible in Google
@@ -1242,8 +1202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersMessagesList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesListWithuserId:]
 
 /**
  *  Include messages from `SPAM` and `TRASH` in the results.
@@ -1258,7 +1216,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
- *  Maximum number of messages to return.
+ *  Maximum number of messages to return. This field defaults to 100. The
+ *  maximum allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -1311,8 +1270,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesModify : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesModifyWithObject:userId:identifier:]
 
 /**
  *  The ID of the message to modify.
@@ -1361,8 +1318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSend
  */
 @interface GTLRGmailQuery_UsersMessagesSend : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesSendWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -1402,8 +1357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesTrash : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesTrashWithuserId:identifier:]
 
 /**
  *  The ID of the message to Trash.
@@ -1446,8 +1399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersMessagesUntrash : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersMessagesUntrashWithuserId:identifier:]
 
 /**
  *  The ID of the message to remove from Trash.
@@ -1499,8 +1450,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsDelegatesCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsDelegatesCreateWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1549,8 +1498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsDelegatesDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsDelegatesDeleteWithuserId:delegateEmail:]
 
 /** The email address of the user to be removed as a delegate. */
 @property(nonatomic, copy, nullable) NSString *delegateEmail;
@@ -1600,8 +1547,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsDelegatesGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsDelegatesGetWithuserId:delegateEmail:]
 
 /**
  *  The email address of the user whose delegate relationship is to be
@@ -1650,8 +1595,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsDelegatesList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsDelegatesListWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1685,8 +1628,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsFiltersCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsFiltersCreateWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1721,8 +1662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsFiltersDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsFiltersDeleteWithuserId:identifier:]
 
 /**
  *  The ID of the filter to be deleted.
@@ -1768,8 +1707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsFiltersGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsFiltersGetWithuserId:identifier:]
 
 /**
  *  The ID of the filter to be fetched.
@@ -1814,8 +1751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsFiltersList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsFiltersListWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1852,8 +1787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsForwardingAddressesCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesCreateWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -1894,8 +1827,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsForwardingAddressesDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesDeleteWithuserId:forwardingEmail:]
 
 /** The forwarding address to be deleted. */
 @property(nonatomic, copy, nullable) NSString *forwardingEmail;
@@ -1939,8 +1870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsForwardingAddressesGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesGetWithuserId:forwardingEmail:]
 
 /** The forwarding address to be retrieved. */
 @property(nonatomic, copy, nullable) NSString *forwardingEmail;
@@ -1981,8 +1910,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsForwardingAddressesList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsForwardingAddressesListWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2018,8 +1945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsGetAutoForwarding : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsGetAutoForwardingWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2055,8 +1980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsGetImap : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsGetImapWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2092,8 +2015,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsGetLanguage : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsGetLanguageWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2129,8 +2050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsGetPop : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsGetPopWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2166,8 +2085,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsGetVacation : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsGetVacationWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2208,8 +2125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsCreate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsCreateWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2254,8 +2169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsDeleteWithuserId:sendAsEmail:]
 
 /** The send-as alias to be deleted. */
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
@@ -2300,8 +2213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsGetWithuserId:sendAsEmail:]
 
 /** The send-as alias to be retrieved. */
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
@@ -2345,8 +2256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsListWithuserId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2382,8 +2291,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsPatch : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsPatchWithObject:userId:sendAsEmail:]
 
 /** The send-as alias to be updated. */
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
@@ -2424,8 +2331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoDeleteWithuserId:sendAsEmail:identifier:]
 
 /**
  *  The immutable ID for the SmimeInfo.
@@ -2481,8 +2386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoGetWithuserId:sendAsEmail:identifier:]
 
 /**
  *  The immutable ID for the SmimeInfo.
@@ -2535,8 +2438,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoInsert : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoInsertWithObject:userId:sendAsEmail:]
 
 /**
  *  The email address that appears in the "From:" header for mail sent using
@@ -2585,8 +2486,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoListWithuserId:sendAsEmail:]
 
 /**
  *  The email address that appears in the "From:" header for mail sent using
@@ -2629,8 +2528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsSmimeInfoSetDefault : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsSmimeInfoSetDefaultWithuserId:sendAsEmail:identifier:]
 
 /**
  *  The immutable ID for the SmimeInfo.
@@ -2686,8 +2583,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsUpdate : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsUpdateWithObject:userId:sendAsEmail:]
 
 /** The send-as alias to be updated. */
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
@@ -2732,8 +2627,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsSendAsVerify : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsSendAsVerifyWithuserId:sendAsEmail:]
 
 /** The send-as alias to be verified. */
 @property(nonatomic, copy, nullable) NSString *sendAsEmail;
@@ -2777,8 +2670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsSharing
  */
 @interface GTLRGmailQuery_UsersSettingsUpdateAutoForwarding : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsUpdateAutoForwardingWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2816,8 +2707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsUpdateImap : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsUpdateImapWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2856,8 +2745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsUpdateLanguage : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsUpdateLanguageWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2896,8 +2783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsUpdatePop : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsUpdatePopWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2932,8 +2817,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailSettingsBasic
  */
 @interface GTLRGmailQuery_UsersSettingsUpdateVacation : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersSettingsUpdateVacationWithObject:userId:]
 
 /**
  *  User's email address. The special value "me" can be used to indicate the
@@ -2971,8 +2854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersStop : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersStopWithuserId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the
@@ -3007,8 +2888,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailMailGoogleCom
  */
 @interface GTLRGmailQuery_UsersThreadsDelete : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsDeleteWithuserId:identifier:]
 
 /**
  *  ID of the Thread to delete.
@@ -3058,8 +2937,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersThreadsGet : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsGetWithuserId:identifier:]
 
 /**
  *  The format to return the messages in.
@@ -3126,8 +3003,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersThreadsList : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsListWithuserId:]
 
 /**
  *  Include threads from `SPAM` and `TRASH` in the results.
@@ -3142,7 +3017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
- *  Maximum number of threads to return.
+ *  Maximum number of threads to return. This field defaults to 100. The maximum
+ *  allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -3196,8 +3072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersThreadsModify : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsModifyWithObject:userId:identifier:]
 
 /**
  *  The ID of the thread to modify.
@@ -3243,8 +3117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersThreadsTrash : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsTrashWithuserId:identifier:]
 
 /**
  *  The ID of the thread to Trash.
@@ -3287,8 +3159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailModify
  */
 @interface GTLRGmailQuery_UsersThreadsUntrash : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersThreadsUntrashWithuserId:identifier:]
 
 /**
  *  The ID of the thread to remove from Trash.
@@ -3333,8 +3203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *    @c kGTLRAuthScopeGmailReadonly
  */
 @interface GTLRGmailQuery_UsersWatch : GTLRGmailQuery
-// Previous library name was
-//   +[GTLQueryGmail queryForUsersWatchWithObject:userId:]
 
 /**
  *  The user's email address. The special value `me` can be used to indicate the

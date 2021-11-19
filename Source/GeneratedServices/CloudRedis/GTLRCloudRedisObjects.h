@@ -31,13 +31,18 @@
 @class GTLRCloudRedis_Location;
 @class GTLRCloudRedis_Location_Labels;
 @class GTLRCloudRedis_Location_Metadata;
+@class GTLRCloudRedis_MaintenancePolicy;
+@class GTLRCloudRedis_MaintenanceSchedule;
+@class GTLRCloudRedis_NodeInfo;
 @class GTLRCloudRedis_Operation;
 @class GTLRCloudRedis_Operation_Metadata;
 @class GTLRCloudRedis_Operation_Response;
 @class GTLRCloudRedis_OutputConfig;
 @class GTLRCloudRedis_Status;
 @class GTLRCloudRedis_Status_Details_Item;
+@class GTLRCloudRedis_TimeOfDay;
 @class GTLRCloudRedis_TlsCertificate;
+@class GTLRCloudRedis_WeeklyMaintenanceWindow;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -96,6 +101,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPe
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_Instance.readReplicasMode
+
+/**
+ *  If disabled, read endpoint will not be provided and the instance cannot
+ *  scale up or down the number of replicas.
+ *
+ *  Value: "READ_REPLICAS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled;
+/**
+ *  If enabled, read endpoint will be provided and the instance can scale up and
+ *  down the number of replicas.
+ *
+ *  Value: "READ_REPLICAS_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasEnabled;
+/**
+ *  If not set, redis backend would pick the mode based on other fields in the
+ *  request.
+ *
+ *  Value: "READ_REPLICAS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Instance.state
@@ -199,6 +229,87 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
  *  Value: "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
+
+/**
+ *  If the user wants to schedule the maintenance to happen now.
+ *
+ *  Value: "IMMEDIATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate;
+/**
+ *  If the user wants to use the existing maintenance policy to find the next
+ *  available window.
+ *
+ *  Value: "NEXT_AVAILABLE_WINDOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow;
+/**
+ *  Not set.
+ *
+ *  Value: "RESCHEDULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified;
+/**
+ *  If the user wants to reschedule the maintenance to a specific time.
+ *
+ *  Value: "SPECIFIC_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_WeeklyMaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -373,7 +484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 
 /**
- *  A Google Cloud Redis instance.
+ *  A Google Cloud Redis instance. next id = 37
  */
 @interface GTLRCloudRedis_Instance : GTLRObject
 
@@ -444,12 +555,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 /**
  *  Optional. The zone where the instance will be provisioned. If not provided,
- *  the service will choose a zone for the instance. For STANDARD_HA tier,
- *  instances will be created across two zones for protection against zonal
- *  failures. If alternative_location_id is also provided, it must be different
- *  from location_id.
+ *  the service will choose a zone from the specified region for the instance.
+ *  For standard tier, instances will be created across two zones for protection
+ *  against zonal failures. If [alternative_location_id] is also provided, it
+ *  must be different from [location_id].
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Optional. The maintenance policy for the instance. If not provided,
+ *  maintenance events can be performed at any time.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_MaintenancePolicy *maintenancePolicy;
+
+/**
+ *  Output only. Date and time of upcoming maintenance events which have been
+ *  scheduled.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_MaintenanceSchedule *maintenanceSchedule;
 
 /**
  *  Required. Redis memory size in GiB.
@@ -470,6 +593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. Info per node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_NodeInfo *> *nodes;
+
 /**
  *  Output only. Cloud IAM identity used by import / export operations to
  *  transfer data to/from Cloud Storage. Format is "serviceAccount:". The value
@@ -486,6 +612,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
+ *  Output only. Hostname or IP address of the exposed readonly Redis endpoint.
+ *  Standard tier only. Targets all healthy replica nodes in instance.
+ *  Replication is asynchronous and replica nodes will exhibit some lag behind
+ *  the primary. Write requests must target 'host'.
+ */
+@property(nonatomic, copy, nullable) NSString *readEndpoint;
+
+/**
+ *  Output only. The port number of the exposed readonly redis endpoint.
+ *  Standard tier only. Write requests should target 'port'.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readEndpointPort;
+
+/**
+ *  Optional. Read replica mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasDisabled If
+ *        disabled, read endpoint will not be provided and the instance cannot
+ *        scale up or down the number of replicas. (Value:
+ *        "READ_REPLICAS_DISABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasEnabled If
+ *        enabled, read endpoint will be provided and the instance can scale up
+ *        and down the number of replicas. (Value: "READ_REPLICAS_ENABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_ReadReplicasMode_ReadReplicasModeUnspecified
+ *        If not set, redis backend would pick the mode based on other fields in
+ *        the request. (Value: "READ_REPLICAS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *readReplicasMode;
+
+/**
  *  Optional. Redis configuration parameters, according to
  *  http://redis.io/topics/config. Currently, the only supported parameters are:
  *  Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events
@@ -499,15 +658,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
  *  Optional. The version of Redis software. If not provided, latest supported
  *  version will be used. Currently, the supported values are: * `REDIS_3_2` for
  *  Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility (default)
- *  * `REDIS_5_0` for Redis 5.0 compatibility
+ *  * `REDIS_5_0` for Redis 5.0 compatibility * `REDIS_6_X` for Redis 6.x
+ *  compatibility
  */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
 
 /**
- *  Optional. The CIDR range of internal addresses that are reserved for this
- *  instance. If not provided, the service will choose an unused /29 block, for
- *  example, 10.0.0.0/29 or 192.168.0.0/29. Ranges must be unique and
- *  non-overlapping with existing subnets in an authorized network.
+ *  Optional. The number of replica nodes. Valid range for standard tier is
+ *  [1-5] and defaults to 1. Valid value for basic tier is 0 and defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *replicaCount;
+
+/**
+ *  Optional. For DIRECT_PEERING mode, the CIDR range of internal addresses that
+ *  are reserved for this instance. Range must be unique and non-overlapping
+ *  with existing subnets in an authorized network. For PRIVATE_SERVICE_ACCESS
+ *  mode, the name of one allocated IP address ranges associated with this
+ *  private service access connection. If not provided, the service will choose
+ *  an unused /29 block, for example, 10.0.0.0/29 or 192.168.0.0/29.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
@@ -770,6 +940,91 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 
 /**
+ *  Maintenance policy for an instance.
+ */
+@interface GTLRCloudRedis_MaintenancePolicy : GTLRObject
+
+/** Output only. The time when the policy was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of what this policy is for. Create/Update methods
+ *  return INVALID_ARGUMENT if the length is greater than 512.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The time when the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Maintenance window that is applied to resources covered by this
+ *  policy. Minimum 1. For the current version, the maximum number of
+ *  weekly_window is expected to be one.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_WeeklyMaintenanceWindow *> *weeklyMaintenanceWindow;
+
+@end
+
+
+/**
+ *  Upcoming maintenance schedule. If no maintenance is scheduled, fields are
+ *  not populated.
+ */
+@interface GTLRCloudRedis_MaintenanceSchedule : GTLRObject
+
+/**
+ *  If the scheduled maintenance can be rescheduled, default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canReschedule;
+
+/**
+ *  Output only. The end time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. The deadline that the maintenance schedule start time can not
+ *  go beyond, including reschedule.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
+
+/**
+ *  Output only. The start time of any upcoming scheduled maintenance for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Node specific properties.
+ */
+@interface GTLRCloudRedis_NodeInfo : GTLRObject
+
+/**
+ *  Output only. Output Only. Node identifying string. e.g. 'node-0', 'node-1'
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. Output Only. Location of the node.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -869,6 +1124,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 
 /**
+ *  Request for RescheduleMaintenance.
+ */
+@interface GTLRCloudRedis_RescheduleMaintenanceRequest : GTLRObject
+
+/**
+ *  Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as
+ *  well.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate
+ *        If the user wants to schedule the maintenance to happen now. (Value:
+ *        "IMMEDIATE")
+ *    @arg @c kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow
+ *        If the user wants to use the existing maintenance policy to find the
+ *        next available window. (Value: "NEXT_AVAILABLE_WINDOW")
+ *    @arg @c kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified
+ *        Not set. (Value: "RESCHEDULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime
+ *        If the user wants to reschedule the maintenance to a specific time.
+ *        (Value: "SPECIFIC_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *rescheduleType;
+
+/**
+ *  Optional. Timestamp when the maintenance shall be rescheduled to if
+ *  reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for example
+ *  `2012-11-15T16:19:00.094Z`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -914,6 +1203,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRCloudRedis_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  TlsCertificate Resource
  */
 @interface GTLRCloudRedis_TlsCertificate : GTLRObject
@@ -951,6 +1280,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 
 /** Required. Specifies the target version of Redis software to upgrade to. */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
+
+@end
+
+
+/**
+ *  Time window in which disruptive maintenance updates occur. Non-disruptive
+ *  updates can occur inside or outside this window.
+ */
+@interface GTLRCloudRedis_WeeklyMaintenanceWindow : GTLRObject
+
+/**
+ *  Required. The day of week that maintenance updates occur.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Friday Friday (Value:
+ *        "FRIDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Monday Monday (Value:
+ *        "MONDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Sunday Sunday (Value:
+ *        "SUNDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday Wednesday
+ *        (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Output only. Duration of the maintenance window. The current window is fixed
+ *  at 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Required. Start time of the window in UTC time. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *startTime;
 
 @end
 

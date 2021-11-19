@@ -102,6 +102,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_Terms
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidProvisioningPartner_DeviceClaim.additionalService
+
+/**
+ *  No additional service.
+ *
+ *  Value: "ADDITIONAL_SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_AdditionalServiceUnspecified;
+/**
+ *  Device protection service, also known as Android Enterprise Essentials. To
+ *  claim a device with the device protection service you must enroll with the
+ *  partnership team.
+ *
+ *  Value: "DEVICE_PROTECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_DeviceProtection;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 
 /**
@@ -387,6 +405,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 @property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
+ *  Input only. The preferred locale of the customer represented as a BCP47
+ *  language code. This field is validated on input and requests containing
+ *  unsupported language codes will be rejected. Supported language codes:
+ *  Arabic (ar) Chinese (Hong Kong) (zh-HK) Chinese (Simplified) (zh-CN) Chinese
+ *  (Traditional) (zh-TW) Czech (cs) Danish (da) Dutch (nl) English (UK) (en-GB)
+ *  English (US) (en-US) Filipino (fil) Finnish (fi) French (fr) German (de)
+ *  Hebrew (iw) Hindi (hi) Hungarian (hu) Indonesian (id) Italian (it) Japanese
+ *  (ja) Korean (ko) Norwegian (Bokmal) (no) Polish (pl) Portuguese (Brazil)
+ *  (pt-BR) Portuguese (Portugal) (pt-PT) Russian (ru) Spanish (es) Spanish
+ *  (Latin America) (es-419) Swedish (sv) Thai (th) Turkish (tr) Ukrainian (uk)
+ *  Vietnamese (vi)
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
  *  Output only. The API resource name of the company. The resource name is one
  *  of the following formats: * `partners/[PARTNER_ID]/customers/[CUSTOMER_ID]`
  *  * `partners/[PARTNER_ID]/vendors/[VENDOR_ID]` *
@@ -397,11 +430,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
 
 /**
  *  Required. Input only. Email address of customer's users in the owner role.
- *  At least one `owner_email` is required. Each email address must be
- *  associated with a Google Account. Owners share the same access as admins but
- *  can also add, delete, and edit your organization's portal users.
+ *  At least one `owner_email` is required. Owners share the same access as
+ *  admins but can also add, delete, and edit your organization's portal users.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
+
+/**
+ *  Input only. If set to true, welcome email will not be sent to the customer.
+ *  It is recommended to skip the welcome email if devices will be claimed with
+ *  additional DEVICE_PROTECTION service, as the customer will receive separate
+ *  emails at device claim time. This field is ignored if this is not a
+ *  Zero-touch customer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipWelcomeEmail;
 
 /**
  *  Output only. Whether any user from the company has accepted the latest Terms
@@ -695,6 +738,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *  customers](/zero-touch/guides/how-it-works#claim).
  */
 @interface GTLRAndroidProvisioningPartner_DeviceClaim : GTLRObject
+
+/**
+ *  The Additional service registered for the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_AdditionalServiceUnspecified
+ *        No additional service. (Value: "ADDITIONAL_SERVICE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_DeviceProtection
+ *        Device protection service, also known as Android Enterprise
+ *        Essentials. To claim a device with the device protection service you
+ *        must enroll with the partnership team. (Value: "DEVICE_PROTECTION")
+ */
+@property(nonatomic, copy, nullable) NSString *additionalService;
 
 /**
  *  The ID of the Customer that purchased the device.

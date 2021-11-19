@@ -228,7 +228,14 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @implementation GTLRPeopleServiceQuery_OtherContactsList
 
-@dynamic pageSize, pageToken, readMask, requestSyncToken, syncToken;
+@dynamic pageSize, pageToken, readMask, requestSyncToken, sources, syncToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/otherContacts";
@@ -238,6 +245,89 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPeopleService_ListOtherContactsResponse class];
   query.loggingName = @"people.otherContacts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_OtherContactsSearch
+
+@dynamic pageSize, query, readMask;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/otherContacts:search";
+  GTLRPeopleServiceQuery_OtherContactsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_SearchResponse class];
+  query.loggingName = @"people.otherContacts.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleBatchCreateContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchCreateContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchCreateContacts";
+  GTLRPeopleServiceQuery_PeopleBatchCreateContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_BatchCreateContactsResponse class];
+  query.loggingName = @"people.people.batchCreateContacts";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleBatchDeleteContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchDeleteContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchDeleteContacts";
+  GTLRPeopleServiceQuery_PeopleBatchDeleteContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_Empty class];
+  query.loggingName = @"people.people.batchDeleteContacts";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleBatchUpdateContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchUpdateContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchUpdateContacts";
+  GTLRPeopleServiceQuery_PeopleBatchUpdateContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_BatchUpdateContactsResponse class];
+  query.loggingName = @"people.people.batchUpdateContacts";
   return query;
 }
 
@@ -430,6 +520,30 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPeopleService_ListDirectoryPeopleResponse class];
   query.loggingName = @"people.people.listDirectoryPeople";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleSearchContacts
+
+@dynamic pageSize, query, readMask, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/people:searchContacts";
+  GTLRPeopleServiceQuery_PeopleSearchContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_SearchResponse class];
+  query.loggingName = @"people.people.searchContacts";
   return query;
 }
 

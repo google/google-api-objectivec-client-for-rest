@@ -536,7 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers, e.g. "apns-priority": "10".
+ *  for supported headers such as `apns-expiration` and `apns-priority`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Headers *headers;
 
@@ -545,7 +545,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body.
+ *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
+ *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
+ *  10 if not explicitly set.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Payload *payload;
 
@@ -556,7 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers, e.g. "apns-priority": "10".
+ *  for supported headers such as `apns-expiration` and `apns-priority`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -572,7 +574,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body.
+ *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
+ *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
+ *  10 if not explicitly set.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -604,65 +608,64 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 /**
  *  Represents a color in the RGBA color space. This representation is designed
  *  for simplicity of conversion to/from color representations in various
- *  languages over compactness; for example, the fields of this representation
- *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
- *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
+ *  languages over compactness. For example, the fields of this representation
+ *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
+ *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
- *  carry information about the absolute color space that should be used to
- *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
- *  default, applications SHOULD assume the sRGB color space. Note: when color
- *  equality needs to be decided, implementations, unless documented otherwise,
- *  will treat two colors to be equal if all their red, green, blue and alpha
- *  values each differ by at most 1e-5. Example (Java): import
- *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
- *  protocolor) { float alpha = protocolor.hasAlpha() ?
- *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
- *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
- *  public static Color toProto(java.awt.Color color) { float red = (float)
- *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
- *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
- *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
- *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
- *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
- *  .setValue(((float) alpha) / denominator) .build()); } return
- *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
- *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
- *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
- *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
- *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
- *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
- *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
- *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
- *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
- *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
- *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
- *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
- *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
- *  || 0.0; var red = Math.floor(redFrac * 255); var green =
- *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
- *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
- *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
- *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
- *  Number((red << 16) | (green << 8) | blue); var hexString =
- *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
- *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
- *  resultBuilder.join(''); }; // ...
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  information about the absolute color space that should be used to interpret
+ *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  applications should assume the sRGB color space. When color equality needs
+ *  to be decided, implementations, unless documented otherwise, treat two
+ *  colors as equal if all their red, green, blue, and alpha values each differ
+ *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
+ *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
+ *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
+ *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
+ *  color) { float red = (float) color.getRed(); float green = (float)
+ *  color.getGreen(); float blue = (float) color.getBlue(); float denominator =
+ *  255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red /
+ *  denominator) .setGreen(green / denominator) .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha(
+ *  FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build());
+ *  } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ...
+ *  static UIColor* fromProto(Color* protocolor) { float red = [protocolor red];
+ *  float green = [protocolor green]; float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if
+ *  (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor
+ *  colorWithRed:red green:green blue:blue alpha:alpha]; } static Color*
+ *  toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color
+ *  getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color*
+ *  result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green];
+ *  [result setBlue:blue]; if (alpha <= 0.9999) { [result
+ *  setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return
+ *  result; } // ... Example (JavaScript): // ... var protoToCssColor =
+ *  function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac =
+ *  rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red =
+ *  Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue
+ *  = Math.floor(blueFrac * 255); if (!('alpha' in rgb_color)) { return
+ *  rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value ||
+ *  0.0; var rgbParams = [red, green, blue].join(','); return ['rgba(',
+ *  rgbParams, ',', alphaFrac, ')'].join(''); }; var rgbToCssColor =
+ *  function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green
+ *  << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6
+ *  - hexString.length; var resultBuilder = ['#']; for (var i = 0; i <
+ *  missingZeros; i++) { resultBuilder.push('0'); }
+ *  resultBuilder.push(hexString); return resultBuilder.join(''); }; // ...
  */
 @interface GTLRFirebaseCloudMessaging_Color : GTLRObject
 
 /**
  *  The fraction of this color that should be applied to the pixel. That is, the
- *  final pixel color is defined by the equation: pixel color = alpha * (this
- *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  final pixel color is defined by the equation: `pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color)` This means that a value of 1.0
  *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
  *  completely transparent color. This uses a wrapper message rather than a
  *  simple float scalar so that it is possible to distinguish between a default
- *  value and the value being unset. If omitted, this color object is to be
- *  rendered as a solid color (as if the alpha value had been explicitly given
- *  with a value of 1.0).
+ *  value and the value being unset. If omitted, this color object is rendered
+ *  as a solid color (as if the alpha value had been explicitly given a value of
+ *  1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -754,8 +757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *condition;
 
 /**
- *  Input only. Arbitrary key/value payload. The key should not be a reserved
- *  word ("from", "message_type", or any word starting with "google" or "gcm").
+ *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
+ *  key should not be a reserved word ("from", "message_type", or any word
+ *  starting with "google" or "gcm"). When sending payloads containing only data
+ *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
+ *  allowed in
+ *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
 
@@ -792,8 +799,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 
 /**
- *  Input only. Arbitrary key/value payload. The key should not be a reserved
- *  word ("from", "message_type", or any word starting with "google" or "gcm").
+ *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
+ *  key should not be a reserved word ("from", "message_type", or any word
+ *  starting with "google" or "gcm"). When sending payloads containing only data
+ *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
+ *  allowed in
+ *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

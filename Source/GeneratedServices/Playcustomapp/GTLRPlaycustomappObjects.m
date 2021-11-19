@@ -16,5 +16,23 @@
 //
 
 @implementation GTLRPlaycustomapp_CustomApp
-@dynamic languageCode, packageName, title;
+@dynamic languageCode, organizations, packageName, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizations" : [GTLRPlaycustomapp_Organization class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlaycustomapp_Organization
+//
+
+@implementation GTLRPlaycustomapp_Organization
+@dynamic organizationId, organizationName;
 @end

@@ -18,6 +18,12 @@ NSString * const kGTLRSlides_AffineTransform_Unit_Emu          = @"EMU";
 NSString * const kGTLRSlides_AffineTransform_Unit_Pt           = @"PT";
 NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
+// GTLRSlides_Autofit.autofitType
+NSString * const kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified = @"AUTOFIT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSlides_Autofit_AutofitType_None          = @"NONE";
+NSString * const kGTLRSlides_Autofit_AutofitType_ShapeAutofit  = @"SHAPE_AUTOFIT";
+NSString * const kGTLRSlides_Autofit_AutofitType_TextAutofit   = @"TEXT_AUTOFIT";
+
 // GTLRSlides_AutoText.type
 NSString * const kGTLRSlides_AutoText_Type_SlideNumber     = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -686,6 +692,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSlides_Autofit
+//
+
+@implementation GTLRSlides_Autofit
+@dynamic autofitType, fontScale, lineSpacingReduction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSlides_AutoText
 //
 
@@ -1087,7 +1103,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_Image
-@dynamic contentUrl, imageProperties, sourceUrl;
+@dynamic contentUrl, imageProperties, placeholder, sourceUrl;
 @end
 
 
@@ -1584,9 +1600,10 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          updateLineProperties, updatePageElementAltText,
          updatePageElementsZOrder, updatePageElementTransform,
          updatePageProperties, updateParagraphStyle, updateShapeProperties,
-         updateSlidesPosition, updateTableBorderProperties,
-         updateTableCellProperties, updateTableColumnProperties,
-         updateTableRowProperties, updateTextStyle, updateVideoProperties;
+         updateSlideProperties, updateSlidesPosition,
+         updateTableBorderProperties, updateTableCellProperties,
+         updateTableColumnProperties, updateTableRowProperties, updateTextStyle,
+         updateVideoProperties;
 @end
 
 
@@ -1660,7 +1677,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ShapeProperties
-@dynamic contentAlignment, link, outline, shadow, shapeBackgroundFill;
+@dynamic autofit, contentAlignment, link, outline, shadow, shapeBackgroundFill;
 @end
 
 
@@ -1700,7 +1717,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_SlideProperties
-@dynamic layoutObjectId, masterObjectId, notesPage;
+@dynamic isSkipped, layoutObjectId, masterObjectId, notesPage;
 @end
 
 
@@ -2104,6 +2121,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_UpdateShapePropertiesRequest
 @dynamic fields, objectId, shapeProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdateSlidePropertiesRequest
+//
+
+@implementation GTLRSlides_UpdateSlidePropertiesRequest
+@dynamic fields, objectId, slideProperties;
 @end
 
 

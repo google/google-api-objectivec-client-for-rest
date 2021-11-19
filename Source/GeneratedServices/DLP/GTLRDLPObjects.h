@@ -667,7 +667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Runni
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
 
 /**
- *  Unused
+ *  Defaults to INSPECT_JOB.
  *
  *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
  */
@@ -1635,6 +1635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Max number of bytes to scan from a file. If a scanned file's size is bigger
  *  than this value then the rest of the bytes are omitted. Only one of
  *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  Cannot be set if de-identification is requested.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1645,6 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  number of bytes scanned is rounded down. Must be between 0 and 100,
  *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one of
  *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  Cannot be set if de-identification is requested.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2106,7 +2108,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
-/** The key used by the encryption function. */
+/**
+ *  The key used by the encryption function. For deterministic encryption using
+ *  AES-SIV, the provided key is internally expanded to 64 bytes prior to use.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**
@@ -2156,13 +2161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  This is a data encryption key (DEK) (as opposed to a key encryption key
- *  (KEK) stored by KMS). When using KMS to wrap/unwrap DEKs, be sure to set an
- *  appropriate IAM policy on the KMS CryptoKey (KEK) to ensure an attacker
- *  cannot unwrap the data crypto key.
+ *  (KEK) stored by Cloud Key Management Service (Cloud KMS). When using Cloud
+ *  KMS to wrap or unwrap a DEK, be sure to set an appropriate IAM policy on the
+ *  KEK to ensure an attacker cannot unwrap the DEK.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoKey : GTLRObject
 
-/** Kms wrapped key */
+/** Key wrapped using Cloud KMS */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey *kmsWrapped;
 
 /** Transient crypto key */
@@ -2556,7 +2561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Output only. The creation timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** ///////////// // The core content of the template // /////////////// */
+/** The core content of the template. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *deidentifyConfig;
 
 /**
@@ -2816,7 +2821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified
- *        Unused (Value: "DLP_JOB_TYPE_UNSPECIFIED")
+ *        Defaults to INSPECT_JOB. (Value: "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob The job
  *        inspected Google Cloud for sensitive data. (Value: "INSPECT_JOB")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob The job
@@ -2983,7 +2988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordCondition *condition;
 
-/** Required. Input field(s) to apply the transformation to. */
+/**
+ *  Required. Input field(s) to apply the transformation to. When you have
+ *  columns that reference their position within a list, omit the index from the
+ *  FieldId. FieldId name matching ignores the index. For example, instead of
+ *  "contact.nums[0].type", use "contact.nums.type".
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *fields;
 
 /**
@@ -3129,7 +3139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration to control the number of findings returned.
+ *  Configuration to control the number of findings returned. Cannot be set if
+ *  de-identification is requested.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FindingLimits : GTLRObject
 
@@ -3170,13 +3181,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  provide all of this functionality, but requires more configuration. This
  *  message is provided as a convenience to the user for simple bucketing
  *  strategies. The transformed value will be a hyphenated string of
- *  {lower_bound}-{upper_bound}, i.e if lower_bound = 10 and upper_bound = 20
- *  all values that are within this bucket will be replaced with "10-20". This
- *  can be used on data of type: double, long. If the bound Value type differs
- *  from the type of data being transformed, we will first attempt converting
- *  the type of the data to be transformed to match the type of the bound before
- *  comparing. See https://cloud.google.com/dlp/docs/concepts-bucketing to learn
- *  more.
+ *  {lower_bound}-{upper_bound}. For example, if lower_bound = 10 and
+ *  upper_bound = 20, all values that are within this bucket will be replaced
+ *  with "10-20". This can be used on data of type: double, long. If the bound
+ *  Value type differs from the type of data being transformed, we will first
+ *  attempt converting the type of the data to be transformed to match the type
+ *  of the bound before comparing. See
+ *  https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
 
@@ -4193,9 +4204,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Include to use an existing data crypto key wrapped by KMS. The wrapped key
- *  must be a 128/192/256 bit key. Authorization requires the following IAM
- *  permissions when sending a request to perform a crypto transformation using
- *  a kms-wrapped crypto key: dlp.kms.encrypt
+ *  must be a 128-, 192-, or 256-bit key. Authorization requires the following
+ *  IAM permissions when sending a request to perform a crypto transformation
+ *  using a KMS-wrapped crypto key: dlp.kms.encrypt For more information, see
+ *  [Creating a wrapped key]
+ *  (https://cloud.google.com/dlp/docs/create-wrapped-key). Note: When you use
+ *  Cloud KMS for cryptographic operations, [charges
+ *  apply](https://cloud.google.com/kms/pricing).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey : GTLRObject
 
@@ -4786,7 +4801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Redact */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RedactConfig *redactConfig;
 
-/** Replace */
+/** Replace with a specified value. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig *replaceConfig;
 
 /** Replace with infotype */
@@ -4847,12 +4862,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Publish findings of a DlpJob to Cloud Data Catalog. Labels summarizing the
- *  results of the DlpJob will be applied to the entry for the resource scanned
- *  in Cloud Data Catalog. Any labels previously written by another DlpJob will
- *  be deleted. InfoType naming patterns are strictly enforced when using this
- *  feature. Note that the findings will be persisted in Cloud Data Catalog
- *  storage and are governed by Data Catalog service-specific policy, see
+ *  Publish findings of a DlpJob to Data Catalog. Labels summarizing the results
+ *  of the DlpJob will be applied to the entry for the resource scanned in Data
+ *  Catalog. Any labels previously written by another DlpJob will be deleted.
+ *  InfoType naming patterns are strictly enforced when using this feature. Note
+ *  that the findings will be persisted in Data Catalog storage and are governed
+ *  by Data Catalog service-specific policy, see
  *  https://cloud.google.com/terms/service-terms Only a single instance of this
  *  action can be specified and only allowed if all resources being scanned are
  *  BigQuery tables. Compatible with: Inspect
@@ -5356,7 +5371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Schedule for triggeredJobs.
+ *  Schedule for inspect job triggers.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Schedule : GTLRObject
 
@@ -5617,8 +5632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
- *  See https://cloud.google.com/dlp/docs/inspecting-text#inspecting_a_table to
- *  learn more.
+ *  See
+ *  https://cloud.google.com/dlp/docs/inspecting-structured-text#inspecting_a_table
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Table : GTLRObject
 

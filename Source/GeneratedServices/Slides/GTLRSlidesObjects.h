@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRSlides_AffineTransform;
+@class GTLRSlides_Autofit;
 @class GTLRSlides_AutoText;
 @class GTLRSlides_Bullet;
 @class GTLRSlides_ColorScheme;
@@ -139,6 +140,7 @@
 @class GTLRSlides_UpdatePagePropertiesRequest;
 @class GTLRSlides_UpdateParagraphStyleRequest;
 @class GTLRSlides_UpdateShapePropertiesRequest;
+@class GTLRSlides_UpdateSlidePropertiesRequest;
 @class GTLRSlides_UpdateSlidesPositionRequest;
 @class GTLRSlides_UpdateTableBorderPropertiesRequest;
 @class GTLRSlides_UpdateTableCellPropertiesRequest;
@@ -184,6 +186,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Pt;
  *  Value: "UNIT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_Autofit.autofitType
+
+/**
+ *  The autofit type is unspecified.
+ *
+ *  Value: "AUTOFIT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified;
+/**
+ *  Do not autofit.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_None;
+/**
+ *  Resize the shape to fit the text.
+ *
+ *  Value: "SHAPE_AUTOFIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_ShapeAutofit;
+/**
+ *  Shrink text on overflow to fit the shape.
+ *
+ *  Value: "TEXT_AUTOFIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_TextAutofit;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_AutoText.type
@@ -4068,6 +4098,55 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  The autofit properties of a Shape.
+ */
+@interface GTLRSlides_Autofit : GTLRObject
+
+/**
+ *  The autofit type of the shape. If the autofit type is
+ *  AUTOFIT_TYPE_UNSPECIFIED, the autofit type is inherited from a parent
+ *  placeholder if it exists. The field is automatically set to NONE if a
+ *  request is made that might affect text fitting within its bounding text box.
+ *  In this case the font_scale is applied to the font_size and the
+ *  line_spacing_reduction is applied to the line_spacing. Both properties are
+ *  also reset to default values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified The autofit
+ *        type is unspecified. (Value: "AUTOFIT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_None Do not autofit. (Value:
+ *        "NONE")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_ShapeAutofit Resize the shape to
+ *        fit the text. (Value: "SHAPE_AUTOFIT")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_TextAutofit Shrink text on
+ *        overflow to fit the shape. (Value: "TEXT_AUTOFIT")
+ */
+@property(nonatomic, copy, nullable) NSString *autofitType;
+
+/**
+ *  The font scale applied to the shape. For shapes with autofit_type NONE or
+ *  SHAPE_AUTOFIT, this value is the default value of 1. For TEXT_AUTOFIT, this
+ *  value multiplied by the font_size gives the font size that is rendered in
+ *  the editor. This property is read-only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontScale;
+
+/**
+ *  The line spacing reduction applied to the shape. For shapes with
+ *  autofit_type NONE or SHAPE_AUTOFIT, this value is the default value of 0.
+ *  For TEXT_AUTOFIT, this value subtracted from the line_spacing gives the line
+ *  spacing that is rendered in the editor. This property is read-only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineSpacingReduction;
+
+@end
+
+
+/**
  *  A TextElement kind that represents auto text.
  */
 @interface GTLRSlides_AutoText : GTLRObject
@@ -4875,7 +4954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
-/** The ID of the Google Sheets spreadsheet that contains the chart. */
+/**
+ *  The ID of the Google Sheets spreadsheet that contains the chart. You might
+ *  need to add a resource key to the HTTP header for a subset of old files. For
+ *  more information, see [Access link-shared files using resource
+ *  keys](https://developers.google.com/drive/api/v3/resource-keys).
+ */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
@@ -5021,7 +5105,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  https://www.youtube.com/watch?v=7U3axjORYZ0, the ID is 7U3axjORYZ0. For a
  *  Google Drive video
  *  https://drive.google.com/file/d/1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q the ID is
- *  1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q.
+ *  1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q. To access a Google Drive video file, you
+ *  might need to add a resource key to the HTTP header for a subset of old
+ *  files. For more information, see [Access link-shared files using resource
+ *  keys](https://developers.google.com/drive/api/v3/resource-keys).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5138,7 +5225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The object ID of the page or page element to delete. If after a delete
  *  operation a group contains only 1 or no page elements, the group is also
  *  deleted. If a placeholder is deleted on a layout, any empty inheriting
- *  shapes are also deleted.
+ *  placeholders are also deleted.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5363,7 +5450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The object IDs of the objects to group. Only page elements can be grouped.
  *  There should be at least two page elements on the same page that are not
  *  already in another group. Some page elements, such as videos, tables and
- *  placeholder shapes cannot be grouped.
+ *  placeholders cannot be grouped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *childrenObjectIds;
 
@@ -5407,6 +5494,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The properties of the image. */
 @property(nonatomic, strong, nullable) GTLRSlides_ImageProperties *imageProperties;
+
+/**
+ *  Placeholders are page elements that inherit from corresponding placeholders
+ *  on layouts and masters. If set, the image is a placeholder image and any
+ *  inherited properties can be resolved by looking at the parent placeholder
+ *  identified by the Placeholder.parent_object_id field.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Placeholder *placeholder;
 
 /**
  *  The source URL is the URL used to insert the image. The source URL can be
@@ -7173,6 +7268,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of a Shape. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateShapePropertiesRequest *updateShapeProperties;
 
+/** Updates the properties of a Slide */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateSlidePropertiesRequest *updateSlideProperties;
+
 /** Updates the position of a set of slides in the presentation. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateSlidesPositionRequest *updateSlidesPosition;
 
@@ -7403,8 +7501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Shape : GTLRObject
 
 /**
- *  Placeholders are shapes that are inherit from corresponding placeholders on
- *  layouts and masters. If set, the shape is a placeholder shape and any
+ *  Placeholders are page elements that inherit from corresponding placeholders
+ *  on layouts and masters. If set, the shape is a placeholder shape and any
  *  inherited properties can be resolved by looking at the parent placeholder
  *  identified by the Placeholder.parent_object_id field.
  */
@@ -7841,6 +7939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ShapeProperties : GTLRObject
 
 /**
+ *  The autofit properties of the shape. This property is only set for shapes
+ *  that allow text.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Autofit *autofit;
+
+/**
  *  The alignment of the content in the shape. If unspecified, the alignment is
  *  inherited from a parent placeholder if it exists. If the shape has no
  *  parent, the default alignment matches the alignment for new shapes created
@@ -7958,6 +8062,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  SLIDE.
  */
 @interface GTLRSlides_SlideProperties : GTLRObject
+
+/**
+ *  Whether the slide is skipped in the presentation mode. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSkipped;
 
 /**
  *  The object ID of the layout that this slide is based on. This property is
@@ -9024,6 +9135,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The shape properties to update. */
 @property(nonatomic, strong, nullable) GTLRSlides_ShapeProperties *shapeProperties;
+
+@end
+
+
+/**
+ *  Updates the properties of a Slide.
+ */
+@interface GTLRSlides_UpdateSlidePropertiesRequest : GTLRObject
+
+/**
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root 'slideProperties' is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update whether a slide is skipped, set `fields` to `"isSkipped"`. To reset a
+ *  property to its default value, include its field name in the field mask but
+ *  leave the field itself unset.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The object ID of the slide the update is applied to. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/** The slide properties to update. */
+@property(nonatomic, strong, nullable) GTLRSlides_SlideProperties *slideProperties;
 
 @end
 

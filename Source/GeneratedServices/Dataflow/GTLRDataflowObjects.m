@@ -67,6 +67,11 @@ NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCost
 NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized = @"FLEXRS_SPEED_OPTIMIZED";
 NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified = @"FLEXRS_UNSPECIFIED";
 
+// GTLRDataflow_Environment.shuffleMode
+NSString * const kGTLRDataflow_Environment_ShuffleMode_ServiceBased = @"SERVICE_BASED";
+NSString * const kGTLRDataflow_Environment_ShuffleMode_ShuffleModeUnspecified = @"SHUFFLE_MODE_UNSPECIFIED";
+NSString * const kGTLRDataflow_Environment_ShuffleMode_VmBased = @"VM_BASED";
+
 // GTLRDataflow_ExecutionStageState.executionStageState
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -92,6 +97,11 @@ NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_ShuffleKind = @"SHUFFL
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind = @"SINGLETON_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind = @"WRITE_KIND";
+
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.autoscalingAlgorithm
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmBasic = @"AUTOSCALING_ALGORITHM_BASIC";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmNone = @"AUTOSCALING_ALGORITHM_NONE";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_AutoscalingAlgorithm_AutoscalingAlgorithmUnknown = @"AUTOSCALING_ALGORITHM_UNKNOWN";
 
 // GTLRDataflow_FlexTemplateRuntimeEnvironment.flexrsGoal
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsCostOptimized = @"FLEXRS_COST_OPTIMIZED";
@@ -150,11 +160,6 @@ NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageDetailed =
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageError = @"JOB_MESSAGE_ERROR";
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageImportanceUnknown = @"JOB_MESSAGE_IMPORTANCE_UNKNOWN";
 NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning = @"JOB_MESSAGE_WARNING";
-
-// GTLRDataflow_ModifyTemplateVersionLabelRequest.op
-NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add = @"ADD";
-NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified = @"OPERATION_UNSPECIFIED";
-NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove = @"REMOVE";
 
 // GTLRDataflow_NameAndKind.kind
 NSString * const kGTLRDataflow_NameAndKind_Kind_And          = @"AND";
@@ -232,11 +237,6 @@ NSString * const kGTLRDataflow_StageSummary_State_ExecutionStateUnknown = @"EXEC
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStart = @"STREAMING_COMPUTATION_TASK_START";
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskStop = @"STREAMING_COMPUTATION_TASK_STOP";
 NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown = @"STREAMING_COMPUTATION_TASK_UNKNOWN";
-
-// GTLRDataflow_TemplateVersion.type
-NSString * const kGTLRDataflow_TemplateVersion_Type_Flex       = @"FLEX";
-NSString * const kGTLRDataflow_TemplateVersion_Type_Legacy     = @"LEGACY";
-NSString * const kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified = @"TEMPLATE_TYPE_UNSPECIFIED";
 
 // GTLRDataflow_TransformSummary.kind
 NSString * const kGTLRDataflow_TransformSummary_Kind_ConstantKind = @"CONSTANT_KIND";
@@ -316,16 +316,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_Artifact
-//
-
-@implementation GTLRDataflow_Artifact
-@dynamic containerSpec, jobGraphGcsPath, metadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_AutoscalingEvent
 //
 
@@ -367,16 +357,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_BigTableIODetails
 @dynamic instanceId, projectId, tableId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_CommitTemplateVersionRequest
-//
-
-@implementation GTLRDataflow_CommitTemplateVersionRequest
-@dynamic templateVersion;
 @end
 
 
@@ -533,16 +513,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_CreateTemplateVersionRequest
-//
-
-@implementation GTLRDataflow_CreateTemplateVersionRequest
-@dynamic templateVersion;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_CustomSourceLocation
 //
 
@@ -581,6 +551,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   return @{ @"namespaceProperty" : @"namespace" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_DebugOptions
+//
+
+@implementation GTLRDataflow_DebugOptions
+@dynamic enableHotKeyLogging;
 @end
 
 
@@ -651,27 +631,20 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_Empty
-//
-
-@implementation GTLRDataflow_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_Environment
 //
 
 @implementation GTLRDataflow_Environment
-@dynamic clusterManagerApiService, dataset, experiments,
+@dynamic clusterManagerApiService, dataset, debugOptions, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
-         serviceAccountEmail, serviceKmsKeyName, tempStoragePrefix, userAgent,
-         version, workerPools, workerRegion, workerZone;
+         serviceAccountEmail, serviceKmsKeyName, serviceOptions, shuffleMode,
+         tempStoragePrefix, userAgent, version, workerPools, workerRegion,
+         workerZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"experiments" : [NSString class],
+    @"serviceOptions" : [NSString class],
     @"workerPools" : [GTLRDataflow_WorkerPool class]
   };
   return map;
@@ -823,10 +796,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
-@dynamic additionalExperiments, additionalUserLabels, enableStreamingEngine,
-         flexrsGoal, ipConfiguration, kmsKeyName, machineType, maxWorkers,
-         network, numWorkers, serviceAccountEmail, subnetwork, tempLocation,
-         workerRegion, workerZone, zoneProperty;
+@dynamic additionalExperiments, additionalUserLabels, autoscalingAlgorithm,
+         diskSizeGb, dumpHeapOnOom, enableStreamingEngine, flexrsGoal,
+         ipConfiguration, kmsKeyName, launcherMachineType, machineType,
+         maxWorkers, network, numWorkers, saveHeapDumpsToGcsPath,
+         sdkContainerImage, serviceAccountEmail, stagingLocation, subnetwork,
+         tempLocation, workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1458,28 +1433,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_ListTemplateVersionsResponse
-//
-
-@implementation GTLRDataflow_ListTemplateVersionsResponse
-@dynamic nextPageToken, templateVersions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"templateVersions" : [GTLRDataflow_TemplateVersion class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"templateVersions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_MapTask
 //
 
@@ -1553,68 +1506,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ModifyTemplateVersionLabelRequest
-//
-
-@implementation GTLRDataflow_ModifyTemplateVersionLabelRequest
-@dynamic key, op, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ModifyTemplateVersionLabelResponse
-//
-
-@implementation GTLRDataflow_ModifyTemplateVersionLabelResponse
-@dynamic labels;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels
-//
-
-@implementation GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ModifyTemplateVersionTagRequest
-//
-
-@implementation GTLRDataflow_ModifyTemplateVersionTagRequest
-@dynamic removeOnly, tag;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_ModifyTemplateVersionTagResponse
-//
-
-@implementation GTLRDataflow_ModifyTemplateVersionTagResponse
-@dynamic tags;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -1702,13 +1593,27 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic helpText, isOptional, label, name, paramType, regexes;
+@dynamic customMetadata, helpText, isOptional, label, name, paramType, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"regexes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ParameterMetadata_CustomMetadata
+//
+
+@implementation GTLRDataflow_ParameterMetadata_CustomMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2091,7 +1996,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_SdkHarnessContainerImage
-@dynamic containerImage, useSingleCorePerContainer;
+@dynamic containerImage, environmentId, useSingleCorePerContainer;
 @end
 
 
@@ -2300,7 +2205,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_Snapshot
 @dynamic creationTime, descriptionProperty, diskSizeBytes, identifier,
-         projectId, pubsubMetadata, sourceJobId, state, ttl;
+         projectId, pubsubMetadata, region, sourceJobId, state, ttl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2886,43 +2791,6 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataflow_TemplateVersion
-//
-
-@implementation GTLRDataflow_TemplateVersion
-@dynamic artifact, createTime, descriptionProperty, displayName, labels,
-         projectId, tags, type, versionId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataflow_TemplateVersion_Labels
-//
-
-@implementation GTLRDataflow_TemplateVersion_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataflow_TopologyConfig
 //
 
@@ -3020,7 +2888,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerHealthReport
-@dynamic msg, pods, reportInterval, vmIsBroken, vmIsHealthy, vmStartupTime;
+@dynamic msg, pods, reportInterval, vmBrokenCode, vmIsBroken, vmIsHealthy,
+         vmStartupTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

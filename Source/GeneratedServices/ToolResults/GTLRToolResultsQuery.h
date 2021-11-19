@@ -77,8 +77,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsGetSettings : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsGetSettingsWithprojectId:]
 
 /** A Project id. Required. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -110,8 +108,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesCreateWithObject:projectId:]
 
 /** A Project id. Required. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -149,8 +145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersGetWithprojectId:historyId:executionId:clusterId:]
 
 /** A Cluster id Required. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
@@ -197,8 +191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsClustersList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsClustersListWithprojectId:historyId:executionId:]
 
 /** An Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -243,8 +235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsCreateWithObject:projectId:historyId:]
 
 /** A History id. Required. */
 @property(nonatomic, copy, nullable) NSString *historyId;
@@ -290,8 +280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsEnvironmentsGetWithprojectId:historyId:executionId:environmentId:]
 
 /** Required. An Environment id. */
 @property(nonatomic, copy, nullable) NSString *environmentId;
@@ -340,8 +328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsEnvironmentsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsEnvironmentsListWithprojectId:historyId:executionId:]
 
 /** Required. An Execution id. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -398,8 +384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsGetWithprojectId:historyId:executionId:]
 
 /** An Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -444,8 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsListWithprojectId:historyId:]
 
 /** A History id. Required. */
 @property(nonatomic, copy, nullable) NSString *historyId;
@@ -499,8 +481,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsPatch : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsPatchWithObject:projectId:historyId:executionId:]
 
 /** Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -554,8 +534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsAccessibilityClusters : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsAccessibilityClustersWithname:]
 
 /**
  *  The accepted format is the canonical Unicode format with hyphen as a
@@ -606,8 +584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsCreateWithObject:projectId:historyId:executionId:]
 
 /** Required. An Execution id. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -659,8 +635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsGetWithprojectId:historyId:executionId:stepId:]
 
 /** A Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -706,8 +680,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsGetPerfMetricsSummary : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsGetPerfMetricsSummaryWithprojectId:historyId:executionId:stepId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -757,8 +729,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsListWithprojectId:historyId:executionId:]
 
 /** A Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -821,8 +791,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPatch : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPatchWithObject:projectId:historyId:executionId:stepId:]
 
 /** A Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -880,8 +848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfMetricsSummaryCreateWithObject:projectId:historyId:executionId:stepId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -930,8 +896,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesCreateWithObject:projectId:historyId:executionId:stepId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -979,8 +943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesGetWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1032,8 +994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesListWithprojectId:historyId:executionId:stepId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1098,8 +1058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreate : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesBatchCreateWithObject:projectId:historyId:executionId:stepId:sampleSeriesId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1162,8 +1120,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPerfSampleSeriesSamplesListWithprojectId:historyId:executionId:stepId:sampleSeriesId:]
 
 /** A tool results execution ID. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1235,8 +1191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsPublishXunitXmlFiles : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsPublishXunitXmlFilesWithObject:projectId:historyId:executionId:stepId:]
 
 /** A Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1291,8 +1245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesGetWithprojectId:historyId:executionId:stepId:testCaseId:]
 
 /** A Execution id Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1348,8 +1300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsTestCasesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsTestCasesListWithprojectId:historyId:executionId:stepId:]
 
 /** A Execution id Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1413,8 +1363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesExecutionsStepsThumbnailsList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesExecutionsStepsThumbnailsListWithprojectId:historyId:executionId:stepId:]
 
 /** An Execution id. Required. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -1476,8 +1424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesGet : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesGetWithprojectId:historyId:]
 
 /** A History id. Required. */
 @property(nonatomic, copy, nullable) NSString *historyId;
@@ -1517,8 +1463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsHistoriesList : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsHistoriesListWithprojectId:]
 
 /** If set, only return histories with the given name. Optional. */
 @property(nonatomic, copy, nullable) NSString *filterByName;
@@ -1585,8 +1529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *    @c kGTLRAuthScopeToolResultsCloudPlatform
  */
 @interface GTLRToolResultsQuery_ProjectsInitializeSettings : GTLRToolResultsQuery
-// Previous library name was
-//   +[GTLQueryToolResults queryForProjectsInitializeSettingsWithprojectId:]
 
 /** A Project id. Required. */
 @property(nonatomic, copy, nullable) NSString *projectId;

@@ -129,15 +129,24 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, buildEnvironmentVariables, buildId, buildWorkerPool,
-         descriptionProperty, entryPoint, environmentVariables, eventTrigger,
-         httpsTrigger, ingressSettings, labels, maxInstances, name, network,
-         runtime, serviceAccountEmail, sourceArchiveUrl, sourceRepository,
+@dynamic availableMemoryMb, buildEnvironmentVariables, buildId, buildName,
+         buildWorkerPool, descriptionProperty, entryPoint, environmentVariables,
+         eventTrigger, httpsTrigger, ingressSettings, labels, maxInstances,
+         minInstances, name, network, runtime, secretEnvironmentVariables,
+         secretVolumes, serviceAccountEmail, sourceArchiveUrl, sourceRepository,
          sourceToken, sourceUploadUrl, status, timeout, updateTime, versionId,
          vpcConnector, vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secretEnvironmentVariables" : [GTLRCloudFunctions_SecretEnvVar class],
+    @"secretVolumes" : [GTLRCloudFunctions_SecretVolume class]
+  };
+  return map;
 }
 
 @end
@@ -418,7 +427,8 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1
-@dynamic buildId, request, sourceToken, target, type, updateTime, versionId;
+@dynamic buildId, buildName, request, sourceToken, target, type, updateTime,
+         versionId;
 @end
 
 
@@ -465,6 +475,44 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_Retry
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_SecretEnvVar
+//
+
+@implementation GTLRCloudFunctions_SecretEnvVar
+@dynamic key, projectId, secret, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_SecretVersion
+//
+
+@implementation GTLRCloudFunctions_SecretVersion
+@dynamic path, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_SecretVolume
+//
+
+@implementation GTLRCloudFunctions_SecretVolume
+@dynamic mountPath, projectId, secret, versions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versions" : [GTLRCloudFunctions_SecretVersion class]
+  };
+  return map;
+}
+
 @end
 
 

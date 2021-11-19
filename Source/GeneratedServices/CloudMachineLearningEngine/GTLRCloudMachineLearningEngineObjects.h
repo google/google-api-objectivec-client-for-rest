@@ -38,6 +38,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution;
@@ -72,6 +73,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -108,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified;
 /**
- *  Nvidia Tesla A100 GPU.
+ *  Nvidia A100 GPU.
  *
  *  Value: "NVIDIA_TESLA_A100"
  */
@@ -132,13 +134,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4;
 /**
- *  Nvidia Tesla T4 GPU.
+ *  Nvidia T4 GPU.
  *
  *  Value: "NVIDIA_TESLA_T4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4;
 /**
- *  Nvidia Tesla V100 GPU.
+ *  Nvidia V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
  */
@@ -150,11 +152,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2;
 /**
+ *  TPU v2 POD.
+ *
+ *  Value: "TPU_V2_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2Pod;
+/**
  *  TPU v3.
  *
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3;
+/**
+ *  TPU v3 POD.
+ *
+ *  Value: "TPU_V3_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
@@ -166,7 +180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified;
 /**
- *  Nvidia Tesla A100 GPU.
+ *  Nvidia A100 GPU.
  *
  *  Value: "NVIDIA_TESLA_A100"
  */
@@ -190,13 +204,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
 /**
- *  Nvidia Tesla T4 GPU.
+ *  Nvidia T4 GPU.
  *
  *  Value: "NVIDIA_TESLA_T4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
 /**
- *  Nvidia Tesla V100 GPU.
+ *  Nvidia V100 GPU.
  *
  *  Value: "NVIDIA_TESLA_V100"
  */
@@ -208,11 +222,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
 /**
+ *  TPU v2 POD.
+ *
+ *  Value: "TPU_V2_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2Pod;
+/**
  *  TPU v3.
  *
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
+/**
+ *  TPU v3 POD.
+ *
+ *  Value: "TPU_V3_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3Pod;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.type
@@ -1049,7 +1075,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        Unspecified accelerator type. Default to no GPU. (Value:
  *        "ACCELERATOR_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaA100
- *        Nvidia Tesla A100 GPU. (Value: "NVIDIA_TESLA_A100")
+ *        Nvidia A100 GPU. (Value: "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80
  *        Nvidia Tesla K80 GPU. (Value: "NVIDIA_TESLA_K80")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100
@@ -1057,13 +1083,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4
  *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaT4
- *        Nvidia Tesla T4 GPU. (Value: "NVIDIA_TESLA_T4")
+ *        Nvidia T4 GPU. (Value: "NVIDIA_TESLA_T4")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaV100
- *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
+ *        Nvidia V100 GPU. (Value: "NVIDIA_TESLA_V100")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2
  *        TPU v2. (Value: "TPU_V2")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV2Pod
+ *        TPU v2 POD. (Value: "TPU_V2_POD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3
  *        TPU v3. (Value: "TPU_V3")
+ *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_TpuV3Pod
+ *        TPU v3 POD. (Value: "TPU_V3_POD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1490,7 +1520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
 
 /**
- *  Type of the boot disk (default is "pd-standard"). Valid values: "pd-ssd"
+ *  Type of the boot disk (default is "pd-ssd"). Valid values: "pd-ssd"
  *  (Persistent Disk Solid State Drive) or "pd-standard" (Persistent Disk Hard
  *  Disk Drive).
  */
@@ -1681,6 +1711,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /** The trial id for these results. */
 @property(nonatomic, copy, nullable) NSString *trialId;
 
+/**
+ *  URIs for accessing [interactive
+ *  shells](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell)
+ *  (one URI for each training node). Only available if this trial is part of a
+ *  hyperparameter tuning job and the job's training_input.enable_web_access is
+ *  `true`. The keys are names of each node in the training job; for example,
+ *  `master-replica-0` for the master node, `worker-replica-0` for the first
+ *  worker, and `ps-replica-0` for the first parameter server. The values are
+ *  the URIs for each node's interactive shell.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris *webAccessUris;
+
 @end
 
 
@@ -1693,6 +1735,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters : GTLRObject
+@end
+
+
+/**
+ *  URIs for accessing [interactive
+ *  shells](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell)
+ *  (one URI for each training node). Only available if this trial is part of a
+ *  hyperparameter tuning job and the job's training_input.enable_web_access is
+ *  `true`. The keys are names of each node in the training job; for example,
+ *  `master-replica-0` for the master node, `worker-replica-0` for the first
+ *  worker, and `ps-replica-0` for the first parameter server. The values are
+ *  the URIs for each node's interactive shell.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris : GTLRObject
 @end
 
 
@@ -2855,6 +2916,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxWaitTime;
 
+/**
+ *  Optional. Job scheduling will be based on this priority, which in the range
+ *  [0, 1000]. The bigger the number, the higher the priority. Default to 0 if
+ *  not set. If there are multiple jobs requesting same type of accelerators,
+ *  the high priority job will be scheduled prior to ones with low priority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
 @end
 
 
@@ -3266,6 +3337,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
+ *  Optional. Whether you want AI Platform Training to enable [interactive shell
+ *  access](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell)
+ *  to training containers. If set to `true`, you can access interactive shells
+ *  at the URIs given by TrainingOutput.web_access_uris or
+ *  HyperparameterOutput.web_access_uris (within TrainingOutput.trials).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWebAccess;
+
+/**
  *  Optional. Options for using customer-managed encryption keys (CMEK) to
  *  protect resources created by a training job, instead of using Google's
  *  default encryption. If this is set, then all resources created by the
@@ -3336,23 +3418,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. Specifies the type of virtual machine to use for your training
  *  job's master worker. You must specify this field when `scaleTier` is set to
  *  `CUSTOM`. You can use certain Compute Engine machine types directly in this
- *  field. The following types are supported: - `n1-standard-4` -
- *  `n1-standard-8` - `n1-standard-16` - `n1-standard-32` - `n1-standard-64` -
- *  `n1-standard-96` - `n1-highmem-2` - `n1-highmem-4` - `n1-highmem-8` -
- *  `n1-highmem-16` - `n1-highmem-32` - `n1-highmem-64` - `n1-highmem-96` -
- *  `n1-highcpu-16` - `n1-highcpu-32` - `n1-highcpu-64` - `n1-highcpu-96` Learn
- *  more about [using Compute Engine machine
- *  types](/ml-engine/docs/machine-types#compute-engine-machine-types).
- *  Alternatively, you can use the following legacy machine types: - `standard`
- *  - `large_model` - `complex_model_s` - `complex_model_m` - `complex_model_l`
- *  - `standard_gpu` - `complex_model_m_gpu` - `complex_model_l_gpu` -
- *  `standard_p100` - `complex_model_m_p100` - `standard_v100` -
- *  `large_model_v100` - `complex_model_m_v100` - `complex_model_l_v100` Learn
- *  more about [using legacy machine
- *  types](/ml-engine/docs/machine-types#legacy-machine-types). Finally, if you
- *  want to use a TPU for training, specify `cloud_tpu` in this field. Learn
- *  more about the [special configuration options for training with
- *  TPUs](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
+ *  field. See the [list of compatible Compute Engine machine
+ *  types](/ai-platform/training/docs/machine-types#compute-engine-machine-types).
+ *  Alternatively, you can use the certain legacy machine types in this field.
+ *  See the [list of legacy machine
+ *  types](/ai-platform/training/docs/machine-types#legacy-machine-types).
+ *  Finally, if you want to use a TPU for training, specify `cloud_tpu` in this
+ *  field. Learn more about the [special configuration options for training with
+ *  TPUs](/ai-platform/training/docs/using-tpus#configuring_a_custom_tpu_machine).
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
 
@@ -3603,6 +3676,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput *> *trials;
 
+/**
+ *  Output only. URIs for accessing [interactive
+ *  shells](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell)
+ *  (one URI for each training node). Only available if
+ *  training_input.enable_web_access is `true`. The keys are names of each node
+ *  in the training job; for example, `master-replica-0` for the master node,
+ *  `worker-replica-0` for the first worker, and `ps-replica-0` for the first
+ *  parameter server. The values are the URIs for each node's interactive shell.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris *webAccessUris;
+
+@end
+
+
+/**
+ *  Output only. URIs for accessing [interactive
+ *  shells](https://cloud.google.com/ai-platform/training/docs/monitor-debug-interactive-shell)
+ *  (one URI for each training node). Only available if
+ *  training_input.enable_web_access is `true`. The keys are names of each node
+ *  in the training job; for example, `master-replica-0` for the master node,
+ *  `worker-replica-0` for the first worker, and `ps-replica-0` for the first
+ *  parameter server. The values are the URIs for each node's interactive shell.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris : GTLRObject
 @end
 
 
@@ -4179,7 +4281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */

@@ -45,8 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: kgsearch.entities.search
  */
 @interface GTLRKgsearchQuery_EntitiesSearch : GTLRKgsearchQuery
-// Previous library name was
-//   +[GTLQueryKgsearch queryForEntitiesSearch]
 
 /**
  *  The list of entity id to be used for search instead of query string. To

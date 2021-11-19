@@ -4,10 +4,9 @@
 // API:
 //   Notebooks API (notebooks/v1)
 // Description:
-//   AI Platform Notebooks API is used to manage notebook resources in Google
-//   Cloud.
+//   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:
-//   https://cloud.google.com/ai-platform/notebooks/docs/
+//   https://cloud.google.com/notebooks/docs/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -32,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
@@ -46,8 +45,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAIPlatformNotebooksCloudPlatfor
 /**
  *  Service for executing Notebooks API queries.
  *
- *  AI Platform Notebooks API is used to manage notebook resources in Google
- *  Cloud.
+ *  Notebooks API is used to manage notebook resources in Google Cloud.
  */
 @interface GTLRAIPlatformNotebooksService : GTLRService
 

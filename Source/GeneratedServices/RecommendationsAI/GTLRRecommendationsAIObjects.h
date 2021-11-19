@@ -718,9 +718,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 /**
  *  Required. Google Cloud Storage URIs to input files. URI can be up to 2000
  *  characters long. URIs can match the full object path (for example,
- *  gs://bucket/directory/object.json) or a pattern matching one or more files,
- *  such as gs://bucket/directory/ *.json. A request can contain at most 100
- *  files, and each file can be up to 2 GB. See [Importing catalog
+ *  `gs://bucket/directory/object.json`) or a pattern matching one or more
+ *  files, such as `gs://bucket/directory/ *.json`. A request can contain at
+ *  most 100 files, and each file can be up to 2 GB. See [Importing catalog
  *  information](/recommendations-ai/docs/upload-catalog) for the expected file
  *  format and setup instructions.
  */
@@ -1058,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest : GTLRObject
 
 /**
- *  Optional. Use dryRun mode for this prediction query. If set to true, a dummy
+ *  Optional. Use dryRun mode for this prediction query. If set to true, a fake
  *  model will be used that returns arbitrary catalog items. Note that the
  *  dryRun mode should only be used for testing the API, or if the model is not
  *  ready.
@@ -1119,7 +1119,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  probability of an item being clicked/purchased given the user's context and
  *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
  *  service will return generic (unfiltered) popular items instead of empty if
- *  your filter blocks all prediction results.
+ *  your filter blocks all prediction results. * `priceRerankLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-price-reranking', 'low-price-reranking', 'medium-price-reranking',
+ *  'high-price-reranking'}. This gives request level control and adjust
+ *  prediction results based on product price. * `diversityLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
+ *  'auto-diversity'}. This gives request level control and adjust prediction
+ *  results based on product category.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest_Params *params;
 
@@ -1163,7 +1171,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  probability of an item being clicked/purchased given the user's context and
  *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
  *  service will return generic (unfiltered) popular items instead of empty if
- *  your filter blocks all prediction results.
+ *  your filter blocks all prediction results. * `priceRerankLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-price-reranking', 'low-price-reranking', 'medium-price-reranking',
+ *  'high-price-reranking'}. This gives request level control and adjust
+ *  prediction results based on product price. * `diversityLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
+ *  'auto-diversity'}. This gives request level control and adjust prediction
+ *  results based on product category.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1504,11 +1520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *listId;
 
 /**
- *  Required for `category-page-view` events. Other event types should not set
- *  this field. The categories associated with a category page. Category pages
- *  include special pages such as sales or promotions. For instance, a special
- *  sale page may have the category hierarchy: categories : ["Sales", "2017
- *  Black Friday Deals"].
+ *  Required for `category-page-view` events. At least one of search_query or
+ *  page_categories is required for `search` events. Other event types should
+ *  not set this field. The categories associated with a category page. Category
+ *  pages include special pages such as sales or promotions. For instance, a
+ *  special sale page may have the category hierarchy: categories : ["Sales",
+ *  "2017 Black Friday Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy *> *pageCategories;
 
@@ -1538,8 +1555,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurchaseTransaction *purchaseTransaction;
 
 /**
- *  Required for `search` events. Other event types should not set this field.
- *  The user's search query as UTF-8 encoded text with a length limit of 5 KiB.
+ *  At least one of search_query or page_categories is required for `search`
+ *  events. Other event types should not set this field. The user's search query
+ *  as UTF-8 encoded text with a length limit of 5 KiB.
  */
 @property(nonatomic, copy, nullable) NSString *searchQuery;
 
@@ -1886,9 +1904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required. A unique identifier for tracking visitors with a length limit of
- *  128 bytes. For example, this could be implemented with a http cookie, which
+ *  128 bytes. For example, this could be implemented with an HTTP cookie, which
  *  should be able to uniquely identify a visitor on a single device. This
- *  unique identifier should not change if the visitor log in/out of the
+ *  unique identifier should not change if the visitor logs in or out of the
  *  website. Maximum length 128 bytes. Cannot be empty.
  */
 @property(nonatomic, copy, nullable) NSString *visitorId;

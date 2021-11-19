@@ -6,7 +6,7 @@
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:
-//   https://cloud.google.com/access-approval/docs
+//   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersApprovalRequestsApprove : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersApprovalRequestsApproveWithObject:name:]
 
 /** Name of the approval request to approve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -89,8 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersApprovalRequestsDismiss : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersApprovalRequestsDismissWithObject:name:]
 
 /** Name of the ApprovalRequest to dismiss. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -124,8 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersApprovalRequestsGet : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersApprovalRequestsGetWithname:]
 
 /** Name of the approval request to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -154,15 +148,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersApprovalRequestsList : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersApprovalRequestsListWithparent:]
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
  *  following values: * [not set]: Requests that are pending or have active
  *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
  *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
- *  that have been dismissed, or requests that . are not approved and past
+ *  that have been dismissed, or requests that are not approved and past
  *  expiration. * EXPIRED: Only requests that have been approved, and the
  *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
@@ -214,8 +206,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersDeleteAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -247,8 +237,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersGetAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersGetAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -276,8 +264,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_FoldersUpdateAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForFoldersUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
  *  The resource name of the settings. Format is one of: *
@@ -331,8 +317,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsApprove : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsApprovalRequestsApproveWithObject:name:]
 
 /** Name of the approval request to approve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -368,8 +352,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsDismiss : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsApprovalRequestsDismissWithObject:name:]
 
 /** Name of the ApprovalRequest to dismiss. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -403,8 +385,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsGet : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsApprovalRequestsGetWithname:]
 
 /** Name of the approval request to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -433,15 +413,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsList : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsApprovalRequestsListWithparent:]
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
  *  following values: * [not set]: Requests that are pending or have active
  *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
  *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
- *  that have been dismissed, or requests that . are not approved and past
+ *  that have been dismissed, or requests that are not approved and past
  *  expiration. * EXPIRED: Only requests that have been approved, and the
  *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
@@ -493,8 +471,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsDeleteAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -526,8 +502,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsGetAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsGetAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -555,8 +529,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_OrganizationsUpdateAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForOrganizationsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
  *  The resource name of the settings. Format is one of: *
@@ -610,8 +582,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsApprove : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsApprovalRequestsApproveWithObject:name:]
 
 /** Name of the approval request to approve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -647,8 +617,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsDismiss : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsApprovalRequestsDismissWithObject:name:]
 
 /** Name of the ApprovalRequest to dismiss. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -682,8 +650,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsGet : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsApprovalRequestsGetWithname:]
 
 /** Name of the approval request to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -712,15 +678,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsList : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsApprovalRequestsListWithparent:]
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
  *  following values: * [not set]: Requests that are pending or have active
  *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
  *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
- *  that have been dismissed, or requests that . are not approved and past
+ *  that have been dismissed, or requests that are not approved and past
  *  expiration. * EXPIRED: Only requests that have been approved, and the
  *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
@@ -772,8 +736,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsDeleteAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsDeleteAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -805,8 +767,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsGetAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsGetAccessApprovalSettingsWithname:]
 
 /** Name of the AccessApprovalSettings to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -834,8 +794,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAccessApprovalCloudPlatform
  */
 @interface GTLRAccessApprovalQuery_ProjectsUpdateAccessApprovalSettings : GTLRAccessApprovalQuery
-// Previous library name was
-//   +[GTLQueryAccessApproval queryForProjectsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
  *  The resource name of the settings. Format is one of: *

@@ -61,8 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: digitalassetlinks.assetlinks.check
  */
 @interface GTLRDigitalAssetLinksQuery_AssetlinksCheck : GTLRDigitalAssetLinksQuery
-// Previous library name was
-//   +[GTLQueryDigitalAssetLinks queryForAssetlinksCheck]
 
 /**
  *  Query string for the relation. We identify relations with strings of the
@@ -212,8 +210,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: digitalassetlinks.statements.list
  */
 @interface GTLRDigitalAssetLinksQuery_StatementsList : GTLRDigitalAssetLinksQuery
-// Previous library name was
-//   +[GTLQueryDigitalAssetLinks queryForStatementsList]
 
 /**
  *  Use only associations that match the specified relation. See the

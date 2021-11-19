@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGroupsSettingsAppsGroupsSettings
  */
 @interface GTLRGroupsSettingsQuery_GroupsGet : GTLRGroupsSettingsQuery
-// Previous library name was
-//   +[GTLQueryGroupsSettings queryForGroupsGetWithgroupUniqueId:]
 
 /** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;
@@ -76,8 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGroupsSettingsAppsGroupsSettings
  */
 @interface GTLRGroupsSettingsQuery_GroupsPatch : GTLRGroupsSettingsQuery
-// Previous library name was
-//   +[GTLQueryGroupsSettings queryForGroupsPatchWithObject:groupUniqueId:]
 
 /** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;
@@ -106,8 +102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGroupsSettingsAppsGroupsSettings
  */
 @interface GTLRGroupsSettingsQuery_GroupsUpdate : GTLRGroupsSettingsQuery
-// Previous library name was
-//   +[GTLQueryGroupsSettings queryForGroupsUpdateWithObject:groupUniqueId:]
 
 /** The group's email address. */
 @property(nonatomic, copy, nullable) NSString *groupUniqueId;

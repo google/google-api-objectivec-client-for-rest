@@ -419,6 +419,52 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLogging_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRLoggingQuery_BillingAccountsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.billingAccounts.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRLoggingQuery_BillingAccountsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_ListOperationsResponse class];
+  query.loggingName = @"logging.billingAccounts.locations.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLogsDelete
 
 @dynamic logName;
@@ -459,6 +505,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRLogging_ListLogsResponse class];
   query.loggingName = @"logging.billingAccounts.logs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_BillingAccountsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.billingAccounts.operations.get";
   return query;
 }
 
@@ -597,6 +662,28 @@
   query.sinkName = sinkName;
   query.expectedObjectClass = [GTLRLogging_LogSink class];
   query.loggingName = @"logging.billingAccounts.sinks.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_EntriesCopy
+
++ (instancetype)queryWithObject:(GTLRLogging_CopyLogEntriesRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/entries:copy";
+  GTLRLoggingQuery_EntriesCopy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.entries.copy";
   return query;
 }
 
@@ -1177,6 +1264,71 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLogging_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRLoggingQuery_FoldersLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.folders.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_FoldersLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.folders.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRLoggingQuery_FoldersLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_ListOperationsResponse class];
+  query.loggingName = @"logging.folders.locations.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_FoldersLogsDelete
 
 @dynamic logName;
@@ -1642,6 +1794,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_ListLocationsResponse class];
   query.loggingName = @"logging.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLogging_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRLoggingQuery_LocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_LocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_LocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRLoggingQuery_LocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_ListOperationsResponse class];
+  query.loggingName = @"logging.locations.operations.list";
   return query;
 }
 
@@ -2121,6 +2338,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_ListLocationsResponse class];
   query.loggingName = @"logging.organizations.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLogging_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRLoggingQuery_OrganizationsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.organizations.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_OrganizationsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.organizations.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_OrganizationsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRLoggingQuery_OrganizationsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_ListOperationsResponse class];
+  query.loggingName = @"logging.organizations.locations.operations.list";
   return query;
 }
 
@@ -2729,6 +3011,71 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_ListLocationsResponse class];
   query.loggingName = @"logging.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRLogging_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:cancel";
+  GTLRLoggingQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Empty class];
+  query.loggingName = @"logging.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRLoggingQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Operation class];
+  query.loggingName = @"logging.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/operations";
+  GTLRLoggingQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_ListOperationsResponse class];
+  query.loggingName = @"logging.projects.locations.operations.list";
   return query;
 }
 

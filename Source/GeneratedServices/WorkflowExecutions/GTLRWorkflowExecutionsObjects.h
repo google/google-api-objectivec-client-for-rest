@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -22,6 +22,7 @@
 
 @class GTLRWorkflowExecutions_Error;
 @class GTLRWorkflowExecutions_Execution;
+@class GTLRWorkflowExecutions_Position;
 @class GTLRWorkflowExecutions_StackTrace;
 @class GTLRWorkflowExecutions_StackTraceElement;
 
@@ -34,6 +35,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRWorkflowExecutions_Execution.callLogLevel
+
+/**
+ *  No call logging specified.
+ *
+ *  Value: "CALL_LOG_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified;
+/**
+ *  Log all call steps within workflows, all call returns, and all exceptions
+ *  raised.
+ *
+ *  Value: "LOG_ALL_CALLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls;
+/**
+ *  Log only exceptions that are raised from call steps within workflows.
+ *
+ *  Value: "LOG_ERRORS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkflowExecutions_Execution.state
@@ -81,7 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_Error : GTLRObject
 
-/** Human readable stack trace string. */
+/** Human-readable stack trace string. */
 @property(nonatomic, copy, nullable) NSString *context;
 
 /** Error message and data returned represented as a JSON string. */
@@ -95,7 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 
 /**
  *  A running instance of a
- *  [Workflow](/workflows/docs/reference/rest/v1beta/projects.locations.workflows).
+ *  [Workflow](/workflows/docs/reference/rest/v1/projects.locations.workflows).
  */
 @interface GTLRWorkflowExecutions_Execution : GTLRObject
 
@@ -106,6 +130,21 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *  `'{"argument":"{\\"firstName\\":\\"FIRST\\",\\"lastName\\":\\"LAST\\"}"}'`
  */
 @property(nonatomic, copy, nullable) NSString *argument;
+
+/**
+ *  The call logging level associated to this execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_CallLogLevelUnspecified
+ *        No call logging specified. (Value: "CALL_LOG_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogAllCalls Log all
+ *        call steps within workflows, all call returns, and all exceptions
+ *        raised. (Value: "LOG_ALL_CALLS")
+ *    @arg @c kGTLRWorkflowExecutions_Execution_CallLogLevel_LogErrorsOnly Log
+ *        only exceptions that are raised from call steps within workflows.
+ *        (Value: "LOG_ERRORS_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *callLogLevel;
 
 /** Output only. Marks the end of execution, successful or not. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
@@ -182,20 +221,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 
 
 /**
- *  A collection of stack elements (frames) where an error occurred.
+ *  Position contains source position information about the stack trace element
+ *  such as line number, column number and length of the code block in bytes.
  */
-@interface GTLRWorkflowExecutions_StackTrace : GTLRObject
-
-/** An array of Stack elements. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StackTraceElement *> *elements;
-
-@end
-
-
-/**
- *  A single stack element (frame) where an error occurred.
- */
-@interface GTLRWorkflowExecutions_StackTraceElement : GTLRObject
+@interface GTLRWorkflowExecutions_Position : GTLRObject
 
 /**
  *  The source code column position (of the line) the current instruction was
@@ -206,11 +235,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
 @property(nonatomic, strong, nullable) NSNumber *column;
 
 /**
+ *  The number of bytes of source code making up this stack trace element.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/**
  *  The source code line number the current instruction was generated from.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
+ *  A collection of stack elements (frames) where an error occurred.
+ */
+@interface GTLRWorkflowExecutions_StackTrace : GTLRObject
+
+/** An array of stack elements. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StackTraceElement *> *elements;
+
+@end
+
+
+/**
+ *  A single stack element (frame) where an error occurred.
+ */
+@interface GTLRWorkflowExecutions_StackTraceElement : GTLRObject
+
+/** The source position information of the stack trace element. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Position *position;
 
 /** The routine where the error occurred. */
 @property(nonatomic, copy, nullable) NSString *routine;

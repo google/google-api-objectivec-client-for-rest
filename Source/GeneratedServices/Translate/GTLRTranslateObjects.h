@@ -90,7 +90,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  If the map is empty or a specific model is not requested for a language
  *  pair, then default google model (nmt) is used.
  */
@@ -150,7 +149,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  If the map is empty or a specific model is not requested for a language
  *  pair, then default google model (nmt) is used.
  *
@@ -866,11 +864,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  For global (non-regionalized) requests, use `location-id` `global`. For
  *  example,
  *  `projects/{project-number-or-id}/locations/global/models/general/nmt`. If
- *  missing, the system decides which google base model to use.
+ *  not provided, the default Google model (NMT) will be used
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -957,7 +954,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/** Text translated into the target language. */
+/**
+ *  Text translated into the target language. If an error occurs during
+ *  translation, this field might be excluded from the response.
+ */
 @property(nonatomic, copy, nullable) NSString *translatedText;
 
 @end

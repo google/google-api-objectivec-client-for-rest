@@ -11,12 +11,26 @@
 #import "GTLRCloudIAPObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCloudIAP_ReauthSettings.method
+NSString * const kGTLRCloudIAP_ReauthSettings_Method_Login     = @"LOGIN";
+NSString * const kGTLRCloudIAP_ReauthSettings_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudIAP_ReauthSettings_Method_Password  = @"PASSWORD";
+NSString * const kGTLRCloudIAP_ReauthSettings_Method_SecureKey = @"SECURE_KEY";
+
+// GTLRCloudIAP_ReauthSettings.policyType
+NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Default = @"DEFAULT";
+NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Minimum = @"MINIMUM";
+NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRCloudIAP_AccessDeniedPageSettings
 //
 
 @implementation GTLRCloudIAP_AccessDeniedPageSettings
-@dynamic accessDeniedPageUri;
+@dynamic accessDeniedPageUri, generateTroubleshootingUri;
 @end
 
 
@@ -26,7 +40,8 @@
 //
 
 @implementation GTLRCloudIAP_AccessSettings
-@dynamic corsSettings, gcipSettings, oauthSettings, policyDelegationSettings;
+@dynamic corsSettings, gcipSettings, oauthSettings, policyDelegationSettings,
+         reauthSettings;
 @end
 
 
@@ -264,6 +279,16 @@
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIAP_ReauthSettings
+//
+
+@implementation GTLRCloudIAP_ReauthSettings
+@dynamic maxAge, method, policyType;
 @end
 
 

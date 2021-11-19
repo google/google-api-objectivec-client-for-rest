@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #import "GTLRDirectoryQuery.h"
 
@@ -19,60 +19,49 @@
 
 // coordinatesSource
 NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified = @"CLIENT_SPECIFIED";
-NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined = @"COORDINATES_SOURCE_UNDEFINED";
 NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress = @"RESOLVED_FROM_ADDRESS";
 NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // event
-NSString * const kGTLRDirectoryEventAdd                  = @"add";
-NSString * const kGTLRDirectoryEventDelete               = @"delete";
-NSString * const kGTLRDirectoryEventEventTypeUnspecified = @"eventTypeUnspecified";
-NSString * const kGTLRDirectoryEventEventUndefined       = @"eventUndefined";
-NSString * const kGTLRDirectoryEventMakeAdmin            = @"makeAdmin";
-NSString * const kGTLRDirectoryEventUndelete             = @"undelete";
-NSString * const kGTLRDirectoryEventUpdate               = @"update";
+NSString * const kGTLRDirectoryEventAdd       = @"add";
+NSString * const kGTLRDirectoryEventDelete    = @"delete";
+NSString * const kGTLRDirectoryEventMakeAdmin = @"makeAdmin";
+NSString * const kGTLRDirectoryEventUndelete  = @"undelete";
+NSString * const kGTLRDirectoryEventUpdate    = @"update";
 
 // orderBy
-NSString * const kGTLRDirectoryOrderByAnnotatedLocation  = @"annotatedLocation";
-NSString * const kGTLRDirectoryOrderByAnnotatedUser      = @"annotatedUser";
-NSString * const kGTLRDirectoryOrderByDeviceId           = @"deviceId";
-NSString * const kGTLRDirectoryOrderByEmail              = @"email";
-NSString * const kGTLRDirectoryOrderByFamilyName         = @"familyName";
-NSString * const kGTLRDirectoryOrderByGivenName          = @"givenName";
-NSString * const kGTLRDirectoryOrderByLastSync           = @"lastSync";
-NSString * const kGTLRDirectoryOrderByModel              = @"model";
-NSString * const kGTLRDirectoryOrderByName               = @"name";
-NSString * const kGTLRDirectoryOrderByNotes              = @"notes";
-NSString * const kGTLRDirectoryOrderByOrderByUndefined   = @"orderByUndefined";
-NSString * const kGTLRDirectoryOrderByOrderByUnspecified = @"orderByUnspecified";
-NSString * const kGTLRDirectoryOrderByOs                 = @"os";
-NSString * const kGTLRDirectoryOrderBySerialNumber       = @"serialNumber";
-NSString * const kGTLRDirectoryOrderByStatus             = @"status";
-NSString * const kGTLRDirectoryOrderBySupportEndDate     = @"supportEndDate";
-NSString * const kGTLRDirectoryOrderByType               = @"type";
+NSString * const kGTLRDirectoryOrderByAnnotatedLocation = @"annotatedLocation";
+NSString * const kGTLRDirectoryOrderByAnnotatedUser     = @"annotatedUser";
+NSString * const kGTLRDirectoryOrderByDeviceId          = @"deviceId";
+NSString * const kGTLRDirectoryOrderByEmail             = @"email";
+NSString * const kGTLRDirectoryOrderByFamilyName        = @"familyName";
+NSString * const kGTLRDirectoryOrderByGivenName         = @"givenName";
+NSString * const kGTLRDirectoryOrderByLastSync          = @"lastSync";
+NSString * const kGTLRDirectoryOrderByModel             = @"model";
+NSString * const kGTLRDirectoryOrderByName              = @"name";
+NSString * const kGTLRDirectoryOrderByNotes             = @"notes";
+NSString * const kGTLRDirectoryOrderByOs                = @"os";
+NSString * const kGTLRDirectoryOrderBySerialNumber      = @"serialNumber";
+NSString * const kGTLRDirectoryOrderByStatus            = @"status";
+NSString * const kGTLRDirectoryOrderBySupportEndDate    = @"supportEndDate";
+NSString * const kGTLRDirectoryOrderByType              = @"type";
 
 // projection
-NSString * const kGTLRDirectoryProjectionBasic                 = @"basic";
-NSString * const kGTLRDirectoryProjectionCustom                = @"custom";
-NSString * const kGTLRDirectoryProjectionFull                  = @"full";
-NSString * const kGTLRDirectoryProjectionProjectionUndefined   = @"PROJECTION_UNDEFINED";
-NSString * const kGTLRDirectoryProjectionProjectionUnspecified = @"projectionUnspecified";
+NSString * const kGTLRDirectoryProjectionBasic  = @"basic";
+NSString * const kGTLRDirectoryProjectionCustom = @"custom";
+NSString * const kGTLRDirectoryProjectionFull   = @"full";
 
 // sortOrder
-NSString * const kGTLRDirectorySortOrderAscending            = @"ASCENDING";
-NSString * const kGTLRDirectorySortOrderDescending           = @"DESCENDING";
-NSString * const kGTLRDirectorySortOrderSortOrderUndefined   = @"SORT_ORDER_UNDEFINED";
-NSString * const kGTLRDirectorySortOrderSortOrderUnspecified = @"sortOrderUnspecified";
+NSString * const kGTLRDirectorySortOrderAscending  = @"ASCENDING";
+NSString * const kGTLRDirectorySortOrderDescending = @"DESCENDING";
 
 // type
-NSString * const kGTLRDirectoryTypeAll           = @"all";
-NSString * const kGTLRDirectoryTypeChildren      = @"children";
-NSString * const kGTLRDirectoryTypeTypeUndefined = @"typeUndefined";
+NSString * const kGTLRDirectoryTypeAll      = @"all";
+NSString * const kGTLRDirectoryTypeChildren = @"children";
 
 // viewType
-NSString * const kGTLRDirectoryViewTypeAdminView         = @"admin_view";
-NSString * const kGTLRDirectoryViewTypeDomainPublic      = @"domain_public";
-NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined";
+NSString * const kGTLRDirectoryViewTypeAdminView    = @"admin_view";
+NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -224,8 +213,8 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_ChromeosdevicesList
 
-@dynamic customerId, maxResults, orderBy, orgUnitPath, pageToken, projection,
-         query, sortOrder;
+@dynamic customerId, includeChildOrgunits, maxResults, orderBy, orgUnitPath,
+         pageToken, projection, query, sortOrder;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
@@ -383,6 +372,190 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
   query.deviceId = deviceId;
   query.expectedObjectClass = [GTLRDirectory_ChromeosdevicesIssueCommandResponse class];
   query.loggingName = @"admin.customer.devices.chromeos.issueCommand";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_BatchCreatePrintersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:batchCreatePrinters";
+  GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_BatchCreatePrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.batchCreatePrinters";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_BatchDeletePrintersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:batchDeletePrinters";
+  GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_BatchDeletePrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.batchDeletePrinters";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers";
+  GTLRDirectoryQuery_CustomersChromePrintersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Empty class];
+  query.loggingName = @"admin.customers.chrome.printers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersList
+
+@dynamic filter, orgUnitId, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers";
+  GTLRDirectoryQuery_CustomersChromePrintersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_ListPrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:listPrinterModels";
+  GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_ListPrinterModelsResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.listPrinterModels";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersPatch
+
+@dynamic clearMask, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.patch";
   return query;
 }
 
@@ -2304,7 +2477,7 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_UsersAliasesList
 
-@dynamic userKey;
+@dynamic event, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
@@ -2409,8 +2582,8 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_UsersList
 
-@dynamic customer, customFieldMask, domain, maxResults, orderBy, pageToken,
-         projection, query, showDeleted, sortOrder, viewType;
+@dynamic customer, customFieldMask, domain, event, maxResults, orderBy,
+         pageToken, projection, query, showDeleted, sortOrder, viewType;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"admin/directory/v1/users";

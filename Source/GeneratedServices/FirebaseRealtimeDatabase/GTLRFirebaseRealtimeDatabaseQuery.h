@@ -57,8 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebase
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesCreate : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /** The globally unique identifier of the database instance. */
 @property(nonatomic, copy, nullable) NSString *databaseId;
@@ -107,8 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebase
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDelete : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  The fully qualified resource name of the database instance, in the form:
@@ -146,8 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebase
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesDisable : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesDisableWithObject:name:]
 
 /**
  *  The fully qualified resource name of the database instance, in the form:
@@ -188,8 +182,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebaseReadonly
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesGet : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  The fully qualified resource name of the database instance, in the form:
@@ -239,8 +231,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebaseReadonly
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesList : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesListWithparent:]
 
 /**
  *  The maximum number of database instances to return in the response. The
@@ -300,8 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseRealtimeDatabaseFirebase
  */
 @interface GTLRFirebaseRealtimeDatabaseQuery_ProjectsLocationsInstancesReenable : GTLRFirebaseRealtimeDatabaseQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRealtimeDatabase queryForProjectsLocationsInstancesReenableWithObject:name:]
 
 /**
  *  The fully qualified resource name of the database instance, in the form:

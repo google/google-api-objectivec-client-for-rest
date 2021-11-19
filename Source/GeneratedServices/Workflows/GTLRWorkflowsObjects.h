@@ -2,10 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflows API (workflows/v1beta)
+//   Workflows API (workflows/v1)
 // Description:
-//   Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
-//   API endpoints.
+//   Manage workflow definitions. To execute workflows and manage executions,
+//   see the Workflows Executions API.
 // Documentation:
 //   https://cloud.google.com/workflows
 
@@ -402,18 +402,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
- *  Name of the service account associated with the latest workflow version.
- *  This service account represents the identity of the workflow and determines
- *  what permissions the workflow has. Format:
- *  projects/{project}/serviceAccounts/{account} Using `-` as a wildcard for the
- *  `{project}` will infer the project from the account. The `{account}` value
- *  can be the `email` address or the `unique_id` of the service account. If not
- *  provided, workflow will use the project's default service account. Modifying
- *  this field for an existing workflow results in a new workflow revision.
+ *  The service account associated with the latest workflow version. This
+ *  service account represents the identity of the workflow and determines what
+ *  permissions the workflow has. Format:
+ *  projects/{project}/serviceAccounts/{account} or {account} Using `-` as a
+ *  wildcard for the `{project}` or not providing one at all will infer the
+ *  project from the account. The `{account}` value can be the `email` address
+ *  or the `unique_id` of the service account. If not provided, workflow will
+ *  use the project's default service account. Modifying this field for an
+ *  existing workflow results in a new workflow revision.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** Workflow code to be executed. The size limit is 32KB. */
+/** Workflow code to be executed. The size limit is 128KB. */
 @property(nonatomic, copy, nullable) NSString *sourceContents;
 
 /**

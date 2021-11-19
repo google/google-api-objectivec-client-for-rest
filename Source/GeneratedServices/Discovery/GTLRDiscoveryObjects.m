@@ -324,10 +324,10 @@
 //
 
 @implementation GTLRDiscovery_RestMethod
-@dynamic descriptionProperty, etagRequired, httpMethod, identifier, mediaUpload,
-         parameterOrder, parameters, path, request, response, scopes,
-         supportsMediaDownload, supportsMediaUpload, supportsSubscription,
-         useMediaDownloadService;
+@dynamic descriptionProperty, etagRequired, flatPath, httpMethod, identifier,
+         mediaUpload, parameterOrder, parameters, path, request, response,
+         scopes, supportsMediaDownload, supportsMediaUpload,
+         supportsSubscription, useMediaDownloadService;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

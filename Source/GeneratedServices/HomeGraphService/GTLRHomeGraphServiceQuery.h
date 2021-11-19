@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_AgentUsersDelete : GTLRHomeGraphServiceQuery
-// Previous library name was
-//   +[GTLQueryHomeGraphService queryForAgentUsersDeleteWithagentUserId:]
 
 /** Required. Third-party user ID. */
 @property(nonatomic, copy, nullable) NSString *agentUserId;
@@ -95,8 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesQuery : GTLRHomeGraphServiceQuery
-// Previous library name was
-//   +[GTLQueryHomeGraphService queryForDevicesQueryWithObject:]
 
 /**
  *  Fetches a @c GTLRHomeGraphService_QueryResponse.
@@ -135,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesReportStateAndNotification : GTLRHomeGraphServiceQuery
-// Previous library name was
-//   +[GTLQueryHomeGraphService queryForDevicesReportStateAndNotificationWithObject:]
 
 /**
  *  Fetches a @c GTLRHomeGraphService_ReportStateAndNotificationResponse.
@@ -177,8 +171,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesRequestSync : GTLRHomeGraphServiceQuery
-// Previous library name was
-//   +[GTLQueryHomeGraphService queryForDevicesRequestSyncWithObject:]
 
 /**
  *  Fetches a @c GTLRHomeGraphService_RequestSyncDevicesResponse.
@@ -211,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesSync : GTLRHomeGraphServiceQuery
-// Previous library name was
-//   +[GTLQueryHomeGraphService queryForDevicesSyncWithObject:]
 
 /**
  *  Fetches a @c GTLRHomeGraphService_SyncResponse.

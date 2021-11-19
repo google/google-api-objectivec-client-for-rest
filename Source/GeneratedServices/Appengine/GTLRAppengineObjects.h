@@ -65,6 +65,7 @@
 @class GTLRAppengine_Resources;
 @class GTLRAppengine_ScriptHandler;
 @class GTLRAppengine_Service;
+@class GTLRAppengine_Service_Labels;
 @class GTLRAppengine_SslSettings;
 @class GTLRAppengine_StandardSchedulerSettings;
 @class GTLRAppengine_StaticFilesHandler;
@@ -759,6 +760,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_ServingS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
+// ----------------------------------------------------------------------------
+// GTLRAppengine_VpcAccessConnector.egressSetting
+
+/**
+ *  Force the use of VPC Access for all egress traffic from the function.
+ *
+ *  Value: "ALL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic;
+/** Value: "EGRESS_SETTING_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified;
+/**
+ *  Use the VPC Access Connector for private IP space from RFC1918.
+ *
+ *  Value: "PRIVATE_IP_RANGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges;
+
 /**
  *  Google Cloud Endpoints
  *  (https://cloud.google.com/appengine/docs/python/endpoints/) configuration
@@ -941,6 +960,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  apps/myapp.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The service account associated with the application. This is the app-level
+ *  default identity. If no identity provided during create version, Admin API
+ *  will fallback to this one.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Serving status of this application.
@@ -1642,7 +1668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  An optional string description of this rule. This field has a maximum length
- *  of 100 characters.
+ *  of 400 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1670,6 +1696,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  address as 2001:db8::/32.
  */
 @property(nonatomic, copy, nullable) NSString *sourceRange;
+
+@end
+
+
+/**
+ *  Metadata for the given google.cloud.location.Location.
+ */
+@interface GTLRAppengine_GoogleAppengineV1betaLocationMetadata : GTLRObject
+
+/**
+ *  App Engine flexible environment is available in the given
+ *  location.\@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexibleEnvironmentAvailable;
+
+/**
+ *  Output only. Search API
+ *  (https://cloud.google.com/appengine/docs/standard/python/search) is
+ *  available in the given location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchApiAvailable;
+
+/**
+ *  App Engine standard environment is available in the given
+ *  location.\@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardEnvironmentAvailable;
 
 @end
 
@@ -2245,6 +2304,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *flexibleEnvironmentAvailable;
+
+/**
+ *  Output only. Search API
+ *  (https://cloud.google.com/appengine/docs/standard/python/search) is
+ *  available in the given location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchApiAvailable;
 
 /**
  *  App Engine standard environment is available in the given
@@ -2823,6 +2891,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  A set of labels to apply to this service. Labels are key/value pairs that
+ *  describe the service and all resources that belong to it (e.g., versions).
+ *  The labels can be used to search and group resources, and are propagated to
+ *  the usage and billing reports, enabling fine-grain analysis of costs. An
+ *  example of using labels is to tag resources belonging to different
+ *  environments (e.g., "env=prod", "env=qa"). Label keys and values can be no
+ *  longer than 63 characters and can only contain lowercase letters, numeric
+ *  characters, underscores, dashes, and international characters. Label keys
+ *  must start with a lowercase letter or an international character. Each
+ *  service can have at most 32 labels.
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_Service_Labels *labels;
+
+/**
  *  Full path to the Service resource in the API. Example:
  *  apps/myapp/services/default.\@OutputOnly
  */
@@ -2837,6 +2919,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_TrafficSplit *split;
 
+@end
+
+
+/**
+ *  A set of labels to apply to this service. Labels are key/value pairs that
+ *  describe the service and all resources that belong to it (e.g., versions).
+ *  The labels can be used to search and group resources, and are propagated to
+ *  the usage and billing reports, enabling fine-grain analysis of costs. An
+ *  example of using labels is to tag resources belonging to different
+ *  environments (e.g., "env=prod", "env=qa"). Label keys and values can be no
+ *  longer than 63 characters and can only contain lowercase letters, numeric
+ *  characters, underscores, dashes, and international characters. Label keys
+ *  must start with a lowercase letter or an international character. Each
+ *  service can have at most 32 labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAppengine_Service_Labels : GTLRObject
 @end
 
 
@@ -3445,6 +3548,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *runtimeMainExecutablePath;
 
 /**
+ *  The identity that the deployed version will run as. Admin API will use the
+ *  App Engine Appspot service account as default if this field is neither
+ *  provided in app.yaml file nor through CLI flag.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
  *  Current serving status of this version. Only the versions with a SERVING
  *  status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an
  *  invalid value. Defaults to SERVING.
@@ -3558,6 +3668,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  VPC access connector specification.
  */
 @interface GTLRAppengine_VpcAccessConnector : GTLRObject
+
+/**
+ *  The egress setting for the connector, controlling what traffic is diverted
+ *  through it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic Force
+ *        the use of VPC Access for all egress traffic from the function.
+ *        (Value: "ALL_TRAFFIC")
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified
+ *        Value "EGRESS_SETTING_UNSPECIFIED"
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
+ *        Use the VPC Access Connector for private IP space from RFC1918.
+ *        (Value: "PRIVATE_IP_RANGES")
+ */
+@property(nonatomic, copy, nullable) NSString *egressSetting;
 
 /**
  *  Full Serverless VPC Access Connector name e.g.

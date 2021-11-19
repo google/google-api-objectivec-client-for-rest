@@ -31,12 +31,12 @@ case "${PLATFORM}" in
     ;;
   osx)
     TARGET_NAME=macOSPodTests
-    DEPLOYMENT_TARGET=10.9
+    DEPLOYMENT_TARGET=10.12
     SDK=macosx
     ;;
   tvos)
     TARGET_NAME=tvOSPodTests
-    DEPLOYMENT_TARGET=9.0
+    DEPLOYMENT_TARGET=10.0
     SDK=appletvsimulator
     ;;
   *)

@@ -135,6 +135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetada
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified;
 /**
+ *  Commute time is calculated based on biking time.
+ *
+ *  Value: "CYCLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Cycling;
+/**
  *  Commute time is calculated based on driving time.
  *
  *  Value: "DRIVING"
@@ -147,6 +153,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_Commut
  *  Value: "TRANSIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit;
+/**
+ *  Commute time is calculated based on public transit that is wheelchair
+ *  accessible.
+ *
+ *  Value: "TRANSIT_ACCESSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_TransitAccessible;
+/**
+ *  Commute time is calculated based on walking time.
+ *
+ *  Value: "WALKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Walking;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CommuteFilter.roadTraffic
@@ -1660,15 +1679,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Di
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified;
 /**
+ *  The result list is ordered such that somewhat similar results are pushed to
+ *  the end of the last page of the search results. This option is recommended
+ *  if SIMPLE diversification does not diversify enough.
+ *
+ *  Value: "DIVERSIFY_BY_LOOSER_SIMILARITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversifyByLooserSimilarity;
+/**
+ *  Only one job from the same company will be shown at once, other jobs under
+ *  same company are pushed to the end of the last page of search result.
+ *
+ *  Value: "ONE_PER_COMPANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_OnePerCompany;
+/**
  *  Default diversifying behavior. The result list is ordered so that highly
- *  similar results are pushed to the end of the last page of search results. If
- *  you are using pageToken to page through the result set, latency might be
- *  lower but we can't guarantee that all results are returned. If you are using
- *  page offset, latency might be higher but all results are returned.
+ *  similar results are pushed to the end of the last page of search results.
  *
  *  Value: "SIMPLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple;
+/**
+ *  Similar to ONE_PER_COMPANY, but it allows at most two jobs in the same
+ *  company to be shown at once, the other jobs under same company are pushed to
+ *  the end of the last page of search result.
+ *
+ *  Value: "TWO_PER_COMPANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_TwoPerCompany;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.jobView
@@ -1709,6 +1748,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Jo
  *  Value: "JOB_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_SearchJobsRequest.keywordMatchMode
+
+/**
+ *  Enable keyword matching over Job.title, Job.description,
+ *  Job.company_display_name, Job.addresses, Job.qualifications, and keyword
+ *  searchable Job.custom_attributes fields.
+ *
+ *  Value: "KEYWORD_MATCH_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchAll;
+/**
+ *  Disables keyword matching.
+ *
+ *  Value: "KEYWORD_MATCH_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchDisabled;
+/**
+ *  The keyword match option isn't specified. Defaults to
+ *  KeywordMatchMode.KEYWORD_MATCH_ALL behavior.
+ *
+ *  Value: "KEYWORD_MATCH_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchModeUnspecified;
+/**
+ *  Only enable keyword matching over Job.title.
+ *
+ *  Value: "KEYWORD_MATCH_TITLE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_SearchJobsRequest.searchMode
@@ -2006,11 +2076,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified
  *        Commute method isn't specified. (Value: "COMMUTE_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Cycling
+ *        Commute time is calculated based on biking time. (Value: "CYCLING")
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving
  *        Commute time is calculated based on driving time. (Value: "DRIVING")
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit
  *        Commute time is calculated based on public transit including bus,
  *        metro, subway, and so on. (Value: "TRANSIT")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_TransitAccessible
+ *        Commute time is calculated based on public transit that is wheelchair
+ *        accessible. (Value: "TRANSIT_ACCESSIBLE")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Walking
+ *        Commute time is calculated based on walking time. (Value: "WALKING")
  */
 @property(nonatomic, copy, nullable) NSString *commuteMethod;
 
@@ -2543,7 +2620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Supported operators are: +, -, *, /, where the left and right side of the
  *  operator is either a numeric Job.custom_attributes key, integer/double value
  *  or an expression that can be evaluated to a number. Parenthesis are
- *  supported to adjust calculation precedence. The expression must be < 100
+ *  supported to adjust calculation precedence. The expression must be < 200
  *  characters in length. The expression is considered invalid for a job if the
  *  expression references custom attributes that are not populated on the job or
  *  if the expression results in a divide by zero. If an expression is invalid
@@ -2680,7 +2757,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  language_code and requisition_id are not allowed. If the original
  *  requisition_id must be preserved, a custom field should be used for storage.
  *  It is also suggested to group the locations that close to each other in the
- *  same job for better search experience. The maximum number of allowed
+ *  same job for better search experience. Jobs with multiple addresses must
+ *  have their addresses with the same LocationType to allow location filtering
+ *  to work properly. (For example, a Job with addresses "1600 Amphitheatre
+ *  Parkway, Mountain View, CA, USA" and "London, UK" may not have location
+ *  filters applied correctly at search time since the first is a
+ *  LocationType.STREET_ADDRESS and the second is a LocationType.LOCALITY.) If a
+ *  job needs to have multiple addresses, it is suggested to split it into
+ *  multiple jobs with same LocationTypes. The maximum number of allowed
  *  characters is 500.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
@@ -3154,7 +3238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  `EMPTY([field_name])` to filter on the existence of a key. Boolean
  *  expressions (AND/OR/NOT) are supported up to 3 levels of nesting (for
  *  example, "((A AND B AND C) OR NOT D) AND E"), a maximum of 100 comparisons
- *  or functions are allowed in the expression. The expression must be < 6000
+ *  or functions are allowed in the expression. The expression must be < 10000
  *  bytes in length. Sample Query: `(LOWER(driving_license)="class \\"a\\"" OR
  *  EMPTY(driving_license)) AND driving_years > 10`
  */
@@ -3261,8 +3345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 /**
  *  An object that represents a latitude/longitude pair. This is expressed as a
  *  pair of doubles to represent degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the WGS84 standard. Values must be
- *  within normalized ranges.
+ *  specified otherwise, this object must conform to the WGS84 standard. Values
+ *  must be within normalized ranges.
  */
 @interface GTLRCloudTalentSolution_LatLng : GTLRObject
 
@@ -3466,13 +3550,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_LatLng *latLng;
 
 /**
- *  CLDR region code of the country/region of the address. This is used to
- *  address ambiguity of the user-input location, for example, "Liverpool"
- *  against "Liverpool, NY, US" or "Liverpool, UK". Set this field to bias
- *  location resolution toward a specific country or territory. If this field is
- *  not set, application behavior is biased toward the United States by default.
- *  See
- *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  CLDR region code of the country/region. This field may be used in two ways:
+ *  1) If telecommute preference is not set, this field is used address
+ *  ambiguity of the user-input address. For example, "Liverpool" may refer to
+ *  "Liverpool, NY, US" or "Liverpool, UK". This region code biases the address
+ *  resolution toward a specific country or territory. If this field is not set,
+ *  address resolution is biased toward the United States by default. 2) If
+ *  telecommute preference is set to TELECOMMUTE_ALLOWED, the telecommute
+ *  location filter will be limited to the region specified in this field. If
+ *  this field is not set, the telecommute job locations will not be See
+ *  https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
@@ -4083,20 +4170,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CustomRankingInfo *customRankingInfo;
 
 /**
- *  Controls whether to disable exact keyword match on Job.title,
- *  Job.description, Job.company_display_name, Job.addresses,
- *  Job.qualifications. When disable keyword match is turned off, a keyword
- *  match returns jobs that do not match given category filters when there are
- *  matching keywords. For example, for the query "program manager," a result is
- *  returned even if the job posting has the title "software developer," which
- *  doesn't fall into "program manager" ontology, but does have "program
- *  manager" appearing in its description. For queries like "cloud" that don't
- *  contain title or location specific ontology, jobs with "cloud" keyword
- *  matches are returned regardless of this flag's value. Use
- *  Company.keyword_searchable_job_custom_attributes if company-specific
- *  globally matched custom field/attribute string values are needed. Enabling
- *  keyword match improves recall of subsequent search requests. Defaults to
- *  false.
+ *  This field is deprecated. Please use SearchJobsRequest.keyword_match_mode
+ *  going forward. To migrate, disable_keyword_match set to false maps to
+ *  KeywordMatchMode.KEYWORD_MATCH_ALL, and disable_keyword_match set to true
+ *  maps to KeywordMatchMode.KEYWORD_MATCH_DISABLED. If
+ *  SearchJobsRequest.keyword_match_mode is set, this field is ignored. Controls
+ *  whether to disable exact keyword match on Job.title, Job.description,
+ *  Job.company_display_name, Job.addresses, Job.qualifications. When disable
+ *  keyword match is turned off, a keyword match returns jobs that do not match
+ *  given category filters when there are matching keywords. For example, for
+ *  the query "program manager," a result is returned even if the job posting
+ *  has the title "software developer," which doesn't fall into "program
+ *  manager" ontology, but does have "program manager" appearing in its
+ *  description. For queries like "cloud" that don't contain title or location
+ *  specific ontology, jobs with "cloud" keyword matches are returned regardless
+ *  of this flag's value. Use Company.keyword_searchable_job_custom_attributes
+ *  if company-specific globally matched custom field/attribute string values
+ *  are needed. Enabling keyword match improves recall of subsequent search
+ *  requests. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4120,13 +4211,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified
  *        The diversification level isn't specified. (Value:
  *        "DIVERSIFICATION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversifyByLooserSimilarity
+ *        The result list is ordered such that somewhat similar results are
+ *        pushed to the end of the last page of the search results. This option
+ *        is recommended if SIMPLE diversification does not diversify enough.
+ *        (Value: "DIVERSIFY_BY_LOOSER_SIMILARITY")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_OnePerCompany
+ *        Only one job from the same company will be shown at once, other jobs
+ *        under same company are pushed to the end of the last page of search
+ *        result. (Value: "ONE_PER_COMPANY")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple
  *        Default diversifying behavior. The result list is ordered so that
  *        highly similar results are pushed to the end of the last page of
- *        search results. If you are using pageToken to page through the result
- *        set, latency might be lower but we can't guarantee that all results
- *        are returned. If you are using page offset, latency might be higher
- *        but all results are returned. (Value: "SIMPLE")
+ *        search results. (Value: "SIMPLE")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_TwoPerCompany
+ *        Similar to ONE_PER_COMPANY, but it allows at most two jobs in the same
+ *        company to be shown at once, the other jobs under same company are
+ *        pushed to the end of the last page of search result. (Value:
+ *        "TWO_PER_COMPANY")
  */
 @property(nonatomic, copy, nullable) NSString *diversificationLevel;
 
@@ -4159,44 +4261,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  [Job.company_display_name. * employment_type: histogram by
  *  Job.employment_types, for example, "FULL_TIME", "PART_TIME". * company_size:
  *  histogram by CompanySize, for example, "SMALL", "MEDIUM", "BIG". *
- *  publish_time_in_month: histogram by the Job.posting_publish_time in months.
- *  Must specify list of numeric buckets in spec. * publish_time_in_year:
- *  histogram by the Job.posting_publish_time in years. Must specify list of
- *  numeric buckets in spec. * degree_types: histogram by the Job.degree_types,
- *  for example, "Bachelors", "Masters". * job_level: histogram by the
- *  Job.job_level, for example, "Entry Level". * country: histogram by the
- *  country code of jobs, for example, "US", "FR". * admin1: histogram by the
- *  admin1 code of jobs, which is a global placeholder referring to the state,
- *  province, or the particular term a country uses to define the geographic
- *  structure below the country level, for example, "CA", "IL". * city:
- *  histogram by a combination of the "city name, admin1 code". For example,
- *  "Mountain View, CA", "New York, NY". * admin1_country: histogram by a
- *  combination of the "admin1 code, country", for example, "CA, US", "IL, US".
- *  * city_coordinate: histogram by the city center's GPS coordinates (latitude
- *  and longitude), for example, 37.4038522,-122.0987765. Since the coordinates
- *  of a city center can change, customers may need to refresh them
- *  periodically. * locale: histogram by the Job.language_code, for example,
- *  "en-US", "fr-FR". * language: histogram by the language subtag of the
- *  Job.language_code, for example, "en", "fr". * category: histogram by the
- *  JobCategory, for example, "COMPUTER_AND_IT", "HEALTHCARE". *
- *  base_compensation_unit: histogram by the CompensationInfo.CompensationUnit
- *  of base salary, for example, "WEEKLY", "MONTHLY". * base_compensation:
- *  histogram by the base salary. Must specify list of numeric buckets to group
- *  results by. * annualized_base_compensation: histogram by the base annualized
- *  salary. Must specify list of numeric buckets to group results by. *
- *  annualized_total_compensation: histogram by the total annualized salary.
- *  Must specify list of numeric buckets to group results by. *
- *  string_custom_attribute: histogram by string Job.custom_attributes. Values
- *  can be accessed via square bracket notations like
- *  string_custom_attribute["key1"]. * numeric_custom_attribute: histogram by
- *  numeric Job.custom_attributes. Values can be accessed via square bracket
+ *  publish_time_in_day: histogram by the Job.posting_publish_time in days. Must
+ *  specify list of numeric buckets in spec. * publish_time_in_month: histogram
+ *  by the Job.posting_publish_time in months. Must specify list of numeric
+ *  buckets in spec. * publish_time_in_year: histogram by the
+ *  Job.posting_publish_time in years. Must specify list of numeric buckets in
+ *  spec. * degree_types: histogram by the Job.degree_types, for example,
+ *  "Bachelors", "Masters". * job_level: histogram by the Job.job_level, for
+ *  example, "Entry Level". * country: histogram by the country code of jobs,
+ *  for example, "US", "FR". * admin1: histogram by the admin1 code of jobs,
+ *  which is a global placeholder referring to the state, province, or the
+ *  particular term a country uses to define the geographic structure below the
+ *  country level, for example, "CA", "IL". * city: histogram by a combination
+ *  of the "city name, admin1 code". For example, "Mountain View, CA", "New
+ *  York, NY". * admin1_country: histogram by a combination of the "admin1 code,
+ *  country", for example, "CA, US", "IL, US". * city_coordinate: histogram by
+ *  the city center's GPS coordinates (latitude and longitude), for example,
+ *  37.4038522,-122.0987765. Since the coordinates of a city center can change,
+ *  customers may need to refresh them periodically. * locale: histogram by the
+ *  Job.language_code, for example, "en-US", "fr-FR". * language: histogram by
+ *  the language subtag of the Job.language_code, for example, "en", "fr". *
+ *  category: histogram by the JobCategory, for example, "COMPUTER_AND_IT",
+ *  "HEALTHCARE". * base_compensation_unit: histogram by the
+ *  CompensationInfo.CompensationUnit of base salary, for example, "WEEKLY",
+ *  "MONTHLY". * base_compensation: histogram by the base salary. Must specify
+ *  list of numeric buckets to group results by. * annualized_base_compensation:
+ *  histogram by the base annualized salary. Must specify list of numeric
+ *  buckets to group results by. * annualized_total_compensation: histogram by
+ *  the total annualized salary. Must specify list of numeric buckets to group
+ *  results by. * string_custom_attribute: histogram by string
+ *  Job.custom_attributes. Values can be accessed via square bracket notations
+ *  like string_custom_attribute["key1"]. * numeric_custom_attribute: histogram
+ *  by numeric Job.custom_attributes. Values can be accessed via square bracket
  *  notations like numeric_custom_attribute["key1"]. Must specify list of
  *  numeric buckets to group results by. Example expressions: * `count(admin1)`
  *  * `count(base_compensation, [bucket(1000, 10000), bucket(10000, 100000),
  *  bucket(100000, MAX)])` *
  *  `count(string_custom_attribute["some-string-custom-attribute"])` *
  *  `count(numeric_custom_attribute["some-numeric-custom-attribute"],
- *  [bucket(MIN, 0, "negative"), bucket(0, MAX, "non-negative"])`
+ *  [bucket(MIN, 0, "negative"), bucket(0, MAX, "non-negative")])`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_HistogramQuery *> *histogramQueries;
 
@@ -4229,6 +4332,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *        Default value. (Value: "JOB_VIEW_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *jobView;
+
+/**
+ *  Controls what keyword match options to use. If both keyword_match_mode and
+ *  disable_keyword_match are set, keyword_match_mode will take precedence.
+ *  Defaults to KeywordMatchMode.KEYWORD_MATCH_ALL if no value is specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchAll
+ *        Enable keyword matching over Job.title, Job.description,
+ *        Job.company_display_name, Job.addresses, Job.qualifications, and
+ *        keyword searchable Job.custom_attributes fields. (Value:
+ *        "KEYWORD_MATCH_ALL")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchDisabled
+ *        Disables keyword matching. (Value: "KEYWORD_MATCH_DISABLED")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchModeUnspecified
+ *        The keyword match option isn't specified. Defaults to
+ *        KeywordMatchMode.KEYWORD_MATCH_ALL behavior. (Value:
+ *        "KEYWORD_MATCH_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_KeywordMatchMode_KeywordMatchTitleOnly
+ *        Only enable keyword matching over Job.title. (Value:
+ *        "KEYWORD_MATCH_TITLE_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *keywordMatchMode;
 
 /**
  *  A limit on the number of jobs returned in the search results. Increasing

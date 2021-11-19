@@ -24,6 +24,7 @@
 @class GTLRContainer_AcceleratorConfig;
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
+@class GTLRContainer_Autopilot;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BigQueryDestination;
@@ -35,42 +36,60 @@
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
+@class GTLRContainer_DNSConfig;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
+@class GTLRContainer_GcfsConfig;
+@class GTLRContainer_GcpFilestoreCsiDriverConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_ILBSubsettingConfig;
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_Jwk;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
+@class GTLRContainer_LinuxNodeConfig;
+@class GTLRContainer_LinuxNodeConfig_Sysctls;
+@class GTLRContainer_LoggingComponentConfig;
+@class GTLRContainer_LoggingConfig;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
+@class GTLRContainer_MeshCertificates;
 @class GTLRContainer_Metric;
+@class GTLRContainer_MonitoringComponentConfig;
+@class GTLRContainer_MonitoringConfig;
 @class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
+@class GTLRContainer_NodeConfigDefaults;
+@class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeManagement;
+@class GTLRContainer_NodeNetworkConfig;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
+@class GTLRContainer_NodePoolDefaults;
 @class GTLRContainer_NodeTaint;
+@class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationProgress;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
+@class GTLRContainer_PubSub;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
@@ -81,12 +100,15 @@
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
+@class GTLRContainer_Status;
+@class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_TimeWindow;
 @class GTLRContainer_UpgradeSettings;
 @class GTLRContainer_UsableSubnetwork;
 @class GTLRContainer_UsableSubnetworkSecondaryRange;
 @class GTLRContainer_VerticalPodAutoscaling;
+@class GTLRContainer_VirtualNIC;
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
 
@@ -174,6 +196,53 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterAutoscaling.autoscalingProfile
+
+/**
+ *  Use default (balanced) autoscaling configuration.
+ *
+ *  Value: "BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced;
+/**
+ *  Prioritize optimizing utilization of resources.
+ *
+ *  Value: "OPTIMIZE_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization;
+/**
+ *  No change to autoscaling configuration.
+ *
+ *  Value: "PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpdate.desiredDatapathProvider
+
+/**
+ *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *  Dataplane V2
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  for more.
+ *
+ *  Value: "ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath;
+/**
+ *  Default value.
+ *
+ *  Value: "DATAPATH_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified;
+/**
+ *  Use the IPTables implementation based on kube-proxy.
+ *
+ *  Value: "LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
 
 /**
@@ -223,6 +292,107 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DNSConfig.clusterDns
+
+/**
+ *  Use CloudDNS for DNS resolution.
+ *
+ *  Value: "CLOUD_DNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_CloudDns;
+/**
+ *  Use GKE default DNS provider(kube-dns) for DNS resolution.
+ *
+ *  Value: "PLATFORM_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault;
+/**
+ *  Default value
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_DNSConfig.clusterDnsScope
+
+/**
+ *  Default value, will be inferred as cluster scope.
+ *
+ *  Value: "DNS_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified;
+/**
+ *  DNS records are accessible from within the VPC.
+ *
+ *  Value: "VPC_SCOPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LoggingComponentConfig.enableComponents
+
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "COMPONENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  system components
+ *
+ *  Value: "SYSTEM_COMPONENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents;
+/**
+ *  workloads
+ *
+ *  Value: "WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_MonitoringComponentConfig.enableComponents
+
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "COMPONENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  system components
+ *
+ *  Value: "SYSTEM_COMPONENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_SystemComponents;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkConfig.datapathProvider
+
+/**
+ *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *  Dataplane V2
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  for more.
+ *
+ *  Value: "ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath;
+/**
+ *  Default value.
+ *
+ *  Value: "DATAPATH_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified;
+/**
+ *  Use the IPTables implementation based on kube-proxy.
+ *
+ *  Value: "LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
@@ -667,11 +837,181 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Se
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_StatusCondition.canonicalCode
+
+/**
+ *  The operation was aborted, typically due to a concurrency issue such as a
+ *  sequencer check failure or transaction abort. See the guidelines above for
+ *  deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`. HTTP
+ *  Mapping: 409 Conflict
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Aborted;
+/**
+ *  The entity that a client attempted to create (e.g., file or directory)
+ *  already exists. HTTP Mapping: 409 Conflict
+ *
+ *  Value: "ALREADY_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_AlreadyExists;
+/**
+ *  The operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *  Client Closed Request
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Cancelled;
+/**
+ *  Unrecoverable data loss or corruption. HTTP Mapping: 500 Internal Server
+ *  Error
+ *
+ *  Value: "DATA_LOSS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DataLoss;
+/**
+ *  The deadline expired before the operation could complete. For operations
+ *  that change the state of the system, this error may be returned even if the
+ *  operation has completed successfully. For example, a successful response
+ *  from a server could have been delayed long enough for the deadline to
+ *  expire. HTTP Mapping: 504 Gateway Timeout
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DeadlineExceeded;
+/**
+ *  The operation was rejected because the system is not in a state required for
+ *  the operation's execution. For example, the directory to be deleted is
+ *  non-empty, an rmdir operation is applied to a non-directory, etc. Service
+ *  implementors can use the following guidelines to decide between
+ *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
+ *  if the client can retry just the failing call. (b) Use `ABORTED` if the
+ *  client should retry at a higher level. For example, when a client-specified
+ *  test-and-set fails, indicating the client should restart a read-modify-write
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
+ *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
+ *  since the client should not retry unless the files are deleted from the
+ *  directory. HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "FAILED_PRECONDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_FailedPrecondition;
+/**
+ *  Internal errors. This means that some invariants expected by the underlying
+ *  system have been broken. This error code is reserved for serious errors.
+ *  HTTP Mapping: 500 Internal Server Error
+ *
+ *  Value: "INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Internal;
+/**
+ *  The client specified an invalid argument. Note that this differs from
+ *  `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *  problematic regardless of the state of the system (e.g., a malformed file
+ *  name). HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "INVALID_ARGUMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_InvalidArgument;
+/**
+ *  Some requested entity (e.g., file or directory) was not found. Note to
+ *  server developers: if a request is denied for an entire class of users, such
+ *  as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may be
+ *  used. If a request is denied for some users within a class of users, such as
+ *  user-based access control, `PERMISSION_DENIED` must be used. HTTP Mapping:
+ *  404 Not Found
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_NotFound;
+/**
+ *  Not an error; returned on success HTTP Mapping: 200 OK
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Ok;
+/**
+ *  The operation was attempted past the valid range. E.g., seeking or reading
+ *  past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *  that may be fixed if the system state changes. For example, a 32-bit file
+ *  system will generate `INVALID_ARGUMENT` if asked to read at an offset that
+ *  is not in the range [0,2^32-1], but it will generate `OUT_OF_RANGE` if asked
+ *  to read from an offset past the current file size. There is a fair bit of
+ *  overlap between `FAILED_PRECONDITION` and `OUT_OF_RANGE`. We recommend using
+ *  `OUT_OF_RANGE` (the more specific error) when it applies so that callers who
+ *  are iterating through a space can easily look for an `OUT_OF_RANGE` error to
+ *  detect when they are done. HTTP Mapping: 400 Bad Request
+ *
+ *  Value: "OUT_OF_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_OutOfRange;
+/**
+ *  The caller does not have permission to execute the specified operation.
+ *  `PERMISSION_DENIED` must not be used for rejections caused by exhausting
+ *  some resource (use `RESOURCE_EXHAUSTED` instead for those errors).
+ *  `PERMISSION_DENIED` must not be used if the caller can not be identified
+ *  (use `UNAUTHENTICATED` instead for those errors). This error code does not
+ *  imply the request is valid or the requested entity exists or satisfies other
+ *  pre-conditions. HTTP Mapping: 403 Forbidden
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_PermissionDenied;
+/**
+ *  Some resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *  entire file system is out of space. HTTP Mapping: 429 Too Many Requests
+ *
+ *  Value: "RESOURCE_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_ResourceExhausted;
+/**
+ *  The request does not have valid authentication credentials for the
+ *  operation. HTTP Mapping: 401 Unauthorized
+ *
+ *  Value: "UNAUTHENTICATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unauthenticated;
+/**
+ *  The service is currently unavailable. This is most likely a transient
+ *  condition, which can be corrected by retrying with a backoff. Note that it
+ *  is not always safe to retry non-idempotent operations. See the guidelines
+ *  above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *  `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
+ *
+ *  Value: "UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unavailable;
+/**
+ *  The operation is not implemented or is not supported/enabled in this
+ *  service. HTTP Mapping: 501 Not Implemented
+ *
+ *  Value: "UNIMPLEMENTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unimplemented;
+/**
+ *  Unknown error. For example, this error may be returned when a `Status` value
+ *  received from another address space belongs to an error space that is not
+ *  known in this address space. Also errors raised by APIs that do not return
+ *  enough error information may be converted to this error. HTTP Mapping: 500
+ *  Internal Server Error
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_StatusCondition.code
 
 /**
+ *  Cluster CA is expiring soon.
+ *
+ *  Value: "CA_EXPIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CaExpiring;
+/**
  *  Unable to perform an encrypt operation against the CloudKMS key used for
- *  etcd level encryption. More codes TBA
+ *  etcd level encryption.
  *
  *  Value: "CLOUD_KMS_KEY_ERROR"
  */
@@ -708,6 +1048,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOper
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeAvailableEvent.resourceType
+
+/**
+ *  Master / control plane
+ *
+ *  Value: "MASTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master;
+/**
+ *  Node pool
+ *
+ *  Value: "NODE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool;
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "UPGRADE_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeEvent.resourceType
@@ -813,6 +1175,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
+/**
+ *  Size of partitions to create on the GPU. Valid values are described in the
+ *  NVIDIA [mig user
+ *  guide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
+ */
+@property(nonatomic, copy, nullable) NSString *gpuPartitionSize;
+
 @end
 
 
@@ -839,6 +1208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration for the Compute Engine Persistent Disk CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcePersistentDiskCsiDriverConfig *gcePersistentDiskCsiDriverConfig;
+
+/** Configuration for the GCP Filestore CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcpFilestoreCsiDriverConfig *gcpFilestoreCsiDriverConfig;
 
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
@@ -895,6 +1267,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Autopilot is the configuration for Autopilot settings on the cluster.
+ */
+@interface GTLRContainer_Autopilot : GTLRObject
+
+/**
+ *  Enable Autopilot
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  AutoprovisioningNodePoolDefaults contains defaults for a node pool created
  *  by NAP.
  */
@@ -922,6 +1309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** The image type to use for NAP created node. */
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /** Specifies the node management options for NAP created node-pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
@@ -1111,6 +1501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
 
+/** Autopilot configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_Autopilot *autopilot;
+
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *autoscaling;
 
@@ -1127,6 +1520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
+
+/** Configuration of Confidential Nodes */
+@property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
 /**
  *  [Output only] The time the cluster was created, in
@@ -1204,6 +1600,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *expireTime;
 
 /**
+ *  Output only. Unique id for the cluster.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
  *  The initial Kubernetes version for this cluster. Valid versions are those
  *  found in validMasterVersions returned by getServerConfig. The version can be
  *  upgraded over time; such upgrades are reflected in currentMasterVersion and
@@ -1263,6 +1666,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
+/** Logging configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingConfig *loggingConfig;
+
 /**
  *  The logging service the cluster should use to write logs. Currently
  *  available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging
@@ -1287,6 +1693,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The configuration options for master authorized networks feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
+
+/**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MeshCertificates *meshCertificates;
+
+/** Monitoring configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *monitoringConfig;
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
@@ -1344,10 +1758,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *nodeIpv4CidrSize;
 
 /**
+ *  Default NodePool settings for the entire cluster. These settings are
+ *  overridden if specified on the specific NodePool object.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodePoolDefaults *nodePoolDefaults;
+
+/**
  *  The node pools associated with this cluster. This field should not be set if
  *  "node_config" or "initial_node_count" are specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
+
+/** Notification configuration of the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *notificationConfig;
 
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
@@ -1483,6 +1906,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_AutoprovisioningNodePoolDefaults *autoprovisioningNodePoolDefaults;
 
 /**
+ *  Defines autoscaling behaviour.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced Use
+ *        default (balanced) autoscaling configuration. (Value: "BALANCED")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization
+ *        Prioritize optimizing utilization of resources. (Value:
+ *        "OPTIMIZE_UTILIZATION")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified
+ *        No change to autoscaling configuration. (Value: "PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *autoscalingProfile;
+
+/**
  *  Enables automatic node pool creation and deletion.
  *
  *  Uses NSNumber of boolValue.
@@ -1508,6 +1945,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
+/** The desired authenticator groups config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
+
 /** The desired configuration options for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
 
@@ -1517,8 +1957,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration of etcd encryption. */
 @property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *desiredDatabaseEncryption;
 
+/**
+ *  The desired datapath provider for the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath
+ *        Use the eBPF based GKE Dataplane V2 with additional features. See the
+ *        [GKE Dataplane V2
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        for more. (Value: "ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified
+ *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath
+ *        Use the IPTables implementation based on kube-proxy. (Value:
+ *        "LEGACY_DATAPATH")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredDatapathProvider;
+
 /** The desired status of whether to disable default sNAT for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *desiredDefaultSnatStatus;
+
+/** DNSConfig contains clusterDNS config for this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *desiredDnsConfig;
+
+/** The desired GCFS config for the cluster */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *desiredGcfsConfig;
 
 /**
  *  The desired image type for the node pool. NOTE: Set the "desired_node_pool"
@@ -1529,6 +1992,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired config of Intra-node visibility. */
 @property(nonatomic, strong, nullable) GTLRContainer_IntraNodeVisibilityConfig *desiredIntraNodeVisibilityConfig;
 
+/** The desired L4 Internal Load Balancer Subsetting configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ILBSubsettingConfig *desiredL4ilbSubsettingConfig;
+
 /**
  *  The desired list of Google Compute Engine
  *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
@@ -1538,6 +2004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
+
+/** The desired logging configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingConfig *desiredLoggingConfig;
 
 /**
  *  The logging service the cluster should use to write logs. Currently
@@ -1565,6 +2034,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *desiredMasterVersion;
+
+/**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MeshCertificates *desiredMeshCertificates;
+
+/** The desired monitoring configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *desiredMonitoringConfig;
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
@@ -1604,6 +2081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
+
+/** The desired notification configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *desiredNotificationConfig;
 
 /** The desired private cluster configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
@@ -1678,6 +2158,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  ConfidentialNodes is configuration for the confidential nodes feature, which
+ *  makes nodes run on confidential VMs.
+ */
+@interface GTLRContainer_ConfidentialNodes : GTLRObject
+
+/**
+ *  Whether Confidential Nodes feature is enabled for all nodes in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -1872,6 +2368,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  DNSConfig contains the desired set of options for configuring clusterDNS.
+ */
+@interface GTLRContainer_DNSConfig : GTLRObject
+
+/**
+ *  cluster_dns indicates which in-cluster DNS provider should be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_CloudDns Use CloudDNS for DNS
+ *        resolution. (Value: "CLOUD_DNS")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_PlatformDefault Use GKE
+ *        default DNS provider(kube-dns) for DNS resolution. (Value:
+ *        "PLATFORM_DEFAULT")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified Default
+ *        value (Value: "PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterDns;
+
+/** cluster_dns_domain is the suffix used for all cluster service records. */
+@property(nonatomic, copy, nullable) NSString *clusterDnsDomain;
+
+/**
+ *  cluster_dns_scope indicates the scope of access to cluster DNS records.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified
+ *        Default value, will be inferred as cluster scope. (Value:
+ *        "DNS_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope DNS records are
+ *        accessible from within the VPC. (Value: "VPC_SCOPE")
+ */
+@property(nonatomic, copy, nullable) NSString *clusterDnsScope;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1889,6 +2422,37 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Whether the Compute Engine PD CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GcfsConfig contains configurations of Google Container File System (image
+ *  streaming).
+ */
+@interface GTLRContainer_GcfsConfig : GTLRObject
+
+/**
+ *  Whether to use GCFS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration for the GCP Filestore CSI driver.
+ */
+@interface GTLRContainer_GcpFilestoreCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the GCP Filestore CSI driver is enabled for this cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2005,6 +2569,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  ILBSubsettingConfig contains the desired config of L4 Internal LoadBalancer
+ *  subsetting on this cluster.
+ */
+@interface GTLRContainer_ILBSubsettingConfig : GTLRObject
+
+/**
+ *  Enables l4 ILB subsetting for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -2211,6 +2791,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Parameters that can be configured on Linux nodes.
+ */
+@interface GTLRContainer_LinuxNodeConfig : GTLRObject
+
+/**
+ *  The Linux kernel parameters to be applied to the nodes and all pods running
+ *  on the nodes. The following parameters are supported.
+ *  net.core.netdev_max_backlog net.core.rmem_max net.core.wmem_default
+ *  net.core.wmem_max net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem
+ *  net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
+
+@end
+
+
+/**
+ *  The Linux kernel parameters to be applied to the nodes and all pods running
+ *  on the nodes. The following parameters are supported.
+ *  net.core.netdev_max_backlog net.core.rmem_max net.core.wmem_default
+ *  net.core.wmem_max net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem
+ *  net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_LinuxNodeConfig_Sysctls : GTLRObject
+@end
+
+
+/**
  *  ListClustersResponse is the result of ListClustersRequest.
  */
 @interface GTLRContainer_ListClustersResponse : GTLRObject
@@ -2283,6 +2896,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_UsableSubnetwork *> *subnetworks;
+
+@end
+
+
+/**
+ *  LoggingComponentConfig is cluster logging component configuration.
+ */
+@interface GTLRContainer_LoggingComponentConfig : GTLRObject
+
+/**
+ *  Select components to collect logs. An empty set would disable all logging.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enableComponents;
+
+@end
+
+
+/**
+ *  LoggingConfig is cluster logging configuration.
+ */
+@interface GTLRContainer_LoggingConfig : GTLRObject
+
+/** Logging components configuration */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingComponentConfig *componentConfig;
 
 @end
 
@@ -2441,6 +3078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
+ */
+@interface GTLRContainer_MeshCertificates : GTLRObject
+@end
+
+
+/**
  *  Progress metric is (string, int|float|string) pair.
  */
 @interface GTLRContainer_Metric : GTLRObject
@@ -2469,9 +3113,52 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  MonitoringComponentConfig is cluster monitoring component configuration.
+ */
+@interface GTLRContainer_MonitoringComponentConfig : GTLRObject
+
+/**
+ *  Select components to collect metrics. An empty set would disable all
+ *  monitoring.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enableComponents;
+
+@end
+
+
+/**
+ *  MonitoringConfig is cluster monitoring configuration.
+ */
+@interface GTLRContainer_MonitoringConfig : GTLRObject
+
+/** Monitoring components configuration */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringComponentConfig *componentConfig;
+
+@end
+
+
+/**
  *  NetworkConfig reports the relative names of network & subnetwork.
  */
 @interface GTLRContainer_NetworkConfig : GTLRObject
+
+/**
+ *  The desired datapath provider for this cluster. By default, uses the
+ *  IPTables-based kube-proxy implementation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath Use
+ *        the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *        Dataplane V2
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        for more. (Value: "ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified
+ *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath Use
+ *        the IPTables implementation based on kube-proxy. (Value:
+ *        "LEGACY_DATAPATH")
+ */
+@property(nonatomic, copy, nullable) NSString *datapathProvider;
 
 /**
  *  Whether the cluster disables default in-node sNAT rules. In-node sNAT rules
@@ -2481,6 +3168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *defaultSnatStatus;
 
+/** DNSConfig contains clusterDNS config for this cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_DNSConfig *dnsConfig;
+
 /**
  *  Whether Intra-node visibility is enabled for this cluster. This makes same
  *  node pod to pod traffic visible for VPC network.
@@ -2488,6 +3178,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableIntraNodeVisibility;
+
+/**
+ *  Whether L4ILB Subsetting is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableL4ilbSubsetting;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
@@ -2607,11 +3304,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
+/** Google Container File System (image streaming) configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
+/** Enable or disable gvnic in the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
+
 /**
  *  The image type to use for this node. Note that for a given image type, the
  *  latest version of it will be used.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
+
+/** Node kubelet configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *kubeletConfig;
 
 /**
  *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
@@ -2623,6 +3329,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
+
+/** Parameters that can be configured on Linux nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
 
 /**
  *  The number of local SSD disks to be attached to the node. The limit for this
@@ -2652,12 +3361,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "gci-update-strategy" - "instance-template" - "kube-env" - "startup-script"
  *  - "user-data" - "disable-address-manager" - "windows-startup-script-ps1" -
  *  "common-psm1" - "k8s-node-setup-psm1" - "install-ssh-psm1" -
- *  "user-profile-psm1" The following keys are reserved for Windows nodes: -
- *  "serial-port-logging-enable" Values are free-form strings, and only have
- *  meaning as interpreted by the image running in the instance. The only
- *  restriction placed on them is that each value's size must be less than or
- *  equal to 32 KB. The total size of all keys and values must be less than 512
- *  KB.
+ *  "user-profile-psm1" Values are free-form strings, and only have meaning as
+ *  interpreted by the image running in the instance. The only restriction
+ *  placed on them is that each value's size must be less than or equal to 32
+ *  KB. The total size of all keys and values must be less than 512 KB.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Metadata *metadata;
 
@@ -2772,12 +3479,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "gci-update-strategy" - "instance-template" - "kube-env" - "startup-script"
  *  - "user-data" - "disable-address-manager" - "windows-startup-script-ps1" -
  *  "common-psm1" - "k8s-node-setup-psm1" - "install-ssh-psm1" -
- *  "user-profile-psm1" The following keys are reserved for Windows nodes: -
- *  "serial-port-logging-enable" Values are free-form strings, and only have
- *  meaning as interpreted by the image running in the instance. The only
- *  restriction placed on them is that each value's size must be less than or
- *  equal to 32 KB. The total size of all keys and values must be less than 512
- *  KB.
+ *  "user-profile-psm1" Values are free-form strings, and only have meaning as
+ *  interpreted by the image running in the instance. The only restriction
+ *  placed on them is that each value's size must be less than or equal to 32
+ *  KB. The total size of all keys and values must be less than 512 KB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2785,6 +3490,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        fetch them all at once.
  */
 @interface GTLRContainer_NodeConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Subset of NodeConfig message that has defaults.
+ */
+@interface GTLRContainer_NodeConfigDefaults : GTLRObject
+
+/** GCFS (Google Container File System, a.k.a Riptide) options. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
+@end
+
+
+/**
+ *  Node kubelet configs.
+ */
+@interface GTLRContainer_NodeKubeletConfig : GTLRObject
+
+/**
+ *  Enable CPU CFS quota enforcement for containers that specify CPU limits.
+ *  This option is enabled by default which makes kubelet use CFS quota
+ *  (https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt) to
+ *  enforce container CPU limits. Otherwise, CPU limits will not be enforced at
+ *  all. Disable this option to mitigate CPU throttling problems while still
+ *  having your pods to be in Guaranteed QoS class by specifying the CPU limits.
+ *  The default value is 'true' if unspecified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCfsQuota;
+
+/**
+ *  Set the CPU CFS quota period value 'cpu.cfs_period_us'. The string must be a
+ *  sequence of decimal numbers, each with optional fraction and a unit suffix,
+ *  such as "300ms". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+ *  "h". The value must be a positive duration.
+ */
+@property(nonatomic, copy, nullable) NSString *cpuCfsQuotaPeriod;
+
+/**
+ *  Control the CPU management policy on the node. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/
+ *  The following values are allowed. - "none": the default, which represents
+ *  the existing scheduling behavior. - "static": allows pods with certain
+ *  resource characteristics to be granted increased CPU affinity and
+ *  exclusivity on the node. The default value is 'none' if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
+
 @end
 
 
@@ -2815,6 +3570,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Specifies the Auto Upgrade knobs for the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_AutoUpgradeOptions *upgradeOptions;
+
+@end
+
+
+/**
+ *  Parameters for node pool-level network config.
+ */
+@interface GTLRContainer_NodeNetworkConfig : GTLRObject
+
+/**
+ *  Input only. Whether to create a new range for pod IPs in this node pool.
+ *  Defaults are provided for `pod_range` and `pod_ipv4_cidr_block` if they are
+ *  not specified. If neither `create_pod_range` or `pod_range` are specified,
+ *  the cluster-level default (`ip_allocation_policy.cluster_ipv4_cidr_block`)
+ *  is used. Only applicable if `ip_allocation_policy.use_ip_aliases` is true.
+ *  This field cannot be changed after the node pool has been created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createPodRange;
+
+/**
+ *  The IP address range for pod IPs in this node pool. Only applicable if
+ *  `create_pod_range` is true. Set to blank to have a range chosen with the
+ *  default size. Set to /netmask (e.g. `/14`) to have a range chosen with a
+ *  specific netmask. Set to a
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) to pick a specific range to use. Only
+ *  applicable if `ip_allocation_policy.use_ip_aliases` is true. This field
+ *  cannot be changed after the node pool has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *podIpv4CidrBlock;
+
+/**
+ *  The ID of the secondary range for pod IPs. If `create_pod_range` is true,
+ *  this ID is used for the new range. If `create_pod_range` is false, uses an
+ *  existing secondary range with this ID. Only applicable if
+ *  `ip_allocation_policy.use_ip_aliases` is true. This field cannot be changed
+ *  after the node pool has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *podRange;
 
 @end
 
@@ -2880,6 +3676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The name of the node pool. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Networking configuration for this NodePool. If specified, it overrides the
+ *  cluster-level defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *networkConfig;
 
 /**
  *  [Output only] The pod CIDR block size per node in this node pool.
@@ -2954,19 +3756,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Maximum number of nodes in the NodePool. Must be >= min_node_count. There
- *  has to enough quota to scale up the cluster.
+ *  Maximum number of nodes for one location in the NodePool. Must be >=
+ *  min_node_count. There has to be enough quota to scale up the cluster.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
 
 /**
- *  Minimum number of nodes in the NodePool. Must be >= 1 and <= max_node_count.
+ *  Minimum number of nodes for one location in the NodePool. Must be >= 1 and
+ *  <= max_node_count.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+@end
+
+
+/**
+ *  Subset of Nodepool message that has defaults.
+ */
+@interface GTLRContainer_NodePoolDefaults : GTLRObject
+
+/** Subset of NodeConfig message that has defaults. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeConfigDefaults *nodeConfigDefaults;
 
 @end
 
@@ -3005,12 +3819,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  NotificationConfig is the configuration of notifications.
+ */
+@interface GTLRContainer_NotificationConfig : GTLRObject
+
+/** Notification config for Pub/Sub. */
+@property(nonatomic, strong, nullable) GTLRContainer_PubSub *pubsub;
+
+@end
+
+
+/**
  *  This operation resource represents operations that may have happened or are
  *  happening on the cluster. All fields are output only.
  */
 @interface GTLRContainer_Operation : GTLRObject
 
-/** Which conditions caused the current cluster state. */
+/**
+ *  Which conditions caused the current cluster state. Deprecated. Use field
+ *  error instead.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *clusterConditions;
 
 /** Detailed operation progress, if available. */
@@ -3021,6 +3849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
+
+/** The error result of the operation in case of failure. */
+@property(nonatomic, strong, nullable) GTLRContainer_Status *error;
 
 /**
  *  [Output only] The name of the Google Compute Engine
@@ -3034,7 +3865,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The server-assigned ID for the operation. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Which conditions caused the current node pool state. */
+/**
+ *  Which conditions caused the current node pool state. Deprecated. Use field
+ *  error instead.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *nodepoolConditions;
 
 /**
@@ -3109,6 +3943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. If an error has occurred, a textual description of the error.
+ *  Deprecated. Use the field error instead.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
@@ -3224,6 +4059,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Pub/Sub specific notification config.
+ */
+@interface GTLRContainer_PubSub : GTLRObject
+
+/**
+ *  Enable notifications for Pub/Sub.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The desired Pub/Sub topic to which notifications will be sent by GKE. Format
+ *  is `projects/{project}/topics/{topic}`.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -4171,18 +5027,173 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRContainer_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRContainer_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContainer_Status_Details_Item : GTLRObject
+@end
+
+
+/**
  *  StatusCondition describes why a cluster or a node pool has a certain status
  *  (e.g., ERROR or DEGRADED).
  */
 @interface GTLRContainer_StatusCondition : GTLRObject
 
 /**
- *  Machine-friendly representation of the condition
+ *  Canonical code of the condition.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Aborted The operation
+ *        was aborted, typically due to a concurrency issue such as a sequencer
+ *        check failure or transaction abort. See the guidelines above for
+ *        deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`.
+ *        HTTP Mapping: 409 Conflict (Value: "ABORTED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_AlreadyExists The
+ *        entity that a client attempted to create (e.g., file or directory)
+ *        already exists. HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Cancelled The
+ *        operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *        Client Closed Request (Value: "CANCELLED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_DataLoss
+ *        Unrecoverable data loss or corruption. HTTP Mapping: 500 Internal
+ *        Server Error (Value: "DATA_LOSS")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_DeadlineExceeded The
+ *        deadline expired before the operation could complete. For operations
+ *        that change the state of the system, this error may be returned even
+ *        if the operation has completed successfully. For example, a successful
+ *        response from a server could have been delayed long enough for the
+ *        deadline to expire. HTTP Mapping: 504 Gateway Timeout (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_FailedPrecondition
+ *        The operation was rejected because the system is not in a state
+ *        required for the operation's execution. For example, the directory to
+ *        be deleted is non-empty, an rmdir operation is applied to a
+ *        non-directory, etc. Service implementors can use the following
+ *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
+ *        failing call. (b) Use `ABORTED` if the client should retry at a higher
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
+ *        "FAILED_PRECONDITION")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Internal Internal
+ *        errors. This means that some invariants expected by the underlying
+ *        system have been broken. This error code is reserved for serious
+ *        errors. HTTP Mapping: 500 Internal Server Error (Value: "INTERNAL")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_InvalidArgument The
+ *        client specified an invalid argument. Note that this differs from
+ *        `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *        problematic regardless of the state of the system (e.g., a malformed
+ *        file name). HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_NotFound Some
+ *        requested entity (e.g., file or directory) was not found. Note to
+ *        server developers: if a request is denied for an entire class of
+ *        users, such as gradual feature rollout or undocumented allowlist,
+ *        `NOT_FOUND` may be used. If a request is denied for some users within
+ *        a class of users, such as user-based access control,
+ *        `PERMISSION_DENIED` must be used. HTTP Mapping: 404 Not Found (Value:
+ *        "NOT_FOUND")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Ok Not an error;
+ *        returned on success HTTP Mapping: 200 OK (Value: "OK")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_OutOfRange The
+ *        operation was attempted past the valid range. E.g., seeking or reading
+ *        past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a
+ *        problem that may be fixed if the system state changes. For example, a
+ *        32-bit file system will generate `INVALID_ARGUMENT` if asked to read
+ *        at an offset that is not in the range [0,2^32-1], but it will generate
+ *        `OUT_OF_RANGE` if asked to read from an offset past the current file
+ *        size. There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *        `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
+ *        error) when it applies so that callers who are iterating through a
+ *        space can easily look for an `OUT_OF_RANGE` error to detect when they
+ *        are done. HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_PermissionDenied The
+ *        caller does not have permission to execute the specified operation.
+ *        `PERMISSION_DENIED` must not be used for rejections caused by
+ *        exhausting some resource (use `RESOURCE_EXHAUSTED` instead for those
+ *        errors). `PERMISSION_DENIED` must not be used if the caller can not be
+ *        identified (use `UNAUTHENTICATED` instead for those errors). This
+ *        error code does not imply the request is valid or the requested entity
+ *        exists or satisfies other pre-conditions. HTTP Mapping: 403 Forbidden
+ *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_ResourceExhausted
+ *        Some resource has been exhausted, perhaps a per-user quota, or perhaps
+ *        the entire file system is out of space. HTTP Mapping: 429 Too Many
+ *        Requests (Value: "RESOURCE_EXHAUSTED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Unauthenticated The
+ *        request does not have valid authentication credentials for the
+ *        operation. HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Unavailable The
+ *        service is currently unavailable. This is most likely a transient
+ *        condition, which can be corrected by retrying with a backoff. Note
+ *        that it is not always safe to retry non-idempotent operations. See the
+ *        guidelines above for deciding between `FAILED_PRECONDITION`,
+ *        `ABORTED`, and `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
+ *        (Value: "UNAVAILABLE")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Unimplemented The
+ *        operation is not implemented or is not supported/enabled in this
+ *        service. HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
+ *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Unknown Unknown
+ *        error. For example, this error may be returned when a `Status` value
+ *        received from another address space belongs to an error space that is
+ *        not known in this address space. Also errors raised by APIs that do
+ *        not return enough error information may be converted to this error.
+ *        HTTP Mapping: 500 Internal Server Error (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalCode;
+
+/**
+ *  Machine-friendly representation of the condition Deprecated. Use
+ *  canonical_code instead.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_StatusCondition_Code_CaExpiring Cluster CA is
+ *        expiring soon. (Value: "CA_EXPIRING")
  *    @arg @c kGTLRContainer_StatusCondition_Code_CloudKmsKeyError Unable to
  *        perform an encrypt operation against the CloudKMS key used for etcd
- *        level encryption. More codes TBA (Value: "CLOUD_KMS_KEY_ERROR")
+ *        level encryption. (Value: "CLOUD_KMS_KEY_ERROR")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceQuotaExceeded Google
  *        Compute Engine quota was exceeded. (Value: "GCE_QUOTA_EXCEEDED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceStockout GCE_STOCKOUT
@@ -4321,8 +5332,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
+/** GCFS config. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
+/** Enable or disable gvnic on the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
+
 /** Required. The desired image type for the node pool. */
 @property(nonatomic, copy, nullable) NSString *imageType;
+
+/** Node kubelet configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *kubeletConfig;
+
+/** Parameters that can be configured on Linux nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
 
 /**
  *  The desired list of Google Compute Engine
@@ -4379,6 +5402,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  UpgradeAvailableEvent is a notification sent to customers when a new
+ *  available version is released.
+ */
+@interface GTLRContainer_UpgradeAvailableEvent : GTLRObject
+
+/**
+ *  The release channel of the version. If empty, it means a non-channel
+ *  release.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *releaseChannel;
+
+/**
+ *  Optional relative path to the resource. For example, the relative path of
+ *  the node pool.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The resource type of the release version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master Master /
+ *        control plane (Value: "MASTER")
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool Node
+ *        pool (Value: "NODE_POOL")
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified
+ *        Default value. This shouldn't be used. (Value:
+ *        "UPGRADE_RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** The release version available for upgrade. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -4544,6 +5605,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Enables vertical pod autoscaling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Configuration of gVNIC feature.
+ */
+@interface GTLRContainer_VirtualNIC : GTLRObject
+
+/**
+ *  Whether gVNIC features are enabled in the node pool.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -91,6 +91,16 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_ChannelWithScore
+//
+
+@implementation GTLRSASPortal_ChannelWithScore
+@dynamic frequencyRange, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_CreateSignedDeviceRequest
 //
 
@@ -123,11 +133,13 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Deployment
-@dynamic allowedBillingModes, defaultBillingMode, displayName, name, sasUserIds;
+@dynamic allowedBillingModes, defaultBillingMode, displayName, frns, name,
+         sasUserIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedBillingModes" : [NSString class],
+    @"frns" : [NSString class],
     @"sasUserIds" : [NSString class]
   };
   return map;
@@ -142,11 +154,14 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Device
-@dynamic activeConfig, deviceMetadata, displayName, fccId, grants, name,
-         preloadedConfig, serialNumber, state;
+@dynamic activeConfig, currentChannels, deviceMetadata, displayName, fccId,
+         grantRangeAllowlists, grants, name, preloadedConfig, serialNumber,
+         state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"currentChannels" : [GTLRSASPortal_ChannelWithScore class],
+    @"grantRangeAllowlists" : [GTLRSASPortal_FrequencyRange class],
     @"grants" : [GTLRSASPortal_DeviceGrant class]
   };
   return map;
@@ -210,6 +225,7 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceMetadata
+@dynamic antennaModel, commonChannelGroup, interferenceCoordinationGroup;
 @end
 
 
@@ -496,7 +512,7 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_SetPolicyRequest
-@dynamic policy, resource;
+@dynamic disableNotification, policy, resource;
 @end
 
 

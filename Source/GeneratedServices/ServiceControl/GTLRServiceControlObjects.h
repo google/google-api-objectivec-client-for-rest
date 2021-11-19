@@ -505,8 +505,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
- *  The resource being accessed, as a REST-style string. For example:
- *  bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID
+ *  The resource being accessed, as a REST-style or cloud resource string. For
+ *  example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or
+ *  projects/PROJECTID/datasets/DATASETID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -528,6 +529,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Describes attributes about the operation being executed by the service. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_AttributeContext *attributes;
+
+/** Optional. Contains a comma-separated list of flags. */
+@property(nonatomic, copy, nullable) NSString *flags;
 
 /** Describes the resources and the policies applied to each resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ResourceInfo *> *resources;
@@ -551,9 +555,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_Headers *headers;
 
 /**
- *  An 'OK' status allows the operation. Any other status indicates a denial;
- *  [google.rpc.Status.details]() would contain additional details about the
- *  denial.
+ *  Operation is allowed when this field is not set. Any non-'OK' status
+ *  indicates a denial; [google.rpc.Status.details]() would contain additional
+ *  details about the denial.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 
@@ -713,7 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The HTTP request method, such as `GET`, `POST`. */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The HTTP URL path. */
+/** The HTTP URL path, excluding the query parameters. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -747,7 +751,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
- *  The timestamp when the `destination` service receives the first byte of the
+ *  The timestamp when the `destination` service receives the last byte of the
  *  request.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
@@ -903,7 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of the resource. The syntax is platform-specific because different
  *  platforms define their resources differently. For Google APIs, the type
- *  format must be "{service}/{kind}".
+ *  format must be "{service}/{kind}", such as "pubsub.googleapis.com/Topic".
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -959,6 +963,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRServiceControl_ResourceInfo : GTLRObject
 
+/**
+ *  Optional. The identifier of the container of this resource. For Google Cloud
+ *  APIs, the resource container must be one of the following formats: -
+ *  `projects/` - `folders/` - `organizations/` For the policy enforcement on
+ *  the container level (VPCSC and Location Policy check), this field takes
+ *  precedence on the container extracted from name when presents.
+ */
+@property(nonatomic, copy, nullable) NSString *container;
+
+/**
+ *  Optional. The location of the resource. The value must be a valid zone,
+ *  region or multiregion. For example: "europe-west4" or
+ *  "northamerica-northeast1-a"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The name of the resource referenced in the request. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1005,6 +1025,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceControl_Response : GTLRObject
 
 /**
+ *  The amount of time it takes the backend service to fully respond to a
+ *  request. Measured from when the destination service starts to send the
+ *  request to the backend until when the destination service receives the
+ *  complete response from the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *backendLatency;
+
+/**
  *  The HTTP response status code, such as `200` and `404`.
  *
  *  Uses NSNumber of longLongValue.
@@ -1026,7 +1054,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
- *  The timestamp when the `destination` service generates the first byte of the
+ *  The timestamp when the `destination` service sends the last byte of the
  *  response.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
@@ -1058,7 +1086,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A string representing the principal_subject associated with the identity.
- *  See go/3pical for more info on how principal_subject is formatted.
+ *  For most identities, the format will be
+ *  `principal://iam.googleapis.com/{identity pool name}/subject/{subject)`
+ *  except for some GKE identities (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD)
+ *  that are still in the legacy format `serviceAccount:{identity pool
+ *  name}[{subject}]`
  */
 @property(nonatomic, copy, nullable) NSString *principalSubject;
 
@@ -1069,8 +1101,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The context of a span, attached to Exemplars in Distribution values during
- *  aggregation. It contains the name of a span with format:
+ *  The context of a span. This is attached to an Exemplar in Distribution
+ *  values during aggregation. It contains the name of a span with format:
  *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
  */
 @interface GTLRServiceControl_SpanContext : GTLRObject
