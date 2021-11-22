@@ -269,7 +269,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats
-@dynamic issue, labeledConversationsCount;
+@dynamic displayName, issue, labeledConversationsCount;
 @end
 
 
@@ -446,7 +446,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse
 @dynamic averageDuration, averageTurnCount, conversationCount,
          conversationCountTimeSeries, customHighlighterMatches, issueMatches,
-         smartHighlighterMatches;
+         issueMatchesStats, smartHighlighterMatches;
 @end
 
 
@@ -473,6 +473,20 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats class];
 }
 
 @end
@@ -1027,7 +1041,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats
-@dynamic issue, labeledConversationsCount;
+@dynamic displayName, issue, labeledConversationsCount;
 @end
 
 

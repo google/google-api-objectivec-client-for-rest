@@ -182,7 +182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 /**
  *  DockerImage represents a docker artifact. The following fields are returned
  *  as untyped metadata in the Version resource, using camelcase keys (i.e.
- *  metadata.imageSizeBytes): - imageSizeBytes - mediaType - buildTime
+ *  metadata.imageSizeBytes): * imageSizeBytes * mediaType * buildTime
  */
 @interface GTLRArtifactRegistry_DockerImage : GTLRObject
 

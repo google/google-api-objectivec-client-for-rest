@@ -168,7 +168,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest
-@dynamic analysisQuery, outputConfig;
+@dynamic analysisQuery, outputConfig, savedAnalysisQuery;
 @end
 
 
@@ -1213,6 +1213,28 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ListSavedQueriesResponse
+//
+
+@implementation GTLRCloudAsset_ListSavedQueriesResponse
+@dynamic nextPageToken, savedQueries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"savedQueries" : [GTLRCloudAsset_SavedQuery class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"savedQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_MoveAnalysis
 //
 
@@ -1378,6 +1400,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_PubsubDestination
 @dynamic topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_QueryContent
+//
+
+@implementation GTLRCloudAsset_QueryContent
+@dynamic iamPolicyAnalysisQuery;
 @end
 
 
@@ -1558,6 +1590,36 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_ResourceSelector
 @dynamic fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_SavedQuery
+//
+
+@implementation GTLRCloudAsset_SavedQuery
+@dynamic content, createTime, creator, descriptionProperty, labels, lastUpdater,
+         lastUpdateTime, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_SavedQuery_Labels
+//
+
+@implementation GTLRCloudAsset_SavedQuery_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

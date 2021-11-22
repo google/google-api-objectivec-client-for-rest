@@ -281,6 +281,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMe
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata.migrationState
+
+/**
+ *  The migration is complete.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Complete;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MIGRATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_MigrationStateUnspecified;
+/**
+ *  The migration is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Paused;
+/**
+ *  The migration is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata.migrationStep
+
+/**
+ *  Writes are applied synchronously to at least one replica.
+ *
+ *  Value: "APPLY_WRITES_SYNCHRONOUSLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_ApplyWritesSynchronously;
+/**
+ *  Data is copied to Cloud Firestore and then verified to match the data in
+ *  Cloud Datastore.
+ *
+ *  Value: "COPY_AND_VERIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_CopyAndVerify;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MIGRATION_STEP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_MigrationStepUnspecified;
+/**
+ *  Pre-migration: the database is prepared for migration.
+ *
+ *  Value: "PREPARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Prepare;
+/**
+ *  Eventually-consistent reads are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_EVENTUALLY_CONSISTENT_READS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectEventuallyConsistentReads;
+/**
+ *  Strongly-consistent reads are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_STRONGLY_CONSISTENT_READS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectStronglyConsistentReads;
+/**
+ *  Writes are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_WRITES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectWrites;
+/**
+ *  Start of migration.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Start;
+
+// ----------------------------------------------------------------------------
 // GTLRDatastore_GoogleDatastoreAdminV1Index.ancestor
 
 /**
@@ -1062,6 +1143,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        fetch them all at once.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_Labels : GTLRObject
+@end
+
+
+/**
+ *  Metadata for Datastore to Firestore migration operations. The
+ *  DatastoreFirestoreMigration operation is not started by the end-user via an
+ *  explicit "creation" method. This is an intentional deviation from the LRO
+ *  design pattern. This singleton resource can be accessed at:
+ *  "projects/{project_id}/datastore-firestore-migration"
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata : GTLRObject
+
+/**
+ *  The current state of migration from Cloud Datastore to Cloud Firestore in
+ *  Datastore mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Complete
+ *        The migration is complete. (Value: "COMPLETE")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_MigrationStateUnspecified
+ *        Unspecified. (Value: "MIGRATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Paused
+ *        The migration is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Running
+ *        The migration is running. (Value: "RUNNING")
+ */
+@property(nonatomic, copy, nullable) NSString *migrationState;
+
+/**
+ *  The current step of migration from Cloud Datastore to Cloud Firestore in
+ *  Datastore mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_ApplyWritesSynchronously
+ *        Writes are applied synchronously to at least one replica. (Value:
+ *        "APPLY_WRITES_SYNCHRONOUSLY")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_CopyAndVerify
+ *        Data is copied to Cloud Firestore and then verified to match the data
+ *        in Cloud Datastore. (Value: "COPY_AND_VERIFY")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_MigrationStepUnspecified
+ *        Unspecified. (Value: "MIGRATION_STEP_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Prepare
+ *        Pre-migration: the database is prepared for migration. (Value:
+ *        "PREPARE")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectEventuallyConsistentReads
+ *        Eventually-consistent reads are redirected to Cloud Firestore. (Value:
+ *        "REDIRECT_EVENTUALLY_CONSISTENT_READS")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectStronglyConsistentReads
+ *        Strongly-consistent reads are redirected to Cloud Firestore. (Value:
+ *        "REDIRECT_STRONGLY_CONSISTENT_READS")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectWrites
+ *        Writes are redirected to Cloud Firestore. (Value: "REDIRECT_WRITES")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Start
+ *        Start of migration. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *migrationStep;
+
 @end
 
 

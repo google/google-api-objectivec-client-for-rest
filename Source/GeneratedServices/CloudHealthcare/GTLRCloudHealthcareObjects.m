@@ -821,7 +821,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirConfig
-@dynamic fieldMetadataList;
+@dynamic defaultKeepExtensions, fieldMetadataList;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -851,7 +851,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 @implementation GTLRCloudHealthcare_FhirStore
 @dynamic defaultSearchHandlingStrict, disableReferentialIntegrity,
          disableResourceVersioning, enableUpdateCreate, labels, name,
-         notificationConfig, streamConfigs, version;
+         notificationConfig, streamConfigs, validationConfig, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2216,6 +2216,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_ValidationConfig
+//
+
+@implementation GTLRCloudHealthcare_ValidationConfig
+@dynamic disableFhirpathValidation, disableReferenceTypeValidation,
+         disableRequiredFieldValidation;
 @end
 
 

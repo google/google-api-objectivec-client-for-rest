@@ -130,12 +130,13 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 
 @implementation GTLRCloudFunctions_CloudFunction
 @dynamic availableMemoryMb, buildEnvironmentVariables, buildId, buildName,
-         buildWorkerPool, descriptionProperty, entryPoint, environmentVariables,
-         eventTrigger, httpsTrigger, ingressSettings, labels, maxInstances,
-         minInstances, name, network, runtime, secretEnvironmentVariables,
-         secretVolumes, serviceAccountEmail, sourceArchiveUrl, sourceRepository,
-         sourceToken, sourceUploadUrl, status, timeout, updateTime, versionId,
-         vpcConnector, vpcConnectorEgressSettings;
+         buildWorkerPool, descriptionProperty, dockerRepository, entryPoint,
+         environmentVariables, eventTrigger, httpsTrigger, ingressSettings,
+         kmsKeyName, labels, maxInstances, minInstances, name, network, runtime,
+         secretEnvironmentVariables, secretVolumes, serviceAccountEmail,
+         sourceArchiveUrl, sourceRepository, sourceToken, sourceUploadUrl,
+         status, timeout, updateTime, versionId, vpcConnector,
+         vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

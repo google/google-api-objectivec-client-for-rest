@@ -105,6 +105,24 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse
 //
 
@@ -239,6 +257,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+@dynamic recaptchaEnterpriseToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest
 //
 
@@ -345,6 +373,16 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig
 @dynamic name, siteSecret, siteSecretSet, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
+@dynamic name, siteKey, tokenTtl;
 @end
 
 

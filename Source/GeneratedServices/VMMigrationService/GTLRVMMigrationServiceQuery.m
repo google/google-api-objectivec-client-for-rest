@@ -19,6 +19,9 @@
 // view
 NSString * const kGTLRVMMigrationServiceViewBasic              = @"BASIC";
 NSString * const kGTLRVMMigrationServiceViewFull               = @"FULL";
+NSString * const kGTLRVMMigrationServiceViewMigratingVmViewBasic = @"MIGRATING_VM_VIEW_BASIC";
+NSString * const kGTLRVMMigrationServiceViewMigratingVmViewFull = @"MIGRATING_VM_VIEW_FULL";
+NSString * const kGTLRVMMigrationServiceViewMigratingVmViewUnspecified = @"MIGRATING_VM_VIEW_UNSPECIFIED";
 NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @"UTILIZATION_REPORT_VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
@@ -764,7 +767,7 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -783,7 +786,7 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesMigratingVmsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

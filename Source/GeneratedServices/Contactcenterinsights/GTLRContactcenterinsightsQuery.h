@@ -258,8 +258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  A unique ID for the new conversation. This ID will become the final
  *  component of the conversation's resource name. If no ID is specified, a
- *  server-generated ID will be used. This value should be 4-32 characters and
- *  must match the regular expression /^[a-z0-9-]{4,32}$/. Valid characters are
+ *  server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression /^[a-z0-9-]{4,64}$/. Valid characters are
  *  /a-z-/
  */
 @property(nonatomic, copy, nullable) NSString *conversationId;
@@ -1131,6 +1131,48 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a phrase matcher.
+ *
+ *  Method: contactcenterinsights.projects.locations.phraseMatchers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsPhraseMatchersPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  The resource name of the phrase matcher. Format:
+ *  projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher.
+ *
+ *  Updates a phrase matcher.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher
+ *    to include in the query.
+ *  @param name The resource name of the phrase matcher. Format:
+ *    projects/{project}/locations/{location}/phraseMatchers/{phrase_matcher}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsPhraseMatchersPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher *)object
+                           name:(NSString *)name;
 
 @end
 

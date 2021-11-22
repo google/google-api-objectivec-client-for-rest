@@ -6280,7 +6280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
-/** Optional sub-account ID for the seller. */
+/** Output only. Ad manager network code for the seller. */
 @property(nonatomic, copy, nullable) NSString *subAccountId;
 
 @end

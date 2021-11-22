@@ -437,6 +437,60 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 
 @end
 
+/**
+ *  List all telemetry devices.
+ *
+ *  Method: chromemanagement.customers.telemetry.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersTelemetryDevicesList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. Only include resources that match the filter. Supported filter
+ *  fields: - org_unit_id - serial_number
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Maximum number of results to return. Maximum and default are 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Read mask to specify which fields to return.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryDevicesResponse.
+ *
+ *  List all telemetry devices.
+ *
+ *  @param parent Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersTelemetryDevicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

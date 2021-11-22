@@ -212,6 +212,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudDebugger"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudDeploy",
+            targets: ["GoogleAPIClientForREST_CloudDeploy"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudDomains",
             targets: ["GoogleAPIClientForREST_CloudDomains"]
         ),
@@ -310,6 +314,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudSourceRepositories",
             targets: ["GoogleAPIClientForREST_CloudSourceRepositories"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CloudSupport",
+            targets: ["GoogleAPIClientForREST_CloudSupport"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudTalentSolution",
@@ -1290,6 +1298,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudDeploy",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CloudDeploy",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CloudDomains",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudDomains",
@@ -1437,6 +1451,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudSourceRepositories",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudSourceRepositories",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudSupport",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CloudSupport",
             publicHeadersPath: "."
         ),
         .target(

@@ -252,7 +252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @interface GTLRStreetViewPublishQuery_PhotosBatchGet : GTLRStreetViewPublishQuery
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
  *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. If
  *  language_code is unspecified, the user's language preference for Google
@@ -306,7 +306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  for specific failures that can occur per photo. Only the fields specified in
  *  updateMask field are used. If `updateMask` is not present, the update
  *  applies to all fields. The number of UpdatePhotoRequest messages in a
- *  BatchUpdatePhotosRequest must not exceed 20. *Note:* To update
+ *  BatchUpdatePhotosRequest must not exceed 20. > Note: To update
  *  Pose.altitude, Pose.latLngPair has to be filled as well. Otherwise, the
  *  request will fail.
  *
@@ -329,7 +329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  for specific failures that can occur per photo. Only the fields specified in
  *  updateMask field are used. If `updateMask` is not present, the update
  *  applies to all fields. The number of UpdatePhotoRequest messages in a
- *  BatchUpdatePhotosRequest must not exceed 20. *Note:* To update
+ *  BatchUpdatePhotosRequest must not exceed 20. > Note: To update
  *  Pose.altitude, Pose.latLngPair has to be filled as well. Otherwise, the
  *  request will fail.
  *
@@ -343,7 +343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @end
 
 /**
- *  Lists all the Photos that belong to the user. *Note:* Recently created
+ *  Lists all the Photos that belong to the user. > Note: Recently created
  *  photos that are still being indexed are not returned in the response.
  *
  *  Method: streetviewpublish.photos.list
@@ -361,7 +361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
  *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. If
  *  language_code is unspecified, the user's language preference for Google
@@ -370,15 +370,17 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  The maximum number of photos to return. `pageSize` must be non-negative. If
- *  `pageSize` is zero or is not provided, the default page size of 100 is used.
- *  The number of photos returned in the response may be less than `pageSize` if
- *  the number of photos that belong to the user is less than `pageSize`.
+ *  Optional. The maximum number of photos to return. `pageSize` must be
+ *  non-negative. If `pageSize` is zero or is not provided, the default page
+ *  size of 100 is used. The number of photos returned in the response may be
+ *  less than `pageSize` if the number of photos that belong to the user is less
+ *  than `pageSize`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The nextPageToken value returned from a previous ListPhotos request, if any.
+ *  Optional. The nextPageToken value returned from a previous ListPhotos
+ *  request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -399,7 +401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 /**
  *  Fetches a @c GTLRStreetViewPublish_ListPhotosResponse.
  *
- *  Lists all the Photos that belong to the user. *Note:* Recently created
+ *  Lists all the Photos that belong to the user. > Note: Recently created
  *  photos that are still being indexed are not returned in the response.
  *
  *  @return GTLRStreetViewPublishQuery_PhotosList
@@ -486,8 +488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  metadata in this request. The update fails if invalid fields are specified.
  *  Multiple fields can be specified in a comma-delimited list. The following
  *  fields are valid: * `pose.heading` * `pose.latLngPair` * `pose.pitch` *
- *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places`
- *  *Note:* When updateMask contains repeated fields, the entire set of repeated
+ *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places` >
+ *  Note: When updateMask contains repeated fields, the entire set of repeated
  *  values get replaced with the new contents. For example, if updateMask
  *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
  *  all connections are removed.

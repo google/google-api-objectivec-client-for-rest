@@ -1465,8 +1465,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Optional. If this is provided, it must match the server's etag on the
- *  workerpool for the request to be processed.
+ *  Optional. If provided, it must match the server's etag on the workerpool for
+ *  the request to be processed.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 

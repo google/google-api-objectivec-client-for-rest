@@ -3693,6 +3693,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2;
 /** Value: "GENERAL_PURPOSE_N2D" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d;
+/** Value: "GENERAL_PURPOSE_T2D" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d;
 /** Value: "MEMORY_OPTIMIZED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized;
 /** Value: "TYPE_UNSPECIFIED" */
@@ -34647,6 +34649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "GENERAL_PURPOSE_N2"
  *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeN2d Value
  *        "GENERAL_PURPOSE_N2D"
+ *    @arg @c kGTLRCompute_Commitment_Type_GeneralPurposeT2d Value
+ *        "GENERAL_PURPOSE_T2D"
  *    @arg @c kGTLRCompute_Commitment_Type_MemoryOptimized Value
  *        "MEMORY_OPTIMIZED"
  *    @arg @c kGTLRCompute_Commitment_Type_TypeUnspecified Value

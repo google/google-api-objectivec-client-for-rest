@@ -57,17 +57,116 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_Adaptation
+//
+
+@implementation GTLRSpeech_Adaptation
+@dynamic customClasses, phraseSetReferences, phraseSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customClasses" : [GTLRSpeech_CustomClass class],
+    @"phraseSetReferences" : [NSString class],
+    @"phraseSets" : [GTLRSpeech_PhraseSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_ClassItem
+//
+
+@implementation GTLRSpeech_ClassItem
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_Context
 //
 
 @implementation GTLRSpeech_Context
-@dynamic phrases;
+@dynamic boost, phrases;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"phrases" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_CreateCustomClassRequest
+//
+
+@implementation GTLRSpeech_CreateCustomClassRequest
+@dynamic customClass, customClassId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_CreatePhraseSetRequest
+//
+
+@implementation GTLRSpeech_CreatePhraseSetRequest
+@dynamic phraseSet, phraseSetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_CustomClass
+//
+
+@implementation GTLRSpeech_CustomClass
+@dynamic customClassId, items, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRSpeech_ClassItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_Empty
+//
+
+@implementation GTLRSpeech_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_ListCustomClassesResponse
+//
+
+@implementation GTLRSpeech_ListCustomClassesResponse
+@dynamic customClasses, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customClasses" : [GTLRSpeech_CustomClass class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customClasses";
 }
 
 @end
@@ -90,6 +189,28 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_ListPhraseSetResponse
+//
+
+@implementation GTLRSpeech_ListPhraseSetResponse
+@dynamic nextPageToken, phraseSets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"phraseSets" : [GTLRSpeech_PhraseSet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"phraseSets";
 }
 
 @end
@@ -173,6 +294,34 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpeech_Phrase
+//
+
+@implementation GTLRSpeech_Phrase
+@dynamic boost, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpeech_PhraseSet
+//
+
+@implementation GTLRSpeech_PhraseSet
+@dynamic boost, name, phrases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"phrases" : [GTLRSpeech_Phrase class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpeech_RecognitionAlternative
 //
 
@@ -205,11 +354,12 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognitionConfig
-@dynamic alternativeLanguageCodes, audioChannelCount, diarizationConfig,
-         enableAutomaticPunctuation, enableSeparateRecognitionPerChannel,
-         enableWordConfidence, enableWordTimeOffsets, encoding, languageCode,
-         maxAlternatives, metadata, model, profanityFilter, sampleRateHertz,
-         speechContexts, useEnhanced;
+@dynamic adaptation, alternativeLanguageCodes, audioChannelCount,
+         diarizationConfig, enableAutomaticPunctuation,
+         enableSeparateRecognitionPerChannel, enableSpokenEmojis,
+         enableSpokenPunctuation, enableWordConfidence, enableWordTimeOffsets,
+         encoding, languageCode, maxAlternatives, metadata, model,
+         profanityFilter, sampleRateHertz, speechContexts, useEnhanced;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -240,7 +390,7 @@ NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDeviceType_Vehicle = @
 //
 
 @implementation GTLRSpeech_RecognitionResult
-@dynamic alternatives, channelTag, languageCode;
+@dynamic alternatives, channelTag, languageCode, resultEndTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

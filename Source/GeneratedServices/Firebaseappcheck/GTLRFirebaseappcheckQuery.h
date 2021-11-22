@@ -30,10 +30,12 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeCustomTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDebugTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeDeviceCheckTokenRequest;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeSafetyNetTokenRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaGenerateAppAttestChallengeRequest;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService;
 
@@ -815,6 +817,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Validates a [reCAPTCHA Enterprise response
+ *  token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token).
+ *  If valid, returns an App Check token encapsulated in an
+ *  AttestationTokenResponse.
+ *
+ *  Method: firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the web app, in the format: ```
+ *  projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *  `project_number` element can be replaced with the project ID of the Firebase
+ *  project. Learn more about using project identifiers in Google's [AIP
+ *  2510](https://google.aip.dev/cloud/2510) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *app;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse.
+ *
+ *  Validates a [reCAPTCHA Enterprise response
+ *  token](https://cloud.google.com/recaptcha-enterprise/docs/create-assessment#retrieve_token).
+ *  If valid, returns an App Check token encapsulated in an
+ *  AttestationTokenResponse.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest
+ *    to include in the query.
+ *  @param app Required. The relative resource name of the web app, in the
+ *    format: ``` projects/{project_number}/apps/{app_id} ``` If necessary, the
+ *    `project_number` element can be replaced with the project ID of the
+ *    Firebase project. Learn more about using project identifiers in Google's
+ *    [AIP 2510](https://google.aip.dev/cloud/2510) standard.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest *)object
+                            app:(NSString *)app;
+
+@end
+
+/**
  *  Validates a [reCAPTCHA v3 response
  *  token](https://developers.google.com/recaptcha/docs/v3). If valid, returns
  *  an App Check token encapsulated in an AttestationTokenResponse.
@@ -1087,6 +1137,137 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaConfigPatch
  */
 + (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the RecaptchaEnterpriseConfigs for the specified list of apps
+ *  atomically.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigBatchGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource names of the RecaptchaEnterpriseConfigs to
+ *  retrieve, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ``` A
+ *  maximum of 100 objects can be retrieved in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Required. The parent project name shared by all RecaptchaEnterpriseConfigs
+ *  being retrieved, in the format ``` projects/{project_number} ``` The parent
+ *  collection in the `name` field of any resource being retrieved must match
+ *  this field, or the entire batch fails.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse.
+ *
+ *  Gets the RecaptchaEnterpriseConfigs for the specified list of apps
+ *  atomically.
+ *
+ *  @param parent Required. The parent project name shared by all
+ *    RecaptchaEnterpriseConfigs being retrieved, in the format ```
+ *    projects/{project_number} ``` The parent collection in the `name` field of
+ *    any resource being retrieved must match this field, or the entire batch
+ *    fails.
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigBatchGet
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the RecaptchaEnterpriseConfig for the specified app.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigGet : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the RecaptchaEnterpriseConfig, in
+ *  the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig.
+ *
+ *  Gets the RecaptchaEnterpriseConfig for the specified app.
+ *
+ *  @param name Required. The relative resource name of the
+ *    RecaptchaEnterpriseConfig, in the format: ```
+ *    projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the RecaptchaEnterpriseConfig for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  reCAPTCHA Enterprise tokens for App Check tokens.
+ *
+ *  Method: firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseappcheckCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseappcheckFirebase
+ */
+@interface GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch : GTLRFirebaseappcheckQuery
+
+/**
+ *  Required. The relative resource name of the reCAPTCHA Enterprise
+ *  configuration object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. A comma-separated list of names of fields in the
+ *  RecaptchaEnterpriseConfig to update. Example: `site_key`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig.
+ *
+ *  Updates the RecaptchaEnterpriseConfig for the specified app. While this
+ *  configuration is incomplete or invalid, the app will be unable to exchange
+ *  reCAPTCHA Enterprise tokens for App Check tokens.
+ *
+ *  @param object The @c
+ *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig
+ *    to include in the query.
+ *  @param name Required. The relative resource name of the reCAPTCHA Enterprise
+ *    configuration object, in the format: ```
+ *    projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ```
+ *
+ *  @return GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *)object
                            name:(NSString *)name;
 
 @end

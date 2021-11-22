@@ -552,6 +552,7 @@ NSString * const kGTLRCompute_Commitment_Type_GeneralPurpose   = @"GENERAL_PURPO
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2 = @"GENERAL_PURPOSE_E2";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2 = @"GENERAL_PURPOSE_N2";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d = @"GENERAL_PURPOSE_N2D";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d = @"GENERAL_PURPOSE_T2D";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 

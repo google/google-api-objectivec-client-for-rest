@@ -60,6 +60,8 @@
 @class GTLRSQLAdmin_Operation;
 @class GTLRSQLAdmin_OperationError;
 @class GTLRSQLAdmin_OperationErrors;
+@class GTLRSQLAdmin_PasswordStatus;
+@class GTLRSQLAdmin_PasswordValidationPolicy;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
@@ -79,6 +81,7 @@
 @class GTLRSQLAdmin_Tier;
 @class GTLRSQLAdmin_TruncateLogContext;
 @class GTLRSQLAdmin_User;
+@class GTLRSQLAdmin_UserPasswordValidationPolicy;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -295,6 +298,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -318,6 +333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "POSTGRES_13"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -441,6 +462,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -464,6 +497,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_13"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -529,7 +568,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 
 /**
- *  A regular Cloud SQL instance.
+ *  A regular Cloud SQL instance that is not replicating from a primary
+ *  instance.
  *
  *  Value: "CLOUD_SQL_INSTANCE"
  */
@@ -571,7 +611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Failed;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Maintenance;
 /**
- *  The instance is under maintenance operations and the database is available.
+ *  Deprecated
  *
  *  Value: "ONLINE_MAINTENANCE"
  */
@@ -702,6 +742,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80;
 /**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -725,6 +777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12;
  *  Value: "POSTGRES_13"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1156,6 +1214,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_Running;
  *  Value: "SQL_OPERATION_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PasswordValidationPolicy.complexity
+
+/**
+ *  A combination of lowercase, uppercase, numeric, and non-alphanumeric
+ *  characters.
+ *
+ *  Value: "COMPLEXITY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityDefault;
+/**
+ *  Complexity check is not specified.
+ *
+ *  Value: "COMPLEXITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Reschedule.rescheduleType
@@ -1961,6 +2036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        version is MySQL 5.7. (Value: "MYSQL_5_7")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80 The database
  *        version is MySQL 8. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8018 The
+ *        database major version is MySQL 8.0 and the minor version is 18.
+ *        (Value: "MYSQL_8_0_18")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 The
+ *        database major version is MySQL 8.0 and the minor version is 26.
+ *        (Value: "MYSQL_8_0_26")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -1969,6 +2050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 12. (Value: "POSTGRES_12")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 The
  *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 The
+ *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -2131,14 +2214,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
 
 /**
+ *  Output only. The databaseInstalledVersion stores the current fully resolved
+ *  database version running on the instance including minor version such as
+ *  MYSQL_5_6_50
+ */
+@property(nonatomic, copy, nullable) NSString *databaseInstalledVersion;
+
+/**
  *  The database engine type and version. The **databaseVersion** field cannot
- *  be changed after instance creation. * **MySQL instances**: MYSQL_8_0,
- *  MYSQL_5_7 (default), or MYSQL_5_6. * **PostgreSQL instances**: POSTGRES_9_6,
- *  POSTGRES_10, POSTGRES_11, POSTGRES_12, POSTGRES_13 (default), POSTGRES_14. *
- *  **SQL Server instances**: SQLSERVER_2019_STANDARD,
- *  SQLSERVER_2019_ENTERPRISE, SQLSERVER_2019_EXPRESS, or SQLSERVER_2019_WEB,
- *  SQLSERVER_2017_STANDARD (default), SQLSERVER_2017_ENTERPRISE,
- *  SQLSERVER_2017_EXPRESS, or SQLSERVER_2017_WEB.
+ *  be changed after instance creation.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 The
@@ -2151,6 +2235,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is MySQL 5.7. (Value: "MYSQL_5_7")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 The
  *        database version is MySQL 8. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8018 The
+ *        database major version is MySQL 8.0 and the minor version is 18.
+ *        (Value: "MYSQL_8_0_18")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 The
+ *        database major version is MySQL 8.0 and the minor version is 26.
+ *        (Value: "MYSQL_8_0_26")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -2159,6 +2249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 12. (Value: "POSTGRES_12")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 The
  *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 The
+ *        database version is PostgreSQL 14. (Value: "POSTGRES_14")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -2214,15 +2306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *gceZone;
 
 /**
- *  The instance type. This can be one of the following: *
- *  **CLOUD_SQL_INSTANCE**: A Cloud SQL instance that is not replicating from a
- *  primary instance. * **ON_PREMISES_INSTANCE**: An instance running on the
- *  customer's premises. * **READ_REPLICA_INSTANCE**: A Cloud SQL instance
- *  configured as a read-replica.
+ *  The instance type.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance A
- *        regular Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
+ *        regular Cloud SQL instance that is not replicating from a primary
+ *        instance. (Value: "CLOUD_SQL_INSTANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_InstanceType_OnPremisesInstance An
  *        instance running on the customer's premises that is not managed by
  *        Cloud SQL. (Value: "ON_PREMISES_INSTANCE")
@@ -2329,14 +2418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_Settings *settings;
 
 /**
- *  The current serving state of the Cloud SQL instance. This can be one of the
- *  following: * **SQL_INSTANCE_STATE_UNSPECIFIED**: The state of the instance
- *  is unknown. * **RUNNABLE**: The instance is running, or has been stopped by
- *  owner. * **SUSPENDED**: The instance is not available, for example due to
- *  problems with billing. * **PENDING_DELETE**: The instance is being deleted.
- *  * **PENDING_CREATE**: The instance is being created. * **MAINTENANCE**: The
- *  instance is down for maintenance. * **FAILED**: The instance creation
- *  failed.
+ *  The current serving state of the Cloud SQL instance.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The creation of the
@@ -2344,9 +2426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "FAILED")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Maintenance The instance is
  *        down for maintenance. (Value: "MAINTENANCE")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance The
- *        instance is under maintenance operations and the database is
- *        available. (Value: "ONLINE_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_OnlineMaintenance Deprecated
+ *        (Value: "ONLINE_MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate The instance is
  *        being created. (Value: "PENDING_CREATE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete The instance is
@@ -2580,23 +2661,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
- *  Databases to be exported. * **MySQL instances:** If **fileType** is **SQL**
+ *  Databases to be exported. **MySQL instances:** If **fileType** is **SQL**
  *  and no database is specified, all databases are exported, except for the
  *  **mysql** system database. If **fileType** is **CSV**, you can specify one
  *  database, either by using this property or by using the
  *  **csvExportOptions.selectQuery** property, which takes precedence over this
- *  property. * **PostgreSQL instances:** You must specify one database to be
+ *  property. **PostgreSQL instances:** You must specify one database to be
  *  exported. If **fileType** is **CSV**, this database must match the one
- *  specified in the **csvExportOptions.selectQuery** property. * **SQL Server
+ *  specified in the **csvExportOptions.selectQuery** property. **SQL Server
  *  instances:** You must specify one database to be exported, and the
  *  **fileType** must be **BAK**.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
 /**
- *  The file type for the specified uri. * **SQL**: The file contains SQL
- *  statements. * **CSV**: The file contains CSV data. * **BAK**: The file
- *  contains backup data for a SQL Server instance.
+ *  The file type for the specified uri.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExportContext_FileType_Bak Value "BAK"
@@ -2698,11 +2777,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_ExportContext_SqlExportOptions_MysqlExportOptions : GTLRObject
 
 /**
- *  Option to include SQL statement required to set up replication. * If set to
+ *  Option to include SQL statement required to set up replication. If set to
  *  **1**, the dump file includes a CHANGE MASTER TO statement with the binary
- *  log coordinates, and --set-gtid-purged is set to ON. * If set to **2**, the
- *  CHANGE MASTER TO statement is written as a SQL comment and has no effect. *
- *  If set to any value other than **1**, --set-gtid-purged is set to OFF.
+ *  log coordinates, and --set-gtid-purged is set to ON. If set to **2**, the
+ *  CHANGE MASTER TO statement is written as a SQL comment and has no effect. If
+ *  set to any value other than **1**, --set-gtid-purged is set to OFF.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3218,7 +3297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  created in the allocated range. The range name must comply with [RFC
  *  1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must be
  *  1-63 characters long and match the regular expression
- *  `[a-z]([-a-z0-9]*[a-z0-9])?.` Reserved for future use.
+ *  `[a-z]([-a-z0-9]*[a-z0-9])?.`
  */
 @property(nonatomic, copy, nullable) NSString *allocatedIpRange;
 
@@ -3633,8 +3712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The status of an operation. Valid values are: * **PENDING** * **RUNNING** *
- *  **DONE** * **SQL_OPERATION_STATUS_UNSPECIFIED**
+ *  The status of an operation.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Operation_Status_Done The operation completed.
@@ -3720,6 +3798,68 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  value in a subsequent request to return the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Read-only password status.
+ */
+@interface GTLRSQLAdmin_PasswordStatus : GTLRObject
+
+/**
+ *  If true, user does not have login privileges.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locked;
+
+/** The expiration time of the current password. */
+@property(nonatomic, strong, nullable) GTLRDateTime *passwordExpirationTime;
+
+@end
+
+
+/**
+ *  Database instance local user password validation policy
+ */
+@interface GTLRSQLAdmin_PasswordValidationPolicy : GTLRObject
+
+/**
+ *  The complexity of the password.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityDefault
+ *        A combination of lowercase, uppercase, numeric, and non-alphanumeric
+ *        characters. (Value: "COMPLEXITY_DEFAULT")
+ *    @arg @c kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified
+ *        Complexity check is not specified. (Value: "COMPLEXITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *complexity;
+
+/**
+ *  Disallow username as a part of the password.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disallowUsernameSubstring;
+
+/**
+ *  Minimum number of characters allowed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minLength;
+
+/** Minimum interval after which the password can be changed. */
+@property(nonatomic, strong, nullable) GTLRDuration *passwordChangeInterval;
+
+/**
+ *  Number of previous passwords that cannot be reused.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reuseInterval;
 
 @end
 
@@ -3964,6 +4104,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  can be restarted for maintenance purposes.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
+
+/** The local user password validation policy of the instance. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PasswordValidationPolicy *passwordValidationPolicy;
 
 /**
  *  The pricing plan for this instance. This can be either **PER_USE** or
@@ -4618,10 +4761,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The host name from which the user can connect. For **insert** operations,
- *  host defaults to an empty string. For **update** operations, host is
- *  specified as part of the request URL. The host name cannot be updated after
- *  insertion.
+ *  Optional. The host name from which the user can connect. For **insert**
+ *  operations, host defaults to an empty string. For **update** operations,
+ *  host is specified as part of the request URL. The host name cannot be
+ *  updated after insertion. For a MySQL instance, it's required; for a
+ *  PostgreSQL or SQL Server instance, it's optional.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -4642,6 +4786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The password for the user. */
 @property(nonatomic, copy, nullable) NSString *password;
+
+/** User level password validation policy. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_UserPasswordValidationPolicy *passwordPolicy;
 
 /**
  *  The project ID of the project containing the Cloud SQL database. The Google
@@ -4665,6 +4812,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "CLOUD_IAM_USER")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  User level password validation policy.
+ */
+@interface GTLRSQLAdmin_UserPasswordValidationPolicy : GTLRObject
+
+/**
+ *  Number of failed login attempts allowed before user get locked.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowedFailedAttempts;
+
+/**
+ *  If true, failed login attempts check will be enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFailedAttemptsCheck;
+
+/** Expiration duration after password is updated. */
+@property(nonatomic, strong, nullable) GTLRDuration *passwordExpirationDuration;
+
+/** Output only. Read-only password status. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PasswordStatus *status;
 
 @end
 

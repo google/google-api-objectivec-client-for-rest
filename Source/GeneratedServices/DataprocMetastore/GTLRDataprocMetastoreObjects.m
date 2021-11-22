@@ -192,6 +192,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_Consumer
+//
+
+@implementation GTLRDataprocMetastore_Consumer
+@dynamic endpointUri, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_DatabaseDump
 //
 
@@ -568,6 +578,24 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_NetworkConfig
+//
+
+@implementation GTLRDataprocMetastore_NetworkConfig
+@dynamic consumers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumers" : [GTLRDataprocMetastore_Consumer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Operation
 //
 
@@ -676,8 +704,8 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 @implementation GTLRDataprocMetastore_Service
 @dynamic artifactGcsUri, createTime, encryptionConfig, endpointUri,
          hiveMetastoreConfig, labels, maintenanceWindow, metadataIntegration,
-         metadataManagementActivity, name, network, port, releaseChannel, state,
-         stateMessage, tier, uid, updateTime;
+         metadataManagementActivity, name, network, networkConfig, port,
+         releaseChannel, state, stateMessage, tier, uid, updateTime;
 @end
 
 

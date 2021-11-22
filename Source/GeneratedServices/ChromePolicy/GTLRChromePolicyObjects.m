@@ -15,6 +15,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle.policyApiLifecycleStage
+NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiCurrent = @"API_CURRENT";
+NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiDeprecated = @"API_DEPRECATED";
+NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiDevelopment = @"API_DEVELOPMENT";
+NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiPreview = @"API_PREVIEW";
+NSString * const kGTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle_PolicyApiLifecycleStage_ApiUnspecified = @"API_UNSPECIFIED";
+
 // GTLRChromePolicy_GoogleChromePolicyV1PolicySchema.validTargetResources
 NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_Group = @"GROUP";
 NSString * const kGTLRChromePolicy_GoogleChromePolicyV1PolicySchema_ValidTargetResources_OrgUnit = @"ORG_UNIT";
@@ -44,6 +51,21 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeSint64 = 
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeString = @"TYPE_STRING";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint32 = @"TYPE_UINT32";
 NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = @"TYPE_UINT64";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
+//
+
+@implementation GTLRChromePolicy_ChromeCrosDpanelAutosettingsProtoPolicyApiLifecycle
+@dynamic descriptionProperty, endSupport, policyApiLifecycleStage;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -140,8 +162,8 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchema
 @dynamic accessRestrictions, additionalTargetKeyNames, definition,
-         fieldDescriptions, name, notices, policyDescription, schemaName,
-         supportUri, validTargetResources;
+         fieldDescriptions, name, notices, policyApiLifeycle, policyDescription,
+         schemaName, supportUri, validTargetResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -333,6 +355,16 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 //
 
 @implementation GTLRChromePolicy_GoogleProtobufEmpty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromePolicy_GoogleTypeDate
+//
+
+@implementation GTLRChromePolicy_GoogleTypeDate
+@dynamic day, month, year;
 @end
 
 

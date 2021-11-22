@@ -82,6 +82,13 @@ NSString * const kGTLRCloudBuild_BuildStep_Status_Success      = @"SUCCESS";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout      = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Working      = @"WORKING";
 
+// GTLRCloudBuild_BuildTrigger.eventType
+NSString * const kGTLRCloudBuild_BuildTrigger_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Manual = @"MANUAL";
+NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Pubsub = @"PUBSUB";
+NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Repo   = @"REPO";
+NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Webhook = @"WEBHOOK";
+
 // GTLRCloudBuild_FailureInfo.type
 NSString * const kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified = @"FAILURE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed = @"FETCH_SOURCE_FAILED";
@@ -227,6 +234,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
+//
+
+@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
+@dynamic completeTime, config, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Build
 //
 
@@ -360,10 +377,10 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic approvalConfig, autodetect, build, createTime, descriptionProperty,
-         disabled, filename, filter, gitFileSource, github, identifier,
-         ignoredFiles, includedFiles, name, pubsubConfig, resourceName,
-         serviceAccount, sourceToBuild, substitutions, tags, triggerTemplate,
-         webhookConfig;
+         disabled, eventType, filename, filter, gitFileSource, github,
+         identifier, ignoredFiles, includedFiles, name, pubsubConfig,
+         resourceName, serviceAccount, sourceToBuild, substitutions, tags,
+         triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

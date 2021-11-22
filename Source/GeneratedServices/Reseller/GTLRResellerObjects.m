@@ -15,9 +15,9 @@
 // Constants
 
 // GTLRReseller_Customer.customerType
-NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
-NSString * const kGTLRReseller_Customer_CustomerType_Domain    = @"DOMAIN";
-NSString * const kGTLRReseller_Customer_CustomerType_Team      = @"TEAM";
+NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified = @"customerTypeUnspecified";
+NSString * const kGTLRReseller_Customer_CustomerType_Domain    = @"domain";
+NSString * const kGTLRReseller_Customer_CustomerType_Team      = @"team";
 
 // ----------------------------------------------------------------------------
 //

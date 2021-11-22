@@ -4740,7 +4740,8 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
          minimumPurchaseQuantity, moneyBudget, moneyOffAmount, offerType,
          orderLimit, percentOff, productApplicability, productType,
          productTypeExclusion, promotionDestinationIds, promotionDisplayDates,
-         promotionEffectiveDates, promotionId, redemptionChannel,
+         promotionDisplayTimePeriod, promotionEffectiveDates,
+         promotionEffectiveTimePeriod, promotionId, redemptionChannel,
          shippingServiceNames, targetCountry;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -6222,6 +6223,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
 @dynamic name, phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TimePeriod
+//
+
+@implementation GTLRShoppingContent_TimePeriod
+@dynamic endTime, startTime;
 @end
 
 

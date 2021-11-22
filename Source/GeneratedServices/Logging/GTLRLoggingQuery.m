@@ -4,10 +4,7 @@
 // API:
 //   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Cloud Logging configuration. The table
-//   entries below are presented in alphabetical order, not in order of common
-//   use. For explanations of the concepts found in the table entries, read the
-//   documentation at https://cloud.google.com/logging/docs.
+//   Writes log entries and manages your Cloud Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -165,6 +162,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogExclusion class];
   query.loggingName = @"logging.billingAccounts.exclusions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_BillingAccountsGetCmekSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_BillingAccountsGetCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.billingAccounts.getCmekSettings";
   return query;
 }
 
@@ -972,6 +988,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogExclusion class];
   query.loggingName = @"logging.folders.exclusions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersGetCmekSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_FoldersGetCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.folders.getCmekSettings";
   return query;
 }
 
@@ -2724,6 +2759,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_LogExclusion class];
   query.loggingName = @"logging.projects.exclusions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsGetCmekSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/cmekSettings";
+  GTLRLoggingQuery_ProjectsGetCmekSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_CmekSettings class];
+  query.loggingName = @"logging.projects.getCmekSettings";
   return query;
 }
 

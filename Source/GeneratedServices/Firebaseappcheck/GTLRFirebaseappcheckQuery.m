@@ -428,6 +428,33 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken
+
+@dynamic app;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest *)object
+                            app:(NSString *)app {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"app" ];
+  NSString *pathURITemplate = @"v1beta/{+app}:exchangeRecaptchaEnterpriseToken";
+  GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaEnterpriseToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.app = app;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.exchangeRecaptchaEnterpriseToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsExchangeRecaptchaToken
 
 @dynamic app;
@@ -576,6 +603,78 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaConfig.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/recaptchaEnterpriseConfig:batchGet";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsRecaptchaEnterpriseConfigPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.patch";
   return query;
 }
 

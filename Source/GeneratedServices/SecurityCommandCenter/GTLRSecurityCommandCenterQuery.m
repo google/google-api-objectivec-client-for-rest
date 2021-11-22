@@ -93,6 +93,171 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_FoldersFindingsBulkMute
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_BulkMuteFindingsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/findings:bulkMute";
+  GTLRSecurityCommandCenterQuery_FoldersFindingsBulkMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Operation class];
+  query.loggingName = @"securitycenter.folders.findings.bulkMute";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersMuteConfigsCreate
+
+@dynamic muteConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_FoldersMuteConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.folders.muteConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersMuteConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersMuteConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.folders.muteConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersMuteConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersMuteConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.folders.muteConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersMuteConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_FoldersMuteConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListMuteConfigsResponse class];
+  query.loggingName = @"securitycenter.folders.muteConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersMuteConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersMuteConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.folders.muteConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsExternalSystemsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem class];
+  query.loggingName = @"securitycenter.folders.sources.findings.externalSystems.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsGroup
 
 @dynamic parent;
@@ -162,6 +327,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
   query.loggingName = @"securitycenter.folders.sources.findings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SetMuteRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setMute";
+  GTLRSecurityCommandCenterQuery_FoldersSourcesFindingsSetMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
+  query.loggingName = @"securitycenter.folders.sources.findings.setMute";
   return query;
 }
 
@@ -341,6 +533,33 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsFindingsBulkMute
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_BulkMuteFindingsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/findings:bulkMute";
+  GTLRSecurityCommandCenterQuery_OrganizationsFindingsBulkMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Operation class];
+  query.loggingName = @"securitycenter.organizations.findings.bulkMute";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings
 
 @dynamic name;
@@ -355,6 +574,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_OrganizationSettings class];
   query.loggingName = @"securitycenter.organizations.getOrganizationSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsCreate
+
+@dynamic muteConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.organizations.muteConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.organizations.muteConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.organizations.muteConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListMuteConfigsResponse class];
+  query.loggingName = @"securitycenter.organizations.muteConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsMuteConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.organizations.muteConfigs.patch";
   return query;
 }
 
@@ -601,6 +931,33 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsExternalSystemsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsExternalSystemsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem class];
+  query.loggingName = @"securitycenter.organizations.sources.findings.externalSystems.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsGroup
 
 @dynamic parent;
@@ -670,6 +1027,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
   query.loggingName = @"securitycenter.organizations.sources.findings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SetMuteRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setMute";
+  GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsSetMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
+  query.loggingName = @"securitycenter.organizations.sources.findings.setMute";
   return query;
 }
 
@@ -976,6 +1360,171 @@
 
 @end
 
+@implementation GTLRSecurityCommandCenterQuery_ProjectsFindingsBulkMute
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_BulkMuteFindingsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/findings:bulkMute";
+  GTLRSecurityCommandCenterQuery_ProjectsFindingsBulkMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Operation class];
+  query.loggingName = @"securitycenter.projects.findings.bulkMute";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsCreate
+
+@dynamic muteConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.projects.muteConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Empty class];
+  query.loggingName = @"securitycenter.projects.muteConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.projects.muteConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/muteConfigs";
+  GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_ListMuteConfigsResponse class];
+  query.loggingName = @"securitycenter.projects.muteConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsMuteConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class];
+  query.loggingName = @"securitycenter.projects.muteConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsExternalSystemsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsExternalSystemsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem class];
+  query.loggingName = @"securitycenter.projects.sources.findings.externalSystems.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsGroup
 
 @dynamic parent;
@@ -1045,6 +1594,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
   query.loggingName = @"securitycenter.projects.sources.findings.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRSecurityCommandCenter_SetMuteRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setMute";
+  GTLRSecurityCommandCenterQuery_ProjectsSourcesFindingsSetMute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecurityCommandCenter_Finding class];
+  query.loggingName = @"securitycenter.projects.sources.findings.setMute";
   return query;
 }
 

@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Idea Hub API (ideahub/v1beta)
+// Description:
+//   This is an invitation-only API.
 // Documentation:
 //   https://console.cloud.google.com/apis/library/ideahub.googleapis.com
 
@@ -27,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Service for executing Idea Hub API queries.
+ *
+ *  This is an invitation-only API.
  */
 @interface GTLRIdeahubService : GTLRService
 

@@ -121,6 +121,31 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Ready        = @"READY";
 NSString * const kGTLRGKEHub_MembershipState_Code_ServiceUpdating = @"SERVICE_UPDATING";
 NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
+// GTLRGKEHub_Status.code
+NSString * const kGTLRGKEHub_Status_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_Status_Code_Failed          = @"FAILED";
+NSString * const kGTLRGKEHub_Status_Code_Ok              = @"OK";
+NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AppDevExperienceFeatureSpec
+//
+
+@implementation GTLRGKEHub_AppDevExperienceFeatureSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_AppDevExperienceFeatureState
+//
+
+@implementation GTLRGKEHub_AppDevExperienceFeatureState
+@dynamic networkingInstallSucceeded;
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRGKEHub_AuditConfig
@@ -200,7 +225,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_CommonFeatureSpec
-@dynamic multiclusteringress;
+@dynamic appdevexperience, multiclusteringress;
 @end
 
 
@@ -210,7 +235,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_CommonFeatureState
-@dynamic state;
+@dynamic appdevexperience, state;
 @end
 
 
@@ -220,7 +245,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_ConfigManagementConfigSync
-@dynamic enabled, git, sourceFormat;
+@dynamic enabled, git, preventDrift, sourceFormat;
 @end
 
 
@@ -654,6 +679,26 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_KubernetesResource
+//
+
+@implementation GTLRGKEHub_KubernetesResource
+@dynamic connectResources, membershipCrManifest, membershipResources,
+         resourceOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectResources" : [GTLRGKEHub_ResourceManifest class],
+    @"membershipResources" : [GTLRGKEHub_ResourceManifest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_ListFeaturesResponse
 //
 
@@ -816,7 +861,8 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_MembershipEndpoint
-@dynamic gkeCluster, kubernetesMetadata, multiCloudCluster, onPremCluster;
+@dynamic gkeCluster, kubernetesMetadata, kubernetesResource, multiCloudCluster,
+         onPremCluster;
 @end
 
 
@@ -836,7 +882,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_MembershipFeatureState
-@dynamic configmanagement, state;
+@dynamic appdevexperience, configmanagement, state;
 @end
 
 
@@ -954,11 +1000,46 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEHub_ResourceManifest
+//
+
+@implementation GTLRGKEHub_ResourceManifest
+@dynamic clusterScoped, manifest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_ResourceOptions
+//
+
+@implementation GTLRGKEHub_ResourceOptions
+@dynamic connectVersion, v1beta1Crd;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEHub_SetIamPolicyRequest
 //
 
 @implementation GTLRGKEHub_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_Status
+//
+
+@implementation GTLRGKEHub_Status
+@dynamic code, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

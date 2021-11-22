@@ -25,6 +25,7 @@
 @class GTLRCloudFilestore_CancelOperationRequest;
 @class GTLRCloudFilestore_Instance;
 @class GTLRCloudFilestore_RestoreInstanceRequest;
+@class GTLRCloudFilestore_Snapshot;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -326,6 +327,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete : GTLRCloudFilestoreQuery
 
 /**
+ *  If set to true, all snapshots of the instance will also be deleted.
+ *  (Otherwise, the request will only work if the instance has no snapshots.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. The instance resource name, in the format
  *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
@@ -509,6 +516,201 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
  */
 + (instancetype)queryWithObject:(GTLRCloudFilestore_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a snapshot.
+ *
+ *  Method: file.projects.locations.instances.snapshots.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsCreate : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The Filestore Instance to create the snapshots of, in the format
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the snapshot. The ID must be unique within the
+ *  specified instance. This value must start with a lowercase letter followed
+ *  by up to 62 lowercase letters, numbers, or hyphens, and cannot end with a
+ *  hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotId;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Creates a snapshot.
+ *
+ *  @param object The @c GTLRCloudFilestore_Snapshot to include in the query.
+ *  @param parent Required. The Filestore Instance to create the snapshots of,
+ *    in the format
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Snapshot *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a snapshot.
+ *
+ *  Method: file.projects.locations.instances.snapshots.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsDelete : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The snapshot resource name, in the format
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Deletes a snapshot.
+ *
+ *  @param name Required. The snapshot resource name, in the format
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific snapshot.
+ *
+ *  Method: file.projects.locations.instances.snapshots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsGet : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The snapshot resource name, in the format
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Snapshot.
+ *
+ *  Gets the details of a specific snapshot.
+ *
+ *  @param name Required. The snapshot resource name, in the format
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all snapshots in a project for either a specified location or for all
+ *  locations.
+ *
+ *  Method: file.projects.locations.instances.snapshots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList : GTLRCloudFilestoreQuery
+
+/** List filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Sort results. Supported values are "name", "name desc" or "" (unsorted).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value to use if there are additional results to retrieve
+ *  for this list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The instance for which to retrieve snapshot information, in the
+ *  format `projects/{project_id}/locations/{location}/instances/{instance_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_ListSnapshotsResponse.
+ *
+ *  Lists all snapshots in a project for either a specified location or for all
+ *  locations.
+ *
+ *  @param parent Required. The instance for which to retrieve snapshot
+ *    information, in the format
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the settings of a specific snapshot.
+ *
+ *  Method: file.projects.locations.instances.snapshots.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsPatch : GTLRCloudFilestoreQuery
+
+/**
+ *  Output only. The resource name of the snapshot, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Updates the settings of a specific snapshot.
+ *
+ *  @param object The @c GTLRCloudFilestore_Snapshot to include in the query.
+ *  @param name Output only. The resource name of the snapshot, in the format
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Snapshot *)object
                            name:(NSString *)name;
 
 @end

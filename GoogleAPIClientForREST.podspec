@@ -232,6 +232,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudDebugger/*.{h,m}'
   end
+  s.subspec 'CloudDeploy' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudDeploy/*.{h,m}'
+  end
   s.subspec 'CloudDomains' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudDomains/*.{h,m}'
@@ -331,6 +335,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudSourceRepositories' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudSourceRepositories/*.{h,m}'
+  end
+  s.subspec 'CloudSupport' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudSupport/*.{h,m}'
   end
   s.subspec 'CloudTalentSolution' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

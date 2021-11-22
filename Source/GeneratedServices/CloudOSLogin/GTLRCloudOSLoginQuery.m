@@ -83,6 +83,33 @@
 
 @end
 
+@implementation GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudOSLogin_SshPublicKey *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sshPublicKey";
+  GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudOSLogin_SshPublicKey class];
+  query.loggingName = @"oslogin.users.sshPublicKey.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudOSLoginQuery_UsersSshPublicKeysDelete
 
 @dynamic name;

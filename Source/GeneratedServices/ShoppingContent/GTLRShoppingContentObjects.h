@@ -247,6 +247,7 @@
 @class GTLRShoppingContent_TestOrderLineItemProduct;
 @class GTLRShoppingContent_TestOrderPickupDetails;
 @class GTLRShoppingContent_TestOrderPickupDetailsPickupPerson;
+@class GTLRShoppingContent_TimePeriod;
 @class GTLRShoppingContent_TimeZone;
 @class GTLRShoppingContent_TransitTable;
 @class GTLRShoppingContent_TransitTableTransitTimeRow;
@@ -10428,8 +10429,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** String representation of the promotion display dates. */
 @property(nonatomic, copy, nullable) NSString *promotionDisplayDates;
 
+/** TimePeriod representation of the promotion display dates. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionDisplayTimePeriod;
+
 /** Required. String representation of the promotion effective dates. */
 @property(nonatomic, copy, nullable) NSString *promotionEffectiveDates;
+
+/** Required. TimePeriod representation of the promotion effective dates. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionEffectiveTimePeriod;
 
 /**
  *  Required. The user provided promotion id to uniquely identify the promotion.
@@ -13312,6 +13319,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /** Required. The phone number of the person picking up the items. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
+ *  A message that represents a time period.
+ */
+@interface GTLRShoppingContent_TimePeriod : GTLRObject
+
+/** The ending timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The starting timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

@@ -1989,6 +1989,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_P
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.preferentialNetworkService
+
+/**
+ *  Preferential network service is disabled on the work profile.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_SERVICE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled;
+/**
+ *  Preferential network service is enabled on the work profile.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_SERVICE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled;
+/**
+ *  Unspecified. Defaults to PREFERENTIAL_NETWORK_SERVICES_DISABLED.
+ *
+ *  Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 
 /**
@@ -2986,7 +3008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetPasswordFlags;
 
 /**
- *  The type of the command.
+ *  The type of the command. See also params
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified This
@@ -3969,6 +3991,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** Baseband version. For example, MDM9625_104662.22.05.34p. */
 @property(nonatomic, copy, nullable) NSString *deviceBasebandVersion;
+
+/**
+ *  Output only. ID that uniquely identifies a personally-owned device in a
+ *  particular organization. On the same physical device when enrolled with the
+ *  same organization, this ID persists across setups and even factory resets.
+ *  This ID is available on personally-owned devices with a work profile on
+ *  devices running Android 12 and above.
+ */
+@property(nonatomic, copy, nullable) NSString *enterpriseSpecificId;
 
 /**
  *  GPU shutdown temperature thresholds in Celsius for each GPU on the device.
@@ -5688,6 +5719,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  on device
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PolicyEnforcementRule *> *policyEnforcementRules;
+
+/**
+ *  Controls whether preferential network service is enabled on the work
+ *  profile. For example, an organization may have an agreement with a carrier
+ *  that all of the work data from its employees' devices will be sent via a
+ *  network service dedicated for enterprise use. An example of a supported
+ *  preferential network service is the enterprise slice on 5G networks. This
+ *  has no effect on fully managed devices.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled
+ *        Preferential network service is disabled on the work profile. (Value:
+ *        "PREFERENTIAL_NETWORK_SERVICE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled
+ *        Preferential network service is enabled on the work profile. (Value:
+ *        "PREFERENTIAL_NETWORK_SERVICE_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified
+ *        Unspecified. Defaults to PREFERENTIAL_NETWORK_SERVICES_DISABLED.
+ *        (Value: "PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *preferentialNetworkService;
 
 /**
  *  Allows showing UI on a device for a user to choose a private key alias if

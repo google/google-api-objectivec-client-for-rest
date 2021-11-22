@@ -70,6 +70,33 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a docker image.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.dockerImages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the docker images. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_DockerImage.
+ *
+ *  Gets a docker image.
+ *
+ *  @param name Required. The name of the docker images.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists docker images.
  *
  *  Method: artifactregistry.projects.locations.repositories.dockerImages.list

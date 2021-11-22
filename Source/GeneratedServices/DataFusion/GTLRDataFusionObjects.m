@@ -37,12 +37,17 @@ NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRDataFusion_Instance.disabledReason
+NSString * const kGTLRDataFusion_Instance_DisabledReason_DisabledReasonUnspecified = @"DISABLED_REASON_UNSPECIFIED";
+NSString * const kGTLRDataFusion_Instance_DisabledReason_KmsKeyIssue = @"KMS_KEY_ISSUE";
+
 // GTLRDataFusion_Instance.state
 NSString * const kGTLRDataFusion_Instance_State_Active         = @"ACTIVE";
 NSString * const kGTLRDataFusion_Instance_State_AutoUpdating   = @"AUTO_UPDATING";
 NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading  = @"AUTO_UPGRADING";
 NSString * const kGTLRDataFusion_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRDataFusion_Instance_State_Deleting       = @"DELETING";
+NSString * const kGTLRDataFusion_Instance_State_Disabled       = @"DISABLED";
 NSString * const kGTLRDataFusion_Instance_State_Failed         = @"FAILED";
 NSString * const kGTLRDataFusion_Instance_State_Restarting     = @"RESTARTING";
 NSString * const kGTLRDataFusion_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -54,6 +59,11 @@ NSString * const kGTLRDataFusion_Instance_Type_Basic           = @"BASIC";
 NSString * const kGTLRDataFusion_Instance_Type_Developer       = @"DEVELOPER";
 NSString * const kGTLRDataFusion_Instance_Type_Enterprise      = @"ENTERPRISE";
 NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDataFusion_Version.type
+NSString * const kGTLRDataFusion_Version_Type_TypeGeneralAvailability = @"TYPE_GENERAL_AVAILABILITY";
+NSString * const kGTLRDataFusion_Version_Type_TypePreview      = @"TYPE_PREVIEW";
+NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -170,7 +180,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 @implementation GTLRDataFusion_Instance
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
          cryptoKeyConfig, dataprocServiceAccount, descriptionProperty,
-         displayName, enableRbac, enableStackdriverLogging,
+         disabledReason, displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
          options, p4ServiceAccount, privateInstance, serviceAccount,
          serviceEndpoint, state, stateMessage, tenantProjectId, type,
@@ -187,7 +197,8 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRDataFusion_Accelerator class],
-    @"availableVersion" : [GTLRDataFusion_Version class]
+    @"availableVersion" : [GTLRDataFusion_Version class],
+    @"disabledReason" : [NSString class]
   };
   return map;
 }
@@ -539,7 +550,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Version
-@dynamic availableFeatures, defaultVersion, versionNumber;
+@dynamic availableFeatures, defaultVersion, type, versionNumber;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

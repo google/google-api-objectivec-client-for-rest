@@ -94,6 +94,7 @@
 @class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PubsubDestination;
+@class GTLRCloudAsset_QueryContent;
 @class GTLRCloudAsset_RelatedAsset;
 @class GTLRCloudAsset_RelatedAssets;
 @class GTLRCloudAsset_RelatedResource;
@@ -106,6 +107,8 @@
 @class GTLRCloudAsset_ResourceSearchResult_Labels;
 @class GTLRCloudAsset_ResourceSearchResult_Relationships;
 @class GTLRCloudAsset_ResourceSelector;
+@class GTLRCloudAsset_SavedQuery;
+@class GTLRCloudAsset_SavedQuery_Labels;
 @class GTLRCloudAsset_SoftwarePackage;
 @class GTLRCloudAsset_Status;
 @class GTLRCloudAsset_Status_Details_Item;
@@ -822,6 +825,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  to.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_IamPolicyAnalysisOutputConfig *outputConfig;
+
+/**
+ *  Optional. The name of a saved query, which must be in the format of: *
+ *  projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id If both
+ *  `analysis_query` and `saved_analysis_query` are provided, they will be
+ *  merged together with the `saved_analysis_query` as base and the
+ *  `analysis_query` as overrides. For more details of the merge behavior,
+ *  please refer to the
+ *  [MergeFrom](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details)
+ *  doc. Note that you cannot override primitive fields with default value, such
+ *  as 0 or empty string, etc., because we use proto3, which doesn't support
+ *  field presence yet.
+ */
+@property(nonatomic, copy, nullable) NSString *savedAnalysisQuery;
 
 @end
 
@@ -3516,6 +3535,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Response of listing saved queries.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "savedQueries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudAsset_ListSavedQueriesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of savedQueries.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_SavedQuery *> *savedQueries;
+
+@end
+
+
+/**
  *  A message to group the analysis information.
  */
 @interface GTLRCloudAsset_MoveAnalysis : GTLRObject
@@ -3932,6 +3978,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `projects/PROJECT_ID/topics/TOPIC_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  The query content.
+ */
+@interface GTLRCloudAsset_QueryContent : GTLRObject
+
+/**
+ *  An IAM Policy Analysis query, which could be used in the
+ *  AssetService.AnalyzeIamPolicy rpc or the
+ *  AssetService.AnalyzeIamPolicyLongrunning rpc.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_IamPolicyAnalysisQuery *iamPolicyAnalysisQuery;
 
 @end
 
@@ -4401,6 +4462,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
+@end
+
+
+/**
+ *  A saved query which can be shared with others or used later.
+ */
+@interface GTLRCloudAsset_SavedQuery : GTLRObject
+
+/** The query content. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_QueryContent *content;
+
+/** Output only. The create time of this saved query. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The account's email address who has created this saved query.
+ */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/**
+ *  The description of this saved query. This value should be fewer than 255
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Labels applied on the resource. This value should not contain more than 10
+ *  entries. The key and value of each entry must be non-empty and fewer than 64
+ *  characters.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_SavedQuery_Labels *labels;
+
+/**
+ *  Output only. The account's email address who has updated this saved query
+ *  most recently.
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdater;
+
+/** Output only. The last update time of this saved query. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  The resource name of the saved query. The format must be: *
+ *  projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Labels applied on the resource. This value should not contain more than 10
+ *  entries. The key and value of each entry must be non-empty and fewer than 64
+ *  characters.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAsset_SavedQuery_Labels : GTLRObject
 @end
 
 

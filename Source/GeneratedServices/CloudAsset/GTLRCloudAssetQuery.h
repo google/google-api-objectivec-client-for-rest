@@ -23,6 +23,7 @@
 @class GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest;
 @class GTLRCloudAsset_CreateFeedRequest;
 @class GTLRCloudAsset_ExportAssetsRequest;
+@class GTLRCloudAsset_SavedQuery;
 @class GTLRCloudAsset_UpdateFeedRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -446,6 +447,227 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @end
 
 /**
+ *  Creates a saved query in a parent project/folder/organization.
+ *
+ *  Method: cloudasset.savedQueries.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_SavedQueriesCreate : GTLRCloudAssetQuery
+
+/**
+ *  Required. The name of the project/folder/organization where this saved_query
+ *  should be created in. It can only be an organization number (such as
+ *  "organizations/123"), a folder number (such as "folders/123"), a project ID
+ *  (such as "projects/my-project-id")", or a project number (such as
+ *  "projects/12345").
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the saved query, which must be unique in the
+ *  specified parent. It will become the final component of the saved query's
+ *  resource name. This value should be 4-63 characters, and valid characters
+ *  are /a-z-/. Notice that this field is required in the saved query creation,
+ *  and the `name` field of the `saved_query` will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *savedQueryId;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_SavedQuery.
+ *
+ *  Creates a saved query in a parent project/folder/organization.
+ *
+ *  @param object The @c GTLRCloudAsset_SavedQuery to include in the query.
+ *  @param parent Required. The name of the project/folder/organization where
+ *    this saved_query should be created in. It can only be an organization
+ *    number (such as "organizations/123"), a folder number (such as
+ *    "folders/123"), a project ID (such as "projects/my-project-id")", or a
+ *    project number (such as "projects/12345").
+ *
+ *  @return GTLRCloudAssetQuery_SavedQueriesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudAsset_SavedQuery *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a saved query.
+ *
+ *  Method: cloudasset.savedQueries.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_SavedQueriesDelete : GTLRCloudAssetQuery
+
+/**
+ *  Required. The name of the saved query to delete. It must be in the format
+ *  of: * projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_Empty.
+ *
+ *  Deletes a saved query.
+ *
+ *  @param name Required. The name of the saved query to delete. It must be in
+ *    the format of: * projects/project_number/savedQueries/saved_query_id *
+ *    folders/folder_number/savedQueries/saved_query_id *
+ *    organizations/organization_number/savedQueries/saved_query_id
+ *
+ *  @return GTLRCloudAssetQuery_SavedQueriesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details about a saved query.
+ *
+ *  Method: cloudasset.savedQueries.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_SavedQueriesGet : GTLRCloudAssetQuery
+
+/**
+ *  Required. The name of the saved query and it must be in the format of: *
+ *  projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_SavedQuery.
+ *
+ *  Gets details about a saved query.
+ *
+ *  @param name Required. The name of the saved query and it must be in the
+ *    format of: * projects/project_number/savedQueries/saved_query_id *
+ *    folders/folder_number/savedQueries/saved_query_id *
+ *    organizations/organization_number/savedQueries/saved_query_id
+ *
+ *  @return GTLRCloudAssetQuery_SavedQueriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all saved queries in a parent project/folder/organization.
+ *
+ *  Method: cloudasset.savedQueries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_SavedQueriesList : GTLRCloudAssetQuery
+
+/**
+ *  Optional. The expression to filter resources. The expression is a list of
+ *  zero or more restrictions combined via logical operators `AND` and `OR`.
+ *  When `AND` and `OR` are both used in the expression, parentheses must be
+ *  appropriately used to group the combinations. The expression may also
+ *  contain regular expressions. See https://google.aip.dev/160 for more
+ *  information on the grammar.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of saved queries to return per page. The
+ *  service may return fewer than this value. If unspecified, at most 50 will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListSavedQueries` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListSavedQueries` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent project/folder/organization whose savedQueries are to
+ *  be listed. It can only be using project/folder/organization number (such as
+ *  "folders/12345")", or a project ID (such as "projects/my-project-id").
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_ListSavedQueriesResponse.
+ *
+ *  Lists all saved queries in a parent project/folder/organization.
+ *
+ *  @param parent Required. The parent project/folder/organization whose
+ *    savedQueries are to be listed. It can only be using
+ *    project/folder/organization number (such as "folders/12345")", or a
+ *    project ID (such as "projects/my-project-id").
+ *
+ *  @return GTLRCloudAssetQuery_SavedQueriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a saved query.
+ *
+ *  Method: cloudasset.savedQueries.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_SavedQueriesPatch : GTLRCloudAssetQuery
+
+/**
+ *  The resource name of the saved query. The format must be: *
+ *  projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_SavedQuery.
+ *
+ *  Updates a saved query.
+ *
+ *  @param object The @c GTLRCloudAsset_SavedQuery to include in the query.
+ *  @param name The resource name of the saved query. The format must be: *
+ *    projects/project_number/savedQueries/saved_query_id *
+ *    folders/folder_number/savedQueries/saved_query_id *
+ *    organizations/organization_number/savedQueries/saved_query_id
+ *
+ *  @return GTLRCloudAssetQuery_SavedQueriesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudAsset_SavedQuery *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Analyzes IAM policies to answer which identities have what accesses on which
  *  resources.
  *
@@ -571,6 +793,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  then, you will get a DEADLINE_EXCEEDED error. Default is empty.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *executionTimeout;
+
+/**
+ *  Optional. The name of a saved query, which must be in the format of: *
+ *  projects/project_number/savedQueries/saved_query_id *
+ *  folders/folder_number/savedQueries/saved_query_id *
+ *  organizations/organization_number/savedQueries/saved_query_id If both
+ *  `analysis_query` and `saved_analysis_query` are provided, they will be
+ *  merged together with the `saved_analysis_query` as base and the
+ *  `analysis_query` as overrides. For more details of the merge behavior,
+ *  please refer to the
+ *  [MergeFrom](https://developers.google.com/protocol-buffers/docs/reference/cpp/google.protobuf.message#Message.MergeFrom.details)
+ *  page. Note that you cannot override primitive fields with default value,
+ *  such as 0 or empty string, etc., because we use proto3, which doesn't
+ *  support field presence yet.
+ */
+@property(nonatomic, copy, nullable) NSString *savedAnalysisQuery;
 
 /**
  *  Required. The relative name of the root asset. Only resources and IAM

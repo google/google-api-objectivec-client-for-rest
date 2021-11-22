@@ -286,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of this connection profile resource in the form of
- *  projects/{project}/locations/{location}/connectionProfiles/{instance}.
+ *  projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -315,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_ConnectionProfile to
  *    include in the query.
  *  @param name The name of this connection profile resource in the form of
- *    projects/{project}/locations/{location}/connectionProfiles/{instance}.
+ *    projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesPatch
  */
@@ -743,7 +743,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (URI) of this migration job resource, in the form of:
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -772,7 +772,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_MigrationJob to include in
  *    the query.
  *  @param name The name (URI) of this migration job resource, in the form of:
- *    projects/{project}/locations/{location}/instances/{instance}.
+ *    projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsPatch
  */

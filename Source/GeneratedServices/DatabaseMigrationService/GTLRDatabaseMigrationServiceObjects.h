@@ -397,7 +397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_St
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_State_Maintenance;
 /**
- *  The migration job is created, not started and is fully editable.
+ *  The migration job is created and not started.
  *
  *  Value: "NOT_STARTED"
  */
@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 
 /**
  *  The name of this connection profile resource in the form of
- *  projects/{project}/locations/{location}/connectionProfiles/{instance}.
+ *  projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1439,7 +1439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 
 /**
  *  The name (URI) of this migration job resource, in the form of:
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  projects/{project}/locations/{location}/migrationJobs/{migrationJob}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1498,8 +1498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_State_Maintenance The
  *        migration job is down for maintenance. (Value: "MAINTENANCE")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_State_NotStarted The
- *        migration job is created, not started and is fully editable. (Value:
- *        "NOT_STARTED")
+ *        migration job is created and not started. (Value: "NOT_STARTED")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_State_Restarting The
  *        migration job is restarting. (Value: "RESTARTING")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_State_Resuming The

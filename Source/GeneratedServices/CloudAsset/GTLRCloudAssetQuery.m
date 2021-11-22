@@ -197,6 +197,117 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 @end
 
+@implementation GTLRCloudAssetQuery_SavedQueriesCreate
+
+@dynamic parent, savedQueryId;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_SavedQuery *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/savedQueries";
+  GTLRCloudAssetQuery_SavedQueriesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_SavedQuery class];
+  query.loggingName = @"cloudasset.savedQueries.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_SavedQueriesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_SavedQueriesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_Empty class];
+  query.loggingName = @"cloudasset.savedQueries.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_SavedQueriesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_SavedQueriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_SavedQuery class];
+  query.loggingName = @"cloudasset.savedQueries.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_SavedQueriesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/savedQueries";
+  GTLRCloudAssetQuery_SavedQueriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_ListSavedQueriesResponse class];
+  query.loggingName = @"cloudasset.savedQueries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_SavedQueriesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_SavedQuery *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudAssetQuery_SavedQueriesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudAsset_SavedQuery class];
+  query.loggingName = @"cloudasset.savedQueries.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_V1AnalyzeIamPolicy
 
 @dynamic analysisQueryAccessSelectorPermissions,
@@ -207,7 +318,8 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
          analysisQueryOptionsExpandGroups, analysisQueryOptionsExpandResources,
          analysisQueryOptionsExpandRoles, analysisQueryOptionsOutputGroupEdges,
          analysisQueryOptionsOutputResourceEdges,
-         analysisQueryResourceSelectorFullResourceName, executionTimeout, scope;
+         analysisQueryResourceSelectorFullResourceName, executionTimeout,
+         savedAnalysisQuery, scope;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

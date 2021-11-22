@@ -230,6 +230,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig
 //
 
@@ -412,6 +430,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesResponse
 @end
 
 

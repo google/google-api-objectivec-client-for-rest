@@ -4,8 +4,10 @@
 // API:
 //   Binary Authorization API (binaryauthorization/v1)
 // Description:
-//   The management interface for Binary Authorization, a system providing
-//   policy control for images deployed to Kubernetes Engine clusters.
+//   The management interface for Binary Authorization, a service that provides
+//   policy-based deployment validation and control for images deployed to
+//   Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, and
+//   Cloud Run.
 // Documentation:
 //   https://cloud.google.com/binary-authorization/
 
@@ -94,7 +96,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_Evalua
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_EvaluationModeUnspecified;
 /**
  *  This rule allows a pod creation if all the attestors listed in
- *  'require_attestations_by' have valid attestations for all of the images in
+ *  `require_attestations_by` have valid attestations for all of the images in
  *  the pod spec.
  *
  *  Value: "REQUIRE_ATTESTATION"
@@ -276,7 +278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *        Do not use. (Value: "EVALUATION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAttestation
  *        This rule allows a pod creation if all the attestors listed in
- *        'require_attestations_by' have valid attestations for all of the
+ *        `require_attestations_by` have valid attestations for all of the
  *        images in the pod spec. (Value: "REQUIRE_ATTESTATION")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationMode;
@@ -800,20 +802,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 /**
  *  Optional. Per-istio-service-identity admission rules. Istio service identity
- *  spec format: spiffe:///ns//sa/ or /ns//sa/ e.g.
- *  spiffe://example.com/ns/test-ns/sa/default
+ *  spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g.
+ *  `spiffe://example.com/ns/test-ns/sa/default`
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules *istioServiceIdentityAdmissionRules;
 
 /**
  *  Optional. Per-kubernetes-namespace admission rules. K8s namespace spec
- *  format: [a-z.-]+, e.g. 'some-namespace'
+ *  format: `[a-z.-]+`, e.g. `some-namespace`
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules *kubernetesNamespaceAdmissionRules;
 
 /**
  *  Optional. Per-kubernetes-service-account admission rules. Service account
- *  spec format: `namespace:serviceaccount`. e.g. 'test-ns:default'
+ *  spec format: `namespace:serviceaccount`. e.g. `test-ns:default`
  */
 @property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules *kubernetesServiceAccountAdmissionRules;
 
@@ -847,8 +849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 /**
  *  Optional. Per-istio-service-identity admission rules. Istio service identity
- *  spec format: spiffe:///ns//sa/ or /ns//sa/ e.g.
- *  spiffe://example.com/ns/test-ns/sa/default
+ *  spec format: `spiffe:///ns//sa/` or `/ns//sa/` e.g.
+ *  `spiffe://example.com/ns/test-ns/sa/default`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and
@@ -861,7 +863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 /**
  *  Optional. Per-kubernetes-namespace admission rules. K8s namespace spec
- *  format: [a-z.-]+, e.g. 'some-namespace'
+ *  format: `[a-z.-]+`, e.g. `some-namespace`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and
@@ -874,7 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 /**
  *  Optional. Per-kubernetes-service-account admission rules. Service account
- *  spec format: `namespace:serviceaccount`. e.g. 'test-ns:default'
+ *  spec format: `namespace:serviceaccount`. e.g. `test-ns:default`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and

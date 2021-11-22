@@ -96,6 +96,7 @@
 @class GTLROSConfig_VulnerabilityReportVulnerability;
 @class GTLROSConfig_VulnerabilityReportVulnerabilityDetails;
 @class GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference;
+@class GTLROSConfig_VulnerabilityReportVulnerabilityItem;
 @class GTLROSConfig_WeekDayOfMonth;
 @class GTLROSConfig_WeeklySchedule;
 @class GTLROSConfig_WindowsUpdateSettings;
@@ -392,6 +393,68 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powe
  *  Value: "SHELL"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Shell;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata.apiMethod
+
+/**
+ *  Invalid value
+ *
+ *  Value: "API_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified;
+/**
+ *  Create OS policy assignment API method
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Create;
+/**
+ *  Delete OS policy assignment API method
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Delete;
+/**
+ *  Update OS policy assignment API method
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Update;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata.rolloutState
+
+/**
+ *  The rollout is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled;
+/**
+ *  The rollout is being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling;
+/**
+ *  The rollout is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_InProgress;
+/**
+ *  Invalid value
+ *
+ *  Value: "ROLLOUT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified;
+/**
+ *  The rollout has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLROSConfig_InventoryItem.originType
@@ -960,7 +1023,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchRollout_Mode_ZoneByZone;
 // GTLROSConfig_RecurringSchedule.frequency
 
 /**
- *  Indicates that the frequency should be expressed in terms of days.
+ *  Indicates that the frequency of recurrence should be expressed in terms of
+ *  days.
  *
  *  Value: "DAILY"
  */
@@ -972,13 +1036,15 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Dai
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_RecurringSchedule_Frequency_FrequencyUnspecified;
 /**
- *  Indicates that the frequency should be expressed in terms of months.
+ *  Indicates that the frequency of recurrence should be expressed in terms of
+ *  months.
  *
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_RecurringSchedule_Frequency_Monthly;
 /**
- *  Indicates that the frequency should be expressed in terms of weeks.
+ *  Indicates that the frequency of recurrence should be expressed in terms of
+ *  weeks.
  *
  *  Value: "WEEKLY"
  */
@@ -1600,6 +1666,59 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 /** Required. Name of the Cloud Storage object. */
 @property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  OS policy assignment operation metadata provided by OS policy assignment API
+ *  methods that return long running operations.
+ */
+@interface GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata : GTLRObject
+
+/**
+ *  The OS policy assignment API method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified
+ *        Invalid value (Value: "API_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Create
+ *        Create OS policy assignment API method (Value: "CREATE")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Delete
+ *        Delete OS policy assignment API method (Value: "DELETE")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Update
+ *        Update OS policy assignment API method (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *apiMethod;
+
+/**
+ *  Reference to the `OSPolicyAssignment` API resource. Format:
+ *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id\@revision_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *osPolicyAssignment;
+
+/** Rollout start time */
+@property(nonatomic, strong, nullable) GTLRDateTime *rolloutStartTime;
+
+/**
+ *  State of the rollout
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled
+ *        The rollout is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling
+ *        The rollout is being cancelled. (Value: "CANCELLING")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_InProgress
+ *        The rollout is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified
+ *        Invalid value (Value: "ROLLOUT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded
+ *        The rollout has completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutState;
+
+/** Rollout update time */
+@property(nonatomic, strong, nullable) GTLRDateTime *rolloutUpdateTime;
 
 @end
 
@@ -3952,15 +4071,17 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *
  *  Likely values:
  *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_Daily Indicates that the
- *        frequency should be expressed in terms of days. (Value: "DAILY")
+ *        frequency of recurrence should be expressed in terms of days. (Value:
+ *        "DAILY")
  *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_FrequencyUnspecified
  *        Invalid. A frequency must be specified. (Value:
  *        "FREQUENCY_UNSPECIFIED")
  *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_Monthly Indicates that
- *        the frequency should be expressed in terms of months. (Value:
- *        "MONTHLY")
+ *        the frequency of recurrence should be expressed in terms of months.
+ *        (Value: "MONTHLY")
  *    @arg @c kGTLROSConfig_RecurringSchedule_Frequency_Weekly Indicates that
- *        the frequency should be expressed in terms of weeks. (Value: "WEEKLY")
+ *        the frequency of recurrence should be expressed in terms of weeks.
+ *        (Value: "WEEKLY")
  */
 @property(nonatomic, copy, nullable) NSString *frequency;
 
@@ -4126,8 +4247,11 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 /**
  *  A vulnerability affecting the VM instance.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
  */
-@interface GTLROSConfig_VulnerabilityReportVulnerability : GTLRObject
+@interface GTLROSConfig_VulnerabilityReportVulnerability : GTLRCollectionObject
 
 /**
  *  Corresponds to the `AVAILABLE_PACKAGE` inventory item on the VM. If the
@@ -4154,6 +4278,14 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *installedInventoryItemIds;
+
+/**
+ *  List of items affected by the vulnerability.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_VulnerabilityReportVulnerabilityItem *> *items;
 
 /** The timestamp for when the vulnerability was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -4215,9 +4347,58 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  OS inventory item that is affected by a vulnerability or fixed as a result
+ *  of a vulnerability.
+ */
+@interface GTLROSConfig_VulnerabilityReportVulnerabilityItem : GTLRObject
+
+/**
+ *  Corresponds to the `AVAILABLE_PACKAGE` inventory item on the VM. If the
+ *  vulnerability report was not updated after the VM inventory update, these
+ *  values might not display in VM inventory. If there is no available fix, the
+ *  field is empty. The `inventory_item` value specifies the latest
+ *  `SoftwarePackage` available to the VM that fixes the vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *availableInventoryItemId;
+
+/**
+ *  The recommended [CPE URI](https://cpe.mitre.org/specification/) update that
+ *  contains a fix for this vulnerability.
+ */
+@property(nonatomic, copy, nullable) NSString *fixedCpeUri;
+
+/**
+ *  Corresponds to the `INSTALLED_PACKAGE` inventory item on the VM. This field
+ *  displays the inventory items affected by this vulnerability. If the
+ *  vulnerability report was not updated after the VM inventory update, these
+ *  values might not display in VM inventory. For some operating systems, this
+ *  field might be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *installedInventoryItemId;
+
+/** The upstream OS patch, packages or KB that fixes the vulnerability. */
+@property(nonatomic, copy, nullable) NSString *upstreamFix;
+
+@end
+
+
+/**
  *  Represents one week day in a month. An example is "the 4th Sunday".
  */
 @interface GTLROSConfig_WeekDayOfMonth : GTLRObject
+
+/**
+ *  Optional. Represents the number of days before or after the given week day
+ *  of month that the patch deployment is scheduled for. For example if
+ *  `week_ordinal` and `day_of_week` values point to the second day of the month
+ *  and this `day_offset` value is set to `3`, the patch deployment takes place
+ *  three days after the second Tuesday of the month. If this value is negative,
+ *  for example -5, the patches are deployed five days before before the second
+ *  Tuesday of the month. Allowed values are in range [-30, 30].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dayOffset;
 
 /**
  *  Required. A day of the week.

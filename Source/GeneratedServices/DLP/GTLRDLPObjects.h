@@ -149,6 +149,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2RecordTransformations;
 @class GTLRDLP_GooglePrivacyDlpV2RedactConfig;
 @class GTLRDLP_GooglePrivacyDlpV2Regex;
+@class GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2RequestedOptions;
@@ -3510,6 +3511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional version name for this InfoType. */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -4804,6 +4808,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Replace with a specified value. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig *replaceConfig;
 
+/**
+ *  Replace with a value randomly drawn (with replacement) from a dictionary.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig *replaceDictionaryConfig;
+
 /** Replace with infotype */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig *replaceWithInfoTypeConfig;
 
@@ -5244,6 +5253,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** An overview of the changes that were made to the `item`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TransformationOverview *overview;
+
+@end
+
+
+/**
+ *  Replace each input value with a value randomly selected from the dictionary.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig : GTLRObject
+
+/**
+ *  A list of words to select from for random replacement. The
+ *  [limits](https://cloud.google.com/dlp/limits) page contains details about
+ *  the size limits of dictionaries.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2WordList *wordList;
 
 @end
 

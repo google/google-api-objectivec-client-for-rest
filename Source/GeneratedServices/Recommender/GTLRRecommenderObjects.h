@@ -588,8 +588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest_StateMetadata *stateMetadata;
 
@@ -598,8 +598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -622,8 +622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest_StateMetadata *stateMetadata;
 
@@ -632,8 +632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -656,8 +656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest_StateMetadata *stateMetadata;
 
@@ -666,8 +666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
- *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex `/^a-z0-9{0,62}$/`. Values must
+ *  match the regex `/^[a-zA-Z0-9_./-]{0,255}$/`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -705,12 +705,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  Set of filters to apply if `path` refers to array elements or nested array
  *  elements in order to narrow down to a single unique element that is being
  *  tested/modified. This is intended to be an exact match per filter. To
- *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
- *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
- *  "/bindings/ * /role": "roles/owner" "/bindings/ * /condition" : null } *
- *  Example: { "/bindings/ * /role": "roles/owner" "/bindings/ * /members/ *" :
- *  ["x\@example.com", "y\@example.com"] } When both path_filters and
- *  path_value_matchers are set, an implicit AND must be performed.
+ *  perform advanced matching, use path_value_matchers. * Example: ``` {
+ *  "/versions/ * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } ```
+ *  * Example: ``` { "/bindings/ * /role": "roles/owner" "/bindings/ *
+ *  /condition" : null } ``` * Example: ``` { "/bindings/ * /role":
+ *  "roles/owner" "/bindings/ * /members/ *" : ["x\@example.com",
+ *  "y\@example.com"] } ``` When both path_filters and path_value_matchers are
+ *  set, an implicit AND must be performed.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Operation_PathFilters *pathFilters;
 
@@ -772,12 +773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  Set of filters to apply if `path` refers to array elements or nested array
  *  elements in order to narrow down to a single unique element that is being
  *  tested/modified. This is intended to be an exact match per filter. To
- *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
- *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
- *  "/bindings/ * /role": "roles/owner" "/bindings/ * /condition" : null } *
- *  Example: { "/bindings/ * /role": "roles/owner" "/bindings/ * /members/ *" :
- *  ["x\@example.com", "y\@example.com"] } When both path_filters and
- *  path_value_matchers are set, an implicit AND must be performed.
+ *  perform advanced matching, use path_value_matchers. * Example: ``` {
+ *  "/versions/ * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } ```
+ *  * Example: ``` { "/bindings/ * /role": "roles/owner" "/bindings/ *
+ *  /condition" : null } ``` * Example: ``` { "/bindings/ * /role":
+ *  "roles/owner" "/bindings/ * /members/ *" : ["x\@example.com",
+ *  "y\@example.com"] } ``` When both path_filters and path_value_matchers are
+ *  set, an implicit AND must be performed.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -901,6 +903,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /** Information for state. Contains state and metadata. */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo *stateInfo;
+
+/**
+ *  Corresponds to a mutually exclusive group ID within a recommender. A
+ *  non-empty ID indicates that the recommendation belongs to a mutually
+ *  exclusive group. This means that only one recommendation within the group is
+ *  suggested to be applied.
+ */
+@property(nonatomic, copy, nullable) NSString *xorGroupId;
 
 @end
 

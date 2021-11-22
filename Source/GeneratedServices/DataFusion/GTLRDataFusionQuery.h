@@ -85,11 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesCreate : GTLRDataFusionQuery
 
-/** The name of the instance to create. */
+/** Required. The name of the instance to create. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
- *  The instance's project and location in the format
+ *  Required. The instance's project and location in the format
  *  projects/{project}/locations/{location}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new Data Fusion instance in the specified project and location.
  *
  *  @param object The @c GTLRDataFusion_Instance to include in the query.
- *  @param parent The instance's project and location in the format
+ *  @param parent Required. The instance's project and location in the format
  *    projects/{project}/locations/{location}.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesCreate
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesDelete : GTLRDataFusionQuery
 
 /**
- *  The instance resource name in the format
+ *  Required. The instance resource name in the format
  *  projects/{project}/locations/{location}/instances/{instance}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -131,7 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single Date Fusion instance.
  *
- *  @param name The instance resource name in the format
+ *  @param name Required. The instance resource name in the format
  *    projects/{project}/locations/{location}/instances/{instance}
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesDelete
@@ -151,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesGet : GTLRDataFusionQuery
 
 /**
- *  The instance resource name in the format
+ *  Required. The instance resource name in the format
  *  projects/{project}/locations/{location}/instances/{instance}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -161,7 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single Data Fusion instance.
  *
- *  @param name The instance resource name in the format
+ *  @param name Required. The instance resource name in the format
  *    projects/{project}/locations/{location}/instances/{instance}.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesGet
@@ -242,10 +242,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project and location for which to retrieve instance information in the
- *  format projects/{project}/locations/{location}. If the location is specified
- *  as '-' (wildcard), then all regions available to the project are queried,
- *  and the results are aggregated.
+ *  Required. The project and location for which to retrieve instance
+ *  information in the format projects/{project}/locations/{location}. If the
+ *  location is specified as '-' (wildcard), then all regions available to the
+ *  project are queried, and the results are aggregated.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -254,10 +254,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Data Fusion instances in the specified project and location.
  *
- *  @param parent The project and location for which to retrieve instance
- *    information in the format projects/{project}/locations/{location}. If the
- *    location is specified as '-' (wildcard), then all regions available to the
- *    project are queried, and the results are aggregated.
+ *  @param parent Required. The project and location for which to retrieve
+ *    instance information in the format
+ *    projects/{project}/locations/{location}. If the location is specified as
+ *    '-' (wildcard), then all regions available to the project are queried, and
+ *    the results are aggregated.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesList
  *
@@ -324,8 +325,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataFusionQuery_ProjectsLocationsInstancesRestart : GTLRDataFusionQuery
 
 /**
- *  Name of the Data Fusion instance which need to be restarted in the form of
- *  projects/{project}/locations/{location}/instances/{instance}
+ *  Required. Name of the Data Fusion instance which need to be restarted in the
+ *  form of projects/{project}/locations/{location}/instances/{instance}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -337,8 +338,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataFusion_RestartInstanceRequest to include in the
  *    query.
- *  @param name Name of the Data Fusion instance which need to be restarted in
- *    the form of projects/{project}/locations/{location}/instances/{instance}
+ *  @param name Required. Name of the Data Fusion instance which need to be
+ *    restarted in the form of
+ *    projects/{project}/locations/{location}/instances/{instance}
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesRestart
  */

@@ -278,13 +278,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Bigtable * Cloud Key Management Service * Compute Engine * Cloud Dataflow *
  *  Cloud DLP * Cloud EKM * Cloud HSM * Cloud Identity and Access Management *
  *  Cloud Logging * Cloud Pub/Sub * Cloud Spanner * Cloud SQL * Cloud Storage *
- *  Google Kubernetes Engine * Persistent Disk * Speaker ID Note: These values
- *  are supported as input for legacy purposes, but will not be returned from
- *  the API. * all * ga-only * appengine.googleapis.com *
- *  bigquery.googleapis.com * bigtable.googleapis.com * container.googleapis.com
- *  * cloudkms.googleapis.com * cloudsql.googleapis.com * compute.googleapis.com
- *  * dataflow.googleapis.com * dlp.googleapis.com * iam.googleapis.com *
- *  logging.googleapis.com * pubsub.googleapis.com * spanner.googleapis.com *
+ *  Google Kubernetes Engine * Organization Policy Serivice * Persistent Disk *
+ *  Speaker ID Note: These values are supported as input for legacy purposes,
+ *  but will not be returned from the API. * all * ga-only *
+ *  appengine.googleapis.com * bigquery.googleapis.com * bigtable.googleapis.com
+ *  * container.googleapis.com * cloudkms.googleapis.com *
+ *  cloudsql.googleapis.com * compute.googleapis.com * dataflow.googleapis.com *
+ *  dlp.googleapis.com * iam.googleapis.com * logging.googleapis.com *
+ *  orgpolicy.googleapis.com * pubsub.googleapis.com * spanner.googleapis.com *
  *  speakerid.googleapis.com * storage.googleapis.com Calls to
  *  UpdateAccessApprovalSettings using 'all' or any of the XXX.googleapis.com
  *  will be translated to the associated product name ('all', 'App Engine',
@@ -360,10 +361,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 /**
  *  Output only. This field is read only (not settable via
- *  UpdateAccessAccessApprovalSettings method). If the field is true, that
- *  indicates that at least one service is enrolled for Access Approval in one
- *  or more ancestors of the Project or Folder (this field will always be unset
- *  for the organization since organizations do not have ancestors).
+ *  UpdateAccessApprovalSettings method). If the field is true, that indicates
+ *  that at least one service is enrolled for Access Approval in one or more
+ *  ancestors of the Project or Folder (this field will always be unset for the
+ *  organization since organizations do not have ancestors).
  *
  *  Uses NSNumber of boolValue.
  */

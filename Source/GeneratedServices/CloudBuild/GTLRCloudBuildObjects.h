@@ -218,21 +218,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnsp
 // GTLRCloudBuild_BuildOptions.logging
 
 /**
- *  Only Cloud Logging is enabled. Note that logs for both the Cloud Console UI
- *  and Cloud SDK are based on Cloud Storage logs, so neither will provide logs
- *  if this option is chosen.
+ *  Build logs are stored in Cloud Logging. Selecting this option will not allow
+ *  [logs streaming](https://cloud.google.com/sdk/gcloud/reference/builds/log).
  *
  *  Value: "CLOUD_LOGGING_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly;
 /**
- *  Only Cloud Storage logging is enabled.
+ *  Build logs are stored in Cloud Storage.
  *
  *  Value: "GCS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_GcsOnly;
 /**
- *  Cloud Logging and Cloud Storage logging are enabled.
+ *  Build logs are stored in Cloud Logging and Cloud Storage.
  *
  *  Value: "LEGACY"
  */
@@ -433,6 +432,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout;
  *  Value: "WORKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_BuildTrigger.eventType
+
+/**
+ *  EVENT_TYPE_UNSPECIFIED event_types are ignored.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildTrigger_EventType_EventTypeUnspecified;
+/**
+ *  MANUAL corresponds to manual-only invoked triggers.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Manual;
+/**
+ *  PUBSUB corresponds to pubsub triggers.
+ *
+ *  Value: "PUBSUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Pubsub;
+/**
+ *  REPO corresponds to the supported VCS integrations.
+ *
+ *  Value: "REPO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Repo;
+/**
+ *  WEBHOOK corresponds to webhook triggers.
+ *
+ *  Value: "WEBHOOK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildTrigger_EventType_Webhook;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_FailureInfo.type
@@ -858,6 +891,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  Metadata for `BatchCreateBitbucketServerConnectedRepositories` operation.
+ */
+@interface GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/**
+ *  The name of the `BitbucketServerConfig` that added connected repositories.
+ *  Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *config;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  A build resource in the Cloud Build API. At a high level, a `Build`
  *  describes where to find source code, how to build it (for example, the
  *  builder image to run on the source), and where to store the built artifacts.
@@ -1159,14 +1213,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *  are stored.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly Only Cloud
- *        Logging is enabled. Note that logs for both the Cloud Console UI and
- *        Cloud SDK are based on Cloud Storage logs, so neither will provide
- *        logs if this option is chosen. (Value: "CLOUD_LOGGING_ONLY")
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Only Cloud Storage
- *        logging is enabled. (Value: "GCS_ONLY")
- *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Cloud Logging and
- *        Cloud Storage logging are enabled. (Value: "LEGACY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly Build logs
+ *        are stored in Cloud Logging. Selecting this option will not allow
+ *        [logs
+ *        streaming](https://cloud.google.com/sdk/gcloud/reference/builds/log).
+ *        (Value: "CLOUD_LOGGING_ONLY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Build logs are stored
+ *        in Cloud Storage. (Value: "GCS_ONLY")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_Legacy Build logs are stored
+ *        in Cloud Logging and Cloud Storage. (Value: "LEGACY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified The
  *        service determines the logging mode. The default is `LEGACY`. Do not
  *        rely on the default logging behavior as it may change in the future.
@@ -1453,6 +1508,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Optional. EventType allows the user to explicitly set the type of event to
+ *  which this BuildTrigger should respond. This field is optional but will be
+ *  validated against the rest of the configuration if it is set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_EventTypeUnspecified
+ *        EVENT_TYPE_UNSPECIFIED event_types are ignored. (Value:
+ *        "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_Manual MANUAL corresponds
+ *        to manual-only invoked triggers. (Value: "MANUAL")
+ *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_Pubsub PUBSUB corresponds
+ *        to pubsub triggers. (Value: "PUBSUB")
+ *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_Repo REPO corresponds to
+ *        the supported VCS integrations. (Value: "REPO")
+ *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_Webhook WEBHOOK corresponds
+ *        to webhook triggers. (Value: "WEBHOOK")
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
 
 /**
  *  Path, from the source root, to the build configuration file (i.e.

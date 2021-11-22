@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Data pipelines API (datapipelines/v1)
+// Description:
+//   Data Pipelines provides an interface for creating, updating, and managing
+//   recurring Data Analytics jobs.
 // Documentation:
-//   https://developers.google.com/apis-explorer/#search/dataflow
+//   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -33,6 +36,7 @@
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1LaunchTemplateParameters_TransformNameMapping;
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1LaunchTemplateRequest;
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline;
+@class GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources;
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1RuntimeEnvironment;
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1RuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDatapipelines_GoogleCloudDatapipelinesV1ScheduleSpec;
@@ -800,6 +804,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Immutable. The sources of the pipeline (for example, Dataplex). The keys and
+ *  values are set by the corresponding sources during pipeline creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources *pipelineSources;
+
+/**
  *  Internal scheduling information for a pipeline. If this information is
  *  provided, periodic jobs will be created per the schedule. If not, users are
  *  responsible for creating jobs externally.
@@ -866,6 +876,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1
 /** Workload information for creating new jobs. */
 @property(nonatomic, strong, nullable) GTLRDatapipelines_GoogleCloudDatapipelinesV1Workload *workload;
 
+@end
+
+
+/**
+ *  Immutable. The sources of the pipeline (for example, Dataplex). The keys and
+ *  values are set by the corresponding sources during pipeline creation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources : GTLRObject
 @end
 
 

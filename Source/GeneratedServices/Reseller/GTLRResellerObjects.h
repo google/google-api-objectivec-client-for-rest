@@ -47,19 +47,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Customer type not known
  *
- *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
+ *  Value: "customerTypeUnspecified"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified;
 /**
  *  Domained or domain-owning customers
  *
- *  Value: "DOMAIN"
+ *  Value: "domain"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Domain;
 /**
  *  Domainless or email-verified customers
  *
- *  Value: "TEAM"
+ *  Value: "team"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
 
@@ -209,11 +209,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
  *
  *  Likely values:
  *    @arg @c kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified
- *        Customer type not known (Value: "CUSTOMER_TYPE_UNSPECIFIED")
+ *        Customer type not known (Value: "customerTypeUnspecified")
  *    @arg @c kGTLRReseller_Customer_CustomerType_Domain Domained or
- *        domain-owning customers (Value: "DOMAIN")
+ *        domain-owning customers (Value: "domain")
  *    @arg @c kGTLRReseller_Customer_CustomerType_Team Domainless or
- *        email-verified customers (Value: "TEAM")
+ *        email-verified customers (Value: "team")
  */
 @property(nonatomic, copy, nullable) NSString *customerType;
 

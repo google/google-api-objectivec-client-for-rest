@@ -70,6 +70,19 @@ NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powershell = @"POWERSHELL";
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Shell = @"SHELL";
 
+// GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata.apiMethod
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified = @"API_METHOD_UNSPECIFIED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Create = @"CREATE";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Delete = @"DELETE";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_ApiMethod_Update = @"UPDATE";
+
+// GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata.rolloutState
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled = @"CANCELLED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling = @"CANCELLING";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified = @"ROLLOUT_STATE_UNSPECIFIED";
+NSString * const kGTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded = @"SUCCEEDED";
+
 // GTLROSConfig_InventoryItem.originType
 NSString * const kGTLROSConfig_InventoryItem_OriginType_InventoryReport = @"INVENTORY_REPORT";
 NSString * const kGTLROSConfig_InventoryItem_OriginType_OriginTypeUnspecified = @"ORIGIN_TYPE_UNSPECIFIED";
@@ -349,6 +362,17 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 @implementation GTLROSConfig_GcsObject
 @dynamic bucket, generationNumber, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata
+@dynamic apiMethod, osPolicyAssignment, rolloutStartTime, rolloutState,
+         rolloutUpdateTime;
 @end
 
 
@@ -1451,12 +1475,13 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 @implementation GTLROSConfig_VulnerabilityReportVulnerability
 @dynamic availableInventoryItemIds, createTime, details,
-         installedInventoryItemIds, updateTime;
+         installedInventoryItemIds, items, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"availableInventoryItemIds" : [NSString class],
-    @"installedInventoryItemIds" : [NSString class]
+    @"installedInventoryItemIds" : [NSString class],
+    @"items" : [GTLROSConfig_VulnerabilityReportVulnerabilityItem class]
   };
   return map;
 }
@@ -1498,11 +1523,22 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_VulnerabilityReportVulnerabilityItem
+//
+
+@implementation GTLROSConfig_VulnerabilityReportVulnerabilityItem
+@dynamic availableInventoryItemId, fixedCpeUri, installedInventoryItemId,
+         upstreamFix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_WeekDayOfMonth
 //
 
 @implementation GTLROSConfig_WeekDayOfMonth
-@dynamic dayOfWeek, weekOrdinal;
+@dynamic dayOffset, dayOfWeek, weekOrdinal;
 @end
 
 

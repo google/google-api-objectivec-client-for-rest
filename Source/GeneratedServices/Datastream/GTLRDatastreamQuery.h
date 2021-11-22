@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Datastream API (datastream/v1alpha1)
+//   Datastream API (datastream/v1)
 // Documentation:
 //   https://cloud.google.com/datastream/
 
@@ -21,9 +21,11 @@
 @class GTLRDatastream_CancelOperationRequest;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_DiscoverConnectionProfileRequest;
-@class GTLRDatastream_FetchErrorsRequest;
+@class GTLRDatastream_LookupStreamObjectRequest;
 @class GTLRDatastream_PrivateConnection;
 @class GTLRDatastream_Route;
+@class GTLRDatastream_StartBackfillJobRequest;
+@class GTLRDatastream_StopBackfillJobRequest;
 @class GTLRDatastream_Stream;
 
 // Generated comments include content from the discovery document; avoid them
@@ -55,6 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Required. The connection profile identifier. */
 @property(nonatomic, copy, nullable) NSString *connectionProfileId;
+
+/** Optional. Create the connection profile without validating it. */
+@property(nonatomic, assign) BOOL force;
 
 /** Required. The parent that owns the collection of ConnectionProfiles. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -146,7 +151,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesDiscover : GTLRDatastreamQuery
 
 /**
- *  Required. The parent resource of the ConnectionProfile type. Must be in the
+ *  Required. The parent resource of the connection profile type. Must be in the
  *  format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -161,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDatastream_DiscoverConnectionProfileRequest to
  *    include in the query.
- *  @param parent Required. The parent resource of the ConnectionProfile type.
+ *  @param parent Required. The parent resource of the connection profile type.
  *    Must be in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesDiscover
@@ -261,6 +266,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch : GTLRDatastreamQuery
 
+/** Optional. Execute the update without validating it. */
+@property(nonatomic, assign) BOOL force;
+
 /** Output only. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -289,12 +297,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Optional. Only validate the connection profile, but do not update any
- *  resources. The default is false.
- */
-@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRDatastream_Operation.
@@ -1037,35 +1039,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Use this method to fetch any errors associated with a stream.
- *
- *  Method: datastream.projects.locations.streams.fetchErrors
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDatastreamCloudPlatform
- */
-@interface GTLRDatastreamQuery_ProjectsLocationsStreamsFetchErrors : GTLRDatastreamQuery
-
-/** Name of the Stream resource for which to fetch any errors. */
-@property(nonatomic, copy, nullable) NSString *stream;
-
-/**
- *  Fetches a @c GTLRDatastream_Operation.
- *
- *  Use this method to fetch any errors associated with a stream.
- *
- *  @param object The @c GTLRDatastream_FetchErrorsRequest to include in the
- *    query.
- *  @param stream Name of the Stream resource for which to fetch any errors.
- *
- *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsFetchErrors
- */
-+ (instancetype)queryWithObject:(GTLRDatastream_FetchErrorsRequest *)object
-                         stream:(NSString *)stream;
-
-@end
-
-/**
  *  Use this method to get details about a stream.
  *
  *  Method: datastream.projects.locations.streams.get
@@ -1142,6 +1115,173 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Use this method to get details about a stream object.
+ *
+ *  Method: datastream.projects.locations.streams.objects.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsGet : GTLRDatastreamQuery
+
+/** Required. The name of the stream object resource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDatastream_StreamObject.
+ *
+ *  Use this method to get details about a stream object.
+ *
+ *  @param name Required. The name of the stream object resource to get.
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Use this method to list the objects of a specific stream.
+ *
+ *  Method: datastream.projects.locations.streams.objects.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsList : GTLRDatastreamQuery
+
+/**
+ *  Maximum number of objects to return. Default is 50. The maximum value is
+ *  1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token received from a previous `ListStreamObjectsRequest` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListStreamObjectsRequest` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent stream that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatastream_ListStreamObjectsResponse.
+ *
+ *  Use this method to list the objects of a specific stream.
+ *
+ *  @param parent Required. The parent stream that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Use this method to look up a stream object by its source object identifier.
+ *
+ *  Method: datastream.projects.locations.streams.objects.lookup
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsLookup : GTLRDatastreamQuery
+
+/** Required. The parent stream that owns the collection of objects. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatastream_StreamObject.
+ *
+ *  Use this method to look up a stream object by its source object identifier.
+ *
+ *  @param object The @c GTLRDatastream_LookupStreamObjectRequest to include in
+ *    the query.
+ *  @param parent Required. The parent stream that owns the collection of
+ *    objects.
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsLookup
+ */
++ (instancetype)queryWithObject:(GTLRDatastream_LookupStreamObjectRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts backfill job for the specified stream object.
+ *
+ *  Method: datastream.projects.locations.streams.objects.startBackfillJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStartBackfillJob : GTLRDatastreamQuery
+
+/**
+ *  Required. The name of the stream object resource to start a backfill job
+ *  for.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Fetches a @c GTLRDatastream_StartBackfillJobResponse.
+ *
+ *  Starts backfill job for the specified stream object.
+ *
+ *  @param object The @c GTLRDatastream_StartBackfillJobRequest to include in
+ *    the query.
+ *  @param object_param Required. The name of the stream object resource to
+ *    start a backfill job for.
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStartBackfillJob
+ */
++ (instancetype)queryWithObject:(GTLRDatastream_StartBackfillJobRequest *)object
+                         object:(NSString *)object_param;
+
+@end
+
+/**
+ *  Stops the backfill job for the specified stream object.
+ *
+ *  Method: datastream.projects.locations.streams.objects.stopBackfillJob
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatastreamCloudPlatform
+ */
+@interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStopBackfillJob : GTLRDatastreamQuery
+
+/**
+ *  Required. The name of the stream object resource to stop the backfill job
+ *  for.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+/**
+ *  Fetches a @c GTLRDatastream_StopBackfillJobResponse.
+ *
+ *  Stops the backfill job for the specified stream object.
+ *
+ *  @param object The @c GTLRDatastream_StopBackfillJobRequest to include in the
+ *    query.
+ *  @param object_param Required. The name of the stream object resource to stop
+ *    the backfill job for.
+ *
+ *  @return GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStopBackfillJob
+ */
++ (instancetype)queryWithObject:(GTLRDatastream_StopBackfillJobRequest *)object
+                         object:(NSString *)object_param;
+
+@end
+
+/**
  *  Use this method to update the configuration of a stream.
  *
  *  Method: datastream.projects.locations.streams.patch
@@ -1151,7 +1291,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsStreamsPatch : GTLRDatastreamQuery
 
-/** Optional. Execute the update without validating it. */
+/** Optional. Create the stream without validating it. */
 @property(nonatomic, assign) BOOL force;
 
 /** Output only. The stream's name. */

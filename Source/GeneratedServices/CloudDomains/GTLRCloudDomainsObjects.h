@@ -531,8 +531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Active;
  *  The domain is no longer managed with Cloud Domains. It may have been
  *  transferred to another registrar or exported for management in [Google
  *  Domains](https://domains.google/). You can no longer update it with this
- *  API, and information shown about it may be stale. Domains in this state will
- *  not be automatically renewed by Cloud Domains.
+ *  API, and information shown about it may be stale. Domains in this state are
+ *  not automatically renewed by Cloud Domains.
  *
  *  Value: "EXPORTED"
  */
@@ -565,17 +565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_StateUns
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_Suspended;
 /**
  *  The attempt to transfer the domain from another registrar to Cloud Domains
- *  failed. You can delete resources in this state to allow transfer to be
- *  retried.
+ *  failed. You can delete resources in this state and retry the transfer.
  *
  *  Value: "TRANSFER_FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_State_TransferFailed;
 /**
- *  Domain transfer from another registrar to Cloud Domains is in progress. The
- *  domain's current registrar may require action to complete the transfer.
- *  Check emails from the domain's current registrar to the domain's current
- *  registrant for instructions.
+ *  The domain is being transferred from another registrar to Cloud Domains.
  *
  *  Value: "TRANSFER_PENDING"
  */
@@ -846,7 +842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 /**
  *  Required. The field mask describing which fields to update as a
  *  comma-separated list. For example, if only the registrant contact is being
- *  updated, the `update_mask` would be `"registrant_contact"`.
+ *  updated, the `update_mask` is `"registrant_contact"`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -873,11 +869,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 /**
  *  Required. The field mask describing which fields to update as a
  *  comma-separated list. For example, if only the name servers are being
- *  updated for an existing Custom DNS configuration, the `update_mask` would be
+ *  updated for an existing Custom DNS configuration, the `update_mask` is
  *  `"custom_dns.name_servers"`. When changing the DNS provider from one type to
  *  another, pass the new provider's field name as part of the field mask. For
  *  example, when changing from a Google Domains DNS configuration to a Custom
- *  DNS configuration, the `update_mask` would be `"custom_dns"`. //
+ *  DNS configuration, the `update_mask` is `"custom_dns"`. //
  *
  *  String format is a comma-separated list of fields.
  */
@@ -904,7 +900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 /**
  *  Required. The field mask describing which fields to update as a
  *  comma-separated list. For example, if only the transfer lock is being
- *  updated, the `update_mask` would be `"transfer_lock_state"`.
+ *  updated, the `update_mask` is `"transfer_lock_state"`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -982,8 +978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  Required. The registrant contact for the `Registration`. *Caution: Anyone
  *  with access to this email address, phone number, and/or postal address can
  *  take control of the domain.* *Warning: For new `Registration`s, the
- *  registrant will receive an email confirmation that they must complete within
- *  15 days to avoid domain suspension.*
+ *  registrant receives an email confirmation that they must complete within 15
+ *  days to avoid domain suspension.*
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Contact *registrantContact;
 
@@ -1790,8 +1786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Registration *registration;
 
 /**
- *  When true, only validation will be performed, without actually registering
- *  the domain. Follows:
+ *  When true, only validation is performed, without actually registering the
+ *  domain. Follows:
  *  https://cloud.google.com/apis/design/design_patterns#request_validation
  *
  *  Uses NSNumber of boolValue.
@@ -1919,9 +1915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  `contact_settings` field that change its `registrant_contact` or `privacy`
  *  fields require email confirmation by the `registrant_contact` before taking
  *  effect. This field is set only if there are pending updates to the
- *  `contact_settings` that have not yet been confirmed. To confirm the changes,
- *  the `registrant_contact` must follow the instructions in the email they
- *  receive.
+ *  `contact_settings` that have not been confirmed. To confirm the changes, the
+ *  `registrant_contact` must follow the instructions in the email they receive.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_ContactSettings *pendingContactSettings;
 
@@ -1937,7 +1932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        another registrar or exported for management in [Google
  *        Domains](https://domains.google/). You can no longer update it with
  *        this API, and information shown about it may be stale. Domains in this
- *        state will not be automatically renewed by Cloud Domains. (Value:
+ *        state are not automatically renewed by Cloud Domains. (Value:
  *        "EXPORTED")
  *    @arg @c kGTLRCloudDomains_Registration_State_RegistrationFailed The domain
  *        registration failed. You can delete resources in this state to allow
@@ -1951,13 +1946,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *        (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudDomains_Registration_State_TransferFailed The attempt to
  *        transfer the domain from another registrar to Cloud Domains failed.
- *        You can delete resources in this state to allow transfer to be
- *        retried. (Value: "TRANSFER_FAILED")
- *    @arg @c kGTLRCloudDomains_Registration_State_TransferPending Domain
- *        transfer from another registrar to Cloud Domains is in progress. The
- *        domain's current registrar may require action to complete the
- *        transfer. Check emails from the domain's current registrar to the
- *        domain's current registrant for instructions. (Value:
+ *        You can delete resources in this state and retry the transfer. (Value:
+ *        "TRANSFER_FAILED")
+ *    @arg @c kGTLRCloudDomains_Registration_State_TransferPending The domain is
+ *        being transferred from another registrar to Cloud Domains. (Value:
  *        "TRANSFER_PENDING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -2141,7 +2133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  *  Required. The complete `Registration` resource to be created. You can leave
  *  `registration.dns_settings` unset to import the domain's current DNS
  *  configuration from its current registrar. Use this option only if you are
- *  sure that the domain's current DNS service will not cease upon transfer, as
+ *  sure that the domain's current DNS service does not cease upon transfer, as
  *  is often the case for DNS services provided for free by the registrar.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDomains_Registration *registration;

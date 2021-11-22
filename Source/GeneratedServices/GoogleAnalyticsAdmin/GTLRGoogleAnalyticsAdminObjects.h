@@ -2630,7 +2630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Required. Human-readable display name for the Data Stream. The max allowed
- *  display name length is 100 UTF-16 code units.
+ *  display name length is 255 UTF-16 code units.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

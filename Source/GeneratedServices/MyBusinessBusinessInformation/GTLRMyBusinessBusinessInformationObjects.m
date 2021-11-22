@@ -440,10 +440,10 @@ NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod_OpenDay_Wednesday
 //
 
 @implementation GTLRMyBusinessBusinessInformation_Metadata
-@dynamic canDelete, canHaveFoodMenus, canModifyServiceList,
-         canOperateHealthData, canOperateLocalPost, canOperateLodgingData,
-         duplicateLocation, hasGoogleUpdated, hasPendingEdits, mapsUri,
-         newReviewUri, placeId;
+@dynamic canDelete, canHaveBusinessCalls, canHaveFoodMenus,
+         canModifyServiceList, canOperateHealthData, canOperateLocalPost,
+         canOperateLodgingData, duplicateLocation, hasGoogleUpdated,
+         hasPendingEdits, mapsUri, newReviewUri, placeId;
 @end
 
 

@@ -561,7 +561,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job
-@dynamic createTime, endTime, errorMessage, ETag, jobId, labels,
+@dynamic createTime, endTime, errorMessage, ETag, jobId, jobPosition, labels,
          predictionInput, predictionOutput, startTime, state, trainingInput,
          trainingOutput;
 
