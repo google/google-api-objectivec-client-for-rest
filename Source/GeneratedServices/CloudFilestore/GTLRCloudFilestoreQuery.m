@@ -178,7 +178,7 @@
 
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -282,6 +282,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
   query.loggingName = @"file.projects.locations.instances.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsCreate
+
+@dynamic parent, snapshotId;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Snapshot *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/snapshots";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.snapshots.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.snapshots.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Snapshot class];
+  query.loggingName = @"file.projects.locations.instances.snapshots.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/snapshots";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudFilestore_ListSnapshotsResponse class];
+  query.loggingName = @"file.projects.locations.instances.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_Snapshot *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesSnapshotsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.snapshots.patch";
   return query;
 }
 

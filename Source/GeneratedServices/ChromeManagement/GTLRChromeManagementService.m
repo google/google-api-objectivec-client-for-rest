@@ -17,6 +17,7 @@
 
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly = @"https://www.googleapis.com/auth/chrome.management.appdetails.readonly";
 NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly = @"https://www.googleapis.com/auth/chrome.management.reports.readonly";
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementTelemetryReadonly = @"https://www.googleapis.com/auth/chrome.management.telemetry.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRChromeManagementService

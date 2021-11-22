@@ -26,6 +26,7 @@ NSString * const kGTLRVersionHistory_Channel_ChannelType_Stable = @"STABLE";
 // GTLRVersionHistory_Platform.platformType
 NSString * const kGTLRVersionHistory_Platform_PlatformType_All = @"ALL";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Android = @"ANDROID";
+NSString * const kGTLRVersionHistory_Platform_PlatformType_Chromeos = @"CHROMEOS";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Ios = @"IOS";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_Lacros = @"LACROS";
 NSString * const kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 = @"LACROS_ARM32";

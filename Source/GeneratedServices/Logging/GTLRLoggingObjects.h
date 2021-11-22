@@ -4,10 +4,7 @@
 // API:
 //   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Cloud Logging configuration. The table
-//   entries below are presented in alphabetical order, not in order of common
-//   use. For explanations of the concepts found in the table entries, read the
-//   documentation at https://cloud.google.com/logging/docs.
+//   Writes log entries and manages your Cloud Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -25,6 +22,7 @@
 
 @class GTLRLogging_BigQueryOptions;
 @class GTLRLogging_BucketOptions;
+@class GTLRLogging_CmekSettings;
 @class GTLRLogging_CopyLogEntriesRequest;
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
@@ -713,9 +711,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Describes the customer-managed encryption key (CMEK) settings associated
  *  with a project, folder, organization, billing account, or flexible
- *  resource.Note: CMEK for the Logs Router can currently only be configured for
+ *  resource.Note: CMEK for the Log Router can currently only be configured for
  *  Google Cloud organizations. Once configured, it applies to all projects and
- *  folders in the Google Cloud organization.See Enabling CMEK for Logs Router
+ *  folders in the Google Cloud organization.See Enabling CMEK for Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  */
@@ -726,16 +724,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
  *  For
  *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
- *  enable CMEK for the Logs Router, set this field to a valid kms_key_name for
+ *  enable CMEK for the Log Router, set this field to a valid kms_key_name for
  *  which the associated service account has the required
- *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
- *  Cloud KMS key used by the Log Router can be updated by changing the
- *  kms_key_name to a new valid key name. Encryption operations that are in
- *  progress will be completed with the key that was in use when they started.
- *  Decryption operations will be completed using the key that was used at the
- *  time of encryption unless access to that key has been revoked.To disable
- *  CMEK for the Logs Router, set this field to an empty string.See Enabling
- *  CMEK for Logs Router
+ *  cloudkms.cryptoKeyEncrypterDecrypter roles assigned for the key.The Cloud
+ *  KMS key used by the Log Router can be updated by changing the kms_key_name
+ *  to a new valid key name or disabled by setting the key name to an empty
+ *  string. Encryption operations that are in progress will be completed with
+ *  the key that was in use when they started. Decryption operations will be
+ *  completed using the key that was used at the time of encryption unless
+ *  access to that key has been revoked.To disable CMEK for the Log Router, set
+ *  this field to an empty string.See Enabling CMEK for Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  */
@@ -745,14 +743,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The service account that will be used by the Logs Router to
- *  access your Cloud KMS key.Before enabling CMEK for Logs Router, you must
- *  first assign the role roles/cloudkms.cryptoKeyEncrypterDecrypter to the
- *  service account that the Logs Router will use to access your Cloud KMS key.
- *  Use GetCmekSettings to obtain the service account ID.See Enabling CMEK for
- *  Logs Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  Output only. The service account that will be used by the Log Router to
+ *  access your Cloud KMS key.Before enabling CMEK for Log Router, you must
+ *  first assign the cloudkms.cryptoKeyEncrypterDecrypter role to the service
+ *  account that the Log Router will use to access your Cloud KMS key. Use
+ *  GetCmekSettings to obtain the service account ID.See Enabling CMEK for Logs
+ *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
+ *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountId;
 
@@ -1504,6 +1501,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Describes a repository in which log entries are stored.
  */
 @interface GTLRLogging_LogBucket : GTLRObject
+
+/**
+ *  The CMEK settings of the log bucket. If present, new log entries written to
+ *  this log bucket are encrypted using the CMEK key provided in this
+ *  configuration. If a log bucket has CMEK settings, the CMEK settings cannot
+ *  be disabled later by updating the log bucket. Changing the KMS key is
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_CmekSettings *cmekSettings;
 
 /**
  *  Output only. The creation timestamp of the bucket. This is not set for any

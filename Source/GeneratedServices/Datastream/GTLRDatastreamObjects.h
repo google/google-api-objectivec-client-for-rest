@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Datastream API (datastream/v1alpha1)
+//   Datastream API (datastream/v1)
 // Documentation:
 //   https://cloud.google.com/datastream/
 
@@ -20,6 +20,7 @@
 
 @class GTLRDatastream_AvroFileFormat;
 @class GTLRDatastream_BackfillAllStrategy;
+@class GTLRDatastream_BackfillJob;
 @class GTLRDatastream_BackfillNoneStrategy;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
@@ -35,16 +36,17 @@
 @class GTLRDatastream_Location_Metadata;
 @class GTLRDatastream_MysqlColumn;
 @class GTLRDatastream_MysqlDatabase;
+@class GTLRDatastream_MysqlObjectIdentifier;
 @class GTLRDatastream_MysqlProfile;
 @class GTLRDatastream_MysqlRdbms;
 @class GTLRDatastream_MysqlSourceConfig;
 @class GTLRDatastream_MysqlSslConfig;
 @class GTLRDatastream_MysqlTable;
-@class GTLRDatastream_NoConnectivitySettings;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
 @class GTLRDatastream_OracleColumn;
+@class GTLRDatastream_OracleObjectIdentifier;
 @class GTLRDatastream_OracleProfile;
 @class GTLRDatastream_OracleProfile_ConnectionAttributes;
 @class GTLRDatastream_OracleRdbms;
@@ -57,11 +59,13 @@
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
 @class GTLRDatastream_SourceConfig;
+@class GTLRDatastream_SourceObjectIdentifier;
 @class GTLRDatastream_StaticServiceIpConnectivity;
 @class GTLRDatastream_Status;
 @class GTLRDatastream_Status_Details_Item;
 @class GTLRDatastream_Stream;
 @class GTLRDatastream_Stream_Labels;
+@class GTLRDatastream_StreamObject;
 @class GTLRDatastream_Validation;
 @class GTLRDatastream_ValidationMessage;
 @class GTLRDatastream_ValidationMessage_Metadata;
@@ -79,20 +83,82 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRDatastream_GcsDestinationConfig.gcsFileFormat
+// GTLRDatastream_BackfillJob.state
 
 /**
- *  Avro file format
+ *  Backfill job is running.
  *
- *  Value: "AVRO"
+ *  Value: "ACTIVE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_Avro;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Active;
 /**
- *  Unspecified Cloud Storage file format.
+ *  Backfill completed successfully.
  *
- *  Value: "GCS_FILE_FORMAT_UNSPECIFIED"
+ *  Value: "COMPLETED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_GcsFileFormatUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Completed;
+/**
+ *  Backfill job failed (due to an error).
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Failed;
+/**
+ *  Backfill job was never started for the stream object (stream has backfill
+ *  strategy defined as manual or object was explicitly excluded from automatic
+ *  backfill).
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_NotStarted;
+/**
+ *  Backfill job will start pending available resources.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Pending;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_StateUnspecified;
+/**
+ *  Backfill job stopped (next job run will start from beginning).
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Stopped;
+/**
+ *  Backfill job failed since the table structure is currently unsupported for
+ *  backfill.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_State_Unsupported;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastream_BackfillJob.trigger
+
+/**
+ *  Object backfill job was triggered automatically according to the stream's
+ *  backfill strategy.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_Trigger_Automatic;
+/**
+ *  Object backfill job was triggered manually using the dedicated API.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_Trigger_Manual;
+/**
+ *  Default value.
+ *
+ *  Value: "TRIGGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_BackfillJob_Trigger_TriggerUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_JsonFileFormat.compression
@@ -142,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileForm
 // GTLRDatastream_PrivateConnection.state
 
 /**
- *  The private connection has been created with all of it's resources.
+ *  The private connection has been created with all of its resources.
  *
  *  Value: "CREATED"
  */
@@ -171,18 +237,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_PrivateConnection_State_Faile
  *  Value: "FAILED_TO_DELETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_PrivateConnection_State_FailedToDelete;
-/** Value: "STATE_UNSPECIFIED" */
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_PrivateConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_Stream.state
 
-/**
- *  The stream has been created.
- *
- *  Value: "CREATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_Created;
 /**
  *  The Stream is no longer reading new events, but still writing events in the
  *  buffer.
@@ -211,6 +275,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_FailedPermanentl
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_Maintenance;
 /**
+ *  The stream has been created but has not yet started streaming data.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_NotStarted;
+/**
  *  The stream is paused.
  *
  *  Value: "PAUSED"
@@ -236,32 +306,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_Starting;
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDatastream_Validation.status
+// GTLRDatastream_Validation.state
 
 /**
  *  Validation failed.
  *
  *  Value: "FAILED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_Status_Failed;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_Failed;
 /**
  *  Validation did not execute.
  *
  *  Value: "NOT_EXECUTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_Status_NotExecuted;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_NotExecuted;
 /**
  *  Validation passed.
  *
  *  Value: "PASSED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_Status_Passed;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_Passed;
 /**
- *  Unspecified status.
+ *  Unspecified state.
  *
- *  Value: "STATUS_UNSPECIFIED"
+ *  Value: "STATE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_Status_StatusUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_Validation_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_ValidationMessage.level
@@ -308,6 +378,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Represents a backfill job on a specific stream object.
+ */
+@interface GTLRDatastream_BackfillJob : GTLRObject
+
+/** Output only. Errors which caused the backfill job to fail. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Error *> *errors;
+
+/** Output only. Backfill job's end time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastEndTime;
+
+/** Output only. Backfill job's start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastStartTime;
+
+/**
+ *  Backfill job state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Active Backfill job is running.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Completed Backfill completed
+ *        successfully. (Value: "COMPLETED")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Failed Backfill job failed (due
+ *        to an error). (Value: "FAILED")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_NotStarted Backfill job was
+ *        never started for the stream object (stream has backfill strategy
+ *        defined as manual or object was explicitly excluded from automatic
+ *        backfill). (Value: "NOT_STARTED")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Pending Backfill job will start
+ *        pending available resources. (Value: "PENDING")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_StateUnspecified Default value.
+ *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Stopped Backfill job stopped
+ *        (next job run will start from beginning). (Value: "STOPPED")
+ *    @arg @c kGTLRDatastream_BackfillJob_State_Unsupported Backfill job failed
+ *        since the table structure is currently unsupported for backfill.
+ *        (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Backfill job's triggering reason.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_BackfillJob_Trigger_Automatic Object backfill job
+ *        was triggered automatically according to the stream's backfill
+ *        strategy. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRDatastream_BackfillJob_Trigger_Manual Object backfill job was
+ *        triggered manually using the dedicated API. (Value: "MANUAL")
+ *    @arg @c kGTLRDatastream_BackfillJob_Trigger_TriggerUnspecified Default
+ *        value. (Value: "TRIGGER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+@end
+
+
+/**
  *  Backfill strategy to disable automatic backfill for the Stream's objects.
  */
 @interface GTLRDatastream_BackfillNoneStrategy : GTLRObject
@@ -322,7 +449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_ConnectionProfile
+ *  A set of reusable connection configurations to be used as a source or
+ *  destination for a stream.
  */
 @interface GTLRDatastream_ConnectionProfile : GTLRObject
 
@@ -346,9 +474,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Output only. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** No connectivity option chosen. */
-@property(nonatomic, strong, nullable) GTLRDatastream_NoConnectivitySettings *noConnectivity;
 
 /** Oracle ConnectionProfile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleProfile *oracleProfile;
@@ -382,9 +507,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_DestinationConfig : GTLRObject
 
-/** Required. Destination connection profile identifier. */
-@property(nonatomic, copy, nullable) NSString *destinationConnectionProfileName;
+/**
+ *  Required. Destination connection profile resource. Format:
+ *  `projects/{project}/locations/{location}/connectionProfiles/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *destinationConnectionProfile;
 
+/** A configuration for how data should be loaded to Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRDatastream_GcsDestinationConfig *gcsDestinationConfig;
 
 @end
@@ -395,24 +524,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_DiscoverConnectionProfileRequest : GTLRObject
 
-/** An ad-hoc ConnectionProfile configuration. */
+/** An ad-hoc connection profile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_ConnectionProfile *connectionProfile;
 
-/** A reference to an existing ConnectionProfile. */
+/** A reference to an existing connection profile. */
 @property(nonatomic, copy, nullable) NSString *connectionProfileName;
-
-/** MySQL RDBMS to enrich with child data objects and metadata. */
-@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlRdbms;
-
-/** Oracle RDBMS to enrich with child data objects and metadata. */
-@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
-
-/**
- *  The number of hierarchy levels below the current level to be retrieved.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *recursionDepth;
 
 /**
  *  Whether to retrieve the full hierarchy of data objects (TRUE) or only the
@@ -420,13 +536,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *recursive;
+@property(nonatomic, strong, nullable) NSNumber *fullHierarchy;
+
+/**
+ *  The number of hierarchy levels below the current level to be retrieved.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hierarchyDepth;
+
+/** MySQL RDBMS to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlRdbms;
+
+/** Oracle RDBMS to enrich with child data objects and metadata. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
 
 @end
 
 
 /**
- *  GTLRDatastream_DiscoverConnectionProfileResponse
+ *  Response from a discover request.
  */
 @interface GTLRDatastream_DiscoverConnectionProfileResponse : GTLRObject
 
@@ -485,24 +614,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *        fetch them all at once.
  */
 @interface GTLRDatastream_Error_Details : GTLRObject
-@end
-
-
-/**
- *  Request message for 'FetchErrors' request.
- */
-@interface GTLRDatastream_FetchErrorsRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for a 'FetchErrors' response.
- */
-@interface GTLRDatastream_FetchErrorsResponse : GTLRObject
-
-/** The list of errors on the Stream. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Error *> *errors;
-
 @end
 
 
@@ -571,19 +682,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *fileRotationMb;
 
-/**
- *  File format that data should be written in. Deprecated field (b/169501737) -
- *  use file_format instead.
- *
- *  Likely values:
- *    @arg @c kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_Avro Avro file
- *        format (Value: "AVRO")
- *    @arg @c kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_GcsFileFormatUnspecified
- *        Unspecified Cloud Storage file format. (Value:
- *        "GCS_FILE_FORMAT_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *gcsFileFormat;
-
 /** JSON file format configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_JsonFileFormat *jsonFileFormat;
 
@@ -598,11 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_GcsProfile : GTLRObject
 
-/**
- *  Required. The full project and resource path for Cloud Storage bucket
- *  including the name.
- */
-@property(nonatomic, copy, nullable) NSString *bucketName;
+/** Required. The Cloud Storage bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
 
 /** The root path inside the Cloud Storage bucket. */
 @property(nonatomic, copy, nullable) NSString *rootPath;
@@ -647,7 +742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_ListConnectionProfilesResponse
+ *  Response message for listing connection profiles.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "connectionProfiles" property. If returned as the result of a
@@ -725,7 +820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_ListPrivateConnectionsResponse
+ *  Response containing a list of private connection configurations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "privateConnections" property. If returned as the result of a
@@ -755,7 +850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  route list response
+ *  Route list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "routes" property. If returned as the result of a query, it should
@@ -785,7 +880,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_ListStreamsResponse
+ *  Response containing the objects for a stream.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "streamObjects" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDatastream_ListStreamObjectsResponse : GTLRCollectionObject
+
+/** A token, which can be sent as `page_token` to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of stream objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_StreamObject *> *streamObjects;
+
+@end
+
+
+/**
+ *  Response message for listing streams.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "streams" property. If returned as the result of a query, it
@@ -876,6 +995,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Request for looking up a specific stream object by its source object
+ *  identifier.
+ */
+@interface GTLRDatastream_LookupStreamObjectRequest : GTLRObject
+
+/** Required. The source object identifier which maps to the stream object. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceObjectIdentifier *sourceObjectIdentifier;
+
+@end
+
+
+/**
  *  MySQL Column.
  */
 @interface GTLRDatastream_MysqlColumn : GTLRObject
@@ -884,7 +1015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, copy, nullable) NSString *collation;
 
 /** Column name. */
-@property(nonatomic, copy, nullable) NSString *columnName;
+@property(nonatomic, copy, nullable) NSString *column;
 
 /**
  *  The MySQL data type. Full data types list can be found here:
@@ -929,10 +1060,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_MysqlDatabase : GTLRObject
 
 /** Database name. */
-@property(nonatomic, copy, nullable) NSString *databaseName;
+@property(nonatomic, copy, nullable) NSString *database;
 
 /** Tables in the database. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MysqlTable *> *mysqlTables;
+
+@end
+
+
+/**
+ *  Mysql data source object identifier.
+ */
+@interface GTLRDatastream_MysqlObjectIdentifier : GTLRObject
+
+/** The database name. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -980,11 +1125,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MysqlSourceConfig : GTLRObject
 
-/** MySQL objects to retrieve from the source. */
-@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *allowlist;
-
 /** MySQL objects to exclude from the stream. */
-@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *rejectlist;
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *excludeObjects;
+
+/** MySQL objects to retrieve from the source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *includeObjects;
 
 @end
 
@@ -1050,15 +1195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MysqlColumn *> *mysqlColumns;
 
 /** Table name. */
-@property(nonatomic, copy, nullable) NSString *tableName;
+@property(nonatomic, copy, nullable) NSString *table;
 
-@end
-
-
-/**
- *  No connectivity settings.
- */
-@interface GTLRDatastream_NoConnectivitySettings : GTLRObject
 @end
 
 
@@ -1189,7 +1327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_OracleColumn : GTLRObject
 
 /** Column name. */
-@property(nonatomic, copy, nullable) NSString *columnName;
+@property(nonatomic, copy, nullable) NSString *column;
 
 /** The Oracle data type. */
 @property(nonatomic, copy, nullable) NSString *dataType;
@@ -1238,6 +1376,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scale;
+
+@end
+
+
+/**
+ *  Oracle data source object identifier.
+ */
+@interface GTLRDatastream_OracleObjectIdentifier : GTLRObject
+
+/** The schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -1304,7 +1456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleTable *> *oracleTables;
 
 /** Schema name. */
-@property(nonatomic, copy, nullable) NSString *schemaName;
+@property(nonatomic, copy, nullable) NSString *schema;
 
 @end
 
@@ -1314,11 +1466,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
 
-/** Oracle objects to include in the stream. */
-@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *allowlist;
-
 /** Oracle objects to exclude from the stream. */
-@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *rejectlist;
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *excludeObjects;
+
+/** Oracle objects to include in the stream. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *includeObjects;
 
 @end
 
@@ -1335,7 +1487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleColumn *> *oracleColumns;
 
 /** Table name. */
-@property(nonatomic, copy, nullable) NSString *tableName;
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -1369,7 +1521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *
  *  Likely values:
  *    @arg @c kGTLRDatastream_PrivateConnection_State_Created The private
- *        connection has been created with all of it's resources. (Value:
+ *        connection has been created with all of its resources. (Value:
  *        "CREATED")
  *    @arg @c kGTLRDatastream_PrivateConnection_State_Creating The private
  *        connection is in creation state - creating resources. (Value:
@@ -1381,15 +1533,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *    @arg @c kGTLRDatastream_PrivateConnection_State_FailedToDelete Delete
  *        request has failed, resource is in invalid state. (Value:
  *        "FAILED_TO_DELETE")
- *    @arg @c kGTLRDatastream_PrivateConnection_State_StateUnspecified Value
- *        "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRDatastream_PrivateConnection_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /** Output only. The update time of the resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** VPC Peering Config */
+/** VPC Peering Config. */
 @property(nonatomic, strong, nullable) GTLRDatastream_VpcPeeringConfig *vpcPeeringConfig;
 
 @end
@@ -1412,14 +1564,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_PrivateConnectivity : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *privateConnectionName;
+/**
+ *  Required. A reference to a private connection resource. Format:
+ *  `projects/{project}/locations/{location}/privateConnections/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *privateConnection;
 
 @end
 
 
 /**
- *  The Route resource is the child of the PrivateConnection resource. It used
- *  to define a route for a PrivateConnection setup.
+ *  The route resource is the child of the private connection resource, used for
+ *  defining a route for a private connection.
  */
 @interface GTLRDatastream_Route : GTLRObject
 
@@ -1474,8 +1630,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Oracle data source configuration */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleSourceConfig *oracleSourceConfig;
 
-/** Required. Source connection profile identifier. */
-@property(nonatomic, copy, nullable) NSString *sourceConnectionProfileName;
+/**
+ *  Required. Source connection profile resoource. Format:
+ *  `projects/{project}/locations/{location}/connectionProfiles/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
+
+@end
+
+
+/**
+ *  Represents an identifier of an object in the data source.
+ */
+@interface GTLRDatastream_SourceObjectIdentifier : GTLRObject
+
+/** Mysql data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_MysqlObjectIdentifier *mysqlIdentifier;
+
+/** Oracle data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_OracleObjectIdentifier *oracleIdentifier;
+
+@end
+
+
+/**
+ *  Request for manually initiating a backfill job for a specific stream object.
+ */
+@interface GTLRDatastream_StartBackfillJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for manually initiating a backfill job for a specific stream
+ *  object.
+ */
+@interface GTLRDatastream_StartBackfillJobResponse : GTLRObject
+
+/** The stream object resource a backfill job was started for. */
+@property(nonatomic, strong, nullable) GTLRDatastream_StreamObject *object;
 
 @end
 
@@ -1533,7 +1725,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_Stream
+ *  Request for manually stopping a running backfill job for a specific stream
+ *  object.
+ */
+@interface GTLRDatastream_StopBackfillJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Response for manually stop a backfill job for a specific stream object.
+ */
+@interface GTLRDatastream_StopBackfillJobResponse : GTLRObject
+
+/** The stream object resource the backfill job was stopped for. */
+@property(nonatomic, strong, nullable) GTLRDatastream_StreamObject *object;
+
+@end
+
+
+/**
+ *  A resource representing streaming data from a source to a destination.
  */
 @interface GTLRDatastream_Stream : GTLRObject
 
@@ -1548,6 +1759,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Output only. The creation time of the stream. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. A reference to a KMS encryption key. If provided, it will be used
+ *  to encrypt the data. If left blank, data will be encrypted using an internal
+ *  Stream-specific encryption key provisioned through KMS.
+ */
+@property(nonatomic, copy, nullable) NSString *customerManagedEncryptionKey;
 
 /** Required. Destination connection profile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_DestinationConfig *destinationConfig;
@@ -1571,8 +1789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  The state of the stream.
  *
  *  Likely values:
- *    @arg @c kGTLRDatastream_Stream_State_Created The stream has been created.
- *        (Value: "CREATED")
  *    @arg @c kGTLRDatastream_Stream_State_Draining The Stream is no longer
  *        reading new events, but still writing events in the buffer. (Value:
  *        "DRAINING")
@@ -1583,6 +1799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *    @arg @c kGTLRDatastream_Stream_State_Maintenance The stream is in
  *        maintenance mode. Updates are rejected on the resource in this state.
  *        (Value: "MAINTENANCE")
+ *    @arg @c kGTLRDatastream_Stream_State_NotStarted The stream has been
+ *        created but has not yet started streaming data. (Value: "NOT_STARTED")
  *    @arg @c kGTLRDatastream_Stream_State_Paused The stream is paused. (Value:
  *        "PAUSED")
  *    @arg @c kGTLRDatastream_Stream_State_Running The stream is running.
@@ -1613,7 +1831,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  GTLRDatastream_Validation
+ *  A specific stream object (e.g a specific DB table).
+ */
+@interface GTLRDatastream_StreamObject : GTLRObject
+
+/** The latest backfill job that was initiated for the stream object. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BackfillJob *backfillJob;
+
+/** Output only. The creation time of the object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Display name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Active errors on the object. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Error *> *errors;
+
+/** Output only. The object resource's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The object identifier in the data source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceObjectIdentifier *sourceObject;
+
+/** Output only. The last update time of the object. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A validation to perform on a stream.
  */
 @interface GTLRDatastream_Validation : GTLRObject
 
@@ -1634,16 +1881,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Validation execution status.
  *
  *  Likely values:
- *    @arg @c kGTLRDatastream_Validation_Status_Failed Validation failed.
- *        (Value: "FAILED")
- *    @arg @c kGTLRDatastream_Validation_Status_NotExecuted Validation did not
+ *    @arg @c kGTLRDatastream_Validation_State_Failed Validation failed. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDatastream_Validation_State_NotExecuted Validation did not
  *        execute. (Value: "NOT_EXECUTED")
- *    @arg @c kGTLRDatastream_Validation_Status_Passed Validation passed.
- *        (Value: "PASSED")
- *    @arg @c kGTLRDatastream_Validation_Status_StatusUnspecified Unspecified
- *        status. (Value: "STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_Validation_State_Passed Validation passed. (Value:
+ *        "PASSED")
+ *    @arg @c kGTLRDatastream_Validation_State_StateUnspecified Unspecified
+ *        state. (Value: "STATE_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *status;
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1716,8 +1963,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, copy, nullable) NSString *subnet;
 
-/** Required. fully qualified name of the VPC Datastream will peer to. */
-@property(nonatomic, copy, nullable) NSString *vpcName;
+/**
+ *  Required. Fully qualified name of the VPC that Datastream will peer to.
+ *  Format: `projects/{project}/global/{networks}/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *vpc;
 
 @end
 

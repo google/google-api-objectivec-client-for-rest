@@ -65,6 +65,25 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewBasic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewFull;
 /**
+ *  Get the migrating VM basic details. The basic details do not include the
+ *  recent clone jobs and recent cutover jobs lists.
+ *
+ *  Value: "MIGRATING_VM_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewMigratingVmViewBasic;
+/**
+ *  Include everything.
+ *
+ *  Value: "MIGRATING_VM_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewMigratingVmViewFull;
+/**
+ *  View is unspecified. The API will fallback to the default value.
+ *
+ *  Value: "MIGRATING_VM_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewMigratingVmViewUnspecified;
+/**
  *  The default / unset value. The API will default to FULL on single report
  *  request and BASIC for multiple reports request.
  *
@@ -1395,6 +1414,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The level of details of the migrating VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewUnspecified View is
+ *        unspecified. The API will fallback to the default value. (Value:
+ *        "MIGRATING_VM_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewBasic Get the migrating
+ *        VM basic details. The basic details do not include the recent clone
+ *        jobs and recent cutover jobs lists. (Value: "MIGRATING_VM_VIEW_BASIC")
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewFull Include everything.
+ *        (Value: "MIGRATING_VM_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRVMMigrationService_MigratingVm.
  *
  *  Gets details of a single MigratingVm.
@@ -1441,6 +1475,21 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 
 /** Required. The parent, which owns this collection of MigratingVms. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The level of details of each migrating VM.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewUnspecified View is
+ *        unspecified. The API will fallback to the default value. (Value:
+ *        "MIGRATING_VM_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewBasic Get the migrating
+ *        VM basic details. The basic details do not include the recent clone
+ *        jobs and recent cutover jobs lists. (Value: "MIGRATING_VM_VIEW_BASIC")
+ *    @arg @c kGTLRVMMigrationServiceViewMigratingVmViewFull Include everything.
+ *        (Value: "MIGRATING_VM_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRVMMigrationService_ListMigratingVmsResponse.

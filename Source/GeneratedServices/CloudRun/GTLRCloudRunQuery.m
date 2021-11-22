@@ -392,6 +392,33 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudRunQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_Empty class];
+  query.loggingName = @"run.operations.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsAuthorizeddomainsList
 
 @dynamic pageSize, pageToken, parent;

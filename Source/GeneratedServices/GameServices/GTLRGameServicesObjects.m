@@ -813,7 +813,7 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRGameServices_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic auditConfigs, bindings, ETag, rules, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -3031,6 +3031,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** User notes on how to apply this zone in the container. */
 @property(nonatomic, copy, nullable) NSString *notes;
 
+/** Additional parameters. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Parameter *> *parameter;
+
 /** GTM Zone's API relative path. */
 @property(nonatomic, copy, nullable) NSString *path;
 

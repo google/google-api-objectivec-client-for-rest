@@ -1669,7 +1669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  ID of the data collector. Overrides any ID in the data collector resource.
- *  Must begin with `dc_`.
+ *  Must be a string beginning with `dc_` that contains only letters, numbers,
+ *  and underscores.
  */
 @property(nonatomic, copy, nullable) NSString *dataCollectorId;
 
@@ -5124,12 +5125,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy : GTLRApigeeQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -5621,11 +5625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  This api is similar to GetStats except that the response is less verbose. In
- *  the current scheme, a query parameter _optimized instructs Edge Analytics to
- *  change the response but since this behavior is not possible with protocol
- *  buffer and since this parameter is predominantly used by Edge UI, we are
- *  introducing a separate api.
+ *  Similar to GetStats except that the response is less verbose.
  *
  *  Method: apigee.organizations.environments.optimizedStats.get
  *
@@ -5634,108 +5634,102 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet : GTLRApigeeQuery
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
 /**
- *  If customers want to query custom aggregate tables, then this parameter can
- *  be used to specify the table name. If this parameter is skipped, then Edge
- *  Query will try to retrieve the data from fact tables which will be
- *  expensive.
+ *  Table name used to query custom aggregate tables. If this parameter is
+ *  skipped, then Apigee will try to retrieve the data from fact tables which
+ *  will be expensive.
  */
 @property(nonatomic, copy, nullable) NSString *aggTable;
 
-/** Enables drill-down on specific dimension values. */
+/** Filter that enables you to drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items. Default and the
- *  max value is 14400.
+ *  Maximum number of result items to return. The default and maximum value that
+ *  can be returned is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The resource name for which the interactive query will be
- *  executed. Must be of the form
- *  `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
- *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *  target_host. The value of dimensions should be comma separated list as shown
- *  below
+ *  Required. Resource name for which the interactive query will be executed.
+ *  Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/optimizedStats/{dimensions}`
+ *  Dimensions let you view metrics in meaningful groupings, such as `apiproxy`,
+ *  `target_host`. The value of `dimensions` should be a comma-separated list as
+ *  shown below:
  *  `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example, to
- *  display results 11-20, set limit to '10' and offset to '10'.
+ *  Offset value. Use `offset` with `limit` to enable pagination of results. For
+ *  example, to display results 11-20, set limit to `10` and offset to `10`.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  Required. The select parameter contains a comma separated list of metrics.
- *  E.g. sum(message_count),sum(error_count)
+ *  Required. Comma-separated list of metrics. For example:
+ *  `sum(message_count),sum(error_count)`
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
-/**
- *  This parameter routes the query to api monitoring service for last hour.
- */
+/** Routes the query to API Monitoring for the last hour. */
 @property(nonatomic, assign) BOOL sonar;
 
 /**
- *  This parameter specifies if the sort order should be ascending or descending
- *  Supported values are DESC and ASC.
+ *  Flag that specifies whether the sort order should be ascending or
+ *  descending. Valid values include `DESC` and `ASC`.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma separated list of columns to sort the final result. */
+/** Comma-separated list of columns to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
  *  Required. Time interval for the interactive query. Time range is specified
- *  as start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
+ *  in GMT as `start~end`. For example: `04/15/2017 00:00~05/15/2017 23:59`
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month. Time Unit specifies the
- *  granularity of metrics returned.
+ *  Granularity of metrics returned. Valid values include: `second`, `minute`,
+ *  `hour`, `day`, `week`, or `month`.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5 results
- *  'topk=5'.
+ *  Top number of results to return. For example, to return the top 5 results,
+ *  set `topk=5`.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting this
- *  value to true if you are using sortby with sort=DESC.
+ *  Flag that specifies whether to list timestamps in ascending (`true`) or
+ *  descending (`false`) order. Apigee recommends setting this value to `true`
+ *  if you are using `sortby` with `sort=DESC`.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value. */
+/** Timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1OptimizedStats.
  *
- *  This api is similar to GetStats except that the response is less verbose. In
- *  the current scheme, a query parameter _optimized instructs Edge Analytics to
- *  change the response but since this behavior is not possible with protocol
- *  buffer and since this parameter is predominantly used by Edge UI, we are
- *  introducing a separate api.
+ *  Similar to GetStats except that the response is less verbose.
  *
- *  @param name Required. The resource name for which the interactive query will
- *    be executed. Must be of the form
- *    `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
- *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *    target_host. The value of dimensions should be comma separated list as
- *    shown below
+ *  @param name Required. Resource name for which the interactive query will be
+ *    executed. Use the following format in your request:
+ *    `organizations/{org}/environments/{env}/optimizedStats/{dimensions}`
+ *    Dimensions let you view metrics in meaningful groupings, such as
+ *    `apiproxy`, `target_host`. The value of `dimensions` should be a
+ *    comma-separated list as shown below:
  *    `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet
@@ -6539,9 +6533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Retrieve metrics grouped by dimensions. The types of metrics you can
  *  retrieve include traffic, message counts, API call latency, response size,
  *  and cache hits and counts. Dimensions let you view metrics in meaningful
- *  groups. The stats api does accept dimensions as path params. The dimensions
- *  are optional in which case the metrics are computed on the entire data for
- *  the given timerange.
+ *  groups. You can optionally pass dimensions as path parameters to the `stats`
+ *  API. If dimensions are not specified, the metrics are computed on the entire
+ *  set of data for the given time range.
  *
  *  Method: apigee.organizations.environments.stats.get
  *
@@ -6550,93 +6544,89 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsStatsGet : GTLRApigeeQuery
 
-/**
- *  Legacy field: not used anymore. This field is present to support UI calls
- *  which still use this parameter.
- */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
 /**
- *  If customers want to query custom aggregate tables, then this parameter can
- *  be used to specify the table name. If this parameter is skipped, then Edge
- *  Query will try to retrieve the data from fact tables which will be
- *  expensive.
+ *  Table name used to query custom aggregate tables. If this parameter is
+ *  skipped, then Apigee will try to retrieve the data from fact tables which
+ *  will be expensive.
  */
 @property(nonatomic, copy, nullable) NSString *aggTable;
 
-/** Enables drill-down on specific dimension values */
+/** Filter that enables you to drill down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items. Default and the
- *  max value is 14400.
+ *  Maximum number of result items to return. The default and maximum value that
+ *  can be returned is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The resource name for which the interactive query will be
- *  executed. Must be of the form
- *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
- *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *  target_host. The value of dimensions should be comma separated list as shown
- *  below `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *  Required. Resource name for which the interactive query will be executed.
+ *  Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/stats/{dimensions}` Dimensions let
+ *  you view metrics in meaningful groupings, such as `apiproxy` or
+ *  `target_host`. The value of dimensions should be a comma-separated list, as
+ *  shown below:
+ *  `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example, to
- *  display results 11-20, set limit to '10' and offset to '10'.
+ *  Offset value. Use `offset` with `limit` to enable pagination of results. For
+ *  example, to display results 11-20, set limit to `10` and offset to `10`.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  The select parameter contains a comma separated list of metrics. E.g.
- *  sum(message_count),sum(error_count)
+ *  Comma-separated list of metrics. For example:
+ *  `sum(message_count),sum(error_count)`
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
-/**
- *  This parameter routes the query to api monitoring service for last hour.
- */
+/** Routes the query to API Monitoring for the last hour. */
 @property(nonatomic, assign) BOOL sonar;
 
 /**
- *  This parameter specifies if the sort order should be ascending or descending
- *  Supported values are DESC and ASC.
+ *  Flag that specifies whether the sort order should be ascending or
+ *  descending. Valid values include: `DESC` and `ASC`.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma separated list of columns to sort the final result. */
+/** Comma-separated list of columns to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
- *  Time interval for the interactive query. Time range is specified as
- *  start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
+ *  Time interval for the interactive query. Time range is specified in GMT as
+ *  `start~end`. For example: `04/15/2017 00:00~05/15/2017 23:59`
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month. Time Unit specifies the
- *  granularity of metrics returned.
+ *  Granularity of metrics returned. Valid values include: `second`, `minute`,
+ *  `hour`, `day`, `week`, or` month`.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5 results
- *  'topk=5'.
+ *  Top number of results to return. For example, to return the top 5 results,
+ *  set `topk=5`.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting this
- *  value to true if you are using sortby with sort=DESC.
+ *  Flag that specifies whether to list timestamps in ascending (`true`) or
+ *  descending (`false`) order. Apigee recommends that you set this value to
+ *  `true` if you are using `sortby` with `sort=DESC`.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value. */
+/** Timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
@@ -6645,16 +6635,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Retrieve metrics grouped by dimensions. The types of metrics you can
  *  retrieve include traffic, message counts, API call latency, response size,
  *  and cache hits and counts. Dimensions let you view metrics in meaningful
- *  groups. The stats api does accept dimensions as path params. The dimensions
- *  are optional in which case the metrics are computed on the entire data for
- *  the given timerange.
+ *  groups. You can optionally pass dimensions as path parameters to the `stats`
+ *  API. If dimensions are not specified, the metrics are computed on the entire
+ *  set of data for the given time range.
  *
- *  @param name Required. The resource name for which the interactive query will
- *    be executed. Must be of the form
- *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
- *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *    target_host. The value of dimensions should be comma separated list as
- *    shown below
+ *  @param name Required. Resource name for which the interactive query will be
+ *    executed. Use the following format in your request:
+ *    `organizations/{org}/environments/{env}/stats/{dimensions}` Dimensions let
+ *    you view metrics in meaningful groupings, such as `apiproxy` or
+ *    `target_host`. The value of dimensions should be a comma-separated list,
+ *    as shown below:
  *    `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsStatsGet
@@ -7652,9 +7642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Retrieve metrics grouped by dimensions in host level. The types of metrics
  *  you can retrieve include traffic, message counts, API call latency, response
  *  size, and cache hits and counts. Dimensions let you view metrics in
- *  meaningful groups. The stats api does accept dimensions as path params. The
- *  dimensions are optional in which case the metrics are computed on the entire
- *  data for the given timerange.
+ *  meaningful groups. You can optionally pass dimensions as path parameters to
+ *  the `stats` API. If dimensions are not specified, the metrics are computed
+ *  on the entire set of data for the given time range.
  *
  *  Method: apigee.organizations.hostStats.get
  *
@@ -7663,82 +7653,81 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @interface GTLRApigeeQuery_OrganizationsHostStatsGet : GTLRApigeeQuery
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
-/**
- *  Required. The hostname for which the interactive query will be executed.
- */
+/** Required. Hostname for which the interactive query will be executed. */
 @property(nonatomic, copy, nullable) NSString *envgroupHostname;
 
-/** Enables drill-down on specific dimension values. */
+/** Flag that enables drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items. Default and the
- *  max value is 14400.
+ *  Maximum number of result items to return. The default and maximum value that
+ *  can be returned is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The resource name for which the interactive query will be
- *  executed. Must be of the form
- *  `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let you
- *  view metrics in meaningful groupings. E.g. apiproxy, target_host. The value
- *  of dimensions should be comma separated list as shown below
+ *  Required. Resource name for which the interactive query will be executed.
+ *  Use the following format in your request:
+ *  `organizations/{org}/hostStats/{dimensions}` Dimensions let you view metrics
+ *  in meaningful groupings, such as `apiproxy`, `target_host`. The value of
+ *  dimensions should be a comma-separated list as shown below
  *  `organizations/{org}/hostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example, to
- *  display results 11-20, set limit to '10' and offset to '10'.
+ *  Offset value. Use `offset` with `limit` to enable pagination of results. For
+ *  example, to display results 11-20, set limit to `10` and offset to `10`.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  The select parameter contains a comma separated list of metrics. E.g.
- *  sum(message_count),sum(error_count)
+ *  Comma-separated list of metrics. For example:
+ *  `sum(message_count),sum(error_count)`
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
 /**
- *  This parameter specifies if the sort order should be ascending or descending
- *  Supported values are DESC and ASC.
+ *  Flag that specifies if the sort order should be ascending or descending.
+ *  Valid values are `DESC` and `ASC`.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma separated list of columns to sort the final result. */
+/** Comma-separated list of columns to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
- *  Time interval for the interactive query. Time range is specified as
- *  start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
+ *  Time interval for the interactive query. Time range is specified in GMT as
+ *  `start~end`. For example: `04/15/2017 00:00~05/15/2017 23:59`
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month. Time Unit specifies the
- *  granularity of metrics returned.
+ *  Granularity of metrics returned. Valid values include: `second`, `minute`,
+ *  `hour`, `day`, `week`, or `month`.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5 results
- *  'topk=5'.
+ *  Top number of results to return. For example, to return the top 5 results,
+ *  set `topk=5`.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting this
- *  value to true if you are using sortby with sort=DESC.
+ *  Flag that specifies whether to list timestamps in ascending (`true`) or
+ *  descending (`false`) order. Apigee recommends that you set this value to
+ *  `true` if you are using `sortby` with `sort=DESC`.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value. */
+/** Timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
@@ -7747,15 +7736,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Retrieve metrics grouped by dimensions in host level. The types of metrics
  *  you can retrieve include traffic, message counts, API call latency, response
  *  size, and cache hits and counts. Dimensions let you view metrics in
- *  meaningful groups. The stats api does accept dimensions as path params. The
- *  dimensions are optional in which case the metrics are computed on the entire
- *  data for the given timerange.
+ *  meaningful groups. You can optionally pass dimensions as path parameters to
+ *  the `stats` API. If dimensions are not specified, the metrics are computed
+ *  on the entire set of data for the given time range.
  *
- *  @param name Required. The resource name for which the interactive query will
- *    be executed. Must be of the form
- *    `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let
- *    you view metrics in meaningful groupings. E.g. apiproxy, target_host. The
- *    value of dimensions should be comma separated list as shown below
+ *  @param name Required. Resource name for which the interactive query will be
+ *    executed. Use the following format in your request:
+ *    `organizations/{org}/hostStats/{dimensions}` Dimensions let you view
+ *    metrics in meaningful groupings, such as `apiproxy`, `target_host`. The
+ *    value of dimensions should be a comma-separated list as shown below
  *    `organizations/{org}/hostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsHostStatsGet
@@ -8568,8 +8557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  This api is similar to GetHostStats except that the response is less
- *  verbose.
+ *  Similar to GetHostStats except that the response is less verbose.
  *
  *  Method: apigee.organizations.optimizedHostStats.get
  *
@@ -8578,96 +8566,95 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 @interface GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet : GTLRApigeeQuery
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
-/**
- *  Required. The hostname for which the interactive query will be executed.
- */
+/** Required. Hostname for which the interactive query will be executed. */
 @property(nonatomic, copy, nullable) NSString *envgroupHostname;
 
-/** Enables drill-down on specific dimension values. */
+/** Filter that enables you to drill-down on specific dimension values. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items. Default and the
- *  max value is 14400.
+ *  Maximum number of result items to return. The default and maximum value that
+ *  can be returned is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  Required. The resource name for which the interactive query will be
- *  executed. Must be of the form
- *  `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
- *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *  target_host. The value of dimensions should be comma separated list as shown
- *  below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
+ *  Required. Resource name for which the interactive query will be executed.
+ *  Use the following format in your request:
+ *  `organizations/{organization_id}/optimizedHostStats/{dimensions}` Dimensions
+ *  let you view metrics in meaningful groupings, such as `apiproxy`,
+ *  `target_host`. The value of dimensions should be a comma-separated list as
+ *  shown below: `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example, to
- *  display results 11-20, set limit to '10' and offset to '10'.
+ *  Offset value. Use `offset` with `limit` to enable pagination of results. For
+ *  example, to display results 11-20, set limit to `10` and offset to `10`.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
-/** Legacy field: not used anymore. */
+/** No longer used by Apigee. Supported for backwards compatibility. */
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  Required. The select parameter contains a comma separated list of metrics.
- *  E.g. sum(message_count),sum(error_count)
+ *  Required. Comma-separated list of metrics. For example:
+ *  `sum(message_count),sum(error_count)`
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
 /**
- *  This parameter specifies if the sort order should be ascending or descending
- *  Supported values are DESC and ASC.
+ *  Flag that specifies whether the sort order should be ascending or
+ *  descending. Valid values include `DESC` and `ASC`.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
-/** Comma separated list of columns to sort the final result. */
+/** Comma-separated list of columns used to sort the final result. */
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
  *  Required. Time interval for the interactive query. Time range is specified
- *  as start~end. E.g 04/15/2017 00:00~05/15/2017 23:59.
+ *  in GMT as `start~end`. For example: `04/15/2017 00:00~05/15/2017 23:59`.
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month. Time Unit specifies the
- *  granularity of metrics returned.
+ *  Granularity of metrics returned. Valid values include: `second`, `minute`,
+ *  `hour`, `day`, `week`, or `month`.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5 results
- *  'topk=5'.
+ *  Top number of results to return. For example, to return the top 5 results,
+ *  set `topk=5`.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting this
- *  value to true if you are using sortby with sort=DESC.
+ *  Flag that specifies whether to list timestamps in ascending (`true`) or
+ *  descending (`false`) order. Apigee recommends that you set this value to
+ *  `true` if you are using `sortby` with `sort=DESC`.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
-/** This parameters contains the timezone offset value. */
+/** Timezone offset value. */
 @property(nonatomic, copy, nullable) NSString *tzo;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1OptimizedStats.
  *
- *  This api is similar to GetHostStats except that the response is less
- *  verbose.
+ *  Similar to GetHostStats except that the response is less verbose.
  *
- *  @param name Required. The resource name for which the interactive query will
- *    be executed. Must be of the form
- *    `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
- *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *    target_host. The value of dimensions should be comma separated list as
- *    shown below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
+ *  @param name Required. Resource name for which the interactive query will be
+ *    executed. Use the following format in your request:
+ *    `organizations/{organization_id}/optimizedHostStats/{dimensions}`
+ *    Dimensions let you view metrics in meaningful groupings, such as
+ *    `apiproxy`, `target_host`. The value of dimensions should be a
+ *    comma-separated list as shown below:
+ *    `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet
  */

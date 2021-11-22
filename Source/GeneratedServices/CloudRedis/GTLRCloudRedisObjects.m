@@ -49,6 +49,18 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled = @"DIS
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication = @"SERVER_AUTHENTICATION";
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified = @"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED";
 
+// GTLRCloudRedis_PersistenceConfig.persistenceMode
+NSString * const kGTLRCloudRedis_PersistenceConfig_PersistenceMode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRedis_PersistenceConfig_PersistenceMode_PersistenceModeUnspecified = @"PERSISTENCE_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_PersistenceConfig_PersistenceMode_Rdb = @"RDB";
+
+// GTLRCloudRedis_PersistenceConfig.rdbSnapshotPeriod
+NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_OneHour = @"ONE_HOUR";
+NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_SixHours = @"SIX_HOURS";
+NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_SnapshotPeriodUnspecified = @"SNAPSHOT_PERIOD_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwelveHours = @"TWELVE_HOURS";
+NSString * const kGTLRCloudRedis_PersistenceConfig_RdbSnapshotPeriod_TwentyFourHours = @"TWENTY_FOUR_HOURS";
+
 // GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
@@ -187,10 +199,10 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 @dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
          createTime, currentLocationId, displayName, host, labels, locationId,
          maintenancePolicy, maintenanceSchedule, memorySizeGb, name, nodes,
-         persistenceIamIdentity, port, readEndpoint, readEndpointPort,
-         readReplicasMode, redisConfigs, redisVersion, replicaCount,
-         reservedIpRange, serverCaCerts, state, statusMessage, tier,
-         transitEncryptionMode;
+         persistenceConfig, persistenceIamIdentity, port, readEndpoint,
+         readEndpointPort, readReplicasMode, redisConfigs, redisVersion,
+         replicaCount, reservedIpRange, serverCaCerts, state, statusMessage,
+         tier, transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -442,6 +454,17 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 @implementation GTLRCloudRedis_OutputConfig
 @dynamic gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_PersistenceConfig
+//
+
+@implementation GTLRCloudRedis_PersistenceConfig
+@dynamic persistenceMode, rdbNextSnapshotTime, rdbSnapshotPeriod,
+         rdbSnapshotStartTime;
 @end
 
 

@@ -187,9 +187,9 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 //
 
 @implementation GTLRDns_ManagedZone
-@dynamic creationTime, descriptionProperty, dnsName, dnssecConfig,
-         forwardingConfig, identifier, kind, labels, name, nameServers,
-         nameServerSet, peeringConfig, privateVisibilityConfig,
+@dynamic cloudLoggingConfig, creationTime, descriptionProperty, dnsName,
+         dnssecConfig, forwardingConfig, identifier, kind, labels, name,
+         nameServers, nameServerSet, peeringConfig, privateVisibilityConfig,
          reverseLookupConfig, serviceDirectoryConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -221,6 +221,16 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneCloudLoggingConfig
+//
+
+@implementation GTLRDns_ManagedZoneCloudLoggingConfig
+@dynamic enableLogging, kind;
 @end
 
 

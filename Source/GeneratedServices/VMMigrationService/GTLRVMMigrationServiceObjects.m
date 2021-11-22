@@ -119,22 +119,6 @@ NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_NotIn = @"NOT_IN";
 NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
-// GTLRVMMigrationService_TargetVMDetails.bootOption
-NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_Bios = @"BIOS";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_BootOptionUnspecified = @"BOOT_OPTION_UNSPECIFIED";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_Efi = @"EFI";
-
-// GTLRVMMigrationService_TargetVMDetails.diskType
-NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Balanced = @"BALANCED";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Ssd = @"SSD";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Standard = @"STANDARD";
-
-// GTLRVMMigrationService_TargetVMDetails.licenseType
-NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Byol = @"BYOL";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Default = @"DEFAULT";
-NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Payg = @"PAYG";
-
 // GTLRVMMigrationService_UtilizationReport.state
 NSString * const kGTLRVMMigrationService_UtilizationReport_State_Creating = @"CREATING";
 NSString * const kGTLRVMMigrationService_UtilizationReport_State_Failed = @"FAILED";
@@ -211,8 +195,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CloneJob
-@dynamic computeEngineTargetDetails, computeEngineVmDetails, createTime, error,
-         name, state, stateTime;
+@dynamic computeEngineTargetDetails, createTime, error, name, state, stateTime;
 @end
 
 
@@ -348,8 +331,8 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_CutoverJob
-@dynamic computeEngineTargetDetails, computeEngineVmDetails, createTime, error,
-         name, progressPercent, state, stateMessage, stateTime;
+@dynamic computeEngineTargetDetails, createTime, error, name, progressPercent,
+         state, stateMessage, stateTime;
 @end
 
 
@@ -706,10 +689,19 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 @implementation GTLRVMMigrationService_MigratingVm
 @dynamic computeEngineTargetDefaults, createTime, currentSyncInfo,
          descriptionProperty, displayName, error, group, labels, lastSync, name,
-         policy, sourceVmId, state, stateTime, updateTime;
+         policy, recentCloneJobs, recentCutoverJobs, sourceVmId, state,
+         stateTime, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentCloneJobs" : [GTLRVMMigrationService_CloneJob class],
+    @"recentCutoverJobs" : [GTLRVMMigrationService_CutoverJob class]
+  };
+  return map;
 }
 
 @end
@@ -966,60 +958,6 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRVMMigrationService_TargetVMDetails
-//
-
-@implementation GTLRVMMigrationService_TargetVMDetails
-@dynamic appliedLicense, bootOption, computeScheduling, diskType, labels,
-         licenseType, machineType, machineTypeSeries, metadata, name,
-         networkInterfaces, networkTags, project, secureBoot, serviceAccount,
-         targetProject, zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
-    @"networkTags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRVMMigrationService_TargetVMDetails_Labels
-//
-
-@implementation GTLRVMMigrationService_TargetVMDetails_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRVMMigrationService_TargetVMDetails_Metadata
-//
-
-@implementation GTLRVMMigrationService_TargetVMDetails_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end

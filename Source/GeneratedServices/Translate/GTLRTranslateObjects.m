@@ -12,6 +12,88 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTranslate_BatchDocumentInputConfig
+//
+
+@implementation GTLRTranslate_BatchDocumentInputConfig
+@dynamic gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchDocumentOutputConfig
+//
+
+@implementation GTLRTranslate_BatchDocumentOutputConfig
+@dynamic gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateDocumentRequest
+//
+
+@implementation GTLRTranslate_BatchTranslateDocumentRequest
+@dynamic formatConversions, glossaries, inputConfigs, models, outputConfig,
+         sourceLanguageCode, targetLanguageCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inputConfigs" : [GTLRTranslate_BatchDocumentInputConfig class],
+    @"targetLanguageCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateDocumentRequest_FormatConversions
+//
+
+@implementation GTLRTranslate_BatchTranslateDocumentRequest_FormatConversions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateDocumentRequest_Glossaries
+//
+
+@implementation GTLRTranslate_BatchTranslateDocumentRequest_Glossaries
+
++ (Class)classForAdditionalProperties {
+  return [GTLRTranslate_TextGlossaryConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_BatchTranslateDocumentRequest_Models
+//
+
+@implementation GTLRTranslate_BatchTranslateDocumentRequest_Models
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTranslate_BatchTranslateTextRequest
 //
 
@@ -126,6 +208,80 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"languages" : [GTLRTranslate_DetectedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentInputConfig
+//
+
+@implementation GTLRTranslate_DocumentInputConfig
+@dynamic content, gcsSource, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentOutputConfig
+//
+
+@implementation GTLRTranslate_DocumentOutputConfig
+@dynamic gcsDestination, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentRequest
+//
+
+@implementation GTLRTranslate_DocumentRequest
+@dynamic documentInputConfig, documentOutputConfig, glossaryConfig, labels,
+         model, sourceLanguageCode, targetLanguageCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentRequest_Labels
+//
+
+@implementation GTLRTranslate_DocumentRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentResponse
+//
+
+@implementation GTLRTranslate_DocumentResponse
+@dynamic documentTranslation, glossaryConfig, glossaryDocumentTranslation,
+         model;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_DocumentTranslation
+//
+
+@implementation GTLRTranslate_DocumentTranslation
+@dynamic byteStreamOutputs, detectedLanguageCode, mimeType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"byteStreamOutputs" : [NSString class]
   };
   return map;
 }

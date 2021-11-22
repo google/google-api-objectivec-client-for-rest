@@ -26,10 +26,17 @@ NSString * const kGTLRCloudComposer_Environment_State_Running  = @"RUNNING";
 NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_Environment_State_Updating = @"UPDATING";
 
+// GTLRCloudComposer_EnvironmentConfig.environmentSize
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeLarge = @"ENVIRONMENT_SIZE_LARGE";
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium = @"ENVIRONMENT_SIZE_MEDIUM";
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall = @"ENVIRONMENT_SIZE_SMALL";
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified = @"ENVIRONMENT_SIZE_UNSPECIFIED";
+
 // GTLRCloudComposer_OperationMetadata.operationType
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_StoreState = @"STORE_STATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";
 
@@ -150,9 +157,10 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_EnvironmentConfig
-@dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig, gkeCluster,
-         nodeConfig, nodeCount, privateEnvironmentConfig, softwareConfig,
-         webServerConfig, webServerNetworkAccessControl;
+@dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig,
+         environmentSize, gkeCluster, nodeConfig, nodeCount,
+         privateEnvironmentConfig, softwareConfig, webServerConfig,
+         webServerNetworkAccessControl, workloadsConfig;
 @end
 
 
@@ -336,8 +344,20 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_PrivateEnvironmentConfig
-@dynamic cloudSqlIpv4CidrBlock, enablePrivateEnvironment, privateClusterConfig,
-         webServerIpv4CidrBlock, webServerIpv4ReservedRange;
+@dynamic cloudComposerNetworkIpv4CidrBlock,
+         cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
+         enablePrivateEnvironment, privateClusterConfig, webServerIpv4CidrBlock,
+         webServerIpv4ReservedRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_SchedulerResource
+//
+
+@implementation GTLRCloudComposer_SchedulerResource
+@dynamic count, cpu, memoryGb, storageGb;
 @end
 
 
@@ -451,4 +471,34 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_WebServerResource
+//
+
+@implementation GTLRCloudComposer_WebServerResource
+@dynamic cpu, memoryGb, storageGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_WorkerResource
+//
+
+@implementation GTLRCloudComposer_WorkerResource
+@dynamic cpu, maxCount, memoryGb, minCount, storageGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_WorkloadsConfig
+//
+
+@implementation GTLRCloudComposer_WorkloadsConfig
+@dynamic scheduler, webServer, worker;
 @end

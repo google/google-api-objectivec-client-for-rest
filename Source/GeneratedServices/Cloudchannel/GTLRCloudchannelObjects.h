@@ -1346,8 +1346,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Extended entitlement parameters. When creating an entitlement, valid
- *  parameters' names and values are defined in the offer's parameter
- *  definitions.
+ *  parameter names and values are defined in the Offer.parameter_definitions.
+ *  The response may include the following output-only Parameters: -
+ *  assigned_units: The number of licenses assigned to users. - max_units: The
+ *  maximum assignable units for a flexible offer. - num_units: The total
+ *  commitment for commitment-based offers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1alpha1Parameter *> *parameters;
 
@@ -1808,7 +1811,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /** Required. New Offer. Format: accounts/{account_id}/offers/{offer_id}. */
 @property(nonatomic, copy, nullable) NSString *offer;
 
-/** Optional. Parameters needed to purchase the Offer. */
+/**
+ *  Optional. Parameters needed to purchase the Offer. To view the available
+ *  Parameters refer to the Offer.parameter_definitions from the desired offer.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
 /** Optional. Purchase order id provided by the reseller. */
@@ -1836,7 +1842,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Required. Entitlement parameters to update. You can only change editable
- *  parameters.
+ *  parameters. To view the available Parameters for a request, refer to the
+ *  Offer.parameter_definitions from the desired offer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 
@@ -2334,8 +2341,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Extended entitlement parameters. When creating an entitlement, valid
- *  parameters' names and values are defined in the offer's parameter
- *  definitions.
+ *  parameter names and values are defined in the Offer.parameter_definitions.
+ *  The response may include the following output-only Parameters: -
+ *  assigned_units: The number of licenses assigned to users. - max_units: The
+ *  maximum assignable units for a flexible offer. - num_units: The total
+ *  commitment for commitment-based offers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudchannel_GoogleCloudChannelV1Parameter *> *parameters;
 

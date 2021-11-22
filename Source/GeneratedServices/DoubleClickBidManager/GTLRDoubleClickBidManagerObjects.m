@@ -42,6 +42,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceListCo
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceListType = @"FILTER_AUDIENCE_LIST_TYPE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceName = @"FILTER_AUDIENCE_NAME";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceType = @"FILTER_AUDIENCE_TYPE";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudioFeedTypeName = @"FILTER_AUDIO_FEED_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerState = @"FILTER_AUTHORIZED_SELLER_STATE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBillableOutcome = @"FILTER_BILLABLE_OUTCOME";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterBrandLiftType = @"FILTER_BRAND_LIFT_TYPE";
@@ -165,6 +166,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMatchRatio = @
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMeasurementSource = @"FILTER_MEASUREMENT_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaPlan = @"FILTER_MEDIA_PLAN";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaPlanName = @"FILTER_MEDIA_PLAN_NAME";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaType = @"FILTER_MEDIA_TYPE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMobileGeo = @"FILTER_MOBILE_GEO";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMonth = @"FILTER_MONTH";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMraidSupport = @"FILTER_MRAID_SUPPORT";
@@ -334,6 +336,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceLi
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceListType = @"FILTER_AUDIENCE_LIST_TYPE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceName = @"FILTER_AUDIENCE_NAME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceType = @"FILTER_AUDIENCE_TYPE";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudioFeedTypeName = @"FILTER_AUDIO_FEED_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAuthorizedSellerState = @"FILTER_AUTHORIZED_SELLER_STATE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBillableOutcome = @"FILTER_BILLABLE_OUTCOME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterBrandLiftType = @"FILTER_BRAND_LIFT_TYPE";
@@ -457,6 +460,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMatchRatio
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMeasurementSource = @"FILTER_MEASUREMENT_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaPlan = @"FILTER_MEDIA_PLAN";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaPlanName = @"FILTER_MEDIA_PLAN_NAME";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaType = @"FILTER_MEDIA_TYPE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMobileGeo = @"FILTER_MOBILE_GEO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMonth = @"FILTER_MONTH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMraidSupport = @"FILTER_MRAID_SUPPORT";
@@ -1138,6 +1142,7 @@ NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_Filter
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceListType = @"FILTER_AUDIENCE_LIST_TYPE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceName = @"FILTER_AUDIENCE_NAME";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceType = @"FILTER_AUDIENCE_TYPE";
+NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudioFeedTypeName = @"FILTER_AUDIO_FEED_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAuthorizedSellerState = @"FILTER_AUTHORIZED_SELLER_STATE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBillableOutcome = @"FILTER_BILLABLE_OUTCOME";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBrandLiftType = @"FILTER_BRAND_LIFT_TYPE";
@@ -1261,6 +1266,7 @@ NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_Filter
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMeasurementSource = @"FILTER_MEASUREMENT_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaPlan = @"FILTER_MEDIA_PLAN";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaPlanName = @"FILTER_MEDIA_PLAN_NAME";
+NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaType = @"FILTER_MEDIA_TYPE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMobileGeo = @"FILTER_MOBILE_GEO";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMonth = @"FILTER_MONTH";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMraidSupport = @"FILTER_MRAID_SUPPORT";

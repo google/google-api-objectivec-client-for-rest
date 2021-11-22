@@ -27,6 +27,7 @@
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaPublicJwk;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig;
+@class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService;
 @class GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaUpdateServiceRequest;
@@ -189,6 +190,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 /** RecaptchaConfigs retrieved. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig *> *configs;
+
+@end
+
+
+/**
+ *  Response message for the BatchGetRecaptchaEnterpriseConfigs method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse : GTLRObject
+
+/** RecaptchaEnterpriseConfigs retrieved. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig *> *configs;
 
 @end
 
@@ -453,6 +465,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
 
 
 /**
+ *  Request message for the ExchangeRecaptchaEnterpriseToken method.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaEnterpriseTokenRequest : GTLRObject
+
+/**
+ *  Required. The reCAPTCHA token as returned by the [reCAPTCHA Enterprise
+ *  JavaScript
+ *  API](https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages).
+ */
+@property(nonatomic, copy, nullable) NSString *recaptchaEnterpriseToken;
+
+@end
+
+
+/**
  *  Request message for the ExchangeRecaptchaToken method.
  */
 @interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeRecaptchaTokenRequest : GTLRObject
@@ -646,6 +673,41 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV
  *  Specifies the duration for which App Check tokens exchanged from reCAPTCHA
  *  tokens will be valid. If unset, a default value of 1 day is assumed. Must be
  *  between 30 minutes and 7 days, inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
+
+@end
+
+
+/**
+ *  An app's reCAPTCHA Enterprise configuration object. This configuration is
+ *  used by ExchangeRecaptchaEnterpriseToken to validate reCAPTCHA tokens issued
+ *  to apps by reCAPTCHA Enterprise. It also controls certain properties of the
+ *  returned App Check token, such as its ttl.
+ */
+@interface GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaEnterpriseConfig : GTLRObject
+
+/**
+ *  Required. The relative resource name of the reCAPTCHA Enterprise
+ *  configuration object, in the format: ```
+ *  projects/{project_number}/apps/{app_id}/recaptchaEnterpriseConfig ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The score-based site key [created in reCAPTCHA
+ *  Enterprise](https://cloud.google.com/recaptcha-enterprise/docs/create-key#creating_a_site_key)
+ *  used to [invoke reCAPTCHA and generate the reCAPTCHA
+ *  tokens](https://cloud.google.com/recaptcha-enterprise/docs/instrument-web-pages)
+ *  for your application. Important: This is *not* the `site_secret` (as it is
+ *  in reCAPTCHA v3), but rather your score-based reCAPTCHA Enterprise site key.
+ */
+@property(nonatomic, copy, nullable) NSString *siteKey;
+
+/**
+ *  Specifies the duration for which App Check tokens exchanged from reCAPTCHA
+ *  Enterprise tokens will be valid. If unset, a default value of 1 hour is
+ *  assumed. Must be between 30 minutes and 7 days, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *tokenTtl;
 

@@ -226,3 +226,68 @@
 }
 
 @end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/relatedaccountgroupmemberships:search";
+  GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.relatedaccountgroupmemberships.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/relatedaccountgroups";
+  GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.relatedaccountgroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsMembershipsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships";
+  GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsMembershipsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse class];
+  query.loggingName = @"recaptchaenterprise.projects.relatedaccountgroups.memberships.list";
+  return query;
+}
+
+@end

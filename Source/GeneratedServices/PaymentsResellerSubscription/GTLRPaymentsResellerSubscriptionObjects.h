@@ -23,6 +23,8 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Product;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
@@ -118,6 +120,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "UNIT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
+
+/**
+ *  The promotion is a free trial.
+ *
+ *  Value: "PROMOTION_TYPE_FREE_TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial;
+/**
+ *  The promotion is a reduced introductory pricing.
+ *
+ *  Value: "PROMOTION_TYPE_INTRODUCTORY_PRICING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeIntroductoryPricing;
+/**
+ *  The promotion type is unspecified.
+ *
+ *  Value: "PROMOTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.processingState
@@ -559,10 +583,31 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration *freeTrialDuration;
 
 /**
+ *  Optional. Specifies the introductory pricing details when the promotion_type
+ *  is PROMOTION_TYPE_INTRODUCTORY_PRICING.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails *introductoryPricingDetails;
+
+/**
  *  Output only. Response only. Resource name of the subscription promotion. It
  *  will have the format of "partners/{partner_id}/promotion/{promotion_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Output Only. Specifies the type of the promotion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial
+ *        The promotion is a free trial. (Value: "PROMOTION_TYPE_FREE_TRIAL")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeIntroductoryPricing
+ *        The promotion is a reduced introductory pricing. (Value:
+ *        "PROMOTION_TYPE_INTRODUCTORY_PRICING")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeUnspecified
+ *        The promotion type is unspecified. (Value:
+ *        "PROMOTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *promotionType;
 
 /**
  *  Output only. 2-letter ISO region code where the promotion is available in.
@@ -578,6 +623,33 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 /** Output only. Localized human readable name of the promotion. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText *> *titles;
+
+@end
+
+
+/**
+ *  The details of a introductory pricing promotion.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails : GTLRObject
+
+/** Specifies the introductory pricing periods. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec *> *introductoryPricingSpecs;
+
+@end
+
+
+/**
+ *  The duration of an introductory pricing promotion.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec : GTLRObject
+
+/**
+ *  Output only. Output Only. The duration of an introductory offer in billing
+ *  cycles.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recurrenceCount;
 
 @end
 
@@ -668,6 +740,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  this field is empty.
  */
 @property(nonatomic, copy, nullable) NSString *redirectUri;
+
+/**
+ *  Output only. The time at which the subscription is expected to be renewed by
+ *  Google - a new charge will be incurred and the service entitlement will be
+ *  renewed. A non-immediate cancellation will take place at this time too,
+ *  before which, the service entitlement for the end user will remain valid.
+ *  UTC timezone in ISO 8061 format. For example: "2019-08-31T17:28:54.564Z"
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *renewalTime;
 
 /**
  *  Required. The location that the service is provided as indicated by the

@@ -23,6 +23,7 @@
 
 @class GTLRContainer_AcceleratorConfig;
 @class GTLRContainer_AddonsConfig;
+@class GTLRContainer_AdvancedMachineFeatures;
 @class GTLRContainer_AuthenticatorGroupsConfig;
 @class GTLRContainer_Autopilot;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
@@ -1240,6 +1241,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  enabled for the nodes.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
+
+@end
+
+
+/**
+ *  Specifies options for controlling advanced machine features.
+ */
+@interface GTLRContainer_AdvancedMachineFeatures : GTLRObject
+
+/**
+ *  The number of threads per physical core. To disable simultaneous
+ *  multithreading (SMT) set this to 1. If unset, the maximum number of threads
+ *  supported per core by the underlying processor is assumed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
 
 @end
 
@@ -3081,6 +3099,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Configuration for issuance of mTLS keys and certificates to Kubernetes pods.
  */
 @interface GTLRContainer_MeshCertificates : GTLRObject
+
+/**
+ *  enable_certificates controls issuance of workload mTLS certificates. If set,
+ *  the GKE Workload Identity Certificates controller and node agent will be
+ *  deployed in the cluster, which can then be configured by creating a
+ *  WorkloadCertificateConfig Custom Resource. Requires Workload Identity
+ *  (workload_pool must be non-empty).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableCertificates;
+
 @end
 
 
@@ -3280,6 +3310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  support for GPUs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
+
+/** Advanced features for the Compute Engine VM. */
+@property(nonatomic, strong, nullable) GTLRContainer_AdvancedMachineFeatures *advancedMachineFeatures;
 
 /**
  *  The Customer Managed Encryption Key used to encrypt the boot disk attached

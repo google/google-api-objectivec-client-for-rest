@@ -75,8 +75,15 @@ NSString * const kGTLRSecurityCommandCenter_Cvssv3_UserInteraction_UserInteracti
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation = @"OBSERVATION";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SccError = @"SCC_ERROR";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat = @"THREAT";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability = @"VULNERABILITY";
+
+// GTLRSecurityCommandCenter_Finding.mute
+NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Muted = @"MUTED";
+NSString * const kGTLRSecurityCommandCenter_Finding_Mute_MuteUnspecified = @"MUTE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Undefined = @"UNDEFINED";
+NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Unmuted = @"UNMUTED";
 
 // GTLRSecurityCommandCenter_Finding.severity
 NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Critical = @"CRITICAL";
@@ -137,6 +144,12 @@ NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unuse
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Inactive = @"INACTIVE";
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_SetMuteRequest.mute
+NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Muted = @"MUTED";
+NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_MuteUnspecified = @"MUTE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Undefined = @"UNDEFINED";
+NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMUTED";
 
 // ----------------------------------------------------------------------------
 //
@@ -238,6 +251,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_BulkMuteFindingsRequest
+//
+
+@implementation GTLRSecurityCommandCenter_BulkMuteFindingsRequest
+@dynamic filter, muteAnnotation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_Cve
 //
 
@@ -300,9 +323,24 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic canonicalName, category, createTime, eventTime, externalUri,
-         findingClass, indicator, name, parent, resourceName, securityMarks,
-         severity, sourceProperties, state, vulnerability;
+@dynamic canonicalName, category, createTime, eventTime, externalSystems,
+         externalUri, findingClass, indicator, mute, muteInitiator,
+         muteUpdateTime, name, parent, resourceName, securityMarks, severity,
+         sourceProperties, state, vulnerability;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Finding_ExternalSystems
+//
+
+@implementation GTLRSecurityCommandCenter_Finding_ExternalSystems
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem class];
+}
+
 @end
 
 
@@ -357,6 +395,40 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse
 @dynamic duration, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem
+@dynamic assignees, externalSystemUpdateTime, externalUid, name, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignees" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig
+@dynamic createTime, descriptionProperty, displayName, filter, mostRecentEditor,
+         name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -679,6 +751,28 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ListMuteConfigsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListMuteConfigsResponse
+@dynamic muteConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"muteConfigs" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"muteConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_ListNotificationConfigsResponse
 //
 
@@ -930,6 +1024,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SetMuteRequest
+//
+
+@implementation GTLRSecurityCommandCenter_SetMuteRequest
+@dynamic mute;
 @end
 
 

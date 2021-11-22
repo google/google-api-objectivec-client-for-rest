@@ -313,15 +313,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a `Registration` resource. For `Registration` resources using usage
- *  billing, this method works if: * `state` is `EXPORTED` with `expire_time` in
- *  the past * `state` is `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED`
- *  This method works on any `Registration` resource using subscription billing,
- *  provided that the resource was created at least 1 day in the past. When an
- *  active domain is successfully deleted, you can continue to use the domain in
+ *  Deletes a `Registration` resource. This method works on any `Registration`
+ *  resource using [Subscription or Commitment
+ *  billing](/domains/pricing#billing-models), provided that the resource was
+ *  created at least 1 day in the past. For `Registration` resources using
+ *  [Monthly billing](/domains/pricing#billing-models), this method works if: *
+ *  `state` is `EXPORTED` with `expire_time` in the past * `state` is
+ *  `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED` When an active
+ *  registration is successfully deleted, you can continue to use the domain in
  *  [Google Domains](https://domains.google/) until it expires. The calling user
  *  becomes the domain's sole owner in Google Domains, and permissions for the
- *  domain are subsequently managed there. The domain will not renew
+ *  domain are subsequently managed there. The domain does not renew
  *  automatically unless the new owner sets up billing in Google Domains.
  *
  *  Method: domains.projects.locations.registrations.delete
@@ -340,15 +342,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
- *  Deletes a `Registration` resource. For `Registration` resources using usage
- *  billing, this method works if: * `state` is `EXPORTED` with `expire_time` in
- *  the past * `state` is `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED`
- *  This method works on any `Registration` resource using subscription billing,
- *  provided that the resource was created at least 1 day in the past. When an
- *  active domain is successfully deleted, you can continue to use the domain in
+ *  Deletes a `Registration` resource. This method works on any `Registration`
+ *  resource using [Subscription or Commitment
+ *  billing](/domains/pricing#billing-models), provided that the resource was
+ *  created at least 1 day in the past. For `Registration` resources using
+ *  [Monthly billing](/domains/pricing#billing-models), this method works if: *
+ *  `state` is `EXPORTED` with `expire_time` in the past * `state` is
+ *  `REGISTRATION_FAILED` * `state` is `TRANSFER_FAILED` When an active
+ *  registration is successfully deleted, you can continue to use the domain in
  *  [Google Domains](https://domains.google/) until it expires. The calling user
  *  becomes the domain's sole owner in Google Domains, and permissions for the
- *  domain are subsequently managed there. The domain will not renew
+ *  domain are subsequently managed there. The domain does not renew
  *  automatically unless the new owner sets up billing in Google Domains.
  *
  *  @param name Required. The name of the `Registration` to delete, in the
@@ -366,7 +370,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  continue to use the domain in [Google Domains](https://domains.google/)
  *  until it expires. The calling user becomes the domain's sole owner in Google
  *  Domains, and permissions for the domain are subsequently managed there. The
- *  domain will not renew automatically unless the new owner sets up billing in
+ *  domain does not renew automatically unless the new owner sets up billing in
  *  Google Domains.
  *
  *  Method: domains.projects.locations.registrations.export
@@ -390,7 +394,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  continue to use the domain in [Google Domains](https://domains.google/)
  *  until it expires. The calling user becomes the domain's sole owner in Google
  *  Domains, and permissions for the domain are subsequently managed there. The
- *  domain will not renew automatically unless the new owner sets up billing in
+ *  domain does not renew automatically unless the new owner sets up billing in
  *  Google Domains.
  *
  *  @param object The @c GTLRCloudDomains_ExportRegistrationRequest to include
@@ -447,12 +451,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGetIamPolicy : GTLRCloudDomainsQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -561,7 +568,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The field mask describing which fields to update as a
  *  comma-separated list. For example, if only the labels are being updated, the
- *  `update_mask` would be `"labels"`.
+ *  `update_mask` is `"labels"`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -749,8 +756,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets parameters needed to transfer a domain name from another registrar to
  *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
- *  Domains is not yet supported. Use the returned values to call
- *  `TransferDomain`.
+ *  Domains is not supported. Use the returned values to call `TransferDomain`.
  *
  *  Method: domains.projects.locations.registrations.retrieveTransferParameters
  *
@@ -775,8 +781,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets parameters needed to transfer a domain name from another registrar to
  *  Cloud Domains. For domains managed by Google Domains, transferring to Cloud
- *  Domains is not yet supported. Use the returned values to call
- *  `TransferDomain`.
+ *  Domains is not supported. Use the returned values to call `TransferDomain`.
  *
  *  @param location Required. The location. Must be in the format `projects/ *
  *    /locations/ *`.
@@ -907,12 +912,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Transfers a domain name from another registrar to Cloud Domains. For domains
- *  managed by Google Domains, transferring to Cloud Domains is not yet
- *  supported. Before calling this method, go to the domain's current registrar
- *  to unlock the domain for transfer and retrieve the domain's transfer
- *  authorization code. Then call `RetrieveTransferParameters` to confirm that
- *  the domain is unlocked and to get values needed to build a call to this
- *  method. A successful call creates a `Registration` resource in state
+ *  managed by Google Domains, transferring to Cloud Domains is not supported.
+ *  Before calling this method, go to the domain's current registrar to unlock
+ *  the domain for transfer and retrieve the domain's transfer authorization
+ *  code. Then call `RetrieveTransferParameters` to confirm that the domain is
+ *  unlocked and to get values needed to build a call to this method. A
+ *  successful call creates a `Registration` resource in state
  *  `TRANSFER_PENDING`. It can take several days to complete the transfer
  *  process. The registrant can often speed up this process by approving the
  *  transfer through the current registrar, either by clicking a link in an
@@ -940,12 +945,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudDomains_Operation.
  *
  *  Transfers a domain name from another registrar to Cloud Domains. For domains
- *  managed by Google Domains, transferring to Cloud Domains is not yet
- *  supported. Before calling this method, go to the domain's current registrar
- *  to unlock the domain for transfer and retrieve the domain's transfer
- *  authorization code. Then call `RetrieveTransferParameters` to confirm that
- *  the domain is unlocked and to get values needed to build a call to this
- *  method. A successful call creates a `Registration` resource in state
+ *  managed by Google Domains, transferring to Cloud Domains is not supported.
+ *  Before calling this method, go to the domain's current registrar to unlock
+ *  the domain for transfer and retrieve the domain's transfer authorization
+ *  code. Then call `RetrieveTransferParameters` to confirm that the domain is
+ *  unlocked and to get values needed to build a call to this method. A
+ *  successful call creates a `Registration` resource in state
  *  `TRANSFER_PENDING`. It can take several days to complete the transfer
  *  process. The registrant can often speed up this process by approving the
  *  transfer through the current registrar, either by clicking a link in an

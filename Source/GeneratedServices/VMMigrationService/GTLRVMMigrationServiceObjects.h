@@ -53,9 +53,6 @@
 @class GTLRVMMigrationService_Status;
 @class GTLRVMMigrationService_Status_Details_Item;
 @class GTLRVMMigrationService_TargetProject;
-@class GTLRVMMigrationService_TargetVMDetails;
-@class GTLRVMMigrationService_TargetVMDetails_Labels;
-@class GTLRVMMigrationService_TargetVMDetails_Metadata;
 @class GTLRVMMigrationService_UtilizationReport;
 @class GTLRVMMigrationService_VmUtilizationInfo;
 @class GTLRVMMigrationService_VmUtilizationMetrics;
@@ -596,78 +593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_SchedulingNodeAffinit
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_SchedulingNodeAffinity_OperatorProperty_OperatorUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRVMMigrationService_TargetVMDetails.bootOption
-
-/**
- *  The boot option is BIOS.
- *
- *  Value: "BIOS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_Bios;
-/**
- *  The boot option is unknown.
- *
- *  Value: "BOOT_OPTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_BootOptionUnspecified;
-/**
- *  The boot option is EFI.
- *
- *  Value: "EFI"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_BootOption_Efi;
-
-// ----------------------------------------------------------------------------
-// GTLRVMMigrationService_TargetVMDetails.diskType
-
-/**
- *  An alternative to SSD persistent disks that balance performance and cost.
- *
- *  Value: "BALANCED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Balanced;
-/**
- *  An unspecified disk type. Will be used as STANDARD.
- *
- *  Value: "DISK_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_DiskTypeUnspecified;
-/**
- *  SSD hard disk type.
- *
- *  Value: "SSD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Ssd;
-/**
- *  A Standard disk type.
- *
- *  Value: "STANDARD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_DiskType_Standard;
-
-// ----------------------------------------------------------------------------
-// GTLRVMMigrationService_TargetVMDetails.licenseType
-
-/**
- *  The license type is Bring Your Own License type.
- *
- *  Value: "BYOL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Byol;
-/**
- *  The license type is the default for the OS.
- *
- *  Value: "DEFAULT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Default;
-/**
- *  The license type is Pay As You Go license type.
- *
- *  Value: "PAYG"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_TargetVMDetails_LicenseType_Payg;
-
-// ----------------------------------------------------------------------------
 // GTLRVMMigrationService_UtilizationReport.state
 
 /**
@@ -846,12 +771,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** Output only. Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDetails *computeEngineTargetDetails;
-
-/**
- *  Output only. Details of the VM in Compute Engine. Deprecated: Use
- *  compute_engine_target_details instead.
- */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_TargetVMDetails *computeEngineVmDetails;
 
 /**
  *  Output only. The time the clone job was created (as an API call, not when it
@@ -1227,12 +1146,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 /** Output only. Details of the target VM in Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeEngineTargetDetails *computeEngineTargetDetails;
-
-/**
- *  Output only. Details of the VM in Compute Engine. Deprecated: Use
- *  compute_engine_target_details instead.
- */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_TargetVMDetails *computeEngineVmDetails;
 
 /**
  *  Output only. The time the cutover job was created (as an API call, not when
@@ -1883,6 +1796,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_SchedulePolicy *policy;
 
 /**
+ *  Output only. The recent clone jobs performed on the migrating VM. This field
+ *  holds the vm's last completed clone job and the vm's running clone job, if
+ *  one exists. Note: To have this field populated you need to explicitly
+ *  request it via the "view" parameter of the Get/List request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_CloneJob *> *recentCloneJobs;
+
+/**
+ *  Output only. The recent cutover jobs performed on the migrating VM. This
+ *  field holds the vm's last completed cutover job and the vm's running cutover
+ *  job, if one exists. Note: To have this field populated you need to
+ *  explicitly request it via the "view" parameter of the Get/List request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_CutoverJob *> *recentCutoverJobs;
+
+/**
  *  The unique ID of the VM in the source. The VM's name in vSphere can be
  *  changed, so this is not the VM's name but rather its moRef id. This id is of
  *  the form vm-.
@@ -2384,136 +2313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** Output only. The last time the target project resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-@end
-
-
-/**
- *  TargetVMDetails is a collection of details for creating a VM in a target
- *  Compute Engine project.
- */
-@interface GTLRVMMigrationService_TargetVMDetails : GTLRObject
-
-/** Output only. The OS license returned from the adaptation module report. */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_AppliedLicense *appliedLicense;
-
-/**
- *  Output only. The VM Boot Option, as set in the source vm.
- *
- *  Likely values:
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_BootOption_Bios The boot
- *        option is BIOS. (Value: "BIOS")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_BootOption_BootOptionUnspecified
- *        The boot option is unknown. (Value: "BOOT_OPTION_UNSPECIFIED")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_BootOption_Efi The boot
- *        option is EFI. (Value: "EFI")
- */
-@property(nonatomic, copy, nullable) NSString *bootOption;
-
-/** Compute instance scheduling information (if empty default is used). */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_ComputeScheduling *computeScheduling;
-
-/**
- *  The disk type to use in the VM.
- *
- *  Likely values:
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_DiskType_Balanced An
- *        alternative to SSD persistent disks that balance performance and cost.
- *        (Value: "BALANCED")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_DiskType_DiskTypeUnspecified
- *        An unspecified disk type. Will be used as STANDARD. (Value:
- *        "DISK_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_DiskType_Ssd SSD hard disk
- *        type. (Value: "SSD")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_DiskType_Standard A
- *        Standard disk type. (Value: "STANDARD")
- */
-@property(nonatomic, copy, nullable) NSString *diskType;
-
-/** A map of labels to associate with the VM. */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_TargetVMDetails_Labels *labels;
-
-/**
- *  The license type to use in OS adaptation.
- *
- *  Likely values:
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_LicenseType_Byol The
- *        license type is Bring Your Own License type. (Value: "BYOL")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_LicenseType_Default The
- *        license type is the default for the OS. (Value: "DEFAULT")
- *    @arg @c kGTLRVMMigrationService_TargetVMDetails_LicenseType_Payg The
- *        license type is Pay As You Go license type. (Value: "PAYG")
- */
-@property(nonatomic, copy, nullable) NSString *licenseType;
-
-/** The machine type to create the VM with. */
-@property(nonatomic, copy, nullable) NSString *machineType;
-
-/** The machine type series to create the VM with. */
-@property(nonatomic, copy, nullable) NSString *machineTypeSeries;
-
-/** The metadata key/value pairs to assign to the VM. */
-@property(nonatomic, strong, nullable) GTLRVMMigrationService_TargetVMDetails_Metadata *metadata;
-
-/** The name of the VM to create. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** List of NICs connected to this VM. */
-@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_NetworkInterface *> *networkInterfaces;
-
-/** A map of network tags to associate with the VM. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
-
-/** The project in which to create the VM. */
-@property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Defines whether the instance has Secure Boot enabled. This can be set to
- *  true only if the vm boot option is EFI.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *secureBoot;
-
-/** The service account to associate the VM with. */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
-
-/**
- *  The full path of the resource of type TargetProject which represents the
- *  Compute Engine project in which to create this VM.
- */
-@property(nonatomic, copy, nullable) NSString *targetProject;
-
-/**
- *  The zone in which to create the VM.
- *
- *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
- */
-@property(nonatomic, copy, nullable) NSString *zoneProperty;
-
-@end
-
-
-/**
- *  A map of labels to associate with the VM.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRVMMigrationService_TargetVMDetails_Labels : GTLRObject
-@end
-
-
-/**
- *  The metadata key/value pairs to assign to the VM.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRVMMigrationService_TargetVMDetails_Metadata : GTLRObject
 @end
 
 

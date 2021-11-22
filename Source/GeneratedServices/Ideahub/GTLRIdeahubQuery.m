@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Idea Hub API (ideahub/v1beta)
+// Description:
+//   This is an invitation-only API.
 // Documentation:
 //   https://console.cloud.google.com/apis/library/ideahub.googleapis.com
 

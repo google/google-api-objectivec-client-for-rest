@@ -438,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Mask of fields to update. At least one path must be supplied in
  *  this field. The elements of the repeated paths field may only include these
  *  fields from Instance: * `displayName` * `labels` * `memorySizeGb` *
- *  `redisConfig`
+ *  `redisConfig` * `replica_count`
  *
  *  String format is a comma-separated list of fields.
  */

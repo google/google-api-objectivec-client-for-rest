@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Datastream API (datastream/v1alpha1)
+//   Datastream API (datastream/v1)
 // Documentation:
 //   https://cloud.google.com/datastream/
 

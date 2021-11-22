@@ -45,6 +45,7 @@
 @class GTLRStorageTransfer_TimeOfDay;
 @class GTLRStorageTransfer_TransferCounters;
 @class GTLRStorageTransfer_TransferJob;
+@class GTLRStorageTransfer_TransferManifest;
 @class GTLRStorageTransfer_TransferOptions;
 @class GTLRStorageTransfer_TransferSpec;
 
@@ -252,6 +253,58 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_U
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_LoggingConfig.logActions
+
+/**
+ *  Copying objects from source to destination.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Copy;
+/**
+ *  Deleting objects at source or destination.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Delete;
+/**
+ *  Finding objects to transfer e.g. listing objects of the source bucket.
+ *
+ *  Value: "FIND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Find;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "LOGGABLE_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_LoggableActionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_LoggingConfig.logActionStates
+
+/**
+ *  `LoggableAction` is terminated in an error state. `FAILED` actions are
+ *  logged as ERROR.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "LOGGABLE_ACTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified;
+/**
+ *  `LoggableAction` is completed successfully. `SUCCEEDED` actions are logged
+ *  as INFO.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_NotificationConfig.eventTypes
@@ -923,6 +976,18 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, strong, nullable) NSNumber *enableOnpremGcsTransferLogs;
 
+/**
+ *  Actions to be logged. If empty, no logs are generated. This is not yet
+ *  supported for transfers with PosixFilesystem data sources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *logActions;
+
+/**
+ *  States in which `log_actions` are logged. If empty, no logs are generated.
+ *  This is not yet supported for transfers with PosixFilesystem data sources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *logActionStates;
+
 @end
 
 
@@ -977,8 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  modification time" refers to the time of the last change to the object's
  *  content or metadata — specifically, this is the `updated` property of Cloud
  *  Storage objects, the `LastModified` field of S3 objects, and the
- *  `Last-Modified` header of Azure blobs. Transfers that use PosixFilesystem
- *  and have a Cloud Storage source don't support `ObjectConditions`.
+ *  `Last-Modified` header of Azure blobs. Transfers with a PosixFilesystem
+ *  source or destination don't support `ObjectConditions`.
  */
 @interface GTLRStorageTransfer_ObjectConditions : GTLRObject
 
@@ -1591,6 +1656,24 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
+ *  Specifies where the manifest is located.
+ */
+@interface GTLRStorageTransfer_TransferManifest : GTLRObject
+
+/**
+ *  Holds URI-encoded path to find the manifest. It can be located in
+ *  data_source, data_sink, or separately in GCS. For data_source and data_sink,
+ *  the manifest location is relative to the path specified by that data_source
+ *  or data_sink. If manifest is in GCS, use format "gs:///". If manifest is in
+ *  data_source, use format "source://". If manifest is in data_sink, use format
+ *  "sink://".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
  *  A description of the execution of a transfer.
  */
 @interface GTLRStorageTransfer_TransferOperation : GTLRObject
@@ -1709,8 +1792,30 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
+/** A POSIX Filesystem data sink. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_PosixFilesystem *posixDataSink;
+
 /** A POSIX Filesystem data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_PosixFilesystem *posixDataSource;
+
+/**
+ *  Specifies the agent pool name associated with the posix data sink. When
+ *  unspecified, the default name is used.
+ */
+@property(nonatomic, copy, nullable) NSString *sinkAgentPoolName;
+
+/**
+ *  Specifies the agent pool name associated with the posix data source. When
+ *  unspecified, the default name is used.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceAgentPoolName;
+
+/**
+ *  A manifest file provides a list of objects to be transferred from the data
+ *  source. This field points to the location of the manifest file. Otherwise,
+ *  the entire source bucket is used. ObjectConditions still apply.
+ */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferManifest *transferManifest;
 
 /**
  *  If the option delete_objects_unique_in_sink is `true` and time-based object

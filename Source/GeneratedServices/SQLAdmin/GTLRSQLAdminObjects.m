@@ -55,10 +55,13 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 = @"MYSQL
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -82,10 +85,13 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -132,10 +138,13 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55          = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56          = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8018        = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8026        = @"MYSQL_8_0_26";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13       = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14       = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -217,6 +226,10 @@ NSString * const kGTLRSQLAdmin_Operation_Status_Done           = @"DONE";
 NSString * const kGTLRSQLAdmin_Operation_Status_Pending        = @"PENDING";
 NSString * const kGTLRSQLAdmin_Operation_Status_Running        = @"RUNNING";
 NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationStatusUnspecified = @"SQL_OPERATION_STATUS_UNSPECIFIED";
+
+// GTLRSQLAdmin_PasswordValidationPolicy.complexity
+NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityDefault = @"COMPLEXITY_DEFAULT";
+NSString * const kGTLRSQLAdmin_PasswordValidationPolicy_Complexity_ComplexityUnspecified = @"COMPLEXITY_UNSPECIFIED";
 
 // GTLRSQLAdmin_Reschedule.rescheduleType
 NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate = @"IMMEDIATE";
@@ -522,13 +535,13 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_DatabaseInstance
 @dynamic backendType, connectionName, createTime, currentDiskSize,
-         databaseVersion, diskEncryptionConfiguration, diskEncryptionStatus,
-         ETag, failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address,
-         kind, masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
-         outOfDiskReport, project, region, replicaConfiguration, replicaNames,
-         rootPassword, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
-         selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
-         suspensionReason;
+         databaseInstalledVersion, databaseVersion, diskEncryptionConfiguration,
+         diskEncryptionStatus, ETag, failoverReplica, gceZone, instanceType,
+         ipAddresses, ipv6Address, kind, masterInstanceName, maxDiskSize, name,
+         onPremisesConfiguration, outOfDiskReport, project, region,
+         replicaConfiguration, replicaNames, rootPassword, satisfiesPzs,
+         scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
+         serviceAccountEmailAddress, settings, state, suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1258,6 +1271,27 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_PasswordStatus
+//
+
+@implementation GTLRSQLAdmin_PasswordStatus
+@dynamic locked, passwordExpirationTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_PasswordValidationPolicy
+//
+
+@implementation GTLRSQLAdmin_PasswordValidationPolicy
+@dynamic complexity, disallowUsernameSubstring, minLength,
+         passwordChangeInterval, reuseInterval;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_ReplicaConfiguration
 //
 
@@ -1328,8 +1362,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
          dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, insightsConfig,
          ipConfiguration, kind, locationPreference, maintenanceWindow,
-         pricingPlan, replicationType, settingsVersion, sqlServerAuditConfig,
-         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
+         passwordValidationPolicy, pricingPlan, replicationType,
+         settingsVersion, sqlServerAuditConfig, storageAutoResize,
+         storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1696,7 +1731,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic ETag, host, instance, kind, name, password, project,
+@dynamic ETag, host, instance, kind, name, password, passwordPolicy, project,
          sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1709,6 +1744,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_UserPasswordValidationPolicy
+//
+
+@implementation GTLRSQLAdmin_UserPasswordValidationPolicy
+@dynamic allowedFailedAttempts, enableFailedAttemptsCheck,
+         passwordExpirationDuration, status;
 @end
 
 

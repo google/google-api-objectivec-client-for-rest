@@ -1210,7 +1210,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoType
-@dynamic name;
+@dynamic name, version;
 @end
 
 
@@ -1999,7 +1999,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @dynamic bucketingConfig, characterMaskConfig, cryptoDeterministicConfig,
          cryptoHashConfig, cryptoReplaceFfxFpeConfig, dateShiftConfig,
          fixedSizeBucketingConfig, redactConfig, replaceConfig,
-         replaceWithInfoTypeConfig, timePartConfig;
+         replaceDictionaryConfig, replaceWithInfoTypeConfig, timePartConfig;
 @end
 
 
@@ -2253,6 +2253,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse
 @dynamic item, overview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ReplaceDictionaryConfig
+@dynamic wordList;
 @end
 
 

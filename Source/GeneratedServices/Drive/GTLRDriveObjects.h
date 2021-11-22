@@ -1355,6 +1355,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_File_Capabilities : GTLRObject
 
 /**
+ *  Whether the current user is the pending owner of the file. Not populated for
+ *  shared drive files.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canAcceptOwnership;
+
+/**
  *  Whether the current user can add children to this folder. This is always
  *  false when the item is not a folder.
  *
@@ -2046,6 +2054,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  "drive#permission".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Whether the account associated with this permission is a pending owner. Only
+ *  populated for user type permissions for files that are not in a shared
+ *  drive.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pendingOwner;
 
 /**
  *  Details of whether the permissions on this shared drive item are inherited

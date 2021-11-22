@@ -785,6 +785,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudRun_Empty : GTLRObject
+@end
+
+
+/**
  *  Not supported by Cloud Run EnvFromSource represents the source of a set of
  *  ConfigMaps
  */
@@ -953,6 +964,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRCloudRun_GoogleLongrunningCancelOperationRequest : GTLRObject
 @end
 
 
@@ -1808,8 +1826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 /**
  *  (Optional) Only memory and CPU are supported. Note: The only supported
- *  values for CPU are '1' and '2'. Requests describes the minimum amount of
- *  compute resources required. If Requests is omitted for a container, it
+ *  values for CPU are '1', '2', and '4'. Requests describes the minimum amount
+ *  of compute resources required. If Requests is omitted for a container, it
  *  defaults to Limits if that is explicitly specified, otherwise to an
  *  implementation-defined value. The values of the map is string form of the
  *  'quantity' k8s type:
@@ -1838,8 +1856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 /**
  *  (Optional) Only memory and CPU are supported. Note: The only supported
- *  values for CPU are '1' and '2'. Requests describes the minimum amount of
- *  compute resources required. If Requests is omitted for a container, it
+ *  values for CPU are '1', '2', and '4'. Requests describes the minimum amount
+ *  of compute resources required. If Requests is omitted for a container, it
  *  defaults to Limits if that is explicitly specified, otherwise to an
  *  implementation-defined value. The values of the map is string form of the
  *  'quantity' k8s type:

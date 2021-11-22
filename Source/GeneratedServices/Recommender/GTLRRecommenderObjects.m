@@ -375,7 +375,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Recommendation
 @dynamic additionalImpact, associatedInsights, content, descriptionProperty,
          ETag, lastRefreshTime, name, primaryImpact, priority,
-         recommenderSubtype, stateInfo;
+         recommenderSubtype, stateInfo, xorGroupId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

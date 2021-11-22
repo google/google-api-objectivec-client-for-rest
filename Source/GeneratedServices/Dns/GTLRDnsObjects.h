@@ -24,6 +24,7 @@
 @class GTLRDns_KeyDigest;
 @class GTLRDns_ManagedZone;
 @class GTLRDns_ManagedZone_Labels;
+@class GTLRDns_ManagedZoneCloudLoggingConfig;
 @class GTLRDns_ManagedZoneDnsSecConfig;
 @class GTLRDns_ManagedZoneForwardingConfig;
 @class GTLRDns_ManagedZoneForwardingConfigNameServerTarget;
@@ -500,6 +501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  */
 @interface GTLRDns_ManagedZone : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZoneCloudLoggingConfig *cloudLoggingConfig;
+
 /**
  *  The time that this resource was created on the server. This is in RFC3339
  *  text format. Output only.
@@ -610,6 +613,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *        fetch them all at once.
  */
 @interface GTLRDns_ManagedZone_Labels : GTLRObject
+@end
+
+
+/**
+ *  Cloud Logging configurations for publicly visible zones.
+ */
+@interface GTLRDns_ManagedZoneCloudLoggingConfig : GTLRObject
+
+/**
+ *  If set, enable query logging for this ManagedZone. False by default, making
+ *  logging opt-in.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableLogging;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
 @end
 
 

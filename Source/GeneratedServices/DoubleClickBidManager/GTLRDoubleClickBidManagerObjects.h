@@ -107,6 +107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceName;
 /** Value: "FILTER_AUDIENCE_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceType;
+/** Value: "FILTER_AUDIO_FEED_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudioFeedTypeName;
 /** Value: "FILTER_AUTHORIZED_SELLER_STATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerState;
 /** Value: "FILTER_BILLABLE_OUTCOME" */
@@ -355,6 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaPlan;
 /** Value: "FILTER_MEDIA_PLAN_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaPlanName;
+/** Value: "FILTER_MEDIA_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaType;
 /** Value: "FILTER_MOBILE_GEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterMobileGeo;
 /** Value: "FILTER_MONTH" */
@@ -693,6 +697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceName;
 /** Value: "FILTER_AUDIENCE_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudienceType;
+/** Value: "FILTER_AUDIO_FEED_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAudioFeedTypeName;
 /** Value: "FILTER_AUTHORIZED_SELLER_STATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterAuthorizedSellerState;
 /** Value: "FILTER_BILLABLE_OUTCOME" */
@@ -941,6 +947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaPlan;
 /** Value: "FILTER_MEDIA_PLAN_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaPlanName;
+/** Value: "FILTER_MEDIA_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMediaType;
 /** Value: "FILTER_MOBILE_GEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterMobileGeo;
 /** Value: "FILTER_MONTH" */
@@ -2339,6 +2347,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceName;
 /** Value: "FILTER_AUDIENCE_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceType;
+/** Value: "FILTER_AUDIO_FEED_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudioFeedTypeName;
 /** Value: "FILTER_AUTHORIZED_SELLER_STATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAuthorizedSellerState;
 /** Value: "FILTER_BILLABLE_OUTCOME" */
@@ -2587,6 +2597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaPlan;
 /** Value: "FILTER_MEDIA_PLAN_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaPlanName;
+/** Value: "FILTER_MEDIA_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaType;
 /** Value: "FILTER_MOBILE_GEO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMobileGeo;
 /** Value: "FILTER_MONTH" */
@@ -3171,6 +3183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_AUDIENCE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudienceType
  *        Value "FILTER_AUDIENCE_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAudioFeedTypeName
+ *        Value "FILTER_AUDIO_FEED_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterAuthorizedSellerState
  *        Value "FILTER_AUTHORIZED_SELLER_STATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterBillableOutcome
@@ -3418,6 +3432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        "FILTER_MEDIA_PLAN"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaPlanName
  *        Value "FILTER_MEDIA_PLAN_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMediaType Value
+ *        "FILTER_MEDIA_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMobileGeo Value
  *        "FILTER_MOBILE_GEO"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterMonth Value
@@ -3998,6 +4014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_AUDIENCE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudienceType
  *        Value "FILTER_AUDIENCE_TYPE"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAudioFeedTypeName
+ *        Value "FILTER_AUDIO_FEED_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterAuthorizedSellerState
  *        Value "FILTER_AUTHORIZED_SELLER_STATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterBillableOutcome
@@ -4245,6 +4263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_RunQueryRequest_Da
  *        Value "FILTER_MEDIA_PLAN"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaPlanName
  *        Value "FILTER_MEDIA_PLAN_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMediaType
+ *        Value "FILTER_MEDIA_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMobileGeo
  *        Value "FILTER_MOBILE_GEO"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterMonth

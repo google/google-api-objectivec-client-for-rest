@@ -284,6 +284,15 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_Empty
+//
+
+@implementation GTLRCloudRun_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_EnvFromSource
 //
 
@@ -352,6 +361,15 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 @implementation GTLRCloudRun_GoogleCloudRunV1Condition
 @dynamic lastTransitionTime, message, reason, severity, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleLongrunningCancelOperationRequest
+//
+
+@implementation GTLRCloudRun_GoogleLongrunningCancelOperationRequest
 @end
 
 

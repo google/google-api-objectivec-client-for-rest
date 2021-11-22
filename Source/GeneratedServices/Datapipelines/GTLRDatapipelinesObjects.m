@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Data pipelines API (datapipelines/v1)
+// Description:
+//   Data Pipelines provides an interface for creating, updating, and managing
+//   recurring Data Analytics jobs.
 // Documentation:
-//   https://developers.google.com/apis-explorer/#search/dataflow
+//   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
 #import "GTLRDatapipelinesObjects.h"
 
@@ -272,8 +275,23 @@ NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1SdkVersion_SdkSupp
 //
 
 @implementation GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline
-@dynamic createTime, displayName, jobCount, lastUpdateTime, name, scheduleInfo,
-         schedulerServiceAccountEmail, state, type, workload;
+@dynamic createTime, displayName, jobCount, lastUpdateTime, name,
+         pipelineSources, scheduleInfo, schedulerServiceAccountEmail, state,
+         type, workload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources
+//
+
+@implementation GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline_PipelineSources
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

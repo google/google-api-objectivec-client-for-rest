@@ -64,6 +64,33 @@
 
 @end
 
+@implementation GTLRTranslateQuery_ProjectsLocationsBatchTranslateDocument
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_BatchTranslateDocumentRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:batchTranslateDocument";
+  GTLRTranslateQuery_ProjectsLocationsBatchTranslateDocument *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_Operation class];
+  query.loggingName = @"translate.projects.locations.batchTranslateDocument";
+  return query;
+}
+
+@end
+
 @implementation GTLRTranslateQuery_ProjectsLocationsBatchTranslateText
 
 @dynamic parent;
@@ -365,6 +392,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRTranslate_Operation class];
   query.loggingName = @"translate.projects.locations.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsTranslateDocument
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_DocumentRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:translateDocument";
+  GTLRTranslateQuery_ProjectsLocationsTranslateDocument *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_DocumentResponse class];
+  query.loggingName = @"translate.projects.locations.translateDocument";
   return query;
 }
 

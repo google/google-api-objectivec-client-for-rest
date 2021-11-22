@@ -1037,10 +1037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
 
-/**
- *  Optional: User defined parameters to apply to the memcached process on each
- *  node.
- */
+/** User defined parameters to apply to the memcached process on each node. */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_MemcacheParameters *parameters;
 
 /**
@@ -1370,16 +1367,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
- *  The unique ID associated with this set of parameters. Users can use this id
- *  to determine if the parameters associated with the instance differ from the
- *  parameters associated with the nodes. A discrepancy between parameter ids
- *  can inform users that they may need to take action to apply parameters on
- *  nodes.
+ *  GTLRCloudMemorystoreforMemcached_MemcacheParameters
  */
 @interface GTLRCloudMemorystoreforMemcached_MemcacheParameters : GTLRObject
 
 /**
- *  Output only.
+ *  Output only. The unique ID associated with this set of parameters. Users can
+ *  use this id to determine if the parameters associated with the instance
+ *  differ from the parameters associated with the nodes. A discrepancy between
+ *  parameter ids can inform users that they may need to take action to apply
+ *  parameters on nodes.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

@@ -4,8 +4,10 @@
 // API:
 //   Binary Authorization API (binaryauthorization/v1)
 // Description:
-//   The management interface for Binary Authorization, a system providing
-//   policy control for images deployed to Kubernetes Engine clusters.
+//   The management interface for Binary Authorization, a service that provides
+//   policy-based deployment validation and control for images deployed to
+//   Google Kubernetes Engine (GKE), Anthos Service Mesh, Anthos Clusters, and
+//   Cloud Run.
 // Documentation:
 //   https://cloud.google.com/binary-authorization/
 

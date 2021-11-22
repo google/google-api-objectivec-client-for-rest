@@ -146,6 +146,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWr
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataFusion_Instance.disabledReason
+
+/**
+ *  This is an unknown reason for disabling.
+ *
+ *  Value: "DISABLED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_DisabledReason_DisabledReasonUnspecified;
+/**
+ *  The KMS key used by the instance is either revoked or denied access to
+ *
+ *  Value: "KMS_KEY_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_DisabledReason_KmsKeyIssue;
+
+// ----------------------------------------------------------------------------
 // GTLRDataFusion_Instance.state
 
 /**
@@ -179,6 +195,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Creating;
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Deleting;
+/**
+ *  Instance is disabled
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Disabled;
 /**
  *  Instance creation failed
  *
@@ -245,6 +267,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Enterprise;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_Version.type
+
+/**
+ *  Version is available for public use
+ *
+ *  Value: "TYPE_GENERAL_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeGeneralAvailability;
+/**
+ *  Version is under development and not considered stable
+ *
+ *  Value: "TYPE_PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypePreview;
+/**
+ *  Version does not have availability yet
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Identifies Data Fusion accelerators for an instance.
@@ -356,7 +400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Associates `members` with a `role`.
+ *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRDataFusion_Binding : GTLRObject
 
@@ -365,14 +409,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
  *  current request. However, a different role binding might grant the same role
- *  to one or more of the members in this binding. To learn which resources
+ *  to one or more of the principals in this binding. To learn which resources
  *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Expr *condition;
 
 /**
- *  Specifies the identities requesting access for a Cloud Platform resource.
+ *  Specifies the principals requesting access for a Cloud Platform resource.
  *  `members` can have the following values: * `allUsers`: A special identifier
  *  that represents anyone who is on the internet; with or without a Google
  *  account. * `allAuthenticatedUsers`: A special identifier that represents
@@ -404,8 +448,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`. For example, `roles/viewer`,
- *  `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to the list of `members`, or principals. For example,
+ *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -535,6 +579,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  Output only. If the instance state is DISABLED, the reason for disabling the
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disabledReason;
+
 /** Display name for an instance. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -626,6 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *        (Value: "CREATING")
  *    @arg @c kGTLRDataFusion_Instance_State_Deleting Instance is being deleted
  *        (Value: "DELETING")
+ *    @arg @c kGTLRDataFusion_Instance_State_Disabled Instance is disabled
+ *        (Value: "DISABLED")
  *    @arg @c kGTLRDataFusion_Instance_State_Failed Instance creation failed
  *        (Value: "FAILED")
  *    @arg @c kGTLRDataFusion_Instance_State_Restarting Instance is being
@@ -1048,15 +1100,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
- *  `bindings`. A `binding` binds one or more `members` to a single `role`.
- *  Members can be user accounts, service accounts, Google groups, and domains
- *  (such as G Suite). A `role` is a named list of permissions; each `role` can
- *  be an IAM predefined role or a user-created custom role. For some types of
- *  Google Cloud resources, a `binding` can also specify a `condition`, which is
- *  a logical expression that allows access to a resource only if the expression
- *  evaluates to `true`. A condition can add constraints based on attributes of
- *  the request, the resource, or both. To learn which resources support
- *  conditions in their IAM policies, see the [IAM
+ *  `bindings`. A `binding` binds one or more `members`, or principals, to a
+ *  single `role`. Principals can be user accounts, service accounts, Google
+ *  groups, and domains (such as G Suite). A `role` is a named list of
+ *  permissions; each `role` can be an IAM predefined role or a user-created
+ *  custom role. For some types of Google Cloud resources, a `binding` can also
+ *  specify a `condition`, which is a logical expression that allows access to a
+ *  resource only if the expression evaluates to `true`. A condition can add
+ *  constraints based on attributes of the request, the resource, or both. To
+ *  learn which resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *  **JSON example:** { "bindings": [ { "role":
  *  "roles/resourcemanager.organizationAdmin", "members": [
@@ -1072,7 +1124,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
- *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') etag: BwWWja0YfJA=
  *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
@@ -1082,9 +1134,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_AuditConfig *> *auditConfigs;
 
 /**
- *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each of
- *  the `bindings` must contain at least one member.
+ *  Associates a list of `members`, or principals, with a `role`. Optionally,
+ *  may specify a `condition` that determines how and when the `bindings` are
+ *  applied. Each of the `bindings` must contain at least one principal. The
+ *  `bindings` in a `Policy` can refer to up to 1,500 principals; up to 250 of
+ *  these principals can be Google groups. Each occurrence of a principal counts
+ *  towards these limits. For example, if the `bindings` grant 50 different
+ *  roles to `user:alice\@example.com`, and not to any other principal, then you
+ *  can add another 1,450 principals to the `bindings` in the `Policy`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Binding *> *bindings;
 
@@ -1249,6 +1306,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultVersion;
+
+/**
+ *  Type represents the release availability of the version
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_Version_Type_TypeGeneralAvailability Version is
+ *        available for public use (Value: "TYPE_GENERAL_AVAILABILITY")
+ *    @arg @c kGTLRDataFusion_Version_Type_TypePreview Version is under
+ *        development and not considered stable (Value: "TYPE_PREVIEW")
+ *    @arg @c kGTLRDataFusion_Version_Type_TypeUnspecified Version does not have
+ *        availability yet (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /** The version number of the Data Fusion instance, such as '6.0.1.0'. */
 @property(nonatomic, copy, nullable) NSString *versionNumber;

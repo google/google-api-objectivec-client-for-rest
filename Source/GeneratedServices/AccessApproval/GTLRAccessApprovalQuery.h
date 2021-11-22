@@ -121,7 +121,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_FoldersApprovalRequestsGet : GTLRAccessApprovalQuery
 
-/** Name of the approval request to retrieve. */
+/**
+ *  The name of the approval request to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -129,7 +132,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an approval request. Returns NOT_FOUND if the request does not exist.
  *
- *  @param name Name of the approval request to retrieve.
+ *  @param name The name of the approval request to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
  *
  *  @return GTLRAccessApprovalQuery_FoldersApprovalRequestsGet
  */
@@ -238,7 +242,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_FoldersGetAccessApprovalSettings : GTLRAccessApprovalQuery
 
-/** Name of the AccessApprovalSettings to retrieve. */
+/**
+ *  The name of the AccessApprovalSettings to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/accessApprovalSettings"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -246,7 +253,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the settings associated with a project, folder, or organization.
  *
- *  @param name Name of the AccessApprovalSettings to retrieve.
+ *  @param name The name of the AccessApprovalSettings to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_FoldersGetAccessApprovalSettings
  */
@@ -386,7 +394,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_OrganizationsApprovalRequestsGet : GTLRAccessApprovalQuery
 
-/** Name of the approval request to retrieve. */
+/**
+ *  The name of the approval request to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -394,7 +405,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an approval request. Returns NOT_FOUND if the request does not exist.
  *
- *  @param name Name of the approval request to retrieve.
+ *  @param name The name of the approval request to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
  *
  *  @return GTLRAccessApprovalQuery_OrganizationsApprovalRequestsGet
  */
@@ -503,7 +515,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_OrganizationsGetAccessApprovalSettings : GTLRAccessApprovalQuery
 
-/** Name of the AccessApprovalSettings to retrieve. */
+/**
+ *  The name of the AccessApprovalSettings to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/accessApprovalSettings"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -511,7 +526,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the settings associated with a project, folder, or organization.
  *
- *  @param name Name of the AccessApprovalSettings to retrieve.
+ *  @param name The name of the AccessApprovalSettings to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_OrganizationsGetAccessApprovalSettings
  */
@@ -651,7 +667,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_ProjectsApprovalRequestsGet : GTLRAccessApprovalQuery
 
-/** Name of the approval request to retrieve. */
+/**
+ *  The name of the approval request to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -659,7 +678,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an approval request. Returns NOT_FOUND if the request does not exist.
  *
- *  @param name Name of the approval request to retrieve.
+ *  @param name The name of the approval request to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
  *
  *  @return GTLRAccessApprovalQuery_ProjectsApprovalRequestsGet
  */
@@ -768,7 +788,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAccessApprovalQuery_ProjectsGetAccessApprovalSettings : GTLRAccessApprovalQuery
 
-/** Name of the AccessApprovalSettings to retrieve. */
+/**
+ *  The name of the AccessApprovalSettings to retrieve. Format:
+ *  "{projects|folders|organizations}/{id}/accessApprovalSettings"
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -776,7 +799,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the settings associated with a project, folder, or organization.
  *
- *  @param name Name of the AccessApprovalSettings to retrieve.
+ *  @param name The name of the AccessApprovalSettings to retrieve. Format:
+ *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_ProjectsGetAccessApprovalSettings
  */

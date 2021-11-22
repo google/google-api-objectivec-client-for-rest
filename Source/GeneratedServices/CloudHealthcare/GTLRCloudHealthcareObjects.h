@@ -117,6 +117,7 @@
 @class GTLRCloudHealthcare_TextSpan;
 @class GTLRCloudHealthcare_Type;
 @class GTLRCloudHealthcare_UserDataMapping;
+@class GTLRCloudHealthcare_ValidationConfig;
 @class GTLRCloudHealthcare_VersionSource;
 
 // Generated comments include content from the discovery document; avoid them
@@ -2150,6 +2151,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirConfig : GTLRObject
 
 /**
+ *  The behaviour for handling FHIR extensions that aren't otherwise specified
+ *  for de-identification. If true, all extensions are preserved during
+ *  de-identification by default. If false or unspecified, all extensions are
+ *  removed during de-identification by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultKeepExtensions;
+
+/**
  *  Specifies FHIR paths to match and how to transform them. Any field that is
  *  not matched by a FieldMetadata is passed through to the output dataset
  *  unmodified. All extensions will be processed according to
@@ -2274,6 +2285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  show up in the streaming destination.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
+
+/**
+ *  Configuration for how to validate incoming FHIR resources against configured
+ *  profiles.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_ValidationConfig *validationConfig;
 
 /**
  *  Immutable. The FHIR specification version that this FHIR store supports
@@ -4779,6 +4796,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /** Required. User's UUID provided by the client. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Contains the configuration for FHIR profiles and validation.
+ */
+@interface GTLRCloudHealthcare_ValidationConfig : GTLRObject
+
+/**
+ *  Whether to disable FHIRPath validation for incoming resources. Set this to
+ *  true to disable checking incoming resources for conformance against FHIRPath
+ *  requirement defined in the FHIR specification. This property only affects
+ *  resource types that do not have profiles configured for them, any rules in
+ *  enabled implementation guides will still be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableFhirpathValidation;
+
+/**
+ *  Whether to disable reference type validation for incoming resources. Set
+ *  this to true to disable checking incoming resources for conformance against
+ *  reference type requirement defined in the FHIR specification. This property
+ *  only affects resource types that do not have profiles configured for them,
+ *  any rules in enabled implementation guides will still be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableReferenceTypeValidation;
+
+/**
+ *  Whether to disable required fields validation for incoming resources. Set
+ *  this to true to disable checking incoming resources for conformance against
+ *  required fields requirement defined in the FHIR specification. This property
+ *  only affects resource types that do not have profiles configured for them,
+ *  any rules in enabled implementation guides will still be enforced.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableRequiredFieldValidation;
 
 @end
 

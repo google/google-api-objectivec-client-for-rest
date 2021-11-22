@@ -603,7 +603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Search string in the format given at
- *  http://support.google.com/chromeos/a/bin/answer.py?answer=1698333
+ *  https://developers.google.com/admin-sdk/directory/v1/list-query-operators
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

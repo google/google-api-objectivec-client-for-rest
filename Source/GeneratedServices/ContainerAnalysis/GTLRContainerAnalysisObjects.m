@@ -20,18 +20,6 @@ NSString * const kGTLRContainerAnalysis_AliasContext_Kind_KindUnspecified = @"KI
 NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Movable = @"MOVABLE";
 NSString * const kGTLRContainerAnalysis_AliasContext_Kind_Other = @"OTHER";
 
-// GTLRContainerAnalysis_BuildStep.status
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Cancelled = @"CANCELLED";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Expired = @"EXPIRED";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Failure = @"FAILURE";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Pending = @"PENDING";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Queued = @"QUEUED";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Success = @"SUCCESS";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Timeout = @"TIMEOUT";
-NSString * const kGTLRContainerAnalysis_BuildStep_Status_Working = @"WORKING";
-
 // GTLRContainerAnalysis_CisBenchmark.severity
 NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_High = @"HIGH";
@@ -130,6 +118,95 @@ NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_Low = @"LO
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_Medium = @"MEDIUM";
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult.decision
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Approved = @"APPROVED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_DecisionUnspecified = @"DECISION_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult_Decision_Rejected = @"REJECTED";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build.status
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Expired = @"EXPIRED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Failure = @"FAILURE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Pending = @"PENDING";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Queued = @"QUEUED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_StatusUnknown = @"STATUS_UNKNOWN";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Success = @"SUCCESS";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Timeout = @"TIMEOUT";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Status_Working = @"WORKING";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval.state
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval_State_Approved = @"APPROVED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval_State_Pending = @"PENDING";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval_State_Rejected = @"REJECTED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo.type
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_FailureTypeUnspecified = @"FAILURE_TYPE_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_FetchSourceFailed = @"FETCH_SOURCE_FAILED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_LoggingFailure = @"LOGGING_FAILURE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_PushFailed = @"PUSH_FAILED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_PushImageNotFound = @"PUSH_IMAGE_NOT_FOUND";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_PushNotAuthorized = @"PUSH_NOT_AUTHORIZED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.logging
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_GcsOnly = @"GCS_ONLY";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_Legacy = @"LEGACY";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_LoggingUnspecified = @"LOGGING_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_None = @"NONE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_Logging_StackdriverOnly = @"STACKDRIVER_ONLY";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.logStreamingOption
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamDefault = @"STREAM_DEFAULT";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOff = @"STREAM_OFF";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_LogStreamingOption_StreamOn = @"STREAM_ON";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.machineType
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu32 = @"E2_HIGHCPU_32";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_E2Highcpu8 = @"E2_HIGHCPU_8";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu32 = @"N1_HIGHCPU_32";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_N1Highcpu8 = @"N1_HIGHCPU_8";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_MachineType_Unspecified = @"UNSPECIFIED";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.requestedVerifyOption
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_NotVerified = @"NOT_VERIFIED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None = @"NONE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Sha256 = @"SHA256";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.substitutionOption
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_AllowLoose = @"ALLOW_LOOSE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SubstitutionOption_MustMatch = @"MUST_MATCH";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep.status
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Expired = @"EXPIRED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Failure = @"FAILURE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Pending = @"PENDING";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Queued = @"QUEUED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Success = @"SUCCESS";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Timeout = @"TIMEOUT";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep_Status_Working = @"WORKING";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning.priority
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_Priority_Alert = @"ALERT";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_Priority_Info = @"INFO";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_Priority_Warning = @"WARNING";
+
+// GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash.type
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 = @"MD5";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None = @"NONE";
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Sha256 = @"SHA256";
 
 // GTLRContainerAnalysis_Note.kind
 NSString * const kGTLRContainerAnalysis_Note_Kind_Attestation  = @"ATTESTATION";
@@ -390,7 +467,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_BuildOccurrence
-@dynamic intotoProvenance, provenance, provenanceBytes;
+@dynamic intotoProvenance, intotoStatement, provenance, provenanceBytes;
 @end
 
 
@@ -428,33 +505,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_BuildStep
-//
-
-@implementation GTLRContainerAnalysis_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
-         secretEnv, status, timeout, timing, volumes, waitFor;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"args" : [NSString class],
-    @"env" : [NSString class],
-    @"secretEnv" : [NSString class],
-    @"volumes" : [GTLRContainerAnalysis_Volume class],
-    @"waitFor" : [NSString class]
-  };
-  return map;
 }
 
 @end
@@ -858,6 +908,450 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalConfig
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalConfig
+@dynamic approvalRequired;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ApprovalResult
+@dynamic approvalTime, approverAccount, comment, decision, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Artifacts
+@dynamic images, objects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"images" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsArtifactObjects
+@dynamic location, paths, timing;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"paths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build
+@dynamic approval, artifacts, availableSecrets, buildTriggerId, createTime,
+         failureInfo, finishTime, identifier, images, logsBucket, logUrl, name,
+         options, projectId, queueTtl, results, secrets, serviceAccount, source,
+         sourceProvenance, startTime, status, statusDetail, steps,
+         substitutions, tags, timeout, timing, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"images" : [NSString class],
+    @"secrets" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secret class],
+    @"steps" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep class],
+    @"tags" : [NSString class],
+    @"warnings" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Substitutions
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Substitutions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Timing
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Build_Timing
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildApproval
+@dynamic config, result, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildFailureInfo
+@dynamic detail, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions
+@dynamic diskSizeGb, dynamicSubstitutions, env, logging, logStreamingOption,
+         machineType, pool, requestedVerifyOption, secretEnv,
+         sourceProvenanceHash, substitutionOption, volumes, workerPool;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"env" : [NSString class],
+    @"secretEnv" : [NSString class],
+    @"sourceProvenanceHash" : [NSString class],
+    @"volumes" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOption
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildStep
+@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"env" : [NSString class],
+    @"secretEnv" : [NSString class],
+    @"volumes" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume class],
+    @"waitFor" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning
+@dynamic priority, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage
+@dynamic digest, name, pushTiming;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes
+@dynamic fileHash;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileHash" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash
+@dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret
+@dynamic envMap, kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1RepoSource
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1RepoSource
+@dynamic branchName, commitSha, dir, invertRegex, projectId, repoName,
+         substitutions, tagName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Results
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Results
+@dynamic artifactManifest, artifactTiming, buildStepImages, buildStepOutputs,
+         images, numArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buildStepImages" : [NSString class],
+    @"buildStepOutputs" : [NSString class],
+    @"images" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secret
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secret
+@dynamic kmsKeyName, secretEnv;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secret_SecretEnv
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secret_SecretEnv
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SecretManagerSecret
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SecretManagerSecret
+@dynamic env, versionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secrets
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Secrets
+@dynamic inlineProperty, secretManager;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"inlineProperty" : @"inline" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inline" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1InlineSecret class],
+    @"secretManager" : [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SecretManagerSecret class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Source
+@dynamic repoSource, storageSource, storageSourceManifest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance
+@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource,
+         resolvedStorageSourceManifest;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSource
+@dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSourceManifest
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1StorageSourceManifest
+@dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1TimeSpan
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume
+//
+
+@implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Volume
+@dynamic name, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata
 //
 
@@ -948,7 +1442,11 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_InTotoStatement
-@dynamic predicateType, provenance, subject, type;
+@dynamic xType, predicateType, provenance, slsaProvenance, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xType" : @"_type" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1085,6 +1583,30 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_Location
 @dynamic cpeUri, path, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_Material
+//
+
+@implementation GTLRContainerAnalysis_Material
+@dynamic digest, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_Material_Digest
+//
+
+@implementation GTLRContainerAnalysis_Material_Digest
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1362,6 +1884,98 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_SlsaBuilder
+//
+
+@implementation GTLRContainerAnalysis_SlsaBuilder
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaCompleteness
+//
+
+@implementation GTLRContainerAnalysis_SlsaCompleteness
+@dynamic arguments, environment, materials;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaMetadata
+//
+
+@implementation GTLRContainerAnalysis_SlsaMetadata
+@dynamic buildFinishedOn, buildInvocationId, buildStartedOn, completeness,
+         reproducible;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaProvenance
+//
+
+@implementation GTLRContainerAnalysis_SlsaProvenance
+@dynamic builder, materials, metadata, recipe;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRContainerAnalysis_Material class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaRecipe
+//
+
+@implementation GTLRContainerAnalysis_SlsaRecipe
+@dynamic arguments, definedInMaterial, entryPoint, environment, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaRecipe_Arguments
+//
+
+@implementation GTLRContainerAnalysis_SlsaRecipe_Arguments
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_SlsaRecipe_Environment
+//
+
+@implementation GTLRContainerAnalysis_SlsaRecipe_Environment
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Source
 //
 
@@ -1510,16 +2124,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainerAnalysis_TimeSpan
-//
-
-@implementation GTLRContainerAnalysis_TimeSpan
-@dynamic endTime, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainerAnalysis_UpgradeDistribution
 //
 
@@ -1578,16 +2182,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   return NO;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_Volume
-//
-
-@implementation GTLRContainerAnalysis_Volume
-@dynamic name, path;
 @end
 
 

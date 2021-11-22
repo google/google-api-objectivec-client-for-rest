@@ -4,10 +4,7 @@
 // API:
 //   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Cloud Logging configuration. The table
-//   entries below are presented in alphabetical order, not in order of common
-//   use. For explanations of the concepts found in the table entries, read the
-//   documentation at https://cloud.google.com/logging/docs.
+//   Writes log entries and manages your Cloud Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -73,10 +70,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLoggingWrite;
 /**
  *  Service for executing Cloud Logging API queries.
  *
- *  Writes log entries and manages your Cloud Logging configuration. The table
- *  entries below are presented in alphabetical order, not in order of common
- *  use. For explanations of the concepts found in the table entries, read the
- *  documentation at https://cloud.google.com/logging/docs.
+ *  Writes log entries and manages your Cloud Logging configuration.
  */
 @interface GTLRLoggingService : GTLRService
 

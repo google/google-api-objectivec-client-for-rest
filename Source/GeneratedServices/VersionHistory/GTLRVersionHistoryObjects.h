@@ -63,6 +63,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Channel_ChannelType_Stabl
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_All;
 /** Value: "ANDROID" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Android;
+/** Value: "CHROMEOS" */
+FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Chromeos;
 /** Value: "IOS" */
 FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Ios;
 /** Value: "LACROS" */
@@ -263,6 +265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVersionHistory_Platform_PlatformType_Win
  *  Likely values:
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_All Value "ALL"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Android Value "ANDROID"
+ *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Chromeos Value
+ *        "CHROMEOS"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Ios Value "IOS"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_Lacros Value "LACROS"
  *    @arg @c kGTLRVersionHistory_Platform_PlatformType_LacrosArm32 Value

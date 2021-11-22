@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Datastream API (datastream/v1alpha1)
+//   Datastream API (datastream/v1)
 // Documentation:
 //   https://cloud.google.com/datastream/
 
@@ -18,7 +18,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesCreate
 
-@dynamic connectionProfileId, parent, requestId;
+@dynamic connectionProfileId, force, parent, requestId;
 
 + (instancetype)queryWithObject:(GTLRDatastream_ConnectionProfile *)object
                          parent:(NSString *)parent {
@@ -29,7 +29,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/connectionProfiles";
+  NSString *pathURITemplate = @"v1/{+parent}/connectionProfiles";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -49,7 +49,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -75,7 +75,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/connectionProfiles:discover";
+  NSString *pathURITemplate = @"v1/{+parent}/connectionProfiles:discover";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesDiscover *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -95,7 +95,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -114,7 +114,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/connectionProfiles";
+  NSString *pathURITemplate = @"v1/{+parent}/connectionProfiles";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -129,7 +129,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch
 
-@dynamic name, requestId, updateMask, validateOnly;
+@dynamic force, name, requestId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRDatastream_ConnectionProfile *)object
                            name:(NSString *)name {
@@ -140,7 +140,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -160,7 +160,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}:fetchStaticIps";
+  NSString *pathURITemplate = @"v1/{+name}:fetchStaticIps";
   GTLRDatastreamQuery_ProjectsLocationsFetchStaticIps *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -179,7 +179,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -198,7 +198,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDatastreamQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -224,7 +224,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRDatastreamQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -244,7 +244,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -263,7 +263,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -282,7 +282,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRDatastreamQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -308,7 +308,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/privateConnections";
+  NSString *pathURITemplate = @"v1/{+parent}/privateConnections";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -328,7 +328,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -347,7 +347,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -366,7 +366,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/privateConnections";
+  NSString *pathURITemplate = @"v1/{+parent}/privateConnections";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -392,7 +392,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/routes";
+  NSString *pathURITemplate = @"v1/{+parent}/routes";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsRoutesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -412,7 +412,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsRoutesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -431,7 +431,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsRoutesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -450,7 +450,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/routes";
+  NSString *pathURITemplate = @"v1/{+parent}/routes";
   GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsRoutesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -476,7 +476,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/streams";
+  NSString *pathURITemplate = @"v1/{+parent}/streams";
   GTLRDatastreamQuery_ProjectsLocationsStreamsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -496,7 +496,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsStreamsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -509,40 +509,13 @@
 
 @end
 
-@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsFetchErrors
-
-@dynamic stream;
-
-+ (instancetype)queryWithObject:(GTLRDatastream_FetchErrorsRequest *)object
-                         stream:(NSString *)stream {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"stream" ];
-  NSString *pathURITemplate = @"v1alpha1/{+stream}:fetchErrors";
-  GTLRDatastreamQuery_ProjectsLocationsStreamsFetchErrors *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.stream = stream;
-  query.expectedObjectClass = [GTLRDatastream_Operation class];
-  query.loggingName = @"datastream.projects.locations.streams.fetchErrors";
-  return query;
-}
-
-@end
-
 @implementation GTLRDatastreamQuery_ProjectsLocationsStreamsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsStreamsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -561,7 +534,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1alpha1/{+parent}/streams";
+  NSString *pathURITemplate = @"v1/{+parent}/streams";
   GTLRDatastreamQuery_ProjectsLocationsStreamsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -569,6 +542,125 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDatastream_ListStreamsResponse class];
   query.loggingName = @"datastream.projects.locations.streams.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDatastream_StreamObject class];
+  query.loggingName = @"datastream.projects.locations.streams.objects.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/objects";
+  GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatastream_ListStreamObjectsResponse class];
+  query.loggingName = @"datastream.projects.locations.streams.objects.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsLookup
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDatastream_LookupStreamObjectRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/objects:lookup";
+  GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsLookup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatastream_StreamObject class];
+  query.loggingName = @"datastream.projects.locations.streams.objects.lookup";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStartBackfillJob
+
+@dynamic object;
+
++ (instancetype)queryWithObject:(GTLRDatastream_StartBackfillJobRequest *)object
+                         object:(NSString *)object_param {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"object" ];
+  NSString *pathURITemplate = @"v1/{+object}:startBackfillJob";
+  GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStartBackfillJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.object = object_param;
+  query.expectedObjectClass = [GTLRDatastream_StartBackfillJobResponse class];
+  query.loggingName = @"datastream.projects.locations.streams.objects.startBackfillJob";
+  return query;
+}
+
+@end
+
+@implementation GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStopBackfillJob
+
+@dynamic object;
+
++ (instancetype)queryWithObject:(GTLRDatastream_StopBackfillJobRequest *)object
+                         object:(NSString *)object_param {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"object" ];
+  NSString *pathURITemplate = @"v1/{+object}:stopBackfillJob";
+  GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsStopBackfillJob *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.object = object_param;
+  query.expectedObjectClass = [GTLRDatastream_StopBackfillJobResponse class];
+  query.loggingName = @"datastream.projects.locations.streams.objects.stopBackfillJob";
   return query;
 }
 
@@ -587,7 +679,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatastreamQuery_ProjectsLocationsStreamsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"

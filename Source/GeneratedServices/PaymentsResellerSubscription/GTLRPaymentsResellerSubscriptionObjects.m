@@ -27,6 +27,11 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month = @"MONTH";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion.promotionType
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeFreeTrial = @"PROMOTION_TYPE_FREE_TRIAL";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeIntroductoryPricing = @"PROMOTION_TYPE_INTRODUCTORY_PRICING";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion_PromotionType_PromotionTypeUnspecified = @"PROMOTION_TYPE_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.processingState
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateCancelling = @"PROCESSING_STATE_CANCELLING";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateRecurring = @"PROCESSING_STATE_RECURRING";
@@ -214,7 +219,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion
-@dynamic applicableProducts, endTime, freeTrialDuration, name, regionCodes,
+@dynamic applicableProducts, endTime, freeTrialDuration,
+         introductoryPricingDetails, name, promotionType, regionCodes,
          startTime, titles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -231,14 +237,42 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetails
+@dynamic introductoryPricingSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"introductoryPricingSpecs" : [GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1PromotionIntroductoryPricingDetailsIntroductoryPricingSpec
+@dynamic recurrenceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 //
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 @dynamic cancellationDetails, createTime, cycleEndTime, endUserEntitled,
          freeTrialEndTime, name, partnerUserToken, processingState, products,
-         promotions, redirectUri, serviceLocation, state, updateTime,
-         upgradeDowngradeDetails;
+         promotions, redirectUri, renewalTime, serviceLocation, state,
+         updateTime, upgradeDowngradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

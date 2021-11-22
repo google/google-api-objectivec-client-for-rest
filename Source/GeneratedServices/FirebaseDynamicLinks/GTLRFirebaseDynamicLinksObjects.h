@@ -1163,12 +1163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  */
 @interface GTLRFirebaseDynamicLinks_GooglePlayAnalytics : GTLRObject
 
-/**
- *  [AdWords autotagging
- *  parameter](https://support.google.com/analytics/answer/1033981?hl=en); used
- *  to measure Google AdWords ads. This value is generated dynamically and
- *  should never be modified.
- */
+/** Deprecated; FDL SDK does not process nor log it. */
 @property(nonatomic, copy, nullable) NSString *gclid;
 
 /**

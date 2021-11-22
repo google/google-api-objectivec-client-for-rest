@@ -444,7 +444,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the membership to be retrieved, in the form
  *  "spaces/ * /members/ *". Example:
- *  spaces/AAAAMpdlehY/members/105115627578887013105
+ *  spaces/AAAAAAAAAAAA/members/111111111111111111111
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -455,7 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Resource name of the membership to be retrieved, in
  *    the form "spaces/ * /members/ *". Example:
- *    spaces/AAAAMpdlehY/members/105115627578887013105
+ *    spaces/AAAAAAAAAAAA/members/111111111111111111111
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersGet
  */
@@ -481,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the space for which membership list is to be
- *  fetched, in the form "spaces/ *". Example: spaces/AAAAMpdlehY
+ *  fetched, in the form "spaces/ *". Example: spaces/AAAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -492,7 +492,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The resource name of the space for which membership
  *    list is to be fetched, in the form "spaces/ *". Example:
- *    spaces/AAAAMpdlehY
+ *    spaces/AAAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersList
  *

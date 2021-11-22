@@ -391,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 /**
  *  Describes a Cloud Function that contains user computation executed in
  *  response to an event. It encapsulate function and triggers configurations.
- *  Next tag: 35
+ *  Next tag: 36
  */
 @interface GTLRCloudFunctions_CloudFunction : GTLRObject
 
@@ -439,6 +439,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  User managed repository created in Artifact Registry optionally with a
+ *  customer managed encryption key. If specified, deployments will use Artifact
+ *  Registry. If unspecified and the deployment is eligible to use Artifact
+ *  Registry, GCF will create and use a repository named 'gcf-artifacts' for
+ *  every deployed region. This is the repository to which the function docker
+ *  image will be pushed after it is built by Cloud Build. It must match the
+ *  pattern `projects/{project}/locations/{location}/repositories/{repository}`.
+ *  Cross-project repositories are not supported. Cross-location repositories
+ *  are not supported. Repository format must be 'DOCKER'.
+ */
+@property(nonatomic, copy, nullable) NSString *dockerRepository;
+
+/**
  *  The name of the function (as defined in source code) that will be executed.
  *  Defaults to the resource name suffix, if not specified. For backward
  *  compatibility, if function with given name is not found, then the system
@@ -477,6 +490,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *        Unspecified. (Value: "INGRESS_SETTINGS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ingressSettings;
+
+/**
+ *  Resource name of a KMS crypto key (managed by the user) used to
+ *  encrypt/decrypt function resources. It must match the pattern
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ *  If specified, you must also provide an artifact registry repository using
+ *  the `docker_repository` field that was created with the same KMS crypto key.
+ *  The following service accounts need to be granted the role 'Cloud KMS
+ *  CryptoKey Encrypter/Decrypter (roles/cloudkms.cryptoKeyEncrypterDecrypter)'
+ *  on the Key/KeyRing/Project/Organization (least access preferred). 1. Google
+ *  Cloud Functions service account
+ *  (service-{project_number}\@gcf-admin-robot.iam.gserviceaccount.com) -
+ *  Required to protect the function's image. 2. Google Storage service account
+ *  (service-{project_number}\@gs-project-accounts.iam.gserviceaccount.com) -
+ *  Required to protect the function's source code. If this service account does
+ *  not exist, deploying a function without a KMS key or retrieving the service
+ *  agent name provisions it. For more information, see
+ *  https://cloud.google.com/storage/docs/projects#service-agents and
+ *  https://cloud.google.com/storage/docs/getting-service-agent#gsutil. Google
+ *  Cloud Functions delegates access to service agents to protect function
+ *  resources in internal projects that are not accessible by the end user.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /** Labels associated with this Cloud Function. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_Labels *labels;

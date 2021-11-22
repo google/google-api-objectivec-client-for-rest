@@ -55,6 +55,8 @@
 @class GTLRCloudFilestore_Operation_Metadata;
 @class GTLRCloudFilestore_Operation_Response;
 @class GTLRCloudFilestore_Schedule;
+@class GTLRCloudFilestore_Snapshot;
+@class GTLRCloudFilestore_Snapshot_Labels;
 @class GTLRCloudFilestore_Status;
 @class GTLRCloudFilestore_Status_Details_Item;
 @class GTLRCloudFilestore_TimeOfDay;
@@ -88,6 +90,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier
  *  Value: "BASIC_SSD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicSsd;
+/**
+ *  ENTERPRISE instances offer the features and availability needed for
+ *  mission-critical workloads.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Enterprise;
 /**
  *  HIGH_SCALE instances offer expanded capacity and performance scaling
  *  capabilities.
@@ -243,6 +252,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Restoring;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified;
+/**
+ *  The instance is suspended. You can get further details from the
+ *  `suspension_reasons` field of the `Instance` resource.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Suspended;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Instance.suspensionReasons
+
+/**
+ *  The KMS key used by the instance is either revoked or denied access to.
+ *
+ *  Value: "KMS_KEY_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_SuspensionReasons_KmsKeyIssue;
+/**
+ *  Not set.
+ *
+ *  Value: "SUSPENSION_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_SuspensionReasons_SuspensionReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Instance.tier
@@ -261,6 +293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
  *  Value: "BASIC_SSD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd;
+/**
+ *  ENTERPRISE instances offer the features and availability needed for
+ *  mission-critical workloads.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_Enterprise;
 /**
  *  HIGH_SCALE instances offer expanded capacity and performance scaling
  *  capabilities.
@@ -308,6 +347,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_R
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_NetworkConfig.connectMode
+
+/**
+ *  Not set.
+ *
+ *  Value: "CONNECT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_ConnectModeUnspecified;
+/**
+ *  Connect via direct peering to the Filestore service.
+ *
+ *  Value: "DIRECT_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_DirectPeering;
+/**
+ *  Connect to your Filestore instance using Private Service Access. Private
+ *  services access provides an IP address range for multiple Google Cloud
+ *  services, including Filestore.
+ *
+ *  Value: "PRIVATE_SERVICE_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceAccess;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_NetworkConfig.modes
@@ -422,6 +485,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Schedule_Day_Tuesday;
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Schedule_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudFilestore_Snapshot.state
+
+/**
+ *  Snapshot is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Snapshot_State_Creating;
+/**
+ *  Snapshot is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Snapshot_State_Deleting;
+/**
+ *  Snapshot is available for use.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Snapshot_State_Ready;
+/**
+ *  State not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Snapshot_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudFilestore_UpdatePolicy.channel
 
 /**
@@ -517,6 +608,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        instances offer a maximum capacity of 63.9 TB. BASIC_SSD is an alias
  *        for PREMIUM Tier, and offers improved performance backed by SSD.
  *        (Value: "BASIC_SSD")
+ *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_Enterprise
+ *        ENTERPRISE instances offer the features and availability needed for
+ *        mission-critical workloads. (Value: "ENTERPRISE")
  *    @arg @c kGTLRCloudFilestore_Backup_SourceInstanceTier_HighScaleSsd
  *        HIGH_SCALE instances offer expanded capacity and performance scaling
  *        capabilities. (Value: "HIGH_SCALE_SSD")
@@ -1163,6 +1257,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_FileShareConfig *> *fileShares;
 
+/** KMS key name used for data encryption. */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Labels *labels;
 
@@ -1207,6 +1304,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        during this time. (Value: "RESTORING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Suspended The instance is
+ *        suspended. You can get further details from the `suspension_reasons`
+ *        field of the `Instance` resource. (Value: "SUSPENDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1214,6 +1314,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  Output only. Additional information about the instance state, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. field indicates all the reasons the instance is in "SUSPENDED"
+ *  state.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
 /**
  *  The service tier of the instance.
@@ -1225,6 +1331,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicSsd BASIC instances offer a
  *        maximum capacity of 63.9 TB. BASIC_SSD is an alias for PREMIUM Tier,
  *        and offers improved performance backed by SSD. (Value: "BASIC_SSD")
+ *    @arg @c kGTLRCloudFilestore_Instance_Tier_Enterprise ENTERPRISE instances
+ *        offer the features and availability needed for mission-critical
+ *        workloads. (Value: "ENTERPRISE")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_HighScaleSsd HIGH_SCALE
  *        instances offer expanded capacity and performance scaling
  *        capabilities. (Value: "HIGH_SCALE_SSD")
@@ -1364,6 +1473,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Operation *> *operations;
+
+@end
+
+
+/**
+ *  ListSnapshotsResponse is the result of ListSnapshotsRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "snapshots" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudFilestore_ListSnapshotsResponse : GTLRCollectionObject
+
+/**
+ *  The token you can use to retrieve the next page of results. Not returned if
+ *  there are no more results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of snapshots in the project for the specified instance.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Snapshot *> *snapshots;
 
 @end
 
@@ -1518,6 +1654,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_NetworkConfig : GTLRObject
 
 /**
+ *  The network connect mode of the Filestore instance. If not provided, the
+ *  connect mode defaults to DIRECT_PEERING.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_NetworkConfig_ConnectMode_ConnectModeUnspecified
+ *        Not set. (Value: "CONNECT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_NetworkConfig_ConnectMode_DirectPeering
+ *        Connect via direct peering to the Filestore service. (Value:
+ *        "DIRECT_PEERING")
+ *    @arg @c kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceAccess
+ *        Connect to your Filestore instance using Private Service Access.
+ *        Private services access provides an IP address range for multiple
+ *        Google Cloud services, including Filestore. (Value:
+ *        "PRIVATE_SERVICE_ACCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *connectMode;
+
+/**
  *  Output only. IPv4 addresses in the format
  *  `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format
  *  `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`.
@@ -1538,10 +1692,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  A /29 CIDR block in one of the [internal IP address
+ *  Optional, reserved_ip_range can have one of the following two types of
+ *  values. * CIDR range value when using DIRECT_PEERING connect mode. *
+ *  [Allocated IP address
+ *  range](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-internal-ip-address)
+ *  when using PRIVATE_SERVICE_ACCESS connect mode. When the name of an
+ *  allocated IP address range is specified, it must be one of the ranges
+ *  associated with the private service access connection. When specified as a
+ *  direct CIDR value, it must be a /29 CIDR block for Basic tier or a /24 CIDR
+ *  block for High Scale or Enterprise tier in one of the [internal IP address
  *  ranges](https://www.arin.net/reference/research/statistics/address_filters/)
  *  that identifies the range of IP addresses reserved for this instance. For
- *  example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap
+ *  example, 10.0.0.0/29 or 192.168.0.0/24. The range you specify can't overlap
  *  with either existing subnets or assigned IP address ranges for other Cloud
  *  Filestore instances in the selected VPC network.
  */
@@ -1788,6 +1950,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /** Time within the window to start the operations. */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_TimeOfDay *startTime;
 
+@end
+
+
+/**
+ *  A Filestore snapshot.
+ */
+@interface GTLRCloudFilestore_Snapshot : GTLRObject
+
+/** Output only. The time when the snapshot was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of the snapshot with 2048 characters or less. Requests with
+ *  longer descriptions will be rejected.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The amount of bytes needed to allocate a full copy of the
+ *  snapshot content
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesystemUsedBytes;
+
+/** Resource labels to represent user provided metadata. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_Snapshot_Labels *labels;
+
+/**
+ *  Output only. The resource name of the snapshot, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The snapshot state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_Snapshot_State_Creating Snapshot is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudFilestore_Snapshot_State_Deleting Snapshot is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudFilestore_Snapshot_State_Ready Snapshot is available for
+ *        use. (Value: "READY")
+ *    @arg @c kGTLRCloudFilestore_Snapshot_State_StateUnspecified State not set.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Resource labels to represent user provided metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_Snapshot_Labels : GTLRObject
 @end
 
 

@@ -41,6 +41,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ArticleSuggestionData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_CustomHighlighterMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_SmartHighlighterMatches;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeriesInterval;
@@ -852,6 +853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelLabelStatsIssueStats : GTLRObject
 
+/** Display name of the issue. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
 /**
  *  Issue resource. Format:
  *  projects/{project}/locations/{location}/issueModels/{issue_model}/issues/{issue}
@@ -1189,6 +1193,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches *issueMatches;
 
 /**
+ *  A map associating each issue resource name with its respective number of
+ *  matches in the set of conversations. Key has the format:
+ *  `projects//locations//issueModels//issues/`
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats *issueMatchesStats;
+
+/**
  *  A map associating each smart highlighter display name with its respective
  *  number of matches in the set of conversations.
  */
@@ -1222,6 +1233,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatches : GTLRObject
+@end
+
+
+/**
+ *  A map associating each issue resource name with its respective number of
+ *  matches in the set of conversations. Key has the format:
+ *  `projects//locations//issueModels//issues/`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponse_IssueMatchesStats : GTLRObject
 @end
 
 
@@ -2362,6 +2388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Aggregated statistics about an issue.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelLabelStatsIssueStats : GTLRObject
+
+/** Display name of the issue. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Issue resource. Format:

@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Data pipelines API (datapipelines/v1)
+// Description:
+//   Data Pipelines provides an interface for creating, updating, and managing
+//   recurring Data Analytics jobs.
 // Documentation:
-//   https://developers.google.com/apis-explorer/#search/dataflow
+//   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
 #import "GTLRDatapipelines.h"
 

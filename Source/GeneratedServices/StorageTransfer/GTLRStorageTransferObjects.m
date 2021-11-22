@@ -39,6 +39,17 @@ NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable = @"UNA
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented = @"UNIMPLEMENTED";
 NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown = @"UNKNOWN";
 
+// GTLRStorageTransfer_LoggingConfig.logActions
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Copy = @"COPY";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Delete = @"DELETE";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Find = @"FIND";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_LoggableActionUnspecified = @"LOGGABLE_ACTION_UNSPECIFIED";
+
+// GTLRStorageTransfer_LoggingConfig.logActionStates
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed = @"FAILED";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
+NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
+
 // GTLRStorageTransfer_NotificationConfig.eventTypes
 NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted = @"TRANSFER_OPERATION_ABORTED";
@@ -291,7 +302,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_LoggingConfig
-@dynamic enableOnpremGcsTransferLogs;
+@dynamic enableOnpremGcsTransferLogs, logActions, logActionStates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"logActions" : [NSString class],
+    @"logActionStates" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -501,6 +521,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_TransferManifest
+//
+
+@implementation GTLRStorageTransfer_TransferManifest
+@dynamic location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_TransferOperation
 //
 
@@ -536,8 +566,9 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
-         gcsDataSource, httpDataSource, objectConditions, posixDataSource,
-         transferOptions;
+         gcsDataSource, httpDataSource, objectConditions, posixDataSink,
+         posixDataSource, sinkAgentPoolName, sourceAgentPoolName,
+         transferManifest, transferOptions;
 @end
 
 

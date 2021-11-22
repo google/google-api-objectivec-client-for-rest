@@ -493,7 +493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Room;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecified;
 /**
  *  Search the files in the shared drives specified in
- *  [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *  [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
@@ -545,7 +545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified;
 /**
  *  Search the files in the shared drives specified in
- *  [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *  [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *
  *  Value: "SHARED_DRIVE"
  */
@@ -1580,9 +1580,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 @property(nonatomic, strong, nullable) NSNumber *matchingAccountsCount;
 
 /**
- *  When **DataScope** is **HELD_DATA**, the number of accounts in the request
- *  that are not queried because they are not on hold. For other data scopes,
- *  this field is not set.
+ *  When **DataScope** is **HELD_DATA** and when account emails are passed in
+ *  explicitly, the list of accounts in the request that are not queried because
+ *  they are not on hold in the matter. For other data scopes, this field is not
+ *  set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonQueryableAccounts;
 
@@ -1897,7 +1898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Method_SharedDrive Search the files in the shared
  *        drives specified in
- *        [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_Method_TeamDrive Search the data in the Team
  *        Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")
@@ -1932,7 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Search the files in the
  *        shared drives specified in
- *        [SharedDriveInfo](https://developers.devsite.corp.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
+ *        [SharedDriveInfo](https://developers.google.com/vault/reference/rest/v1/Query#shareddriveinfo).
  *        (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Search the data in the
  *        Team Drive specified in **team_drive_info**. (Value: "TEAM_DRIVE")

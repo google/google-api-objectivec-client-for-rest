@@ -377,6 +377,11 @@ NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist = @"BLACK
 NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_PlayStoreModeUnspecified = @"PLAY_STORE_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Whitelist = @"WHITELIST";
 
+// GTLRAndroidManagement_Policy.preferentialNetworkService
+NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceDisabled = @"PREFERENTIAL_NETWORK_SERVICE_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceEnabled = @"PREFERENTIAL_NETWORK_SERVICE_ENABLED";
+NSString * const kGTLRAndroidManagement_Policy_PreferentialNetworkService_PreferentialNetworkServiceUnspecified = @"PREFERENTIAL_NETWORK_SERVICE_UNSPECIFIED";
+
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac = @"AC";
 NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPluggedModeUnspecified = @"BATTERY_PLUGGED_MODE_UNSPECIFIED";
@@ -889,7 +894,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @implementation GTLRAndroidManagement_HardwareInfo
 @dynamic batteryShutdownTemperatures, batteryThrottlingTemperatures, brand,
          cpuShutdownTemperatures, cpuThrottlingTemperatures,
-         deviceBasebandVersion, gpuShutdownTemperatures,
+         deviceBasebandVersion, enterpriseSpecificId, gpuShutdownTemperatures,
          gpuThrottlingTemperatures, hardware, manufacturer, model, serialNumber,
          skinShutdownTemperatures, skinThrottlingTemperatures;
 
@@ -1377,12 +1382,13 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordRequirements, permissionGrants, permittedAccessibilityServices,
          permittedInputMethods, persistentPreferredActivities,
          personalUsagePolicies, playStoreMode, policyEnforcementRules,
-         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
-         safeBootDisabled, screenCaptureDisabled, setupActions,
-         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
-         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
-         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
-         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
+         preferentialNetworkService, privateKeySelectionEnabled,
+         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
+         screenCaptureDisabled, setupActions, setUserIconDisabled,
+         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
+         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
+         statusReportingSettings, stayOnPluggedModes, systemUpdate,
+         tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;

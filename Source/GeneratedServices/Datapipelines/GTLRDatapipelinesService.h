@@ -3,8 +3,11 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Data pipelines API (datapipelines/v1)
+// Description:
+//   Data Pipelines provides an interface for creating, updating, and managing
+//   recurring Data Analytics jobs.
 // Documentation:
-//   https://developers.google.com/apis-explorer/#search/dataflow
+//   https://cloud.google.com/dataflow/docs/guides/data-pipelines
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -42,6 +45,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDatapipelinesCloudPlatform;
 
 /**
  *  Service for executing Data pipelines API queries.
+ *
+ *  Data Pipelines provides an interface for creating, updating, and managing
+ *  recurring Data Analytics jobs.
  */
 @interface GTLRDatapipelinesService : GTLRService
 

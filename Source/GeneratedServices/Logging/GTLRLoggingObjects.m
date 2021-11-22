@@ -4,10 +4,7 @@
 // API:
 //   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Cloud Logging configuration. The table
-//   entries below are presented in alphabetical order, not in order of common
-//   use. For explanations of the concepts found in the table entries, read the
-//   documentation at https://cloud.google.com/logging/docs.
+//   Writes log entries and manages your Cloud Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -539,8 +536,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogBucket
-@dynamic createTime, descriptionProperty, lifecycleState, locked, name,
-         restrictedFields, retentionDays, updateTime;
+@dynamic cmekSettings, createTime, descriptionProperty, lifecycleState, locked,
+         name, restrictedFields, retentionDays, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

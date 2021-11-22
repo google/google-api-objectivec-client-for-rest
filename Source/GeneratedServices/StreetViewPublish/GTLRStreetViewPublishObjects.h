@@ -253,9 +253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Floor number, used for ordering. 0 indicates the ground level, 1 indicates
- *  the first level above ground level, -1 indicates the first level under
- *  ground level. Non-integer values are OK.
+ *  Optional. Floor number, used for ordering. 0 indicates the ground level, 1
+ *  indicates the first level above ground level, -1 indicates the first level
+ *  under ground level. Non-integer values are OK.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -378,14 +378,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_Photo : GTLRObject
 
 /**
- *  Absolute time when the photo was captured. When the photo has no exif
- *  timestamp, this is used to set a timestamp in the photo metadata.
+ *  Optional. Absolute time when the photo was captured. When the photo has no
+ *  exif timestamp, this is used to set a timestamp in the photo metadata.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *captureTime;
 
 /**
- *  Connections to other photos. A connection represents the link from this
- *  photo to another photo.
+ *  Optional. Connections to other photos. A connection represents the link from
+ *  this photo to another photo.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Connection *> *connections;
 
@@ -397,7 +397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Output only. Status in Google Maps, whether this photo was published or
- *  rejected. Not currently populated.
+ *  rejected.
  *
  *  Likely values:
  *    @arg @c kGTLRStreetViewPublish_Photo_MapsPublishStatus_Published The photo
@@ -412,15 +412,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, copy, nullable) NSString *mapsPublishStatus;
 
 /**
- *  Required when updating a photo. Output only when creating a photo.
- *  Identifier for the photo, which is unique among all photos in Google.
+ *  Required. Output only. Required when updating a photo. Output only when
+ *  creating a photo. Identifier for the photo, which is unique among all photos
+ *  in Google.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_PhotoId *photoId;
 
-/** Places where this photo belongs. */
+/** Optional. Places where this photo belongs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Place *> *places;
 
-/** Pose of the photo. */
+/** Optional. Pose of the photo. */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Pose *pose;
 
 /** Output only. The share link for the photo. */
@@ -460,12 +461,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, copy, nullable) NSString *transferStatus;
 
 /**
- *  Required when creating a photo. Input only. The resource URL where the photo
- *  bytes are uploaded to.
+ *  Input only. Required when creating a photo. Input only. The resource URL
+ *  where the photo bytes are uploaded to.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_UploadRef *uploadReference;
 
-/** Time when the image was uploaded. */
+/** Output only. Time when the image was uploaded. */
 @property(nonatomic, strong, nullable) GTLRDateTime *uploadTime;
 
 /**
@@ -517,12 +518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_Place : GTLRObject
 
 /**
- *  Output-only. The language_code that the name is localized with. This should
+ *  Output only. The language_code that the name is localized with. This should
  *  be the language_code specified in the request, but may be a fallback.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
-/** Output-only. The name of the place, localized to the language_code. */
+/** Output only. The name of the place, localized to the language_code. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -560,9 +561,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, strong, nullable) NSNumber *altitude;
 
 /**
- *  Compass heading, measured at the center of the photo in degrees clockwise
- *  from North. Value must be >=0 and <360. NaN indicates an unmeasured
- *  quantity.
+ *  The following pose parameters pertain to the center of the photo. They match
+ *  https://developers.google.com/streetview/spherical-metadata. Compass
+ *  heading, measured at the center of the photo in degrees clockwise from
+ *  North. Value must be >=0 and <360. NaN indicates an unmeasured quantity.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -660,8 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  metadata in this request. The update fails if invalid fields are specified.
  *  Multiple fields can be specified in a comma-delimited list. The following
  *  fields are valid: * `pose.heading` * `pose.latLngPair` * `pose.pitch` *
- *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places`
- *  *Note:* When updateMask contains repeated fields, the entire set of repeated
+ *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places` >
+ *  Note: When updateMask contains repeated fields, the entire set of repeated
  *  values get replaced with the new contents. For example, if updateMask
  *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
  *  all connections are removed.

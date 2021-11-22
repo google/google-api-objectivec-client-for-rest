@@ -243,12 +243,15 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsGetIamPolicy : GTLRConnectorsQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -388,7 +391,11 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeActionSchemasList : GTLRConnectorsQuery
 
-/** Filter */
+/**
+ *  Required. Filter Format: action="{actionId}" Only action field is supported
+ *  with literal equality operator. Accepted filter example:
+ *  action="CancelOrder" Wildcards are not supported in the filter currently.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Page size. */
@@ -431,7 +438,11 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsRuntimeEntitySchemasList : GTLRConnectorsQuery
 
-/** Filter */
+/**
+ *  Required. Filter Format: entity="{entityId}" Only entity field is supported
+ *  with literal equality operator. Accepted filter example: entity="Order"
+ *  Wildcards are not supported in the filter currently.
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Page size. */
@@ -1065,12 +1076,15 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewFull;
 @interface GTLRConnectorsQuery_ProjectsLocationsProvidersGetIamPolicy : GTLRConnectorsQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;

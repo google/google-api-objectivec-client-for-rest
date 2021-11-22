@@ -1089,6 +1089,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) NSNumber *canDelete;
 
 /**
+ *  Output only. Indicates if the listing is eligible for business calls.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canHaveBusinessCalls;
+
+/**
  *  Output only. Indicates if the listing is eligible for food menu.
  *
  *  Uses NSNumber of boolValue.

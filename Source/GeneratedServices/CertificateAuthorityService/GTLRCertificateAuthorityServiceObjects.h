@@ -7,7 +7,7 @@
 //   The Certificate Authority Service API is a highly-available, scalable
 //   service that enables you to simplify and automate the management of private
 //   certificate authorities (CAs) while staying in control of your private
-//   keys."
+//   keys.
 // Documentation:
 //   https://cloud.google.com/
 
@@ -900,9 +900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @interface GTLRCertificateAuthorityService_CaPool : GTLRObject
 
-/** Output only. The time at which this CaPool was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
 /**
  *  Optional. The IssuancePolicy to control how Certificates will be issued from
  *  this CaPool.
@@ -936,9 +933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *        specified. (Value: "TIER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tier;
-
-/** Output only. The time at which this CaPool was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

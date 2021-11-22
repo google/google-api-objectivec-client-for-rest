@@ -36,6 +36,7 @@
 @class GTLRCloudComposer_Operation_Response;
 @class GTLRCloudComposer_PrivateClusterConfig;
 @class GTLRCloudComposer_PrivateEnvironmentConfig;
+@class GTLRCloudComposer_SchedulerResource;
 @class GTLRCloudComposer_SoftwareConfig;
 @class GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides;
 @class GTLRCloudComposer_SoftwareConfig_EnvVariables;
@@ -44,6 +45,9 @@
 @class GTLRCloudComposer_Status_Details_Item;
 @class GTLRCloudComposer_WebServerConfig;
 @class GTLRCloudComposer_WebServerNetworkAccessControl;
+@class GTLRCloudComposer_WebServerResource;
+@class GTLRCloudComposer_WorkerResource;
+@class GTLRCloudComposer_WorkloadsConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -119,6 +123,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_StateUns
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_EnvironmentConfig.environmentSize
+
+/**
+ *  The environment size is large.
+ *
+ *  Value: "ENVIRONMENT_SIZE_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeLarge;
+/**
+ *  The environment size is medium.
+ *
+ *  Value: "ENVIRONMENT_SIZE_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium;
+/**
+ *  The environment size is small.
+ *
+ *  Value: "ENVIRONMENT_SIZE_SMALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall;
+/**
+ *  The size of the environment is unspecified.
+ *
+ *  Value: "ENVIRONMENT_SIZE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_OperationMetadata.operationType
 
 /**
@@ -139,6 +171,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_Operatio
  *  Value: "DELETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete;
+/**
+ *  Stores the state of the resource operation.
+ *
+ *  Value: "STORE_STATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_StoreState;
 /**
  *  Unused.
  *
@@ -466,6 +504,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @property(nonatomic, strong, nullable) GTLRCloudComposer_EncryptionConfig *encryptionConfig;
 
 /**
+ *  Optional. The size of the Cloud Composer environment. This field is
+ *  supported for Cloud Composer environments in versions
+ *  composer-2.*.*-airflow-*.*.* and newer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeLarge
+ *        The environment size is large. (Value: "ENVIRONMENT_SIZE_LARGE")
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium
+ *        The environment size is medium. (Value: "ENVIRONMENT_SIZE_MEDIUM")
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall
+ *        The environment size is small. (Value: "ENVIRONMENT_SIZE_SMALL")
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeUnspecified
+ *        The size of the environment is unspecified. (Value:
+ *        "ENVIRONMENT_SIZE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *environmentSize;
+
+/**
  *  Output only. The Kubernetes Engine cluster used to run this environment.
  */
 @property(nonatomic, copy, nullable) NSString *gkeCluster;
@@ -497,10 +553,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /**
  *  Optional. The network-level access control policy for the Airflow web
  *  server. If unspecified, no network-level access restrictions will be
- *  applied. This field is supported for Cloud Composer environments in versions
- *  composer-1.*.*-airflow-*.*.*.
+ *  applied.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_WebServerNetworkAccessControl *webServerNetworkAccessControl;
+
+/**
+ *  Optional. The workloads configuration settings for the GKE cluster
+ *  associated with the Cloud Composer environment. The GKE cluster runs Airflow
+ *  scheduler, web server and workers workloads. This field is supported for
+ *  Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and
+ *  newer.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_WorkloadsConfig *workloadsConfig;
 
 @end
 
@@ -897,6 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        resource creation operation. (Value: "CREATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Delete A
  *        resource deletion operation. (Value: "DELETE")
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_StoreState
+ *        Stores the state of the resource operation. (Value: "STORE_STATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified
  *        Unused. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Update A
@@ -974,6 +1040,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @interface GTLRCloudComposer_PrivateEnvironmentConfig : GTLRObject
 
 /**
+ *  Optional. The CIDR block from which IP range for Cloud Composer Network in
+ *  tenant project will be reserved. Needs to be disjoint from
+ *  private_cluster_config.master_ipv4_cidr_block and cloud_sql_ipv4_cidr_block.
+ *  This field is supported for Cloud Composer environments in versions
+ *  composer-2.*.*-airflow-*.*.* and newer.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudComposerNetworkIpv4CidrBlock;
+
+/**
+ *  Output only. The IP range reserved for the tenant project's Cloud Composer
+ *  network. This field is supported for Cloud Composer environments in versions
+ *  composer-2.*.*-airflow-*.*.* and newer.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudComposerNetworkIpv4ReservedRange;
+
+/**
  *  Optional. The CIDR block from which IP range in tenant project will be
  *  reserved for Cloud SQL. Needs to be disjoint from
  *  `web_server_ipv4_cidr_block`.
@@ -1011,6 +1093,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  composer-1.*.*-airflow-*.*.*.
  */
 @property(nonatomic, copy, nullable) NSString *webServerIpv4ReservedRange;
+
+@end
+
+
+/**
+ *  Configuration for resources used by Airflow schedulers.
+ */
+@interface GTLRCloudComposer_SchedulerResource : GTLRObject
+
+/**
+ *  Optional. The number of schedulers.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Optional. CPU request and limit for a single Airflow scheduler replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpu;
+
+/**
+ *  Optional. Memory (GB) request and limit for a single Airflow scheduler
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  Optional. Storage (GB) request and limit for a single Airflow scheduler
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageGb;
 
 @end
 
@@ -1223,13 +1343,104 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
- *  Network-level access control policy for the Airflow web server. Supported
- *  for Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*.
+ *  Network-level access control policy for the Airflow web server.
  */
 @interface GTLRCloudComposer_WebServerNetworkAccessControl : GTLRObject
 
 /** A collection of allowed IP ranges with descriptions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_AllowedIpRange *> *allowedIpRanges;
+
+@end
+
+
+/**
+ *  Configuration for resources used by Airflow web server.
+ */
+@interface GTLRCloudComposer_WebServerResource : GTLRObject
+
+/**
+ *  Optional. CPU request and limit for Airflow web server.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpu;
+
+/**
+ *  Optional. Memory (GB) request and limit for Airflow web server.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  Optional. Storage (GB) request and limit for Airflow web server.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageGb;
+
+@end
+
+
+/**
+ *  Configuration for resources used by Airflow workers.
+ */
+@interface GTLRCloudComposer_WorkerResource : GTLRObject
+
+/**
+ *  Optional. CPU request and limit for a single Airflow worker replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpu;
+
+/**
+ *  Optional. Maximum number of workers for autoscaling.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCount;
+
+/**
+ *  Optional. Memory (GB) request and limit for a single Airflow worker replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  Optional. Minimum number of workers for autoscaling.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minCount;
+
+/**
+ *  Optional. Storage (GB) request and limit for a single Airflow worker
+ *  replica.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageGb;
+
+@end
+
+
+/**
+ *  The Kubernetes workloads configuration for GKE cluster associated with the
+ *  Cloud Composer environment. Supported for Cloud Composer environments in
+ *  versions composer-2.*.*-airflow-*.*.* and newer.
+ */
+@interface GTLRCloudComposer_WorkloadsConfig : GTLRObject
+
+/** Optional. Resources used by Airflow schedulers. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_SchedulerResource *scheduler;
+
+/** Optional. Resources used by Airflow web server. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_WebServerResource *webServer;
+
+/** Optional. Resources used by Airflow workers. */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_WorkerResource *worker;
 
 @end
 

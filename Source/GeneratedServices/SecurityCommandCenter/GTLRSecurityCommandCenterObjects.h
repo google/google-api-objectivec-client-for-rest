@@ -31,9 +31,12 @@
 @class GTLRSecurityCommandCenter_Cvssv3;
 @class GTLRSecurityCommandCenter_Expr;
 @class GTLRSecurityCommandCenter_Finding;
+@class GTLRSecurityCommandCenter_Finding_ExternalSystems;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_Folder;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder;
@@ -382,6 +385,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation;
 /**
+ *  Describes an error that prevents some SCC functionality.
+ *
+ *  Value: "SCC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SccError;
+/**
  *  Describes unwanted or malicious activity.
  *
  *  Value: "THREAT"
@@ -394,6 +403,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Finding.mute
+
+/**
+ *  Finding has been muted.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Muted;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Mute_MuteUnspecified;
+/**
+ *  Finding has never been muted/unmuted.
+ *
+ *  Value: "UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Undefined;
+/**
+ *  Finding has been unmuted.
+ *
+ *  Value: "UNMUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Mute_Unmuted;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.severity
@@ -713,6 +750,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_SetMuteRequest.mute
+
+/**
+ *  Finding has been muted.
+ *
+ *  Value: "MUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Muted;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_MuteUnspecified;
+/**
+ *  Finding has never been muted/unmuted.
+ *
+ *  Value: "UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Undefined;
+/**
+ *  Finding has been unmuted.
+ *
+ *  Value: "UNMUTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted;
+
 /**
  *  Security Command Center representation of a Google Cloud resource. The Asset
  *  is a Security Command Center resource that captures information about a
@@ -939,6 +1004,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  `roles/viewer`, `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Request message for bulk findings update. Note: 1. If multiple bulk update
+ *  requests match the same resource, the order in which they get executed is
+ *  not defined. 2. Once a bulk operation is started, there is no way to stop
+ *  it.
+ */
+@interface GTLRSecurityCommandCenter_BulkMuteFindingsRequest : GTLRObject
+
+/**
+ *  Expression that identifies findings that should be updated. The expression
+ *  is a list of zero or more restrictions combined via logical operators `AND`
+ *  and `OR`. Parentheses are supported, and `OR` has higher precedence than
+ *  `AND`. Restrictions have the form ` ` and may have a `-` character in front
+ *  of them to indicate negation. The fields map to those defined in the
+ *  corresponding resource. The supported operators are: * `=` for all value
+ *  types. * `>`, `<`, `>=`, `<=` for integer values. * `:`, meaning substring
+ *  matching, for strings. The supported value types are: * string literals in
+ *  quotes. * integer literals without quotes. * boolean literals `true` and
+ *  `false` without quotes.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  This can be a mute configuration name or any identifier for mute/unmute of
+ *  findings based on the filter.
+ */
+@property(nonatomic, copy, nullable) NSString *muteAnnotation;
 
 @end
 
@@ -1241,6 +1337,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
+ *  Output only. Third party SIEM/SOAR fields within SCC, contains external
+ *  system information and external system finding fields.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Finding_ExternalSystems *externalSystems;
+
+/**
  *  The URI that, if available, points to a web page outside of Security Command
  *  Center where additional information about the finding can be found. This
  *  field is guaranteed to be either empty or a well formed URL.
@@ -1259,6 +1361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Observation
  *        Describes a security observation that is for informational purposes.
  *        (Value: "OBSERVATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SccError Describes
+ *        an error that prevents some SCC functionality. (Value: "SCC_ERROR")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
  *        unwanted or malicious activity. (Value: "THREAT")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability
@@ -1274,6 +1378,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
+
+/**
+ *  Indicates the mute state of a finding (either unspecified, muted, unmuted or
+ *  undefined).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Mute_Muted Finding has been
+ *        muted. (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Mute_MuteUnspecified
+ *        Unspecified. (Value: "MUTE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Mute_Undefined Finding has
+ *        never been muted/unmuted. (Value: "UNDEFINED")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Mute_Unmuted Finding has been
+ *        unmuted. (Value: "UNMUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *mute;
+
+/**
+ *  First known as mute_annotation. Records additional information about the
+ *  mute operation e.g. mute config that muted the finding, user who muted the
+ *  finding, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *muteInitiator;
+
+/** Output only. The most recent time this finding was muted or unmuted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *muteUpdateTime;
 
 /**
  *  The relative resource name of this finding. See:
@@ -1391,6 +1521,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Output only. Third party SIEM/SOAR fields within SCC, contains external
+ *  system information and external system finding fields.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecurityCommandCenter_Finding_ExternalSystems : GTLRObject
+@end
+
+
+/**
  *  Source specific properties. These properties are managed by the source that
  *  writes the finding. The key names in the source_properties map must be
  *  between 1 and 255 characters, and must start with a letter and contain
@@ -1443,12 +1587,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1483,6 +1630,104 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *        Asset discovery run was killed and terminated. (Value: "TERMINATED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Representation of third party SIEM/SOAR fields within SCC.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ExternalSystem : GTLRObject
+
+/** References primary/secondary etc assignees in the external system. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assignees;
+
+/**
+ *  The most recent time when the corresponding finding's ticket/tracker was
+ *  updated in the external system.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *externalSystemUpdateTime;
+
+/**
+ *  Identifier that's used to track the given finding in the external system.
+ */
+@property(nonatomic, copy, nullable) NSString *externalUid;
+
+/**
+ *  External System Name e.g. jira, demisto, etc. e.g.:
+ *  organizations/1234/sources/5678/findings/123456/externalSystems/jira
+ *  folders/1234/sources/5678/findings/123456/externalSystems/jira
+ *  projects/1234/sources/5678/findings/123456/externalSystems/jira
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Most recent status of the corresponding finding's ticket/tracker in the
+ *  external system.
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  A mute config is a Cloud SCC resource that contains the configuration to
+ *  mute create/update events of findings.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig : GTLRObject
+
+/**
+ *  Output only. The time at which the mute config was created. This field is
+ *  set by the server and will be ignored if provided on config creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A description of the mute config.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The human readable name to be displayed for the mute config. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. An expression that defines the filter to apply across
+ *  create/update events of findings. While creating a filter string, be mindful
+ *  of the scope in which the mute configuration is being created. E.g., If a
+ *  filter contains project = X but is created under the project = Y scope, it
+ *  might not match any findings. The following field and operator combinations
+ *  are supported: * severity: `=`, `:` * category: `=`, `:` * resource.name:
+ *  `=`, `:` * resource.project_name: `=`, `:` * resource.project_display_name:
+ *  `=`, `:` * resource.folders.resource_folder: `=`, `:` *
+ *  resource.parent_name: `=`, `:` * resource.parent_display_name: `=`, `:` *
+ *  resource.type: `=`, `:` * finding_class: `=`, `:` * indicator.ip_addresses:
+ *  `=`, `:` * indicator.domains: `=`, `:`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Output only. Email address of the user who last edited the mute config. This
+ *  field is set by the server and will be ignored if provided on config
+ *  creation or update.
+ */
+@property(nonatomic, copy, nullable) NSString *mostRecentEditor;
+
+/**
+ *  This field will be ignored if provided on config creation. Format
+ *  "organizations/{organization}/muteConfigs/{mute_config}"
+ *  "folders/{folder}/muteConfigs/{mute_config}"
+ *  "projects/{project}/muteConfigs/{mute_config}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The most recent time at which the mute config was updated. This
+ *  field is set by the server and will be ignored if provided on config
+ *  creation or update.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -2347,6 +2592,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Response message for listing mute configs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "muteConfigs" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSecurityCommandCenter_ListMuteConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The mute configs from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1MuteConfig *> *muteConfigs;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing notification configs.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2885,6 +3157,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Request message for updating a finding's mute status.
+ */
+@interface GTLRSecurityCommandCenter_SetMuteRequest : GTLRObject
+
+/**
+ *  Required. The desired state of the Mute.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Muted Finding has
+ *        been muted. (Value: "MUTED")
+ *    @arg @c kGTLRSecurityCommandCenter_SetMuteRequest_Mute_MuteUnspecified
+ *        Unspecified. (Value: "MUTE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Undefined Finding
+ *        has never been muted/unmuted. (Value: "UNDEFINED")
+ *    @arg @c kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted Finding has
+ *        been unmuted. (Value: "UNMUTED")
+ */
+@property(nonatomic, copy, nullable) NSString *mute;
 
 @end
 

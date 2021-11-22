@@ -136,6 +136,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_AutoscalingLimits
+//
+
+@implementation GTLRBigtableAdmin_AutoscalingLimits
+@dynamic maxServeNodes, minServeNodes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_AutoscalingTargets
+//
+
+@implementation GTLRBigtableAdmin_AutoscalingTargets
+@dynamic cpuUtilizationPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_Backup
 //
 
@@ -199,8 +219,28 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Cluster
-@dynamic defaultStorageType, encryptionConfig, location, name, serveNodes,
-         state;
+@dynamic clusterConfig, defaultStorageType, encryptionConfig, location, name,
+         serveNodes, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ClusterAutoscalingConfig
+//
+
+@implementation GTLRBigtableAdmin_ClusterAutoscalingConfig
+@dynamic autoscalingLimits, autoscalingTargets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_ClusterConfig
+//
+
+@implementation GTLRBigtableAdmin_ClusterConfig
+@dynamic clusterAutoscalingConfig;
 @end
 
 
@@ -807,6 +847,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_OptimizeRestoredTableMetadata
 @dynamic name, progress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_PartialUpdateClusterMetadata
+//
+
+@implementation GTLRBigtableAdmin_PartialUpdateClusterMetadata
+@dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_PartialUpdateClusterRequest
+//
+
+@implementation GTLRBigtableAdmin_PartialUpdateClusterRequest
+@dynamic cluster, updateMask;
 @end
 
 

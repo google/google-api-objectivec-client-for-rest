@@ -1667,7 +1667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *dialogEventType;
 
-/** The timestamp indicating when the event was dispatched. */
+/** The timestamp indicating when the event occurred. */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
@@ -3067,7 +3067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Membership : GTLRObject
 
 /**
- *  The creation time of the membership a.k.a the time at which the member
+ *  The creation time of the membership a.k.a. the time at which the member
  *  joined the space, if applicable.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3279,9 +3279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Space : GTLRObject
 
 /**
- *  Output only. The display name (only if the space is of type `ROOM`). Please
- *  note that this field might not be populated in direct messages between
- *  humans.
+ *  The display name (only if the space is of type `ROOM`). Please note that
+ *  this field might not be populated in direct messages between humans.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 

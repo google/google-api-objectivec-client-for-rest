@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Datastream API (datastream/v1alpha1)
+//   Datastream API (datastream/v1)
 // Documentation:
 //   https://cloud.google.com/datastream/
 
@@ -11,9 +11,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRDatastream_GcsDestinationConfig.gcsFileFormat
-NSString * const kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_Avro = @"AVRO";
-NSString * const kGTLRDatastream_GcsDestinationConfig_GcsFileFormat_GcsFileFormatUnspecified = @"GCS_FILE_FORMAT_UNSPECIFIED";
+// GTLRDatastream_BackfillJob.state
+NSString * const kGTLRDatastream_BackfillJob_State_Active      = @"ACTIVE";
+NSString * const kGTLRDatastream_BackfillJob_State_Completed   = @"COMPLETED";
+NSString * const kGTLRDatastream_BackfillJob_State_Failed      = @"FAILED";
+NSString * const kGTLRDatastream_BackfillJob_State_NotStarted  = @"NOT_STARTED";
+NSString * const kGTLRDatastream_BackfillJob_State_Pending     = @"PENDING";
+NSString * const kGTLRDatastream_BackfillJob_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDatastream_BackfillJob_State_Stopped     = @"STOPPED";
+NSString * const kGTLRDatastream_BackfillJob_State_Unsupported = @"UNSUPPORTED";
+
+// GTLRDatastream_BackfillJob.trigger
+NSString * const kGTLRDatastream_BackfillJob_Trigger_Automatic = @"AUTOMATIC";
+NSString * const kGTLRDatastream_BackfillJob_Trigger_Manual    = @"MANUAL";
+NSString * const kGTLRDatastream_BackfillJob_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
 
 // GTLRDatastream_JsonFileFormat.compression
 NSString * const kGTLRDatastream_JsonFileFormat_Compression_Gzip = @"GZIP";
@@ -34,21 +45,21 @@ NSString * const kGTLRDatastream_PrivateConnection_State_FailedToDelete = @"FAIL
 NSString * const kGTLRDatastream_PrivateConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDatastream_Stream.state
-NSString * const kGTLRDatastream_Stream_State_Created          = @"CREATED";
 NSString * const kGTLRDatastream_Stream_State_Draining         = @"DRAINING";
 NSString * const kGTLRDatastream_Stream_State_Failed           = @"FAILED";
 NSString * const kGTLRDatastream_Stream_State_FailedPermanently = @"FAILED_PERMANENTLY";
 NSString * const kGTLRDatastream_Stream_State_Maintenance      = @"MAINTENANCE";
+NSString * const kGTLRDatastream_Stream_State_NotStarted       = @"NOT_STARTED";
 NSString * const kGTLRDatastream_Stream_State_Paused           = @"PAUSED";
 NSString * const kGTLRDatastream_Stream_State_Running          = @"RUNNING";
 NSString * const kGTLRDatastream_Stream_State_Starting         = @"STARTING";
 NSString * const kGTLRDatastream_Stream_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRDatastream_Validation.status
-NSString * const kGTLRDatastream_Validation_Status_Failed      = @"FAILED";
-NSString * const kGTLRDatastream_Validation_Status_NotExecuted = @"NOT_EXECUTED";
-NSString * const kGTLRDatastream_Validation_Status_Passed      = @"PASSED";
-NSString * const kGTLRDatastream_Validation_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+// GTLRDatastream_Validation.state
+NSString * const kGTLRDatastream_Validation_State_Failed       = @"FAILED";
+NSString * const kGTLRDatastream_Validation_State_NotExecuted  = @"NOT_EXECUTED";
+NSString * const kGTLRDatastream_Validation_State_Passed       = @"PASSED";
+NSString * const kGTLRDatastream_Validation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDatastream_ValidationMessage.level
 NSString * const kGTLRDatastream_ValidationMessage_Level_Error = @"ERROR";
@@ -71,6 +82,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_BackfillAllStrategy
 @dynamic mysqlExcludedObjects, oracleExcludedObjects;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BackfillJob
+//
+
+@implementation GTLRDatastream_BackfillJob
+@dynamic errors, lastEndTime, lastStartTime, state, trigger;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDatastream_Error class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -99,7 +128,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_ConnectionProfile
 @dynamic createTime, displayName, forwardSshConnectivity, gcsProfile, labels,
-         mysqlProfile, name, noConnectivity, oracleProfile, privateConnectivity,
+         mysqlProfile, name, oracleProfile, privateConnectivity,
          staticServiceIpConnectivity, updateTime;
 @end
 
@@ -124,7 +153,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_DestinationConfig
-@dynamic destinationConnectionProfileName, gcsDestinationConfig;
+@dynamic destinationConnectionProfile, gcsDestinationConfig;
 @end
 
 
@@ -134,8 +163,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
-@dynamic connectionProfile, connectionProfileName, mysqlRdbms, oracleRdbms,
-         recursionDepth, recursive;
+@dynamic connectionProfile, connectionProfileName, fullHierarchy,
+         hierarchyDepth, mysqlRdbms, oracleRdbms;
 @end
 
 
@@ -184,33 +213,6 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatastream_FetchErrorsRequest
-//
-
-@implementation GTLRDatastream_FetchErrorsRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDatastream_FetchErrorsResponse
-//
-
-@implementation GTLRDatastream_FetchErrorsResponse
-@dynamic errors;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRDatastream_Error class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDatastream_FetchStaticIpsResponse
 //
 
@@ -243,8 +245,8 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_GcsDestinationConfig
-@dynamic avroFileFormat, fileRotationInterval, fileRotationMb, gcsFileFormat,
-         jsonFileFormat, path;
+@dynamic avroFileFormat, fileRotationInterval, fileRotationMb, jsonFileFormat,
+         path;
 @end
 
 
@@ -254,7 +256,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_GcsProfile
-@dynamic bucketName, rootPath;
+@dynamic bucket, rootPath;
 @end
 
 
@@ -383,6 +385,28 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_ListStreamObjectsResponse
+//
+
+@implementation GTLRDatastream_ListStreamObjectsResponse
+@dynamic nextPageToken, streamObjects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"streamObjects" : [GTLRDatastream_StreamObject class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"streamObjects";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_ListStreamsResponse
 //
 
@@ -444,11 +468,21 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_LookupStreamObjectRequest
+//
+
+@implementation GTLRDatastream_LookupStreamObjectRequest
+@dynamic sourceObjectIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_MysqlColumn
 //
 
 @implementation GTLRDatastream_MysqlColumn
-@dynamic collation, columnName, dataType, length, nullable, ordinalPosition,
+@dynamic collation, column, dataType, length, nullable, ordinalPosition,
          primaryKey;
 @end
 
@@ -459,7 +493,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlDatabase
-@dynamic databaseName, mysqlTables;
+@dynamic database, mysqlTables;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -468,6 +502,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_MysqlObjectIdentifier
+//
+
+@implementation GTLRDatastream_MysqlObjectIdentifier
+@dynamic database, table;
 @end
 
 
@@ -505,7 +549,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlSourceConfig
-@dynamic allowlist, rejectlist;
+@dynamic excludeObjects, includeObjects;
 @end
 
 
@@ -526,7 +570,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MysqlTable
-@dynamic mysqlColumns, tableName;
+@dynamic mysqlColumns, table;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -535,15 +579,6 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDatastream_NoConnectivitySettings
-//
-
-@implementation GTLRDatastream_NoConnectivitySettings
 @end
 
 
@@ -602,8 +637,18 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleColumn
-@dynamic columnName, dataType, encoding, length, nullable, ordinalPosition,
+@dynamic column, dataType, encoding, length, nullable, ordinalPosition,
          precision, primaryKey, scale;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_OracleObjectIdentifier
+//
+
+@implementation GTLRDatastream_OracleObjectIdentifier
+@dynamic schema, table;
 @end
 
 
@@ -656,7 +701,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSchema
-@dynamic oracleTables, schemaName;
+@dynamic oracleTables, schema;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -674,7 +719,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleSourceConfig
-@dynamic allowlist, rejectlist;
+@dynamic excludeObjects, includeObjects;
 @end
 
 
@@ -684,7 +729,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_OracleTable
-@dynamic oracleColumns, tableName;
+@dynamic oracleColumns, table;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -727,7 +772,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_PrivateConnectivity
-@dynamic privateConnectionName;
+@dynamic privateConnection;
 @end
 
 
@@ -762,7 +807,36 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_SourceConfig
-@dynamic mysqlSourceConfig, oracleSourceConfig, sourceConnectionProfileName;
+@dynamic mysqlSourceConfig, oracleSourceConfig, sourceConnectionProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SourceObjectIdentifier
+//
+
+@implementation GTLRDatastream_SourceObjectIdentifier
+@dynamic mysqlIdentifier, oracleIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_StartBackfillJobRequest
+//
+
+@implementation GTLRDatastream_StartBackfillJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_StartBackfillJobResponse
+//
+
+@implementation GTLRDatastream_StartBackfillJobResponse
+@dynamic object;
 @end
 
 
@@ -809,12 +883,32 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_StopBackfillJobRequest
+//
+
+@implementation GTLRDatastream_StopBackfillJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_StopBackfillJobResponse
+//
+
+@implementation GTLRDatastream_StopBackfillJobResponse
+@dynamic object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_Stream
 //
 
 @implementation GTLRDatastream_Stream
-@dynamic backfillAll, backfillNone, createTime, destinationConfig, displayName,
-         errors, labels, name, sourceConfig, state, updateTime;
+@dynamic backfillAll, backfillNone, createTime, customerManagedEncryptionKey,
+         destinationConfig, displayName, errors, labels, name, sourceConfig,
+         state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -842,11 +936,30 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_StreamObject
+//
+
+@implementation GTLRDatastream_StreamObject
+@dynamic backfillJob, createTime, displayName, errors, name, sourceObject,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDatastream_Error class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_Validation
 //
 
 @implementation GTLRDatastream_Validation
-@dynamic code, descriptionProperty, message, status;
+@dynamic code, descriptionProperty, message, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -910,5 +1023,5 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_VpcPeeringConfig
-@dynamic subnet, vpcName;
+@dynamic subnet, vpc;
 @end

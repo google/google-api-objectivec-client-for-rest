@@ -559,10 +559,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  or the region IDs for "same-day-delivery" to be added for this type.
  *  Duplicate IDs will be automatically ignored. At least 1 value is required,
  *  and a maximum of 2000 values are allowed. Each value must be a string with a
- *  length limit of 10 characters, matching the pattern [a-zA-Z0-9_-]+, such as
- *  "store1" or "REGION-2". Otherwise, an INVALID_ARGUMENT error is returned. If
- *  the total number of place IDs exceeds 2000 for this type after adding, then
- *  the update will be rejected.
+ *  length limit of 10 characters, matching the pattern `[a-zA-Z0-9_-]+`, such
+ *  as "store1" or "REGION-2". Otherwise, an INVALID_ARGUMENT error is returned.
+ *  If the total number of place IDs exceeds 2000 for this type after adding,
+ *  then the update will be rejected.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *placeIds;
 
@@ -602,6 +602,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  is no meaningful response populated from the AddFulfillmentPlaces method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesResponse : GTLRObject
+@end
+
+
+/**
+ *  Metadata related to the progress of the AddLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response of the AddLocalInventories API. Currently empty because there is no
+ *  meaningful response populated from the AddLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaAddLocalInventoriesResponse : GTLRObject
 @end
 
 
@@ -851,6 +868,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesResponse : GTLRObject
+@end
+
+
+/**
+ *  Metadata related to the progress of the RemoveLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response of the RemoveLocalInventories API. Currently empty because there is
+ *  no meaningful response populated from the RemoveLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveLocalInventoriesResponse : GTLRObject
 @end
 
 
@@ -1511,7 +1545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  FulfillmentInfo.type.pickup-in-store or the region IDs for
  *  FulfillmentInfo.type.same-day-delivery. A maximum of 3000 values are
  *  allowed. Each value must be a string with a length limit of 30 characters,
- *  matching the pattern [a-zA-Z0-9_-]+, such as "store1" or "REGION-2".
+ *  matching the pattern `[a-zA-Z0-9_-]+`, such as "store1" or "REGION-2".
  *  Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *placeIds;
@@ -1754,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Unique identifier provided by client, within the ancestor dataset scope.
  *  Ensures idempotency and used for request deduplication. Server-generated if
  *  unspecified. Up to 128 characters long and must match the pattern:
- *  "[a-zA-Z0-9_]+". This is returned as Operation.name in ImportMetadata. Only
+ *  `[a-zA-Z0-9_]+`. This is returned as Operation.name in ImportMetadata. Only
  *  supported when ImportProductsRequest.reconciliation_mode is set to `FULL`.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -2247,7 +2281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
  *  128 characters. * For indexable attribute, the key must match the pattern:
- *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  `a-zA-Z0-9*`. For example, key0LikeThis or KEY_1_LIKE_THIS.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
 
@@ -2615,7 +2649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
  *  128 characters. * For indexable attribute, the key must match the pattern:
- *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  `a-zA-Z0-9*`. For example, key0LikeThis or KEY_1_LIKE_THIS.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -2694,14 +2728,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The type of Products allowed to be ingested into the catalog. Acceptable
- *  values are: * `primary` (default): You can only ingest Product.Type.PRIMARY
- *  Products. This means Product.primary_product_id can only be empty or set to
- *  the same value as Product.id. * `variant`: You can only ingest
- *  Product.Type.VARIANT Products. This means Product.primary_product_id cannot
- *  be empty. If this field is set to an invalid value other than these, an
- *  INVALID_ARGUMENT error is returned. If this field is `variant` and
- *  merchant_center_product_id_field is `itemGroupId`, an INVALID_ARGUMENT error
- *  is returned. See [Using product
+ *  values are: * `primary` (default): You can ingest Products of all types.
+ *  When ingesting a Product, its type will default to Product.Type.PRIMARY if
+ *  unset. * `variant`: You can only ingest Product.Type.VARIANT Products. This
+ *  means Product.primary_product_id cannot be empty. If this field is set to an
+ *  invalid value other than these, an INVALID_ARGUMENT error is returned. If
+ *  this field is `variant` and merchant_center_product_id_field is
+ *  `itemGroupId`, an INVALID_ARGUMENT error is returned. See [Using product
  *  levels](https://cloud.google.com/retail/recommendations-ai/docs/catalog#product-levels)
  *  for more details.
  */
@@ -2733,8 +2766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  ID of the promotion. For example, "free gift". The value value must be a
  *  UTF-8 encoded string with a length limit of 128 characters, and match the
- *  pattern: a-zA-Z*. For example, id0LikeThis or ID_1_LIKE_THIS. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  pattern: `a-zA-Z*`. For example, id0LikeThis or ID_1_LIKE_THIS. Otherwise,
+ *  an INVALID_ARGUMENT error is returned. Google Merchant Center property
  *  [promotion](https://support.google.com/merchants/answer/7050148).
  */
 @property(nonatomic, copy, nullable) NSString *promotionId;
@@ -2957,7 +2990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  or the region IDs for "same-day-delivery", to be removed for this type. At
  *  least 1 value is required, and a maximum of 2000 values are allowed. Each
  *  value must be a string with a length limit of 10 characters, matching the
- *  pattern [a-zA-Z0-9_-]+, such as "store1" or "REGION-2". Otherwise, an
+ *  pattern `[a-zA-Z0-9_-]+`, such as "store1" or "REGION-2". Otherwise, an
  *  INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *placeIds;
@@ -3146,10 +3179,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "fulfillmentType.fulfillmentId". E.g., in "pickupInStore.store123",
  *  "pickupInStore" is fulfillment type and "store123" is the store ID.
  *  Supported keys are: * colorFamilies * price * originalPrice * discount *
- *  inventory(place_id,price) * attributes.key, where key is any key in the
- *  Product.attributes map. * pickupInStore.id, where id is any
- *  FulfillmentInfo.place_ids for FulfillmentInfo.type "pickup-in-store". *
- *  shipToStore.id, where id is any FulfillmentInfo.place_ids for
+ *  inventory(place_id,price) * inventory(place_id,attributes.key), where key is
+ *  any key in the Product.inventories.attributes map. * attributes.key, where
+ *  key is any key in the Product.attributes map. * pickupInStore.id, where id
+ *  is any FulfillmentInfo.place_ids for FulfillmentInfo.type "pickup-in-store".
+ *  * shipToStore.id, where id is any FulfillmentInfo.place_ids for
  *  FulfillmentInfo.type "ship-to-store". * sameDayDelivery.id, where id is any
  *  FulfillmentInfo.place_ids for FulfillmentInfo.type "same-day-delivery". *
  *  nextDayDelivery.id, where id is any FulfillmentInfo.place_ids for
@@ -3338,8 +3372,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "conditions" * "attributes.key" * "pickupInStore" * "shipToStore" *
  *  "sameDayDelivery" * "nextDayDelivery" * "customFulfillment1" *
  *  "customFulfillment2" * "customFulfillment3" * "customFulfillment4" *
- *  "customFulfillment5" * numerical_field = * "price" * "discount" * "rating" *
- *  "ratingCount" * "attributes.key" * "inventory(place_id,price)"
+ *  "customFulfillment5" * "inventory(place_id,attributes.key)" *
+ *  numerical_field = * "price" * "discount" * "rating" * "ratingCount" *
+ *  "attributes.key" * "inventory(place_id,price)" *
+ *  "inventory(place_id,attributes.key)"
  */
 @property(nonatomic, copy, nullable) NSString *key;
 

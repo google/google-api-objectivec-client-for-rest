@@ -22,6 +22,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Assessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -366,6 +367,142 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Search group memberships related to a given account.
+ *
+ *  Method: recaptchaenterprise.projects.relatedaccountgroupmemberships.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Required. The name of the project to search related account group
+ *  memberships from, in the format "projects/{project}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse.
+ *
+ *  Search group memberships related to a given account.
+ *
+ *  @param object The @c
+ *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
+ *    to include in the query.
+ *  @param parent Required. The name of the project to search related account
+ *    group memberships from, in the format "projects/{project}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
+ */
++ (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  List groups of related accounts.
+ *
+ *  Method: recaptchaenterprise.projects.relatedaccountgroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Optional. The maximum number of groups to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 groups will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListRelatedAccountGroups`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListRelatedAccountGroups` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project to list related account groups from, in
+ *  the format "projects/{project}".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupsResponse.
+ *
+ *  List groups of related accounts.
+ *
+ *  @param parent Required. The name of the project to list related account
+ *    groups from, in the format "projects/{project}".
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get the memberships in a group of related accounts.
+ *
+ *  Method: recaptchaenterprise.projects.relatedaccountgroups.memberships.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecaptchaEnterpriseCloudPlatform
+ */
+@interface GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsMembershipsList : GTLRRecaptchaEnterpriseQuery
+
+/**
+ *  Optional. The maximum number of accounts to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 accounts will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  `ListRelatedAccountGroupMemberships` call. When paginating, all other
+ *  parameters provided to `ListRelatedAccountGroupMemberships` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name for the related account group in the format
+ *  `projects/{project}/relatedaccountgroups/{relatedaccountgroup}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ListRelatedAccountGroupMembershipsResponse.
+ *
+ *  Get the memberships in a group of related accounts.
+ *
+ *  @param parent Required. The resource name for the related account group in
+ *    the format
+ *    `projects/{project}/relatedaccountgroups/{relatedaccountgroup}`.
+ *
+ *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupsMembershipsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

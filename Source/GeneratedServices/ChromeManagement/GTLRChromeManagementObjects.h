@@ -24,15 +24,35 @@
 
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission;
+@class GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppRequest;
 @class GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess;
+@class GTLRChromeManagement_GoogleChromeManagementV1CpuInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo;
 @class GTLRChromeManagement_GoogleChromeManagementV1Device;
+@class GTLRChromeManagement_GoogleChromeManagementV1DiskInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1InstalledApp;
+@class GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus;
+@class GTLRChromeManagement_GoogleChromeManagementV1StorageInfo;
+@class GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume;
+@class GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport;
+@class GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice;
 @class GTLRChromeManagement_GoogleRpcStatus;
 @class GTLRChromeManagement_GoogleRpcStatus_Details_Item;
+@class GTLRChromeManagement_GoogleTypeDate;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -71,6 +91,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Web;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport.batteryHealth
+
+/**
+ *  Battery is healthy.
+ *
+ *  Value: "BATTERY_HEALTH_NORMAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthNormal;
+/**
+ *  Health unknown.
+ *
+ *  Value: "BATTERY_HEALTH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified;
+/**
+ *  Battery is unhealthy and should be replaced.
+ *
+ *  Value: "BATTERY_REPLACE_NOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow;
+/**
+ *  Battery is moderately unhealthy and should be replaced soon.
+ *
+ *  Value: "BATTERY_REPLACE_SOON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion.channel
@@ -157,6 +205,22 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "SYSTEM_WINDOWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_System_SystemWindows;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1CpuInfo.architecture
+
+/**
+ *  Architecture unknown.
+ *
+ *  Value: "ARCHITECTURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified;
+/**
+ *  x64 architecture
+ *
+ *  Value: "X64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementV1InstalledApp.appInstallType
@@ -265,6 +329,34 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "THEME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppType_Theme;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus.updateState
+
+/**
+ *  OS has started download on device.
+ *
+ *  Value: "OS_IMAGE_DOWNLOAD_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadInProgress;
+/**
+ *  OS has not started downloading.
+ *
+ *  Value: "OS_IMAGE_DOWNLOAD_NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadNotStarted;
+/**
+ *  Device needs reboot to finish upload.
+ *
+ *  Value: "OS_UPDATE_NEED_REBOOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsUpdateNeedReboot;
+/**
+ *  State unspecified.
+ *
+ *  Value: "UPDATE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified;
 
 /**
  *  Android app information.
@@ -395,6 +487,145 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        Web app. (Value: "WEB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Battery info
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo : GTLRObject
+
+/**
+ *  Output only. Design capacity (mAmpere-hours).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *designCapacity;
+
+/**
+ *  Output only. Designed minimum output voltage (mV)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *designMinVoltage;
+
+/** Output only. The date the battery was manufactured. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleTypeDate *manufactureDate;
+
+/** Output only. Battery manufacturer. */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** Output only. Battery serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** Output only. Technology of the battery. Example: Li-ion */
+@property(nonatomic, copy, nullable) NSString *technology;
+
+@end
+
+
+/**
+ *  Sampling data for battery.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport : GTLRObject
+
+/**
+ *  Output only. Battery charge percentage.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chargeRate;
+
+/**
+ *  Output only. Battery current (mA).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *current;
+
+/**
+ *  Output only. The battery discharge rate measured in mW. Positive if the
+ *  battery is being discharged, negative if it's being charged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dischargeRate;
+
+/**
+ *  Output only. Battery remaining capacity (mAmpere-hours).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *remainingCapacity;
+
+/** Output only. Timestamp of when the sample was collected on device */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Output only. Battery status read from sysfs. Example: Discharging */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Output only. Temperature in Celsius degrees.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperature;
+
+/**
+ *  Output only. Battery voltage (millivolt).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *voltage;
+
+@end
+
+
+/**
+ *  Status data for battery.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport : GTLRObject
+
+/**
+ *  Output only. Battery health.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthNormal
+ *        Battery is healthy. (Value: "BATTERY_HEALTH_NORMAL")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryHealthUnspecified
+ *        Health unknown. (Value: "BATTERY_HEALTH_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceNow
+ *        Battery is unhealthy and should be replaced. (Value:
+ *        "BATTERY_REPLACE_NOW")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport_BatteryHealth_BatteryReplaceSoon
+ *        Battery is moderately unhealthy and should be replaced soon. (Value:
+ *        "BATTERY_REPLACE_SOON")
+ */
+@property(nonatomic, copy, nullable) NSString *batteryHealth;
+
+/**
+ *  Output only. Cycle count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cycleCount;
+
+/**
+ *  Output only. Full charge capacity (mAmpere-hours).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fullChargeCapacity;
+
+/** Output only. Timestamp of when the sample was collected on device */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Output only. Sampling data for the battery. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatterySampleReport *> *sample;
+
+/** Output only. Battery serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
 
 @end
 
@@ -700,6 +931,83 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  CPU specs for a CPU.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CpuInfo : GTLRObject
+
+/**
+ *  Output only. The CPU architecture.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_ArchitectureUnspecified
+ *        Architecture unknown. (Value: "ARCHITECTURE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1CpuInfo_Architecture_X64
+ *        x64 architecture (Value: "X64")
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/**
+ *  Output only. The max CPU clock speed in kHz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxClockSpeed;
+
+/**
+ *  Output only. The CPU model name. Example: Intel(R) Core(TM) i5-8250U CPU \@
+ *  1.60GHz
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Contains samples of the cpu status reports.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport : GTLRObject
+
+/** Output only. CPU temperature sample info per CPU core in Celsius */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo *> *cpuTemperatureInfo;
+
+/**
+ *  Output only. Sample of CPU utilization (0-100 percent).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuUtilizationPct;
+
+/**
+ *  Output only. The timestamp in milliseconds representing time at which this
+ *  report was sampled.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Output only. Frequency the report is sampled. */
+@property(nonatomic, strong, nullable) GTLRDuration *sampleFrequency;
+
+@end
+
+
+/**
+ *  CPU temperature of a device. Sampled per CPU core in Celsius
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CpuTemperatureInfo : GTLRObject
+
+/** Output only. CPU label. Example: Core 0 */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  Output only. CPU temperature in Celsius.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *temperatureCelsius;
+
+@end
+
+
+/**
  *  Describes a device reporting Chrome browser information.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1Device : GTLRObject
@@ -712,6 +1020,114 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. The name of the machine within its local network. */
 @property(nonatomic, copy, nullable) NSString *machine;
+
+@end
+
+
+/**
+ *  Status of the single storage device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DiskInfo : GTLRObject
+
+/**
+ *  Output only. Number of bytes read since last boot.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesReadThisSession;
+
+/**
+ *  Output only. Number of bytes written since last boot.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bytesWrittenThisSession;
+
+/**
+ *  Output only. Time spent discarding since last boot. Discarding is writing to
+ *  clear blocks which are no longer in use. Supported on kernels 4.18+.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *discardTimeThisSession;
+
+/** Output only. Disk health. */
+@property(nonatomic, copy, nullable) NSString *health;
+
+/**
+ *  Output only. Counts the time the disk and queue were busy, so unlike the
+ *  fields above, parallel requests are not counted multiple times.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ioTimeThisSession;
+
+/** Output only. Disk manufacturer. */
+@property(nonatomic, copy, nullable) NSString *manufacturer;
+
+/** Output only. Disk model. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/** Output only. Time spent reading from disk since last boot. */
+@property(nonatomic, strong, nullable) GTLRDuration *readTimeThisSession;
+
+/** Output only. Disk serial number. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/**
+ *  Output only. Disk size.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/** Output only. Disk type: eMMC / NVMe / ATA / SCSI. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Disk volumes. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *volumeIds;
+
+/** Output only. Time spent writing to disk since last boot. */
+@property(nonatomic, strong, nullable) GTLRDuration *writeTimeThisSession;
+
+@end
+
+
+/**
+ *  Information for a display.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo : GTLRObject
+
+/**
+ *  Output only. Represents the graphics card device id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceId;
+
+/**
+ *  Output only. Indicates if display is internal or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInternal;
+
+/**
+ *  Output only. Refresh rate in Hz.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *refreshRate;
+
+/**
+ *  Output only. Resolution height in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resolutionHeight;
+
+/**
+ *  Output only. Resolution width in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resolutionWidth;
 
 @end
 
@@ -744,6 +1160,55 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Information of a graphics adapter (GPU).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo : GTLRObject
+
+/**
+ *  Output only. Adapter name. Example: Mesa DRI Intel(R) UHD Graphics 620
+ *  (Kabylake GT2).
+ */
+@property(nonatomic, copy, nullable) NSString *adapter;
+
+/**
+ *  Output only. Represents the graphics card device id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceId;
+
+/** Output only. Version of the GPU driver. */
+@property(nonatomic, copy, nullable) NSString *driverVersion;
+
+@end
+
+
+/**
+ *  Information of the graphics subsystem.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo : GTLRObject
+
+/** Output only. Information about the graphics adapter (GPU). */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo *adapterInfo;
+
+@end
+
+
+/**
+ *  Information of the graphics subsystem.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport : GTLRObject
+
+/** Output only. Information about the displays for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DisplayInfo *> *displays;
+
+/** Output only. Time at which the graphics data was reported. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
 
 @end
 
@@ -855,6 +1320,296 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryDevicesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "devices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryDevicesResponse : GTLRCollectionObject
+
+/**
+ *  Telemetry devices returned in the response.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice *> *devices;
+
+/** Token to specify next page in the list. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Memory information of a device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo : GTLRObject
+
+/**
+ *  Output only. Amount of available RAM in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableRamBytes;
+
+/**
+ *  Output only. Total RAM in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalRamBytes;
+
+@end
+
+
+/**
+ *  Contains samples of memory status reports.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport : GTLRObject
+
+/**
+ *  Output only. Number of page faults during this collection
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageFaults;
+
+/**
+ *  Output only. The timestamp in milliseconds representing time at which this
+ *  report was sampled.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Output only. Frequency the report is sampled. */
+@property(nonatomic, strong, nullable) GTLRDuration *sampleFrequency;
+
+/**
+ *  Output only. Amount of free RAM in bytes (unreliable due to Garbage
+ *  Collection).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *systemRamFreeBytes;
+
+@end
+
+
+/**
+ *  State of visible/configured networks.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport : GTLRObject
+
+/** Output only. Gateway IP address. */
+@property(nonatomic, copy, nullable) NSString *gatewayIpAddress;
+
+/** Output only. LAN IP address. */
+@property(nonatomic, copy, nullable) NSString *lanIpAddress;
+
+/** Output only. Time at which the network state was reported. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/** Output only. Frequency the report is sampled. */
+@property(nonatomic, strong, nullable) GTLRDuration *sampleFrequency;
+
+/**
+ *  Output only. Signal strength for wireless networks measured in decibels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalStrengthDbm;
+
+@end
+
+
+/**
+ *  Contains information regarding the current OS update status.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus : GTLRObject
+
+/** Output only. Timestamp of the last reboot. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRebootTime;
+
+/** Output only. Timestamp of the last update check. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateCheckTime;
+
+/** Output only. Timestamp of the last successful update. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  Output only. New platform version of the os image being downloaded and
+ *  applied. It is only set when update status is OS_IMAGE_DOWNLOAD_IN_PROGRESS
+ *  or OS_UPDATE_NEED_REBOOT. Note this could be a dummy "0.0.0.0" for
+ *  OS_UPDATE_NEED_REBOOT status for some edge cases, e.g. update engine is
+ *  restarted without a reboot.
+ */
+@property(nonatomic, copy, nullable) NSString *newPlatformVersion NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Output only. New requested platform version from the pending updated kiosk
+ *  app.
+ */
+@property(nonatomic, copy, nullable) NSString *newRequestedPlatformVersion NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Output only. Current state of the os update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadInProgress
+ *        OS has started download on device. (Value:
+ *        "OS_IMAGE_DOWNLOAD_IN_PROGRESS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsImageDownloadNotStarted
+ *        OS has not started downloading. (Value:
+ *        "OS_IMAGE_DOWNLOAD_NOT_STARTED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_OsUpdateNeedReboot
+ *        Device needs reboot to finish upload. (Value: "OS_UPDATE_NEED_REBOOT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus_UpdateState_UpdateStateUnspecified
+ *        State unspecified. (Value: "UPDATE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *updateState;
+
+@end
+
+
+/**
+ *  Status data for storage.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1StorageInfo : GTLRObject
+
+/**
+ *  The available space for user data storage in the device in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableDiskBytes;
+
+/**
+ *  The total space for user data storage in the device in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalDiskBytes;
+
+/** Information for disk volumes */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume *> *volume;
+
+@end
+
+
+/**
+ *  Information for disk volumes
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1StorageInfoDiskVolume : GTLRObject
+
+/**
+ *  Free storage space in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageFreeBytes;
+
+/**
+ *  Total storage space in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageTotalBytes;
+
+/** Disk volume id. */
+@property(nonatomic, copy, nullable) NSString *volumeId;
+
+@end
+
+
+/**
+ *  Status data for storage.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport : GTLRObject
+
+/** Output only. Reports on disk */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1DiskInfo *> *disk;
+
+/** Output only. Timestamp of when the sample was collected on device */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+@end
+
+
+/**
+ *  Telemetry data collected from a managed device.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1TelemetryDevice : GTLRObject
+
+/** Output only. Information on battery specs for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatteryInfo *> *batteryInfo;
+
+/** Output only. Battery reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BatteryStatusReport *> *batteryStatusReport;
+
+/** Output only. Information regarding CPU specs for the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuInfo *> *cpuInfo;
+
+/** Output only. CPU status reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1CpuStatusReport *> *cpuStatusReport;
+
+/**
+ *  Output only. Google Workspace Customer whose enterprise enrolled the device.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Output only. The unique Directory API ID of the device. This value is the
+ *  same as the Admin Console's Directory API ID in the Chrome OS Devices tab
+ */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Output only. Contains information regarding Graphic peripherals for the
+ *  device.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1GraphicsInfo *graphicsInfo;
+
+/** Output only. Graphics reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1GraphicsStatusReport *> *graphicsStatusReport;
+
+/** Output only. Information regarding memory specs for the device. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1MemoryInfo *memoryInfo;
+
+/** Output only. Memory status reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1MemoryStatusReport *> *memoryStatusReport;
+
+/** Output only. Resource name of the device. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Network specs collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport *> *networkStatusReport;
+
+/** Output only. Organization unit ID of the device. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Output only. Contains relevant information regarding ChromeOS update status.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1OsUpdateStatus *> *osUpdateStatus;
+
+/**
+ *  Output only. Device serial number. This value is the same as the Admin
+ *  Console's Serial Number in the Chrome OS Devices tab.
+ */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** Output only. Information of storage specs for the device. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1StorageInfo *storageInfo;
+
+/** Output only. Storage reports collected periodically. */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1StorageStatusReport *> *storageStatusReport;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -896,6 +1651,46 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRChromeManagement_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLRChromeManagement_GoogleTypeDate : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
 @end
 
 NS_ASSUME_NONNULL_END

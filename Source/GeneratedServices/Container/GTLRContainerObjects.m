@@ -233,6 +233,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_AdvancedMachineFeatures
+//
+
+@implementation GTLRContainer_AdvancedMachineFeatures
+@dynamic threadsPerCore;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AuthenticatorGroupsConfig
 //
 
@@ -980,6 +990,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_MeshCertificates
+@dynamic enableCertificates;
 @end
 
 
@@ -1059,11 +1070,12 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, gcfsConfig, gvnic,
-         imageType, kubeletConfig, labels, linuxNodeConfig, localSsdCount,
-         machineType, metadata, minCpuPlatform, nodeGroup, oauthScopes,
-         preemptible, reservationAffinity, sandboxConfig, serviceAccount,
-         shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
+@dynamic accelerators, advancedMachineFeatures, bootDiskKmsKey, diskSizeGb,
+         diskType, gcfsConfig, gvnic, imageType, kubeletConfig, labels,
+         linuxNodeConfig, localSsdCount, machineType, metadata, minCpuPlatform,
+         nodeGroup, oauthScopes, preemptible, reservationAffinity,
+         sandboxConfig, serviceAccount, shieldedInstanceConfig, tags, taints,
+         workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

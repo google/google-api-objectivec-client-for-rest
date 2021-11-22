@@ -55,6 +55,22 @@ NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Proce
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_State_Successful = @"SUCCESSFUL";
 
+// GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata.migrationState
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Complete = @"COMPLETE";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_MigrationStateUnspecified = @"MIGRATION_STATE_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Paused = @"PAUSED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationState_Running = @"RUNNING";
+
+// GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata.migrationStep
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_ApplyWritesSynchronously = @"APPLY_WRITES_SYNCHRONOUSLY";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_CopyAndVerify = @"COPY_AND_VERIFY";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_MigrationStepUnspecified = @"MIGRATION_STEP_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Prepare = @"PREPARE";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectEventuallyConsistentReads = @"REDIRECT_EVENTUALLY_CONSISTENT_READS";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectStronglyConsistentReads = @"REDIRECT_STRONGLY_CONSISTENT_READS";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_RedirectWrites = @"REDIRECT_WRITES";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata_MigrationStep_Start = @"START";
+
 // GTLRDatastore_GoogleDatastoreAdminV1Index.ancestor
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AllAncestors = @"ALL_ANCESTORS";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_Ancestor_AncestorModeUnspecified = @"ANCESTOR_MODE_UNSPECIFIED";
@@ -392,6 +408,16 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata
+//
+
+@implementation GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata
+@dynamic migrationState, migrationStep;
 @end
 
 

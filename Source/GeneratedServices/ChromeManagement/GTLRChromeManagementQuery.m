@@ -168,3 +168,22 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 }
 
 @end
+
+@implementation GTLRChromeManagementQuery_CustomersTelemetryDevicesList
+
+@dynamic filter, pageSize, pageToken, parent, readMask;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/telemetry/devices";
+  GTLRChromeManagementQuery_CustomersTelemetryDevicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1ListTelemetryDevicesResponse class];
+  query.loggingName = @"chromemanagement.customers.telemetry.devices.list";
+  return query;
+}
+
+@end

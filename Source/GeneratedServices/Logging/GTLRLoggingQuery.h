@@ -4,10 +4,7 @@
 // API:
 //   Cloud Logging API (logging/v2)
 // Description:
-//   Writes log entries and manages your Cloud Logging configuration. The table
-//   entries below are presented in alphabetical order, not in order of common
-//   use. For explanations of the concepts found in the table entries, read the
-//   documentation at https://cloud.google.com/logging/docs.
+//   Writes log entries and manages your Cloud Logging configuration.
 // Documentation:
 //   https://cloud.google.com/logging/docs/
 
@@ -358,6 +355,65 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.billingAccounts.getCmekSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsGetCmekSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve CMEK settings.
+ *  "projects/[PROJECT_ID]/cmekSettings"
+ *  "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *  "folders/[FOLDER_ID]/cmekSettings" For
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
+ *  be configured for Google Cloud projects, folders, organizations and billing
+ *  accounts. Once configured for an organization, it applies to all projects
+ *  and folders in the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_CmekSettings.
+ *
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve CMEK settings.
+ *    "projects/[PROJECT_ID]/cmekSettings"
+ *    "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *    "folders/[FOLDER_ID]/cmekSettings" For
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
+ *    can be configured for Google Cloud projects, folders, organizations and
+ *    billing accounts. Once configured for an organization, it applies to all
+ *    projects and folders in the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2049,6 +2105,65 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.folders.getCmekSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersGetCmekSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve CMEK settings.
+ *  "projects/[PROJECT_ID]/cmekSettings"
+ *  "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *  "folders/[FOLDER_ID]/cmekSettings" For
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
+ *  be configured for Google Cloud projects, folders, organizations and billing
+ *  accounts. Once configured for an organization, it applies to all projects
+ *  and folders in the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_CmekSettings.
+ *
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve CMEK settings.
+ *    "projects/[PROJECT_ID]/cmekSettings"
+ *    "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *    "folders/[FOLDER_ID]/cmekSettings" For
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
+ *    can be configured for Google Cloud projects, folders, organizations and
+ *    billing accounts. Once configured for an organization, it applies to all
+ *    projects and folders in the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_FoldersGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -4367,10 +4482,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for Google Cloud organizations.
- *  Once configured, it applies to all projects and folders in the Google Cloud
- *  organization.See Enabling CMEK for Logs Router
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -4390,20 +4506,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
- *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for Google Cloud organizations. Once
- *  configured, it applies to all projects and folders in the Google Cloud
- *  organization.
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
+ *  be configured for Google Cloud projects, folders, organizations and billing
+ *  accounts. Once configured for an organization, it applies to all projects
+ *  and folders in the Google Cloud organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
- *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for Google Cloud organizations.
- *  Once configured, it applies to all projects and folders in the Google Cloud
- *  organization.See Enabling CMEK for Logs Router
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -4412,10 +4529,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
- *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for Google Cloud organizations. Once
- *    configured, it applies to all projects and folders in the Google Cloud
- *    organization.
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
+ *    can be configured for Google Cloud projects, folders, organizations and
+ *    billing accounts. Once configured for an organization, it applies to all
+ *    projects and folders in the Google Cloud organization.
  *
  *  @return GTLRLoggingQuery_OrganizationsGetCmekSettings
  */
@@ -5614,13 +5731,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for Google Cloud
+ *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
+ *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
  *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
  *  kms_key_name is invalid, or 2) the associated service account does not have
  *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
  *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
  *  for more information.
  *
@@ -5638,7 +5755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
- *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
  *  currently only be configured for Google Cloud organizations. Once
  *  configured, it applies to all projects and folders in the Google Cloud
  *  organization.
@@ -5658,13 +5775,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
- *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for Google Cloud
+ *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
+ *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
  *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
  *  kms_key_name is invalid, or 2) the associated service account does not have
  *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
  *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
  *  for more information.
  *
@@ -5674,7 +5791,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
- *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
  *    can currently only be configured for Google Cloud organizations. Once
  *    configured, it applies to all projects and folders in the Google Cloud
  *    organization.
@@ -5913,6 +6030,65 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.projects.getCmekSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsGetCmekSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve CMEK settings.
+ *  "projects/[PROJECT_ID]/cmekSettings"
+ *  "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *  "folders/[FOLDER_ID]/cmekSettings" For
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
+ *  be configured for Google Cloud projects, folders, organizations and billing
+ *  accounts. Once configured for an organization, it applies to all projects
+ *  and folders in the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_CmekSettings.
+ *
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve CMEK settings.
+ *    "projects/[PROJECT_ID]/cmekSettings"
+ *    "organizations/[ORGANIZATION_ID]/cmekSettings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
+ *    "folders/[FOLDER_ID]/cmekSettings" For
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
+ *    can be configured for Google Cloud projects, folders, organizations and
+ *    billing accounts. Once configured for an organization, it applies to all
+ *    projects and folders in the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_ProjectsGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -7564,10 +7740,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for Google Cloud organizations.
- *  Once configured, it applies to all projects and folders in the Google Cloud
- *  organization.See Enabling CMEK for Logs Router
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -7587,20 +7764,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
- *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
- *  currently only be configured for Google Cloud organizations. Once
- *  configured, it applies to all projects and folders in the Google Cloud
- *  organization.
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
+ *  be configured for Google Cloud projects, folders, organizations and billing
+ *  accounts. Once configured for an organization, it applies to all projects
+ *  and folders in the Google Cloud organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
- *  Gets the Logs Router CMEK settings for the given resource.Note: CMEK for the
- *  Logs Router can currently only be configured for Google Cloud organizations.
- *  Once configured, it applies to all projects and folders in the Google Cloud
- *  organization.See Enabling CMEK for Logs Router
+ *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
+ *  Router can be configured for Google Cloud projects, folders, organizations
+ *  and billing accounts. Once configured for an organization, it applies to all
+ *  projects and folders in the Google Cloud organization.See Enabling CMEK for
+ *  Logs Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -7609,10 +7787,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
- *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
- *    can currently only be configured for Google Cloud organizations. Once
- *    configured, it applies to all projects and folders in the Google Cloud
- *    organization.
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
+ *    can be configured for Google Cloud projects, folders, organizations and
+ *    billing accounts. Once configured for an organization, it applies to all
+ *    projects and folders in the Google Cloud organization.
  *
  *  @return GTLRLoggingQuery_V2GetCmekSettings
  */
@@ -7621,13 +7799,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for Google Cloud
+ *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
+ *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
  *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
  *  kms_key_name is invalid, or 2) the associated service account does not have
  *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
  *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
  *  for more information.
  *
@@ -7645,7 +7823,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *  "folders/[FOLDER_ID]/cmekSettings" For
- *  example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router can
+ *  example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router can
  *  currently only be configured for Google Cloud organizations. Once
  *  configured, it applies to all projects and folders in the Google Cloud
  *  organization.
@@ -7665,13 +7843,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_CmekSettings.
  *
- *  Updates the Logs Router CMEK settings for the given resource.Note: CMEK for
- *  the Logs Router can currently only be configured for Google Cloud
+ *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
+ *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
  *  the Google Cloud organization.UpdateCmekSettings will fail if 1)
  *  kms_key_name is invalid, or 2) the associated service account does not have
  *  the required roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for
- *  the key, or 3) access to the key is disabled.See Enabling CMEK for Logs
+ *  the key, or 3) access to the key is disabled.See Enabling CMEK for Log
  *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
  *  for more information.
  *
@@ -7681,7 +7859,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
  *    "folders/[FOLDER_ID]/cmekSettings" For
- *    example:"organizations/12345/cmekSettings"Note: CMEK for the Logs Router
+ *    example:"organizations/12345/cmekSettings"Note: CMEK for the Log Router
  *    can currently only be configured for Google Cloud organizations. Once
  *    configured, it applies to all projects and folders in the Google Cloud
  *    organization.

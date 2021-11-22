@@ -385,19 +385,19 @@
 //
 
 @implementation GTLRDrive_File_Capabilities
-@dynamic canAddChildren, canAddFolderFromAnotherDrive, canAddMyDriveParent,
-         canChangeCopyRequiresWriterPermission, canChangeSecurityUpdateEnabled,
-         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
-         canDeleteChildren, canDownload, canEdit, canListChildren,
-         canModifyContent, canModifyContentRestriction,
-         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
-         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
-         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
-         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
-         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
-         canReadRevisions, canReadTeamDrive, canRemoveChildren,
-         canRemoveMyDriveParent, canRename, canShare, canTrash,
-         canTrashChildren, canUntrash;
+@dynamic canAcceptOwnership, canAddChildren, canAddFolderFromAnotherDrive,
+         canAddMyDriveParent, canChangeCopyRequiresWriterPermission,
+         canChangeSecurityUpdateEnabled, canChangeViewersCanCopyContent,
+         canComment, canCopy, canDelete, canDeleteChildren, canDownload,
+         canEdit, canListChildren, canModifyContent,
+         canModifyContentRestriction, canMoveChildrenOutOfDrive,
+         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
+         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
+         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
+         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
+         canMoveTeamDriveItem, canReadDrive, canReadRevisions, canReadTeamDrive,
+         canRemoveChildren, canRemoveMyDriveParent, canRename, canShare,
+         canTrash, canTrashChildren, canUntrash;
 @end
 
 
@@ -549,8 +549,8 @@
 
 @implementation GTLRDrive_Permission
 @dynamic allowFileDiscovery, deleted, displayName, domain, emailAddress,
-         expirationTime, identifier, kind, permissionDetails, photoLink, role,
-         teamDrivePermissionDetails, type, view;
+         expirationTime, identifier, kind, pendingOwner, permissionDetails,
+         photoLink, role, teamDrivePermissionDetails, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

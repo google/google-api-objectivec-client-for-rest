@@ -4226,7 +4226,15 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService
-@dynamic password, requestHeaders, uri, username;
+@dynamic allowedCaCerts, password, requestHeaders, uri, username;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedCaCerts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

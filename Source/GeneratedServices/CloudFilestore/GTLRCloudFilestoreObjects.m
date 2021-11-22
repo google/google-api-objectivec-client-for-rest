@@ -17,6 +17,7 @@
 // GTLRCloudFilestore_Backup.sourceInstanceTier
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicHdd = @"BASIC_HDD";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicSsd = @"BASIC_SSD";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Enterprise = @"ENTERPRISE";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_HighScaleSsd = @"HIGH_SCALE_SSD";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Standard = @"STANDARD";
@@ -46,10 +47,16 @@ NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
 NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
 NSString * const kGTLRCloudFilestore_Instance_State_Restoring  = @"RESTORING";
 NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Instance_State_Suspended  = @"SUSPENDED";
+
+// GTLRCloudFilestore_Instance.suspensionReasons
+NSString * const kGTLRCloudFilestore_Instance_SuspensionReasons_KmsKeyIssue = @"KMS_KEY_ISSUE";
+NSString * const kGTLRCloudFilestore_Instance_SuspensionReasons_SuspensionReasonUnspecified = @"SUSPENSION_REASON_UNSPECIFIED";
 
 // GTLRCloudFilestore_Instance.tier
 NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd    = @"BASIC_HDD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_BasicSsd    = @"BASIC_SSD";
+NSString * const kGTLRCloudFilestore_Instance_Tier_Enterprise  = @"ENTERPRISE";
 NSString * const kGTLRCloudFilestore_Instance_Tier_HighScaleSsd = @"HIGH_SCALE_SSD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
@@ -59,6 +66,11 @@ NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSP
 NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_Ready = @"READY";
 NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudFilestore_NetworkConfig.connectMode
+NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_ConnectModeUnspecified = @"CONNECT_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_DirectPeering = @"DIRECT_PEERING";
+NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceAccess = @"PRIVATE_SERVICE_ACCESS";
 
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
@@ -83,6 +95,12 @@ NSString * const kGTLRCloudFilestore_Schedule_Day_Sunday       = @"SUNDAY";
 NSString * const kGTLRCloudFilestore_Schedule_Day_Thursday     = @"THURSDAY";
 NSString * const kGTLRCloudFilestore_Schedule_Day_Tuesday      = @"TUESDAY";
 NSString * const kGTLRCloudFilestore_Schedule_Day_Wednesday    = @"WEDNESDAY";
+
+// GTLRCloudFilestore_Snapshot.state
+NSString * const kGTLRCloudFilestore_Snapshot_State_Creating   = @"CREATING";
+NSString * const kGTLRCloudFilestore_Snapshot_State_Deleting   = @"DELETING";
+NSString * const kGTLRCloudFilestore_Snapshot_State_Ready      = @"READY";
+NSString * const kGTLRCloudFilestore_Snapshot_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudFilestore_UpdatePolicy.channel
 NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Earlier = @"EARLIER";
@@ -390,8 +408,9 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_Instance
-@dynamic createTime, descriptionProperty, ETag, fileShares, labels, name,
-         networks, satisfiesPzs, state, statusMessage, tier;
+@dynamic createTime, descriptionProperty, ETag, fileShares, kmsKeyName, labels,
+         name, networks, satisfiesPzs, state, statusMessage, suspensionReasons,
+         tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -404,7 +423,8 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fileShares" : [GTLRCloudFilestore_FileShareConfig class],
-    @"networks" : [GTLRCloudFilestore_NetworkConfig class]
+    @"networks" : [GTLRCloudFilestore_NetworkConfig class],
+    @"suspensionReasons" : [NSString class]
   };
   return map;
 }
@@ -518,6 +538,28 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_ListSnapshotsResponse
+//
+
+@implementation GTLRCloudFilestore_ListSnapshotsResponse
+@dynamic nextPageToken, snapshots;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snapshots" : [GTLRCloudFilestore_Snapshot class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"snapshots";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_Location
 //
 
@@ -600,7 +642,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_NetworkConfig
-@dynamic ipAddresses, modes, network, reservedIpRange;
+@dynamic connectMode, ipAddresses, modes, network, reservedIpRange;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -697,6 +739,36 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 @implementation GTLRCloudFilestore_Schedule
 @dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Snapshot
+//
+
+@implementation GTLRCloudFilestore_Snapshot
+@dynamic createTime, descriptionProperty, filesystemUsedBytes, labels, name,
+         state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Snapshot_Labels
+//
+
+@implementation GTLRCloudFilestore_Snapshot_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

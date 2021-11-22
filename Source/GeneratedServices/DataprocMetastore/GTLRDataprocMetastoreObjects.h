@@ -25,6 +25,7 @@
 @class GTLRDataprocMetastore_AuditLogConfig;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
+@class GTLRDataprocMetastore_Consumer;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_DataplexConfig;
@@ -44,6 +45,7 @@
 @class GTLRDataprocMetastore_MetadataImport;
 @class GTLRDataprocMetastore_MetadataIntegration;
 @class GTLRDataprocMetastore_MetadataManagementActivity;
+@class GTLRDataprocMetastore_NetworkConfig;
 @class GTLRDataprocMetastore_Operation;
 @class GTLRDataprocMetastore_Operation_Metadata;
 @class GTLRDataprocMetastore_Operation_Response;
@@ -709,6 +711,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  roles/viewer, roles/editor, or roles/owner.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Contains information of the customer's network configurations.
+ */
+@interface GTLRDataprocMetastore_Consumer : GTLRObject
+
+/**
+ *  Output only. The URI of the endpoint used to access the metastore service.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointUri;
+
+/**
+ *  The subnetwork of the customer project from which an IP address is reserved
+ *  and used as the Dataproc Metastore service's endpoint. It is accessible to
+ *  hosts in the subnet and to all hosts in a subnet in the same region and same
+ *  network. There must be at least one IP address available in the subnet's
+ *  primary range. The subnet is specified in the following
+ *  form:`projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
 
 @end
 
@@ -1421,6 +1446,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Network configuration for the Dataproc Metastore service.
+ */
+@interface GTLRDataprocMetastore_NetworkConfig : GTLRObject
+
+/**
+ *  Immutable. The consumer-side network configuration for the Dataproc
+ *  Metastore instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Consumer *> *consumers;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1805,6 +1844,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  form:projects/{project_number}/global/networks/{network_id}.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Immutable. The configuration specifying the network settings for the
+ *  Dataproc Metastore service.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_NetworkConfig *networkConfig;
 
 /**
  *  The TCP port at which the metastore service is reached. Default: 9083.
