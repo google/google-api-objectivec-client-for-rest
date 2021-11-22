@@ -28,10 +28,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AccessContextManager"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_AdExchangeBuyer",
-            targets: ["GoogleAPIClientForREST_AdExchangeBuyer"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_AdExchangeBuyerII",
             targets: ["GoogleAPIClientForREST_AdExchangeBuyerII"]
         ),
@@ -700,10 +696,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_PeopleService"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_PlayableLocations",
-            targets: ["GoogleAPIClientForREST_PlayableLocations"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
         ),
@@ -786,10 +778,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             targets: ["GoogleAPIClientForREST_SecurityCommandCenter"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_SemanticTile",
-            targets: ["GoogleAPIClientForREST_SemanticTile"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ServiceConsumerManagement",
@@ -1019,12 +1007,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_AccessContextManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/AccessContextManager",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_AdExchangeBuyer",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/AdExchangeBuyer",
             publicHeadersPath: "."
         ),
         .target(
@@ -2030,12 +2012,6 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_PlayableLocations",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/PlayableLocations",
-            publicHeadersPath: "."
-        ),
-        .target(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
@@ -2159,12 +2135,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_SecurityCommandCenter",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/SecurityCommandCenter",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_SemanticTile",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/SemanticTile",
             publicHeadersPath: "."
         ),
         .target(
