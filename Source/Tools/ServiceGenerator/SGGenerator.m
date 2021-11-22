@@ -3617,14 +3617,14 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       // New as of Catalina
       // This seems to have been removed in Big Sur: @"bs_isXPCObject",
       @"supportsBSXPCSecureCoding",
-      @"pep_onDetachedThread",
+      // This seems to have been removed in Monterey: @"pep_onDetachedThread",
       @"pep_onMainThread",
       @"pep_onMainThreadIfNecessary",
       // New as of Big Sur
       @"toPBCodable",
       @"CKDescription",
       @"CKPropertiesDescription",
-      @"CKStatusReport",
+      // This seems to have been removed in Monterey: @"CKStatusReport",
       @"CKSingleLineDescription",
       @"CKExpandedDescription",
       @"CKHashedDescription",
@@ -3637,6 +3637,9 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"supportsRBSXPCSecureCoding",
       @"RBSIsXPCObject",
       @"NSRepresentation",
+      // New as of Monterey
+      @"CKRedactedDescription",
+      @"CKUnredactedDescription",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
