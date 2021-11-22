@@ -48,10 +48,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AccessContextManager/*.{h,m}'
   end
-  s.subspec 'AdExchangeBuyer' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/AdExchangeBuyer/*.{h,m}'
-  end
   s.subspec 'AdExchangeBuyerII' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdExchangeBuyerII/*.{h,m}'
@@ -720,10 +716,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PeopleService/*.{h,m}'
   end
-  s.subspec 'PlayableLocations' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/PlayableLocations/*.{h,m}'
-  end
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
@@ -807,10 +799,6 @@ Pod::Spec.new do |s|
   s.subspec 'SecurityCommandCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SecurityCommandCenter/*.{h,m}'
-  end
-  s.subspec 'SemanticTile' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/SemanticTile/*.{h,m}'
   end
   s.subspec 'ServiceConsumerManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
