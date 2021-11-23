@@ -1599,7 +1599,9 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
                      statusString:&statusString];
     responsePart.statusCode = statusCode;
     responsePart.statusString = statusString;
-    responsePart.headers = [GTMMIMEDocument headersWithData:actualInnerHeaderData];
+    if (actualInnerHeaderData) {
+      responsePart.headers = [GTMMIMEDocument headersWithData:actualInnerHeaderData];
+    }
 
     // Create JSON from the body.
     // (if there is any, methods like delete return nothing)
