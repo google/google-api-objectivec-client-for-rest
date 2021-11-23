@@ -928,10 +928,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Webfonts/*.{h,m}'
   end
-  s.subspec 'Webmasters' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Webmasters/*.{h,m}'
-  end
   s.subspec 'WebRisk' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/WebRisk/*.{h,m}'

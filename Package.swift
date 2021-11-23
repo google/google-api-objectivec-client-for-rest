@@ -908,10 +908,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Webfonts"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Webmasters",
-            targets: ["GoogleAPIClientForREST_Webmasters"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_WebRisk",
             targets: ["GoogleAPIClientForREST_WebRisk"]
         ),
@@ -2327,12 +2323,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Webfonts",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Webfonts",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_Webmasters",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/Webmasters",
             publicHeadersPath: "."
         ),
         .target(
