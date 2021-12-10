@@ -120,6 +120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup;
 /**
+ *  Target ads to a specific audio content type.
+ *
+ *  Value: "TARGETING_TYPE_AUDIO_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType;
+/**
  *  Target ads to ads.txt authorized sellers.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
@@ -1021,6 +1027,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1180,6 +1189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1391,6 +1403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1548,6 +1563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
  *
@@ -2753,6 +2771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2900,6 +2921,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -3098,6 +3122,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3243,6 +3270,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
  *
@@ -3365,7 +3395,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  delete the assigned targeting options provided in
  *  BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then
  *  create the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests. Requests to
+ *  this endpoint cannot be made concurrently with the following requests
+ *  updating the same line item: * BulkEditLineItemAssignedTargetingOptions *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.bulkEditLineItemAssignedTargetingOptions
  *
@@ -3391,7 +3425,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  delete the assigned targeting options provided in
  *  BulkEditLineItemAssignedTargetingOptionsRequest.delete_requests and then
  *  create the assigned targeting options provided in
- *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditLineItemAssignedTargetingOptionsRequest.create_requests. Requests to
+ *  this endpoint cannot be made concurrently with the following requests
+ *  updating the same line item: * BulkEditLineItemAssignedTargetingOptions *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditLineItemAssignedTargetingOptionsRequest to
@@ -3716,6 +3754,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  Updates an existing line item. Returns the updated line item if successful.
+ *  Requests to this endpoint cannot be made concurrently with the following
+ *  requests updating the same line item: *
+ *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.patch
  *
@@ -3741,6 +3784,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Fetches a @c GTLRDisplayVideo_LineItem.
  *
  *  Updates an existing line item. Returns the updated line item if successful.
+ *  Requests to this endpoint cannot be made concurrently with the following
+ *  requests updating the same line item: *
+ *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c GTLRDisplayVideo_LineItem to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the line
@@ -3758,7 +3806,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  Assigns a targeting option to a line item. Returns the assigned targeting
- *  option if successful.
+ *  option if successful. Requests to this endpoint cannot be made concurrently
+ *  with the following requests updating the same line item: *
+ *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.create
  *
@@ -3908,6 +3960,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3915,7 +3970,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
  *
  *  Assigns a targeting option to a line item. Returns the assigned targeting
- *  option if successful.
+ *  option if successful. Requests to this endpoint cannot be made concurrently
+ *  with the following requests updating the same line item: *
+ *  BulkEditLineItemAssignedTargetingOptions * UpdateLineItem *
+ *  CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
  *    the query.
@@ -4055,6 +4114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -4066,7 +4128,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
- *  Deletes an assigned targeting option from a line item.
+ *  Deletes an assigned targeting option from a line item. Requests to this
+ *  endpoint cannot be made concurrently with the following requests updating
+ *  the same line item: * BulkEditLineItemAssignedTargetingOptions *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  Method: displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.delete
  *
@@ -4218,13 +4284,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
 /**
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
- *  Deletes an assigned targeting option from a line item.
+ *  Deletes an assigned targeting option from a line item. Requests to this
+ *  endpoint cannot be made concurrently with the following requests updating
+ *  the same line item: * BulkEditLineItemAssignedTargetingOptions *
+ *  UpdateLineItem * CreateLineItemAssignedTargetingOption *
+ *  DeleteLineItemAssignedTargetingOption
  *
  *  @param advertiserId Required. The ID of the advertiser the line item belongs
  *    to.
@@ -4364,6 +4437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -4530,6 +4606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4677,6 +4756,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -4874,6 +4956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -5018,6 +5103,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -6413,6 +6501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6559,6 +6650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -6719,6 +6813,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6864,6 +6961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -7027,6 +7127,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7173,6 +7276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -7364,6 +7470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7508,6 +7617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -9732,6 +9844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9876,6 +9991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -10034,6 +10152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10177,6 +10298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -10338,6 +10462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10482,6 +10609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -10671,6 +10801,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10812,6 +10945,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -11054,6 +11190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11211,6 +11350,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -11419,6 +11561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11574,6 +11719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -11730,6 +11878,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -11874,6 +12025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOmid Target ads in an
  *        Open Measurement enabled inventory. (Value: "TARGETING_TYPE_OMID")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType Target
+ *        ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

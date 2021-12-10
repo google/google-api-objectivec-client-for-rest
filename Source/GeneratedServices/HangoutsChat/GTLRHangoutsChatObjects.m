@@ -20,6 +20,7 @@ NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage = @"NEW_MESSAG
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig = @"REQUEST_CONFIG";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage = @"UPDATE_MESSAGE";
+NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards = @"UPDATE_USER_MESSAGE_CARDS";
 
 // GTLRHangoutsChat_ActionStatus.statusCode
 NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Aborted = @"ABORTED";
@@ -470,6 +471,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_DriveDataRef
 @dynamic driveFileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DynamiteIntegrationLogEntry
+//
+
+@implementation GTLRHangoutsChat_DynamiteIntegrationLogEntry
+@dynamic deployment, deploymentFunction, error;
 @end
 
 
@@ -942,6 +953,16 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_MatchedUrl
+//
+
+@implementation GTLRHangoutsChat_MatchedUrl
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Media
 //
 
@@ -967,8 +988,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Message
 @dynamic actionResponse, annotations, argumentText, attachment, cards,
-         createTime, fallbackText, lastUpdateTime, name, previewText, sender,
-         slashCommand, space, text, thread;
+         createTime, fallbackText, lastUpdateTime, matchedUrl, name,
+         previewText, sender, slashCommand, space, text, thread;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1047,6 +1068,38 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Space
 @dynamic displayName, name, singleUserBotDm, threaded, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Status
+//
+
+@implementation GTLRHangoutsChat_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRHangoutsChat_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Status_Details_Item
+//
+
+@implementation GTLRHangoutsChat_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

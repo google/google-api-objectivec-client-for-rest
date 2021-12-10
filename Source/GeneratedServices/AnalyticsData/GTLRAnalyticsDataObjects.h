@@ -1873,6 +1873,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_SchemaRestrictionResponse *schemaRestrictionResponse;
 
 /**
+ *  If `thresholdingApplied` is true, this report has thresholding applied and
+ *  only returns data that meets the minimum aggregation thresholds. This
+ *  boolean only indicates if thresholding was applied. It is possible for
+ *  thresholding to be applied and no data is absent from the report, and this
+ *  happens when all data is above the thresholds. To learn more, see [Data
+ *  thresholds](https://support.google.com/analytics/answer/9383630) and [About
+ *  Demographics and
+ *  Interests](https://support.google.com/analytics/answer/2799357).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thresholdingApplied;
+
+/**
  *  The property's current timezone. Intended to be used to interpret time-based
  *  dimensions like `hour` and `minute`. Formatted as strings from the IANA Time
  *  Zone database (https://www.iana.org/time-zones); for example

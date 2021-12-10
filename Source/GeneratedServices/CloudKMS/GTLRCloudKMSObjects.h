@@ -1293,9 +1293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 @interface GTLRCloudKMS_AsymmetricSignRequest : GTLRObject
 
 /**
- *  Optional. This field will only be honored for RAW_PKCS1 keys. The data to
- *  sign. A digest is computed over the data that will be signed, PKCS #1
- *  padding is applied to the digest directly and then encrypted.
+ *  Optional. The data to sign. It can't be supplied if
+ *  AsymmetricSignRequest.digest is supplied.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1322,7 +1321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /**
  *  Optional. The digest of the data to sign. The digest must be produced with
- *  the same digest algorithm as specified by the key version's algorithm.
+ *  the same digest algorithm as specified by the key version's algorithm. This
+ *  field may not be supplied if AsymmetricSignRequest.data is supplied.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_Digest *digest;
 

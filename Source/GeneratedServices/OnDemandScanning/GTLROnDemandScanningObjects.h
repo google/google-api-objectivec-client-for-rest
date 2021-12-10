@@ -32,6 +32,7 @@
 @class GTLROnDemandScanning_Command;
 @class GTLROnDemandScanning_Completeness;
 @class GTLROnDemandScanning_ComplianceOccurrence;
+@class GTLROnDemandScanning_CVSS;
 @class GTLROnDemandScanning_DeploymentOccurrence;
 @class GTLROnDemandScanning_DiscoveryOccurrence;
 @class GTLROnDemandScanning_DSSEAttestationOccurrence;
@@ -126,6 +127,110 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AliasContext_Kind_Movab
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_AliasContext_Kind_Other;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.attackComplexity
+
+/** Value: "ATTACK_COMPLEXITY_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh;
+/** Value: "ATTACK_COMPLEXITY_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow;
+/** Value: "ATTACK_COMPLEXITY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.attackVector
+
+/** Value: "ATTACK_VECTOR_ADJACENT" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent;
+/** Value: "ATTACK_VECTOR_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal;
+/** Value: "ATTACK_VECTOR_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork;
+/** Value: "ATTACK_VECTOR_PHYSICAL" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical;
+/** Value: "ATTACK_VECTOR_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.authentication
+
+/** Value: "AUTHENTICATION_MULTIPLE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationMultiple;
+/** Value: "AUTHENTICATION_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone;
+/** Value: "AUTHENTICATION_SINGLE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle;
+/** Value: "AUTHENTICATION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.availabilityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.confidentialityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.integrityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.privilegesRequired
+
+/** Value: "PRIVILEGES_REQUIRED_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredHigh;
+/** Value: "PRIVILEGES_REQUIRED_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredLow;
+/** Value: "PRIVILEGES_REQUIRED_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredNone;
+/** Value: "PRIVILEGES_REQUIRED_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.scope
+
+/** Value: "SCOPE_CHANGED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeChanged;
+/** Value: "SCOPE_UNCHANGED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged;
+/** Value: "SCOPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_CVSS.userInteraction
+
+/** Value: "USER_INTERACTION_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone;
+/** Value: "USER_INTERACTION_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionRequired;
+/** Value: "USER_INTERACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_DeploymentOccurrence.platform
@@ -880,6 +985,171 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 @property(nonatomic, copy, nullable) NSString *nonComplianceReason;
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_NonCompliantFile *> *nonCompliantFiles;
+
+@end
+
+
+/**
+ *  Common Vulnerability Scoring System. For details, see
+ *  https://www.first.org/cvss/specification-document This is a message we will
+ *  try to use for storing multiple versions of CVSS. The intention is that as
+ *  new versions of CVSS scores get added, we will be able to modify this
+ *  message rather than adding new protos for each new version of the score.
+ */
+@interface GTLROnDemandScanning_CVSS : GTLRObject
+
+/**
+ *  attackComplexity
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh
+ *        Value "ATTACK_COMPLEXITY_HIGH"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow
+ *        Value "ATTACK_COMPLEXITY_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified
+ *        Value "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *attackComplexity;
+
+/**
+ *  Base Metrics Represents the intrinsic characteristics of a vulnerability
+ *  that are constant over time and across user environments.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent Value
+ *        "ATTACK_VECTOR_ADJACENT"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal Value
+ *        "ATTACK_VECTOR_LOCAL"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork Value
+ *        "ATTACK_VECTOR_NETWORK"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical Value
+ *        "ATTACK_VECTOR_PHYSICAL"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorUnspecified
+ *        Value "ATTACK_VECTOR_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *attackVector;
+
+/**
+ *  authentication
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationMultiple
+ *        Value "AUTHENTICATION_MULTIPLE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone Value
+ *        "AUTHENTICATION_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle
+ *        Value "AUTHENTICATION_SINGLE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified
+ *        Value "AUTHENTICATION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *authentication;
+
+/**
+ *  availabilityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified
+ *        Value "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityImpact;
+
+/**
+ *  The base score is a function of the base metric scores.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseScore;
+
+/**
+ *  confidentialityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified
+ *        Value "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialityImpact;
+
+/**
+ *  exploitabilityScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exploitabilityScore;
+
+/**
+ *  impactScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impactScore;
+
+/**
+ *  integrityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified Value
+ *        "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *integrityImpact;
+
+/**
+ *  privilegesRequired
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredHigh
+ *        Value "PRIVILEGES_REQUIRED_HIGH"
+ *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredLow
+ *        Value "PRIVILEGES_REQUIRED_LOW"
+ *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredNone
+ *        Value "PRIVILEGES_REQUIRED_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified
+ *        Value "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *privilegesRequired;
+
+/**
+ *  scope
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeChanged Value
+ *        "SCOPE_CHANGED"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged Value
+ *        "SCOPE_UNCHANGED"
+ *    @arg @c kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified Value
+ *        "SCOPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  userInteraction
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone
+ *        Value "USER_INTERACTION_NONE"
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionRequired
+ *        Value "USER_INTERACTION_REQUIRED"
+ *    @arg @c kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionUnspecified
+ *        Value "USER_INTERACTION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *userInteraction;
 
 @end
 
@@ -2413,6 +2683,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
+
+/** The cvss v3 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_CVSS *cvssv3;
 
 /**
  *  The distro assigned severity for this vulnerability when it is available,

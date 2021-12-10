@@ -242,6 +242,33 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:star";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.star";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate
 
 @dynamic parent;
@@ -356,6 +383,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataCatalog_TestIamPermissionsResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:unstar";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.unstar";
   return query;
 }
 

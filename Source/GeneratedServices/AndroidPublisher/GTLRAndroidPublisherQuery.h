@@ -390,6 +390,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
+ *  Gets country availability.
+ *
+ *  Method: androidpublisher.edits.countryavailability.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_EditsCountryavailabilityGet : GTLRAndroidPublisherQuery
+
+/** Identifier of the edit. */
+@property(nonatomic, copy, nullable) NSString *editId;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** The track to read from. */
+@property(nonatomic, copy, nullable) NSString *track;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_TrackCountryAvailability.
+ *
+ *  Gets country availability.
+ *
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track The track to read from.
+ *
+ *  @return GTLRAndroidPublisherQuery_EditsCountryavailabilityGet
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId
+                               track:(NSString *)track;
+
+@end
+
+/**
  *  Deletes an app edit.
  *
  *  Method: androidpublisher.edits.delete
@@ -1797,6 +1833,80 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId;
+
+@end
+
+/**
+ *  Downloads a single signed APK generated from an app bundle.
+ *
+ *  Method: androidpublisher.generatedapks.download
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_GeneratedapksDownload : GTLRAndroidPublisherQuery
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Can be obtained
+ *  from the response of `generatedapks.list` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Version code of the app bundle. */
+@property(nonatomic, assign) NSInteger versionCode;
+
+/**
+ *  Fetches the requested resource data as a @c GTLRDataObject.
+ *
+ *  Downloads a single signed APK generated from an app bundle.
+ *
+ *  @param packageName Package name of the app.
+ *  @param versionCode Version code of the app bundle.
+ *  @param downloadId Download ID, which uniquely identifies the APK to
+ *    download. Can be obtained from the response of `generatedapks.list`
+ *    method.
+ *
+ *  @return GTLRAndroidPublisherQuery_GeneratedapksDownload
+ */
++ (instancetype)queryForMediaWithPackageName:(NSString *)packageName
+                                 versionCode:(NSInteger)versionCode
+                                  downloadId:(NSString *)downloadId;
+
+@end
+
+/**
+ *  Returns download metadata for all APKs that were generated from a given app
+ *  bundle.
+ *
+ *  Method: androidpublisher.generatedapks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_GeneratedapksList : GTLRAndroidPublisherQuery
+
+/** Package name of the app. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Version code of the app bundle. */
+@property(nonatomic, assign) NSInteger versionCode;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_GeneratedApksListResponse.
+ *
+ *  Returns download metadata for all APKs that were generated from a given app
+ *  bundle.
+ *
+ *  @param packageName Package name of the app.
+ *  @param versionCode Version code of the app bundle.
+ *
+ *  @return GTLRAndroidPublisherQuery_GeneratedapksList
+ */
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(NSInteger)versionCode;
 
 @end
 

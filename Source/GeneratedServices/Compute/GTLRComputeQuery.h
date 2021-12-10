@@ -83,6 +83,7 @@
 @class GTLRCompute_Interconnect;
 @class GTLRCompute_InterconnectAttachment;
 @class GTLRCompute_License;
+@class GTLRCompute_MachineImage;
 @class GTLRCompute_Metadata;
 @class GTLRCompute_Network;
 @class GTLRCompute_NetworkEndpointGroup;
@@ -279,21 +280,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -416,21 +420,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -513,21 +520,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -744,21 +754,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -836,21 +849,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1081,21 +1097,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1523,21 +1542,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1643,6 +1665,58 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_BackendBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendBucket *)object
+                        project:(NSString *)project
+                  backendBucket:(NSString *)backendBucket;
+
+@end
+
+/**
+ *  Sets the edge security policy for the specified backend bucket.
+ *
+ *  Method: compute.backendBuckets.setEdgeSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendBucketsSetEdgeSecurityPolicy : GTLRComputeQuery
+
+/**
+ *  Name of the BackendService resource to which the security policy should be
+ *  set. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the edge security policy for the specified backend bucket.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param backendBucket Name of the BackendService resource to which the
+ *    security policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_BackendBucketsSetEdgeSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
                         project:(NSString *)project
                   backendBucket:(NSString *)backendBucket;
 
@@ -1765,21 +1839,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2085,21 +2162,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2207,6 +2287,58 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_BackendServicesPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_BackendService *)object
+                        project:(NSString *)project
+                 backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Sets the edge security policy for the specified backend service.
+ *
+ *  Method: compute.backendServices.setEdgeSecurityPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_BackendServicesSetEdgeSecurityPolicy : GTLRComputeQuery
+
+/**
+ *  Name of the BackendService resource to which the edge security policy should
+ *  be set. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the edge security policy for the specified backend service.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param backendService Name of the BackendService resource to which the edge
+ *    security policy should be set. The name should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_BackendServicesSetEdgeSecurityPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyReference *)object
                         project:(NSString *)project
                  backendService:(NSString *)backendService;
 
@@ -2388,21 +2520,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2758,21 +2893,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3119,21 +3257,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3257,21 +3398,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3477,21 +3621,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3984,21 +4131,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4500,21 +4650,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4689,21 +4842,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4921,21 +5077,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5304,21 +5463,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5516,21 +5678,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5981,21 +6146,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6069,21 +6237,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6166,21 +6337,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6327,21 +6501,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6533,21 +6710,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6746,21 +6926,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6888,21 +7071,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7108,21 +7294,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7421,21 +7610,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7734,21 +7926,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8223,21 +8418,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8555,21 +8753,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9066,21 +9267,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9165,21 +9369,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9281,21 +9488,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9389,21 +9599,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10067,21 +10280,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10323,21 +10539,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10423,21 +10642,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10785,21 +11007,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11550,6 +11775,17 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *sourceInstanceTemplate;
 
 /**
+ *  Specifies the machine image to use to create the instance. This field is
+ *  optional. It can be a full or partial URL. For example, the following are
+ *  all valid URLs to a machine image: -
+ *  https://www.googleapis.com/compute/v1/projects/project/global/global
+ *  /machineImages/machineImage -
+ *  projects/project/global/global/machineImages/machineImage -
+ *  global/machineImages/machineImage
+ */
+@property(nonatomic, copy, nullable) NSString *sourceMachineImage;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -11588,21 +11824,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11687,21 +11926,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13447,21 +13689,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13608,21 +13853,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13844,21 +14092,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14030,21 +14281,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14275,21 +14529,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14672,21 +14929,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14831,6 +15091,344 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes the specified machine image. Deleting a machine image is permanent
+ *  and cannot be undone.
+ *
+ *  Method: compute.machineImages.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_MachineImagesDelete : GTLRComputeQuery
+
+/** The name of the machine image to delete. */
+@property(nonatomic, copy, nullable) NSString *machineImage;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified machine image. Deleting a machine image is permanent
+ *  and cannot be undone.
+ *
+ *  @param project Project ID for this request.
+ *  @param machineImage The name of the machine image to delete.
+ *
+ *  @return GTLRComputeQuery_MachineImagesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    machineImage:(NSString *)machineImage;
+
+@end
+
+/**
+ *  Returns the specified machine image. Gets a list of available machine images
+ *  by making a list() request.
+ *
+ *  Method: compute.machineImages.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_MachineImagesGet : GTLRComputeQuery
+
+/** The name of the machine image. */
+@property(nonatomic, copy, nullable) NSString *machineImage;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_MachineImage.
+ *
+ *  Returns the specified machine image. Gets a list of available machine images
+ *  by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param machineImage The name of the machine image.
+ *
+ *  @return GTLRComputeQuery_MachineImagesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    machineImage:(NSString *)machineImage;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.machineImages.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_MachineImagesGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a machine image in the specified project using the data that is
+ *  included in the request. If you are creating a new machine image to update
+ *  an existing instance, your new machine image should use the same network or,
+ *  if applicable, the same subnetwork as the original instance.
+ *
+ *  Method: compute.machineImages.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_MachineImagesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Source instance that is used to create the machine image from.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInstance;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a machine image in the specified project using the data that is
+ *  included in the request. If you are creating a new machine image to update
+ *  an existing instance, your new machine image should use the same network or,
+ *  if applicable, the same subnetwork as the original instance.
+ *
+ *  @param object The @c GTLRCompute_MachineImage to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_MachineImage *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Retrieves a list of machine images that are contained within the specified
+ *  project.
+ *
+ *  Method: compute.machineImages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_MachineImagesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_MachineImageList.
+ *
+ *  Retrieves a list of machine images that are contained within the specified
+ *  project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.machineImages.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_MachineImagesSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetPolicyRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.machineImages.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_MachineImagesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_MachineImagesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Retrieves an aggregated list of machine types.
  *
  *  Method: compute.machineTypes.aggregatedList
@@ -14844,21 +15442,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14982,21 +15583,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15078,21 +15682,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15470,21 +16077,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15569,21 +16179,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15930,21 +16543,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16028,21 +16644,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16384,21 +17003,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16742,21 +17364,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16839,21 +17464,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17145,21 +17773,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17421,21 +18052,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17596,21 +18230,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17734,21 +18371,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17830,21 +18470,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18062,21 +18705,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18409,7 +19055,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified Project resource.
+ *  Returns the specified Project resource. To decrease latency for this method,
+ *  you can optionally omit any unneeded information from the response by using
+ *  a field mask. This practice is especially recommended for unused quota
+ *  information (the `quotas` field). To exclude one or more fields, set your
+ *  request's `fields` query parameter to only include the fields you need. For
+ *  example, to only include the `id` and `selfLink` fields, add the query
+ *  parameter `?fields=id,selfLink` to your request.
  *
  *  Method: compute.projects.get
  *
@@ -18426,7 +19078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Project.
  *
- *  Returns the specified Project resource.
+ *  Returns the specified Project resource. To decrease latency for this method,
+ *  you can optionally omit any unneeded information from the response by using
+ *  a field mask. This practice is especially recommended for unused quota
+ *  information (the `quotas` field). To exclude one or more fields, set your
+ *  request's `fields` query parameter to only include the fields you need. For
+ *  example, to only include the `id` and `selfLink` fields, add the query
+ *  parameter `?fields=id,selfLink` to your request.
  *
  *  @param project Project ID for this request.
  *
@@ -18479,21 +19137,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18566,21 +19227,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18686,7 +19350,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Moves an instance and its attached persistent disks from one zone to
- *  another.
+ *  another. *Note*: Moving VMs or disks by using this method might cause
+ *  unexpected behavior. For more information, see the [known
+ *  issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
  *
  *  Method: compute.projects.moveInstance
  *
@@ -18716,7 +19382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Moves an instance and its attached persistent disks from one zone to
- *  another.
+ *  another. *Note*: Moving VMs or disks by using this method might cause
+ *  unexpected behavior. For more information, see the [known
+ *  issue](/compute/docs/troubleshooting/known-issues#moving_vms_or_disks_using_the_moveinstance_api_or_the_causes_unexpected_behavior).
  *
  *  @param object The @c GTLRCompute_InstanceMoveRequest to include in the
  *    query.
@@ -19011,21 +19679,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19153,21 +19824,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19390,21 +20064,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19678,21 +20355,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20057,21 +20737,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20264,21 +20947,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20447,21 +21133,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20522,6 +21211,72 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified commitment with the data included in the request.
+ *  Update is performed only on selected fields included as part of update-mask.
+ *  Only the following fields can be modified: auto_renew.
+ *
+ *  Method: compute.regionCommitments.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionCommitmentsUpdate : GTLRComputeQuery
+
+/** Name of the commitment for which auto renew is being updated. */
+@property(nonatomic, copy, nullable) NSString *commitment;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified commitment with the data included in the request.
+ *  Update is performed only on selected fields included as part of update-mask.
+ *  Only the following fields can be modified: auto_renew.
+ *
+ *  @param object The @c GTLRCompute_Commitment to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param commitment Name of the commitment for which auto renew is being
+ *    updated.
+ *
+ *  @return GTLRComputeQuery_RegionCommitmentsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Commitment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                     commitment:(NSString *)commitment;
 
 @end
 
@@ -20836,21 +21591,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21211,21 +21969,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21499,21 +22260,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21742,21 +22506,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22400,21 +23167,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22494,21 +23264,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22605,21 +23378,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22706,21 +23482,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23291,21 +24070,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23387,21 +24169,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23759,21 +24544,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23998,21 +24786,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24167,21 +24958,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24306,7 +25100,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request.
+ *  making a list() request. To decrease latency for this method, you can
+ *  optionally omit any unneeded information from the response by using a field
+ *  mask. This practice is especially recommended for unused quota information
+ *  (the `quotas` field). To exclude one or more fields, set your request's
+ *  `fields` query parameter to only include the fields you need. For example,
+ *  to only include the `id` and `selfLink` fields, add the query parameter
+ *  `?fields=id,selfLink` to your request.
  *
  *  Method: compute.regions.get
  *
@@ -24327,7 +25127,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Region.
  *
  *  Returns the specified Region resource. Gets a list of available regions by
- *  making a list() request.
+ *  making a list() request. To decrease latency for this method, you can
+ *  optionally omit any unneeded information from the response by using a field
+ *  mask. This practice is especially recommended for unused quota information
+ *  (the `quotas` field). To exclude one or more fields, set your request's
+ *  `fields` query parameter to only include the fields you need. For example,
+ *  to only include the `id` and `selfLink` fields, add the query parameter
+ *  `?fields=id,selfLink` to your request.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region resource to return.
@@ -24341,6 +25147,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of region resources available to the specified project.
+ *  To decrease latency for this method, you can optionally omit any unneeded
+ *  information from the response by using a field mask. This practice is
+ *  especially recommended for unused quota information (the `items.quotas`
+ *  field). To exclude one or more fields, set your request's `fields` query
+ *  parameter to only include the fields you need. For example, to only include
+ *  the `id` and `selfLink` fields, add the query parameter
+ *  `?fields=id,selfLink` to your request.
  *
  *  Method: compute.regions.list
  *
@@ -24353,21 +25166,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24413,6 +25229,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_RegionList.
  *
  *  Retrieves the list of region resources available to the specified project.
+ *  To decrease latency for this method, you can optionally omit any unneeded
+ *  information from the response by using a field mask. This practice is
+ *  especially recommended for unused quota information (the `items.quotas`
+ *  field). To exclude one or more fields, set your request's `fields` query
+ *  parameter to only include the fields you need. For example, to only include
+ *  the `id` and `selfLink` fields, add the query parameter
+ *  `?fields=id,selfLink` to your request.
  *
  *  @param project Project ID for this request.
  *
@@ -24582,21 +25405,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24815,21 +25641,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25102,21 +25931,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25433,21 +26265,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25662,21 +26497,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25953,21 +26791,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26187,6 +27028,71 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Update share settings of the reservation.
+ *
+ *  Method: compute.reservations.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationsUpdate : GTLRComputeQuery
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the reservation to update. */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
+ *  Update_mask indicates fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Update share settings of the reservation.
+ *
+ *  @param object The @c GTLRCompute_Reservation to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *  @param reservation Name of the reservation to update.
+ *
+ *  @return GTLRComputeQuery_ReservationsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Reservation *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                    reservation:(NSString *)reservation;
+
+@end
+
+/**
  *  Retrieves an aggregated list of resource policies.
  *
  *  Method: compute.resourcePolicies.aggregatedList
@@ -26200,21 +27106,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26473,21 +27382,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26649,21 +27561,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26833,21 +27748,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27021,21 +27939,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27393,21 +28314,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27673,21 +28597,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27761,21 +28688,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27970,21 +28900,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28247,21 +29180,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28597,6 +29533,50 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Creates a snapshot in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.snapshots.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_SnapshotsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a snapshot in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_Snapshot to include in the query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_SnapshotsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Snapshot *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
  *  Retrieves the list of Snapshot resources contained within the specified
  *  project.
  *
@@ -28611,21 +29591,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28810,21 +29793,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29032,21 +30018,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29255,21 +30244,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29344,21 +30336,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29479,21 +30474,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29808,21 +30806,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29900,21 +30901,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30319,21 +31323,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30459,21 +31466,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30679,21 +31689,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30867,21 +31880,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31087,21 +32103,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31437,21 +32456,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31683,21 +32705,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31886,21 +32911,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32163,21 +33191,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32542,21 +33573,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32966,21 +34000,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33155,21 +34192,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33389,21 +34429,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33483,21 +34526,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33754,21 +34800,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33976,21 +35025,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34248,21 +35300,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34437,21 +35492,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34671,21 +35729,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34848,21 +35909,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -35043,21 +36107,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  A filter expression that filters resources listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  expression must specify the field name, an operator, and the value that you
+ *  want to use for filtering. The value must be a string, a number, or a
+ *  boolean. The operator must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
  *  For example, if you are filtering Compute Engine instances, you can exclude
  *  instances named `example-instance` by specifying `name != example-instance`.
- *  You can also filter nested fields. For example, you could specify
- *  `scheduling.automaticRestart = false` to include instances only if they are
- *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels. To filter on multiple expressions,
- *  provide each separate expression within parentheses. For example: ```
- *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
- *  default, each expression is an `AND` expression. However, you can include
- *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
- *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
- *  (scheduling.automaticRestart = true) ```
+ *  The `:` operator can be used with string fields to match substrings. For
+ *  non-string fields it is equivalent to the `=` operator. The `:*` comparison
+ *  can be used to test whether a key has been defined. For example, to find all
+ *  objects with `owner` label use: ``` labels.owner:* ``` You can also filter
+ *  nested fields. For example, you could specify `scheduling.automaticRestart =
+ *  false` to include instances only if they are not scheduled for automatic
+ *  restarts. You can use filtering on nested fields to filter based on resource
+ *  labels. To filter on multiple expressions, provide each separate expression
+ *  within parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

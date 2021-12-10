@@ -36,6 +36,7 @@ NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_Environmen
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadState = @"LOAD_STATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_StoreState = @"STORE_STATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";
@@ -158,7 +159,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_EnvironmentConfig
 @dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig,
-         environmentSize, gkeCluster, nodeConfig, nodeCount,
+         environmentSize, gkeCluster, maintenanceWindow, nodeConfig, nodeCount,
          privateEnvironmentConfig, softwareConfig, webServerConfig,
          webServerNetworkAccessControl, workloadsConfig;
 @end
@@ -257,6 +258,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return @"operations";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_MaintenanceWindow
+//
+
+@implementation GTLRCloudComposer_MaintenanceWindow
+@dynamic endTime, recurrence, startTime;
 @end
 
 

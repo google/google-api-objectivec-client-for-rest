@@ -1068,8 +1068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_CustomerSessionStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  Date for which session stats were calculated. Stats are calculated on the
+ *  following day, close to midnight PST, and then returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -4128,8 +4128,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SearchApplicationSessionStats : GTLRObject
 
 /**
- *  Date for which session stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  Date for which session stats were calculated. Stats are calculated on the
+ *  following day, close to midnight PST, and then returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 

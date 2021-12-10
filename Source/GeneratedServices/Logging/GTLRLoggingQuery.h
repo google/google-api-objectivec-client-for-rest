@@ -363,7 +363,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -397,7 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -2113,7 +2113,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -2147,7 +2147,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -4486,7 +4486,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -4520,7 +4520,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -6038,7 +6038,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -6072,7 +6072,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -7744,7 +7744,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *
@@ -7778,7 +7778,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Router can be configured for Google Cloud projects, folders, organizations
  *  and billing accounts. Once configured for an organization, it applies to all
  *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Logs Router
+ *  Log Router
  *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
  *  information.
  *

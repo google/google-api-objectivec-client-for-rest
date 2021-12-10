@@ -400,6 +400,85 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_GeneratedApksListResponse
+//
+
+@implementation GTLRAndroidPublisher_GeneratedApksListResponse
+@dynamic generatedApks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generatedApks" : [GTLRAndroidPublisher_GeneratedApksPerSigningKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedApksPerSigningKey
+//
+
+@implementation GTLRAndroidPublisher_GeneratedApksPerSigningKey
+@dynamic certificateSha256Hash, generatedAssetPackSlices, generatedSplitApks,
+         generatedStandaloneApks, generatedUniversalApk;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generatedAssetPackSlices" : [GTLRAndroidPublisher_GeneratedAssetPackSlice class],
+    @"generatedSplitApks" : [GTLRAndroidPublisher_GeneratedSplitApk class],
+    @"generatedStandaloneApks" : [GTLRAndroidPublisher_GeneratedStandaloneApk class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedAssetPackSlice
+//
+
+@implementation GTLRAndroidPublisher_GeneratedAssetPackSlice
+@dynamic downloadId, moduleName, sliceId, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedSplitApk
+//
+
+@implementation GTLRAndroidPublisher_GeneratedSplitApk
+@dynamic downloadId, moduleName, splitId, variantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedStandaloneApk
+//
+
+@implementation GTLRAndroidPublisher_GeneratedStandaloneApk
+@dynamic downloadId, variantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_GeneratedUniversalApk
+//
+
+@implementation GTLRAndroidPublisher_GeneratedUniversalApk
+@dynamic downloadId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_Grant
 //
 
@@ -995,6 +1074,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_TrackCountryAvailability
+//
+
+@implementation GTLRAndroidPublisher_TrackCountryAvailability
+@dynamic countries, restOfWorld, syncWithProduction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countries" : [GTLRAndroidPublisher_TrackTargetedCountry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_TrackRelease
 //
 
@@ -1034,6 +1131,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_TrackTargetedCountry
+//
+
+@implementation GTLRAndroidPublisher_TrackTargetedCountry
+@dynamic countryCode;
 @end
 
 

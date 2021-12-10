@@ -26,9 +26,12 @@
 @class GTLRAccessContextManager_CancelOperationRequest;
 @class GTLRAccessContextManager_CommitServicePerimetersRequest;
 @class GTLRAccessContextManager_GcpUserAccessBinding;
+@class GTLRAccessContextManager_GetIamPolicyRequest;
 @class GTLRAccessContextManager_ReplaceAccessLevelsRequest;
 @class GTLRAccessContextManager_ReplaceServicePerimetersRequest;
 @class GTLRAccessContextManager_ServicePerimeter;
+@class GTLRAccessContextManager_SetIamPolicyRequest;
+@class GTLRAccessContextManager_TestIamPermissionsRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -79,10 +82,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Create an Access Level. The longrunning operation from this RPC will have a
- *  successful status once the Access Level has propagated to long-lasting
- *  storage. Access Levels containing errors will result in an error response
- *  for the first error encountered.
+ *  Creates an access level. The long-running operation from this RPC has a
+ *  successful status after the access level propagates to long-lasting storage.
+ *  If access levels contain errors, an error response is returned for the first
+ *  error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.create
  *
@@ -100,10 +103,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create an Access Level. The longrunning operation from this RPC will have a
- *  successful status once the Access Level has propagated to long-lasting
- *  storage. Access Levels containing errors will result in an error response
- *  for the first error encountered.
+ *  Creates an access level. The long-running operation from this RPC has a
+ *  successful status after the access level propagates to long-lasting storage.
+ *  If access levels contain errors, an error response is returned for the first
+ *  error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
@@ -118,9 +121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete an Access Level by resource name. The longrunning operation from this
- *  RPC will have a successful status once the Access Level has been removed
- *  from long-lasting storage.
+ *  Deletes an access level based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the access level has
+ *  been removed from long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.delete
  *
@@ -138,9 +141,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete an Access Level by resource name. The longrunning operation from this
- *  RPC will have a successful status once the Access Level has been removed
- *  from long-lasting storage.
+ *  Deletes an access level based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the access level has
+ *  been removed from long-lasting storage.
  *
  *  @param name Required. Resource name for the Access Level. Format:
  *    `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
@@ -152,7 +155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Get an Access Level by resource name.
+ *  Gets an access level based on the resource name.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.get
  *
@@ -190,7 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_AccessLevel.
  *
- *  Get an Access Level by resource name.
+ *  Gets an access level based on the resource name.
  *
  *  @param name Required. Resource name for the Access Level. Format:
  *    `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
@@ -202,7 +205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all Access Levels for an access policy.
+ *  Lists all access levels for an access policy.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.list
  *
@@ -247,7 +250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_ListAccessLevelsResponse.
  *
- *  List all Access Levels for an access policy.
+ *  Lists all access levels for an access policy.
  *
  *  @param parent Required. Resource name for the access policy to list Access
  *    Levels from. Format: `accessPolicies/{policy_id}`
@@ -263,10 +266,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update an Access Level. The longrunning operation from this RPC will have a
- *  successful status once the changes to the Access Level have propagated to
- *  long-lasting storage. Access Levels containing errors will result in an
- *  error response for the first error encountered.
+ *  Updates an access level. The long-running operation from this RPC has a
+ *  successful status after the changes to the access level propagate to
+ *  long-lasting storage. If access levels contain errors, an error response is
+ *  returned for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.patch
  *
@@ -293,10 +296,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update an Access Level. The longrunning operation from this RPC will have a
- *  successful status once the changes to the Access Level have propagated to
- *  long-lasting storage. Access Levels containing errors will result in an
- *  error response for the first error encountered.
+ *  Updates an access level. The long-running operation from this RPC has a
+ *  successful status after the changes to the access level propagate to
+ *  long-lasting storage. If access levels contain errors, an error response is
+ *  returned for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
@@ -313,14 +316,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Replace all existing Access Levels in an Access Policy with the Access
- *  Levels provided. This is done atomically. The longrunning operation from
- *  this RPC will have a successful status once all replacements have propagated
- *  to long-lasting storage. Replacements containing errors will result in an
- *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Access Levels will not be affected.
- *  Operation.response field will contain ReplaceAccessLevelsResponse. Removing
- *  Access Levels contained in existing Service Perimeters will result in error.
+ *  Replaces all existing access levels in an access policy with the access
+ *  levels provided. This is done atomically. The long-running operation from
+ *  this RPC has a successful status after all replacements propagate to
+ *  long-lasting storage. If the replacement contains errors, an error response
+ *  is returned for the first error encountered. Upon error, the replacement is
+ *  cancelled, and existing access levels are not affected. The
+ *  Operation.response field contains ReplaceAccessLevelsResponse. Removing
+ *  access levels contained in existing service perimeters result in an error.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.replaceAll
  *
@@ -338,14 +341,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Replace all existing Access Levels in an Access Policy with the Access
- *  Levels provided. This is done atomically. The longrunning operation from
- *  this RPC will have a successful status once all replacements have propagated
- *  to long-lasting storage. Replacements containing errors will result in an
- *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Access Levels will not be affected.
- *  Operation.response field will contain ReplaceAccessLevelsResponse. Removing
- *  Access Levels contained in existing Service Perimeters will result in error.
+ *  Replaces all existing access levels in an access policy with the access
+ *  levels provided. This is done atomically. The long-running operation from
+ *  this RPC has a successful status after all replacements propagate to
+ *  long-lasting storage. If the replacement contains errors, an error response
+ *  is returned for the first error encountered. Upon error, the replacement is
+ *  cancelled, and existing access levels are not affected. The
+ *  Operation.response field contains ReplaceAccessLevelsResponse. Removing
+ *  access levels contained in existing service perimeters result in an error.
  *
  *  @param object The @c GTLRAccessContextManager_ReplaceAccessLevelsRequest to
  *    include in the query.
@@ -360,10 +363,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Create an `AccessPolicy`. Fails if this organization already has a
- *  `AccessPolicy`. The longrunning Operation will have a successful status once
- *  the `AccessPolicy` has propagated to long-lasting storage. Syntactic and
- *  basic semantic errors will be returned in `metadata` as a BadRequest proto.
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  Method: accesscontextmanager.accessPolicies.accessLevels.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsTestIamPermissions : GTLRAccessContextManagerQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_TestIamPermissionsResponse.
+ *
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates an access policy. This method fails if the organization already has
+ *  an access policy. The long-running operation has a successful status after
+ *  the access policy propagates to long-lasting storage. Syntactic and basic
+ *  semantic errors are returned in `metadata` as a BadRequest proto.
  *
  *  Method: accesscontextmanager.accessPolicies.create
  *
@@ -375,10 +416,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create an `AccessPolicy`. Fails if this organization already has a
- *  `AccessPolicy`. The longrunning Operation will have a successful status once
- *  the `AccessPolicy` has propagated to long-lasting storage. Syntactic and
- *  basic semantic errors will be returned in `metadata` as a BadRequest proto.
+ *  Creates an access policy. This method fails if the organization already has
+ *  an access policy. The long-running operation has a successful status after
+ *  the access policy propagates to long-lasting storage. Syntactic and basic
+ *  semantic errors are returned in `metadata` as a BadRequest proto.
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
@@ -390,9 +431,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete an AccessPolicy by resource name. The longrunning Operation will have
- *  a successful status once the AccessPolicy has been removed from long-lasting
- *  storage.
+ *  Deletes an access policy based on the resource name. The long-running
+ *  operation has a successful status after the access policy is removed from
+ *  long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.delete
  *
@@ -410,9 +451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete an AccessPolicy by resource name. The longrunning Operation will have
- *  a successful status once the AccessPolicy has been removed from long-lasting
- *  storage.
+ *  Deletes an access policy based on the resource name. The long-running
+ *  operation has a successful status after the access policy is removed from
+ *  long-lasting storage.
  *
  *  @param name Required. Resource name for the access policy to delete. Format
  *    `accessPolicies/{policy_id}`
@@ -424,7 +465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Get an AccessPolicy by name.
+ *  Returns an access policy based on the name.
  *
  *  Method: accesscontextmanager.accessPolicies.get
  *
@@ -442,7 +483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_AccessPolicy.
  *
- *  Get an AccessPolicy by name.
+ *  Returns an access policy based on the name.
  *
  *  @param name Required. Resource name for the access policy to get. Format
  *    `accessPolicies/{policy_id}`
@@ -454,7 +495,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all AccessPolicies under a container.
+ *  Gets the IAM policy for the specified Access Context Manager access policy.
+ *
+ *  Method: accesscontextmanager.accessPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesGetIamPolicy : GTLRAccessContextManagerQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Policy.
+ *
+ *  Gets the IAM policy for the specified Access Context Manager access policy.
+ *
+ *  @param object The @c GTLRAccessContextManager_GetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists all access policies in an organization.
  *
  *  Method: accesscontextmanager.accessPolicies.list
  *
@@ -481,7 +556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_ListAccessPoliciesResponse.
  *
- *  List all AccessPolicies under a container.
+ *  Lists all access policies in an organization.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesList
  *
@@ -494,10 +569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update an AccessPolicy. The longrunning Operation from this RPC will have a
- *  successful status once the changes to the AccessPolicy have propagated to
- *  long-lasting storage. Syntactic and basic semantic errors will be returned
- *  in `metadata` as a BadRequest proto.
+ *  Updates an access policy. The long-running operation from this RPC has a
+ *  successful status after the changes to the access policy propagate to
+ *  long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.patch
  *
@@ -522,10 +596,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update an AccessPolicy. The longrunning Operation from this RPC will have a
- *  successful status once the changes to the AccessPolicy have propagated to
- *  long-lasting storage. Syntactic and basic semantic errors will be returned
- *  in `metadata` as a BadRequest proto.
+ *  Updates an access policy. The long-running operation from this RPC has a
+ *  successful status after the changes to the access policy propagate to
+ *  long-lasting storage.
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
@@ -540,17 +613,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Commit the dry-run spec for all the Service Perimeters in an Access Policy.
- *  A commit operation on a Service Perimeter involves copying its `spec` field
- *  to that Service Perimeter's `status` field. Only Service Perimeters with
- *  `use_explicit_dry_run_spec` field set to true are affected by a commit
- *  operation. The longrunning operation from this RPC will have a successful
- *  status once the dry-run specs for all the Service Perimeters have been
- *  committed. If a commit fails, it will cause the longrunning operation to
- *  return an error response and the entire commit operation will be cancelled.
- *  When successful, Operation.response field will contain
- *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be
- *  cleared after a successful commit operation.
+ *  Commits the dry-run specification for all the service perimeters in an
+ *  access policy. A commit operation on a service perimeter involves copying
+ *  its `spec` field to the `status` field of the service perimeter. Only
+ *  service perimeters with `use_explicit_dry_run_spec` field set to true are
+ *  affected by a commit operation. The long-running operation from this RPC has
+ *  a successful status after the dry-run specifications for all the service
+ *  perimeters have been committed. If a commit fails, it causes the
+ *  long-running operation to return an error response and the entire commit
+ *  operation is cancelled. When successful, the Operation.response field
+ *  contains CommitServicePerimetersResponse. The `dry_run` and the `spec`
+ *  fields are cleared after a successful commit operation.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.commit
  *
@@ -569,17 +642,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Commit the dry-run spec for all the Service Perimeters in an Access Policy.
- *  A commit operation on a Service Perimeter involves copying its `spec` field
- *  to that Service Perimeter's `status` field. Only Service Perimeters with
- *  `use_explicit_dry_run_spec` field set to true are affected by a commit
- *  operation. The longrunning operation from this RPC will have a successful
- *  status once the dry-run specs for all the Service Perimeters have been
- *  committed. If a commit fails, it will cause the longrunning operation to
- *  return an error response and the entire commit operation will be cancelled.
- *  When successful, Operation.response field will contain
- *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be
- *  cleared after a successful commit operation.
+ *  Commits the dry-run specification for all the service perimeters in an
+ *  access policy. A commit operation on a service perimeter involves copying
+ *  its `spec` field to the `status` field of the service perimeter. Only
+ *  service perimeters with `use_explicit_dry_run_spec` field set to true are
+ *  affected by a commit operation. The long-running operation from this RPC has
+ *  a successful status after the dry-run specifications for all the service
+ *  perimeters have been committed. If a commit fails, it causes the
+ *  long-running operation to return an error response and the entire commit
+ *  operation is cancelled. When successful, the Operation.response field
+ *  contains CommitServicePerimetersResponse. The `dry_run` and the `spec`
+ *  fields are cleared after a successful commit operation.
  *
  *  @param object The @c GTLRAccessContextManager_CommitServicePerimetersRequest
  *    to include in the query.
@@ -595,10 +668,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Create a Service Perimeter. The longrunning operation from this RPC will
- *  have a successful status once the Service Perimeter has propagated to
- *  long-lasting storage. Service Perimeters containing errors will result in an
- *  error response for the first error encountered.
+ *  Creates a service perimeter. The long-running operation from this RPC has a
+ *  successful status after the service perimeter propagates to long-lasting
+ *  storage. If a service perimeter contains errors, an error response is
+ *  returned for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.create
  *
@@ -616,10 +689,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create a Service Perimeter. The longrunning operation from this RPC will
- *  have a successful status once the Service Perimeter has propagated to
- *  long-lasting storage. Service Perimeters containing errors will result in an
- *  error response for the first error encountered.
+ *  Creates a service perimeter. The long-running operation from this RPC has a
+ *  successful status after the service perimeter propagates to long-lasting
+ *  storage. If a service perimeter contains errors, an error response is
+ *  returned for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
@@ -634,9 +707,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete a Service Perimeter by resource name. The longrunning operation from
- *  this RPC will have a successful status once the Service Perimeter has been
- *  removed from long-lasting storage.
+ *  Deletes a service perimeter based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the service perimeter
+ *  is removed from long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.delete
  *
@@ -654,9 +727,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete a Service Perimeter by resource name. The longrunning operation from
- *  this RPC will have a successful status once the Service Perimeter has been
- *  removed from long-lasting storage.
+ *  Deletes a service perimeter based on the resource name. The long-running
+ *  operation from this RPC has a successful status after the service perimeter
+ *  is removed from long-lasting storage.
  *
  *  @param name Required. Resource name for the Service Perimeter. Format:
  *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
@@ -668,7 +741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Get a Service Perimeter by resource name.
+ *  Gets a service perimeter based on the resource name.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.get
  *
@@ -686,7 +759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_ServicePerimeter.
  *
- *  Get a Service Perimeter by resource name.
+ *  Gets a service perimeter based on the resource name.
  *
  *  @param name Required. Resource name for the Service Perimeter. Format:
  *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
@@ -698,7 +771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all Service Perimeters for an access policy.
+ *  Lists all service perimeters for an access policy.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.list
  *
@@ -725,7 +798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_ListServicePerimetersResponse.
  *
- *  List all Service Perimeters for an access policy.
+ *  Lists all service perimeters for an access policy.
  *
  *  @param parent Required. Resource name for the access policy to list Service
  *    Perimeters from. Format: `accessPolicies/{policy_id}`
@@ -741,10 +814,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update a Service Perimeter. The longrunning operation from this RPC will
- *  have a successful status once the changes to the Service Perimeter have
- *  propagated to long-lasting storage. Service Perimeter containing errors will
- *  result in an error response for the first error encountered.
+ *  Updates a service perimeter. The long-running operation from this RPC has a
+ *  successful status after the service perimeter propagates to long-lasting
+ *  storage. If a service perimeter contains errors, an error response is
+ *  returned for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.patch
  *
@@ -770,10 +843,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update a Service Perimeter. The longrunning operation from this RPC will
- *  have a successful status once the changes to the Service Perimeter have
- *  propagated to long-lasting storage. Service Perimeter containing errors will
- *  result in an error response for the first error encountered.
+ *  Updates a service perimeter. The long-running operation from this RPC has a
+ *  successful status after the service perimeter propagates to long-lasting
+ *  storage. If a service perimeter contains errors, an error response is
+ *  returned for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
@@ -790,13 +863,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Replace all existing Service Perimeters in an Access Policy with the Service
- *  Perimeters provided. This is done atomically. The longrunning operation from
- *  this RPC will have a successful status once all replacements have propagated
- *  to long-lasting storage. Replacements containing errors will result in an
- *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Service Perimeters will not be affected.
- *  Operation.response field will contain ReplaceServicePerimetersResponse.
+ *  Replace all existing service perimeters in an access policy with the service
+ *  perimeters provided. This is done atomically. The long-running operation
+ *  from this RPC has a successful status after all replacements propagate to
+ *  long-lasting storage. Replacements containing errors result in an error
+ *  response for the first error encountered. Upon an error, replacement are
+ *  cancelled and existing service perimeters are not affected. The
+ *  Operation.response field contains ReplaceServicePerimetersResponse.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.replaceAll
  *
@@ -814,13 +887,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Replace all existing Service Perimeters in an Access Policy with the Service
- *  Perimeters provided. This is done atomically. The longrunning operation from
- *  this RPC will have a successful status once all replacements have propagated
- *  to long-lasting storage. Replacements containing errors will result in an
- *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Service Perimeters will not be affected.
- *  Operation.response field will contain ReplaceServicePerimetersResponse.
+ *  Replace all existing service perimeters in an access policy with the service
+ *  perimeters provided. This is done atomically. The long-running operation
+ *  from this RPC has a successful status after all replacements propagate to
+ *  long-lasting storage. Replacements containing errors result in an error
+ *  response for the first error encountered. Upon an error, replacement are
+ *  cancelled and existing service perimeters are not affected. The
+ *  Operation.response field contains ReplaceServicePerimetersResponse.
  *
  *  @param object The @c
  *    GTLRAccessContextManager_ReplaceServicePerimetersRequest to include in the
@@ -832,6 +905,122 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  */
 + (instancetype)queryWithObject:(GTLRAccessContextManager_ReplaceServicePerimetersRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  Method: accesscontextmanager.accessPolicies.servicePerimeters.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersTestIamPermissions : GTLRAccessContextManagerQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_TestIamPermissionsResponse.
+ *
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the IAM policy for the specified Access Context Manager access policy.
+ *  This method replaces the existing IAM policy on the access policy. The IAM
+ *  policy controls the set of users who can perform specific operations on the
+ *  Access Context Manager access policy.
+ *
+ *  Method: accesscontextmanager.accessPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesSetIamPolicy : GTLRAccessContextManagerQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Policy.
+ *
+ *  Sets the IAM policy for the specified Access Context Manager access policy.
+ *  This method replaces the existing IAM policy on the access policy. The IAM
+ *  policy controls the set of users who can perform specific operations on the
+ *  Access Context Manager access policy.
+ *
+ *  @param object The @c GTLRAccessContextManager_SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  Method: accesscontextmanager.accessPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_AccessPoliciesTestIamPermissions : GTLRAccessContextManagerQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_TestIamPermissionsResponse.
+ *
+ *  Returns the IAM permissions that the caller has on the specified Access
+ *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
+ *  or ServicePerimeter. This method does not support other resources.
+ *
+ *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLRAccessContextManagerQuery_AccessPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -999,7 +1188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Creates a GcpUserAccessBinding. If the client specifies a name, the server
- *  will ignore it. Fails if a resource already exists with the same group_key.
+ *  ignores it. Fails if a resource already exists with the same group_key.
  *  Completion of this long-running operation does not necessarily signify that
  *  the new binding is deployed onto all affected users, which may take more
  *  time.
@@ -1018,7 +1207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
  *  Creates a GcpUserAccessBinding. If the client specifies a name, the server
- *  will ignore it. Fails if a resource already exists with the same group_key.
+ *  ignores it. Fails if a resource already exists with the same group_key.
  *  Completion of this long-running operation does not necessarily signify that
  *  the new binding is deployed onto all affected users, which may take more
  *  time.

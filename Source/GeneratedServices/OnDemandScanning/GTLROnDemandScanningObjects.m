@@ -19,6 +19,58 @@ NSString * const kGTLROnDemandScanning_AliasContext_Kind_KindUnspecified = @"KIN
 NSString * const kGTLROnDemandScanning_AliasContext_Kind_Movable = @"MOVABLE";
 NSString * const kGTLROnDemandScanning_AliasContext_Kind_Other = @"OTHER";
 
+// GTLROnDemandScanning_CVSS.attackComplexity
+NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
+NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.attackVector
+NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorAdjacent = @"ATTACK_VECTOR_ADJACENT";
+NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorLocal = @"ATTACK_VECTOR_LOCAL";
+NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorNetwork = @"ATTACK_VECTOR_NETWORK";
+NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorPhysical = @"ATTACK_VECTOR_PHYSICAL";
+NSString * const kGTLROnDemandScanning_CVSS_AttackVector_AttackVectorUnspecified = @"ATTACK_VECTOR_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.authentication
+NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationMultiple = @"AUTHENTICATION_MULTIPLE";
+NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationNone = @"AUTHENTICATION_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationSingle = @"AUTHENTICATION_SINGLE";
+NSString * const kGTLROnDemandScanning_CVSS_Authentication_AuthenticationUnspecified = @"AUTHENTICATION_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.availabilityImpact
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.confidentialityImpact
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.integrityImpact
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.privilegesRequired
+NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredHigh = @"PRIVILEGES_REQUIRED_HIGH";
+NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredLow = @"PRIVILEGES_REQUIRED_LOW";
+NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredNone = @"PRIVILEGES_REQUIRED_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified = @"PRIVILEGES_REQUIRED_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.scope
+NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeChanged = @"SCOPE_CHANGED";
+NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnchanged = @"SCOPE_UNCHANGED";
+NSString * const kGTLROnDemandScanning_CVSS_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLROnDemandScanning_CVSS.userInteraction
+NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionNone = @"USER_INTERACTION_NONE";
+NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
+NSString * const kGTLROnDemandScanning_CVSS_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
+
 // GTLROnDemandScanning_DeploymentOccurrence.platform
 NSString * const kGTLROnDemandScanning_DeploymentOccurrence_Platform_Custom = @"CUSTOM";
 NSString * const kGTLROnDemandScanning_DeploymentOccurrence_Platform_Flex = @"FLEX";
@@ -337,6 +389,18 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_CVSS
+//
+
+@implementation GTLROnDemandScanning_CVSS
+@dynamic attackComplexity, attackVector, authentication, availabilityImpact,
+         baseScore, confidentialityImpact, exploitabilityScore, impactScore,
+         integrityImpact, privilegesRequired, scope, userInteraction;
 @end
 
 
@@ -1108,7 +1172,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_VulnerabilityOccurrence
-@dynamic cvssScore, effectiveSeverity, fixAvailable, longDescription,
+@dynamic cvssScore, cvssv3, effectiveSeverity, fixAvailable, longDescription,
          packageIssue, relatedUrls, severity, shortDescription, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

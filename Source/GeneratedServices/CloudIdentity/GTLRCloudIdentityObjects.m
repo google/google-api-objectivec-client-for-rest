@@ -126,6 +126,20 @@ NSString * const kGTLRCloudIdentity_Membership_Type_SharedDrive = @"SHARED_DRIVE
 NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
+// GTLRCloudIdentity_MembershipRoleRestrictionEvaluation.state
+NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Compliant = @"COMPLIANT";
+NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Evaluating = @"EVALUATING";
+NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_ForwardCompliant = @"FORWARD_COMPLIANT";
+NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
+NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudIdentity_RestrictionEvaluation.state
+NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Compliant = @"COMPLIANT";
+NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Evaluating = @"EVALUATING";
+NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant = @"FORWARD_COMPLIANT";
+NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
+NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudIdentity_UserInvitation.state
 NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted = @"ACCEPTED";
 NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined = @"DECLINED";
@@ -837,6 +851,16 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_MemberRestriction
+//
+
+@implementation GTLRCloudIdentity_MemberRestriction
+@dynamic evaluation, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Membership
 //
 
@@ -877,7 +901,17 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_MembershipRole
-@dynamic expiryDetail, name;
+@dynamic expiryDetail, name, restrictionEvaluations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_MembershipRoleRestrictionEvaluation
+//
+
+@implementation GTLRCloudIdentity_MembershipRoleRestrictionEvaluation
+@dynamic state;
 @end
 
 
@@ -951,6 +985,26 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_RestrictionEvaluation
+//
+
+@implementation GTLRCloudIdentity_RestrictionEvaluation
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_RestrictionEvaluations
+//
+
+@implementation GTLRCloudIdentity_RestrictionEvaluations
+@dynamic memberRestrictionEvaluation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_SearchGroupsResponse
 //
 
@@ -1012,6 +1066,16 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
   return @"memberships";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SecuritySettings
+//
+
+@implementation GTLRCloudIdentity_SecuritySettings
+@dynamic memberRestriction, name;
 @end
 
 

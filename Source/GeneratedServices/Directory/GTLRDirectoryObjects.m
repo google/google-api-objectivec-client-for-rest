@@ -387,7 +387,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
          ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
          lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
-         notes, orderNumber, orgUnitPath, osVersion, platformVersion,
+         notes, orderNumber, orgUnitId, orgUnitPath, osVersion, platformVersion,
          recentUsers, screenshotFiles, serialNumber, status, supportEndDate,
          systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
@@ -1604,7 +1604,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 //
 
 @implementation GTLRDirectory_UserLanguage
-@dynamic customLanguage, languageCode;
+@dynamic customLanguage, languageCode, preference;
 @end
 
 

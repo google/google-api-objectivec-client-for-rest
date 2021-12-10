@@ -471,6 +471,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 //
 
@@ -1542,11 +1560,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
-@dynamic attributionToken, correctedQuery, facets, nextPageToken,
-         queryExpansionInfo, redirectUri, results, totalSize;
+@dynamic appliedControls, attributionToken, correctedQuery, facets,
+         nextPageToken, queryExpansionInfo, redirectUri, results, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"appliedControls" : [NSString class],
     @"facets" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet class],
     @"results" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult class]
   };

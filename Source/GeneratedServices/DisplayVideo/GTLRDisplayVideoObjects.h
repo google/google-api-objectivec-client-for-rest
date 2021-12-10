@@ -43,6 +43,8 @@
 @class GTLRDisplayVideo_AssignedTargetingOption;
 @class GTLRDisplayVideo_AssignedUserRole;
 @class GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails;
 @class GTLRDisplayVideo_AudioVideoOffset;
 @class GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails;
@@ -959,6 +961,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudienceGroup;
 /**
+ *  Target ads to a specific audio content type.
+ *
+ *  Value: "TARGETING_TYPE_AUDIO_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudioContentType;
+/**
  *  Target ads to ads.txt authorized sellers.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
@@ -1295,6 +1303,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_S
  *  Value: "USER_ROLE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_UserRoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails.audioContentType
+
+/**
+ *  The audio content type is broadcast.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_BROADCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast;
+/**
+ *  The audio content type is music.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_MUSIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeMusic;
+/**
+ *  The audio content type is podcast.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_PODCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypePodcast;
+/**
+ *  The audio content type is unknown.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown;
+/**
+ *  Audio content type is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content stream
+ *  type.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails.audioContentType
+
+/**
+ *  The audio content type is broadcast.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_BROADCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast;
+/**
+ *  The audio content type is music.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_MUSIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeMusic;
+/**
+ *  The audio content type is podcast.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_PODCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypePodcast;
+/**
+ *  The audio content type is unknown.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown;
+/**
+ *  Audio content type is not specified in this version. This enum is a place
+ *  holder for a default value and does not represent a real content stream
+ *  type.
+ *
+ *  Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails.authorizedSellerStatus
@@ -1935,6 +2015,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_AUDIENCE_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudienceGroup;
+/**
+ *  Target ads to a specific audio content type.
+ *
+ *  Value: "TARGETING_TYPE_AUDIO_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType;
 /**
  *  Target ads to ads.txt authorized sellers.
  *
@@ -2887,6 +2973,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_AUDIENCE_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudienceGroup;
+/**
+ *  Target ads to a specific audio content type.
+ *
+ *  Value: "TARGETING_TYPE_AUDIO_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType;
 /**
  *  Target ads to ads.txt authorized sellers.
  *
@@ -9333,6 +9425,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudienceGroup;
 /**
+ *  Target ads to a specific audio content type.
+ *
+ *  Value: "TARGETING_TYPE_AUDIO_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudioContentType;
+/**
  *  Target ads to ads.txt authorized sellers.
  *
  *  Value: "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS"
@@ -10805,6 +10903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails *audienceGroupDetails;
 
 /**
+ *  Audio content type details. This field will be populated when the
+ *  targeting_type is 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails *audioContentTypeDetails;
+
+/**
  *  Authorized seller status details. This field will be populated when the
  *  targeting_type is `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. You can only
  *  target one authorized seller status option per resource. If a resource
@@ -11052,6 +11156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Target ads to an audience or groups of audiences. Singleton field, at
  *        most one can exist on a single Lineitem at a time. (Value:
  *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudioContentType
+ *        Target ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus
  *        Target ads to ads.txt authorized sellers. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
@@ -11345,6 +11452,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Google audience ids only.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *includedGoogleAudienceGroup;
+
+@end
+
+
+/**
+ *  Details for audio content type assigned targeting option. This will be
+ *  populated in the audio_content_type_details field when targeting_type is
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE`. Explicitly targeting all options is not
+ *  supported. Remove all audio content type targeting options to achieve this
+ *  effect.
+ */
+@interface GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The audio content type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
+ *        The audio content type is broadcast. (Value:
+ *        "AUDIO_CONTENT_TYPE_BROADCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeMusic
+ *        The audio content type is music. (Value: "AUDIO_CONTENT_TYPE_MUSIC")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypePodcast
+ *        The audio content type is podcast. (Value:
+ *        "AUDIO_CONTENT_TYPE_PODCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown
+ *        The audio content type is unknown. (Value:
+ *        "AUDIO_CONTENT_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified
+ *        Audio content type is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        stream type. (Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *audioContentType;
+
+/**
+ *  Required. The targeting_option_id field when targeting_type is
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable audio content type. This will be populated in the
+ *  audio_content_type_details field when targeting_type is
+ *  `TARGETING_TYPE_AUDIO_CONTENT_TYPE`.
+ */
+@interface GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The audio content type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
+ *        The audio content type is broadcast. (Value:
+ *        "AUDIO_CONTENT_TYPE_BROADCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeMusic
+ *        The audio content type is music. (Value: "AUDIO_CONTENT_TYPE_MUSIC")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypePodcast
+ *        The audio content type is podcast. (Value:
+ *        "AUDIO_CONTENT_TYPE_PODCAST")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown
+ *        The audio content type is unknown. (Value:
+ *        "AUDIO_CONTENT_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified
+ *        Audio content type is not specified in this version. This enum is a
+ *        place holder for a default value and does not represent a real content
+ *        stream type. (Value: "AUDIO_CONTENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *audioContentType;
 
 @end
 
@@ -13112,6 +13291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Target ads to an audience or groups of audiences. Singleton field, at
  *        most one can exist on a single Lineitem at a time. (Value:
  *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType
+ *        Target ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus
  *        Target ads to ads.txt authorized sellers. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
@@ -14356,6 +14538,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Target ads to an audience or groups of audiences. Singleton field, at
  *        most one can exist on a single Lineitem at a time. (Value:
  *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType
+ *        Target ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus
  *        Target ads to ads.txt authorized sellers. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
@@ -21422,6 +21607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** App category details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AppCategoryTargetingOptionDetails *appCategoryDetails;
 
+/** Audio content type details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails *audioContentTypeDetails;
+
 /** Authorized seller status resource details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AuthorizedSellerStatusTargetingOptionDetails *authorizedSellerStatusDetails;
 
@@ -21520,6 +21708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Target ads to an audience or groups of audiences. Singleton field, at
  *        most one can exist on a single Lineitem at a time. (Value:
  *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudioContentType
+ *        Target ads to a specific audio content type. (Value:
+ *        "TARGETING_TYPE_AUDIO_CONTENT_TYPE")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus
  *        Target ads to ads.txt authorized sellers. (Value:
  *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")

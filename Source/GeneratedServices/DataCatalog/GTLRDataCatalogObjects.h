@@ -43,6 +43,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument;
@@ -600,12 +601,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -984,6 +988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Additional information related to the entry. Private to the
+ *  current user.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails *personalDetails;
 
 /**
  *  Specification that applies to a user-defined function or procedure. Valid
@@ -1420,6 +1430,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Entry metadata relevant only to the user and private to them.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails : GTLRObject
+
+/**
+ *  True if the entry is starred by the user; false otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *starred;
+
+/** Set if the entry is starred; unset otherwise. */
+@property(nonatomic, strong, nullable) GTLRDateTime *starTime;
+
+@end
+
+
+/**
  *  Denotes one policy tag in a taxonomy, for example, SSN. Policy tags can be
  *  defined in a hierarchy. For example: ``` + Geolocation + LatLong + City +
  *  ZipCode ``` Where the "Geolocation" policy tag contains three children.
@@ -1605,8 +1633,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /**
  *  Specifies the order of results. Currently supported case-sensitive values
  *  are: * `relevance` that can only be descending * `last_modified_timestamp
- *  [asc|desc]` with descending (`desc`) as default If this parameter is
- *  omitted, it defaults to the descending `relevance`.
+ *  [asc|desc]` with descending (`desc`) as default * `default` that can only be
+ *  descending If this parameter is omitted, it defaults to the descending
+ *  `relevance`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1630,10 +1659,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /**
  *  Optional. The query string with a minimum of 3 characters and specific
  *  syntax. For more information, see [Data Catalog search
- *  syntax](/data-catalog/docs/how-to/search-reference). An empty query string
- *  returns all data assets (in the specified scope) that you have access to. A
- *  query string can be a simple `xyz` or qualified by predicates: * `name:x` *
- *  `column:y` * `description:z`
+ *  syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference).
+ *  An empty query string returns all data assets (in the specified scope) that
+ *  you have access to. A query string can be a simple `xyz` or qualified by
+ *  predicates: * `name:x` * `column:y` * `description:z`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1680,8 +1709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Optional. If `true`, include public tag templates in the search results. By
  *  default, they are included only if you have explicit permissions on them to
  *  view them. For example, if you are the owner. Other scope fields, for
- *  example, ``include_org_ids``, still restrict the returned public tag
- *  templates and at least one of them is required.
+ *  example, `include_org_ids`, still restrict the returned public tag templates
+ *  and at least one of them is required.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1698,6 +1727,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  of this parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedLocations;
+
+/**
+ *  Optional. If `true`, search only among starred entries. By default, all
+ *  results are returned, starred or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *starredOnly;
 
 @end
 
@@ -1886,6 +1923,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /** Top level policy tags associated with the taxonomy, if any. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag *> *policyTags;
 
+@end
+
+
+/**
+ *  Request message for StarEntry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for StarEntry. Empty for now
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse : GTLRObject
 @end
 
 
@@ -2244,6 +2295,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 /** Output only. Creation and modification timestamps of this taxonomy. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *taxonomyTimestamps;
 
+@end
+
+
+/**
+ *  Request message for UnstarEntry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for UnstarEntry. Empty for now
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse : GTLRObject
 @end
 
 

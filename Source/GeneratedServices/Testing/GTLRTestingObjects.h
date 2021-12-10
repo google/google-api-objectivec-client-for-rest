@@ -118,7 +118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_Orche
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_OrchestratorOptionUnspecified;
 /**
  *  Run test using orchestrator. ** Only compatible with AndroidJUnitRunner
- *  version 1.0 or higher! ** Recommended.
+ *  version 1.1 or higher! ** Recommended.
  *
  *  Value: "USE_ORCHESTRATOR"
  */
@@ -483,7 +483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_InvalidMatrixDetails_
 /**
  *  The test runner class specified by user or in the test APK's manifest file
  *  is not compatible with Android Test Orchestrator. Orchestrator is only
- *  compatible with AndroidJUnitRunner version 1.0 or higher. Orchestrator can
+ *  compatible with AndroidJUnitRunner version 1.1 or higher. Orchestrator can
  *  be disabled by using DO_NOT_USE_ORCHESTRATOR OrchestratorOption.
  *
  *  Value: "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE"
@@ -897,7 +897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  The option of whether running each test within its own invocation of
  *  instrumentation with Android Test Orchestrator or not. ** Orchestrator is
- *  only compatible with AndroidJUnitRunner version 1.0 or higher! **
+ *  only compatible with AndroidJUnitRunner version 1.1 or higher! **
  *  Orchestrator offers the following benefits: - No shared state - Crashes are
  *  isolated - Logs are scoped per test See for more information about Android
  *  Test Orchestrator. If not set, the test will be run without the
@@ -915,7 +915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        offers. (Value: "ORCHESTRATOR_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRTesting_AndroidInstrumentationTest_OrchestratorOption_UseOrchestrator
  *        Run test using orchestrator. ** Only compatible with
- *        AndroidJUnitRunner version 1.0 or higher! ** Recommended. (Value:
+ *        AndroidJUnitRunner version 1.1 or higher! ** Recommended. (Value:
  *        "USE_ORCHESTRATOR")
  */
 @property(nonatomic, copy, nullable) NSString *orchestratorOption;
@@ -2498,7 +2498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *    @arg @c kGTLRTesting_TestMatrix_InvalidMatrixDetails_InstrumentationOrchestratorIncompatible
  *        The test runner class specified by user or in the test APK's manifest
  *        file is not compatible with Android Test Orchestrator. Orchestrator is
- *        only compatible with AndroidJUnitRunner version 1.0 or higher.
+ *        only compatible with AndroidJUnitRunner version 1.1 or higher.
  *        Orchestrator can be disabled by using DO_NOT_USE_ORCHESTRATOR
  *        OrchestratorOption. (Value:
  *        "INSTRUMENTATION_ORCHESTRATOR_INCOMPATIBLE")

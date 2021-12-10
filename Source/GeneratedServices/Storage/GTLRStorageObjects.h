@@ -340,8 +340,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
 
 /**
- *  The bucket's Public Access Prevention configuration. Currently,
- *  'unspecified' and 'enforced' are supported.
+ *  The bucket's Public Access Prevention configuration. Currently, 'inherited'
+ *  and 'enforced' are supported.
  */
 @property(nonatomic, copy, nullable) NSString *publicAccessPrevention;
 

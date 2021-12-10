@@ -769,8 +769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The number of nodes allocated to this cluster. More nodes enable
- *  higher throughput and more consistent performance.
+ *  The number of nodes allocated to this cluster. More nodes enable higher
+ *  throughput and more consistent performance.
  *
  *  Uses NSNumber of intValue.
  */
@@ -822,13 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @interface GTLRBigtableAdmin_ClusterConfig : GTLRObject
 
-/**
- *  Autoscaling configuration for this cluster. Note that when creating or
- *  updating a cluster, exactly one of serve_nodes or cluster_autoscaling_config
- *  must be set. If serve_nodes is set, then serve_nodes is fixed and
- *  autoscaling is turned off. If cluster_autoscaling_config is set, then
- *  serve_nodes will be autoscaled.
- */
+/** Autoscaling configuration for this cluster. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ClusterAutoscalingConfig *clusterAutoscalingConfig;
 
 @end
@@ -1334,12 +1328,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1918,6 +1915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /** The time at which the operation failed or was completed successfully. */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
+/** The original request for PartialUpdateCluster. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_PartialUpdateClusterRequest *originalRequest;
 
 /** The time at which the original request was received. */
@@ -1938,8 +1936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Cluster *cluster;
 
 /**
- *  Required. The subset of Cluster fields which should be replaced. Must be
- *  explicitly set.
+ *  Required. The subset of Cluster fields which should be replaced.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2399,6 +2396,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Metadata type for the operation returned by
+ *  google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable.
+ */
+@interface GTLRBigtableAdmin_UndeleteTableMetadata : GTLRObject
+
+/** If set, the time at which this operation finished or was cancelled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The name of the table being restored. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time at which this operation started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

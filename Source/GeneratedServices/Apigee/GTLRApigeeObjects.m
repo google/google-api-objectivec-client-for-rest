@@ -368,6 +368,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest
+@dynamic adjustment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig
 //
 

@@ -11,6 +11,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.writeDisposition
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
+
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.state
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_State_Deleting = @"DELETING";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel_State_Deployed = @"DEPLOYED";
@@ -61,6 +66,11 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1En
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Common = @"COMMON";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_MentionTypeUnspecified = @"MENTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Proper = @"PROPER";
+
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.writeDisposition
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteAppend = @"WRITE_APPEND";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.state
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel_State_Deleting = @"DELETING";
@@ -195,7 +205,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest
-@dynamic bigQueryDestination, filter, kmsKey, parent;
+@dynamic bigQueryDestination, filter, kmsKey, parent, writeDisposition;
 @end
 
 
@@ -870,7 +880,7 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest
-@dynamic bigQueryDestination, filter, kmsKey, parent;
+@dynamic bigQueryDestination, filter, kmsKey, parent, writeDisposition;
 @end
 
 

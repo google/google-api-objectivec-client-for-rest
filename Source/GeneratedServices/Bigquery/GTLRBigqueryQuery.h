@@ -1633,6 +1633,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  */
 @interface GTLRBigqueryQuery_TablesPatch : GTLRBigqueryQuery
 
+/** When true will autodetect schema, else will keep original schema */
+@property(nonatomic, assign) BOOL autodetectSchema;
+
 /** Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
@@ -1759,6 +1762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  */
 @interface GTLRBigqueryQuery_TablesUpdate : GTLRBigqueryQuery
+
+/** When true will autodetect schema, else will keep original schema */
+@property(nonatomic, assign) BOOL autodetectSchema;
 
 /** Dataset ID of the table to update */
 @property(nonatomic, copy, nullable) NSString *datasetId;

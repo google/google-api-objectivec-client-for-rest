@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsList : GTLRRecommendationsAIQuery
 
-/** Optional. A filter to apply on the list results. */
+/** Optional. Use of this field is not supported by version v1beta1. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**

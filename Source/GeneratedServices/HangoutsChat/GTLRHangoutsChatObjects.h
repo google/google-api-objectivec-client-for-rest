@@ -75,6 +75,7 @@
 @class GTLRHangoutsChat_ImageButton;
 @class GTLRHangoutsChat_Inputs;
 @class GTLRHangoutsChat_KeyValue;
+@class GTLRHangoutsChat_MatchedUrl;
 @class GTLRHangoutsChat_Membership;
 @class GTLRHangoutsChat_Message;
 @class GTLRHangoutsChat_OnClick;
@@ -83,6 +84,8 @@
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
 @class GTLRHangoutsChat_Space;
+@class GTLRHangoutsChat_Status;
+@class GTLRHangoutsChat_Status_Details_Item;
 @class GTLRHangoutsChat_StringInputs;
 @class GTLRHangoutsChat_TextButton;
 @class GTLRHangoutsChat_TextParagraph;
@@ -132,6 +135,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUns
  *  Value: "UPDATE_MESSAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage;
+/**
+ *  Update the cards on a user's message. This is only permitted as a response
+ *  to a MESSAGE event with a matched url, or a CARD_CLICKED event where the
+ *  message sender type is HUMAN. Text will be ignored.
+ *
+ *  Value: "UPDATE_USER_MESSAGE_CARDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ActionStatus.statusCode
@@ -1059,6 +1070,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage Update the
  *        bot's message. This is only permitted on a CARD_CLICKED event where
  *        the message sender type is BOT. (Value: "UPDATE_MESSAGE")
+ *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateUserMessageCards
+ *        Update the cards on a user's message. This is only permitted as a
+ *        response to a MESSAGE event with a matched url, or a CARD_CLICKED
+ *        event where the message sender type is HUMAN. Text will be ignored.
+ *        (Value: "UPDATE_USER_MESSAGE_CARDS")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1767,6 +1783,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** The id for the drive file, for use with the Drive API. */
 @property(nonatomic, copy, nullable) NSString *driveFileId;
+
+@end
+
+
+/**
+ *  JSON payload of error messages. If the Cloud Logging API is enabled, these
+ *  error messages are logged to [Google Cloud
+ *  Logging](https://cloud.google.com/logging/docs).
+ */
+@interface GTLRHangoutsChat_DynamiteIntegrationLogEntry : GTLRObject
+
+/**
+ *  The deployment that caused the error. For Chat bots built in Apps Script,
+ *  this is the deployment ID defined by Apps Script.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  The unencrypted `callback_method` name that was running when the error was
+ *  encountered.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentFunction;
+
+/** The error code and message. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Status *error;
 
 @end
 
@@ -3051,6 +3092,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  A matched url in a Chat message. Chat bots can unfurl matched URLs. For more
+ *  information, refer to [Unfurl links](/chat/how-tos/link-unfurling).
+ */
+@interface GTLRHangoutsChat_MatchedUrl : GTLRObject
+
+/** The url that was matched. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  Media resource.
  */
 @interface GTLRHangoutsChat_Media : GTLRObject
@@ -3067,8 +3120,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Membership : GTLRObject
 
 /**
- *  The creation time of the membership a.k.a. the time at which the member
- *  joined the space, if applicable.
+ *  Output only. The creation time of the membership a.k.a. the time at which
+ *  the member joined the space, if applicable.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3078,7 +3131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  State of the membership.
+ *  State of the membership. Required for `CreateMembership`. Read-only for
+ *  other usage.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_State_Invited The user has been
@@ -3144,8 +3198,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
 /**
+ *  A URL in `spaces.messages.text` that matches a link unfurling pattern. For
+ *  more information, refer to [Unfurl links](/chat/how-tos/link-unfurling).
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_MatchedUrl *matchedUrl;
+
+/**
  *  Resource name in the form `spaces/ * /messages/ *`. Example:
- *  `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
+ *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3279,8 +3339,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Space : GTLRObject
 
 /**
- *  The display name (only if the space is of type `ROOM`). Please note that
- *  this field might not be populated in direct messages between humans.
+ *  The space's display name. For direct messages between humans, this field
+ *  might be empty.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3291,22 +3351,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Whether the space is a DM between a bot and a single human.
+ *  Output only. Whether the space is a DM between a bot and a single human.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *singleUserBotDm;
 
 /**
- *  Whether the messages are threaded in this space.
+ *  Output only. Whether the messages are threaded in this space.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *threaded;
 
 /**
- *  Output only. The type of a space. This is deprecated. Use
- *  `single_user_bot_dm` instead.
+ *  Deprecated. Use `single_user_bot_dm` instead. Output only. The type of a
+ *  space.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
@@ -3319,6 +3379,51 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRHangoutsChat_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHangoutsChat_Status_Details_Item : GTLRObject
 @end
 
 
@@ -3365,7 +3470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Resource name, in the form "spaces/ * /threads/ *". Example:
- *  spaces/AAAAMpdlehY/threads/UMxbHmzDlr4
+ *  spaces/AAAAAAAAAAA/threads/TTTTTTTTTTT
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

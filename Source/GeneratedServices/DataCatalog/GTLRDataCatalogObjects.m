@@ -287,8 +287,9 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 @dynamic bigqueryDateShardedSpec, bigqueryTableSpec, databaseTableSpec,
          dataSource, dataSourceConnectionSpec, descriptionProperty, displayName,
          fullyQualifiedName, gcsFilesetSpec, integratedSystem, labels,
-         linkedResource, name, routineSpec, schema, sourceSystemTimestamps,
-         type, usageSignal, userSpecifiedSystem, userSpecifiedType;
+         linkedResource, name, personalDetails, routineSpec, schema,
+         sourceSystemTimestamps, type, usageSignal, userSpecifiedSystem,
+         userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -569,6 +570,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails
+@dynamic starred, starTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag
 //
 
@@ -684,7 +695,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope
 @dynamic includeGcpPublicDatasets, includeOrgIds, includeProjectIds,
-         includePublicTagTemplates, restrictedLocations;
+         includePublicTagTemplates, restrictedLocations, starredOnly;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -780,6 +791,24 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse
 @end
 
 
@@ -912,6 +941,24 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse
 @end
 
 

@@ -268,7 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 
 /**
  *  Resource name of the ad client. Format:
- *  accounts/{account}/adclient/{adclient}
+ *  accounts/{account}/adclients/{adclient}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -326,7 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 
 /**
  *  Resource name of the ad unit. Format:
- *  accounts/{account}/adclient/{adclient}/adunits/{adunit}
+ *  accounts/{account}/adclients/{adclient}/adunits/{adunit}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1082,7 +1082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 
 /**
  *  Resource name of the URL channel. Format:
- *  accounts/{account}/adclient/{adclient}/urlchannels/{urlchannel}
+ *  accounts/{account}/adclients/{adclient}/urlchannels/{urlchannel}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -30,6 +30,10 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
@@ -261,6 +265,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentio
  *  Value: "TWO_MONTHS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaDataStream.type
+
+/**
+ *  Android app data stream.
+ *
+ *  Value: "ANDROID_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_AndroidAppDataStream;
+/**
+ *  Type unknown or not specified.
+ *
+ *  Value: "DATA_STREAM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_DataStreamTypeUnspecified;
+/**
+ *  iOS app data stream.
+ *
+ *  Value: "IOS_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_IosAppDataStream;
+/**
+ *  Web data stream.
+ *
+ *  Value: "WEB_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
@@ -645,6 +677,18 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Value: "DATA_RETENTION_SETTINGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings;
+/**
+ *  DisplayVideo360AdvertiserLink resource
+ *
+ *  Value: "DISPLAY_VIDEO_360_ADVERTISER_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink;
+/**
+ *  DisplayVideo360AdvertiserLinkProposal resource
+ *
+ *  Value: "DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal;
 /**
  *  FirebaseLink resource
  *
@@ -1504,6 +1548,131 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  A resource message representing a data stream.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataStream : GTLRObject
+
+/**
+ *  Data specific to Android app streams. Must be populated if type is
+ *  ANDROID_APP_DATA_STREAM.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData *androidAppStreamData;
+
+/** Output only. Time when this stream was originally created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human-readable display name for the Data Stream. Required for web data
+ *  streams. The max allowed display name length is 255 UTF-16 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Data specific to iOS app streams. Must be populated if type is
+ *  IOS_APP_DATA_STREAM.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData *iosAppStreamData;
+
+/**
+ *  Output only. Resource name of this Data Stream. Format:
+ *  properties/{property_id}/dataStreams/{stream_id} Example:
+ *  "properties/1000/dataStreams/2000"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The type of this DataStream resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_AndroidAppDataStream
+ *        Android app data stream. (Value: "ANDROID_APP_DATA_STREAM")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_DataStreamTypeUnspecified
+ *        Type unknown or not specified. (Value: "DATA_STREAM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_IosAppDataStream
+ *        iOS app data stream. (Value: "IOS_APP_DATA_STREAM")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream Web
+ *        data stream. (Value: "WEB_DATA_STREAM")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Time when stream payload fields were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Data specific to web streams. Must be populated if type is WEB_DATA_STREAM.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData *webStreamData;
+
+@end
+
+
+/**
+ *  Data specific to Android app streams.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData : GTLRObject
+
+/**
+ *  Output only. ID of the corresponding Android app in Firebase, if any. This
+ *  ID can change if the Android app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+/**
+ *  Immutable. The package name for the app being measured. Example:
+ *  "com.example.myandroidapp"
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  Data specific to iOS app streams.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData : GTLRObject
+
+/**
+ *  Required. Immutable. The Apple App Store Bundle ID for the app Example:
+ *  "com.example.myiosapp"
+ */
+@property(nonatomic, copy, nullable) NSString *bundleId;
+
+/**
+ *  Output only. ID of the corresponding iOS app in Firebase, if any. This ID
+ *  can change if the iOS app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+@end
+
+
+/**
+ *  Data specific to web streams.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData : GTLRObject
+
+/**
+ *  Immutable. Domain name of the web app being measured, or empty. Example:
+ *  "http://www.google.com", "https://www.google.com"
+ */
+@property(nonatomic, copy, nullable) NSString *defaultUri;
+
+/**
+ *  Output only. ID of the corresponding web app in Firebase, if any. This ID
+ *  can change if the web app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+/**
+ *  Output only. Analytics "Measurement ID", without the "G-" prefix. Example:
+ *  "G-1A2BCD345E" would just be "1A2BCD345E"
+ */
+@property(nonatomic, copy, nullable) NSString *measurementId;
+
+@end
+
+
+/**
  *  Request message for DeleteUserLink RPC.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest : GTLRObject
@@ -2033,6 +2202,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Response message for ListDataStreams RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataStreams" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse : GTLRCollectionObject
+
+/**
+ *  List of DataStreams.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaDataStream *> *dataStreams;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListDisplayVideo360AdvertiserLinkProposals RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2453,7 +2649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary : GTLRObject
 
-/** Display name for the property referred to in this account summary. */
+/** Display name for the property referred to in this property summary. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**

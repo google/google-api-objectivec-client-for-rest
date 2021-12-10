@@ -1437,6 +1437,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for AdjustDeveloperBalance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest : GTLRObject
+
+/**
+ *  * A positive value of `adjustment` means that that the API provider wishes
+ *  to adjust the balance for an over-charged developer i.e. the balance of the
+ *  developer will increase. * A negative value of `adjustment` means that that
+ *  the API provider wishes to adjust the balance for an under-charged developer
+ *  i.e. the balance of the developer will decrease.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *adjustment;
+
+@end
+
+
+/**
  *  Configuration for the Advanced API Ops add-on.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig : GTLRObject

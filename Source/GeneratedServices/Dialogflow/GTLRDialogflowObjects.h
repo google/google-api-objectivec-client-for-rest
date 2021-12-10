@@ -71,6 +71,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo_Parameters;
@@ -165,6 +166,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep;
@@ -4329,6 +4331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio *playAudio;
 
+/**
+ *  A signal that the client should transfer the phone call connected to this
+ *  agent to a third-party endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageTelephonyTransferCall *telephonyTransferCall;
+
 /** Returns a text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText *text;
 
@@ -4511,6 +4519,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  on this value. It is specific to the client that reads it.
  */
 @property(nonatomic, copy, nullable) NSString *audioUri;
+
+@end
+
+
+/**
+ *  Represents the signal that telles the client to transfer the phone call
+ *  connected to the agent to a third-party endpoint.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageTelephonyTransferCall : GTLRObject
+
+/**
+ *  Transfer the call to a phone number in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164).
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 @end
 
@@ -8603,6 +8626,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio *playAudio;
 
+/**
+ *  A signal that the client should transfer the phone call connected to this
+ *  agent to a third-party endpoint.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall *telephonyTransferCall;
+
 /** Returns a text response. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText *text;
 
@@ -8785,6 +8814,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  on this value. It is specific to the client that reads it.
  */
 @property(nonatomic, copy, nullable) NSString *audioUri;
+
+@end
+
+
+/**
+ *  Represents the signal that telles the client to transfer the phone call
+ *  connected to the agent to a third-party endpoint.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall : GTLRObject
+
+/**
+ *  Transfer the call to a phone number in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164).
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 @end
 

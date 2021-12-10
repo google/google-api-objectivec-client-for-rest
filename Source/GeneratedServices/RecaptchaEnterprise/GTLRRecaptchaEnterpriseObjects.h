@@ -126,12 +126,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.reasons
 
 /**
- *  Indicates a chargeback for fraud was issued for the transaction associated
- *  with the assessment.
+ *  Indicates a chargeback was issued for the transaction associated with the
+ *  assessment, with no other details. When possible, specify the type by using
+ *  CHARGEBACK_FRAUD or CHARGEBACK_DISPUTE instead.
  *
  *  Value: "CHARGEBACK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_Chargeback;
+/**
+ *  Indicates a chargeback related to the cardholder having provided their card
+ *  but allegedly not being satisfied with the purchase (for example,
+ *  misrepresentation, attempted cancellation).
+ *
+ *  Value: "CHARGEBACK_DISPUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_ChargebackDispute;
+/**
+ *  Indicates a chargeback related to an alleged unauthorized transaction from
+ *  the perspective of the cardholder (for example, the card number was stolen).
+ *
+ *  Value: "CHARGEBACK_FRAUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_ChargebackFraud;
 /**
  *  Indicates the user provided the correct password.
  *

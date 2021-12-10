@@ -1102,7 +1102,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentRevision
-@dynamic agent, createTime, humanReview, identifier, parent, processor;
+@dynamic agent, createTime, humanReview, identifier, parent, parentIds,
+         processor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1110,7 +1111,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parent" : [NSNumber class]
+    @"parent" : [NSNumber class],
+    @"parentIds" : [NSString class]
   };
   return map;
 }
@@ -1726,7 +1728,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentRevision
-@dynamic agent, createTime, humanReview, identifier, parent, processor;
+@dynamic agent, createTime, humanReview, identifier, parent, parentIds,
+         processor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1734,7 +1737,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parent" : [NSNumber class]
+    @"parent" : [NSNumber class],
+    @"parentIds" : [NSString class]
   };
   return map;
 }
@@ -2620,7 +2624,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentRevision
-@dynamic agent, createTime, humanReview, identifier, parent, processor;
+@dynamic agent, createTime, humanReview, identifier, parent, parentIds,
+         processor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2628,7 +2633,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"parent" : [NSNumber class]
+    @"parent" : [NSNumber class],
+    @"parentIds" : [NSString class]
   };
   return map;
 }

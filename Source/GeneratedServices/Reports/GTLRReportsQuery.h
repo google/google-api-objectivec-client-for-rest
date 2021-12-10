@@ -146,21 +146,21 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMeet;
 /**
- *  The Mobile Audit activity report return information about different types of
- *  Mobile Audit activity events.
+ *  The Device Audit activity report returns information about different types
+ *  of Device Audit activity events.
  *
  *  Value: "mobile"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMobile;
 /**
- *  The Rules activity report return information about different types of Rules
+ *  The Rules activity report returns information about different types of Rules
  *  activity events.
  *
  *  Value: "rules"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameRules;
 /**
- *  The SAML activity report return information about different types of SAML
+ *  The SAML activity report returns information about different types of SAML
  *  activity events.
  *
  *  Value: "saml"
@@ -180,24 +180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameToken;
  *  Value: "user_accounts"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
-
-// ----------------------------------------------------------------------------
-// entityKey
-
-/**
- *  Returns activity events for all users.
- *
- *  Value: "all"
- */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyAll;
-/**
- *  Represents an app-specific identifier for the entity. For details on how to
- *  obtain the `entityKey` for a particular `entityType`, see the Entities Usage
- *  parameters reference guides.
- *
- *  Value: "entityKey"
- */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
 
 // ----------------------------------------------------------------------------
 // entityType
@@ -288,13 +270,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
  *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
- *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
- *        return information about different types of Mobile Audit activity
+ *    @arg @c kGTLRReportsApplicationNameMobile The Device Audit activity report
+ *        returns information about different types of Device Audit activity
  *        events. (Value: "mobile")
- *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report returns
  *        information about different types of Rules activity events. (Value:
  *        "rules")
- *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report returns
  *        information about different types of SAML activity events. (Value:
  *        "saml")
  *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
@@ -498,13 +480,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
  *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
- *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
- *        return information about different types of Mobile Audit activity
+ *    @arg @c kGTLRReportsApplicationNameMobile The Device Audit activity report
+ *        returns information about different types of Device Audit activity
  *        events. (Value: "mobile")
- *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report returns
  *        information about different types of Rules activity events. (Value:
  *        "rules")
- *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report returns
  *        information about different types of SAML activity events. (Value:
  *        "saml")
  *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
@@ -603,13 +585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
  *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
- *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
- *        return information about different types of Mobile Audit activity
+ *    @arg @c kGTLRReportsApplicationNameMobile The Device Audit activity report
+ *        returns information about different types of Device Audit activity
  *        events. (Value: "mobile")
- *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report returns
  *        information about different types of Rules activity events. (Value:
  *        "rules")
- *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report returns
  *        information about different types of SAML activity events. (Value:
  *        "saml")
  *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
@@ -812,13 +794,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameMeet The Meet Audit activity report
  *        returns information about different types of Meet Audit activity
  *        events. (Value: "meet")
- *    @arg @c kGTLRReportsApplicationNameMobile The Mobile Audit activity report
- *        return information about different types of Mobile Audit activity
+ *    @arg @c kGTLRReportsApplicationNameMobile The Device Audit activity report
+ *        returns information about different types of Device Audit activity
  *        events. (Value: "mobile")
- *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report return
+ *    @arg @c kGTLRReportsApplicationNameRules The Rules activity report returns
  *        information about different types of Rules activity events. (Value:
  *        "rules")
- *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report return
+ *    @arg @c kGTLRReportsApplicationNameSaml The SAML activity report returns
  *        information about different types of SAML activity events. (Value:
  *        "saml")
  *    @arg @c kGTLRReportsApplicationNameToken The Token application's activity
@@ -964,15 +946,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *date;
 
 /**
- *  Represents the key of the object to filter the data with.
- *
- *  Likely values:
- *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
- *        (Value: "all")
- *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
- *        identifier for the entity. For details on how to obtain the
- *        `entityKey` for a particular `entityType`, see the Entities Usage
- *        parameters reference guides. (Value: "entityKey")
+ *  Represents the key of the object to filter the data with. It is a string
+ *  which can take the value `all` to get activity events for all users, or any
+ *  other value for an app-specific entity. For details on how to obtain the
+ *  `entityKey` for a particular `entityType`, see the Entities Usage parameters
+ *  reference guides.
  */
 @property(nonatomic, copy, nullable) NSString *entityKey;
 
@@ -1051,6 +1029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *
  *  @param entityType Represents the type of entity for the report.
  *  @param entityKey Represents the key of the object to filter the data with.
+ *    It is a string which can take the value `all` to get activity events for
+ *    all users, or any other value for an app-specific entity. For details on
+ *    how to obtain the `entityKey` for a particular `entityType`, see the
+ *    Entities Usage parameters reference guides.
  *  @param date Represents the date the usage occurred. The timestamp is in the
  *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
  *    for this.
@@ -1058,14 +1040,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Likely values for @c entityType:
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
- *
- *  Likely values for @c entityKey:
- *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
- *        (Value: "all")
- *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
- *        identifier for the entity. For details on how to obtain the
- *        `entityKey` for a particular `entityType`, see the Entities Usage
- *        parameters reference guides. (Value: "entityKey")
  *
  *  @return GTLRReportsQuery_EntityUsageReportsGet
  */

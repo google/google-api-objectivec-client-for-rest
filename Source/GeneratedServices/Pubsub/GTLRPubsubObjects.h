@@ -100,6 +100,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_EncodingU
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json;
 
 // ----------------------------------------------------------------------------
+// GTLRPubsub_Subscription.state
+
+/**
+ *  The subscription can actively receive messages
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Subscription_State_Active;
+/**
+ *  The subscription cannot receive messages because of an error with the
+ *  resource to which it pushes messages. See the more detailed error state in
+ *  the corresponding configuration.
+ *
+ *  Value: "RESOURCE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Subscription_State_ResourceError;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Subscription_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPubsub_ValidateMessageRequest.encoding
 
 /**
@@ -1193,8 +1217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  If push delivery is used with this subscription, this field is used to
- *  configure it. An empty `pushConfig` signifies that the subscriber will pull
- *  and ack messages using API methods.
+ *  configure it. At most one of `pushConfig` and `bigQueryConfig` can be set.
+ *  If both are empty, then the subscriber will pull and ack messages using API
+ *  methods.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
 
@@ -1218,6 +1243,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  acknowledgement deadline exceeded events for a given message.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_RetryPolicy *retryPolicy;
+
+/**
+ *  Output only. An output-only field indicating whether or not the subscription
+ *  can receive messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Subscription_State_Active The subscription can
+ *        actively receive messages (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_Subscription_State_ResourceError The subscription
+ *        cannot receive messages because of an error with the resource to which
+ *        it pushes messages. See the more detailed error state in the
+ *        corresponding configuration. (Value: "RESOURCE_ERROR")
+ *    @arg @c kGTLRPubsub_Subscription_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Required. The name of the topic from which this subscription is receiving
