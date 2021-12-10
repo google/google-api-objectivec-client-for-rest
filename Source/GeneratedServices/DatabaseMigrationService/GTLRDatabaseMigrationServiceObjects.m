@@ -202,10 +202,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
-@dynamic activationPolicy, autoStorageIncrease, collation, databaseFlags,
-         databaseVersion, dataDiskSizeGb, dataDiskType, ipConfig, rootPassword,
-         rootPasswordSet, sourceId, storageAutoResizeLimit, tier, userLabels,
-         zoneProperty;
+@dynamic activationPolicy, autoStorageIncrease, cmekKeyName, collation,
+         databaseFlags, databaseVersion, dataDiskSizeGb, dataDiskType, ipConfig,
+         rootPassword, rootPasswordSet, sourceId, storageAutoResizeLimit, tier,
+         userLabels, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

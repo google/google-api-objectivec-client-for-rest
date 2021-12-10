@@ -40,10 +40,6 @@ NSString * const kGTLRReportsApplicationNameSaml               = @"saml";
 NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 
-// entityKey
-NSString * const kGTLRReportsEntityKeyAll       = @"all";
-NSString * const kGTLRReportsEntityKeyEntityKey = @"entityKey";
-
 // entityType
 NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 

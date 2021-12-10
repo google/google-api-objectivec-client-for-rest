@@ -1065,7 +1065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Drops (aka deletes) a Cloud Spanner database. Completed backups for the
- *  database will be retained according to their `expire_time`.
+ *  database will be retained according to their `expire_time`. Note: Cloud
+ *  Spanner might continue to accept requests for a few seconds after the
+ *  database has been deleted.
  *
  *  Method: spanner.projects.instances.databases.dropDatabase
  *
@@ -1082,7 +1084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Fetches a @c GTLRSpanner_Empty.
  *
  *  Drops (aka deletes) a Cloud Spanner database. Completed backups for the
- *  database will be retained according to their `expire_time`.
+ *  database will be retained according to their `expire_time`. Note: Cloud
+ *  Spanner might continue to accept requests for a few seconds after the
+ *  database has been deleted.
  *
  *  @param database Required. The database to be dropped.
  *

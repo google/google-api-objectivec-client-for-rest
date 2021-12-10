@@ -169,6 +169,33 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @end
 
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_TestIamPermissionsResponse class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.accessLevels.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessContextManagerQuery_AccessPoliciesCreate
 
 + (instancetype)queryWithObject:(GTLRAccessContextManager_AccessPolicy *)object {
@@ -224,6 +251,33 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.name = name;
   query.expectedObjectClass = [GTLRAccessContextManager_AccessPolicy class];
   query.loggingName = @"accesscontextmanager.accessPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAccessContextManagerQuery_AccessPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_Policy class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.getIamPolicy";
   return query;
 }
 
@@ -433,6 +487,87 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
   query.parent = parent;
   query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
   query.loggingName = @"accesscontextmanager.accessPolicies.servicePerimeters.replaceAll";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_TestIamPermissionsResponse class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.servicePerimeters.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAccessContextManagerQuery_AccessPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_Policy class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_AccessPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAccessContextManagerQuery_AccessPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAccessContextManager_TestIamPermissionsResponse class];
+  query.loggingName = @"accesscontextmanager.accessPolicies.testIamPermissions";
   return query;
 }
 

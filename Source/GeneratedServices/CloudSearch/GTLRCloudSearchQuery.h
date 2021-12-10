@@ -2094,8 +2094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Initializes the customer. **Note:** This API requires an admin account to
- *  execute.
+ *  Enables `third party` support in Google Cloud Search. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  Method: cloudsearch.initializeCustomer
  *
@@ -2109,8 +2109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Initializes the customer. **Note:** This API requires an admin account to
- *  execute.
+ *  Enables `third party` support in Google Cloud Search. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  @param object The @c GTLRCloudSearch_InitializeCustomerRequest to include in
  *    the query.

@@ -26,11 +26,13 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadCJISSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadFedrampHighSettings;
@@ -39,6 +41,7 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceInfo;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Response;
@@ -184,6 +187,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.kajEnrollmentState
+
+/**
+ *  Complete State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateComplete;
+/**
+ *  Pending State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStatePending;
+/**
+ *  Default State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo.resourceType
 
 /**
@@ -252,6 +277,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse.setupErrors
+
+/**
+ *  Invalid states for all customers, to be redirected to AA UI for additional
+ *  details.
+ *
+ *  Value: "ERROR_INVALID_BASE_SETUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup;
+/**
+ *  Returned when there is not an EKM key configured.
+ *
+ *  Value: "ERROR_MISSING_EXTERNAL_SIGNING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey;
+/**
+ *  Returned when there are no enrolled services or the customer is enrolled in
+ *  CAA only for a subset of services.
+ *
+ *  Value: "ERROR_NOT_ALL_SERVICES_ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled;
+/**
+ *  Returned when exception was encountered during evaluation of other criteria.
+ *
+ *  Value: "ERROR_SETUP_CHECK_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_ERROR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse.setupStatus
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified;
+/**
+ *  SAA enrollment comopleted.
+ *
+ *  Value: "STATUS_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete;
+/**
+ *  SAA enrollment pending.
+ *
+ *  Value: "STATUS_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
@@ -382,10 +465,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
+
+/**
+ *  Complete State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateComplete;
+/**
+ *  Pending State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStatePending;
+/**
+ *  Default State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
 
 /**
- *  Consumer project.
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder;
+/**
+ *  Consumer project. AssuredWorkloads Projects are no longer supported. This
+ *  field will be ignored only in CreateWorkload requests. ListWorkloads and
+ *  GetWorkload will continue to provide projects information. Use
+ *  CONSUMER_FOLDER instead.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -413,7 +527,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings.resourceType
 
 /**
- *  Consumer project.
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerFolder;
+/**
+ *  Consumer project. AssuredWorkloads Projects are no longer supported. This
+ *  field will be ignored only in CreateWorkload requests. ListWorkloads and
+ *  GetWorkload will continue to provide projects information. Use
+ *  CONSUMER_FOLDER instead.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -436,6 +559,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse.setupErrors
+
+/**
+ *  Invalid states for all customers, to be redirected to AA UI for additional
+ *  details.
+ *
+ *  Value: "ERROR_INVALID_BASE_SETUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup;
+/**
+ *  Returned when there is not an EKM key configured.
+ *
+ *  Value: "ERROR_MISSING_EXTERNAL_SIGNING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey;
+/**
+ *  Returned when there are no enrolled services or the customer is enrolled in
+ *  CAA only for a subset of services.
+ *
+ *  Value: "ERROR_NOT_ALL_SERVICES_ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled;
+/**
+ *  Returned when exception was encountered during evaluation of other criteria.
+ *
+ *  Value: "ERROR_SETUP_CHECK_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_ERROR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse.setupStatus
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified;
+/**
+ *  SAA enrollment comopleted.
+ *
+ *  Value: "STATUS_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete;
+/**
+ *  SAA enrollment pending.
+ *
+ *  Value: "STATUS_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata.complianceRegime
@@ -566,6 +747,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_UsRegionalAccess;
 
 // ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload.kajEnrollmentState
+
+/**
+ *  Complete State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateComplete;
+/**
+ *  Pending State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStatePending;
+/**
+ *  Default State for KAJ Enrollment.
+ *
+ *  Value: "KAJ_ENROLLMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceInfo.resourceType
 
 /**
@@ -634,6 +837,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse.setupErrors
+
+/**
+ *  Invalid states for all customers, to be redirected to AA UI for additional
+ *  details.
+ *
+ *  Value: "ERROR_INVALID_BASE_SETUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup;
+/**
+ *  Returned when there is not an EKM key configured.
+ *
+ *  Value: "ERROR_MISSING_EXTERNAL_SIGNING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey;
+/**
+ *  Returned when there are no enrolled services or the customer is enrolled in
+ *  CAA only for a subset of services.
+ *
+ *  Value: "ERROR_NOT_ALL_SERVICES_ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled;
+/**
+ *  Returned when exception was encountered during evaluation of other criteria.
+ *
+ *  Value: "ERROR_SETUP_CHECK_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_ERROR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse.setupStatus
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "SETUP_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified;
+/**
+ *  SAA enrollment comopleted.
+ *
+ *  Value: "STATUS_COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete;
+/**
+ *  SAA enrollment pending.
+ *
+ *  Value: "STATUS_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusPending;
 
 /**
  *  Operation metadata to give request details of CreateWorkload.
@@ -756,6 +1017,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Indicates the sovereignty status of the given workload. Currently
+ *  meant to be used by Europe/Canada customers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSovereignControls;
+
+/**
  *  Optional. ETag of the workload, it is calculated on the basis of the
  *  Workload contents. It will be used in Update & Delete operations.
  */
@@ -778,6 +1047,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  IL4.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings *il4Settings;
+
+/**
+ *  Output only. Represents the KAJ enrollment state of the given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateComplete
+ *        Complete State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStatePending
+ *        Pending State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_PENDING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified
+ *        Default State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
  *  Input only. Settings used to create a CMEK crypto key. When set a project
@@ -817,6 +1102,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  create workload resources if possible. This field is optional.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings *> *resourceSettings;
+
+/**
+ *  Output only. Represents the SAA enrollment response of the given workload.
+ *  SAA enrollment response is queried during GetWorkload call. In failure
+ *  cases, user friendly error message is shown in SAA details page.
+ */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse *saaEnrollmentResponse;
 
 @end
 
@@ -985,6 +1277,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Signed Access Approvals (SAA) enrollment response.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse : GTLRObject
+
+/** Indicates SAA enrollment setup error if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setupErrors;
+
+/**
+ *  Indicates SAA enrollment status of a given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified
+ *        Unspecified. (Value: "SETUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete
+ *        SAA enrollment comopleted. (Value: "STATUS_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending
+ *        SAA enrollment pending. (Value: "STATUS_PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *setupStatus;
+
+@end
+
+
+/**
  *  Operation metadata to give request details of CreateWorkload.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata : GTLRObject
@@ -1117,10 +1433,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Indicates the sovereignty status of the given workload. Currently
+ *  meant to be used by Europe/Canada customers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSovereignControls;
+
+/**
  *  Optional. ETag of the workload, it is calculated on the basis of the
  *  Workload contents. It will be used in Update & Delete operations.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Represents the KAJ enrollment state of the given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateComplete
+ *        Complete State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStatePending
+ *        Pending State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_PENDING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified
+ *        Default State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
  *  Input only. Settings used to create a CMEK crypto key. When set a project
@@ -1160,6 +1500,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  create workload resources if possible. This field is optional.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings *> *resourceSettings;
+
+/**
+ *  Output only. Represents the SAA enrollment response of the given workload.
+ *  SAA enrollment response is queried during GetWorkload call. In failure
+ *  cases, user friendly error message is shown in SAA details page.
+ */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse *saaEnrollmentResponse;
 
 @end
 
@@ -1214,8 +1561,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Indicates the type of resource.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerProject
- *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *        Consumer project. AssuredWorkloads Projects are no longer supported.
+ *        This field will be ignored only in CreateWorkload requests.
+ *        ListWorkloads and GetWorkload will continue to provide projects
+ *        information. Use CONSUMER_FOLDER instead. (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
@@ -1252,8 +1604,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  ENCRYPTION_KEYS_PROJECT)
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject
- *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *        Consumer project. AssuredWorkloads Projects are no longer supported.
+ *        This field will be ignored only in CreateWorkload requests.
+ *        ListWorkloads and GetWorkload will continue to provide projects
+ *        information. Use CONSUMER_FOLDER instead. (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
@@ -1263,6 +1620,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Signed Access Approvals (SAA) enrollment response.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse : GTLRObject
+
+/** Indicates SAA enrollment setup error if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setupErrors;
+
+/**
+ *  Indicates SAA enrollment status of a given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified
+ *        Unspecified. (Value: "SETUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete
+ *        SAA enrollment comopleted. (Value: "STATUS_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending
+ *        SAA enrollment pending. (Value: "STATUS_PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *setupStatus;
 
 @end
 
@@ -1388,6 +1769,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Optional. Indicates the sovereignty status of the given workload. Currently
+ *  meant to be used by Europe/Canada customers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSovereignControls;
+
+/**
  *  Optional. ETag of the workload, it is calculated on the basis of the
  *  Workload contents. It will be used in Update & Delete operations.
  */
@@ -1410,6 +1799,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  IL4.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadIL4Settings *il4Settings;
+
+/**
+ *  Output only. Represents the KAJ enrollment state of the given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateComplete
+ *        Complete State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStatePending
+ *        Pending State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_PENDING")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateUnspecified
+ *        Default State for KAJ Enrollment. (Value:
+ *        "KAJ_ENROLLMENT_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
  *  Input only. Settings used to create a CMEK crypto key. When set a project
@@ -1449,6 +1854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  create workload resources if possible. This field is optional.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings *> *resourceSettings;
+
+/**
+ *  Output only. Represents the SAA enrollment response of the given workload.
+ *  SAA enrollment response is queried during GetWorkload call. In failure
+ *  cases, user friendly error message is shown in SAA details page.
+ */
+@property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse *saaEnrollmentResponse;
 
 @end
 
@@ -1612,6 +2024,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Signed Access Approvals (SAA) enrollment response.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse : GTLRObject
+
+/** Indicates SAA enrollment setup error if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *setupErrors;
+
+/**
+ *  Indicates SAA enrollment status of a given workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified
+ *        Unspecified. (Value: "SETUP_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete
+ *        SAA enrollment comopleted. (Value: "STATUS_COMPLETE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusPending
+ *        SAA enrollment pending. (Value: "STATUS_PENDING")
+ */
+@property(nonatomic, copy, nullable) NSString *setupStatus;
 
 @end
 

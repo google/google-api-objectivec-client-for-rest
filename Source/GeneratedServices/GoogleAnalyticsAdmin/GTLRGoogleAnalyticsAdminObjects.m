@@ -53,6 +53,12 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDat
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwentySixMonths = @"TWENTY_SIX_MONTHS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings_EventDataRetention_TwoMonths = @"TWO_MONTHS";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaDataStream.type
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_DataStreamTypeUnspecified = @"DATA_STREAM_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_IosAppDataStream = @"IOS_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaDataStream_Type_WebDataStream = @"WEB_DATA_STREAM";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented = @"GOOGLE_SIGNALS_CONSENT_CONSENTED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented = @"GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED";
@@ -125,6 +131,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DataRetentionSettings = @"DATA_RETENTION_SETTINGS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLink = @"DISPLAY_VIDEO_360_ADVERTISER_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_DisplayVideo360AdvertiserLinkProposal = @"DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
@@ -528,6 +536,47 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaDataStream
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStream
+@dynamic androidAppStreamData, createTime, displayName, iosAppStreamData, name,
+         type, updateTime, webStreamData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamAndroidAppStreamData
+@dynamic firebaseAppId, packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamIosAppStreamData
+@dynamic bundleId, firebaseAppId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDataStreamWebStreamData
+@dynamic defaultUri, firebaseAppId, measurementId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest
 //
 
@@ -747,6 +796,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 + (NSString *)collectionItemsKey {
   return @"customMetrics";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse
+@dynamic dataStreams, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataStreams" : [GTLRGoogleAnalyticsAdmin_V1alphaDataStream class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataStreams";
 }
 
 @end

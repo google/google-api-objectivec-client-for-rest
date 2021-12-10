@@ -83,7 +83,7 @@
 
 @end
 
-@implementation GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate
+@implementation GTLRCloudOSLoginQuery_UsersSshPublicKeysCreate
 
 @dynamic parent;
 
@@ -96,15 +96,15 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/sshPublicKey";
-  GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate *query =
+  NSString *pathURITemplate = @"v1/{+parent}/sshPublicKeys";
+  GTLRCloudOSLoginQuery_UsersSshPublicKeysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudOSLogin_SshPublicKey class];
-  query.loggingName = @"oslogin.users.sshPublicKey.create";
+  query.loggingName = @"oslogin.users.sshPublicKeys.create";
   return query;
 }
 

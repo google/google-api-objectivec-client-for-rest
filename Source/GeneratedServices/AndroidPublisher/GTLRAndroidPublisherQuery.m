@@ -196,6 +196,31 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_EditsCountryavailabilityGet
+
+@dynamic editId, packageName, track;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                              editId:(NSString *)editId
+                               track:(NSString *)track {
+  NSArray *pathParams = @[
+    @"editId", @"packageName", @"track"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/countryAvailability/{track}";
+  GTLRAndroidPublisherQuery_EditsCountryavailabilityGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.editId = editId;
+  query.track = track;
+  query.expectedObjectClass = [GTLRAndroidPublisher_TrackCountryAvailability class];
+  query.loggingName = @"androidpublisher.edits.countryavailability.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_EditsDelete
 
 @dynamic editId, packageName;
@@ -1002,6 +1027,66 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   query.editId = editId;
   query.expectedObjectClass = [GTLRAndroidPublisher_AppEdit class];
   query.loggingName = @"androidpublisher.edits.validate";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_GeneratedapksDownload
+
+@dynamic downloadId, packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(NSInteger)versionCode
+                          downloadId:(NSString *)downloadId {
+  NSArray *pathParams = @[
+    @"downloadId", @"packageName", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/generatedApks/{versionCode}/downloads/{downloadId}:download";
+  GTLRAndroidPublisherQuery_GeneratedapksDownload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.downloadId = downloadId;
+  query.loggingName = @"androidpublisher.generatedapks.download";
+  return query;
+}
+
++ (instancetype)queryForMediaWithPackageName:(NSString *)packageName
+                                 versionCode:(NSInteger)versionCode
+                                  downloadId:(NSString *)downloadId {
+  GTLRAndroidPublisherQuery_GeneratedapksDownload *query =
+    [self queryWithPackageName:packageName
+                   versionCode:versionCode
+                    downloadId:downloadId];
+  query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
+  query.loggingName = @"Download androidpublisher.generatedapks.download";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_GeneratedapksList
+
+@dynamic packageName, versionCode;
+
++ (instancetype)queryWithPackageName:(NSString *)packageName
+                         versionCode:(NSInteger)versionCode {
+  NSArray *pathParams = @[
+    @"packageName", @"versionCode"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/generatedApks/{versionCode}";
+  GTLRAndroidPublisherQuery_GeneratedapksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.packageName = packageName;
+  query.versionCode = versionCode;
+  query.expectedObjectClass = [GTLRAndroidPublisher_GeneratedApksListResponse class];
+  query.loggingName = @"androidpublisher.generatedapks.list";
   return query;
 }
 

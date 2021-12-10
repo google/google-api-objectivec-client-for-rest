@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_DmsConversationsMessages
  */
@@ -100,7 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_DmsMessages
  */
@@ -149,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -179,7 +179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_DmsWebhooks
  */
@@ -239,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_RoomsConversationsMessages
  */
@@ -288,7 +288,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -318,7 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_RoomsMessages
  */
@@ -337,7 +337,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_RoomsWebhooks
  */
@@ -542,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -571,7 +571,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesCreate
  */
@@ -589,7 +589,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the message to be deleted, in the form "spaces/ *
- *  /messages/ *" Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  /messages/ *" Example: spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -600,7 +600,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Resource name of the message to be deleted, in the
  *    form "spaces/ * /messages/ *" Example:
- *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *    spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesDelete
  */
@@ -618,7 +618,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Resource name of the message to be retrieved, in the form "spaces/
  *  * /messages/ *". Example:
- *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -629,7 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param name Required. Resource name of the message to be retrieved, in the
  *    form "spaces/ * /messages/ *". Example:
- *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *    spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
  */
@@ -646,7 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resource name in the form `spaces/ * /messages/ *`. Example:
- *  `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
+ *  `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -666,7 +666,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param name Resource name in the form `spaces/ * /messages/ *`. Example:
- *    `spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4`
+ *    `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */
@@ -685,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
- *  spaces/AAAAMpdlehY
+ *  spaces/AAAAAAAAAAA
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -715,7 +715,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
  *  @param parent Required. Space resource name, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    Example: spaces/AAAAAAAAAAA
  *
  *  @return GTLRHangoutsChatQuery_SpacesWebhooks
  */

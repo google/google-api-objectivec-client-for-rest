@@ -35,6 +35,11 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workloa
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload.kajEnrollmentState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateComplete = @"KAJ_ENROLLMENT_STATE_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStatePending = @"KAJ_ENROLLMENT_STATE_PENDING";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified = @"KAJ_ENROLLMENT_STATE_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerFolder = @"CONSUMER_FOLDER";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
@@ -48,6 +53,18 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workloa
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse.setupErrors
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup = @"ERROR_INVALID_BASE_SETUP";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey = @"ERROR_MISSING_EXTERNAL_SIGNING_KEY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled = @"ERROR_NOT_ALL_SERVICES_ENROLLED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed = @"ERROR_SETUP_CHECK_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified = @"SETUP_ERROR_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse.setupStatus
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified = @"SETUP_STATE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
@@ -73,17 +90,36 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.kajEnrollmentState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateComplete = @"KAJ_ENROLLMENT_STATE_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStatePending = @"KAJ_ENROLLMENT_STATE_PENDING";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_KajEnrollmentState_KajEnrollmentStateUnspecified = @"KAJ_ENROLLMENT_STATE_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerFolder = @"CONSUMER_FOLDER";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings.resourceType
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerFolder = @"CONSUMER_FOLDER";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse.setupErrors
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup = @"ERROR_INVALID_BASE_SETUP";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey = @"ERROR_MISSING_EXTERNAL_SIGNING_KEY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled = @"ERROR_NOT_ALL_SERVICES_ENROLLED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed = @"ERROR_SETUP_CHECK_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified = @"SETUP_ERROR_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse.setupStatus
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified = @"SETUP_STATE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata.complianceRegime
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport = @"CA_REGIONS_AND_SUPPORT";
@@ -109,6 +145,11 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_Il4 = @"IL4";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_ComplianceRegime_UsRegionalAccess = @"US_REGIONAL_ACCESS";
 
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload.kajEnrollmentState
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateComplete = @"KAJ_ENROLLMENT_STATE_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStatePending = @"KAJ_ENROLLMENT_STATE_PENDING";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload_KajEnrollmentState_KajEnrollmentStateUnspecified = @"KAJ_ENROLLMENT_STATE_UNSPECIFIED";
+
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceInfo.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceInfo_ResourceType_ConsumerFolder = @"CONSUMER_FOLDER";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
@@ -122,6 +163,18 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse.setupErrors
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorInvalidBaseSetup = @"ERROR_INVALID_BASE_SETUP";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorMissingExternalSigningKey = @"ERROR_MISSING_EXTERNAL_SIGNING_KEY";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorNotAllServicesEnrolled = @"ERROR_NOT_ALL_SERVICES_ENROLLED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_ErrorSetupCheckFailed = @"ERROR_SETUP_CHECK_FAILED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupErrors_SetupErrorUnspecified = @"SETUP_ERROR_UNSPECIFIED";
+
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse.setupStatus
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_SetupStateUnspecified = @"SETUP_STATE_UNSPECIFIED";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusComplete = @"STATUS_COMPLETE";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse_SetupStatus_StatusPending = @"STATUS_PENDING";
 
 // ----------------------------------------------------------------------------
 //
@@ -148,9 +201,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload
 @dynamic billingAccount, cjisSettings, complianceRegime, createTime,
-         displayName, ETag, fedrampHighSettings, fedrampModerateSettings,
-         il4Settings, kmsSettings, labels, name, provisionedResourcesParent,
-         resources, resourceSettings;
+         displayName, enableSovereignControls, ETag, fedrampHighSettings,
+         fedrampModerateSettings, il4Settings, kajEnrollmentState, kmsSettings,
+         labels, name, provisionedResourcesParent, resources, resourceSettings,
+         saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -253,6 +307,24 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadSaaEnrollmentResponse
+@dynamic setupErrors, setupStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setupErrors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata
 //
 
@@ -289,9 +361,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload
-@dynamic billingAccount, complianceRegime, createTime, displayName, ETag,
-         kmsSettings, labels, name, provisionedResourcesParent, resources,
-         resourceSettings;
+@dynamic billingAccount, complianceRegime, createTime, displayName,
+         enableSovereignControls, ETag, kajEnrollmentState, kmsSettings, labels,
+         name, provisionedResourcesParent, resources, resourceSettings,
+         saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -354,6 +427,24 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadSaaEnrollmentResponse
+@dynamic setupErrors, setupStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setupErrors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainCreateWorkloadOperationMetadata
 //
 
@@ -377,9 +468,10 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkload
 @dynamic billingAccount, cjisSettings, complianceRegime, createTime,
-         displayName, ETag, fedrampHighSettings, fedrampModerateSettings,
-         il4Settings, kmsSettings, labels, name, provisionedResourcesParent,
-         resources, resourceSettings;
+         displayName, enableSovereignControls, ETag, fedrampHighSettings,
+         fedrampModerateSettings, il4Settings, kajEnrollmentState, kmsSettings,
+         labels, name, provisionedResourcesParent, resources, resourceSettings,
+         saaEnrollmentResponse;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -477,6 +569,24 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1ma
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadResourceSettings
 @dynamic displayName, resourceId, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadSaaEnrollmentResponse
+@dynamic setupErrors, setupStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"setupErrors" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

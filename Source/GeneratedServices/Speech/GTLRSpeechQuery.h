@@ -139,7 +139,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource where this custom class will be created.
- *  Format: {api_version}/projects/{project}/locations/{location}/customClasses
+ *  Format: `projects/{project}/locations/{location}/customClasses`
+ *  Speech-to-Text supports three locations: `global`, `us` (US North America),
+ *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
+ *  use the `global` location. To specify a region, use a [regional
+ *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *  location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -151,8 +156,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpeech_CreateCustomClassRequest to include in the
  *    query.
  *  @param parent Required. The parent resource where this custom class will be
- *    created. Format:
- *    {api_version}/projects/{project}/locations/{location}/customClasses
+ *    created. Format: `projects/{project}/locations/{location}/customClasses`
+ *    Speech-to-Text supports three locations: `global`, `us` (US North
+ *    America), and `eu` (Europe). If you are calling the
+ *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
+ *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesCreate
  */
@@ -173,7 +182,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the custom class to delete. Format:
- *  {api_version}/projects/{project}/locations/{location}/customClasses/{custom_class}
+ *  `projects/{project}/locations/{location}/customClasses/{custom_class}`
+ *  Speech-to-Text supports three locations: `global`, `us` (US North America),
+ *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
+ *  use the `global` location. To specify a region, use a [regional
+ *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *  location value.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -183,7 +197,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a custom class.
  *
  *  @param name Required. The name of the custom class to delete. Format:
- *    {api_version}/projects/{project}/locations/{location}/customClasses/{custom_class}
+ *    `projects/{project}/locations/{location}/customClasses/{custom_class}`
+ *    Speech-to-Text supports three locations: `global`, `us` (US North
+ *    America), and `eu` (Europe). If you are calling the
+ *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
+ *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesDelete
  */
@@ -203,7 +222,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the custom class to retrieve. Format:
- *  {api_version}/projects/{project}/locations/{location}/customClasses/{custom_class}
+ *  `projects/{project}/locations/{location}/customClasses/{custom_class}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -213,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a custom class.
  *
  *  @param name Required. The name of the custom class to retrieve. Format:
- *    {api_version}/projects/{project}/locations/{location}/customClasses/{custom_class}
+ *    `projects/{project}/locations/{location}/customClasses/{custom_class}`
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesGet
  */
@@ -248,7 +267,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of custom classes. Format:
- *  {api_version}/projects/{project}/locations/{location}/customClasses
+ *  `projects/{project}/locations/{location}/customClasses` Speech-to-Text
+ *  supports three locations: `global`, `us` (US North America), and `eu`
+ *  (Europe). If you are calling the `speech.googleapis.com` endpoint, use the
+ *  `global` location. To specify a region, use a [regional
+ *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *  location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -258,8 +282,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  List custom classes.
  *
  *  @param parent Required. The parent, which owns this collection of custom
- *    classes. Format:
- *    {api_version}/projects/{project}/locations/{location}/customClasses
+ *    classes. Format: `projects/{project}/locations/{location}/customClasses`
+ *    Speech-to-Text supports three locations: `global`, `us` (US North
+ *    America), and `eu` (Europe). If you are calling the
+ *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
+ *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsCustomClassesList
  *
@@ -320,7 +348,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource where this phrase set will be created. Format:
- *  {api_version}/projects/{project}/locations/{location}/phraseSets
+ *  `projects/{project}/locations/{location}/phraseSets` Speech-to-Text supports
+ *  three locations: `global`, `us` (US North America), and `eu` (Europe). If
+ *  you are calling the `speech.googleapis.com` endpoint, use the `global`
+ *  location. To specify a region, use a [regional
+ *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *  location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -334,8 +367,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSpeech_CreatePhraseSetRequest to include in the
  *    query.
  *  @param parent Required. The parent resource where this phrase set will be
- *    created. Format:
- *    {api_version}/projects/{project}/locations/{location}/phraseSets
+ *    created. Format: `projects/{project}/locations/{location}/phraseSets`
+ *    Speech-to-Text supports three locations: `global`, `us` (US North
+ *    America), and `eu` (Europe). If you are calling the
+ *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
+ *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsCreate
  */
@@ -356,7 +393,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the phrase set to delete. Format:
- *  {api_version}/projects/{project}/locations/{location}/phraseSets/{phrase_set}
+ *  `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -366,7 +403,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a phrase set.
  *
  *  @param name Required. The name of the phrase set to delete. Format:
- *    {api_version}/projects/{project}/locations/{location}/phraseSets/{phrase_set}
+ *    `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsDelete
  */
@@ -386,7 +423,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the phrase set to retrieve. Format:
- *  {api_version}/projects/{project}/locations/{location}/phraseSets/{phrase_set}
+ *  `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
+ *  Speech-to-Text supports three locations: `global`, `us` (US North America),
+ *  and `eu` (Europe). If you are calling the `speech.googleapis.com` endpoint,
+ *  use the `global` location. To specify a region, use a [regional
+ *  endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *  location value.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -396,7 +438,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a phrase set.
  *
  *  @param name Required. The name of the phrase set to retrieve. Format:
- *    {api_version}/projects/{project}/locations/{location}/phraseSets/{phrase_set}
+ *    `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
+ *    Speech-to-Text supports three locations: `global`, `us` (US North
+ *    America), and `eu` (Europe). If you are calling the
+ *    `speech.googleapis.com` endpoint, use the `global` location. To specify a
+ *    region, use a [regional endpoint](/speech-to-text/docs/endpoints) with
+ *    matching `us` or `eu` location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsGet
  */
@@ -430,7 +477,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent, which owns this collection of phrase set. Format:
- *  projects/{project}/locations/{location}
+ *  `projects/{project}/locations/{location}` Speech-to-Text supports three
+ *  locations: `global`, `us` (US North America), and `eu` (Europe). If you are
+ *  calling the `speech.googleapis.com` endpoint, use the `global` location. To
+ *  specify a region, use a [regional endpoint](/speech-to-text/docs/endpoints)
+ *  with matching `us` or `eu` location value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -440,7 +491,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  List phrase sets.
  *
  *  @param parent Required. The parent, which owns this collection of phrase
- *    set. Format: projects/{project}/locations/{location}
+ *    set. Format: `projects/{project}/locations/{location}` Speech-to-Text
+ *    supports three locations: `global`, `us` (US North America), and `eu`
+ *    (Europe). If you are calling the `speech.googleapis.com` endpoint, use the
+ *    `global` location. To specify a region, use a [regional
+ *    endpoint](/speech-to-text/docs/endpoints) with matching `us` or `eu`
+ *    location value.
  *
  *  @return GTLRSpeechQuery_ProjectsLocationsPhraseSetsList
  *

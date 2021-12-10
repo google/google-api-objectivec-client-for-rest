@@ -28,6 +28,58 @@ NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Medium = @"MEDIUM"
 NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
+// GTLRContainerAnalysis_CVSS.attackComplexity
+NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.attackVector
+NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorAdjacent = @"ATTACK_VECTOR_ADJACENT";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorLocal = @"ATTACK_VECTOR_LOCAL";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorNetwork = @"ATTACK_VECTOR_NETWORK";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorPhysical = @"ATTACK_VECTOR_PHYSICAL";
+NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorUnspecified = @"ATTACK_VECTOR_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.authentication
+NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationMultiple = @"AUTHENTICATION_MULTIPLE";
+NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationNone = @"AUTHENTICATION_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationSingle = @"AUTHENTICATION_SINGLE";
+NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationUnspecified = @"AUTHENTICATION_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.availabilityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.confidentialityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.integrityImpact
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.privilegesRequired
+NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredHigh = @"PRIVILEGES_REQUIRED_HIGH";
+NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredLow = @"PRIVILEGES_REQUIRED_LOW";
+NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredNone = @"PRIVILEGES_REQUIRED_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified = @"PRIVILEGES_REQUIRED_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.scope
+NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeChanged = @"SCOPE_CHANGED";
+NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeUnchanged = @"SCOPE_UNCHANGED";
+NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLRContainerAnalysis_CVSS.userInteraction
+NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionNone = @"USER_INTERACTION_NONE";
+NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
+NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
+
 // GTLRContainerAnalysis_CVSSv3.attackComplexity
 NSString * const kGTLRContainerAnalysis_CVSSv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
 NSString * const kGTLRContainerAnalysis_CVSSv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
@@ -512,15 +564,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainerAnalysis_CancelOperationRequest
-//
-
-@implementation GTLRContainerAnalysis_CancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainerAnalysis_Category
 //
 
@@ -631,6 +674,18 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_ComplianceVersion
 @dynamic cpeUri, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_CVSS
+//
+
+@implementation GTLRContainerAnalysis_CVSS
+@dynamic attackComplexity, attackVector, authentication, availabilityImpact,
+         baseScore, confidentialityImpact, exploitabilityScore, impactScore,
+         integrityImpact, privilegesRequired, scope, userInteraction;
 @end
 
 
@@ -1556,28 +1611,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRContainerAnalysis_ListOperationsResponse
-//
-
-@implementation GTLRContainerAnalysis_ListOperationsResponse
-@dynamic nextPageToken, operations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRContainerAnalysis_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRContainerAnalysis_Location
 //
 
@@ -1673,44 +1706,6 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_Operation
-//
-
-@implementation GTLRContainerAnalysis_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_Operation_Metadata
-//
-
-@implementation GTLRContainerAnalysis_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContainerAnalysis_Operation_Response
-//
-
-@implementation GTLRContainerAnalysis_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
 }
 
 @end
@@ -2210,7 +2205,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityOccurrence
-@dynamic cvssScore, effectiveSeverity, fixAvailable, longDescription,
+@dynamic cvssScore, cvssv3, effectiveSeverity, fixAvailable, longDescription,
          packageIssue, relatedUrls, severity, shortDescription, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

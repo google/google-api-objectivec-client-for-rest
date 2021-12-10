@@ -26,6 +26,7 @@
 
 @class GTLRApigee_GoogleApiHttpBody;
 @class GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest;
+@class GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
@@ -2955,6 +2956,43 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesUpdateDeveloperAttribute
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Attribute *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Adjust the prepaid balance for the developer. This API will be used in
+ *  scenarios where the developer has been under-charged or over-charged.
+ *
+ *  Method: apigee.organizations.developers.balance.adjust
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersBalanceAdjust : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperBalance.
+ *
+ *  Adjust the prepaid balance for the developer. This API will be used in
+ *  scenarios where the developer has been under-charged or over-charged.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest to include in
+ *    the query.
+ *  @param name Required. Account balance for the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersBalanceAdjust
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest *)object
                            name:(NSString *)name;
 
 @end

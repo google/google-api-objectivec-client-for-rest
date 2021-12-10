@@ -739,7 +739,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_ResponseMetaData
 @dynamic currencyCode, dataLossFromOtherRow, emptyReason,
-         schemaRestrictionResponse, timeZone;
+         schemaRestrictionResponse, thresholdingApplied, timeZone;
 @end
 
 

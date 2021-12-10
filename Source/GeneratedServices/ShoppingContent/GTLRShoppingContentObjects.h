@@ -1377,8 +1377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *cssId;
 
 /**
- *  The GMB account which is linked or in the process of being linked with the
- *  Merchant Center account.
+ *  The Business Profile which is linked or in the process of being linked with
+ *  the Merchant Center account.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountGoogleMyBusinessLink *googleMyBusinessLink;
 
@@ -1586,21 +1586,22 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_AccountGoogleMyBusinessLink : GTLRObject
 
 /**
- *  The ID of the GMB account. If this is provided, then `gmbEmail` is ignored.
- *  The value of this field should match the `accountId` used by the GMB API.
+ *  The ID of the Business Profile. If this is provided, then `gmbEmail` is
+ *  ignored. The value of this field should match the `accountId` used by the
+ *  Business Profile API.
  */
 @property(nonatomic, copy, nullable) NSString *gmbAccountId;
 
 /**
- *  The GMB email address of which a specific account within a GMB account. A
- *  sample account within a GMB account could be a business account with set of
- *  locations, managed under the GMB account.
+ *  The Business Profile email address of a specific account within a Business
+ *  Profile. A sample account within a Business Profile could be a business
+ *  account with set of locations, managed under the Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *gmbEmail;
 
 /**
- *  Status of the link between this Merchant Center account and the GMB account.
- *  Acceptable values are: - "`active`" - "`pending`"
+ *  Status of the link between this Merchant Center account and the Business
+ *  Profile. Acceptable values are: - "`active`" - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -4157,7 +4158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
-/** A list of GMB accounts which are available to the merchant. */
+/** A list of Business Profiles which are available to the merchant. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_GmbAccountsGmbAccount *> *gmbAccounts;
 
 @end
@@ -4168,7 +4169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_GmbAccountsGmbAccount : GTLRObject
 
-/** The email which identifies the GMB account. */
+/** The email which identifies the Business Profile. */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
@@ -4178,10 +4179,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *listingCount;
 
-/** The name of the GMB account. */
+/** The name of the Business Profile. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The type of the GMB account (User or Business). */
+/** The type of the Business Profile (User or Business). */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -4631,7 +4632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The country code. Required only for RequestInventoryVerification. */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** The GMB account. Required only for RequestGmbAccess. */
+/** The Business Profile. Required only for RequestGmbAccess. */
 @property(nonatomic, copy, nullable) NSString *gmbEmail;
 
 /**
@@ -4699,7 +4700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** A list of errors defined if, and only if, the request failed. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
-/** The list of accessible GMB accounts. */
+/** The list of accessible Business Profiles. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_GmbAccounts *gmbAccounts;
 
 /**
@@ -4729,7 +4730,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
-/** A list of GMB accounts which are available to the merchant. */
+/** A list of Business Profiles which are available to the merchant. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_GmbAccountsGmbAccount *> *gmbAccounts;
 
 /**
@@ -8402,7 +8403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *productTitle;
 
 /**
- *  Required. The quantity of the line item in the order.
+ *  The quantity of the line item in the order.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8429,7 +8430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *lineItemId;
 
 /**
- *  Required. The line item quantity in the shipment.
+ *  The line item quantity in the shipment.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8775,7 +8776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -8814,7 +8815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -8859,7 +8860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -8924,7 +8925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -8967,7 +8968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9016,7 +9017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in Google My Business.
+ *  inserted via the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 

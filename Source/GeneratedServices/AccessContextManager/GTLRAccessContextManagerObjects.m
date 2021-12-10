@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAccessContextManager_AuditLogConfig.logType
+NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRAccessContextManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRAccessContextManager_BasicLevel.combiningFunction
 NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_And = @"AND";
 NSString * const kGTLRAccessContextManager_BasicLevel_CombiningFunction_Or = @"OR";
@@ -76,10 +82,17 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_AccessPolicy
-@dynamic ETag, name, parent, title;
+@dynamic ETag, name, parent, scopes, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -105,6 +118,42 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_AuditConfig
+//
+
+@implementation GTLRAccessContextManager_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRAccessContextManager_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_AuditLogConfig
+//
+
+@implementation GTLRAccessContextManager_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_BasicLevel
 //
 
@@ -114,6 +163,24 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"conditions" : [GTLRAccessContextManager_Condition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_Binding
+//
+
+@implementation GTLRAccessContextManager_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
   };
   return map;
 }
@@ -312,6 +379,26 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_GetIamPolicyRequest
+//
+
+@implementation GTLRAccessContextManager_GetIamPolicyRequest
+@dynamic options;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_GetPolicyOptions
+//
+
+@implementation GTLRAccessContextManager_GetPolicyOptions
+@dynamic requestedPolicyVersion;
 @end
 
 
@@ -552,6 +639,29 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_Policy
+//
+
+@implementation GTLRAccessContextManager_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRAccessContextManager_AuditConfig class],
+    @"bindings" : [GTLRAccessContextManager_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ReplaceAccessLevelsRequest
 //
 
@@ -671,6 +781,16 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_SetIamPolicyRequest
+//
+
+@implementation GTLRAccessContextManager_SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_Status
 //
 
@@ -696,6 +816,42 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_TestIamPermissionsRequest
+//
+
+@implementation GTLRAccessContextManager_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_TestIamPermissionsResponse
+//
+
+@implementation GTLRAccessContextManager_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
 }
 
 @end

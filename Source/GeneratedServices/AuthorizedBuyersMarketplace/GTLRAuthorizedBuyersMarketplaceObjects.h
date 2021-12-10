@@ -2162,8 +2162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @interface GTLRAuthorizedBuyersMarketplace_PauseFinalizedDealRequest : GTLRObject
 
 /**
- *  Required. The reason to pause the finalized deal, will be displayed to the
- *  seller. Maximum length is 1000 characters.
+ *  The reason to pause the finalized deal, will be displayed to the seller.
+ *  Maximum length is 1000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 

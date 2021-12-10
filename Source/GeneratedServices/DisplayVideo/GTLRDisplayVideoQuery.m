@@ -27,6 +27,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange = @"TARGETI
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeApp = @"TARGETING_TYPE_APP";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory = @"TARGETING_TYPE_APP_CATEGORY";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup = @"TARGETING_TYPE_AUDIENCE_GROUP";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAudioContentType = @"TARGETING_TYPE_AUDIO_CONTENT_TYPE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus = @"TARGETING_TYPE_AUTHORIZED_SELLER_STATUS";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser = @"TARGETING_TYPE_BROWSER";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeBusinessChain = @"TARGETING_TYPE_BUSINESS_CHAIN";

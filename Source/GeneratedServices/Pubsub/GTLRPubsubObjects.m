@@ -24,6 +24,11 @@ NSString * const kGTLRPubsub_SchemaSettings_Encoding_Binary    = @"BINARY";
 NSString * const kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
 NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json      = @"JSON";
 
+// GTLRPubsub_Subscription.state
+NSString * const kGTLRPubsub_Subscription_State_Active         = @"ACTIVE";
+NSString * const kGTLRPubsub_Subscription_State_ResourceError  = @"RESOURCE_ERROR";
+NSString * const kGTLRPubsub_Subscription_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRPubsub_ValidateMessageRequest.encoding
 NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Binary = @"BINARY";
 NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
@@ -557,7 +562,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 @implementation GTLRPubsub_Subscription
 @dynamic ackDeadlineSeconds, deadLetterPolicy, detached, enableMessageOrdering,
          expirationPolicy, filter, labels, messageRetentionDuration, name,
-         pushConfig, retainAckedMessages, retryPolicy, topic,
+         pushConfig, retainAckedMessages, retryPolicy, state, topic,
          topicMessageRetentionDuration;
 @end
 

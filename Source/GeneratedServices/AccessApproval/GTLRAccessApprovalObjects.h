@@ -279,19 +279,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Cloud DLP * Cloud EKM * Cloud HSM * Cloud Identity and Access Management *
  *  Cloud Logging * Cloud Pub/Sub * Cloud Spanner * Cloud SQL * Cloud Storage *
  *  Google Kubernetes Engine * Organization Policy Serivice * Persistent Disk *
- *  Speaker ID Note: These values are supported as input for legacy purposes,
- *  but will not be returned from the API. * all * ga-only *
+ *  Resource Manager * Speaker ID Note: These values are supported as input for
+ *  legacy purposes, but will not be returned from the API. * all * ga-only *
  *  appengine.googleapis.com * bigquery.googleapis.com * bigtable.googleapis.com
  *  * container.googleapis.com * cloudkms.googleapis.com *
- *  cloudsql.googleapis.com * compute.googleapis.com * dataflow.googleapis.com *
- *  dlp.googleapis.com * iam.googleapis.com * logging.googleapis.com *
- *  orgpolicy.googleapis.com * pubsub.googleapis.com * spanner.googleapis.com *
- *  speakerid.googleapis.com * storage.googleapis.com Calls to
- *  UpdateAccessApprovalSettings using 'all' or any of the XXX.googleapis.com
- *  will be translated to the associated product name ('all', 'App Engine',
- *  etc.). Note: 'all' will enroll the resource in all products supported at
- *  both 'GA' and 'Preview' levels. More information about levels of support is
- *  available at
+ *  cloudresourcemanager.googleapis.com * cloudsql.googleapis.com *
+ *  compute.googleapis.com * dataflow.googleapis.com * dlp.googleapis.com *
+ *  iam.googleapis.com * logging.googleapis.com * orgpolicy.googleapis.com *
+ *  pubsub.googleapis.com * spanner.googleapis.com * speakerid.googleapis.com *
+ *  storage.googleapis.com Calls to UpdateAccessApprovalSettings using 'all' or
+ *  any of the XXX.googleapis.com will be translated to the associated product
+ *  name ('all', 'App Engine', etc.). Note: 'all' will enroll the resource in
+ *  all products supported at both 'GA' and 'Preview' levels. More information
+ *  about levels of support is available at
  *  https://cloud.google.com/access-approval/docs/supported-services
  */
 @property(nonatomic, copy, nullable) NSString *cloudProduct;

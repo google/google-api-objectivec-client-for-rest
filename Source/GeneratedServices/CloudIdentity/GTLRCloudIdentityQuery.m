@@ -481,6 +481,25 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_GroupsGetSecuritySettings
+
+@dynamic name, readMask;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_GroupsGetSecuritySettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_SecuritySettings class];
+  query.loggingName = @"cloudidentity.groups.getSecuritySettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_GroupsList
 
 @dynamic pageSize, pageToken, parent, view;
@@ -776,6 +795,33 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRCloudIdentity_SearchGroupsResponse class];
   query.loggingName = @"cloudidentity.groups.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_GroupsUpdateSecuritySettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_SecuritySettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_GroupsUpdateSecuritySettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.groups.updateSecuritySettings";
   return query;
 }
 

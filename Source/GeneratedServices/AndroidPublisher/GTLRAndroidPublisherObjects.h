@@ -34,6 +34,11 @@
 @class GTLRAndroidPublisher_DeviceSpec;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
+@class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
+@class GTLRAndroidPublisher_GeneratedAssetPackSlice;
+@class GTLRAndroidPublisher_GeneratedSplitApk;
+@class GTLRAndroidPublisher_GeneratedStandaloneApk;
+@class GTLRAndroidPublisher_GeneratedUniversalApk;
 @class GTLRAndroidPublisher_Grant;
 @class GTLRAndroidPublisher_Image;
 @class GTLRAndroidPublisher_InAppProduct;
@@ -60,6 +65,7 @@
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
+@class GTLRAndroidPublisher_TrackTargetedCountry;
 @class GTLRAndroidPublisher_User;
 @class GTLRAndroidPublisher_UserComment;
 @class GTLRAndroidPublisher_UsesPermission;
@@ -920,6 +926,143 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** The version name of this APK. */
 @property(nonatomic, copy, nullable) NSString *versionName;
+
+@end
+
+
+/**
+ *  Response to list generated APKs.
+ */
+@interface GTLRAndroidPublisher_GeneratedApksListResponse : GTLRObject
+
+/** All generated APKs, grouped by the APK signing key. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedApksPerSigningKey *> *generatedApks;
+
+@end
+
+
+/**
+ *  Download metadata for split, standalone and universal APKs, as well as asset
+ *  pack slices, signed with a given key.
+ */
+@interface GTLRAndroidPublisher_GeneratedApksPerSigningKey : GTLRObject
+
+/** SHA256 hash of the APK signing public key certificate. */
+@property(nonatomic, copy, nullable) NSString *certificateSha256Hash;
+
+/**
+ *  List of asset pack slices which will be served for this app bundle, signed
+ *  with a key corresponding to certificate_sha256_hash.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedAssetPackSlice *> *generatedAssetPackSlices;
+
+/**
+ *  List of generated split APKs, signed with a key corresponding to
+ *  certificate_sha256_hash.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedSplitApk *> *generatedSplitApks;
+
+/**
+ *  List of generated standalone APKs, signed with a key corresponding to
+ *  certificate_sha256_hash.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedStandaloneApk *> *generatedStandaloneApks;
+
+/**
+ *  Generated universal APK, signed with a key corresponding to
+ *  certificate_sha256_hash. This field is not set if no universal APK was
+ *  generated for this signing key.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_GeneratedUniversalApk *generatedUniversalApk;
+
+@end
+
+
+/**
+ *  Download metadata for an asset pack slice.
+ */
+@interface GTLRAndroidPublisher_GeneratedAssetPackSlice : GTLRObject
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Should be
+ *  supplied to `generatedapks.download` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
+
+/** Name of the module that this asset slice belongs to. */
+@property(nonatomic, copy, nullable) NSString *moduleName;
+
+/** Asset slice ID. */
+@property(nonatomic, copy, nullable) NSString *sliceId;
+
+/**
+ *  Asset module version.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Download metadata for a split APK.
+ */
+@interface GTLRAndroidPublisher_GeneratedSplitApk : GTLRObject
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Should be
+ *  supplied to `generatedapks.download` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
+
+/** Name of the module that this APK belongs to. */
+@property(nonatomic, copy, nullable) NSString *moduleName;
+
+/** Split ID. Empty for the main split of the base module. */
+@property(nonatomic, copy, nullable) NSString *splitId;
+
+/**
+ *  ID of the generated variant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *variantId;
+
+@end
+
+
+/**
+ *  Download metadata for a standalone APK.
+ */
+@interface GTLRAndroidPublisher_GeneratedStandaloneApk : GTLRObject
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Should be
+ *  supplied to `generatedapks.download` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
+
+/**
+ *  ID of the generated variant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *variantId;
+
+@end
+
+
+/**
+ *  Download metadata for a universal APK.
+ */
+@interface GTLRAndroidPublisher_GeneratedUniversalApk : GTLRObject
+
+/**
+ *  Download ID, which uniquely identifies the APK to download. Should be
+ *  supplied to `generatedapks.download` method.
+ */
+@property(nonatomic, copy, nullable) NSString *downloadId;
 
 @end
 
@@ -2149,6 +2292,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
+ *  Resource for per-track country availability information.
+ */
+@interface GTLRAndroidPublisher_TrackCountryAvailability : GTLRObject
+
+/**
+ *  A list of one or more countries where artifacts in this track are available.
+ *  This list includes all countries that are targeted by the track, even if
+ *  only specific carriers are targeted in that country.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackTargetedCountry *> *countries;
+
+/**
+ *  Whether artifacts in this track are available to "rest of the world"
+ *  countries.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *restOfWorld;
+
+/**
+ *  Whether this track's availability is synced with the default production
+ *  track. See
+ *  https://support.google.com/googleplay/android-developer/answer/7550024 for
+ *  more information on syncing country availability with production. Note that
+ *  if this is true, the returned "countries" and "rest_of_world" fields will
+ *  reflect the values for the default production track.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncWithProduction;
+
+@end
+
+
+/**
  *  A release within a track.
  */
 @interface GTLRAndroidPublisher_TrackRelease : GTLRObject
@@ -2227,6 +2405,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 /** All tracks. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Track *> *tracks;
+
+@end
+
+
+/**
+ *  Representation of a single country where the contents of a track are
+ *  available.
+ */
+@interface GTLRAndroidPublisher_TrackTargetedCountry : GTLRObject
+
+/** The country to target, as a two-letter CLDR code. */
+@property(nonatomic, copy, nullable) NSString *countryCode;
 
 @end
 

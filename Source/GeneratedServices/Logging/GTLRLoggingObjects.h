@@ -747,7 +747,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  access your Cloud KMS key.Before enabling CMEK for Log Router, you must
  *  first assign the cloudkms.cryptoKeyEncrypterDecrypter role to the service
  *  account that the Log Router will use to access your Cloud KMS key. Use
- *  GetCmekSettings to obtain the service account ID.See Enabling CMEK for Logs
+ *  GetCmekSettings to obtain the service account ID.See Enabling CMEK for Log
  *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
  *  for more information.
  */

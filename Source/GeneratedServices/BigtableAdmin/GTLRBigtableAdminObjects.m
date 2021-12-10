@@ -1081,6 +1081,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_UndeleteTableMetadata
+//
+
+@implementation GTLRBigtableAdmin_UndeleteTableMetadata
+@dynamic endTime, name, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_Union
 //
 

@@ -906,6 +906,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
+ *  Metadata related to the progress of the SetLocalInventories operation.
+ *  Currently empty because there is no meaningful metadata populated from the
+ *  SetLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata : GTLRObject
+@end
+
+
+/**
+ *  Response of the SetLocalInventories API. Currently empty because there is no
+ *  meaningful response populated from the SetLocalInventories method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse : GTLRObject
+@end
+
+
+/**
  *  A summary of import result. The UserEventImportSummary summarizes the import
  *  status for user events.
  */
@@ -1504,9 +1521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The numerical values of this custom attribute. For example, `[2.3, 15.4]`
- *  when the key is "lengths_cm". At most 400 values are allowed.Otherwise, an
- *  INVALID_ARGUMENT error is returned. Exactly one of text or numbers should be
- *  set. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  when the key is "lengths_cm". Exactly one of text or numbers should be set.
+ *  Otherwise, an INVALID_ARGUMENT error is returned.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1523,11 +1539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The textual values of this custom attribute. For example, `["yellow",
- *  "green"]` when the key is "color". At most 400 values are allowed. Empty
- *  values are not allowed. Each value must be a UTF-8 encoded string with a
- *  length limit of 256 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. Exactly one of text or numbers should be set. Otherwise, an
- *  INVALID_ARGUMENT error is returned.
+ *  "green"]` when the key is "color". Exactly one of text or numbers should be
+ *  set. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *text;
 
@@ -2281,7 +2294,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
  *  128 characters. * For indexable attribute, the key must match the pattern:
- *  `a-zA-Z0-9*`. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text
+ *  attributes, at most 400 values are allowed. Empty values are not allowed.
+ *  Each value must be a UTF-8 encoded string with a length limit of 256
+ *  characters. * For number attributes, at most 400 values are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
 
@@ -2293,9 +2309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The online availability of the Product. Default to Availability.IN_STOCK.
- *  Google Merchant Center Property
+ *  Corresponding properties: Google Merchant Center property
  *  [availability](https://support.google.com/merchants/answer/6324448).
- *  Schema.org Property [Offer.availability](https://schema.org/availability).
+ *  Schema.org property [Offer.availability](https://schema.org/availability).
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_AvailabilityUnspecified
@@ -2328,9 +2344,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The brands of the product. A maximum of 30 brands are allowed. Each brand
  *  must be a UTF-8 encoded string with a length limit of 1,000 characters.
- *  Otherwise, an INVALID_ARGUMENT error is returned. Google Merchant Center
- *  property [brand](https://support.google.com/merchants/answer/6324351).
- *  Schema.org property [Product.brand](https://schema.org/brand).
+ *  Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties:
+ *  Google Merchant Center property
+ *  [brand](https://support.google.com/merchants/answer/6324351). Schema.org
+ *  property [Product.brand](https://schema.org/brand).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *brands;
 
@@ -2347,9 +2364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Type.PRIMARY Product otherwise an INVALID_ARGUMENT error is returned. At
  *  most 250 values are allowed per Product. Empty values are not allowed. Each
  *  value must be a UTF-8 encoded string with a length limit of 5,000
- *  characters. Otherwise, an INVALID_ARGUMENT error is returned. Google
- *  Merchant Center property google_product_category. Schema.org property
- *  [Product.category] (https://schema.org/category).
+ *  characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding
+ *  properties: Google Merchant Center property google_product_category.
+ *  Schema.org property [Product.category] (https://schema.org/category).
  *  [mc_google_product_category]:
  *  https://support.google.com/merchants/answer/6324436
  */
@@ -2363,9 +2380,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionMemberIds;
 
 /**
- *  The color of the product. Google Merchant Center property
- *  [color](https://support.google.com/merchants/answer/6324487). Schema.org
- *  property [Product.color](https://schema.org/color).
+ *  The color of the product. Corresponding properties: Google Merchant Center
+ *  property [color](https://support.google.com/merchants/answer/6324487).
+ *  Schema.org property [Product.color](https://schema.org/color).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ColorInfo *colorInfo;
 
@@ -2373,8 +2390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The condition of the product. Strongly encouraged to use the standard
  *  values: "new", "refurbished", "used". A maximum of 5 values are allowed per
  *  Product. Each value must be a UTF-8 encoded string with a length limit of
- *  128 characters. Otherwise, an INVALID_ARGUMENT error is returned. Google
- *  Merchant Center property
+ *  128 characters. Otherwise, an INVALID_ARGUMENT error is returned.
+ *  Corresponding properties: Google Merchant Center property
  *  [condition](https://support.google.com/merchants/answer/6324469). Schema.org
  *  property [Offer.itemCondition](https://schema.org/itemCondition).
  */
@@ -2383,9 +2400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Product description. This field must be a UTF-8 encoded string with a length
  *  limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is returned.
- *  Google Merchant Center property
+ *  Corresponding properties: Google Merchant Center property
  *  [description](https://support.google.com/merchants/answer/6324468).
- *  schema.org property [Product.description](https://schema.org/description).
+ *  Schema.org property [Product.description](https://schema.org/description).
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2397,7 +2414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  SearchService.Search after expire_time. However, the product can still be
  *  retrieved by ProductService.GetProduct and ProductService.ListProducts.
  *  expire_time must be later than available_time and publish_time, otherwise an
- *  INVALID_ARGUMENT error is thrown. Google Merchant Center property
+ *  INVALID_ARGUMENT error is thrown. Corresponding properties: Google Merchant
+ *  Center property
  *  [expiration_date](https://support.google.com/merchants/answer/6324499).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
@@ -2413,12 +2431,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The Global Trade Item Number (GTIN) of the product. This field must be a
  *  UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
  *  INVALID_ARGUMENT error is returned. This field must be a Unigram. Otherwise,
- *  an INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  an INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property
  *  [gtin](https://support.google.com/merchants/answer/6324461). Schema.org
- *  property [Product.isbn](https://schema.org/isbn) or
- *  [Product.gtin8](https://schema.org/gtin8) or
- *  [Product.gtin12](https://schema.org/gtin12) or
- *  [Product.gtin13](https://schema.org/gtin13) or
+ *  property [Product.isbn](https://schema.org/isbn),
+ *  [Product.gtin8](https://schema.org/gtin8),
+ *  [Product.gtin12](https://schema.org/gtin12),
+ *  [Product.gtin13](https://schema.org/gtin13), or
  *  [Product.gtin14](https://schema.org/gtin14). If the value is not a valid
  *  GTIN, an INVALID_ARGUMENT error is returned.
  */
@@ -2429,10 +2448,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  example, this field is "id_1", if name is `projects/ *
  *  /locations/global/catalogs/default_catalog/branches/default_branch/products/id_1`.
  *  This field must be a UTF-8 encoded string with a length limit of 128
- *  characters. Otherwise, an INVALID_ARGUMENT error is returned. Google
- *  Merchant Center property
+ *  characters. Otherwise, an INVALID_ARGUMENT error is returned. Corresponding
+ *  properties: Google Merchant Center property
  *  [id](https://support.google.com/merchants/answer/6324405). Schema.org
- *  Property [Product.sku](https://schema.org/sku).
+ *  property [Product.sku](https://schema.org/sku).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -2440,19 +2459,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  Product images for the product.Highly recommended to put the main image to
- *  the first. A maximum of 300 images are allowed. Google Merchant Center
- *  property [image_link](https://support.google.com/merchants/answer/6324350).
+ *  the first. A maximum of 300 images are allowed. Corresponding properties:
+ *  Google Merchant Center property
+ *  [image_link](https://support.google.com/merchants/answer/6324350).
  *  Schema.org property [Product.image](https://schema.org/image).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Image *> *images;
 
 /**
  *  Language of the title/description and other string attributes. Use language
- *  tags defined by BCP 47. For product prediction, this field is ignored and
- *  the model automatically detects the text language. The Product can include
- *  text in different languages, but duplicating Products to provide text in
- *  multiple languages can result in degraded model performance. For product
- *  search this field is in use. It defaults to "en-US" if unset.
+ *  tags defined by [BCP 47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt). For
+ *  product prediction, this field is ignored and the model automatically
+ *  detects the text language. The Product can include text in different
+ *  languages, but duplicating Products to provide text in multiple languages
+ *  can result in degraded model performance. For product search this field is
+ *  in use. It defaults to "en-US" if unset.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2460,7 +2481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The material of the product. For example, "leather", "wooden". A maximum of
  *  20 values are allowed. Each value must be a UTF-8 encoded string with a
  *  length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. Google Merchant Center property
+ *  returned. Corresponding properties: Google Merchant Center property
  *  [material](https://support.google.com/merchants/answer/6324410). Schema.org
  *  property [Product.material](https://schema.org/material).
  */
@@ -2476,14 +2497,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The pattern or graphic print of the product. For example, "striped", "polka
  *  dot", "paisley". A maximum of 20 values are allowed per Product. Each value
  *  must be a UTF-8 encoded string with a length limit of 128 characters.
- *  Otherwise, an INVALID_ARGUMENT error is returned. Google Merchant Center
- *  property [pattern](https://support.google.com/merchants/answer/6324483).
- *  Schema.org property [Product.pattern](https://schema.org/pattern).
+ *  Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties:
+ *  Google Merchant Center property
+ *  [pattern](https://support.google.com/merchants/answer/6324483). Schema.org
+ *  property [Product.pattern](https://schema.org/pattern).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *patterns;
 
 /**
- *  Product price and cost information. Google Merchant Center property
+ *  Product price and cost information. Corresponding properties: Google
+ *  Merchant Center property
  *  [price](https://support.google.com/merchants/answer/6324371).
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PriceInfo *priceInfo;
@@ -2494,12 +2517,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  field can only be empty or set to the same value as id. For VARIANT
  *  Products, this field cannot be empty. A maximum of 2,000 products are
  *  allowed to share the same Type.PRIMARY Product. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center Property
+ *  INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property
  *  [item_group_id](https://support.google.com/merchants/answer/6324507).
- *  Schema.org Property
+ *  Schema.org property
  *  [Product.inProductGroupWithID](https://schema.org/inProductGroupWithID).
- *  This field must be enabled before it can be used. [Learn
- *  more](/recommendations-ai/docs/catalog#item-group-id).
  */
 @property(nonatomic, copy, nullable) NSString *primaryProductId;
 
@@ -2549,9 +2571,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  both size system and size type are empty, while size value is "32 inches". A
  *  maximum of 20 values are allowed per Product. Each value must be a UTF-8
  *  encoded string with a length limit of 128 characters. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property
  *  [size](https://support.google.com/merchants/answer/6324492),
- *  [size_type](https://support.google.com/merchants/answer/6324497) and
+ *  [size_type](https://support.google.com/merchants/answer/6324497), and
  *  [size_system](https://support.google.com/merchants/answer/6324502).
  *  Schema.org property [Product.size](https://schema.org/size).
  */
@@ -2562,7 +2585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Product. This value must be a UTF-8 encoded string with a length limit of
  *  1,000 characters. Otherwise, an INVALID_ARGUMENT error is returned. This tag
  *  can be used for filtering recommendation results by passing the tag as part
- *  of the PredictRequest.filter. Google Merchant Center property
+ *  of the PredictRequest.filter. Corresponding properties: Google Merchant
+ *  Center property
  *  [custom_label_0–4](https://support.google.com/merchants/answer/6324473).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
@@ -2570,7 +2594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Required. Product title. This field must be a UTF-8 encoded string with a
  *  length limit of 1,000 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. Google Merchant Center property
+ *  returned. Corresponding properties: Google Merchant Center property
  *  [title](https://support.google.com/merchants/answer/6324415). Schema.org
  *  property [Product.name](https://schema.org/name).
  */
@@ -2617,7 +2641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  recommended to provide a valid uri for the product, otherwise the service
  *  performance could be significantly degraded. This field must be a UTF-8
  *  encoded string with a length limit of 5,000 characters. Otherwise, an
- *  INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  INVALID_ARGUMENT error is returned. Corresponding properties: Google
+ *  Merchant Center property
  *  [link](https://support.google.com/merchants/answer/6324416). Schema.org
  *  property [Offer.url](https://schema.org/url).
  */
@@ -2649,7 +2674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200. * The key must be a UTF-8 encoded string with a length limit of
  *  128 characters. * For indexable attribute, the key must match the pattern:
- *  `a-zA-Z0-9*`. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  `a-zA-Z0-9*`. For example, `key0LikeThis` or `KEY_1_LIKE_THIS`. * For text
+ *  attributes, at most 400 values are allowed. Empty values are not allowed.
+ *  Each value must be a UTF-8 encoded string with a length limit of 256
+ *  characters. * For number attributes, at most 400 values are allowed.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -3171,19 +3199,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserInfo *userInfo;
 
 /**
- *  The keys to fetch and rollup the matching variant Products attributes. The
- *  attributes from all the matching variant Products are merged and
- *  de-duplicated. Notice that rollup variant Products attributes will lead to
- *  extra query latency. Maximum number of keys is 10. For FulfillmentInfo, a
- *  fulfillment type and a fulfillment ID must be provided in the format of
+ *  The keys to fetch and rollup the matching variant Products attributes,
+ *  FulfillmentInfo or LocalInventorys attributes. The attributes from all the
+ *  matching variant Products or LocalInventorys are merged and de-duplicated.
+ *  Notice that rollup attributes will lead to extra query latency. Maximum
+ *  number of keys is 30. For FulfillmentInfo, a fulfillment type and a
+ *  fulfillment ID must be provided in the format of
  *  "fulfillmentType.fulfillmentId". E.g., in "pickupInStore.store123",
  *  "pickupInStore" is fulfillment type and "store123" is the store ID.
  *  Supported keys are: * colorFamilies * price * originalPrice * discount *
- *  inventory(place_id,price) * inventory(place_id,attributes.key), where key is
- *  any key in the Product.inventories.attributes map. * attributes.key, where
- *  key is any key in the Product.attributes map. * pickupInStore.id, where id
- *  is any FulfillmentInfo.place_ids for FulfillmentInfo.type "pickup-in-store".
- *  * shipToStore.id, where id is any FulfillmentInfo.place_ids for
+ *  variantId * inventory(place_id,price) * inventory(place_id,original_price) *
+ *  inventory(place_id,attributes.key), where key is any key in the
+ *  Product.inventories.attributes map. * attributes.key, where key is any key
+ *  in the Product.attributes map. * pickupInStore.id, where id is any
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type "pickup-in-store". *
+ *  shipToStore.id, where id is any FulfillmentInfo.place_ids for
  *  FulfillmentInfo.type "ship-to-store". * sameDayDelivery.id, where id is any
  *  FulfillmentInfo.place_ids for FulfillmentInfo.type "same-day-delivery". *
  *  nextDayDelivery.id, where id is any FulfillmentInfo.place_ids for
@@ -3375,7 +3405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "customFulfillment5" * "inventory(place_id,attributes.key)" *
  *  numerical_field = * "price" * "discount" * "rating" * "ratingCount" *
  *  "attributes.key" * "inventory(place_id,price)" *
- *  "inventory(place_id,attributes.key)"
+ *  "inventory(place_id,original_price)" * "inventory(place_id,attributes.key)"
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -3468,6 +3498,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Response message for SearchService.Search method.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2SearchResponse : GTLRObject
+
+/**
+ *  The fully qualified resource name of applied
+ *  [controls](https://cloud.google.com/retail/docs/serving-control-rules).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *appliedControls;
 
 /**
  *  A unique search token. This should be included in the UserEvent logs
@@ -3787,12 +3823,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2UserEvent : GTLRObject
 
 /**
- *  Extra user event features to include in the recommendation model. The key
- *  must be a UTF-8 encoded string with a length limit of 5,000 characters.
- *  Otherwise, an INVALID_ARGUMENT error is returned. For product
- *  recommendation, an example of extra user information is traffic_channel,
- *  i.e. how user arrives at the site. Users can arrive at the site by coming to
- *  the site directly, or coming through Google search, and etc.
+ *  Extra user event features to include in the recommendation model. This field
+ *  needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is
+ *  returned: * The key must be a UTF-8 encoded string with a length limit of
+ *  5,000 characters. * For text attributes, at most 400 values are allowed.
+ *  Empty values are not allowed. Each value must be a UTF-8 encoded string with
+ *  a length limit of 256 characters. * For number attributes, at most 400
+ *  values are allowed. For product recommendation, an example of extra user
+ *  information is traffic_channel, i.e. how user arrives at the site. Users can
+ *  arrive at the site by coming to the site directly, or coming through Google
+ *  search, and etc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserEvent_Attributes *attributes;
 
@@ -3821,10 +3861,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, copy, nullable) NSString *cartId;
 
 /**
- *  The main completion details related to the event. In a `completion` event,
- *  this field represents the completions returned to the end user and the
- *  clicked completion by the end user. In a `search` event, it represents the
- *  search event happens after clicking completion.
+ *  The main auto-completion details related to the event. This field should be
+ *  set for `search` event when autocomplete function is enabled and the user
+ *  clicks a suggestion for search.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail *completionDetail;
 
@@ -3837,8 +3876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  Required. User event type. Allowed values are: * `add-to-cart`: Products
  *  being added to cart. * `category-page-view`: Special pages such as sale or
- *  promotion pages viewed. * `completion`: Completion query result
- *  showed/clicked. * `detail-page-view`: Products detail page viewed. *
+ *  promotion pages viewed. * `detail-page-view`: Products detail page viewed. *
  *  `home-page-view`: Homepage viewed. * `promotion-offered`: Promotion is
  *  offered to a user. * `promotion-not-offered`: Promotion is not offered to a
  *  user. * `purchase-complete`: User finishing a purchase. * `search`: Product
@@ -3981,12 +4019,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Extra user event features to include in the recommendation model. The key
- *  must be a UTF-8 encoded string with a length limit of 5,000 characters.
- *  Otherwise, an INVALID_ARGUMENT error is returned. For product
- *  recommendation, an example of extra user information is traffic_channel,
- *  i.e. how user arrives at the site. Users can arrive at the site by coming to
- *  the site directly, or coming through Google search, and etc.
+ *  Extra user event features to include in the recommendation model. This field
+ *  needs to pass all below criteria, otherwise an INVALID_ARGUMENT error is
+ *  returned: * The key must be a UTF-8 encoded string with a length limit of
+ *  5,000 characters. * For text attributes, at most 400 values are allowed.
+ *  Empty values are not allowed. Each value must be a UTF-8 encoded string with
+ *  a length limit of 256 characters. * For number attributes, at most 400
+ *  values are allowed. For product recommendation, an example of extra user
+ *  information is traffic_channel, i.e. how user arrives at the site. Users can
+ *  arrive at the site by coming to the site directly, or coming through Google
+ *  search, and etc.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c

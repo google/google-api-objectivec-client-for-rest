@@ -451,7 +451,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Required. Specifies a unique string that identifies the agent pool. Format:
- *  projects/{project_id}/agentPools/{agent_pool_id}
+ *  `projects/{project_id}/agentPools/{agent_pool_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -595,14 +595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Specifies the BandwidthLimit to describe the non-negative bandwidth rate in
- *  mbps for the agent pool.
+ *  Specifies a bandwidth limit for an agent pool.
  */
 @interface GTLRStorageTransfer_BandwidthLimit : GTLRObject
 
 /**
- *  Specifies bandwidth rate in mbps distributed across all the agents in the
- *  pool.
+ *  Bandwidth rate in megabytes per second, distributed across all the agents in
+ *  the pool.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1109,20 +1108,24 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedSince;
 
 /**
- *  If specified, only objects with a "last modification time" on or after `NOW`
- *  - `max_time_elapsed_since_last_modification` and objects that don't have a
- *  "last modification time" are transferred. For each TransferOperation started
- *  by this TransferJob, `NOW` refers to the start_time of the
- *  `TransferOperation`.
+ *  Ensures that objects are not transferred if a specific maximum time has
+ *  elapsed since the "last modification time". When a TransferOperation begins,
+ *  objects with a "last modification time" are transferred only if the elapsed
+ *  time between the start_time of the `TransferOperation`and the "last
+ *  modification time" of the object is less than the value of
+ *  max_time_elapsed_since_last_modification`. Objects that do not have a "last
+ *  modification time" are also transferred.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxTimeElapsedSinceLastModification;
 
 /**
- *  If specified, only objects with a "last modification time" before `NOW` -
- *  `min_time_elapsed_since_last_modification` and objects that don't have a
- *  "last modification time" are transferred. For each TransferOperation started
- *  by this TransferJob, `NOW` refers to the start_time of the
- *  `TransferOperation`.
+ *  Ensures that objects are not transferred until a specific minimum time has
+ *  elapsed after the "last modification time". When a TransferOperation begins,
+ *  objects with a "last modification time" are transferred only if the elapsed
+ *  time between the start_time of the `TransferOperation` and the "last
+ *  modification time" of the object is equal to or greater than the value of
+ *  min_time_elapsed_since_last_modification`. Objects that do not have a "last
+ *  modification time" are also transferred.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minTimeElapsedSinceLastModification;
 
@@ -1235,8 +1238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_RunTransferJobRequest : GTLRObject
 
 /**
- *  Required. The ID of the Google Cloud Platform Console project that owns the
- *  transfer job.
+ *  Required. The ID of the Google Cloud project that owns the transfer job.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1617,7 +1619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
-/** The ID of the Google Cloud Platform Project that owns the job. */
+/** The ID of the Google Cloud project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -1661,12 +1663,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_TransferManifest : GTLRObject
 
 /**
- *  Holds URI-encoded path to find the manifest. It can be located in
- *  data_source, data_sink, or separately in GCS. For data_source and data_sink,
- *  the manifest location is relative to the path specified by that data_source
- *  or data_sink. If manifest is in GCS, use format "gs:///". If manifest is in
- *  data_source, use format "source://". If manifest is in data_sink, use format
- *  "sink://".
+ *  Specifies the path to the manifest in Cloud Storage. The Google-managed
+ *  service account for the transfer must have `storage.objects.get` permission
+ *  for this object. An example path is `gs://bucket_name/path/manifest.csv`.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -1693,7 +1692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /** Notification configuration. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
-/** The ID of the Google Cloud Platform Project that owns the operation. */
+/** The ID of the Google Cloud project that owns the operation. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Start time of this transfer execution. */
@@ -1832,10 +1831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @interface GTLRStorageTransfer_UpdateTransferJobRequest : GTLRObject
 
-/**
- *  Required. The ID of the Google Cloud Platform Console project that owns the
- *  job.
- */
+/** Required. The ID of the Google Cloud project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**

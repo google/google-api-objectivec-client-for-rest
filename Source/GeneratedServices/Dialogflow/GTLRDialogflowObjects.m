@@ -1342,7 +1342,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
 @dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
-         outputAudioText, payload, playAudio, text;
+         outputAudioText, payload, playAudio, telephonyTransferCall, text;
 @end
 
 
@@ -1462,6 +1462,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio
 @dynamic allowPlaybackInterruption, audioUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageTelephonyTransferCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageTelephonyTransferCall
+@dynamic phoneNumber;
 @end
 
 
@@ -3492,7 +3502,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage
 @dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
-         outputAudioText, payload, playAudio, text;
+         outputAudioText, payload, playAudio, telephonyTransferCall, text;
 @end
 
 
@@ -3612,6 +3622,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio
 @dynamic allowPlaybackInterruption, audioUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageTelephonyTransferCall
+@dynamic phoneNumber;
 @end
 
 

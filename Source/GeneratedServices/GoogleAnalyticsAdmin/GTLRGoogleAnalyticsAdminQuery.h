@@ -33,6 +33,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDataRetentionSettings;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
@@ -1678,6 +1679,186 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a DataStream.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *
+ *  Creates a DataStream.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream to include
+ *    in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DataStream on a property.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DataStream to delete. Example format:
+ *  properties/1234/dataStreams/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a DataStream on a property.
+ *
+ *  @param name Required. The name of the DataStream to delete. Example format:
+ *    properties/1234/dataStreams/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for a single DataStream.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DataStream to get. Example format:
+ *  properties/1234/dataStreams/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *
+ *  Lookup for a single DataStream.
+ *
+ *  @param name Required. The name of the DataStream to get. Example format:
+ *    properties/1234/dataStreams/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DataStreams on a property.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDataStreams` call. Provide this
+ *  to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListDataStreams` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListDataStreamsResponse.
+ *
+ *  Lists DataStreams on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DataStream on a property.
+ *
+ *  Method: analyticsadmin.properties.dataStreams.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this Data Stream. Format:
+ *  properties/{property_id}/dataStreams/{stream_id} Example:
+ *  "properties/1000/dataStreams/2000"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream.
+ *
+ *  Updates a DataStream on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaDataStream to include
+ *    in the query.
+ *  @param name Output only. Resource name of this Data Stream. Format:
+ *    properties/{property_id}/dataStreams/{stream_id} Example:
+ *    "properties/1000/dataStreams/2000"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDataStream *)object
                            name:(NSString *)name;
 
 @end

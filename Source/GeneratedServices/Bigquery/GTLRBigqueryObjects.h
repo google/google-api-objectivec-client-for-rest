@@ -2994,17 +2994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  [Optional] The destination table expiration time. If this field is set: For
- *  a new table, it will set the table's expiration time (even if there is a
- *  dataset level default table expiration time). For an existing table, it will
- *  update the table's expiration time. If this field is not set: For a new
- *  table, if dataset level default table expiration time is present, that will
- *  be applied. For an existing table, no change is made to the table's
- *  expiration time. Additionally this field is only applied when data is
- *  written to an empty table (WRITE_EMPTY) or data is overwritten to a table
- *  (WRITE_TRUNCATE).
- */
+/** [Internal] This field is for Google internal use only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
@@ -3597,12 +3587,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @interface GTLRBigquery_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.

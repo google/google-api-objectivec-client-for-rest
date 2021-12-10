@@ -149,13 +149,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Create an SSH public key
  *
- *  Method: oslogin.users.sshPublicKey.create
+ *  Method: oslogin.users.sshPublicKeys.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
-@interface GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate : GTLRCloudOSLoginQuery
+@interface GTLRCloudOSLoginQuery_UsersSshPublicKeysCreate : GTLRCloudOSLoginQuery
 
 /** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudOSLogin_SshPublicKey to include in the query.
  *  @param parent Required. The unique ID for the user in format `users/{user}`.
  *
- *  @return GTLRCloudOSLoginQuery_UsersSshPublicKeyCreate
+ *  @return GTLRCloudOSLoginQuery_UsersSshPublicKeysCreate
  */
 + (instancetype)queryWithObject:(GTLRCloudOSLogin_SshPublicKey *)object
                          parent:(NSString *)parent;

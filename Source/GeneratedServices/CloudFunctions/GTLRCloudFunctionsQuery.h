@@ -486,7 +486,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required list of fields to be updated in this request.
+ *  Required. The list of fields in `CloudFunction` that have to be updated.
  *
  *  String format is a comma-separated list of fields.
  */

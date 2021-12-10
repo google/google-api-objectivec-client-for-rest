@@ -64,6 +64,56 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny;
 
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
+
+/**
+ *  Unspecified. Will results in user error.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified;
+/**
+ *  Allowed action type.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow;
+/**
+ *  Deny action type.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.methodTypes
+
+/**
+ *  Constraint applied when creating the resource.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create;
+/**
+ *  Constraint applied when deleting the resource.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Delete;
+/**
+ *  Unspecified. Will results in user error.
+ *
+ *  Value: "METHOD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified;
+/**
+ *  Constraint applied when updating the resource.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Update;
+
 /**
  *  A `constraint` describes a way to restrict resource's configuration. For
  *  example, you could enforce a constraint that controls which cloud services
@@ -159,6 +209,66 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *supportsUnder;
+
+@end
+
+
+/**
+ *  A custom constraint defined by customers which can *only* be applied to the
+ *  given resource types and organization. By creating a custom constraint,
+ *  customers can applied policies of this custom constraint. *Creating a custom
+ *  constraint itself does NOT apply any policy enforcement*.
+ */
+@interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint : GTLRObject
+
+/**
+ *  Allow or deny type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified
+ *        Unspecified. Will results in user error. (Value:
+ *        "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow
+ *        Allowed action type. (Value: "ALLOW")
+ *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny
+ *        Deny action type. (Value: "DENY")
+ */
+@property(nonatomic, copy, nullable) NSString *actionType;
+
+/**
+ *  Org policy condition/expression. For example:
+ *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")'` or,
+ *  `resource.management.auto_upgrade == true`
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  Detailed information about this custom policy constraint.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** One line display name for the UI. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** All the operations being applied for this constraint. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methodTypes;
+
+/**
+ *  Immutable. Name of the constraint. This is unique within the organization.
+ *  Format of the name should be *
+ *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
+ *  Example : "organizations/123/customConstraints/custom.createOnlyE2TypeVms"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The Resource Instance type on which this policy applies to.
+ *  Format will be of the form : "/" Example: *
+ *  `compute.googleapis.com/Instance`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
 @end
 

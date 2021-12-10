@@ -40,6 +40,7 @@
 @class GTLRContainerAnalysis_ComplianceNote;
 @class GTLRContainerAnalysis_ComplianceOccurrence;
 @class GTLRContainerAnalysis_ComplianceVersion;
+@class GTLRContainerAnalysis_CVSS;
 @class GTLRContainerAnalysis_CVSSv3;
 @class GTLRContainerAnalysis_DeploymentNote;
 @class GTLRContainerAnalysis_DeploymentOccurrence;
@@ -107,9 +108,6 @@
 @class GTLRContainerAnalysis_NonCompliantFile;
 @class GTLRContainerAnalysis_Note;
 @class GTLRContainerAnalysis_Occurrence;
-@class GTLRContainerAnalysis_Operation;
-@class GTLRContainerAnalysis_Operation_Metadata;
-@class GTLRContainerAnalysis_Operation_Response;
 @class GTLRContainerAnalysis_PackageIssue;
 @class GTLRContainerAnalysis_PackageNote;
 @class GTLRContainerAnalysis_PackageOccurrence;
@@ -223,6 +221,110 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_
  *  Value: "SEVERITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CisBenchmark_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.attackComplexity
+
+/** Value: "ATTACK_COMPLEXITY_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityHigh;
+/** Value: "ATTACK_COMPLEXITY_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityLow;
+/** Value: "ATTACK_COMPLEXITY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.attackVector
+
+/** Value: "ATTACK_VECTOR_ADJACENT" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorAdjacent;
+/** Value: "ATTACK_VECTOR_LOCAL" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorLocal;
+/** Value: "ATTACK_VECTOR_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorNetwork;
+/** Value: "ATTACK_VECTOR_PHYSICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorPhysical;
+/** Value: "ATTACK_VECTOR_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.authentication
+
+/** Value: "AUTHENTICATION_MULTIPLE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationMultiple;
+/** Value: "AUTHENTICATION_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationNone;
+/** Value: "AUTHENTICATION_SINGLE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationSingle;
+/** Value: "AUTHENTICATION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.availabilityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.confidentialityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.integrityImpact
+
+/** Value: "IMPACT_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactHigh;
+/** Value: "IMPACT_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactLow;
+/** Value: "IMPACT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactNone;
+/** Value: "IMPACT_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.privilegesRequired
+
+/** Value: "PRIVILEGES_REQUIRED_HIGH" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredHigh;
+/** Value: "PRIVILEGES_REQUIRED_LOW" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredLow;
+/** Value: "PRIVILEGES_REQUIRED_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredNone;
+/** Value: "PRIVILEGES_REQUIRED_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.scope
+
+/** Value: "SCOPE_CHANGED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeChanged;
+/** Value: "SCOPE_UNCHANGED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeUnchanged;
+/** Value: "SCOPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_CVSS.userInteraction
+
+/** Value: "USER_INTERACTION_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionNone;
+/** Value: "USER_INTERACTION_REQUIRED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionRequired;
+/** Value: "USER_INTERACTION_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_CVSSv3.attackComplexity
@@ -1674,13 +1776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRContainerAnalysis_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
  *  The category to which the update belongs.
  */
 @interface GTLRContainerAnalysis_Category : GTLRObject
@@ -1882,6 +1977,171 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  CIS document the benchmark is defined in.
  */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Common Vulnerability Scoring System. For details, see
+ *  https://www.first.org/cvss/specification-document This is a message we will
+ *  try to use for storing multiple versions of CVSS. The intention is that as
+ *  new versions of CVSS scores get added, we will be able to modify this
+ *  message rather than adding new protos for each new version of the score.
+ */
+@interface GTLRContainerAnalysis_CVSS : GTLRObject
+
+/**
+ *  attackComplexity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityHigh
+ *        Value "ATTACK_COMPLEXITY_HIGH"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityLow
+ *        Value "ATTACK_COMPLEXITY_LOW"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackComplexity_AttackComplexityUnspecified
+ *        Value "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *attackComplexity;
+
+/**
+ *  Base Metrics Represents the intrinsic characteristics of a vulnerability
+ *  that are constant over time and across user environments.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorAdjacent
+ *        Value "ATTACK_VECTOR_ADJACENT"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorLocal Value
+ *        "ATTACK_VECTOR_LOCAL"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorNetwork Value
+ *        "ATTACK_VECTOR_NETWORK"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorPhysical
+ *        Value "ATTACK_VECTOR_PHYSICAL"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AttackVector_AttackVectorUnspecified
+ *        Value "ATTACK_VECTOR_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *attackVector;
+
+/**
+ *  authentication
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationMultiple
+ *        Value "AUTHENTICATION_MULTIPLE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationNone
+ *        Value "AUTHENTICATION_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationSingle
+ *        Value "AUTHENTICATION_SINGLE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Authentication_AuthenticationUnspecified
+ *        Value "AUTHENTICATION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *authentication;
+
+/**
+ *  availabilityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_AvailabilityImpact_ImpactUnspecified
+ *        Value "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityImpact;
+
+/**
+ *  The base score is a function of the base metric scores.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseScore;
+
+/**
+ *  confidentialityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_ConfidentialityImpact_ImpactUnspecified
+ *        Value "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialityImpact;
+
+/**
+ *  exploitabilityScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exploitabilityScore;
+
+/**
+ *  impactScore
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impactScore;
+
+/**
+ *  integrityImpact
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactHigh Value
+ *        "IMPACT_HIGH"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactLow Value
+ *        "IMPACT_LOW"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactNone Value
+ *        "IMPACT_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_IntegrityImpact_ImpactUnspecified
+ *        Value "IMPACT_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *integrityImpact;
+
+/**
+ *  privilegesRequired
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredHigh
+ *        Value "PRIVILEGES_REQUIRED_HIGH"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredLow
+ *        Value "PRIVILEGES_REQUIRED_LOW"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredNone
+ *        Value "PRIVILEGES_REQUIRED_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_PrivilegesRequired_PrivilegesRequiredUnspecified
+ *        Value "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *privilegesRequired;
+
+/**
+ *  scope
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Scope_ScopeChanged Value
+ *        "SCOPE_CHANGED"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Scope_ScopeUnchanged Value
+ *        "SCOPE_UNCHANGED"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_Scope_ScopeUnspecified Value
+ *        "SCOPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  userInteraction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionNone
+ *        Value "USER_INTERACTION_NONE"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionRequired
+ *        Value "USER_INTERACTION_REQUIRED"
+ *    @arg @c kGTLRContainerAnalysis_CVSS_UserInteraction_UserInteractionUnspecified
+ *        Value "USER_INTERACTION_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *userInteraction;
 
 @end
 
@@ -4155,30 +4415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 
 /**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRContainerAnalysis_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Operation *> *operations;
-
-@end
-
-
-/**
  *  An occurrence of a particular package installation found within a system's
  *  filesystem. E.g., glibc was found in `/var/lib/dpkg/status`.
  */
@@ -4479,86 +4715,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** Describes a security vulnerability. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_VulnerabilityOccurrence *vulnerability;
 
-@end
-
-
-/**
- *  This resource represents a long-running operation that is the result of a
- *  network API call.
- */
-@interface GTLRContainerAnalysis_Operation : GTLRObject
-
-/**
- *  If the value is `false`, it means the operation is still in progress. If
- *  `true`, the operation is completed, and either `error` or `response` is
- *  available.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *done;
-
-/** The error result of the operation in case of failure or cancellation. */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Status *error;
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Metadata *metadata;
-
-/**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the `name`
- *  should be a resource name ending with `operations/{unique_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- */
-@property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Response *response;
-
-@end
-
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContainerAnalysis_Operation_Metadata : GTLRObject
-@end
-
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRContainerAnalysis_Operation_Response : GTLRObject
 @end
 
 
@@ -5543,6 +5699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
+
+/** The cvss v3 score for the vulnerability. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_CVSS *cvssv3;
 
 /**
  *  The distro assigned severity for this vulnerability when it is available,

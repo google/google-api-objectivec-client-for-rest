@@ -141,6 +141,7 @@ NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_Targeti
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeApp = @"TARGETING_TYPE_APP";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAppCategory = @"TARGETING_TYPE_APP_CATEGORY";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudienceGroup = @"TARGETING_TYPE_AUDIENCE_GROUP";
+NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAudioContentType = @"TARGETING_TYPE_AUDIO_CONTENT_TYPE";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus = @"TARGETING_TYPE_AUTHORIZED_SELLER_STATUS";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBrowser = @"TARGETING_TYPE_BROWSER";
 NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeBusinessChain = @"TARGETING_TYPE_BUSINESS_CHAIN";
@@ -193,6 +194,20 @@ NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_StandardPartnerClie
 NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_StandardPlanner = @"STANDARD_PLANNER";
 NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_StandardPlannerLimited = @"STANDARD_PLANNER_LIMITED";
 NSString * const kGTLRDisplayVideo_AssignedUserRole_UserRole_UserRoleUnspecified = @"USER_ROLE_UNSPECIFIED";
+
+// GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails.audioContentType
+NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast = @"AUDIO_CONTENT_TYPE_BROADCAST";
+NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeMusic = @"AUDIO_CONTENT_TYPE_MUSIC";
+NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypePodcast = @"AUDIO_CONTENT_TYPE_PODCAST";
+NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown = @"AUDIO_CONTENT_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified = @"AUDIO_CONTENT_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails.audioContentType
+NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast = @"AUDIO_CONTENT_TYPE_BROADCAST";
+NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeMusic = @"AUDIO_CONTENT_TYPE_MUSIC";
+NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypePodcast = @"AUDIO_CONTENT_TYPE_PODCAST";
+NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnknown = @"AUDIO_CONTENT_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AudioContentTypeTargetingOptionDetails_AudioContentType_AudioContentTypeUnspecified = @"AUDIO_CONTENT_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails.authorizedSellerStatus
 NSString * const kGTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails_AuthorizedSellerStatus_AuthorizedSellerStatusAuthorizedAndNonParticipatingPublishers = @"AUTHORIZED_SELLER_STATUS_AUTHORIZED_AND_NON_PARTICIPATING_PUBLISHERS";
@@ -317,6 +332,7 @@ NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeApp = @"TARGETING_TYPE_APP";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAppCategory = @"TARGETING_TYPE_APP_CATEGORY";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudienceGroup = @"TARGETING_TYPE_AUDIENCE_GROUP";
+NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType = @"TARGETING_TYPE_AUDIO_CONTENT_TYPE";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus = @"TARGETING_TYPE_AUTHORIZED_SELLER_STATUS";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser = @"TARGETING_TYPE_BROWSER";
 NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain = @"TARGETING_TYPE_BUSINESS_CHAIN";
@@ -484,6 +500,7 @@ NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_Targeti
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeApp = @"TARGETING_TYPE_APP";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAppCategory = @"TARGETING_TYPE_APP_CATEGORY";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudienceGroup = @"TARGETING_TYPE_AUDIENCE_GROUP";
+NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAudioContentType = @"TARGETING_TYPE_AUDIO_CONTENT_TYPE";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeAuthorizedSellerStatus = @"TARGETING_TYPE_AUTHORIZED_SELLER_STATUS";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBrowser = @"TARGETING_TYPE_BROWSER";
 NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeBusinessChain = @"TARGETING_TYPE_BUSINESS_CHAIN";
@@ -1667,6 +1684,7 @@ NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAg
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeApp = @"TARGETING_TYPE_APP";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAppCategory = @"TARGETING_TYPE_APP_CATEGORY";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudienceGroup = @"TARGETING_TYPE_AUDIENCE_GROUP";
+NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAudioContentType = @"TARGETING_TYPE_AUDIO_CONTENT_TYPE";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeAuthorizedSellerStatus = @"TARGETING_TYPE_AUTHORIZED_SELLER_STATUS";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBrowser = @"TARGETING_TYPE_BROWSER";
 NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeBusinessChain = @"TARGETING_TYPE_BUSINESS_CHAIN";
@@ -1989,10 +2007,11 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 @implementation GTLRDisplayVideo_AssignedTargetingOption
 @dynamic ageRangeDetails, appCategoryDetails, appDetails,
          assignedTargetingOptionId, audienceGroupDetails,
-         authorizedSellerStatusDetails, browserDetails, businessChainDetails,
-         carrierAndIspDetails, categoryDetails, channelDetails,
-         contentInstreamPositionDetails, contentOutstreamPositionDetails,
-         dayAndTimeDetails, deviceMakeModelDetails, deviceTypeDetails,
+         audioContentTypeDetails, authorizedSellerStatusDetails, browserDetails,
+         businessChainDetails, carrierAndIspDetails, categoryDetails,
+         channelDetails, contentInstreamPositionDetails,
+         contentOutstreamPositionDetails, dayAndTimeDetails,
+         deviceMakeModelDetails, deviceTypeDetails,
          digitalContentLabelExclusionDetails, environmentDetails,
          exchangeDetails, genderDetails, geoRegionDetails,
          householdIncomeDetails, inheritance, inventorySourceDetails,
@@ -2033,6 +2052,26 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails
+@dynamic audioContentType, targetingOptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails
+//
+
+@implementation GTLRDisplayVideo_AudioContentTypeTargetingOptionDetails
+@dynamic audioContentType;
 @end
 
 
@@ -5190,9 +5229,9 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_TargetingOption
-@dynamic ageRangeDetails, appCategoryDetails, authorizedSellerStatusDetails,
-         browserDetails, businessChainDetails, carrierAndIspDetails,
-         categoryDetails, contentInstreamPositionDetails,
+@dynamic ageRangeDetails, appCategoryDetails, audioContentTypeDetails,
+         authorizedSellerStatusDetails, browserDetails, businessChainDetails,
+         carrierAndIspDetails, categoryDetails, contentInstreamPositionDetails,
          contentOutstreamPositionDetails, deviceMakeModelDetails,
          deviceTypeDetails, digitalContentLabelDetails, environmentDetails,
          exchangeDetails, genderDetails, geoRegionDetails,

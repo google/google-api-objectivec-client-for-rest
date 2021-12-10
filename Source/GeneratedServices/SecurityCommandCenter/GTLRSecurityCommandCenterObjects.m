@@ -140,6 +140,98 @@ NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Remov
 NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unchanged = @"UNCHANGED";
 NSString * const kGTLRSecurityCommandCenter_ListFindingsResult_StateChange_Unused = @"UNUSED";
 
+// GTLRSecurityCommandCenter_MitreAttack.additionalTactics
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Collection = @"COLLECTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_CommandAndControl = @"COMMAND_AND_CONTROL";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_CredentialAccess = @"CREDENTIAL_ACCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_DefenseEvasion = @"DEFENSE_EVASION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Discovery = @"DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Execution = @"EXECUTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Exfiltration = @"EXFILTRATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Impact = @"IMPACT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_InitialAccess = @"INITIAL_ACCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_LateralMovement = @"LATERAL_MOVEMENT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Persistence = @"PERSISTENCE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_PrivilegeEscalation = @"PRIVILEGE_ESCALATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_Reconnaissance = @"RECONNAISSANCE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_ResourceDevelopment = @"RESOURCE_DEVELOPMENT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTactics_TacticUnspecified = @"TACTIC_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_MitreAttack.additionalTechniques
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_AccountManipulation = @"ACCOUNT_MANIPULATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ActiveScanning = @"ACTIVE_SCANNING";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CloudAccounts = @"CLOUD_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CloudGroups = @"CLOUD_GROUPS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NativeApi = @"NATIVE_API";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NetworkDenialOfService = @"NETWORK_DENIAL_OF_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_PermissionGroupsDiscovery = @"PERMISSION_GROUPS_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Proxy = @"PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SharedModules = @"SHARED_MODULES";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_SshAuthorizedKeys = @"SSH_AUTHORIZED_KEYS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_StealWebSessionCookie = @"STEAL_WEB_SESSION_COOKIE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnixShell = @"UNIX_SHELL";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ValidAccounts = @"VALID_ACCOUNTS";
+
+// GTLRSecurityCommandCenter_MitreAttack.primaryTactic
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Collection = @"COLLECTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_CommandAndControl = @"COMMAND_AND_CONTROL";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_CredentialAccess = @"CREDENTIAL_ACCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_DefenseEvasion = @"DEFENSE_EVASION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Discovery = @"DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Execution = @"EXECUTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Exfiltration = @"EXFILTRATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Impact = @"IMPACT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_InitialAccess = @"INITIAL_ACCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_LateralMovement = @"LATERAL_MOVEMENT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Persistence = @"PERSISTENCE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_PrivilegeEscalation = @"PRIVILEGE_ESCALATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_Reconnaissance = @"RECONNAISSANCE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_ResourceDevelopment = @"RESOURCE_DEVELOPMENT";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTactic_TacticUnspecified = @"TACTIC_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_MitreAttack.primaryTechniques
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_AccountManipulation = @"ACCOUNT_MANIPULATION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ActiveScanning = @"ACTIVE_SCANNING";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CloudAccounts = @"CLOUD_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CloudGroups = @"CLOUD_GROUPS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CommandAndScriptingInterpreter = @"COMMAND_AND_SCRIPTING_INTERPRETER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_CreateOrModifySystemProcess = @"CREATE_OR_MODIFY_SYSTEM_PROCESS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NativeApi = @"NATIVE_API";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NetworkDenialOfService = @"NETWORK_DENIAL_OF_SERVICE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_PermissionGroupsDiscovery = @"PERMISSION_GROUPS_DISCOVERY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Proxy = @"PROXY";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ResourceHijacking = @"RESOURCE_HIJACKING";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ScanningIpBlocks = @"SCANNING_IP_BLOCKS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SharedModules = @"SHARED_MODULES";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_SshAuthorizedKeys = @"SSH_AUTHORIZED_KEYS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_StealWebSessionCookie = @"STEAL_WEB_SESSION_COOKIE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_TechniqueUnspecified = @"TECHNIQUE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnixShell = @"UNIX_SHELL";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_UnsecuredCredentials = @"UNSECURED_CREDENTIALS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ValidAccounts = @"VALID_ACCOUNTS";
+
 // GTLRSecurityCommandCenter_SetFindingStateRequest.state
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_Inactive = @"INACTIVE";
@@ -150,6 +242,17 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Muted = @"MUTED"
 NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_MuteUnspecified = @"MUTE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Undefined = @"UNDEFINED";
 NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMUTED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Access
+//
+
+@implementation GTLRSecurityCommandCenter_Access
+@dynamic callerIp, callerIpGeo, methodName, principalEmail, serviceName,
+         userAgentFamily;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -323,10 +426,10 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic canonicalName, category, createTime, eventTime, externalSystems,
-         externalUri, findingClass, indicator, mute, muteInitiator,
-         muteUpdateTime, name, parent, resourceName, securityMarks, severity,
-         sourceProperties, state, vulnerability;
+@dynamic access, canonicalName, category, createTime, eventTime,
+         externalSystems, externalUri, findingClass, indicator, mitreAttack,
+         mute, muteInitiator, muteUpdateTime, name, parent, resourceName,
+         securityMarks, severity, sourceProperties, state, vulnerability;
 @end
 
 
@@ -370,6 +473,16 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Geolocation
+//
+
+@implementation GTLRSecurityCommandCenter_Geolocation
+@dynamic regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GetIamPolicyRequest
 //
 
@@ -395,6 +508,15 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse
 @dynamic duration, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BulkMuteFindingsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BulkMuteFindingsResponse
 @end
 
 
@@ -832,6 +954,27 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 + (NSString *)collectionItemsKey {
   return @"sources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_MitreAttack
+//
+
+@implementation GTLRSecurityCommandCenter_MitreAttack
+@dynamic additionalTactics, additionalTechniques, primaryTactic,
+         primaryTechniques, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalTactics" : [NSString class],
+    @"additionalTechniques" : [NSString class],
+    @"primaryTechniques" : [NSString class]
+  };
+  return map;
 }
 
 @end

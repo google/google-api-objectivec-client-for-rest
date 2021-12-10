@@ -127,6 +127,10 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UrlFragment = @"URL_FR
 NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_UserControllableUrl = @"USER_CONTROLLABLE_URL";
 NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_NAME";
 
+// GTLRWebSecurityScanner_Xxe.payloadLocation
+NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_CompleteRequestBody = @"COMPLETE_REQUEST_BODY";
+NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified = @"LOCATION_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRWebSecurityScanner_Authentication
@@ -175,7 +179,7 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 @dynamic body, descriptionProperty, finalUrl, findingType, form, frameUrl,
          fuzzedUrl, httpMethod, name, outdatedLibrary, reproductionUrl,
          severity, trackingId, violatingResource, vulnerableHeaders,
-         vulnerableParameters, xss;
+         vulnerableParameters, xss, xxe;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -538,4 +542,14 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebSecurityScanner_Xxe
+//
+
+@implementation GTLRWebSecurityScanner_Xxe
+@dynamic payloadLocation, payloadValue;
 @end

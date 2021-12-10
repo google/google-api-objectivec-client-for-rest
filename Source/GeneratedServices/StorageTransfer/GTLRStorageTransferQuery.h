@@ -49,11 +49,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Returns the Google service account that is used by Storage Transfer Service
  *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Cloud Platform
- *  Console project. Users should add this service account to the Google Cloud
- *  Storage bucket ACLs to grant access to Storage Transfer Service. This
- *  service account is created and owned by Storage Transfer Service and can
- *  only be used by Storage Transfer Service.
+ *  Each Google service account is associated with one Google Cloud project.
+ *  Users should add this service account to the Google Cloud Storage bucket
+ *  ACLs to grant access to Storage Transfer Service. This service account is
+ *  created and owned by Storage Transfer Service and can only be used by
+ *  Storage Transfer Service.
  *
  *  Method: storagetransfer.googleServiceAccounts.get
  *
@@ -63,8 +63,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageTransferQuery_GoogleServiceAccountsGet : GTLRStorageTransferQuery
 
 /**
- *  Required. The ID of the Google Cloud Platform Console project that the
- *  Google service account is associated with.
+ *  Required. The ID of the Google Cloud project that the Google service account
+ *  is associated with.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -73,14 +73,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns the Google service account that is used by Storage Transfer Service
  *  to access buckets in the project where transfers run or in other projects.
- *  Each Google service account is associated with one Google Cloud Platform
- *  Console project. Users should add this service account to the Google Cloud
- *  Storage bucket ACLs to grant access to Storage Transfer Service. This
- *  service account is created and owned by Storage Transfer Service and can
- *  only be used by Storage Transfer Service.
+ *  Each Google service account is associated with one Google Cloud project.
+ *  Users should add this service account to the Google Cloud Storage bucket
+ *  ACLs to grant access to Storage Transfer Service. This service account is
+ *  created and owned by Storage Transfer Service and can only be used by
+ *  Storage Transfer Service.
  *
- *  @param projectId Required. The ID of the Google Cloud Platform Console
- *    project that the Google service account is associated with.
+ *  @param projectId Required. The ID of the Google Cloud project that the
+ *    Google service account is associated with.
  *
  *  @return GTLRStorageTransferQuery_GoogleServiceAccountsGet
  */
@@ -99,17 +99,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageTransferQuery_ProjectsAgentPoolsCreate : GTLRStorageTransferQuery
 
 /**
- *  Required. The id of the agent pool to create. The agent_pool_id must be
- *  non-empty, less than or equal to 128 characters, and satisfy the following
- *  regex: "^[a-z]([a-z0-9-._~]*[a-z0-9])?$". Also, agent pool names cannot
- *  start with the string "goog".
+ *  Required. The ID of the agent pool to create. The `agent_pool_id` must meet
+ *  the following requirements: * Length of 128 characters or less. * Not start
+ *  with the string `goog`. * Start with a lowercase ASCII character, followed
+ *  by: * Zero or more: lowercase Latin alphabet characters, numerals, hyphens
+ *  (`-`), periods (`.`), underscores (`_`), or tildes (`~`). * One or more
+ *  numerals or lowercase ASCII characters. As expressed by the regular
+ *  expression: `^(?!goog)[a-z]([a-z0-9-._~]*[a-z0-9])?$`.
  */
 @property(nonatomic, copy, nullable) NSString *agentPoolId;
 
-/**
- *  Required. The ID of the Google Cloud Platform Console project that owns the
- *  agent pool.
- */
+/** Required. The ID of the Google Cloud project that owns the agent pool. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -118,8 +118,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates an agent pool resource.
  *
  *  @param object The @c GTLRStorageTransfer_AgentPool to include in the query.
- *  @param projectId Required. The ID of the Google Cloud Platform Console
- *    project that owns the agent pool.
+ *  @param projectId Required. The ID of the Google Cloud project that owns the
+ *    agent pool.
  *
  *  @return GTLRStorageTransferQuery_ProjectsAgentPoolsCreate
  */
@@ -138,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorageTransferQuery_ProjectsAgentPoolsDelete : GTLRStorageTransferQuery
 
-/** Required. The agent pool name to delete. */
+/** Required. The name of the agent pool to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes an agent pool.
  *
- *  @param name Required. The agent pool name to delete.
+ *  @param name Required. The name of the agent pool to delete.
  *
  *  @return GTLRStorageTransferQuery_ProjectsAgentPoolsDelete
  */
@@ -164,7 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorageTransferQuery_ProjectsAgentPoolsGet : GTLRStorageTransferQuery
 
-/** Required. The agent pool to get. */
+/** Required. The name of the agent pool to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -172,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an agent pool.
  *
- *  @param name Required. The agent pool to get.
+ *  @param name Required. The name of the agent pool to get.
  *
  *  @return GTLRStorageTransferQuery_ProjectsAgentPoolsGet
  */
@@ -191,24 +191,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRStorageTransferQuery_ProjectsAgentPoolsList : GTLRStorageTransferQuery
 
 /**
- *  A list of optional query parameters specified as JSON text in the form of:
+ *  An optional list of query parameters specified as JSON text in the form of:
  *  `{"agentPoolNames":["agentpool1","agentpool2",...]}` Since `agentPoolNames`
  *  support multiple values, its values must be specified with array notation.
- *  `agentPoolNames` is an optional field. The list returns all agent pools for
- *  the project when the filter is not provided or empty.
+ *  When the filter is either empty or not provided, the list returns all agent
+ *  pools for the project.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The list page size. The max allowed value is 256. */
+/** The list page size. The max allowed value is `256`. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** The list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. The ID of the Google Cloud Platform Console project that owns the
- *  job.
- */
+/** Required. The ID of the Google Cloud project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -216,8 +213,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists agent pools.
  *
- *  @param projectId Required. The ID of the Google Cloud Platform Console
- *    project that owns the job.
+ *  @param projectId Required. The ID of the Google Cloud project that owns the
+ *    job.
  *
  *  @return GTLRStorageTransferQuery_ProjectsAgentPoolsList
  *
@@ -241,14 +238,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Specifies a unique string that identifies the agent pool. Format:
- *  projects/{project_id}/agentPools/{agent_pool_id}
+ *  `projects/{project_id}/agentPools/{agent_pool_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask of the fields in `agentPool` that are to be updated in this
- *  request. Fields in `agentPool` that can be updated are: display_name,
- *  bandwidth_limit,
+ *  The [field mask]
+ *  (https://developers.google.com/protocol-buffers/docs/reference/google.protobuf)
+ *  of the fields in `agentPool` to update in this request. The following
+ *  `agentPool` fields can be updated: * display_name * bandwidth_limit
  *
  *  String format is a comma-separated list of fields.
  */
@@ -261,7 +259,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRStorageTransfer_AgentPool to include in the query.
  *  @param name Required. Specifies a unique string that identifies the agent
- *    pool. Format: projects/{project_id}/agentPools/{agent_pool_id}
+ *    pool. Format: `projects/{project_id}/agentPools/{agent_pool_id}`
  *
  *  @return GTLRStorageTransferQuery_ProjectsAgentPoolsPatch
  */
@@ -307,10 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Required. The job to get. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
-/**
- *  Required. The ID of the Google Cloud Platform Console project that owns the
- *  job.
- */
+/** Required. The ID of the Google Cloud project that owns the job. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
@@ -319,8 +314,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a transfer job.
  *
  *  @param jobName Required. The job to get.
- *  @param projectId Required. The ID of the Google Cloud Platform Console
- *    project that owns the job.
+ *  @param projectId Required. The ID of the Google Cloud project that owns the
+ *    job.
  *
  *  @return GTLRStorageTransferQuery_TransferJobsGet
  */

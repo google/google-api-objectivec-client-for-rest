@@ -809,6 +809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  */
 @property(nonatomic, strong, nullable) NSNumber *autoStorageIncrease;
 
+/** The KMS key name used for the csql instance. */
+@property(nonatomic, copy, nullable) NSString *cmekKeyName;
+
 /** The Cloud SQL default instance level collation. */
 @property(nonatomic, copy, nullable) NSString *collation;
 

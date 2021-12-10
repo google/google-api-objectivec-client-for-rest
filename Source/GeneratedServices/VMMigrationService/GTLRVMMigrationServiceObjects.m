@@ -154,6 +154,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_AddGroupMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_AddGroupMigrationResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_AppliedLicense
 //
 
@@ -173,10 +182,28 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_CancelCloneJobResponse
+//
+
+@implementation GTLRVMMigrationService_CancelCloneJobResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_CancelCutoverJobRequest
 //
 
 @implementation GTLRVMMigrationService_CancelCutoverJobRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_CancelCutoverJobResponse
+//
+
+@implementation GTLRVMMigrationService_CancelCutoverJobResponse
 @end
 
 
@@ -372,6 +399,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_FinalizeMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_FinalizeMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_FinalizeMigrationResponse
 @end
 
 
@@ -809,11 +845,29 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_PauseMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_PauseMigrationResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_RemoveGroupMigrationRequest
 //
 
 @implementation GTLRVMMigrationService_RemoveGroupMigrationRequest
 @dynamic migratingVm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_RemoveGroupMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_RemoveGroupMigrationResponse
 @end
 
 
@@ -843,6 +897,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ResumeMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_ResumeMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_ResumeMigrationResponse
 @end
 
 
@@ -913,6 +976,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_StartMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMMigrationService_StartMigrationResponse
+//
+
+@implementation GTLRVMMigrationService_StartMigrationResponse
 @end
 
 

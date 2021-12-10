@@ -41,6 +41,7 @@
 @class GTLRWebSecurityScanner_VulnerableHeaders;
 @class GTLRWebSecurityScanner_VulnerableParameters;
 @class GTLRWebSecurityScanner_Xss;
+@class GTLRWebSecurityScanner_Xxe;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -684,6 +685,22 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_User
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName;
 
+// ----------------------------------------------------------------------------
+// GTLRWebSecurityScanner_Xxe.payloadLocation
+
+/**
+ *  The XML payload replaced the complete request body.
+ *
+ *  Value: "COMPLETE_REQUEST_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_CompleteRequestBody;
+/**
+ *  Unknown Location.
+ *
+ *  Value: "LOCATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified;
+
 /**
  *  Scan authentication configuration.
  */
@@ -871,6 +888,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *  Output only. An addon containing information reported for an XSS, if any.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_Xss *xss;
+
+/**
+ *  Output only. An addon containing information reported for an XXE, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRWebSecurityScanner_Xxe *xxe;
 
 @end
 
@@ -1707,6 +1729,32 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /** The reproduction url for the seeding POST request of a Stored XSS. */
 @property(nonatomic, copy, nullable) NSString *storedXssSeedingUrl;
+
+@end
+
+
+/**
+ *  Information reported for an XXE.
+ */
+@interface GTLRWebSecurityScanner_Xxe : GTLRObject
+
+/**
+ *  Location within the request where the payload was placed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWebSecurityScanner_Xxe_PayloadLocation_CompleteRequestBody
+ *        The XML payload replaced the complete request body. (Value:
+ *        "COMPLETE_REQUEST_BODY")
+ *    @arg @c kGTLRWebSecurityScanner_Xxe_PayloadLocation_LocationUnspecified
+ *        Unknown Location. (Value: "LOCATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *payloadLocation;
+
+/**
+ *  The XML string that triggered the XXE vulnerability. Non-payload values
+ *  might be redacted.
+ */
+@property(nonatomic, copy, nullable) NSString *payloadValue;
 
 @end
 

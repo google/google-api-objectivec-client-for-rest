@@ -2582,7 +2582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Retrieves the list of accessible Google My Business accounts.
+ *  Retrieves the list of accessible Business Profiles.
  *
  *  Method: content.liasettings.getaccessiblegmbaccounts
  *
@@ -2592,8 +2592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @interface GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts : GTLRShoppingContentQuery
 
 /**
- *  The ID of the account for which to retrieve accessible Google My Business
- *  accounts.
+ *  The ID of the account for which to retrieve accessible Business Profiles.
  */
 @property(nonatomic, assign) unsigned long long accountId;
 
@@ -2608,13 +2607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Fetches a @c
  *  GTLRShoppingContent_LiasettingsGetAccessibleGmbAccountsResponse.
  *
- *  Retrieves the list of accessible Google My Business accounts.
+ *  Retrieves the list of accessible Business Profiles.
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
  *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to retrieve accessible
- *    Google My Business accounts.
+ *    Business Profiles.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts
  */
@@ -2687,7 +2686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Requests access to a specified Google My Business account.
+ *  Requests access to a specified Business Profile.
  *
  *  Method: content.liasettings.requestgmbaccess
  *
@@ -2696,10 +2695,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_LiasettingsRequestgmbaccess : GTLRShoppingContentQuery
 
-/** The ID of the account for which GMB access is requested. */
+/** The ID of the account for which Business Profile access is requested. */
 @property(nonatomic, assign) unsigned long long accountId;
 
-/** The email of the Google My Business account. */
+/** The email of the Business Profile. */
 @property(nonatomic, copy, nullable) NSString *gmbEmail;
 
 /**
@@ -2712,13 +2711,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_LiasettingsRequestGmbAccessResponse.
  *
- *  Requests access to a specified Google My Business account.
+ *  Requests access to a specified Business Profile.
  *
  *  @param merchantId The ID of the managing account. If this parameter is not
  *    the same as accountId, then this account must be a multi-client account
  *    and `accountId` must be the ID of a sub-account of this account.
- *  @param accountId The ID of the account for which GMB access is requested.
- *  @param gmbEmail The email of the Google My Business account.
+ *  @param accountId The ID of the account for which Business Profile access is
+ *    requested.
+ *  @param gmbEmail The email of the Business Profile.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsRequestgmbaccess
  */
@@ -2848,8 +2848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @interface GTLRShoppingContentQuery_LiasettingsSetposdataprovider : GTLRShoppingContentQuery
 
 /**
- *  The ID of the account for which to retrieve accessible Google My Business
- *  accounts.
+ *  The ID of the account for which to retrieve accessible Business Profiles.
  */
 @property(nonatomic, assign) unsigned long long accountId;
 
@@ -2880,7 +2879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    the same as accountId, then this account must be a multi-client account
  *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account for which to retrieve accessible
- *    Google My Business accounts.
+ *    Business Profiles.
  *  @param country The country for which the POS data provider is selected.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsSetposdataprovider

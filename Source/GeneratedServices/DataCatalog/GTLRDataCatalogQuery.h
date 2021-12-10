@@ -30,10 +30,12 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ReplaceTaxonomyRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequest;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Tag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest;
 @class GTLRDataCatalog_SetIamPolicyRequest;
 @class GTLRDataCatalog_TestIamPermissionsRequest;
 
@@ -541,9 +543,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Marks an Entry as starred by the current user. Starring information is
+ *  private to each user.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.star
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar : GTLRDataCatalogQuery
+
+/** Required. The name of the entry to mark as starred. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse.
+ *
+ *  Marks an Entry as starred by the current user. Starring information is
+ *  private to each user.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest to include in the
+ *    query.
+ *  @param name Required. The name of the entry to mark as starred.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesStar
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a tag and assigns it to: * An Entry if the method name is
- *  ``projects.locations.entryGroups.entries.tags.create``. * Or EntryGroupif
- *  the method name is ``projects.locations.entryGroups.tags.create``. Note: The
+ *  `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the
+ *  method name is `projects.locations.entryGroups.tags.create`. Note: The
  *  project identified by the `parent` parameter for the [tag]
  *  (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the [tag template]
@@ -569,8 +603,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag.
  *
  *  Creates a tag and assigns it to: * An Entry if the method name is
- *  ``projects.locations.entryGroups.entries.tags.create``. * Or EntryGroupif
- *  the method name is ``projects.locations.entryGroups.tags.create``. Note: The
+ *  `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the
+ *  method name is `projects.locations.entryGroups.tags.create`. Note: The
  *  project identified by the `parent` parameter for the [tag]
  *  (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the [tag template]
@@ -750,6 +784,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataCatalog_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Marks an Entry as NOT starred by the current user. Starring information is
+ *  private to each user.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.unstar
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar : GTLRDataCatalogQuery
+
+/** Required. The name of the entry to mark as **not** starred. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryResponse.
+ *
+ *  Marks an Entry as NOT starred by the current user. Starring information is
+ *  private to each user.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest to include in
+ *    the query.
+ *  @param name Required. The name of the entry to mark as **not** starred.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesUnstar
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1UnstarEntryRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -985,8 +1051,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a tag and assigns it to: * An Entry if the method name is
- *  ``projects.locations.entryGroups.entries.tags.create``. * Or EntryGroupif
- *  the method name is ``projects.locations.entryGroups.tags.create``. Note: The
+ *  `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the
+ *  method name is `projects.locations.entryGroups.tags.create`. Note: The
  *  project identified by the `parent` parameter for the [tag]
  *  (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the [tag template]
@@ -1012,8 +1078,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1Tag.
  *
  *  Creates a tag and assigns it to: * An Entry if the method name is
- *  ``projects.locations.entryGroups.entries.tags.create``. * Or EntryGroupif
- *  the method name is ``projects.locations.entryGroups.tags.create``. Note: The
+ *  `projects.locations.entryGroups.entries.tags.create`. * Or EntryGroupif the
+ *  method name is `projects.locations.entryGroups.tags.create`. Note: The
  *  project identified by the `parent` parameter for the [tag]
  *  (https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries.tags/create#path-parameters)
  *  and the [tag template]
@@ -1466,7 +1532,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename : GTLRDataCatalogQuery
 
-/** Required. The name of the tag template. */
+/** Required. The name of the tag template field. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1480,7 +1546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest to
  *    include in the query.
- *  @param name Required. The name of the tag template.
+ *  @param name Required. The name of the tag template field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename
  */
@@ -1592,10 +1658,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  `display_name` and `is_publicly_readable` can be overwritten. If this
  *  parameter is absent or empty, all modifiable fields are overwritten. If such
  *  fields are non-required and omitted in the request body, their values are
- *  emptied. Note: Updating the ``is_publicly_readable`` field may require up to
+ *  emptied. Note: Updating the `is_publicly_readable` field may require up to
  *  12 hours to take effect in search results. Additionally, it also requires
- *  the ``tagTemplates.getIamPolicy`` and ``tagTemplates.setIamPolicy``
- *  permissions.
+ *  the `tagTemplates.getIamPolicy` and `tagTemplates.setIamPolicy` permissions.
  *
  *  String format is a comma-separated list of fields.
  */

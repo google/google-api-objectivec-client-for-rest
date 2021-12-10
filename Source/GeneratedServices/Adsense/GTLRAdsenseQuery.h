@@ -669,7 +669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
 
 /**
  *  Required. AdUnit to get information about. Format:
- *  accounts/{account_id}/adclient/{adclient_id}/adunit/{adunit_id}
+ *  accounts/{account}/adclients/{adclient}/adunits/{adunit}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -679,7 +679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *  Gets an ad unit from a specified account and ad client.
  *
  *  @param name Required. AdUnit to get information about. Format:
- *    accounts/{account_id}/adclient/{adclient_id}/adunit/{adunit_id}
+ *    accounts/{account}/adclients/{adclient}/adunits/{adunit}
  *
  *  @return GTLRAdsenseQuery_AccountsAdclientsAdunitsGet
  */
@@ -1136,9 +1136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  */
 @interface GTLRAdsenseQuery_AccountsGet : GTLRAdsenseQuery
 
-/**
- *  Required. Account to get information about. Format: accounts/{account_id}
- */
+/** Required. Account to get information about. Format: accounts/{account} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1147,7 +1145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *  Gets information about the selected AdSense account.
  *
  *  @param name Required. Account to get information about. Format:
- *    accounts/{account_id}
+ *    accounts/{account}
  *
  *  @return GTLRAdsenseQuery_AccountsGet
  */

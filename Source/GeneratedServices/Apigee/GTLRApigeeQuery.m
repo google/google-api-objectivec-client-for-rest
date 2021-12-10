@@ -1545,6 +1545,33 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsDevelopersBalanceAdjust
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:adjust";
+  GTLRApigeeQuery_OrganizationsDevelopersBalanceAdjust *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1DeveloperBalance class];
+  query.loggingName = @"apigee.organizations.developers.balance.adjust";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsDevelopersBalanceCredit
 
 @dynamic name;

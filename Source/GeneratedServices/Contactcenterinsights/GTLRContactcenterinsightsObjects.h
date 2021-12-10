@@ -116,6 +116,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest.writeDisposition
+
+/**
+ *  If the table already exists, BigQuery will append data to the table.
+ *
+ *  Value: "WRITE_APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteAppend;
+/**
+ *  Write disposition is not specified. Defaults to WRITE_TRUNCATE.
+ *
+ *  Value: "WRITE_DISPOSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified;
+/**
+ *  If the table already exists, BigQuery will overwrite the table data and use
+ *  the schema from the load.
+ *
+ *  Value: "WRITE_TRUNCATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModel.state
 
 /**
@@ -379,6 +402,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PROPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EntityMentionData_Type_Proper;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest.writeDisposition
+
+/**
+ *  If the table already exists, BigQuery will append data to the table.
+ *
+ *  Value: "WRITE_APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteAppend;
+/**
+ *  Write disposition is not specified. Defaults to WRITE_TRUNCATE.
+ *
+ *  Value: "WRITE_DISPOSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified;
+/**
+ *  If the table already exists, BigQuery will overwrite the table data and use
+ *  the schema from the load.
+ *
+ *  Value: "WRITE_TRUNCATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModel.state
@@ -678,6 +724,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Required. The parent resource to export data from. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Options for what to do if the destination table already exists.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteAppend
+ *        If the table already exists, BigQuery will append data to the table.
+ *        (Value: "WRITE_APPEND")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified
+ *        Write disposition is not specified. Defaults to WRITE_TRUNCATE.
+ *        (Value: "WRITE_DISPOSITION_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate
+ *        If the table already exists, BigQuery will overwrite the table data
+ *        and use the schema from the load. (Value: "WRITE_TRUNCATE")
+ */
+@property(nonatomic, copy, nullable) NSString *writeDisposition;
 
 @end
 
@@ -2043,6 +2105,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 
 /** Required. The parent resource to export data from. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Options for what to do if the destination table already exists.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteAppend
+ *        If the table already exists, BigQuery will append data to the table.
+ *        (Value: "WRITE_APPEND")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteDispositionUnspecified
+ *        Write disposition is not specified. Defaults to WRITE_TRUNCATE.
+ *        (Value: "WRITE_DISPOSITION_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate
+ *        If the table already exists, BigQuery will overwrite the table data
+ *        and use the schema from the load. (Value: "WRITE_TRUNCATE")
+ */
+@property(nonatomic, copy, nullable) NSString *writeDisposition;
 
 @end
 

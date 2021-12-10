@@ -36,11 +36,15 @@
 @class GTLRCloudIdentity_GroupRelation;
 @class GTLRCloudIdentity_GroupRelation_Labels;
 @class GTLRCloudIdentity_MemberRelation;
+@class GTLRCloudIdentity_MemberRestriction;
 @class GTLRCloudIdentity_Membership;
 @class GTLRCloudIdentity_MembershipAdjacencyList;
 @class GTLRCloudIdentity_MembershipRole;
+@class GTLRCloudIdentity_MembershipRoleRestrictionEvaluation;
 @class GTLRCloudIdentity_Operation_Metadata;
 @class GTLRCloudIdentity_Operation_Response;
+@class GTLRCloudIdentity_RestrictionEvaluation;
+@class GTLRCloudIdentity_RestrictionEvaluations;
 @class GTLRCloudIdentity_Status;
 @class GTLRCloudIdentity_Status_Details_Item;
 @class GTLRCloudIdentity_TransitiveMembershipRole;
@@ -593,6 +597,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspec
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_MembershipRoleRestrictionEvaluation.state
+
+/**
+ *  The member adheres to the parent group’s restriction.
+ *
+ *  Value: "COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Compliant;
+/**
+ *  The state of the membership is under evaluation.
+ *
+ *  Value: "EVALUATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Evaluating;
+/**
+ *  The group-group membership might be currently violating some parent group's
+ *  restriction but in future, it will never allow any new member in the child
+ *  group which can violate parent group's restriction.
+ *
+ *  Value: "FORWARD_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_ForwardCompliant;
+/**
+ *  The member violates the parent group’s restriction.
+ *
+ *  Value: "NON_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_RestrictionEvaluation.state
+
+/**
+ *  All transitive memberships are adhering to restriction.
+ *
+ *  Value: "COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Compliant;
+/**
+ *  The restriction state is currently being evaluated.
+ *
+ *  Value: "EVALUATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_Evaluating;
+/**
+ *  Some transitive memberships violate the restriction. No new violating
+ *  memberships can be added.
+ *
+ *  Value: "FORWARD_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant;
+/**
+ *  Some transitive memberships violate the restriction. New violating direct
+ *  memberships will be denied while indirect memberships may be added.
+ *
+ *  Value: "NON_COMPLIANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudIdentity_UserInvitation.state
@@ -1972,6 +2048,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  The definition of MemberRestriction
+ */
+@interface GTLRCloudIdentity_MemberRestriction : GTLRObject
+
+/** The evaluated state of this restriction on a group. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_RestrictionEvaluation *evaluation;
+
+/**
+ *  Member Restriction as defined by CEL expression. Supported restrictions are:
+ *  `member.customer_id` and `member.type`. Valid values for `member.type` are
+ *  `1`, `2` and `3`. They correspond to USER, SERVICE_ACCOUNT, and GROUP
+ *  respectively. The value for `member.customer_id` only supports
+ *  `groupCustomerId()` currently which means the customer id of the group will
+ *  be used for restriction. Supported operators are `&&`, `||` and `==`,
+ *  corresponding to AND, OR, and EQUAL. Examples: Allow only service accounts
+ *  of given customer to be members. `member.type == 2 && member.customer_id ==
+ *  groupCustomerId()` Allow only users or groups to be members. `member.type ==
+ *  1 || member.type == 3`
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
  *  A membership within the Cloud Identity Groups API. A `Membership` defines a
  *  relationship between a `Group` and an entity belonging to that `Group`,
  *  referred to as a "member".
@@ -2061,6 +2162,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  `MEMBER`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Evaluations of restrictions applied to parent group on this membership. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_RestrictionEvaluations *restrictionEvaluations;
+
+@end
+
+
+/**
+ *  The evaluated state of this restriction.
+ */
+@interface GTLRCloudIdentity_MembershipRoleRestrictionEvaluation : GTLRObject
+
+/**
+ *  Output only. The current state of the restriction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Compliant
+ *        The member adheres to the parent group’s restriction. (Value:
+ *        "COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Evaluating
+ *        The state of the membership is under evaluation. (Value: "EVALUATING")
+ *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_ForwardCompliant
+ *        The group-group membership might be currently violating some parent
+ *        group's restriction but in future, it will never allow any new member
+ *        in the child group which can violate parent group's restriction.
+ *        (Value: "FORWARD_COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant
+ *        The member violates the parent group’s restriction. (Value:
+ *        "NON_COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified
+ *        Default. Should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2188,6 +2322,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
+ *  The evaluated state of this restriction.
+ */
+@interface GTLRCloudIdentity_RestrictionEvaluation : GTLRObject
+
+/**
+ *  Output only. The current state of the restriction
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_RestrictionEvaluation_State_Compliant All
+ *        transitive memberships are adhering to restriction. (Value:
+ *        "COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_RestrictionEvaluation_State_Evaluating The
+ *        restriction state is currently being evaluated. (Value: "EVALUATING")
+ *    @arg @c kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant
+ *        Some transitive memberships violate the restriction. No new violating
+ *        memberships can be added. (Value: "FORWARD_COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant Some
+ *        transitive memberships violate the restriction. New violating direct
+ *        memberships will be denied while indirect memberships may be added.
+ *        (Value: "NON_COMPLIANT")
+ *    @arg @c kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified
+ *        Default. Should not be used. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Evaluations of restrictions applied to parent group on this membership.
+ */
+@interface GTLRCloudIdentity_RestrictionEvaluations : GTLRObject
+
+/**
+ *  Evaluation of the member restriction applied to this membership. Empty if
+ *  the user lacks permission to view the restriction evaluation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_MembershipRoleRestrictionEvaluation *memberRestrictionEvaluation;
+
+@end
+
+
+/**
  *  The response message for GroupsService.SearchGroups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2264,6 +2441,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The definition of security settings.
+ */
+@interface GTLRCloudIdentity_SecuritySettings : GTLRObject
+
+/** The Member Restriction value */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_MemberRestriction *memberRestriction;
+
+/**
+ *  Output only. The resource name of the security settings. Shall be of the
+ *  form `groups/{group_id}/securitySettings`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

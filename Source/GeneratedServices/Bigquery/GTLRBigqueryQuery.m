@@ -936,7 +936,11 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_TablesPatch
 
-@dynamic datasetId, projectId, tableId;
+@dynamic autodetectSchema, datasetId, projectId, tableId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"autodetectSchema" : @"autodetect_schema" };
+}
 
 + (instancetype)queryWithObject:(GTLRBigquery_Table *)object
                       projectId:(NSString *)projectId
@@ -1023,7 +1027,11 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @implementation GTLRBigqueryQuery_TablesUpdate
 
-@dynamic datasetId, projectId, tableId;
+@dynamic autodetectSchema, datasetId, projectId, tableId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"autodetectSchema" : @"autodetect_schema" };
+}
 
 + (instancetype)queryWithObject:(GTLRBigquery_Table *)object
                       projectId:(NSString *)projectId

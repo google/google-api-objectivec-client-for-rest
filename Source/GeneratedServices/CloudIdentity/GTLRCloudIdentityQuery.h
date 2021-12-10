@@ -31,6 +31,7 @@
 @class GTLRCloudIdentity_Group;
 @class GTLRCloudIdentity_Membership;
 @class GTLRCloudIdentity_ModifyMembershipRolesRequest;
+@class GTLRCloudIdentity_SecuritySettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1125,6 +1126,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Get Security Settings
+ *
+ *  Method: cloudidentity.groups.getSecuritySettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsGetSecuritySettings : GTLRCloudIdentityQuery
+
+/**
+ *  Required. The security settings to retrieve. Format:
+ *  `groups/{group_id}/securitySettings`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Field-level read mask of which fields to return. "*" returns all fields. If
+ *  not specified, all fields will be returned. May only contain the following
+ *  field: `member_restriction`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_SecuritySettings.
+ *
+ *  Get Security Settings
+ *
+ *  @param name Required. The security settings to retrieve. Format:
+ *    `groups/{group_id}/securitySettings`
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsGetSecuritySettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the `Group` resources under a customer or namespace.
  *
  *  Method: cloudidentity.groups.list
@@ -1858,6 +1900,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Update Security Settings
+ *
+ *  Method: cloudidentity.groups.updateSecuritySettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsUpdateSecuritySettings : GTLRCloudIdentityQuery
+
+/**
+ *  Output only. The resource name of the security settings. Shall be of the
+ *  form `groups/{group_id}/securitySettings`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The fully-qualified names of fields to update. May only contain
+ *  the following field: `member_restriction.query`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Update Security Settings
+ *
+ *  @param object The @c GTLRCloudIdentity_SecuritySettings to include in the
+ *    query.
+ *  @param name Output only. The resource name of the security settings. Shall
+ *    be of the form `groups/{group_id}/securitySettings`.
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsUpdateSecuritySettings
+ */
++ (instancetype)queryWithObject:(GTLRCloudIdentity_SecuritySettings *)object
+                           name:(NSString *)name;
 
 @end
 

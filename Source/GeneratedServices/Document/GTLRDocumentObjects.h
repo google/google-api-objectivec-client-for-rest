@@ -443,7 +443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
 // GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance.type
 
 /**
- *  Add an element. Implicit if no `parents` are set for the provenance.
+ *  Add an element.
  *
  *  Value: "ADD"
  */
@@ -456,7 +456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved;
 /**
- *  Element is requested for human review.
+ *  Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
@@ -468,19 +468,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped;
 /**
- *  Operation type unspecified.
+ *  Operation type unspecified. If no operation is specified a provenance entry
+ *  is simply used to match against a `parent`.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_OperationTypeUnspecified;
 /**
- *  The element is removed. No `parents` should be set.
+ *  Remove an element identified by `parent`.
  *
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Remove;
 /**
- *  Explicitly replaces the element(s) identified by `parents`.
+ *  Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
@@ -653,7 +654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
 // GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance.type
 
 /**
- *  Add an element. Implicit if no `parents` are set for the provenance.
+ *  Add an element.
  *
  *  Value: "ADD"
  */
@@ -666,7 +667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved;
 /**
- *  Element is requested for human review.
+ *  Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
@@ -678,19 +679,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2Doc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped;
 /**
- *  Operation type unspecified.
+ *  Operation type unspecified. If no operation is specified a provenance entry
+ *  is simply used to match against a `parent`.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_OperationTypeUnspecified;
 /**
- *  The element is removed. No `parents` should be set.
+ *  Remove an element identified by `parent`.
  *
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Remove;
 /**
- *  Explicitly replaces the element(s) identified by `parents`.
+ *  Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
@@ -1066,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance.type
 
 /**
- *  Add an element. Implicit if no `parents` are set for the provenance.
+ *  Add an element.
  *
  *  Value: "ADD"
  */
@@ -1079,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved;
 /**
- *  Element is requested for human review.
+ *  Request human review for the element identified by `parent`.
  *
  *  Value: "EVAL_REQUESTED"
  */
@@ -1091,19 +1093,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped;
 /**
- *  Operation type unspecified.
+ *  Operation type unspecified. If no operation is specified a provenance entry
+ *  is simply used to match against a `parent`.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified;
 /**
- *  The element is removed. No `parents` should be set.
+ *  Remove an element identified by `parent`.
  *
  *  Value: "REMOVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove;
 /**
- *  Explicitly replaces the element(s) identified by `parents`.
+ *  Replace an element identified by `parent`.
  *
  *  Value: "REPLACE"
  */
@@ -2769,22 +2772,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Add
- *        Add an element. Implicit if no `parents` are set for the provenance.
- *        (Value: "ADD")
+ *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalApproved
  *        Element is reviewed and approved at human review, confidence will be
  *        set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalRequested
- *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *        Request human review for the element identified by `parent`. (Value:
+ *        "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_EvalSkipped
  *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_OperationTypeUnspecified
- *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *        Operation type unspecified. If no operation is specified a provenance
+ *        entry is simply used to match against a `parent`. (Value:
+ *        "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Remove
- *        The element is removed. No `parents` should be set. (Value: "REMOVE")
+ *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance_Type_Replace
- *        Explicitly replaces the element(s) identified by `parents`. (Value:
- *        "REPLACE")
+ *        Replace an element identified by `parent`. (Value: "REPLACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2792,9 +2796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Structure for referencing parent provenances. When an element replaces one
- *  of more other elements parent references identify the elements that are
- *  replaced.
+ *  The parent element the current element is based on. Used for
+ *  referencing/aligning, removal and replacement operations.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenanceParent : GTLRObject
 
@@ -2816,7 +2819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  The index of the [Document.revisions] identifying the parent revision.
+ *  The index of the index into current revision's parent_ids list.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2856,6 +2859,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+
+/**
+ *  The revisions that this revision is based on. Must include all the ids that
+ *  have anything to do with this revision - eg. there are
+ *  `provenance.parent.revision` fields that index into this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parentIds;
 
 /**
  *  If the annotation was made by processor identify the processor by its
@@ -4056,22 +4066,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Add
- *        Add an element. Implicit if no `parents` are set for the provenance.
- *        (Value: "ADD")
+ *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalApproved
  *        Element is reviewed and approved at human review, confidence will be
  *        set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalRequested
- *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *        Request human review for the element identified by `parent`. (Value:
+ *        "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_EvalSkipped
  *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_OperationTypeUnspecified
- *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *        Operation type unspecified. If no operation is specified a provenance
+ *        entry is simply used to match against a `parent`. (Value:
+ *        "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Remove
- *        The element is removed. No `parents` should be set. (Value: "REMOVE")
+ *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance_Type_Replace
- *        Explicitly replaces the element(s) identified by `parents`. (Value:
- *        "REPLACE")
+ *        Replace an element identified by `parent`. (Value: "REPLACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4079,9 +4090,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Structure for referencing parent provenances. When an element replaces one
- *  of more other elements parent references identify the elements that are
- *  replaced.
+ *  The parent element the current element is based on. Used for
+ *  referencing/aligning, removal and replacement operations.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenanceParent : GTLRObject
 
@@ -4103,7 +4113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  The index of the [Document.revisions] identifying the parent revision.
+ *  The index of the index into current revision's parent_ids list.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4143,6 +4153,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+
+/**
+ *  The revisions that this revision is based on. Must include all the ids that
+ *  have anything to do with this revision - eg. there are
+ *  `provenance.parent.revision` fields that index into this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parentIds;
 
 /**
  *  If the annotation was made by processor identify the processor by its
@@ -5781,22 +5798,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Add
- *        Add an element. Implicit if no `parents` are set for the provenance.
- *        (Value: "ADD")
+ *        Add an element. (Value: "ADD")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalApproved
  *        Element is reviewed and approved at human review, confidence will be
  *        set to 1.0. (Value: "EVAL_APPROVED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalRequested
- *        Element is requested for human review. (Value: "EVAL_REQUESTED")
+ *        Request human review for the element identified by `parent`. (Value:
+ *        "EVAL_REQUESTED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_EvalSkipped
  *        Element is skipped in the validation process. (Value: "EVAL_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_OperationTypeUnspecified
- *        Operation type unspecified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ *        Operation type unspecified. If no operation is specified a provenance
+ *        entry is simply used to match against a `parent`. (Value:
+ *        "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Remove
- *        The element is removed. No `parents` should be set. (Value: "REMOVE")
+ *        Remove an element identified by `parent`. (Value: "REMOVE")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Replace
- *        Explicitly replaces the element(s) identified by `parents`. (Value:
- *        "REPLACE")
+ *        Replace an element identified by `parent`. (Value: "REPLACE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5804,9 +5822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Structure for referencing parent provenances. When an element replaces one
- *  of more other elements parent references identify the elements that are
- *  replaced.
+ *  The parent element the current element is based on. Used for
+ *  referencing/aligning, removal and replacement operations.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent : GTLRObject
 
@@ -5828,7 +5845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  The index of the [Document.revisions] identifying the parent revision.
+ *  The index of the index into current revision's parent_ids list.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5868,6 +5885,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *parent;
+
+/**
+ *  The revisions that this revision is based on. Must include all the ids that
+ *  have anything to do with this revision - eg. there are
+ *  `provenance.parent.revision` fields that index into this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parentIds;
 
 /**
  *  If the annotation was made by processor identify the processor by its
