@@ -35,6 +35,13 @@ NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_DoesNotNeedApproval = @"
 NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_NeedsApproval = @"NEEDS_APPROVAL";
 NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_Rejected = @"REJECTED";
 
+// GTLRCloudDeploy_Rollout.deployFailureCause
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed = @"EXECUTION_FAILED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed = @"RELEASE_FAILED";
+
 // GTLRCloudDeploy_Rollout.state
 NSString * const kGTLRCloudDeploy_Rollout_State_ApprovalRejected = @"APPROVAL_REJECTED";
 NSString * const kGTLRCloudDeploy_Rollout_State_Failed         = @"FAILED";
@@ -44,6 +51,11 @@ NSString * const kGTLRCloudDeploy_Rollout_State_PendingApproval = @"PENDING_APPR
 NSString * const kGTLRCloudDeploy_Rollout_State_PendingRelease = @"PENDING_RELEASE";
 NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded      = @"SUCCEEDED";
+
+// GTLRCloudDeploy_TargetRender.failureCause
+NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
+NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
+NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
 
 // GTLRCloudDeploy_TargetRender.renderingState
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Failed = @"FAILED";
@@ -650,8 +662,9 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 @implementation GTLRCloudDeploy_Rollout
 @dynamic annotations, approvalState, approveTime, createTime, deployEndTime,
-         deployingBuild, deployStartTime, descriptionProperty, enqueueTime,
-         ETag, failureReason, labels, name, state, targetId, uid;
+         deployFailureCause, deployingBuild, deployStartTime,
+         descriptionProperty, enqueueTime, ETag, failureReason, labels, name,
+         state, targetId, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -851,7 +864,7 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_TargetRender
-@dynamic renderingBuild, renderingState;
+@dynamic failureCause, renderingBuild, renderingState;
 @end
 
 

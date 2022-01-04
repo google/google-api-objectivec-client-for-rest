@@ -26,6 +26,8 @@
 @class GTLROSConfig_ExecutePatchJobRequest;
 @class GTLROSConfig_OSPolicyAssignment;
 @class GTLROSConfig_PatchDeployment;
+@class GTLROSConfig_PausePatchDeploymentRequest;
+@class GTLROSConfig_ResumePatchDeploymentRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -912,6 +914,76 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
  *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsPatch
  */
 + (instancetype)queryWithObject:(GTLROSConfig_PatchDeployment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Change state of patch deployment to "PAUSED". Patch deployment in paused
+ *  state doesn't generate patch jobs.
+ *
+ *  Method: osconfig.projects.patchDeployments.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsPatchDeploymentsPause : GTLROSConfigQuery
+
+/**
+ *  Required. The resource name of the patch deployment in the form `projects/ *
+ *  /patchDeployments/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_PatchDeployment.
+ *
+ *  Change state of patch deployment to "PAUSED". Patch deployment in paused
+ *  state doesn't generate patch jobs.
+ *
+ *  @param object The @c GTLROSConfig_PausePatchDeploymentRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the patch deployment in the form
+ *    `projects/ * /patchDeployments/ *`.
+ *
+ *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsPause
+ */
++ (instancetype)queryWithObject:(GTLROSConfig_PausePatchDeploymentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Change state of patch deployment back to "ACTIVE". Patch deployment in
+ *  active state continues to generate patch jobs.
+ *
+ *  Method: osconfig.projects.patchDeployments.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsPatchDeploymentsResume : GTLROSConfigQuery
+
+/**
+ *  Required. The resource name of the patch deployment in the form `projects/ *
+ *  /patchDeployments/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_PatchDeployment.
+ *
+ *  Change state of patch deployment back to "ACTIVE". Patch deployment in
+ *  active state continues to generate patch jobs.
+ *
+ *  @param object The @c GTLROSConfig_ResumePatchDeploymentRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the patch deployment in the form
+ *    `projects/ * /patchDeployments/ *`.
+ *
+ *  @return GTLROSConfigQuery_ProjectsPatchDeploymentsResume
+ */
++ (instancetype)queryWithObject:(GTLROSConfig_ResumePatchDeploymentRequest *)object
                            name:(NSString *)name;
 
 @end

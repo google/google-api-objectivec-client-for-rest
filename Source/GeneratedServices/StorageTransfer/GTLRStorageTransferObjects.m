@@ -50,6 +50,26 @@ NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed = @"F
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
 
+// GTLRStorageTransfer_MetadataOptions.gid
+NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber = @"GID_NUMBER";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip = @"GID_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified = @"GID_UNSPECIFIED";
+
+// GTLRStorageTransfer_MetadataOptions.mode
+NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve = @"MODE_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip = @"MODE_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
+// GTLRStorageTransfer_MetadataOptions.symlink
+NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve = @"SYMLINK_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip = @"SYMLINK_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified = @"SYMLINK_UNSPECIFIED";
+
+// GTLRStorageTransfer_MetadataOptions.uid
+NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber = @"UID_NUMBER";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip = @"UID_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidUnspecified = @"UID_UNSPECIFIED";
+
 // GTLRStorageTransfer_NotificationConfig.eventTypes
 NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted = @"TRANSFER_OPERATION_ABORTED";
@@ -317,6 +337,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_MetadataOptions
+//
+
+@implementation GTLRStorageTransfer_MetadataOptions
+@dynamic gid, mode, symlink, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_NotificationConfig
 //
 
@@ -555,7 +585,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferOptions
 @dynamic deleteObjectsFromSourceAfterTransfer, deleteObjectsUniqueInSink,
-         overwriteObjectsAlreadyExistingInSink;
+         metadataOptions, overwriteObjectsAlreadyExistingInSink;
 @end
 
 
@@ -566,9 +596,9 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
-         gcsDataSource, httpDataSource, objectConditions, posixDataSink,
-         posixDataSource, sinkAgentPoolName, sourceAgentPoolName,
-         transferManifest, transferOptions;
+         gcsDataSource, gcsIntermediateDataLocation, httpDataSource,
+         objectConditions, posixDataSink, posixDataSource, sinkAgentPoolName,
+         sourceAgentPoolName, transferManifest, transferOptions;
 @end
 
 

@@ -668,6 +668,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessPlaceActions/*.{h,m}'
   end
+  s.subspec 'MyBusinessQA' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessQA/*.{h,m}'
+  end
   s.subspec 'MyBusinessVerifications' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessVerifications/*.{h,m}'

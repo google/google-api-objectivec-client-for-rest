@@ -972,6 +972,36 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_StatsGetSearchapplication
+
+@dynamic endDateDay, endDateMonth, endDateYear, startDateDay, startDateMonth,
+         startDateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"endDateDay" : @"endDate.day",
+    @"endDateMonth" : @"endDate.month",
+    @"endDateYear" : @"endDate.year",
+    @"startDateDay" : @"startDate.day",
+    @"startDateMonth" : @"startDate.month",
+    @"startDateYear" : @"startDate.year"
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/stats/searchapplication";
+  GTLRCloudSearchQuery_StatsGetSearchapplication *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudSearch_GetCustomerSearchApplicationStatsResponse class];
+  query.loggingName = @"cloudsearch.stats.getSearchapplication";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_StatsGetSession
 
 @dynamic fromDateDay, fromDateMonth, fromDateYear, toDateDay, toDateMonth,

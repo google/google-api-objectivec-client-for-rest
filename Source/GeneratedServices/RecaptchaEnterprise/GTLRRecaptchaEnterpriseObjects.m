@@ -18,6 +18,11 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Accoun
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousAccountCreation = @"SUSPICIOUS_ACCOUNT_CREATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity = @"SUSPICIOUS_LOGIN_ACTIVITY";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment.recommendedAction
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_RecommendedActionUnspecified = @"RECOMMENDED_ACTION_UNSPECIFIED";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Request2fa = @"REQUEST_2FA";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Skip2fa = @"SKIP_2FA";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.annotation
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Annotation_AnnotationUnspecified = @"ANNOTATION_UNSPECIFIED";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Annotation_Fraudulent = @"FRAUDULENT";
@@ -59,6 +64,16 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenP
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Missing = @"MISSING";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason = @"UNKNOWN_INVALID_REASON";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafFeature
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ActionToken = @"ACTION_TOKEN";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage = @"CHALLENGE_PAGE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken = @"SESSION_TOKEN";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_WafFeatureUnspecified = @"WAF_FEATURE_UNSPECIFIED";
+
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca = @"CA";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified = @"WAF_SERVICE_UNSPECIFIED";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings.challengeSecurityPreference
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_Balance = @"BALANCE";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings_ChallengeSecurityPreference_ChallengeSecurityPreferenceUnspecified = @"CHALLENGE_SECURITY_PREFERENCE_UNSPECIFIED";
@@ -77,7 +92,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment
-@dynamic labels;
+@dynamic labels, recommendedAction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -189,7 +204,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key
 @dynamic androidSettings, createTime, displayName, iosSettings, labels, name,
-         testingOptions, webSettings;
+         testingOptions, wafSettings, webSettings;
 @end
 
 
@@ -436,6 +451,16 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties
 @dynamic action, createTime, hostname, invalidReason, valid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings
+@dynamic wafFeature, wafService;
 @end
 
 

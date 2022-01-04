@@ -648,6 +648,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessPlaceActions"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessQA",
+            targets: ["GoogleAPIClientForREST_MyBusinessQA"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MyBusinessVerifications",
             targets: ["GoogleAPIClientForREST_MyBusinessVerifications"]
         ),
@@ -1933,6 +1937,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessPlaceActions",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_MyBusinessQA",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessQA",
             publicHeadersPath: "."
         ),
         .target(

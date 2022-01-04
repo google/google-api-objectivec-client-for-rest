@@ -34,6 +34,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ScoreMetrics_ActionMetrics;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings;
 
 // Generated comments include content from the discovery document; avoid them
@@ -85,6 +86,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment.recommendedAction
+
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "RECOMMENDED_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_RecommendedActionUnspecified;
+/**
+ *  The customer should probably request 2FA to their user.
+ *
+ *  Value: "REQUEST_2FA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Request2fa;
+/**
+ *  This is likely an already seen and safe request. 2FA can be skipped.
+ *
+ *  Value: "SKIP_2FA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Skip2fa;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.annotation
 
 /**
@@ -126,16 +149,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.reasons
 
 /**
- *  Indicates a chargeback was issued for the transaction associated with the
- *  assessment, with no other details. When possible, specify the type by using
- *  CHARGEBACK_FRAUD or CHARGEBACK_DISPUTE instead.
+ *  Indicates a chargeback issued for the transaction with no other details.
+ *  When possible, specify the type by using CHARGEBACK_FRAUD or
+ *  CHARGEBACK_DISPUTE instead.
  *
  *  Value: "CHARGEBACK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_Chargeback;
 /**
  *  Indicates a chargeback related to the cardholder having provided their card
- *  but allegedly not being satisfied with the purchase (for example,
+ *  details but allegedly not being satisfied with the purchase (for example,
  *  misrepresentation, attempted cancellation).
  *
  *  Value: "CHARGEBACK_DISPUTE"
@@ -143,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_ChargebackDispute;
 /**
  *  Indicates a chargeback related to an alleged unauthorized transaction from
- *  the perspective of the cardholder (for example, the card number was stolen).
+ *  the cardholder's perspective (for example, the card number was stolen).
  *
  *  Value: "CHARGEBACK_FRAUD"
  */
@@ -310,6 +333,51 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason;
 
 // ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafFeature
+
+/**
+ *  Use reCAPTCHA action-tokens to protect user actions.
+ *
+ *  Value: "ACTION_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ActionToken;
+/**
+ *  Redirects suspicious traffic to reCAPTCHA.
+ *
+ *  Value: "CHALLENGE_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage;
+/**
+ *  Use reCAPTCHA session-tokens to protect the whole user session on the site's
+ *  domain.
+ *
+ *  Value: "SESSION_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken;
+/**
+ *  Undefined feature.
+ *
+ *  Value: "WAF_FEATURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_WafFeatureUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings.wafService
+
+/**
+ *  Cloud Armor
+ *
+ *  Value: "CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca;
+/**
+ *  Undefined WAF
+ *
+ *  Value: "WAF_SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings.challengeSecurityPreference
 
 /**
@@ -376,6 +444,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Labels for this request. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+/**
+ *  Recommended action after this request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_RecommendedActionUnspecified
+ *        Default unspecified type. (Value: "RECOMMENDED_ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Request2fa
+ *        The customer should probably request 2FA to their user. (Value:
+ *        "REQUEST_2FA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Skip2fa
+ *        This is likely an already seen and safe request. 2FA can be skipped.
+ *        (Value: "SKIP_2FA")
+ */
+@property(nonatomic, copy, nullable) NSString *recommendedAction;
 
 @end
 
@@ -618,6 +701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Options for user acceptance testing. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions *testingOptions;
+
+/** Settings for WAF */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings *wafSettings;
 
 /** Settings for keys that can be used by websites. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKeySettings *webSettings;
@@ -1020,6 +1106,43 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *valid;
+
+@end
+
+
+/**
+ *  Settings specific to keys that can be used for WAF (Web Application
+ *  Firewall).
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings : GTLRObject
+
+/**
+ *  Required. The WAF feature for which this key is enabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ActionToken
+ *        Use reCAPTCHA action-tokens to protect user actions. (Value:
+ *        "ACTION_TOKEN")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ChallengePage
+ *        Redirects suspicious traffic to reCAPTCHA. (Value: "CHALLENGE_PAGE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_SessionToken
+ *        Use reCAPTCHA session-tokens to protect the whole user session on the
+ *        site's domain. (Value: "SESSION_TOKEN")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_WafFeatureUnspecified
+ *        Undefined feature. (Value: "WAF_FEATURE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wafFeature;
+
+/**
+ *  Required. The WAF service that uses this key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Ca
+ *        Cloud Armor (Value: "CA")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_WafServiceUnspecified
+ *        Undefined WAF (Value: "WAF_SERVICE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *wafService;
 
 @end
 

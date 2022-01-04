@@ -564,8 +564,8 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation
 @dynamic agentId, callMetadata, createTime, dataSource, dialogflowIntents,
          duration, expireTime, labels, languageCode, latestAnalysis, medium,
-         name, runtimeAnnotations, startTime, transcript, ttl, turnCount,
-         updateTime;
+         name, obfuscatedUserId, runtimeAnnotations, startTime, transcript, ttl,
+         turnCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

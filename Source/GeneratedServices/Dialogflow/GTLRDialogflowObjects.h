@@ -12395,6 +12395,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
 
+/** The name of the knowledge base interacted with during the operation. */
+@property(nonatomic, copy, nullable) NSString *knowledgeBase;
+
 /**
  *  Required. Output only. The current state of this operation.
  *

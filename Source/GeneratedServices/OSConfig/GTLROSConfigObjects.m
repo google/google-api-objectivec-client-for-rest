@@ -162,6 +162,11 @@ NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Default = @"DEFAULT";
 NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Never  = @"NEVER";
 NSString * const kGTLROSConfig_PatchConfig_RebootConfig_RebootConfigUnspecified = @"REBOOT_CONFIG_UNSPECIFIED";
 
+// GTLROSConfig_PatchDeployment.state
+NSString * const kGTLROSConfig_PatchDeployment_State_Active    = @"ACTIVE";
+NSString * const kGTLROSConfig_PatchDeployment_State_Paused    = @"PAUSED";
+NSString * const kGTLROSConfig_PatchDeployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLROSConfig_PatchJob.state
 NSString * const kGTLROSConfig_PatchJob_State_Canceled         = @"CANCELED";
 NSString * const kGTLROSConfig_PatchJob_State_CompletedWithErrors = @"COMPLETED_WITH_ERRORS";
@@ -1274,7 +1279,7 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 @implementation GTLROSConfig_PatchDeployment
 @dynamic createTime, descriptionProperty, duration, instanceFilter,
          lastExecuteTime, name, oneTimeSchedule, patchConfig, recurringSchedule,
-         rollout, updateTime;
+         rollout, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1384,12 +1389,30 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_PausePatchDeploymentRequest
+//
+
+@implementation GTLROSConfig_PausePatchDeploymentRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_RecurringSchedule
 //
 
 @implementation GTLROSConfig_RecurringSchedule
 @dynamic endTime, frequency, lastExecuteTime, monthly, nextExecuteTime,
          startTime, timeOfDay, timeZone, weekly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_ResumePatchDeploymentRequest
+//
+
+@implementation GTLROSConfig_ResumePatchDeploymentRequest
 @end
 
 

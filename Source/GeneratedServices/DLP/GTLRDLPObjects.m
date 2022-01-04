@@ -281,13 +281,14 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2BigQueryOptions
-@dynamic excludedFields, identifyingFields, rowsLimit, rowsLimitPercent,
-         sampleMethod, tableReference;
+@dynamic excludedFields, identifyingFields, includedFields, rowsLimit,
+         rowsLimitPercent, sampleMethod, tableReference;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"excludedFields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class],
-    @"identifyingFields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
+    @"identifyingFields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class],
+    @"includedFields" : [GTLRDLP_GooglePrivacyDlpV2FieldId class]
   };
   return map;
 }

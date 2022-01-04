@@ -38,6 +38,7 @@
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
 @class GTLRAlertCenter_MatchInfo;
+@class GTLRAlertCenter_MergeInfo;
 @class GTLRAlertCenter_Notification;
 @class GTLRAlertCenter_PredefinedDetectorInfo;
 @class GTLRAlertCenter_RequestInfo;
@@ -185,6 +186,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUsefu
 // GTLRAlertCenter_AppsOutage.status
 
 /**
+ *  Further assessment indicated no customer impact.
+ *
+ *  Value: "FALSE_POSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_FalsePositive;
+/**
+ *  The incident was merged into a parent.
+ *
+ *  Value: "MERGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_Merged;
+/**
  *  The incident has just been reported.
  *
  *  Value: "NEW"
@@ -196,6 +209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_New;
  *  Value: "ONGOING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_Ongoing;
+/**
+ *  The incident has been partially resolved.
+ *
+ *  Value: "PARTIALLY_RESOLVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_PartiallyResolved;
 /**
  *  The incident has been resolved.
  *
@@ -759,6 +778,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /** Link to the outage event in Google Workspace Status Dashboard */
 @property(nonatomic, copy, nullable) NSString *dashboardUri;
 
+/** Incident tracking ID. */
+@property(nonatomic, copy, nullable) NSString *incidentTrackingId;
+
+/**
+ *  Indicates new alert details under which the outage is communicated. Only
+ *  populated when Status is MERGED.
+ */
+@property(nonatomic, strong, nullable) GTLRAlertCenter_MergeInfo *mergeInfo;
+
 /** Timestamp by which the next update is expected to arrive. */
 @property(nonatomic, strong, nullable) GTLRDateTime *nextUpdateTime;
 
@@ -775,10 +803,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Current outage status.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_FalsePositive Further
+ *        assessment indicated no customer impact. (Value: "FALSE_POSITIVE")
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Merged The incident was merged
+ *        into a parent. (Value: "MERGED")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_New The incident has just been
  *        reported. (Value: "NEW")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Ongoing The incident is
  *        ongoing. (Value: "ONGOING")
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_PartiallyResolved The incident
+ *        has been partially resolved. (Value: "PARTIALLY_RESOLVED")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Resolved The incident has been
  *        resolved. (Value: "RESOLVED")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified Status is
@@ -1271,6 +1305,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /** For matched detector defined by administrators. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_UserDefinedDetectorInfo *userDefinedDetector;
+
+@end
+
+
+/**
+ *  New alert tracking numbers.
+ */
+@interface GTLRAlertCenter_MergeInfo : GTLRObject
+
+/**
+ *  New alert ID. Reference the [google.apps.alertcenter.Alert] with this ID for
+ *  the current state.
+ */
+@property(nonatomic, copy, nullable) NSString *newAlertId NS_RETURNS_NOT_RETAINED;
+
+/** The new tracking ID from the parent incident. */
+@property(nonatomic, copy, nullable) NSString *newIncidentTrackingId NS_RETURNS_NOT_RETAINED;
 
 @end
 

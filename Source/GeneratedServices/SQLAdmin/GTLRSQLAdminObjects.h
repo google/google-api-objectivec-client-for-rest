@@ -2214,9 +2214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *currentDiskSize;
 
 /**
- *  Output only. The databaseInstalledVersion stores the current fully resolved
- *  database version running on the instance including minor version such as
- *  MYSQL_5_6_50
+ *  Output only. Stores the current database version running on the instance
+ *  including minor version such as **MYSQL_8_0_18**.
  */
 @property(nonatomic, copy, nullable) NSString *databaseInstalledVersion;
 
@@ -2301,7 +2300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The Compute Engine zone that the instance is currently serving from. This
  *  value could be different from the zone that was specified when the instance
- *  was created if the instance has failed over to its secondary zone.
+ *  was created if the instance has failed over to its secondary zone. WARNING:
+ *  Changing this might restart the instance.
  */
 @property(nonatomic, copy, nullable) NSString *gceZone;
 
@@ -3304,7 +3304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The list of external networks that are allowed to connect to the instance
  *  using the IP. In 'CIDR' notation, also known as 'slash' notation (for
- *  example: **192.168.100.0/24**).
+ *  example: **157.197.200.0/24**).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
 
@@ -3388,7 +3388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The App Engine application to follow, it must be in the same region as the
- *  Cloud SQL instance.
+ *  Cloud SQL instance. WARNING: Changing this might restart the instance.
  */
 @property(nonatomic, copy, nullable) NSString *followGaeApplication;
 
@@ -3403,7 +3403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The preferred Compute Engine zone (for example: us-central1-a,
- *  us-central1-b, etc.).
+ *  us-central1-b, etc.). WARNING: Changing this might restart the instance.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4044,7 +4044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Configuration specific to read replica instances. Indicates whether
- *  replication is enabled or not.
+ *  replication is enabled or not. WARNING: Changing this restarts the instance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4174,7 +4174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The tier (or machine type) for this instance, for example
- *  **db-custom-1-3840**.
+ *  **db-custom-1-3840**. WARNING: Changing this restarts the instance.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 

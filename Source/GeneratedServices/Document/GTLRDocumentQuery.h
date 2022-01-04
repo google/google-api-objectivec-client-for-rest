@@ -93,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project of processor type to list. The available processor
- *  types may depend on the whitelisting on projects. Format:
- *  projects/{project}/locations/{location}
+ *  types may depend on the allow-listing on projects. Format:
+ *  `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -105,8 +105,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches processor types.
  *
  *  @param parent Required. The project of processor type to list. The available
- *    processor types may depend on the whitelisting on projects. Format:
- *    projects/{project}/locations/{location}
+ *    processor types may depend on the allow-listing on projects. Format:
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsFetchProcessorTypes
  */
@@ -329,8 +329,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of Processor or ProcessorVersion. Format:
- *  projects/{project}/locations/{location}/processors/{processor}, or
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *  `projects/{project}/locations/{location}/processors/{processor}`, or
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -343,8 +343,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest
  *    to include in the query.
  *  @param name Required. The resource name of Processor or ProcessorVersion.
- *    Format: projects/{project}/locations/{location}/processors/{processor}, or
- *    projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *    Format: `projects/{project}/locations/{location}/processors/{processor}`,
+ *    or
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsBatchProcess
  */
@@ -366,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent (project and location) under which to create the
- *  processor. Format: projects/{project}/locations/{location}
+ *  processor. Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -379,7 +380,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1Processor to
  *    include in the query.
  *  @param parent Required. The parent (project and location) under which to
- *    create the processor. Format: projects/{project}/locations/{location}
+ *    create the processor. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsCreate
  */
@@ -563,7 +564,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent (project and location) which owns this collection of
- *  Processors. Format: projects/{project}/locations/{location}
+ *  Processors. Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -573,7 +574,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all processors which belong to this project.
  *
  *  @param parent Required. The parent (project and location) which owns this
- *    collection of Processors. Format: projects/{project}/locations/{location}
+ *    collection of Processors. Format:
+ *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsList
  *
@@ -599,8 +601,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The resource name of the Processor or ProcessorVersion to use for
  *  processing. If a Processor is specified, the server will use its default
  *  version. Format:
- *  projects/{project}/locations/{location}/processors/{processor}, or
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *  `projects/{project}/locations/{location}/processors/{processor}`, or
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -614,8 +616,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The resource name of the Processor or ProcessorVersion
  *    to use for processing. If a Processor is specified, the server will use
  *    its default version. Format:
- *    projects/{project}/locations/{location}/processors/{processor}, or
- *    projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *    `projects/{project}/locations/{location}/processors/{processor}`, or
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcess
  */
@@ -637,8 +639,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of Processor or ProcessorVersion. Format:
- *  projects/{project}/locations/{location}/processors/{processor}, or
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *  `projects/{project}/locations/{location}/processors/{processor}`, or
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -651,8 +653,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest
  *    to include in the query.
  *  @param name Required. The resource name of Processor or ProcessorVersion.
- *    Format: projects/{project}/locations/{location}/processors/{processor}, or
- *    projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *    Format: `projects/{project}/locations/{location}/processors/{processor}`,
+ *    or
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsBatchProcess
  */
@@ -770,7 +773,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent (project, location and processor) to list all versions.
- *  Format: projects/{project}/locations/{location}/processors/{processor}
+ *  Format: `projects/{project}/locations/{location}/processors/{processor}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -782,7 +785,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param parent Required. The parent (project, location and processor) to list
  *    all versions. Format:
- *    projects/{project}/locations/{location}/processors/{processor}
+ *    `projects/{project}/locations/{location}/processors/{processor}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsList
  *
@@ -808,8 +811,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The resource name of the Processor or ProcessorVersion to use for
  *  processing. If a Processor is specified, the server will use its default
  *  version. Format:
- *  projects/{project}/locations/{location}/processors/{processor}, or
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *  `projects/{project}/locations/{location}/processors/{processor}`, or
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -823,8 +826,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Required. The resource name of the Processor or ProcessorVersion
  *    to use for processing. If a Processor is specified, the server will use
  *    its default version. Format:
- *    projects/{project}/locations/{location}/processors/{processor}, or
- *    projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}
+ *    `projects/{project}/locations/{location}/processors/{processor}`, or
+ *    `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsProcess
  */

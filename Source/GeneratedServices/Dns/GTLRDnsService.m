@@ -64,6 +64,9 @@ NSString * const kGTLRAuthScopeDnsNdevClouddnsReadwrite = @"https://www.googleap
     @"dns#quota" : [GTLRDns_Quota class],
     @"dns#resourceRecordSet" : [GTLRDns_ResourceRecordSet class],
     @"dns#resourceRecordSetsListResponse" : [GTLRDns_ResourceRecordSetsListResponse class],
+    @"dns#responsePolicy" : [GTLRDns_ResponsePolicy class],
+    @"dns#responsePolicyNetwork" : [GTLRDns_ResponsePolicyNetwork class],
+    @"dns#responsePolicyRule" : [GTLRDns_ResponsePolicyRule class],
   };
 }
 

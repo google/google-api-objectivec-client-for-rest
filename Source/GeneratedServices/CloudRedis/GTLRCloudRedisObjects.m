@@ -13,6 +13,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRedis_Cluster.state
+NSString * const kGTLRCloudRedis_Cluster_State_Active          = @"ACTIVE";
+NSString * const kGTLRCloudRedis_Cluster_State_Creating        = @"CREATING";
+NSString * const kGTLRCloudRedis_Cluster_State_Deleting        = @"DELETING";
+NSString * const kGTLRCloudRedis_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Cluster_State_Updating        = @"UPDATING";
+
 // GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_DataProtectionModeUnspecified = @"DATA_PROTECTION_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss = @"FORCE_DATA_LOSS";
@@ -79,10 +86,65 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_Cluster
+//
+
+@implementation GTLRCloudRedis_Cluster
+@dynamic clusterUid, createTime, customerManagedKey, defaultReplicaCount,
+         displayName, endpoints, name, privateServiceConnect, redisConfigs,
+         slots, state, totalMemorySizeGb;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRCloudRedis_Endpoint class],
+    @"slots" : [GTLRCloudRedis_ClusterSlots class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Cluster_RedisConfigs
+//
+
+@implementation GTLRCloudRedis_Cluster_RedisConfigs
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ClusterSlots
+//
+
+@implementation GTLRCloudRedis_ClusterSlots
+@dynamic endSlotsExclusive, memorySizeGb, replicaCount, startSlotsInclusive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_Empty
 //
 
 @implementation GTLRCloudRedis_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_Endpoint
+//
+
+@implementation GTLRCloudRedis_Endpoint
+@dynamic host, port;
 @end
 
 
@@ -465,6 +527,16 @@ NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNE
 @implementation GTLRCloudRedis_PersistenceConfig
 @dynamic persistenceMode, rdbNextSnapshotTime, rdbSnapshotPeriod,
          rdbSnapshotStartTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_PrivateServiceConnect
+//
+
+@implementation GTLRCloudRedis_PrivateServiceConnect
+@dynamic pscService, pscServiceRoute;
 @end
 
 

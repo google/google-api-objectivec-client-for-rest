@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1)
+//   My Business Q&A API (mybusinessqanda/v1)
 // Description:
-//   This API converts video files into formats suitable for consumer
-//   distribution.
+//   The My Business Q&A API allows questions and answers to be posted for
+//   specific listings.
 // Documentation:
-//   https://cloud.google.com/transcoder/docs/
+//   https://developers.google.com/my-business/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -28,33 +28,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scope
-
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud data
- *  and see the email address for your Google Account.
+ *  Service for executing My Business Q&A API queries.
  *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
+ *  The My Business Q&A API allows questions and answers to be posted for
+ *  specific listings.
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeTranscoderCloudPlatform;
-
-// ----------------------------------------------------------------------------
-//   GTLRTranscoderService
-//
-
-/**
- *  Service for executing Transcoder API queries.
- *
- *  This API converts video files into formats suitable for consumer
- *  distribution.
- */
-@interface GTLRTranscoderService : GTLRService
+@interface GTLRMyBusinessQAService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRTranscoderQuery.h. The query can the be sent with GTLRService's execute
+// GTLRMyBusinessQAQuery.h. The query can the be sent with GTLRService's execute
 // methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query

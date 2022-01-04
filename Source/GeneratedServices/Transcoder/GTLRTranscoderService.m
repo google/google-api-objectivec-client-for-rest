@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1beta1)
+//   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
 //   distribution.

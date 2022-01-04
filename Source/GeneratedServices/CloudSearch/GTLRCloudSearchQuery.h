@@ -505,7 +505,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  compares the Item version in the index to the version of the queued Item
  *  using lexical ordering. Cloud Search Indexing won't delete any queued item
  *  with a version value that is less than or equal to the version of the
- *  currently indexed item. The maximum length for this field is 1024 bytes.
+ *  currently indexed item. The maximum length for this field is 1024 bytes. See
+ *  [this
+ *  guide](https://developers.devsite.corp.google.com/cloud-search/docs/guides/operations)
+ *  to understand how item version affects reindexing after delete item.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1790,6 +1793,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  standard end user account to execute.
  *
  *  @return GTLRCloudSearchQuery_StatsGetQuery
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Get search application stats for customer. **Note:** This API requires a
+ *  standard end user account to execute.
+ *
+ *  Method: cloudsearch.stats.getSearchapplication
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStats
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchStatsIndexing
+ */
+@interface GTLRCloudSearchQuery_StatsGetSearchapplication : GTLRCloudSearchQuery
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger endDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger endDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger endDateYear;
+
+/** Day of month. Must be from 1 to 31 and valid for the year and month. */
+@property(nonatomic, assign) NSInteger startDateDay;
+
+/** Month of date. Must be from 1 to 12. */
+@property(nonatomic, assign) NSInteger startDateMonth;
+
+/** Year of date. Must be from 1 to 9999. */
+@property(nonatomic, assign) NSInteger startDateYear;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_GetCustomerSearchApplicationStatsResponse.
+ *
+ *  Get search application stats for customer. **Note:** This API requires a
+ *  standard end user account to execute.
+ *
+ *  @return GTLRCloudSearchQuery_StatsGetSearchapplication
  */
 + (instancetype)query;
 

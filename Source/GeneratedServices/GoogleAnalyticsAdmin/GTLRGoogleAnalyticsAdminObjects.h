@@ -208,6 +208,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.restrictedMetricType
+
+/**
+ *  Metric reports cost data.
+ *
+ *  Value: "COST_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_CostData;
+/**
+ *  Type unknown or unspecified.
+ *
+ *  Value: "RESTRICTED_METRIC_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RestrictedMetricTypeUnspecified;
+/**
+ *  Metric reports revenue data.
+ *
+ *  Value: "REVENUE_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RevenueData;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
 
 /**
@@ -1432,6 +1454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  40 characters for event-scoped metrics.
  */
 @property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Optional. Types of restricted data that this metric may contain. Required
+ *  for metrics with CURRENCY measurement unit. Must be empty for metrics with a
+ *  non-CURRENCY measurement unit.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedMetricType;
 
 /**
  *  Required. Immutable. The scope of this custom metric.

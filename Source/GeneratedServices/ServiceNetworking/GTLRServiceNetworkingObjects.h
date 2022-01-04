@@ -740,6 +740,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved;
 /** Value: "SERVICE_NETWORKING_NOT_ENABLED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled;
+/**
+ *  The consumer project does not have the permission from the host project.
+ *
+ *  Value: "USE_PERMISSION_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound;
 /** Value: "VALIDATION_ERROR_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified;
 /**
@@ -1606,14 +1612,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Selects and configures the service controller used by the service. The
- *  service controller handles features like abuse, quota, billing, logging,
- *  monitoring, etc.
+ *  service controller handles two things: - **What is allowed:** for each API
+ *  request, Chemist checks the project status, activation status, abuse status,
+ *  billing status, service status, location restrictions, VPC Service Controls,
+ *  SuperQuota, and other policies. - **What has happened:** for each API
+ *  response, Chemist reports the telemetry data to analytics, auditing,
+ *  billing, eventing, logging, monitoring, sawmill, and tracing. Chemist also
+ *  accepts telemetry data not associated with API traffic, such as billing
+ *  metrics. Example: control: environment: servicecontrol.googleapis.com
  */
 @interface GTLRServiceNetworking_Control : GTLRObject
 
 /**
- *  The service control environment to use. If empty, no control plane feature
- *  (like quota and billing) will be enabled.
+ *  The service controller environment to use. If empty, no control plane
+ *  feature (like quota and billing) will be enabled. The recommended value for
+ *  most services is servicecontrol.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -4377,6 +4390,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_ValidateConsumerConfigRequest : GTLRObject
 
 /**
+ *  Optional. The IAM permission check determines whether the consumer project
+ *  has 'servicenetworking.services.use' permission or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *checkServiceNetworkingUsePermission;
+
+/**
  *  Required. The network that the consumer is using to connect with services.
  *  Must be in the form of projects/{project}/global/networks/{network}
  *  {project} is a project number, as in '12345' {network} is network name.
@@ -4468,6 +4489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        The IP ranges were not reserved. (Value: "RANGES_NOT_RESERVED")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled
  *        Value "SERVICE_NETWORKING_NOT_ENABLED"
+ *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound
+ *        The consumer project does not have the permission from the host
+ *        project. (Value: "USE_PERMISSION_NOT_FOUND")
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified
  *        Value "VALIDATION_ERROR_UNSPECIFIED"
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested

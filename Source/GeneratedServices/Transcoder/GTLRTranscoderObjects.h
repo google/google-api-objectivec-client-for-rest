@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1beta1)
+//   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
 //   distribution.
@@ -22,15 +22,12 @@
 #endif
 
 @class GTLRTranscoder_AdBreak;
-@class GTLRTranscoder_Aes128Encryption;
 @class GTLRTranscoder_Animation;
 @class GTLRTranscoder_AnimationEnd;
 @class GTLRTranscoder_AnimationFade;
 @class GTLRTranscoder_AnimationStatic;
 @class GTLRTranscoder_Audio;
-@class GTLRTranscoder_AudioAtom;
-@class GTLRTranscoder_AudioChannel;
-@class GTLRTranscoder_AudioChannelInput;
+@class GTLRTranscoder_AudioMapping;
 @class GTLRTranscoder_AudioStream;
 @class GTLRTranscoder_Color;
 @class GTLRTranscoder_Crop;
@@ -38,31 +35,29 @@
 @class GTLRTranscoder_Denoise;
 @class GTLRTranscoder_EditAtom;
 @class GTLRTranscoder_ElementaryStream;
-@class GTLRTranscoder_Encryption;
-@class GTLRTranscoder_FailureDetail;
+@class GTLRTranscoder_H264CodecSettings;
+@class GTLRTranscoder_H265CodecSettings;
 @class GTLRTranscoder_Image;
 @class GTLRTranscoder_Input;
 @class GTLRTranscoder_Job;
 @class GTLRTranscoder_JobConfig;
 @class GTLRTranscoder_JobTemplate;
 @class GTLRTranscoder_Manifest;
-@class GTLRTranscoder_MpegCommonEncryption;
 @class GTLRTranscoder_MuxStream;
 @class GTLRTranscoder_NormalizedCoordinate;
-@class GTLRTranscoder_OriginUri;
 @class GTLRTranscoder_Output;
 @class GTLRTranscoder_Overlay;
 @class GTLRTranscoder_Pad;
 @class GTLRTranscoder_PreprocessingConfig;
-@class GTLRTranscoder_Progress;
 @class GTLRTranscoder_PubsubDestination;
-@class GTLRTranscoder_SampleAesEncryption;
 @class GTLRTranscoder_SegmentSettings;
 @class GTLRTranscoder_SpriteSheet;
-@class GTLRTranscoder_TextAtom;
-@class GTLRTranscoder_TextInput;
+@class GTLRTranscoder_Status;
+@class GTLRTranscoder_Status_Details_Item;
+@class GTLRTranscoder_TextMapping;
 @class GTLRTranscoder_TextStream;
 @class GTLRTranscoder_VideoStream;
+@class GTLRTranscoder_Vp9CodecSettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -135,13 +130,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Job_State_Succeeded;
 // GTLRTranscoder_Manifest.type
 
 /**
- *  Create `"DASH"` manifest. The corresponding file extension is `".mpd"`.
+ *  Create `DASH` manifest. The corresponding file extension is `.mpd`.
  *
  *  Value: "DASH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_Dash;
 /**
- *  Create `"HLS"` manifest. The corresponding file extension is `".m3u8"`.
+ *  Create `HLS` manifest. The corresponding file extension is `.m3u8`.
  *
  *  Value: "HLS"
  */
@@ -163,20 +158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  timeline. The default is `0s`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTimeOffset;
-
-@end
-
-
-/**
- *  Configuration for AES-128 encryption.
- */
-@interface GTLRTranscoder_Aes128Encryption : GTLRObject
-
-/**
- *  Required. URI of the key delivery service. This URI is inserted into the
- *  M3U8 header.
- */
-@property(nonatomic, copy, nullable) NSString *keyUri;
 
 @end
 
@@ -306,42 +287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`.
  */
-@interface GTLRTranscoder_AudioAtom : GTLRObject
-
-/** List of `Channel`s for this audio stream. for in-depth explanation. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioChannel *> *channels;
+@interface GTLRTranscoder_AudioMapping : GTLRObject
 
 /**
  *  Required. The `EditAtom.key` that references the atom with audio inputs in
  *  the `Job.edit_list`.
  */
-@property(nonatomic, copy, nullable) NSString *key;
-
-@end
-
-
-/**
- *  The audio channel.
- */
-@interface GTLRTranscoder_AudioChannel : GTLRObject
-
-/** List of `Job.inputs` for this audio channel. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioChannelInput *> *inputs;
-
-@end
-
-
-/**
- *  Identifies which input file, track, and channel should be used.
- */
-@interface GTLRTranscoder_AudioChannelInput : GTLRObject
-
-/**
- *  Required. The zero-based index of the channel in the input file.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *channel;
+@property(nonatomic, copy, nullable) NSString *atomKey;
 
 /**
  *  Audio volume control in dB. Negative values decrease volume, positive values
@@ -351,15 +303,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *gainDb;
 
+/**
+ *  Required. The zero-based index of the channel in the input audio stream.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inputChannel;
+
 /** Required. The `Input.key` that identifies the input file. */
-@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *inputKey;
 
 /**
  *  Required. The zero-based index of the track in the input file.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *track;
+@property(nonatomic, strong, nullable) NSNumber *inputTrack;
+
+/**
+ *  Required. The zero-based index of the channel in the output audio stream.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outputChannel;
 
 @end
 
@@ -388,20 +354,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  A list of channel names specifying layout of the audio channels. This only
  *  affects the metadata embedded in the container headers, if supported by the
  *  specified format. The default is `["fl", "fr"]`. Supported channel names: -
- *  'fl' - Front left channel - 'fr' - Front right channel - 'sl' - Side left
- *  channel - 'sr' - Side right channel - 'fc' - Front center channel - 'lfe' -
+ *  `fl` - Front left channel - `fr` - Front right channel - `sl` - Side left
+ *  channel - `sr` - Side right channel - `fc` - Front center channel - `lfe` -
  *  Low frequency
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *channelLayout;
 
 /**
- *  The codec for this audio stream. The default is `"aac"`. Supported audio
- *  codecs: - 'aac' - 'aac-he' - 'aac-he-v2' - 'mp3' - 'ac3' - 'eac3'
+ *  The codec for this audio stream. The default is `aac`. Supported audio
+ *  codecs: - `aac` - `aac-he` - `aac-he-v2` - `mp3` - `ac3` - `eac3`
  */
 @property(nonatomic, copy, nullable) NSString *codec;
 
 /** The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioAtom *> *mapping;
+@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_AudioMapping *> *mapping;
 
 /**
  *  The audio sample rate in Hertz. The default is 48000 Hertz.
@@ -522,8 +488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *strength;
 
 /**
- *  Set the denoiser mode. The default is `"standard"`. Supported denoiser
- *  modes: - 'standard' - 'grain'
+ *  Set the denoiser mode. The default is `standard`. Supported denoiser modes:
+ *  - `standard` - `grain`
  */
 @property(nonatomic, copy, nullable) NSString *tune;
 
@@ -596,45 +562,351 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Encryption settings.
+ *  H264 codec settings.
  */
-@interface GTLRTranscoder_Encryption : GTLRObject
-
-/** Configuration for AES-128 encryption. */
-@property(nonatomic, strong, nullable) GTLRTranscoder_Aes128Encryption *aes128;
+@interface GTLRTranscoder_H264CodecSettings : GTLRObject
 
 /**
- *  Required. 128 bit Initialization Vector (IV) represented as lowercase
- *  hexadecimal digits.
+ *  Specifies whether an open Group of Pictures (GOP) structure should be
+ *  allowed or not. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, copy, nullable) NSString *iv;
+@property(nonatomic, strong, nullable) NSNumber *allowOpenGop;
 
 /**
- *  Required. 128 bit encryption key represented as lowercase hexadecimal
- *  digits.
+ *  Specify the intensity of the adaptive quantizer (AQ). Must be between 0 and
+ *  1, where 0 disables the quantizer and 1 maximizes the quantizer. A higher
+ *  value equals a lower bitrate but smoother image. The default is 0.
+ *
+ *  Uses NSNumber of doubleValue.
  */
-@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, strong, nullable) NSNumber *aqStrength;
 
-/** Configuration for MPEG Common Encryption (MPEG-CENC). */
-@property(nonatomic, strong, nullable) GTLRTranscoder_MpegCommonEncryption *mpegCenc;
+/**
+ *  The number of consecutive B-frames. Must be greater than or equal to zero.
+ *  Must be less than `VideoStream.gop_frame_count` if set. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bFrameCount;
 
-/** Configuration for SAMPLE-AES encryption. */
-@property(nonatomic, strong, nullable) GTLRTranscoder_SampleAesEncryption *sampleAes;
+/**
+ *  Required. The video bitrate in bits per second. The minimum value is 1,000.
+ *  The maximum value is 800,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitrateBps;
+
+/**
+ *  Allow B-pyramid for reference frame selection. This may not be supported on
+ *  all decoders. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bPyramid;
+
+/**
+ *  Target CRF level. Must be between 10 and 36, where 10 is the highest quality
+ *  and 36 is the most efficient compression. The default is 21.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crfLevel;
+
+/**
+ *  Use two-pass encoding strategy to achieve better video quality.
+ *  `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTwoPass;
+
+/**
+ *  The entropy coder to use. The default is `cabac`. Supported entropy coders:
+ *  - `cavlc` - `cabac`
+ */
+@property(nonatomic, copy, nullable) NSString *entropyCoder;
+
+/**
+ *  Required. The target video frame rate in frames per second (FPS). Must be
+ *  less than or equal to 120. Will default to the input frame rate if larger
+ *  than the input frame rate. The API will generate an output FPS that is
+ *  divisible by the input FPS, and smaller or equal to the target FPS. See
+ *  [Calculating frame
+ *  rate](https://cloud.google.com/transcoder/docs/concepts/frame-rate) for more
+ *  information.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frameRate;
+
+/**
+ *  Select the GOP size based on the specified duration. The default is `3s`.
+ *  Note that `gopDuration` must be less than or equal to
+ *  [`segmentDuration`](#SegmentSettings), and
+ *  [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gopDuration;
+
+/**
+ *  Select the GOP size based on the specified frame count. Must be greater than
+ *  zero.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gopFrameCount;
+
+/**
+ *  The height of the video in pixels. Must be an even integer. When not
+ *  specified, the height is adjusted to match the specified width and input
+ *  aspect ratio. If both are omitted, the input height is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *heightPixels;
+
+/**
+ *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
+ *  `yuv420p` pixel format - `yuv422p` pixel format - `yuv444p` pixel format -
+ *  `yuv420p10` 10-bit HDR pixel format - `yuv422p10` 10-bit HDR pixel format -
+ *  `yuv444p10` 10-bit HDR pixel format - `yuv420p12` 12-bit HDR pixel format -
+ *  `yuv422p12` 12-bit HDR pixel format - `yuv444p12` 12-bit HDR pixel format
+ */
+@property(nonatomic, copy, nullable) NSString *pixelFormat;
+
+/**
+ *  Enforces the specified codec preset. The default is `veryfast`. The
+ *  available options are
+ *  [FFmpeg-compatible](https://trac.ffmpeg.org/wiki/Encode/H.264#Preset). Note
+ *  that certain values for this field may cause the transcoder to override
+ *  other fields you set in the `H264CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *preset;
+
+/**
+ *  Enforces the specified codec profile. The following profiles are supported:
+ *  * `baseline` * `main` * `high` (default) The available options are
+ *  [FFmpeg-compatible](https://trac.ffmpeg.org/wiki/Encode/H.264#Tune). Note
+ *  that certain values for this field may cause the transcoder to override
+ *  other fields you set in the `H264CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
+ *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
+ */
+@property(nonatomic, copy, nullable) NSString *rateControlMode;
+
+/**
+ *  Enforces the specified codec tune. The available options are
+ *  [FFmpeg-compatible](https://trac.ffmpeg.org/wiki/Encode/H.264#Tune). Note
+ *  that certain values for this field may cause the transcoder to override
+ *  other fields you set in the `H264CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *tune;
+
+/**
+ *  Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must
+ *  be greater than zero. The default is equal to 90% of
+ *  `VideoStream.vbv_size_bits`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vbvFullnessBits;
+
+/**
+ *  Size of the Video Buffering Verifier (VBV) buffer in bits. Must be greater
+ *  than zero. The default is equal to `VideoStream.bitrate_bps`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vbvSizeBits;
+
+/**
+ *  The width of the video in pixels. Must be an even integer. When not
+ *  specified, the width is adjusted to match the specified height and input
+ *  aspect ratio. If both are omitted, the input width is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
 @end
 
 
 /**
- *  Additional information about the reasons for the failure.
+ *  H265 codec settings.
  */
-@interface GTLRTranscoder_FailureDetail : GTLRObject
+@interface GTLRTranscoder_H265CodecSettings : GTLRObject
 
 /**
- *  A description of the failure.
+ *  Specifies whether an open Group of Pictures (GOP) structure should be
+ *  allowed or not. The default is `false`.
  *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+@property(nonatomic, strong, nullable) NSNumber *allowOpenGop;
+
+/**
+ *  Specify the intensity of the adaptive quantizer (AQ). Must be between 0 and
+ *  1, where 0 disables the quantizer and 1 maximizes the quantizer. A higher
+ *  value equals a lower bitrate but smoother image. The default is 0.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aqStrength;
+
+/**
+ *  The number of consecutive B-frames. Must be greater than or equal to zero.
+ *  Must be less than `VideoStream.gop_frame_count` if set. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bFrameCount;
+
+/**
+ *  Required. The video bitrate in bits per second. The minimum value is 1,000.
+ *  The maximum value is 800,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bitrateBps;
+
+/**
+ *  Allow B-pyramid for reference frame selection. This may not be supported on
+ *  all decoders. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bPyramid;
+
+/**
+ *  Target CRF level. Must be between 10 and 36, where 10 is the highest quality
+ *  and 36 is the most efficient compression. The default is 21.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *crfLevel;
+
+/**
+ *  Use two-pass encoding strategy to achieve better video quality.
+ *  `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTwoPass;
+
+/**
+ *  Required. The target video frame rate in frames per second (FPS). Must be
+ *  less than or equal to 120. Will default to the input frame rate if larger
+ *  than the input frame rate. The API will generate an output FPS that is
+ *  divisible by the input FPS, and smaller or equal to the target FPS. See
+ *  [Calculating frame
+ *  rate](https://cloud.google.com/transcoder/docs/concepts/frame-rate) for more
+ *  information.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *frameRate;
+
+/**
+ *  Select the GOP size based on the specified duration. The default is `3s`.
+ *  Note that `gopDuration` must be less than or equal to
+ *  [`segmentDuration`](#SegmentSettings), and
+ *  [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *gopDuration;
+
+/**
+ *  Select the GOP size based on the specified frame count. Must be greater than
+ *  zero.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gopFrameCount;
+
+/**
+ *  The height of the video in pixels. Must be an even integer. When not
+ *  specified, the height is adjusted to match the specified width and input
+ *  aspect ratio. If both are omitted, the input height is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *heightPixels;
+
+/**
+ *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
+ *  `yuv420p` pixel format - `yuv422p` pixel format - `yuv444p` pixel format -
+ *  `yuv420p10` 10-bit HDR pixel format - `yuv422p10` 10-bit HDR pixel format -
+ *  `yuv444p10` 10-bit HDR pixel format - `yuv420p12` 12-bit HDR pixel format -
+ *  `yuv422p12` 12-bit HDR pixel format - `yuv444p12` 12-bit HDR pixel format
+ */
+@property(nonatomic, copy, nullable) NSString *pixelFormat;
+
+/**
+ *  Enforces the specified codec preset. The default is `veryfast`. The
+ *  available options are
+ *  [FFmpeg-compatible](https://trac.ffmpeg.org/wiki/Encode/H.265). Note that
+ *  certain values for this field may cause the transcoder to override other
+ *  fields you set in the `H265CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *preset;
+
+/**
+ *  Enforces the specified codec profile. The following profiles are supported:
+ *  * 8-bit profiles * `main` (default) * `main-intra` * `mainstillpicture` *
+ *  10-bit profiles * `main10` (default) * `main10-intra` * `main422-10` *
+ *  `main422-10-intra` * `main444-10` * `main444-10-intra` * 12-bit profiles *
+ *  `main12` (default) * `main12-intra` * `main422-12` * `main422-12-intra` *
+ *  `main444-12` * `main444-12-intra` The available options are
+ *  [FFmpeg-compatible](https://x265.readthedocs.io/). Note that certain values
+ *  for this field may cause the transcoder to override other fields you set in
+ *  the `H265CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *profile;
+
+/**
+ *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
+ *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
+ */
+@property(nonatomic, copy, nullable) NSString *rateControlMode;
+
+/**
+ *  Enforces the specified codec tune. The available options are
+ *  [FFmpeg-compatible](https://trac.ffmpeg.org/wiki/Encode/H.265). Note that
+ *  certain values for this field may cause the transcoder to override other
+ *  fields you set in the `H265CodecSettings` message.
+ */
+@property(nonatomic, copy, nullable) NSString *tune;
+
+/**
+ *  Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must
+ *  be greater than zero. The default is equal to 90% of
+ *  `VideoStream.vbv_size_bits`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vbvFullnessBits;
+
+/**
+ *  Size of the Video Buffering Verifier (VBV) buffer in bits. Must be greater
+ *  than zero. The default is equal to `VideoStream.bitrate_bps`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vbvSizeBits;
+
+/**
+ *  The width of the video in pixels. Must be an even integer. When not
+ *  specified, the width is adjusted to match the specified height and input
+ *  aspect ratio. If both are omitted, the input width is used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *widthPixels;
 
 @end
 
@@ -708,17 +980,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Output only. List of failure details. This property may contain additional
- *  information about the failure when `failure_reason` is present. *Note*: This
- *  feature is not yet available.
+ *  Output only. An error object that describes the reason for the failure. This
+ *  property is always present when `state` is `FAILED`.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_FailureDetail *> *failureDetails;
-
-/**
- *  Output only. A description of the reason for the failure. This property is
- *  always present when `state` is `FAILED`.
- */
-@property(nonatomic, copy, nullable) NSString *failureReason;
+@property(nonatomic, strong, nullable) GTLRTranscoder_Status *error;
 
 /**
  *  Input only. Specify the `input_uri` to populate empty `uri` fields in each
@@ -731,12 +996,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The resource name of the job. Format:
- *  `projects/{project}/locations/{location}/jobs/{job}`
+ *  `projects/{project_number}/locations/{location}/jobs/{job}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The origin URI. *Note*: This feature is not yet available. */
-@property(nonatomic, strong, nullable) GTLRTranscoder_OriginUri *originUri;
 
 /**
  *  Input only. Specify the `output_uri` to populate an empty
@@ -745,20 +1007,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  `gs://my-bucket/outputs/`.
  */
 @property(nonatomic, copy, nullable) NSString *outputUri;
-
-/**
- *  Specify the priority of the job. Enter a value between 0 and 100, where 0 is
- *  the lowest priority and 100 is the highest priority. The default is 0.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *priority;
-
-/**
- *  Output only. Estimated fractional progress, from `0` to `1` for each step.
- *  *Note*: This feature is not yet available.
- */
-@property(nonatomic, strong, nullable) GTLRTranscoder_Progress *progress;
 
 /** Output only. The time the transcoding started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -855,7 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  The resource name of the job template. Format:
- *  `projects/{project}/locations/{location}/jobTemplates/{job_template}`
+ *  `projects/{project_number}/locations/{location}/jobTemplates/{job_template}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -883,6 +1131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /** The pagination token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** List of regions that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -907,6 +1158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /** The pagination token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/** List of regions that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -916,8 +1170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Manifest : GTLRObject
 
 /**
- *  The name of the generated file. The default is `"manifest"` with the
- *  extension suffix corresponding to the `Manifest.type`.
+ *  The name of the generated file. The default is `manifest` with the extension
+ *  suffix corresponding to the `Manifest.type`.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
@@ -930,37 +1184,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSArray<NSString *> *muxStreams;
 
 /**
- *  Required. Type of the manifest, can be "HLS" or "DASH".
+ *  Required. Type of the manifest, can be `HLS` or `DASH`.
  *
  *  Likely values:
- *    @arg @c kGTLRTranscoder_Manifest_Type_Dash Create `"DASH"` manifest. The
- *        corresponding file extension is `".mpd"`. (Value: "DASH")
- *    @arg @c kGTLRTranscoder_Manifest_Type_Hls Create `"HLS"` manifest. The
- *        corresponding file extension is `".m3u8"`. (Value: "HLS")
+ *    @arg @c kGTLRTranscoder_Manifest_Type_Dash Create `DASH` manifest. The
+ *        corresponding file extension is `.mpd`. (Value: "DASH")
+ *    @arg @c kGTLRTranscoder_Manifest_Type_Hls Create `HLS` manifest. The
+ *        corresponding file extension is `.m3u8`. (Value: "HLS")
  *    @arg @c kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified The manifest
  *        type is not specified. (Value: "MANIFEST_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Configuration for MPEG Common Encryption (MPEG-CENC).
- */
-@interface GTLRTranscoder_MpegCommonEncryption : GTLRObject
-
-/**
- *  Required. 128 bit Key ID represented as lowercase hexadecimal digits for use
- *  with common encryption.
- */
-@property(nonatomic, copy, nullable) NSString *keyId;
-
-/**
- *  Required. Specify the encryption scheme. Supported encryption schemes: -
- *  'cenc' - 'cbcs'
- */
-@property(nonatomic, copy, nullable) NSString *scheme;
 
 @end
 
@@ -971,32 +1205,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_MuxStream : GTLRObject
 
 /**
- *  The container format. The default is `"mp4"` Supported container formats: -
- *  'ts' - 'fmp4'- the corresponding file extension is `".m4s"` - 'mp4' - 'vtt'
+ *  The container format. The default is `mp4` Supported container formats: -
+ *  `ts` - `fmp4`- the corresponding file extension is `.m4s` - `mp4` - `vtt`
  */
 @property(nonatomic, copy, nullable) NSString *container;
 
 /** List of `ElementaryStream.key`s multiplexed in this stream. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *elementaryStreams;
 
-/** Encryption settings. */
-@property(nonatomic, strong, nullable) GTLRTranscoder_Encryption *encryption;
-
 /**
  *  The name of the generated file. The default is `MuxStream.key` with the
  *  extension suffix corresponding to the `MuxStream.container`. Individual
  *  segments also have an incremental 10-digit zero-padded suffix starting from
- *  0 before the extension, such as `"mux_stream0000000123.ts"`.
+ *  0 before the extension, such as `mux_stream0000000123.ts`.
  */
 @property(nonatomic, copy, nullable) NSString *fileName;
 
 /**
  *  A unique key for this multiplexed stream. HLS media manifests will be named
- *  `MuxStream.key` with the `".m3u8"` extension suffix.
+ *  `MuxStream.key` with the `.m3u8` extension suffix.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** Segment settings for `"ts"`, `"fmp4"` and `"vtt"`. */
+/** Segment settings for `ts`, `fmp4` and `vtt`. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_SegmentSettings *segmentSettings;
 
 @end
@@ -1020,26 +1251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *y;
-
-@end
-
-
-/**
- *  The origin URI.
- */
-@interface GTLRTranscoder_OriginUri : GTLRObject
-
-/**
- *  Dash manifest URI. If multiple Dash manifests are created, only the first
- *  one is listed.
- */
-@property(nonatomic, copy, nullable) NSString *dash;
-
-/**
- *  HLS manifest URI per https://tools.ietf.org/html/rfc8216#section-4.3.4. If
- *  multiple HLS manifests are created, only the first one is listed.
- */
-@property(nonatomic, copy, nullable) NSString *hls;
 
 @end
 
@@ -1139,42 +1350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Estimated fractional progress for each step, from `0` to `1`.
- */
-@interface GTLRTranscoder_Progress : GTLRObject
-
-/**
- *  Estimated fractional progress for `analyzing` step.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *analyzed;
-
-/**
- *  Estimated fractional progress for `encoding` step.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *encoded;
-
-/**
- *  Estimated fractional progress for `notifying` step.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *notified;
-
-/**
- *  Estimated fractional progress for `uploading` step.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *uploaded;
-
-@end
-
-
-/**
  *  A Pub/Sub destination.
  */
 @interface GTLRTranscoder_PubsubDestination : GTLRObject
@@ -1189,21 +1364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Configuration for SAMPLE-AES encryption.
- */
-@interface GTLRTranscoder_SampleAesEncryption : GTLRObject
-
-/**
- *  Required. URI of the key delivery service. This URI is inserted into the
- *  M3U8 header.
- */
-@property(nonatomic, copy, nullable) NSString *keyUri;
-
-@end
-
-
-/**
- *  Segment settings for `"ts"`, `"fmp4"` and `"vtt"`.
+ *  Segment settings for `ts`, `fmp4` and `vtt`.
  */
 @interface GTLRTranscoder_SegmentSettings : GTLRObject
 
@@ -1215,7 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *individualSegments;
 
 /**
- *  Duration of the segments in seconds. The default is `"6.0s"`. Note that
+ *  Duration of the segments in seconds. The default is `6.0s`. Note that
  *  `segmentDuration` must be greater than or equal to
  *  [`gopDuration`](#videostream), and `segmentDuration` must be divisible by
  *  [`gopDuration`](#videostream).
@@ -1248,11 +1409,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  Required. File name prefix for the generated sprite sheets. Each sprite
  *  sheet has an incremental 10-digit zero-padded suffix starting from 0 before
- *  the extension, such as `"sprite_sheet0000000123.jpeg"`.
+ *  the extension, such as `sprite_sheet0000000123.jpeg`.
  */
 @property(nonatomic, copy, nullable) NSString *filePrefix;
 
-/** Format type. The default is `"jpeg"`. Supported formats: - 'jpeg' */
+/** Format type. The default is `jpeg`. Supported formats: - `jpeg` */
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
@@ -1317,39 +1478,70 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`.
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
-@interface GTLRTranscoder_TextAtom : GTLRObject
+@interface GTLRTranscoder_Status : GTLRObject
 
 /**
- *  List of `Job.inputs` that should be embedded in this atom. Only one input is
- *  supported.
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextInput *> *inputs;
+@property(nonatomic, strong, nullable) NSNumber *code;
 
 /**
- *  Required. The `EditAtom.key` that references atom with text inputs in the
- *  `Job.edit_list`.
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
  */
-@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
 
 /**
- *  Identifies which input file and track should be used.
+ *  GTLRTranscoder_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
-@interface GTLRTranscoder_TextInput : GTLRObject
+@interface GTLRTranscoder_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`.
+ */
+@interface GTLRTranscoder_TextMapping : GTLRObject
+
+/**
+ *  Required. The `EditAtom.key` that references atom with text inputs in the
+ *  `Job.edit_list`.
+ */
+@property(nonatomic, copy, nullable) NSString *atomKey;
 
 /** Required. The `Input.key` that identifies the input file. */
-@property(nonatomic, copy, nullable) NSString *key;
+@property(nonatomic, copy, nullable) NSString *inputKey;
 
 /**
  *  Required. The zero-based index of the track in the input file.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *track;
+@property(nonatomic, strong, nullable) NSNumber *inputTrack;
 
 @end
 
@@ -1360,20 +1552,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_TextStream : GTLRObject
 
 /**
- *  The codec for this text stream. The default is `"webvtt"`. Supported text
- *  codecs: - 'srt' - 'ttml' - 'cea608' - 'cea708' - 'webvtt'
+ *  The codec for this text stream. The default is `webvtt`. Supported text
+ *  codecs: - `srt` - `ttml` - `cea608` - `cea708` - `webvtt`
  */
 @property(nonatomic, copy, nullable) NSString *codec;
 
-/**
- *  Required. The BCP-47 language code, such as `"en-US"` or `"sr-Latn"`. For
- *  more information, see
- *  https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
 /** The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`. */
-@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextAtom *> *mapping;
+@property(nonatomic, strong, nullable) NSArray<GTLRTranscoder_TextMapping *> *mapping;
 
 @end
 
@@ -1383,53 +1568,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @interface GTLRTranscoder_VideoStream : GTLRObject
 
-/**
- *  Specifies whether an open Group of Pictures (GOP) structure should be
- *  allowed or not. The default is `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowOpenGop;
+/** H264 codec settings. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H264CodecSettings *h264;
+
+/** H265 codec settings. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_H265CodecSettings *h265;
+
+/** VP9 codec settings. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Vp9CodecSettings *vp9;
+
+@end
+
 
 /**
- *  Specify the intensity of the adaptive quantizer (AQ). Must be between 0 and
- *  1, where 0 disables the quantizer and 1 maximizes the quantizer. A higher
- *  value equals a lower bitrate but smoother image. The default is 0.
- *
- *  Uses NSNumber of doubleValue.
+ *  VP9 codec settings.
  */
-@property(nonatomic, strong, nullable) NSNumber *aqStrength;
-
-/**
- *  The number of consecutive B-frames. Must be greater than or equal to zero.
- *  Must be less than `VideoStream.gop_frame_count` if set. The default is 0.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bFrameCount;
+@interface GTLRTranscoder_Vp9CodecSettings : GTLRObject
 
 /**
  *  Required. The video bitrate in bits per second. The minimum value is 1,000.
- *  The maximum value for H264/H265 is 800,000,000. The maximum value for VP9 is
- *  480,000,000.
+ *  The maximum value is 480,000,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bitrateBps;
-
-/**
- *  Allow B-pyramid for reference frame selection. This may not be supported on
- *  all decoders. The default is `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bPyramid;
-
-/**
- *  Codec type. The following codecs are supported: * `h264` (default) * `h265`
- *  * `vp9`
- */
-@property(nonatomic, copy, nullable) NSString *codec;
 
 /**
  *  Target CRF level. Must be between 10 and 36, where 10 is the highest quality
@@ -1440,25 +1602,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *crfLevel;
 
 /**
- *  Use two-pass encoding strategy to achieve better video quality.
- *  `VideoStream.rate_control_mode` must be `"vbr"`. The default is `false`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableTwoPass;
-
-/**
- *  The entropy coder to use. The default is `"cabac"`. Supported entropy
- *  coders: - 'cavlc' - 'cabac'
- */
-@property(nonatomic, copy, nullable) NSString *entropyCoder;
-
-/**
  *  Required. The target video frame rate in frames per second (FPS). Must be
  *  less than or equal to 120. Will default to the input frame rate if larger
  *  than the input frame rate. The API will generate an output FPS that is
  *  divisible by the input FPS, and smaller or equal to the target FPS. See
- *  [Calculate frame
+ *  [Calculating frame
  *  rate](https://cloud.google.com/transcoder/docs/concepts/frame-rate) for more
  *  information.
  *
@@ -1467,7 +1615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *frameRate;
 
 /**
- *  Select the GOP size based on the specified duration. The default is `"3s"`.
+ *  Select the GOP size based on the specified duration. The default is `3s`.
  *  Note that `gopDuration` must be less than or equal to
  *  [`segmentDuration`](#SegmentSettings), and
  *  [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`.
@@ -1492,60 +1640,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *heightPixels;
 
 /**
- *  Pixel format to use. The default is `"yuv420p"`. Supported pixel formats: -
- *  'yuv420p' pixel format. - 'yuv422p' pixel format. - 'yuv444p' pixel format.
- *  - 'yuv420p10' 10-bit HDR pixel format. - 'yuv422p10' 10-bit HDR pixel
- *  format. - 'yuv444p10' 10-bit HDR pixel format. - 'yuv420p12' 12-bit HDR
- *  pixel format. - 'yuv422p12' 12-bit HDR pixel format. - 'yuv444p12' 12-bit
- *  HDR pixel format.
+ *  Pixel format to use. The default is `yuv420p`. Supported pixel formats: -
+ *  `yuv420p` pixel format - `yuv422p` pixel format - `yuv444p` pixel format -
+ *  `yuv420p10` 10-bit HDR pixel format - `yuv422p10` 10-bit HDR pixel format -
+ *  `yuv444p10` 10-bit HDR pixel format - `yuv420p12` 12-bit HDR pixel format -
+ *  `yuv422p12` 12-bit HDR pixel format - `yuv444p12` 12-bit HDR pixel format
  */
 @property(nonatomic, copy, nullable) NSString *pixelFormat;
 
 /**
- *  Enforces the specified codec preset. The default is `veryfast`. The
- *  available options are FFmpeg-compatible. Note that certain values for this
- *  field may cause the transcoder to override other fields you set in the
- *  `VideoStream` message.
- */
-@property(nonatomic, copy, nullable) NSString *preset;
-
-/**
  *  Enforces the specified codec profile. The following profiles are supported:
- *  * `baseline` * `main` * `high` (default) The available options are
- *  FFmpeg-compatible. Note that certain values for this field may cause the
- *  transcoder to override other fields you set in the `VideoStream` message.
+ *  * `profile0` (default) * `profile1` * `profile2` * `profile3` The available
+ *  options are [WebM-compatible](https://www.webmproject.org/vp9/profiles/).
+ *  Note that certain values for this field may cause the transcoder to override
+ *  other fields you set in the `Vp9CodecSettings` message.
  */
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Specify the `rate_control_mode`. The default is `"vbr"`. Supported rate
- *  control modes: - 'vbr' - variable bitrate - 'crf' - constant rate factor
+ *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
+ *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
-
-/**
- *  Enforces the specified codec tune. The available options are
- *  FFmpeg-compatible. Note that certain values for this field may cause the
- *  transcoder to override other fields you set in the `VideoStream` message.
- */
-@property(nonatomic, copy, nullable) NSString *tune;
-
-/**
- *  Initial fullness of the Video Buffering Verifier (VBV) buffer in bits. Must
- *  be greater than zero. The default is equal to 90% of
- *  `VideoStream.vbv_size_bits`.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vbvFullnessBits;
-
-/**
- *  Size of the Video Buffering Verifier (VBV) buffer in bits. Must be greater
- *  than zero. The default is equal to `VideoStream.bitrate_bps`.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vbvSizeBits;
 
 /**
  *  The width of the video in pixels. Must be an even integer. When not

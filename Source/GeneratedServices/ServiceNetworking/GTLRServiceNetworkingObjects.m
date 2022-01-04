@@ -125,6 +125,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesExhausted = @"RANGES_EXHAUSTED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_RangesNotReserved = @"RANGES_NOT_RESERVED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ServiceNetworkingNotEnabled = @"SERVICE_NETWORKING_NOT_ENABLED";
+NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_UsePermissionNotFound = @"USE_PERMISSION_NOT_FOUND";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationErrorUnspecified = @"VALIDATION_ERROR_UNSPECIFIED";
 NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ValidationNotRequested = @"VALIDATION_NOT_REQUESTED";
 
@@ -1700,7 +1701,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_ValidateConsumerConfigRequest
-@dynamic consumerNetwork, consumerProject, rangeReservation, validateNetwork;
+@dynamic checkServiceNetworkingUsePermission, consumerNetwork, consumerProject,
+         rangeReservation, validateNetwork;
 @end
 
 

@@ -579,7 +579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** The full path of the organizational unit or its unique ID. */
+/**
+ *  The full path of the organizational unit (minus the leading `/`) or its
+ *  unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
@@ -2300,7 +2303,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieves a paginated list of all mobile devices for an account.
+ *  Retrieves a paginated list of all user-owned mobile devices for an account.
+ *  To retrieve a list that includes company-owned devices, use the Cloud
+ *  Identity [Devices
+ *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
+ *  instead.
  *
  *  Method: directory.mobiledevices.list
  *
@@ -2385,7 +2392,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_MobileDevices.
  *
- *  Retrieves a paginated list of all mobile devices for an account.
+ *  Retrieves a paginated list of all user-owned mobile devices for an account.
+ *  To retrieve a list that includes company-owned devices, use the Cloud
+ *  Identity [Devices
+ *  API](https://cloud.google.com/identity/docs/concepts/overview-devices)
+ *  instead.
  *
  *  @param customerId The unique ID for the customer's Google Workspace account.
  *    As an account administrator, you can also use the `my_customer` alias to
@@ -2420,7 +2431,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** The full path of the organizational unit or its unique ID. */
+/**
+ *  The full path of the organizational unit (minus the leading `/`) or its
+ *  unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
@@ -2433,8 +2447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
- *  @param orgUnitPath The full path of the organizational unit or its unique
- *    ID.
+ *  @param orgUnitPath The full path of the organizational unit (minus the
+ *    leading `/`) or its unique ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsDelete
  */
@@ -2462,7 +2476,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** The full path of the organizational unit or its unique ID. */
+/**
+ *  The full path of the organizational unit (minus the leading `/`) or its
+ *  unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
@@ -2474,8 +2491,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
- *  @param orgUnitPath The full path of the organizational unit or its unique
- *    ID.
+ *  @param orgUnitPath The full path of the organizational unit (minus the
+ *    leading `/`) or its unique ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsGet
  */
@@ -2590,7 +2607,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** The full path of the organizational unit or its unique ID. */
+/**
+ *  The full path of the organizational unit (minus the leading `/`) or its
+ *  unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
@@ -2604,8 +2624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
- *  @param orgUnitPath The full path of the organizational unit or its unique
- *    ID.
+ *  @param orgUnitPath The full path of the organizational unit (minus the
+ *    leading `/`) or its unique ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsPatch
  */
@@ -2633,7 +2653,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** The full path of the organizational unit or its unique ID. */
+/**
+ *  The full path of the organizational unit (minus the leading `/`) or its
+ *  unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
@@ -2646,8 +2669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
- *  @param orgUnitPath The full path of the organizational unit or its unique
- *    ID.
+ *  @param orgUnitPath The full path of the organizational unit (minus the
+ *    leading `/`) or its unique ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsUpdate
  */

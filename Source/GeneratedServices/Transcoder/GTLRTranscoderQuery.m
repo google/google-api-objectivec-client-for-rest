@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1beta1)
+//   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
 //   distribution.
@@ -32,7 +32,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/jobs";
+  NSString *pathURITemplate = @"v1/{+parent}/jobs";
   GTLRTranscoderQuery_ProjectsLocationsJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -48,11 +48,11 @@
 
 @implementation GTLRTranscoderQuery_ProjectsLocationsJobsDelete
 
-@dynamic name;
+@dynamic allowMissing, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRTranscoderQuery_ProjectsLocationsJobsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -71,7 +71,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRTranscoderQuery_ProjectsLocationsJobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -86,11 +86,11 @@
 
 @implementation GTLRTranscoderQuery_ProjectsLocationsJobsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/jobs";
+  NSString *pathURITemplate = @"v1/{+parent}/jobs";
   GTLRTranscoderQuery_ProjectsLocationsJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -116,7 +116,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/jobTemplates";
+  NSString *pathURITemplate = @"v1/{+parent}/jobTemplates";
   GTLRTranscoderQuery_ProjectsLocationsJobTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -132,11 +132,11 @@
 
 @implementation GTLRTranscoderQuery_ProjectsLocationsJobTemplatesDelete
 
-@dynamic name;
+@dynamic allowMissing, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRTranscoderQuery_ProjectsLocationsJobTemplatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -155,7 +155,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRTranscoderQuery_ProjectsLocationsJobTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -170,11 +170,11 @@
 
 @implementation GTLRTranscoderQuery_ProjectsLocationsJobTemplatesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/jobTemplates";
+  NSString *pathURITemplate = @"v1/{+parent}/jobTemplates";
   GTLRTranscoderQuery_ProjectsLocationsJobTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

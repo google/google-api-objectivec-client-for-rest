@@ -43,8 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists pipelines. Returns a "NOT_FOUND" error if the list is empty. Returns a
- *  "FORBIDDEN" error if the caller doesn't have permission to access it.
+ *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
+ *  permission to access it.
  *
  *  Method: datapipelines.projects.locations.listPipelines
  *
@@ -58,12 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  pipelines will be returned. Multiple filters can be applied and must be
  *  comma separated. Fields eligible for filtering are: + `type`: The type of
  *  the pipeline (streaming or batch). Allowed values are `ALL`, `BATCH`, and
- *  `STREAMING`. + `executor_type`: The type of pipeline execution layer. This
- *  is always Dataflow for now, but more executors may be added later. Allowed
- *  values are `ALL` and `DATAFLOW`. + `status`: The activity status of the
- *  pipeline. Allowed values are `ALL`, `ACTIVE`, `ARCHIVED`, and `PAUSED`. For
- *  example, to limit results to active batch processing pipelines:
- *  type:BATCH,status:ACTIVE
+ *  `STREAMING`. + `status`: The activity status of the pipeline. Allowed values
+ *  are `ALL`, `ACTIVE`, `ARCHIVED`, and `PAUSED`. For example, to limit results
+ *  to active batch processing pipelines: type:BATCH,status:ACTIVE
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -91,8 +88,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse.
  *
- *  Lists pipelines. Returns a "NOT_FOUND" error if the list is empty. Returns a
- *  "FORBIDDEN" error if the caller doesn't have permission to access it.
+ *  Lists pipelines. Returns a "FORBIDDEN" error if the caller doesn't have
+ *  permission to access it.
  *
  *  @param parent Required. The location name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID`.
@@ -191,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatapipelinesQuery_ProjectsLocationsPipelinesGet : GTLRDatapipelinesQuery
 
 /**
- *  Required. The pipeeline name. For example:
+ *  Required. The pipeline name. For example:
  *  `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -203,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  exists. Returns a "FORBIDDEN" error if the caller doesn't have permission to
  *  access it.
  *
- *  @param name Required. The pipeeline name. For example:
+ *  @param name Required. The pipeline name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`.
  *
  *  @return GTLRDatapipelinesQuery_ProjectsLocationsPipelinesGet
@@ -213,10 +210,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a pipeline. If successful, the updated [Pipeline] is returned.
- *  Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does
- *  not return successfully, you can retry the UpdatePipeline request until you
- *  receive a successful response.
+ *  Updates a pipeline. If successful, the updated Pipeline is returned. Returns
+ *  `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return
+ *  successfully, you can retry the UpdatePipeline request until you receive a
+ *  successful response.
  *
  *  Method: datapipelines.projects.locations.pipelines.patch
  *
@@ -230,10 +227,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`. *
  *  `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-),
  *  colons (:), and periods (.). For more information, see [Identifying
- *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
  *  * `LOCATION_ID` is the canonical ID for the pipeline's location. The list of
- *  available locations can be obtained by calling ListLocations. Note that the
- *  Data Pipelines service is not available in all regions. It depends on Cloud
+ *  available locations can be obtained by calling
+ *  `google.cloud.location.Locations.ListLocations`. Note that the Data
+ *  Pipelines service is not available in all regions. It depends on Cloud
  *  Scheduler, an App Engine application, so it's only available in [App Engine
  *  regions](https://cloud.google.com/about/locations#region). * `PIPELINE_ID`
  *  is the ID of the pipeline. Must be unique for the selected project and
@@ -251,10 +249,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline.
  *
- *  Updates a pipeline. If successful, the updated [Pipeline] is returned.
- *  Returns `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does
- *  not return successfully, you can retry the UpdatePipeline request until you
- *  receive a successful response.
+ *  Updates a pipeline. If successful, the updated Pipeline is returned. Returns
+ *  `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return
+ *  successfully, you can retry the UpdatePipeline request until you receive a
+ *  successful response.
  *
  *  @param object The @c GTLRDatapipelines_GoogleCloudDatapipelinesV1Pipeline to
  *    include in the query.
@@ -262,11 +260,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`. *
  *    `PROJECT_ID` can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-),
  *    colons (:), and periods (.). For more information, see [Identifying
- *    projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *    projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
  *    * `LOCATION_ID` is the canonical ID for the pipeline's location. The list
- *    of available locations can be obtained by calling ListLocations. Note that
- *    the Data Pipelines service is not available in all regions. It depends on
- *    Cloud Scheduler, an App Engine application, so it's only available in [App
+ *    of available locations can be obtained by calling
+ *    `google.cloud.location.Locations.ListLocations`. Note that the Data
+ *    Pipelines service is not available in all regions. It depends on Cloud
+ *    Scheduler, an App Engine application, so it's only available in [App
  *    Engine regions](https://cloud.google.com/about/locations#region). *
  *    `PIPELINE_ID` is the ID of the pipeline. Must be unique for the selected
  *    project and location.
@@ -282,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a job for the specified pipeline directly. You can use this method
  *  when the internal scheduler is not configured and you want to trigger the
  *  job directly or through an external system. Returns a "NOT_FOUND" error if
- *  the pipeline doesn't exist. Returns a "FOBIDDEN" error if the user doesn't
+ *  the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't
  *  have permission to access the pipeline or run jobs for the pipeline.
  *
  *  Method: datapipelines.projects.locations.pipelines.run
@@ -305,7 +304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a job for the specified pipeline directly. You can use this method
  *  when the internal scheduler is not configured and you want to trigger the
  *  job directly or through an external system. Returns a "NOT_FOUND" error if
- *  the pipeline doesn't exist. Returns a "FOBIDDEN" error if the user doesn't
+ *  the pipeline doesn't exist. Returns a "FORBIDDEN" error if the user doesn't
  *  have permission to access the pipeline or run jobs for the pipeline.
  *
  *  @param object The @c
@@ -324,8 +323,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Freezes pipeline execution permanently. If there's a corresponding scheduler
  *  entry, it's deleted, and the pipeline state is changed to "ARCHIVED".
- *  However, pipeline metadata is retained. Upon success, the pipeline state is
- *  updated to ARCHIVED.
+ *  However, pipeline metadata is retained.
  *
  *  Method: datapipelines.projects.locations.pipelines.stop
  *
@@ -345,8 +343,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Freezes pipeline execution permanently. If there's a corresponding scheduler
  *  entry, it's deleted, and the pipeline state is changed to "ARCHIVED".
- *  However, pipeline metadata is retained. Upon success, the pipeline state is
- *  updated to ARCHIVED.
+ *  However, pipeline metadata is retained.
  *
  *  @param object The @c
  *    GTLRDatapipelines_GoogleCloudDatapipelinesV1StopPipelineRequest to include

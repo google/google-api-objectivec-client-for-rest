@@ -3928,27 +3928,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @interface GTLRDirectory_UserLanguage : GTLRObject
 
 /**
- *  Other language. User can provide own language name if there is no
- *  corresponding ISO 639 language code. If this is set `languageCode` can't be
+ *  Other language. User can provide their own language name if there is no
+ *  corresponding ISO 639 language code. If this is set, `languageCode` can't be
  *  set.
  */
 @property(nonatomic, copy, nullable) NSString *customLanguage;
 
 /**
- *  Language Code. Should be used for storing ISO 639 LanguageCode string
- *  representation for language. See the [Language
- *  Codes](/admin-sdk/directory/v1/languages) page for the list of supported
- *  codes. Valid language codes outside the supported set will be accepted by
- *  the API but may lead to unexpected behavior. Illegal values cause
- *  SchemaException. If this is set `customLanguage` can't be set.
+ *  ISO 639 string representation of a language. See [Language
+ *  Codes](/admin-sdk/directory/v1/languages) for the list of supported codes.
+ *  Valid language codes outside the supported set will be accepted by the API
+ *  but may lead to unexpected behavior. Illegal values cause `SchemaException`.
+ *  If this is set, `customLanguage` can't be set.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Preference. Optional field, which if present, controls whether the specified
- *  `languageCode` is stored as the user's preferred language. If
- *  `customLanguage` is set, this can't be set. Allowed values are `preferred`
- *  and `not_preferred`.
+ *  Optional. If present, controls whether the specified `languageCode` is the
+ *  user's preferred language. If `customLanguage` is set, this can't be set.
+ *  Allowed values are `preferred` and `not_preferred`.
  */
 @property(nonatomic, copy, nullable) NSString *preference;
 

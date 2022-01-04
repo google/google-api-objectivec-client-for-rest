@@ -845,6 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_ComputeEngineTargetDefaults : GTLRObject
 
+/** Additional licenses to assign to the VM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
+
 /** Output only. The OS license returned from the adaptation module report. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AppliedLicense *appliedLicense;
 
@@ -975,6 +978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  target Compute Engine project.
  */
 @interface GTLRVMMigrationService_ComputeEngineTargetDetails : GTLRObject
+
+/** Additional licenses to assign to the VM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
 
 /** The OS license returned from the adaptation module report. */
 @property(nonatomic, strong, nullable) GTLRVMMigrationService_AppliedLicense *appliedLicense;

@@ -602,7 +602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 // GTLRCloudIdentity_MembershipRoleRestrictionEvaluation.state
 
 /**
- *  The member adheres to the parent group’s restriction.
+ *  The member adheres to the parent group's restriction.
  *
  *  Value: "COMPLIANT"
  */
@@ -622,7 +622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionE
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_ForwardCompliant;
 /**
- *  The member violates the parent group’s restriction.
+ *  The member violates the parent group's restriction.
  *
  *  Value: "NON_COMPLIANT"
  */
@@ -2179,7 +2179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Compliant
- *        The member adheres to the parent group’s restriction. (Value:
+ *        The member adheres to the parent group's restriction. (Value:
  *        "COMPLIANT")
  *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_Evaluating
  *        The state of the membership is under evaluation. (Value: "EVALUATING")
@@ -2189,7 +2189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        in the child group which can violate parent group's restriction.
  *        (Value: "FORWARD_COMPLIANT")
  *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_NonCompliant
- *        The member violates the parent group’s restriction. (Value:
+ *        The member violates the parent group's restriction. (Value:
  *        "NON_COMPLIANT")
  *    @arg @c kGTLRCloudIdentity_MembershipRoleRestrictionEvaluation_State_StateUnspecified
  *        Default. Should not be used. (Value: "STATE_UNSPECIFIED")

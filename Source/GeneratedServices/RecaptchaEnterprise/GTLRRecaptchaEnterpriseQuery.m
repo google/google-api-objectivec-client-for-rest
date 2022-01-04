@@ -229,24 +229,24 @@
 
 @implementation GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
 
-@dynamic parent;
+@dynamic project;
 
 + (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest *)object
-                         parent:(NSString *)parent {
+                        project:(NSString *)project {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/relatedaccountgroupmemberships:search";
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"v1/{+project}/relatedaccountgroupmemberships:search";
   GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.parent = parent;
+  query.project = project;
   query.expectedObjectClass = [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsResponse class];
   query.loggingName = @"recaptchaenterprise.projects.relatedaccountgroupmemberships.search";
   return query;

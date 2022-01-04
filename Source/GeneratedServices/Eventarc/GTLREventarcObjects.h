@@ -233,8 +233,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 @interface GTLREventarc_Destination : GTLRObject
 
 /**
- *  Cloud Run fully-managed service that receives the events. The service should
- *  be running in the same project of the trigger.
+ *  Cloud Run fully-managed resource that receives the events. The resource
+ *  should be in the same project as the trigger.
  */
 @property(nonatomic, strong, nullable) GTLREventarc_CloudRun *cloudRun;
 

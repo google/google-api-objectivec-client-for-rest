@@ -1478,6 +1478,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Obfuscated user ID which the customer sent to us. */
+@property(nonatomic, copy, nullable) NSString *obfuscatedUserId;
+
 /**
  *  Output only. The annotations that were generated during the customer and
  *  agent interaction.

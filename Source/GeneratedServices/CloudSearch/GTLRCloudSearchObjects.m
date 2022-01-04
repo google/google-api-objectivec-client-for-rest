@@ -310,6 +310,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_CustomerSearchApplicationStats
+//
+
+@implementation GTLRCloudSearch_CustomerSearchApplicationStats
+@dynamic count, date;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_CustomerSessionStats
 //
 
@@ -347,7 +357,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 @implementation GTLRCloudSearch_DataSource
 @dynamic disableModifications, disableServing, displayName,
          indexingServiceAccounts, itemsVisibility, name, operationIds,
-         shortName;
+         returnThumbnailUrls, shortName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -736,7 +746,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_GetCustomerIndexStatsResponse
-@dynamic stats;
+@dynamic averageIndexedItemCount, stats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -754,11 +764,29 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_GetCustomerQueryStatsResponse
-@dynamic stats;
+@dynamic stats, totalQueryCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"stats" : [GTLRCloudSearch_CustomerQueryStats class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GetCustomerSearchApplicationStatsResponse
+//
+
+@implementation GTLRCloudSearch_GetCustomerSearchApplicationStatsResponse
+@dynamic averageSearchApplicationCount, stats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stats" : [GTLRCloudSearch_CustomerSearchApplicationStats class]
   };
   return map;
 }
@@ -808,7 +836,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_GetDataSourceIndexStatsResponse
-@dynamic stats;
+@dynamic averageIndexedItemCount, stats;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -826,7 +854,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_GetSearchApplicationQueryStatsResponse
-@dynamic stats;
+@dynamic stats, totalQueryCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1051,7 +1079,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_ItemCountByStatus
-@dynamic count, statusCode;
+@dynamic count, indexedItemsCount, statusCode;
 @end
 
 
@@ -1288,7 +1316,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_Metadata
 @dynamic createTime, displayOptions, fields, mimeType, objectType, owner,
-         source, updateTime;
+         source, thumbnailUrl, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1878,7 +1906,8 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 @implementation GTLRCloudSearch_SearchApplication
 @dynamic dataSourceRestrictions, defaultFacetOptions, defaultSortOptions,
          displayName, enableAuditLog, name, operationIds,
-         queryInterpretationConfig, scoringConfig, sourceConfig;
+         queryInterpretationConfig, returnResultThumbnailUrls, scoringConfig,
+         sourceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

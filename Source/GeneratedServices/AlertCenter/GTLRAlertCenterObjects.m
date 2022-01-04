@@ -38,8 +38,11 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
 
 // GTLRAlertCenter_AppsOutage.status
+NSString * const kGTLRAlertCenter_AppsOutage_Status_FalsePositive = @"FALSE_POSITIVE";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Merged     = @"MERGED";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_New        = @"NEW";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_Ongoing    = @"ONGOING";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_PartiallyResolved = @"PARTIALLY_RESOLVED";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_Resolved   = @"RESOLVED";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
@@ -238,7 +241,8 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 //
 
 @implementation GTLRAlertCenter_AppsOutage
-@dynamic dashboardUri, nextUpdateTime, products, resolutionTime, status;
+@dynamic dashboardUri, incidentTrackingId, mergeInfo, nextUpdateTime, products,
+         resolutionTime, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -619,6 +623,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_MatchInfo
 @dynamic predefinedDetector, userDefinedDetector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_MergeInfo
+//
+
+@implementation GTLRAlertCenter_MergeInfo
+@dynamic newAlertId, newIncidentTrackingId;
 @end
 
 

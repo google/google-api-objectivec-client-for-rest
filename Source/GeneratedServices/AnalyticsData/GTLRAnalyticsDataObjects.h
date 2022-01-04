@@ -593,7 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_End
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Exact;
 /**
- *  Full regular expression match with the string value.
+ *  Full match for the regular expression with the string value.
  *
  *  Value: "FULL_REGEXP"
  */
@@ -605,7 +605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Ful
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_MatchTypeUnspecified;
 /**
- *  Partial regular expression match with the string value.
+ *  Partial match for the regular expression with the string value.
  *
  *  Value: "PARTIAL_REGEXP"
  */
@@ -997,7 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /**
  *  Dimensions are attributes of your data. For example, the dimension city
  *  indicates the city from which an event originates. Dimension values in
- *  report responses are strings; for example, city could be "Paris" or "New
+ *  report responses are strings; for example, the city could be "Paris" or "New
  *  York". Requests are allowed up to 9 dimensions.
  */
 @interface GTLRAnalyticsData_Dimension : GTLRObject
@@ -1218,8 +1218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpressionList *andGroup;
 
 /**
- *  A primitive filter. All fields in filter in same FilterExpression needs to
- *  be either all dimensions or metrics.
+ *  A primitive filter. In the same FilterExpression, all of the filter's field
+ *  names need to be either all dimensions or all metrics.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_Filter *filter;
 
@@ -1873,18 +1873,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_SchemaRestrictionResponse *schemaRestrictionResponse;
 
 /**
- *  If `thresholdingApplied` is true, this report has thresholding applied and
- *  only returns data that meets the minimum aggregation thresholds. This
- *  boolean only indicates if thresholding was applied. It is possible for
- *  thresholding to be applied and no data is absent from the report, and this
- *  happens when all data is above the thresholds. To learn more, see [Data
+ *  If `subjectToThresholding` is true, this report is subject to thresholding
+ *  and only returns data that meets the minimum aggregation thresholds. It is
+ *  possible for a request to be subject to thresholding thresholding and no
+ *  data is absent from the report, and this happens when all data is above the
+ *  thresholds. To learn more, see [Data
  *  thresholds](https://support.google.com/analytics/answer/9383630) and [About
  *  Demographics and
  *  Interests](https://support.google.com/analytics/answer/2799357).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *thresholdingApplied;
+@property(nonatomic, strong, nullable) NSNumber *subjectToThresholding;
 
 /**
  *  The property's current timezone. Intended to be used to interpret time-based
@@ -2253,8 +2253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metricAggregations;
 
 /**
- *  The filter clause of metrics. Applied at post aggregation phase, similar to
- *  SQL having-clause. Dimensions cannot be used in this filter.
+ *  The filter clause of metrics. Applied after aggregating the report's rows,
+ *  similar to SQL having-clause. Dimensions cannot be used in this filter.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *metricFilter;
 
@@ -2398,12 +2398,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *        string value. (Value: "ENDS_WITH")
  *    @arg @c kGTLRAnalyticsData_StringFilter_MatchType_Exact Exact match of the
  *        string value. (Value: "EXACT")
- *    @arg @c kGTLRAnalyticsData_StringFilter_MatchType_FullRegexp Full regular
- *        expression match with the string value. (Value: "FULL_REGEXP")
+ *    @arg @c kGTLRAnalyticsData_StringFilter_MatchType_FullRegexp Full match
+ *        for the regular expression with the string value. (Value:
+ *        "FULL_REGEXP")
  *    @arg @c kGTLRAnalyticsData_StringFilter_MatchType_MatchTypeUnspecified
  *        Unspecified (Value: "MATCH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp Partial
- *        regular expression match with the string value. (Value:
+ *        match for the regular expression with the string value. (Value:
  *        "PARTIAL_REGEXP")
  */
 @property(nonatomic, copy, nullable) NSString *matchType;

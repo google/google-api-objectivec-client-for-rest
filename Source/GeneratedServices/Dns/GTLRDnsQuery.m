@@ -670,3 +670,325 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 }
 
 @end
+
+@implementation GTLRDnsQuery_ResponsePoliciesCreate
+
+@dynamic clientOperationId, project;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies";
+  GTLRDnsQuery_ResponsePoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicy class];
+  query.loggingName = @"dns.responsePolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePoliciesDelete
+
+@dynamic clientOperationId, project, responsePolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy {
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  GTLRDnsQuery_ResponsePoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.loggingName = @"dns.responsePolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePoliciesGet
+
+@dynamic clientOperationId, project, responsePolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy {
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  GTLRDnsQuery_ResponsePoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicy class];
+  query.loggingName = @"dns.responsePolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePoliciesList
+
+@dynamic maxResults, pageToken, project;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies";
+  GTLRDnsQuery_ResponsePoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRDns_ResponsePoliciesListResponse class];
+  query.loggingName = @"dns.responsePolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePoliciesPatch
+
+@dynamic clientOperationId, project, responsePolicy;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  GTLRDnsQuery_ResponsePoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.expectedObjectClass = [GTLRDns_ResponsePoliciesPatchResponse class];
+  query.loggingName = @"dns.responsePolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePoliciesUpdate
+
+@dynamic clientOperationId, project, responsePolicy;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}";
+  GTLRDnsQuery_ResponsePoliciesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.expectedObjectClass = [GTLRDns_ResponsePoliciesUpdateResponse class];
+  query.loggingName = @"dns.responsePolicies.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesCreate
+
+@dynamic clientOperationId, project, responsePolicy;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules";
+  GTLRDnsQuery_ResponsePolicyRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicyRule class];
+  query.loggingName = @"dns.responsePolicyRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesDelete
+
+@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy
+              responsePolicyRule:(NSString *)responsePolicyRule {
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy", @"responsePolicyRule"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  GTLRDnsQuery_ResponsePolicyRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.responsePolicyRule = responsePolicyRule;
+  query.loggingName = @"dns.responsePolicyRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesGet
+
+@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy
+              responsePolicyRule:(NSString *)responsePolicyRule {
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy", @"responsePolicyRule"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  GTLRDnsQuery_ResponsePolicyRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.responsePolicyRule = responsePolicyRule;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicyRule class];
+  query.loggingName = @"dns.responsePolicyRules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesList
+
+@dynamic maxResults, pageToken, project, responsePolicy;
+
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy {
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules";
+  GTLRDnsQuery_ResponsePolicyRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesListResponse class];
+  query.loggingName = @"dns.responsePolicyRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesPatch
+
+@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy
+             responsePolicyRule:(NSString *)responsePolicyRule {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy", @"responsePolicyRule"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  GTLRDnsQuery_ResponsePolicyRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.responsePolicyRule = responsePolicyRule;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesPatchResponse class];
+  query.loggingName = @"dns.responsePolicyRules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDnsQuery_ResponsePolicyRulesUpdate
+
+@dynamic clientOperationId, project, responsePolicy, responsePolicyRule;
+
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy
+             responsePolicyRule:(NSString *)responsePolicyRule {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"responsePolicy", @"responsePolicyRule"
+  ];
+  NSString *pathURITemplate = @"dns/v1/projects/{project}/responsePolicies/{responsePolicy}/rules/{responsePolicyRule}";
+  GTLRDnsQuery_ResponsePolicyRulesUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.responsePolicy = responsePolicy;
+  query.responsePolicyRule = responsePolicyRule;
+  query.expectedObjectClass = [GTLRDns_ResponsePolicyRulesUpdateResponse class];
+  query.loggingName = @"dns.responsePolicyRules.update";
+  return query;
+}
+
+@end
