@@ -58,10 +58,21 @@ NSString * const kGTLRContainer_DNSConfig_ClusterDns_ProviderUnspecified = @"PRO
 NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
 NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope = @"VPC_SCOPE";
 
+// GTLRContainer_Filter.eventType
+NSString * const kGTLRContainer_Filter_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRContainer_Filter_EventType_SecurityBulletinEvent = @"SECURITY_BULLETIN_EVENT";
+NSString * const kGTLRContainer_Filter_EventType_UpgradeAvailableEvent = @"UPGRADE_AVAILABLE_EVENT";
+NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent  = @"UPGRADE_EVENT";
+
 // GTLRContainer_LoggingComponentConfig.enableComponents
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
+
+// GTLRContainer_MaintenanceExclusionOptions.scope
+NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorOrNodeUpgrades = @"NO_MINOR_OR_NODE_UPGRADES";
+NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorUpgrades = @"NO_MINOR_UPGRADES";
+NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades = @"NO_UPGRADES";
 
 // GTLRContainer_MonitoringComponentConfig.enableComponents
 NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
@@ -457,8 +468,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredNodePoolId, desiredNodeVersion, desiredNotificationConfig,
          desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
          desiredReleaseChannel, desiredResourceUsageExportConfig,
-         desiredShieldedNodes, desiredVerticalPodAutoscaling,
-         desiredWorkloadIdentityConfig;
+         desiredServiceExternalIpsConfig, desiredShieldedNodes,
+         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -601,6 +612,24 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_Filter
+//
+
+@implementation GTLRContainer_Filter
+@dynamic eventType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventType" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -913,6 +942,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_MaintenanceExclusionOptions
+//
+
+@implementation GTLRContainer_MaintenanceExclusionOptions
+@dynamic scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MaintenancePolicy
 //
 
@@ -1040,7 +1079,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_NetworkConfig
 @dynamic datapathProvider, defaultSnatStatus, dnsConfig,
          enableIntraNodeVisibility, enableL4ilbSubsetting, network,
-         privateIpv6GoogleAccess, subnetwork;
+         privateIpv6GoogleAccess, serviceExternalIpsConfig, subnetwork;
 @end
 
 
@@ -1292,7 +1331,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_PubSub
-@dynamic enabled, topic;
+@dynamic enabled, filter, topic;
 @end
 
 
@@ -1400,6 +1439,28 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SecurityBulletinEvent
+//
+
+@implementation GTLRContainer_SecurityBulletinEvent
+@dynamic affectedSupportedMinors, briefDescription, bulletinId, bulletinUri,
+         cveIds, manualStepsRequired, patchedVersions, resourceTypeAffected,
+         severity, suggestedUpgradeTarget;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"affectedSupportedMinors" : [NSString class],
+    @"cveIds" : [NSString class],
+    @"patchedVersions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ServerConfig
 //
 
@@ -1417,6 +1478,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ServiceExternalIPsConfig
+//
+
+@implementation GTLRContainer_ServiceExternalIPsConfig
+@dynamic enabled;
 @end
 
 
@@ -1705,7 +1776,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_TimeWindow
-@dynamic endTime, startTime;
+@dynamic endTime, maintenanceExclusionOptions, startTime;
 @end
 
 

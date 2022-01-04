@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1beta1)
+//   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
 //   distribution.
@@ -38,16 +38,6 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_AdBreak
 @dynamic startTimeOffset;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranscoder_Aes128Encryption
-//
-
-@implementation GTLRTranscoder_Aes128Encryption
-@dynamic keyUri;
 @end
 
 
@@ -103,47 +93,11 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_AudioAtom
+//   GTLRTranscoder_AudioMapping
 //
 
-@implementation GTLRTranscoder_AudioAtom
-@dynamic channels, key;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"channels" : [GTLRTranscoder_AudioChannel class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranscoder_AudioChannel
-//
-
-@implementation GTLRTranscoder_AudioChannel
-@dynamic inputs;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"inputs" : [GTLRTranscoder_AudioChannelInput class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranscoder_AudioChannelInput
-//
-
-@implementation GTLRTranscoder_AudioChannelInput
-@dynamic channel, gainDb, key, track;
+@implementation GTLRTranscoder_AudioMapping
+@dynamic atomKey, gainDb, inputChannel, inputKey, inputTrack, outputChannel;
 @end
 
 
@@ -159,7 +113,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"channelLayout" : [NSString class],
-    @"mapping" : [GTLRTranscoder_AudioAtom class]
+    @"mapping" : [GTLRTranscoder_AudioMapping class]
   };
   return map;
 }
@@ -246,26 +200,27 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_Encryption
+//   GTLRTranscoder_H264CodecSettings
 //
 
-@implementation GTLRTranscoder_Encryption
-@dynamic aes128, iv, key, mpegCenc, sampleAes;
+@implementation GTLRTranscoder_H264CodecSettings
+@dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
+         enableTwoPass, entropyCoder, frameRate, gopDuration, gopFrameCount,
+         heightPixels, pixelFormat, preset, profile, rateControlMode, tune,
+         vbvFullnessBits, vbvSizeBits, widthPixels;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_FailureDetail
+//   GTLRTranscoder_H265CodecSettings
 //
 
-@implementation GTLRTranscoder_FailureDetail
-@dynamic descriptionProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
+@implementation GTLRTranscoder_H265CodecSettings
+@dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, crfLevel,
+         enableTwoPass, frameRate, gopDuration, gopFrameCount, heightPixels,
+         pixelFormat, preset, profile, rateControlMode, tune, vbvFullnessBits,
+         vbvSizeBits, widthPixels;
 @end
 
 
@@ -295,17 +250,8 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_Job
-@dynamic config, createTime, endTime, failureDetails, failureReason, inputUri,
-         name, originUri, outputUri, priority, progress, startTime, state,
-         templateId, ttlAfterCompletionDays;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"failureDetails" : [GTLRTranscoder_FailureDetail class]
-  };
-  return map;
-}
-
+@dynamic config, createTime, endTime, error, inputUri, name, outputUri,
+         startTime, state, templateId, ttlAfterCompletionDays;
 @end
 
 
@@ -351,11 +297,12 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_ListJobsResponse
-@dynamic jobs, nextPageToken;
+@dynamic jobs, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobs" : [GTLRTranscoder_Job class]
+    @"jobs" : [GTLRTranscoder_Job class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -373,11 +320,12 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_ListJobTemplatesResponse
-@dynamic jobTemplates, nextPageToken;
+@dynamic jobTemplates, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"jobTemplates" : [GTLRTranscoder_JobTemplate class]
+    @"jobTemplates" : [GTLRTranscoder_JobTemplate class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -409,22 +357,11 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_MpegCommonEncryption
-//
-
-@implementation GTLRTranscoder_MpegCommonEncryption
-@dynamic keyId, scheme;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRTranscoder_MuxStream
 //
 
 @implementation GTLRTranscoder_MuxStream
-@dynamic container, elementaryStreams, encryption, fileName, key,
-         segmentSettings;
+@dynamic container, elementaryStreams, fileName, key, segmentSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -443,16 +380,6 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 @implementation GTLRTranscoder_NormalizedCoordinate
 @dynamic x, y;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranscoder_OriginUri
-//
-
-@implementation GTLRTranscoder_OriginUri
-@dynamic dash, hls;
 @end
 
 
@@ -506,31 +433,11 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_Progress
-//
-
-@implementation GTLRTranscoder_Progress
-@dynamic analyzed, encoded, notified, uploaded;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRTranscoder_PubsubDestination
 //
 
 @implementation GTLRTranscoder_PubsubDestination
 @dynamic topic;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTranscoder_SampleAesEncryption
-//
-
-@implementation GTLRTranscoder_SampleAesEncryption
-@dynamic keyUri;
 @end
 
 
@@ -558,15 +465,15 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_TextAtom
+//   GTLRTranscoder_Status
 //
 
-@implementation GTLRTranscoder_TextAtom
-@dynamic inputs, key;
+@implementation GTLRTranscoder_Status
+@dynamic code, details, message;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"inputs" : [GTLRTranscoder_TextInput class]
+    @"details" : [GTLRTranscoder_Status_Details_Item class]
   };
   return map;
 }
@@ -576,11 +483,25 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_TextInput
+//   GTLRTranscoder_Status_Details_Item
 //
 
-@implementation GTLRTranscoder_TextInput
-@dynamic key, track;
+@implementation GTLRTranscoder_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_TextMapping
+//
+
+@implementation GTLRTranscoder_TextMapping
+@dynamic atomKey, inputKey, inputTrack;
 @end
 
 
@@ -590,11 +511,11 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_TextStream
-@dynamic codec, languageCode, mapping;
+@dynamic codec, mapping;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"mapping" : [GTLRTranscoder_TextAtom class]
+    @"mapping" : [GTLRTranscoder_TextMapping class]
   };
   return map;
 }
@@ -608,8 +529,16 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 //
 
 @implementation GTLRTranscoder_VideoStream
-@dynamic allowOpenGop, aqStrength, bFrameCount, bitrateBps, bPyramid, codec,
-         crfLevel, enableTwoPass, entropyCoder, frameRate, gopDuration,
-         gopFrameCount, heightPixels, pixelFormat, preset, profile,
-         rateControlMode, tune, vbvFullnessBits, vbvSizeBits, widthPixels;
+@dynamic h264, h265, vp9;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranscoder_Vp9CodecSettings
+//
+
+@implementation GTLRTranscoder_Vp9CodecSettings
+@dynamic bitrateBps, crfLevel, frameRate, gopDuration, gopFrameCount,
+         heightPixels, pixelFormat, profile, rateControlMode, widthPixels;
 @end

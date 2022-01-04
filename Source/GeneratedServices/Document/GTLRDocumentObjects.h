@@ -1180,7 +1180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Disabling;
 /**
- *  The processor is enabled, i.e, has an enabled version which can currently
+ *  The processor is enabled, i.e., has an enabled version which can currently
  *  serve processing requests and all the feature dependencies have been
  *  successfully initialized.
  *
@@ -1917,7 +1917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The output_gcs_destination (in the request as 'output_gcs_destination') of
+ *  The output_gcs_destination (in the request as `output_gcs_destination`) of
  *  the processed document if it was successful, otherwise empty.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsDestination;
@@ -2057,9 +2057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  An entity that could be a phrase in the text or a property belongs to the
- *  document. It is a known entity type, such as a person, an organization, or
- *  location.
+ *  An entity that could be a phrase in the text or a property that belongs to
+ *  the document. It is a known entity type, such as a person, an organization,
+ *  or location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity : GTLRObject
 
@@ -2183,8 +2183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. An optional field to store a normalized string. For some entity
- *  types, one of respective 'structured_value' fields may also be populated.
- *  Also not all the types of 'structured_value' will be normalized. For
+ *  types, one of respective `structured_value` fields may also be populated.
+ *  Also not all the types of `structured_value` will be normalized. For
  *  example, some processors may not generate float or int normalized text by
  *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
@@ -2812,7 +2812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
- *  entities, properties within entities, etc.) on parent revision.
+ *  entities, properties within entities, etc.) in the parent revision.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3320,9 +3320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  An entity that could be a phrase in the text or a property belongs to the
- *  document. It is a known entity type, such as a person, an organization, or
- *  location.
+ *  An entity that could be a phrase in the text or a property that belongs to
+ *  the document. It is a known entity type, such as a person, an organization,
+ *  or location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity : GTLRObject
 
@@ -3446,8 +3446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. An optional field to store a normalized string. For some entity
- *  types, one of respective 'structured_value' fields may also be populated.
- *  Also not all the types of 'structured_value' will be normalized. For
+ *  types, one of respective `structured_value` fields may also be populated.
+ *  Also not all the types of `structured_value` will be normalized. For
  *  example, some processors may not generate float or int normalized text by
  *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
@@ -4106,7 +4106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
- *  entities, properties within entities, etc.) on parent revision.
+ *  entities, properties within entities, etc.) in the parent revision.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4592,7 +4592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, copy, nullable) NSString *inputGcsSource;
 
 /**
- *  The output_gcs_destination (in the request as 'output_gcs_destination') of
+ *  The output_gcs_destination (in the request as `output_gcs_destination`) of
  *  the processed document if it was successful, otherwise empty.
  */
 @property(nonatomic, copy, nullable) NSString *outputGcsDestination;
@@ -5060,9 +5060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  An entity that could be a phrase in the text or a property belongs to the
- *  document. It is a known entity type, such as a person, an organization, or
- *  location.
+ *  An entity that could be a phrase in the text or a property that belongs to
+ *  the document. It is a known entity type, such as a person, an organization,
+ *  or location.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity : GTLRObject
 
@@ -5186,8 +5186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Optional. An optional field to store a normalized string. For some entity
- *  types, one of respective 'structured_value' fields may also be populated.
- *  Also not all the types of 'structured_value' will be normalized. For
+ *  types, one of respective `structured_value` fields may also be populated.
+ *  Also not all the types of `structured_value` will be normalized. For
  *  example, some processors may not generate float or int normalized text by
  *  default. Below are sample formats mapped to structured values. -
  *  Money/Currency type (`money_value`) is in the ISO 4217 text format. - Date
@@ -5838,7 +5838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The index of the parent item in the corresponding item list (eg. list of
- *  entities, properties within entities, etc.) on parent revision.
+ *  entities, properties within entities, etc.) in the parent revision.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6257,8 +6257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  The first-class citizen for DAI. Each processor defines how to extract
- *  structural information from a document.
+ *  The first-class citizen for Document AI. Each processor defines how to
+ *  extract structural information from a document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1Processor : GTLRObject
 
@@ -6279,7 +6279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  Output only. Immutable. The resource name of the processor. Format:
- *  projects/{project}/locations/{location}/processors/{processor}
+ *  `projects/{project}/locations/{location}/processors/{processor}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6308,7 +6308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        processor is being disabled, will become DISABLED if successful.
  *        (Value: "DISABLING")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabled The
- *        processor is enabled, i.e, has an enabled version which can currently
+ *        processor is enabled, i.e., has an enabled version which can currently
  *        serve processing requests and all the feature dependencies have been
  *        successfully initialized. (Value: "ENABLED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1Processor_State_Enabling The
@@ -6332,28 +6332,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  A processor type is responsible for performing a certain document
- *  understanding task on a certain type of document. All processor types are
- *  created by the documentai service internally. User will only list all
- *  available processor types via UI. For different users (projects), the
- *  available processor types may be different since we'll expose the access of
- *  some types via EAP whitelisting. We make the ProcessorType a resource under
- *  location so we have a unified API and keep the possibility that UI will load
- *  different available processor types from different regions. But for alpha
- *  the behavior is that the user will always get the union of all available
- *  processor types among all regions no matter which regionalized endpoint is
- *  called, and then we use the 'available_locations' field to show under which
- *  regions a processor type is available. For example, users can call either
- *  the 'US' or 'EU' endpoint to feach processor types. In the return, we will
- *  have an 'invoice parsing' processor with 'available_locations' field only
- *  containing 'US'. So the user can try to create an 'invoice parsing'
- *  processor under the location 'US'. Such attempt of creating under the
- *  location 'EU' will fail. Next ID: 9.
+ *  understanding task on a certain type of document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorType : GTLRObject
 
 /**
- *  Whether the processor type allows creation. If yes, user can create a
- *  processor of this processor type. Otherwise, user needs to request access.
+ *  Whether the processor type allows creation. If true, users can create a
+ *  processor of this processor type. Otherwise, users need to request access.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6452,7 +6437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /**
  *  The resource name of the processor version. Format:
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6559,7 +6544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Request message for review document method. Next Id: 6.
+ *  Request message for review document method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest : GTLRObject
 

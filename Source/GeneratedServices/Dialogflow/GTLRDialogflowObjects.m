@@ -5451,7 +5451,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata
-@dynamic state;
+@dynamic knowledgeBase, state;
 @end
 
 

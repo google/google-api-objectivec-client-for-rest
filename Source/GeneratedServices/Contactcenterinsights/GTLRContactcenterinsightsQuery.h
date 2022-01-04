@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Transcript field is not populated in the response.
+ *  Transcript field is not populated in the response for Insights conversation.
  *
  *  Value: "BASIC"
  */
@@ -55,7 +55,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewBasic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewConversationViewUnspecified;
 /**
- *  All fields are populated.
+ *  All fields are populated for Insights conversation.
  *
  *  Value: "FULL"
  */
@@ -339,9 +339,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        specified. Defaults to FULL on GetConversationRequest and BASIC for
  *        ListConversationsRequest. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Transcript field is not
- *        populated in the response. (Value: "BASIC")
- *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated.
- *        (Value: "FULL")
+ *        populated in the response for Insights conversation. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated for
+ *        Insights conversation. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -401,9 +401,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *        specified. Defaults to FULL on GetConversationRequest and BASIC for
  *        ListConversationsRequest. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsightsViewBasic Transcript field is not
- *        populated in the response. (Value: "BASIC")
- *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated.
- *        (Value: "FULL")
+ *        populated in the response for Insights conversation. (Value: "BASIC")
+ *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated for
+ *        Insights conversation. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 

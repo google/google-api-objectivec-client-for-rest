@@ -2604,7 +2604,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Creates a snapshot of a specified persistent disk.
+ *  Creates a snapshot of a specified persistent disk. For regular snapshot
+ *  creation, consider using snapshots.insert instead, as that method supports
+ *  more features, such as creating snapshots in a project different from the
+ *  source disk project.
  *
  *  Method: compute.disks.createSnapshot
  *
@@ -2650,7 +2653,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a snapshot of a specified persistent disk.
+ *  Creates a snapshot of a specified persistent disk. For regular snapshot
+ *  creation, consider using snapshots.insert instead, as that method supports
+ *  more features, such as creating snapshots in a project different from the
+ *  source disk project.
  *
  *  @param object The @c GTLRCompute_Snapshot to include in the query.
  *  @param project Project ID for this request.
@@ -6812,7 +6818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -6891,7 +6896,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7031,7 +7035,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19565,7 +19568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19644,7 +19646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19784,7 +19785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19938,7 +19938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20027,7 +20026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20177,7 +20175,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21336,7 +21333,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Creates a snapshot of this regional disk.
+ *  Creates a snapshot of a specified persistent disk. For regular snapshot
+ *  creation, consider using snapshots.insert instead, as that method supports
+ *  more features, such as creating snapshots in a project different from the
+ *  source disk project.
  *
  *  Method: compute.regionDisks.createSnapshot
  *
@@ -21371,7 +21371,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Creates a snapshot of this regional disk.
+ *  Creates a snapshot of a specified persistent disk. For regular snapshot
+ *  creation, consider using snapshots.insert instead, as that method supports
+ *  more features, such as creating snapshots in a project different from the
+ *  source disk project.
  *
  *  @param object The @c GTLRCompute_Snapshot to include in the query.
  *  @param project Project ID for this request.
@@ -24660,7 +24663,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24749,7 +24751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25276,7 +25277,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25368,7 +25368,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25802,7 +25801,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25894,7 +25892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26040,7 +26037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26099,7 +26095,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29011,7 +29006,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29144,7 +29138,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29290,7 +29283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29534,7 +29526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Creates a snapshot in the specified project using the data included in the
- *  request.
+ *  request. For regular snapshot creation, consider using this method instead
+ *  of disks.createSnapshot, as this method supports more features, such as
+ *  creating snapshots in a project different from the source disk project.
  *
  *  Method: compute.snapshots.insert
  *
@@ -29564,7 +29558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a snapshot in the specified project using the data included in the
- *  request.
+ *  request. For regular snapshot creation, consider using this method instead
+ *  of disks.createSnapshot, as this method supports more features, such as
+ *  creating snapshots in a project different from the source disk project.
  *
  *  @param object The @c GTLRCompute_Snapshot to include in the query.
  *  @param project Project ID for this request.
@@ -29901,7 +29897,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29983,7 +29978,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31209,7 +31203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31289,7 +31282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31425,7 +31417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31792,7 +31783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32206,7 +32196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  second request. This prevents clients from accidentally creating duplicate
  *  commitments. The request ID must be a valid UUID with the exception that
  *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
- *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 

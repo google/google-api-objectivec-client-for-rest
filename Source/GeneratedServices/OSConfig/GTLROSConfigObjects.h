@@ -841,6 +841,29 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Never;
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchConfig_RebootConfig_RebootConfigUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROSConfig_PatchDeployment.state
+
+/**
+ *  Active value means that patch deployment generates Patch Jobs.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchDeployment_State_Active;
+/**
+ *  Paused value means that patch deployment does not generate Patch jobs.
+ *  Requires user action to move in and out from this state.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchDeployment_State_Paused;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_PatchDeployment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROSConfig_PatchJob.state
 
 /**
@@ -3629,6 +3652,21 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 @property(nonatomic, strong, nullable) GTLROSConfig_PatchRollout *rollout;
 
 /**
+ *  Output only. Current state of the patch deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_PatchDeployment_State_Active Active value means that
+ *        patch deployment generates Patch Jobs. (Value: "ACTIVE")
+ *    @arg @c kGTLROSConfig_PatchDeployment_State_Paused Paused value means that
+ *        patch deployment does not generate Patch jobs. Requires user action to
+ *        move in and out from this state. (Value: "PAUSED")
+ *    @arg @c kGTLROSConfig_PatchDeployment_State_StateUnspecified The default
+ *        value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
  *  Output only. Time the patch deployment was last updated. Timestamp is in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
@@ -4056,6 +4094,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  A request message for pausing a patch deployment.
+ */
+@interface GTLROSConfig_PausePatchDeploymentRequest : GTLRObject
+@end
+
+
+/**
  *  Sets the time for recurring patch deployments.
  */
 @interface GTLROSConfig_RecurringSchedule : GTLRObject
@@ -4112,6 +4157,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 /** Required. Schedule with weekly executions. */
 @property(nonatomic, strong, nullable) GTLROSConfig_WeeklySchedule *weekly;
 
+@end
+
+
+/**
+ *  A request message for resuming a patch deployment.
+ */
+@interface GTLROSConfig_ResumePatchDeploymentRequest : GTLRObject
 @end
 
 

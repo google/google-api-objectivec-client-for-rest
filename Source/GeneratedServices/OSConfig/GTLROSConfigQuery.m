@@ -432,6 +432,60 @@ NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UN
 
 @end
 
+@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsPause
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROSConfig_PausePatchDeploymentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:pause";
+  GTLROSConfigQuery_ProjectsPatchDeploymentsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
+  query.loggingName = @"osconfig.projects.patchDeployments.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsPatchDeploymentsResume
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLROSConfig_ResumePatchDeploymentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resume";
+  GTLROSConfigQuery_ProjectsPatchDeploymentsResume *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_PatchDeployment class];
+  query.loggingName = @"osconfig.projects.patchDeployments.resume";
+  return query;
+}
+
+@end
+
 @implementation GTLROSConfigQuery_ProjectsPatchJobsCancel
 
 @dynamic name;

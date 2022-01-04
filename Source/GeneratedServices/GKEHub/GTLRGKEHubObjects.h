@@ -2674,6 +2674,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_Status_Code_Unknown;
 @property(nonatomic, copy, nullable) NSString *connectVersion;
 
 /**
+ *  Optional. Major version of the Kubernetes cluster. This is only used to
+ *  determine which version to use for the CustomResourceDefinition resources,
+ *  `apiextensions/v1beta1` or`apiextensions/v1`.
+ */
+@property(nonatomic, copy, nullable) NSString *k8sVersion;
+
+/**
  *  Optional. Use `apiextensions/v1beta1` instead of `apiextensions/v1` for
  *  CustomResourceDefinition resources. This option should be set for clusters
  *  with Kubernetes apiserver versions <1.16.

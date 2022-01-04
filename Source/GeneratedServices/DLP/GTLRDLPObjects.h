@@ -1271,6 +1271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *identifyingFields;
 
+/** Limit scanning only to these fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *includedFields;
+
 /**
  *  Max number of rows to scan. If the table has more rows than this value, the
  *  rest of the rows are omitted. If not set, or if set to 0, all rows will be

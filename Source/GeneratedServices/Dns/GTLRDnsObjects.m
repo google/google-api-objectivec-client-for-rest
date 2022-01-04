@@ -67,6 +67,10 @@ NSString * const kGTLRDns_Operation_Status_Pending = @"pending";
 NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default = @"default";
 NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private = @"private";
 
+// GTLRDns_ResponsePolicyRule.behavior
+NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified = @"behaviorUnspecified";
+NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"bypassResponsePolicy";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDns_Change
@@ -646,4 +650,152 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 
 @implementation GTLRDns_ResponseHeader
 @dynamic operationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePoliciesListResponse
+//
+
+@implementation GTLRDns_ResponsePoliciesListResponse
+@dynamic header, nextPageToken, responsePolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responsePolicies" : [GTLRDns_ResponsePolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"responsePolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePoliciesPatchResponse
+//
+
+@implementation GTLRDns_ResponsePoliciesPatchResponse
+@dynamic header, responsePolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePoliciesUpdateResponse
+//
+
+@implementation GTLRDns_ResponsePoliciesUpdateResponse
+@dynamic header, responsePolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicy
+//
+
+@implementation GTLRDns_ResponsePolicy
+@dynamic descriptionProperty, identifier, kind, networks, responsePolicyName;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networks" : [GTLRDns_ResponsePolicyNetwork class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyNetwork
+//
+
+@implementation GTLRDns_ResponsePolicyNetwork
+@dynamic kind, networkUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyRule
+//
+
+@implementation GTLRDns_ResponsePolicyRule
+@dynamic behavior, dnsName, kind, localData, ruleName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyRuleLocalData
+//
+
+@implementation GTLRDns_ResponsePolicyRuleLocalData
+@dynamic localDatas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localDatas" : [GTLRDns_ResourceRecordSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyRulesListResponse
+//
+
+@implementation GTLRDns_ResponsePolicyRulesListResponse
+@dynamic header, nextPageToken, responsePolicyRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"responsePolicyRules" : [GTLRDns_ResponsePolicyRule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"responsePolicyRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyRulesPatchResponse
+//
+
+@implementation GTLRDns_ResponsePolicyRulesPatchResponse
+@dynamic header, responsePolicyRule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ResponsePolicyRulesUpdateResponse
+//
+
+@implementation GTLRDns_ResponsePolicyRulesUpdateResponse
+@dynamic header, responsePolicyRule;
 @end

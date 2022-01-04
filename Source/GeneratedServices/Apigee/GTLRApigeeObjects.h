@@ -1738,7 +1738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Name of the API product. */
 @property(nonatomic, copy, nullable) NSString *apiproduct;
 
-/** Status of the API product. */
+/** Status of the API product. Valid values are `approved` or `revoked`. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 @end
@@ -5465,7 +5465,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *organization;
 
-/** List of GCP projects associated with the Apigee organization. */
+/** GCP project associated with the Apigee organization */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  DEPRECATED: Use `project_id`. An Apigee Organization is mapped to a single
+ *  project.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
 
 @end

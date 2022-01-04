@@ -384,7 +384,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the project to search related account group
  *  memberships from, in the format "projects/{project}".
  */
-@property(nonatomic, copy, nullable) NSString *parent;
+@property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  Fetches a @c
@@ -395,13 +395,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest
  *    to include in the query.
- *  @param parent Required. The name of the project to search related account
+ *  @param project Required. The name of the project to search related account
  *    group memberships from, in the format "projects/{project}".
  *
  *  @return GTLRRecaptchaEnterpriseQuery_ProjectsRelatedaccountgroupmembershipsSearch
  */
 + (instancetype)queryWithObject:(GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1SearchRelatedAccountGroupMembershipsRequest *)object
-                         parent:(NSString *)parent;
+                        project:(NSString *)project;
 
 @end
 

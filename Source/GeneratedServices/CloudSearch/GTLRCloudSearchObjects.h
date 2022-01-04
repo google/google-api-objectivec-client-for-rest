@@ -29,6 +29,7 @@
 @class GTLRCloudSearch_ContextAttribute;
 @class GTLRCloudSearch_CustomerIndexStats;
 @class GTLRCloudSearch_CustomerQueryStats;
+@class GTLRCloudSearch_CustomerSearchApplicationStats;
 @class GTLRCloudSearch_CustomerSessionStats;
 @class GTLRCloudSearch_CustomerUserStats;
 @class GTLRCloudSearch_DataSource;
@@ -1063,6 +1064,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
+ *  Search application stats for a customer for the given date.
+ */
+@interface GTLRCloudSearch_CustomerSearchApplicationStats : GTLRObject
+
+/**
+ *  The count of search applications for the date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/** Date for which search application stats were calculated. */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
+
+@end
+
+
+/**
  *  GTLRCloudSearch_CustomerSessionStats
  */
 @interface GTLRCloudSearch_CustomerSessionStats : GTLRObject
@@ -1191,6 +1210,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  IDs of the Long Running Operations (LROs) currently running for this schema.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
+
+/**
+ *  Can a user request to get thumbnail URI for Items indexed in this data
+ *  source.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnThumbnailUrls;
 
 /**
  *  A short name or alias for the source. This value will be used to match the
@@ -1889,6 +1916,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_GetCustomerIndexStatsResponse : GTLRObject
 
 /**
+ *  Average item count for the given date range for which billing is done.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageIndexedItemCount;
+
+/**
  *  Summary of indexed item counts, one for each day in the requested range.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerIndexStats *> *stats;
@@ -1902,6 +1936,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_GetCustomerQueryStatsResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerQueryStats *> *stats;
+
+/**
+ *  Total successful query count (status code 200) for the given date range.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalQueryCount;
+
+@end
+
+
+/**
+ *  Response format for search application stats for a customer.
+ */
+@interface GTLRCloudSearch_GetCustomerSearchApplicationStatsResponse : GTLRObject
+
+/**
+ *  Average search application count for the given date range.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSearchApplicationCount;
+
+/** Search application stats by date. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_CustomerSearchApplicationStats *> *stats;
 
 @end
 
@@ -1932,6 +1991,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_GetDataSourceIndexStatsResponse : GTLRObject
 
 /**
+ *  Average item count for the given date range for which billing is done.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageIndexedItemCount;
+
+/**
  *  Summary of indexed item counts, one for each day in the requested range.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceIndexStats *> *stats;
@@ -1947,6 +2013,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** Query stats per date for a search application. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SearchApplicationQueryStats *> *stats;
+
+/**
+ *  Total successful query count (status code 200) for the given date range.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalQueryCount;
 
 @end
 
@@ -2306,7 +2379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  queued Item using lexical ordering. Cloud Search Indexing won't index or
  *  delete any queued item with a version value that is less than or equal to
  *  the version of the currently indexed item. The maximum length for this field
- *  is 1024 bytes.
+ *  is 1024 bytes. See [this
+ *  guide](https://developers.devsite.corp.google.com/cloud-search/docs/guides/operations)
+ *  to understand how item version affects reindexing after delete item.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2443,6 +2518,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Number of items matching the status code for which billing is done. This
+ *  excludes virtual container items from the total count. This count would not
+ *  be applicable for items with ERROR or NEW_ITEM status code.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *indexedItemsCount;
 
 /**
  *  Status of the items.
@@ -2852,6 +2936,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** The named source for the result, such as Gmail. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Source *source;
+
+/** The thumbnail URL of the result. */
+@property(nonatomic, copy, nullable) NSString *thumbnailUrl;
 
 /**
  *  The last modified date for the object in the search result. If not set in
@@ -4096,6 +4183,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** The default options for query interpretation */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_QueryInterpretationConfig *queryInterpretationConfig;
+
+/**
+ *  With each result we should return the URI for its thumbnail (when
+ *  applicable)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnResultThumbnailUrls;
 
 /** Configuration for ranking results. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ScoringConfig *scoringConfig;

@@ -183,6 +183,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_NeedsA
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_ApprovalState_Rejected;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDeploy_Rollout.deployFailureCause
+
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable;
+/**
+ *  Deployment did not complete within the alloted time.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded;
+/**
+ *  The deploy operation did not complete successfully; check Cloud Build logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified;
+/**
+ *  Release is in a failed state.
+ *
+ *  Value: "RELEASE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDeploy_Rollout.state
 
 /**
@@ -234,6 +270,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_StateUnspecifi
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_Rollout_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_TargetRender.failureCause
+
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable;
+/**
+ *  The render operation did not complete successfully; check Cloud Build logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_TargetRender.renderingState
@@ -1425,6 +1485,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 @property(nonatomic, strong, nullable) GTLRDateTime *deployEndTime;
 
 /**
+ *  Output only. The reason this deploy failed. This will always be unspecified
+ *  while the deploy in progress.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_DeadlineExceeded
+ *        Deployment did not complete within the alloted time. (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ExecutionFailed The
+ *        deploy operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDeploy_Rollout_DeployFailureCause_ReleaseFailed Release
+ *        is in a failed state. (Value: "RELEASE_FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *deployFailureCause;
+
+/**
  *  Output only. The resource name of the Cloud Build `Build` object that is
  *  used to deploy the Rollout. Format is
  *  `projects/{project}/locations/{location}/builds/{build}`.
@@ -1806,6 +1890,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
  *  Details of rendering for a single target.
  */
 @interface GTLRCloudDeploy_TargetRender : GTLRObject
+
+/**
+ *  Output only. Reason this render failed. This will always be unspecified
+ *  while the render in progress.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_ExecutionFailed The
+ *        render operation did not complete successfully; check Cloud Build
+ *        logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_TargetRender_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
 
 /**
  *  Output only. The resource name of the Cloud Build `Build` object that is

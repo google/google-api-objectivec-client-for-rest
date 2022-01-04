@@ -418,9 +418,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the billing information for a project. The current authenticated user
- *  must have [permission to view the
- *  project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
- *  ).
+ *  must have the `resourcemanager.projects.get` permission for the project,
+ *  which can be granted by assigning the [Project
+ *  Viewer](https://cloud.google.com/iam/docs/understanding-roles#predefined_roles)
+ *  role.
  *
  *  Method: cloudbilling.projects.getBillingInfo
  *
@@ -441,9 +442,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudbilling_ProjectBillingInfo.
  *
  *  Gets the billing information for a project. The current authenticated user
- *  must have [permission to view the
- *  project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
- *  ).
+ *  must have the `resourcemanager.projects.get` permission for the project,
+ *  which can be granted by assigning the [Project
+ *  Viewer](https://cloud.google.com/iam/docs/understanding-roles#predefined_roles)
+ *  role.
  *
  *  @param name Required. The resource name of the project for which billing
  *    information is retrieved. For example, `projects/tokyo-rain-123`.

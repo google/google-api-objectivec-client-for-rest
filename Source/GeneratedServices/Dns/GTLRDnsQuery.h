@@ -22,6 +22,8 @@
 @class GTLRDns_ManagedZone;
 @class GTLRDns_Policy;
 @class GTLRDns_ResourceRecordSet;
+@class GTLRDns_ResponsePolicy;
+@class GTLRDns_ResponsePolicyRule;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1273,6 +1275,562 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
                     managedZone:(NSString *)managedZone
                            name:(NSString *)name
                            type:(NSString *)type;
+
+@end
+
+/**
+ *  Creates a new Response Policy
+ *
+ *  Method: dns.responsePolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesCreate : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicy.
+ *
+ *  Creates a new Response Policy
+ *
+ *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes a previously created Response Policy. Fails if the response policy
+ *  is non-empty or still being referenced by a network.
+ *
+ *  Method: dns.responsePolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesDelete : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** User assigned name of the Response Policy addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a previously created Response Policy. Fails if the response policy
+ *  is non-empty or still being referenced by a network.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy addressed by
+ *    this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Fetches the representation of an existing Response Policy.
+ *
+ *  Method: dns.responsePolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesGet : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** User assigned name of the Response Policy addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicy.
+ *
+ *  Fetches the representation of an existing Response Policy.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy addressed by
+ *    this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Enumerates all Response Policies associated with a project.
+ *
+ *  Method: dns.responsePolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesList : GTLRDnsQuery
+
+/**
+ *  Optional. Maximum number of results to be returned. If unspecified, the
+ *  server decides how many results to return.
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/**
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePoliciesListResponse.
+ *
+ *  Enumerates all Response Policies associated with a project.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Applies a partial update to an existing Response Policy.
+ *
+ *  Method: dns.responsePolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesPatch : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** User assigned name of the Respones Policy addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePoliciesPatchResponse.
+ *
+ *  Applies a partial update to an existing Response Policy.
+ *
+ *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Respones Policy addressed by
+ *    this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Updates an existing Response Policy.
+ *
+ *  Method: dns.responsePolicies.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePoliciesUpdate : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** User assigned name of the Response Policy addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePoliciesUpdateResponse.
+ *
+ *  Updates an existing Response Policy.
+ *
+ *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy addressed by
+ *    this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePoliciesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Creates a new Response Policy Rule.
+ *
+ *  Method: dns.responsePolicyRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesCreate : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  User assigned name of the Response Policy containing the Response Policy
+ *  Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicyRule.
+ *
+ *  Creates a new Response Policy Rule.
+ *
+ *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy containing
+ *    the Response Policy Rule.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Deletes a previously created Response Policy Rule.
+ *
+ *  Method: dns.responsePolicyRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesDelete : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  User assigned name of the Response Policy containing the Response Policy
+ *  Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  User assigned name of the Response Policy Rule addressed by this request.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicyRule;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a previously created Response Policy Rule.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy containing
+ *    the Response Policy Rule.
+ *  @param responsePolicyRule User assigned name of the Response Policy Rule
+ *    addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy
+              responsePolicyRule:(NSString *)responsePolicyRule;
+
+@end
+
+/**
+ *  Fetches the representation of an existing Response Policy Rule.
+ *
+ *  Method: dns.responsePolicyRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesGet : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  User assigned name of the Response Policy containing the Response Policy
+ *  Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  User assigned name of the Response Policy Rule addressed by this request.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicyRule;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicyRule.
+ *
+ *  Fetches the representation of an existing Response Policy Rule.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy containing
+ *    the Response Policy Rule.
+ *  @param responsePolicyRule User assigned name of the Response Policy Rule
+ *    addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy
+              responsePolicyRule:(NSString *)responsePolicyRule;
+
+@end
+
+/**
+ *  Enumerates all Response Policy Rules associated with a project.
+ *
+ *  Method: dns.responsePolicyRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesList : GTLRDnsQuery
+
+/**
+ *  Optional. Maximum number of results to be returned. If unspecified, the
+ *  server decides how many results to return.
+ */
+@property(nonatomic, assign) NSInteger maxResults;
+
+/**
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** User assigned name of the Response Policy to list. */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicyRulesListResponse.
+ *
+ *  Enumerates all Response Policy Rules associated with a project.
+ *
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy to list.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  responsePolicy:(NSString *)responsePolicy;
+
+@end
+
+/**
+ *  Applies a partial update to an existing Response Policy Rule.
+ *
+ *  Method: dns.responsePolicyRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesPatch : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  User assigned name of the Response Policy containing the Response Policy
+ *  Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  User assigned name of the Response Policy Rule addressed by this request.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicyRule;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicyRulesPatchResponse.
+ *
+ *  Applies a partial update to an existing Response Policy Rule.
+ *
+ *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy containing
+ *    the Response Policy Rule.
+ *  @param responsePolicyRule User assigned name of the Response Policy Rule
+ *    addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy
+             responsePolicyRule:(NSString *)responsePolicyRule;
+
+@end
+
+/**
+ *  Updates an existing Response Policy Rule.
+ *
+ *  Method: dns.responsePolicyRules.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResponsePolicyRulesUpdate : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  User assigned name of the Response Policy containing the Response Policy
+ *  Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicy;
+
+/**
+ *  User assigned name of the Response Policy Rule addressed by this request.
+ */
+@property(nonatomic, copy, nullable) NSString *responsePolicyRule;
+
+/**
+ *  Fetches a @c GTLRDns_ResponsePolicyRulesUpdateResponse.
+ *
+ *  Updates an existing Response Policy Rule.
+ *
+ *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param responsePolicy User assigned name of the Response Policy containing
+ *    the Response Policy Rule.
+ *  @param responsePolicyRule User assigned name of the Response Policy Rule
+ *    addressed by this request.
+ *
+ *  @return GTLRDnsQuery_ResponsePolicyRulesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
+                        project:(NSString *)project
+                 responsePolicy:(NSString *)responsePolicy
+             responsePolicyRule:(NSString *)responsePolicyRule;
 
 @end
 

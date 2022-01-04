@@ -45,6 +45,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
+@class GTLRContainer_Filter;
 @class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_GcfsConfig;
 @class GTLRContainer_GcpFilestoreCsiDriverConfig;
@@ -61,6 +62,7 @@
 @class GTLRContainer_LinuxNodeConfig_Sysctls;
 @class GTLRContainer_LoggingComponentConfig;
 @class GTLRContainer_LoggingConfig;
+@class GTLRContainer_MaintenanceExclusionOptions;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
@@ -98,6 +100,7 @@
 @class GTLRContainer_ResourceLimit;
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_SandboxConfig;
+@class GTLRContainer_ServiceExternalIPsConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
@@ -333,6 +336,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_DnsS
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DNSConfig_ClusterDnsScope_VpcScope;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_Filter.eventType
+
+/**
+ *  Not set, will be ignored.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_EventTypeUnspecified;
+/**
+ *  Corresponds with SecurityBulletinEvent.
+ *
+ *  Value: "SECURITY_BULLETIN_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_SecurityBulletinEvent;
+/**
+ *  Corresponds with UpgradeAvailableEvent.
+ *
+ *  Value: "UPGRADE_AVAILABLE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeAvailableEvent;
+/**
+ *  Corresponds with UpgradeEvent.
+ *
+ *  Value: "UPGRADE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_Filter_EventType_UpgradeEvent;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_LoggingComponentConfig.enableComponents
 
 /**
@@ -353,6 +384,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableC
  *  Value: "WORKLOADS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_MaintenanceExclusionOptions.scope
+
+/**
+ *  NO_MINOR_OR_NODE_UPGRADES excludes all minor upgrades for the cluster, and
+ *  also exclude all node pool upgrades. Only control plane patches are allowed.
+ *
+ *  Value: "NO_MINOR_OR_NODE_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorOrNodeUpgrades;
+/**
+ *  NO_MINOR_UPGRADES excludes all minor upgrades for the cluster, only patches
+ *  are allowed.
+ *
+ *  Value: "NO_MINOR_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorUpgrades;
+/**
+ *  NO_UPGRADES excludes all upgrades, including patch upgrades and minor
+ *  upgrades across control planes and nodes. This is the default exclusion
+ *  behavior.
+ *
+ *  Value: "NO_UPGRADES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_MonitoringComponentConfig.enableComponents
@@ -2131,6 +2188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired configuration for exporting resource usage. */
 @property(nonatomic, strong, nullable) GTLRContainer_ResourceUsageExportConfig *desiredResourceUsageExportConfig;
 
+/**
+ *  ServiceExternalIPsConfig specifies the config for the use of Services with
+ *  ExternalIPs field.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ServiceExternalIPsConfig *desiredServiceExternalIpsConfig;
+
 /** Configuration for Shielded Nodes. */
 @property(nonatomic, strong, nullable) GTLRContainer_ShieldedNodes *desiredShieldedNodes;
 
@@ -2430,6 +2493,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRContainer_Empty : GTLRObject
+@end
+
+
+/**
+ *  Allows filtering to one or more specific event types. If event types are
+ *  present, those and only those event types will be transmitted to the
+ *  cluster. Other types will be skipped. If no filter is specified, or no event
+ *  types are present, all event types will be sent
+ */
+@interface GTLRContainer_Filter : GTLRObject
+
+/** Event types to allowlist. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eventType;
+
 @end
 
 
@@ -2943,6 +3020,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Represents the Maintenance exclusion option.
+ */
+@interface GTLRContainer_MaintenanceExclusionOptions : GTLRObject
+
+/**
+ *  Scope specifies the upgrade scope which upgrades are blocked by the
+ *  exclusion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorOrNodeUpgrades
+ *        NO_MINOR_OR_NODE_UPGRADES excludes all minor upgrades for the cluster,
+ *        and also exclude all node pool upgrades. Only control plane patches
+ *        are allowed. (Value: "NO_MINOR_OR_NODE_UPGRADES")
+ *    @arg @c kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorUpgrades
+ *        NO_MINOR_UPGRADES excludes all minor upgrades for the cluster, only
+ *        patches are allowed. (Value: "NO_MINOR_UPGRADES")
+ *    @arg @c kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades
+ *        NO_UPGRADES excludes all upgrades, including patch upgrades and minor
+ *        upgrades across control planes and nodes. This is the default
+ *        exclusion behavior. (Value: "NO_UPGRADES")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
  *  MaintenancePolicy defines the maintenance policy to be used for the cluster.
  */
 @interface GTLRContainer_MaintenancePolicy : GTLRObject
@@ -3243,6 +3347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
+
+/**
+ *  ServiceExternalIPsConfig specifies if services with externalIPs field are
+ *  blocked or not.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ServiceExternalIPsConfig *serviceExternalIpsConfig;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
@@ -3566,8 +3676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Control the CPU management policy on the node. See
  *  https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/
- *  The following values are allowed. - "none": the default, which represents
- *  the existing scheduling behavior. - "static": allows pods with certain
+ *  The following values are allowed. * "none": the default, which represents
+ *  the existing scheduling behavior. * "static": allows pods with certain
  *  resource characteristics to be granted increased CPU affinity and
  *  exclusivity on the node. The default value is 'none' if unspecified.
  */
@@ -4109,6 +4219,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
+ *  Allows filtering to one or more specific event types. If no filter is
+ *  specified, or if a filter is specified with no event types, all event types
+ *  will be sent
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_Filter *filter;
+
+/**
  *  The desired Pub/Sub topic to which notifications will be sent by GKE. Format
  *  is `projects/{project}/topics/{topic}`.
  */
@@ -4366,6 +4483,63 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  SecurityBulletinEvent is a notification sent to customers when a security
+ *  bulletin has been posted that they are vulnerable to.
+ */
+@interface GTLRContainer_SecurityBulletinEvent : GTLRObject
+
+/** The GKE minor versions affected by this vulnerability. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *affectedSupportedMinors;
+
+/**
+ *  A brief description of the bulletin. See the bulletin pointed to by the
+ *  bulletin_uri field for an expanded description.
+ */
+@property(nonatomic, copy, nullable) NSString *briefDescription;
+
+/** The ID of the bulletin corresponding to the vulnerability. */
+@property(nonatomic, copy, nullable) NSString *bulletinId;
+
+/** The URI link to the bulletin on the website for more information. */
+@property(nonatomic, copy, nullable) NSString *bulletinUri;
+
+/** The CVEs associated with this bulletin. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *cveIds;
+
+/**
+ *  If this field is specified, it means there are manual steps that the user
+ *  must take to make their clusters safe.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualStepsRequired;
+
+/** The GKE versions where this vulnerability is patched. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *patchedVersions;
+
+/**
+ *  The resource type (node/control plane) that has the vulnerability. Multiple
+ *  notifications (1 notification per resource type) will be sent for a
+ *  vulnerability that affects > 1 resource type.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceTypeAffected;
+
+/** The severity of this bulletin as it relates to GKE. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  This represents a version selected from the patched_versions field that the
+ *  cluster receiving this notification should most likely want to upgrade to
+ *  based on its current version. Note that if this notification is being
+ *  received by a given cluster, it means that this version is currently
+ *  available as an upgrade target in that cluster's location.
+ */
+@property(nonatomic, copy, nullable) NSString *suggestedUpgradeTarget;
+
+@end
+
+
+/**
  *  Kubernetes Engine service configuration.
  */
 @interface GTLRContainer_ServerConfig : GTLRObject
@@ -4387,6 +4561,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** List of valid node upgrade target versions, in descending order. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *validNodeVersions;
+
+@end
+
+
+/**
+ *  Config to block services with externalIPs field.
+ */
+@interface GTLRContainer_ServiceExternalIPsConfig : GTLRObject
+
+/**
+ *  Whether Services with ExternalIPs field are allowed or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -5259,6 +5448,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  start time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  MaintenanceExclusionOptions provides maintenance exclusion related options.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_MaintenanceExclusionOptions *maintenanceExclusionOptions;
 
 /** The time that the window first starts. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;

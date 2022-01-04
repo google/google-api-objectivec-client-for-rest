@@ -971,7 +971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  *  this field is ignored if the provided address geocodes successfully. This
  *  field is only returned on get requests if the user-provided `latlng` value
  *  was accepted during create, or the `latlng` value was updated through the
- *  Google My Business website. This field can only be updated by approved
+ *  Google Business Profile website. This field can only be updated by approved
  *  clients.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_LatLng *latlng;

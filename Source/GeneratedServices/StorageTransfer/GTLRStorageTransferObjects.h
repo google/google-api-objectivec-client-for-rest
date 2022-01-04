@@ -33,6 +33,7 @@
 @class GTLRStorageTransfer_GcsData;
 @class GTLRStorageTransfer_HttpData;
 @class GTLRStorageTransfer_LoggingConfig;
+@class GTLRStorageTransfer_MetadataOptions;
 @class GTLRStorageTransfer_NotificationConfig;
 @class GTLRStorageTransfer_ObjectConditions;
 @class GTLRStorageTransfer_Operation;
@@ -258,19 +259,19 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_U
 // GTLRStorageTransfer_LoggingConfig.logActions
 
 /**
- *  Copying objects from source to destination.
+ *  Copying objects to Google Cloud Storage.
  *
  *  Value: "COPY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Copy;
 /**
- *  Deleting objects at source or destination.
+ *  Deleting objects at the source or the destination.
  *
  *  Value: "DELETE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions_Delete;
 /**
- *  Finding objects to transfer e.g. listing objects of the source bucket.
+ *  Listing objects in a bucket.
  *
  *  Value: "FIND"
  */
@@ -286,8 +287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActions
 // GTLRStorageTransfer_LoggingConfig.logActionStates
 
 /**
- *  `LoggableAction` is terminated in an error state. `FAILED` actions are
- *  logged as ERROR.
+ *  `LoggableAction` terminated in an error state. `FAILED` actions are logged
+ *  as ERROR.
  *
  *  Value: "FAILED"
  */
@@ -299,12 +300,101 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionS
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified;
 /**
- *  `LoggableAction` is completed successfully. `SUCCEEDED` actions are logged
- *  as INFO.
+ *  `LoggableAction` completed successfully. `SUCCEEDED` actions are logged as
+ *  INFO.
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.gid
+
+/**
+ *  Preserve GID during a transfer job.
+ *
+ *  Value: "GID_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber;
+/**
+ *  Skip GID during a transfer job.
+ *
+ *  Value: "GID_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip;
+/**
+ *  GID behavior is unspecified.
+ *
+ *  Value: "GID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.mode
+
+/**
+ *  Preserve mode during a transfer job.
+ *
+ *  Value: "MODE_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve;
+/**
+ *  Skip mode during a transfer job.
+ *
+ *  Value: "MODE_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip;
+/**
+ *  Mode behavior is unspecified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.symlink
+
+/**
+ *  Preserve symlinks during a transfer job.
+ *
+ *  Value: "SYMLINK_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve;
+/**
+ *  Skip symlinks during a transfer job.
+ *
+ *  Value: "SYMLINK_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip;
+/**
+ *  Symlink behavior is unspecified. The default behavior is to skip symlinks
+ *  during a transfer job.
+ *
+ *  Value: "SYMLINK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.uid
+
+/**
+ *  Preserve UID during a transfer job.
+ *
+ *  Value: "UID_NUMBER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber;
+/**
+ *  Skip UID during a transfer job.
+ *
+ *  Value: "UID_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip;
+/**
+ *  UID behavior is unspecified.
+ *
+ *  Value: "UID_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_NotificationConfig.eventTypes
@@ -581,12 +671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_AzureCredentials : GTLRObject
 
 /**
- *  Required. Azure shared access signature (SAS). *Note:*Copying data from
- *  Azure Data Lake Storage (ADLS) Gen 2 is in
- *  [Preview](/products/#product-launch-stages). During Preview, if you are
- *  copying data from ADLS Gen 2, you must use an account SAS. For more
- *  information about SAS, see [Grant limited access to Azure Storage resources
- *  using shared access signatures
+ *  Required. Azure shared access signature (SAS). For more information about
+ *  SAS, see [Grant limited access to Azure Storage resources using shared
+ *  access signatures
  *  (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
  */
 @property(nonatomic, copy, nullable) NSString *sasToken;
@@ -962,30 +1049,107 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Logging configuration.
+ *  Specifies the logging behavior for transfer operations. For cloud-to-cloud
+ *  transfers, logs are sent to Cloud Logging. See [Read transfer
+ *  logs](https://cloud.google.com/storage-transfer/docs/read-transfer-logs) for
+ *  details. For transfers to or from a POSIX file system, logs are stored in
+ *  the Cloud Storage bucket that is the source or sink of the transfer. See
+ *  [Managing Transfer for on-premises jobs]
+ *  (https://cloud.google.com/storage-transfer/docs/managing-on-prem-jobs#viewing-logs)
+ *  for details.
  */
 @interface GTLRStorageTransfer_LoggingConfig : GTLRObject
 
 /**
- *  Enables the Cloud Storage transfer logs for this transfer. This is only
- *  supported for transfer jobs with PosixFilesystem sources. The default is
- *  that logs are not generated for this transfer.
+ *  For transfers with a PosixFilesystem source, this option enables the Cloud
+ *  Storage transfer logs for this transfer.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableOnpremGcsTransferLogs;
 
 /**
- *  Actions to be logged. If empty, no logs are generated. This is not yet
- *  supported for transfers with PosixFilesystem data sources.
+ *  Specifies the actions to be logged. If empty, no logs are generated. Not
+ *  supported for transfers with PosixFilesystem data sources; use
+ *  enable_onprem_gcs_transfer_logs instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *logActions;
 
 /**
  *  States in which `log_actions` are logged. If empty, no logs are generated.
- *  This is not yet supported for transfers with PosixFilesystem data sources.
+ *  Not supported for transfers with PosixFilesystem data sources; use
+ *  enable_onprem_gcs_transfer_logs instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *logActionStates;
+
+@end
+
+
+/**
+ *  Specifies the metadata options for running a transfer.
+ */
+@interface GTLRStorageTransfer_MetadataOptions : GTLRObject
+
+/**
+ *  Specifies how each file's GID attribute should be handled by the transfer.
+ *  If unspecified, the default behavior is the same as GID_SKIP when the source
+ *  is a POSIX file system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber Preserve GID
+ *        during a transfer job. (Value: "GID_NUMBER")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip Skip GID during a
+ *        transfer job. (Value: "GID_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified GID
+ *        behavior is unspecified. (Value: "GID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *gid;
+
+/**
+ *  Specifies how each file's mode attribute should be handled by the transfer.
+ *  If unspecified, the default behavior is the same as MODE_SKIP when the
+ *  source is a POSIX file system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve Preserve
+ *        mode during a transfer job. (Value: "MODE_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip Skip mode
+ *        during a transfer job. (Value: "MODE_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified Mode
+ *        behavior is unspecified. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Specifies how symlinks should be handled by the transfer. If unspecified,
+ *  the default behavior is the same as SYMLINK_SKIP when the source is a POSIX
+ *  file system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve
+ *        Preserve symlinks during a transfer job. (Value: "SYMLINK_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip Skip
+ *        symlinks during a transfer job. (Value: "SYMLINK_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified
+ *        Symlink behavior is unspecified. The default behavior is to skip
+ *        symlinks during a transfer job. (Value: "SYMLINK_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *symlink;
+
+/**
+ *  Specifies how each file's UID attribute should be handled by the transfer.
+ *  If unspecified, the default behavior is the same as UID_SKIP when the source
+ *  is a POSIX file system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber Preserve UID
+ *        during a transfer job. (Value: "UID_NUMBER")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip Skip UID during a
+ *        transfer job. (Value: "UID_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidUnspecified UID
+ *        behavior is unspecified. (Value: "UID_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 @end
 
@@ -1751,6 +1915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsUniqueInSink;
 
+/** Represents the selected metadata options for a transfer job. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_MetadataOptions *metadataOptions;
+
 /**
  *  When to overwrite objects that already exist in the sink. The default is
  *  that only objects that are different from the source are ovewritten. If
@@ -1780,6 +1947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /** A Cloud Storage data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsDataSource;
+
+/** Cloud Storage intermediate data location. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_GcsData *gcsIntermediateDataLocation;
 
 /** An HTTP URL data source. */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_HttpData *httpDataSource;
@@ -1835,8 +2005,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Required. The job to update. `transferJob` is expected to specify only four
- *  fields: description, transfer_spec, notification_config, and status. An
+ *  Required. The job to update. `transferJob` is expected to specify one or
+ *  more of five fields: description, transfer_spec, notification_config,
+ *  [logging_config[TransferJob.logging_config], and status. An
  *  `UpdateTransferJobRequest` that specifies other fields are rejected with the
  *  error INVALID_ARGUMENT. Updating a job status to DELETED requires
  *  `storagetransfer.jobs.delete` permissions.
@@ -1846,8 +2017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  The field mask of the fields in `transferJob` that are to be updated in this
  *  request. Fields in `transferJob` that can be updated are: description,
- *  transfer_spec, notification_config, and status. To update the
- *  `transfer_spec` of the job, a complete transfer specification must be
+ *  transfer_spec, notification_config, logging_config, and status. To update
+ *  the `transfer_spec` of the job, a complete transfer specification must be
  *  provided. An incomplete specification missing any required fields is
  *  rejected with the error INVALID_ARGUMENT.
  *

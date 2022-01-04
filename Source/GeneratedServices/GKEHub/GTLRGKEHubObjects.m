@@ -1014,7 +1014,7 @@ NSString * const kGTLRGKEHub_Status_Code_Unknown         = @"UNKNOWN";
 //
 
 @implementation GTLRGKEHub_ResourceOptions
-@dynamic connectVersion, v1beta1Crd;
+@dynamic connectVersion, k8sVersion, v1beta1Crd;
 @end
 
 

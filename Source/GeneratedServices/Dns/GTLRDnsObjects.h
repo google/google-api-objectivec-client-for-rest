@@ -45,6 +45,10 @@
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
+@class GTLRDns_ResponsePolicy;
+@class GTLRDns_ResponsePolicyNetwork;
+@class GTLRDns_ResponsePolicyRule;
+@class GTLRDns_ResponsePolicyRuleLocalData;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -199,6 +203,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  Value: "private"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private;
+
+// ----------------------------------------------------------------------------
+// GTLRDns_ResponsePolicyRule.behavior
+
+/** Value: "behaviorUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified;
+/**
+ *  Skip a less-specific ResponsePolicyRule and continue normal query logic.
+ *  This can be used in conjunction with a wildcard to exempt a subset of the
+ *  wildcard ResponsePolicyRule from the ResponsePolicy behavior and e.g., query
+ *  the public internet instead. For instance, if these rules exist:
+ *  *.example.com -> 1.2.3.4 foo.example.com -> PASSTHRU Then a query for
+ *  'foo.example.com' skips the wildcard.
+ *
+ *  Value: "bypassResponsePolicy"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy;
 
 /**
  *  A Change represents a set of ResourceRecordSet additions and deletions
@@ -1416,6 +1437,233 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  the server (output only).
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePoliciesListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "responsePolicies" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDns_ResponsePoliciesListResponse : GTLRCollectionObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your page token. This lets you the complete
+ *  contents of even very large collections one page at a time. However, if the
+ *  contents of the collection change between the first and last paginated list
+ *  request, the set of all elements returned are an inconsistent view of the
+ *  collection. You cannot retrieve a consistent snapshot of a collection larger
+ *  than the maximum page size.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Response Policy resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResponsePolicy *> *responsePolicies;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePoliciesPatchResponse
+ */
+@interface GTLRDns_ResponsePoliciesPatchResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicy *responsePolicy;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePoliciesUpdateResponse
+ */
+@interface GTLRDns_ResponsePoliciesUpdateResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicy *responsePolicy;
+
+@end
+
+
+/**
+ *  A Response Policy is a collection of selectors that apply to queries made
+ *  against one or more Virtual Private Cloud networks.
+ */
+@interface GTLRDns_ResponsePolicy : GTLRObject
+
+/**
+ *  User-provided description for this Response Policy.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Unique identifier for the resource; defined by the server (output only).
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  List of network names specifying networks to which this policy is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResponsePolicyNetwork *> *networks;
+
+/** User assigned name for this Response Policy. */
+@property(nonatomic, copy, nullable) NSString *responsePolicyName;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyNetwork
+ */
+@interface GTLRDns_ResponsePolicyNetwork : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fully qualified URL of the VPC network to bind to. This should be
+ *  formatted like
+ *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *networkUrl;
+
+@end
+
+
+/**
+ *  A Response Policy Rule is a selector that applies its behavior to queries
+ *  that match the selector. Selectors are DNS names, which may be wildcards or
+ *  exact matches. Each DNS query subject to a Response Policy matches at most
+ *  one ResponsePolicyRule, as identified by the dns_name field with the longest
+ *  matching suffix.
+ */
+@interface GTLRDns_ResponsePolicyRule : GTLRObject
+
+/**
+ *  Answer this query with a behavior rather than DNS data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified Value
+ *        "behaviorUnspecified"
+ *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy Skip a
+ *        less-specific ResponsePolicyRule and continue normal query logic. This
+ *        can be used in conjunction with a wildcard to exempt a subset of the
+ *        wildcard ResponsePolicyRule from the ResponsePolicy behavior and e.g.,
+ *        query the public internet instead. For instance, if these rules exist:
+ *        *.example.com -> 1.2.3.4 foo.example.com -> PASSTHRU Then a query for
+ *        'foo.example.com' skips the wildcard. (Value: "bypassResponsePolicy")
+ */
+@property(nonatomic, copy, nullable) NSString *behavior;
+
+/**
+ *  The DNS name (wildcard or exact) to apply this rule to. Must be unique
+ *  within the Response Policy Rule.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsName;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Answer this query directly with DNS data. These ResourceRecordSets override
+ *  any other DNS behavior for the matched name; in particular they override
+ *  private zones, the public internet, and GCP internal DNS. No SOA nor NS
+ *  types are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicyRuleLocalData *localData;
+
+/** An identifier for this rule. Must be unique with the ResponsePolicy. */
+@property(nonatomic, copy, nullable) NSString *ruleName;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyRuleLocalData
+ */
+@interface GTLRDns_ResponsePolicyRuleLocalData : GTLRObject
+
+/**
+ *  All resource record sets for this selector, one per resource record type.
+ *  The name must match the dns_name.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResourceRecordSet *> *localDatas;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyRulesListResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "responsePolicyRules" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDns_ResponsePolicyRulesListResponse : GTLRCollectionObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+
+/**
+ *  The presence of this field indicates that there exist more results following
+ *  your last page of results in pagination order. To fetch them, make another
+ *  list request using this value as your page token. This lets you the complete
+ *  contents of even very large collections one page at a time. However, if the
+ *  contents of the collection change between the first and last paginated list
+ *  request, the set of all elements returned are an inconsistent view of the
+ *  collection. You cannot retrieve a consistent snapshot of a collection larger
+ *  than the maximum page size.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Response Policy Rule resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResponsePolicyRule *> *responsePolicyRules;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyRulesPatchResponse
+ */
+@interface GTLRDns_ResponsePolicyRulesPatchResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicyRule *responsePolicyRule;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyRulesUpdateResponse
+ */
+@interface GTLRDns_ResponsePolicyRulesUpdateResponse : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+@property(nonatomic, strong, nullable) GTLRDns_ResponsePolicyRule *responsePolicyRule;
 
 @end
 

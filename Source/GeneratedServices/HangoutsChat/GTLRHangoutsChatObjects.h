@@ -3125,7 +3125,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** A user in Google Chat. */
+/**
+ *  A user in Google Chat. Represents a person in the People API. Formatted as
+ *  `users/person_id` where `person_id` is available from the [People
+ *  API](https://developers.google.com/people/api/rest/v1/people).
+ */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3531,7 +3535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /** The user's display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Obfuscated domain information. */
+/** Unique identifier of the user's Google Workspace domain. */
 @property(nonatomic, copy, nullable) NSString *domainId;
 
 /**
@@ -3541,7 +3545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, strong, nullable) NSNumber *isAnonymous;
 
-/** Resource name, in the format "users/ *". */
+/**
+ *  Resource name for a Google Chat user. Formatted as `users/AAAAAAAAAAA`.
+ *  Represents a
+ *  [person](https://developers.google.com/people/api/rest/v1/people#Person) in
+ *  the People API.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

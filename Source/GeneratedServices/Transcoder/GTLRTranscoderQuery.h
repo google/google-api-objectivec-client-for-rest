@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Transcoder API (transcoder/v1beta1)
+//   Transcoder API (transcoder/v1)
 // Description:
 //   This API converts video files into formats suitable for consumer
 //   distribution.
@@ -84,6 +84,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsDelete : GTLRTranscoderQuery
 
 /**
+ *  If set to true, and the job is not found, the request will succeed but no
+ *  action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. The name of the job to delete. Format:
  *  `projects/{project}/locations/{location}/jobs/{job}`
  */
@@ -142,6 +148,18 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobsList : GTLRTranscoderQuery
+
+/**
+ *  The filter expression, following the syntax outlined in
+ *  https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  One or more fields to compare and use to sort the output. See
+ *  https://google.aip.dev/132#ordering.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -222,6 +240,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesDelete : GTLRTranscoderQuery
 
 /**
+ *  If set to true, and the job template is not found, the request will succeed
+ *  but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  Required. The name of the job template to delete.
  *  `projects/{project}/locations/{location}/jobTemplates/{job_template}`
  */
@@ -280,6 +304,18 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranscoderCloudPlatform
  */
 @interface GTLRTranscoderQuery_ProjectsLocationsJobTemplatesList : GTLRTranscoderQuery
+
+/**
+ *  The filter expression, following the syntax outlined in
+ *  https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  One or more fields to compare and use to sort the output. See
+ *  https://google.aip.dev/132#ordering.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;

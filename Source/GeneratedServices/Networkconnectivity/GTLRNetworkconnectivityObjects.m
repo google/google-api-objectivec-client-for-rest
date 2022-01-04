@@ -481,7 +481,7 @@ NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRNetworkconnectivity_RoutingVPC
-@dynamic uri;
+@dynamic requiredForNewSiteToSiteDataTransferSpokes, uri;
 @end
 
 

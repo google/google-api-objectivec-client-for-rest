@@ -41,6 +41,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_M
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds = @"SECONDS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard = @"STANDARD";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.restrictedMetricType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_CostData = @"COST_DATA";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RestrictedMetricTypeUnspecified = @"RESTRICTED_METRIC_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_RestrictedMetricType_RevenueData = @"REVENUE_DATA";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event = @"EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
@@ -502,10 +507,17 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
 @dynamic descriptionProperty, displayName, measurementUnit, name, parameterName,
-         scope;
+         restrictedMetricType, scope;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictedMetricType" : [NSString class]
+  };
+  return map;
 }
 
 @end

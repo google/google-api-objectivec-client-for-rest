@@ -955,6 +955,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  */
 @interface GTLRNetworkconnectivity_RoutingVPC : GTLRObject
 
+/**
+ *  Output only. If true, indicates that this VPC network is currently
+ *  associated with spokes that use the data transfer feature (spokes where the
+ *  site_to_site_data_transfer field is set to true). If you create new spokes
+ *  that use data transfer, they must be associated with this VPC network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requiredForNewSiteToSiteDataTransferSpokes;
+
 /** The URI of the VPC network. */
 @property(nonatomic, copy, nullable) NSString *uri;
 

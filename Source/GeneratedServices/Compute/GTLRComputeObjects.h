@@ -11165,6 +11165,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_Operation
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_OperationalStatus_OsUnprovisioned;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InterconnectAttachment.stackType
+
+/**
+ *  The interconnect attachment can have both IPv4 and IPv6 addresses.
+ *
+ *  Value: "IPV4_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_StackType_Ipv4Ipv6;
+/**
+ *  The interconnect attachment will only be assigned IPv4 addresses.
+ *
+ *  Value: "IPV4_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachment_StackType_Ipv4Only;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InterconnectAttachment.state
 
 /**
@@ -13420,6 +13436,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndp
  *  Value: "NON_GCP_PRIVATE_IP_PORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_NonGcpPrivateIpPort;
+/**
+ *  The network endpoint is either public Google APIs or services exposed by
+ *  other GCP Project with a Service Attachment. The connection is set up by
+ *  private service connect
+ *
+ *  Value: "PRIVATE_SERVICE_CONNECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_PrivateServiceConnect;
 /**
  *  The network endpoint is handled by specified serverless infrastructure.
  *
@@ -18461,6 +18485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_Firewalls;
 /** Value: "FORWARDING_RULES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ForwardingRules;
+/** Value: "GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalExternalManagedForwardingRules;
 /** Value: "GLOBAL_INTERNAL_ADDRESSES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_GlobalInternalAddresses;
 /** Value: "GPUS_ALL_REGIONS" */
@@ -30711,15 +30737,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AccessConfig : GTLRObject
 
 /**
- *  [Output Only] The first IPv6 address of the external IPv6 range associated
- *  with this instance, prefix length is stored in externalIpv6PrefixLength in
+ *  The first IPv6 address of the external IPv6 range associated with this
+ *  instance, prefix length is stored in externalIpv6PrefixLength in
  *  ipv6AccessConfig. The field is output only, an IPv6 address from a
  *  subnetwork associated with the instance will be allocated dynamically.
  */
 @property(nonatomic, copy, nullable) NSString *externalIpv6;
 
 /**
- *  [Output Only] The prefix length of the external IPv6 range.
+ *  The prefix length of the external IPv6 range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -31825,6 +31851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  disks.setLabels method. This field is only applicable for persistent disks.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_AttachedDiskInitializeParams_Labels *labels;
+
+/** A list of publicly visible licenses. Reserved for Google's use. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 /**
  *  Specifies which action to take on instance update with this disk. Default is
@@ -47397,7 +47426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAffinity *reservationAffinity;
 
 /**
- *  Resource policies (names, not ULRs) applied to instances created from these
+ *  Resource policies (names, not URLs) applied to instances created from these
  *  properties. Note that for MachineImage, this is not supported yet.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
@@ -48350,6 +48379,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *bandwidth;
 
 /**
+ *  Up to 16 candidate prefixes that control the allocation of
+ *  cloudRouterIpv6Address and customerRouterIpv6Address for this attachment.
+ *  Each prefix must be in the Global Unique Address (GUA) space. It is highly
+ *  recommended that it be in a range owned by the requestor. A GUA in a range
+ *  owned by Google will cause the request to fail. Google will select an
+ *  available prefix from the supplied candidates or fail the request. If not
+ *  supplied, a /125 from a Google-owned GUA block will be selected.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *candidateIpv6Subnets;
+
+/**
  *  Up to 16 candidate prefixes that can be used to restrict the allocation of
  *  cloudRouterIpAddress and customerRouterIpAddress for this attachment. All
  *  prefixes must be within link-local address space (169.254.0.0/16) and must
@@ -48366,6 +48406,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *cloudRouterIpAddress;
 
+/**
+ *  [Output Only] IPv6 address + prefix length to be configured on Cloud Router
+ *  Interface for this interconnect attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRouterIpv6Address;
+
+/**
+ *  If supplied, the interface id (index within the subnet) to be used for the
+ *  cloud router address. The id must be in the range of 1 to 6. If a subnet
+ *  mask is supplied, it must be /125, and the subnet should either be 0 or
+ *  match the selected subnet.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudRouterIpv6InterfaceId;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -48374,6 +48428,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  router subinterface for this interconnect attachment.
  */
 @property(nonatomic, copy, nullable) NSString *customerRouterIpAddress;
+
+/**
+ *  [Output Only] IPv6 address + prefix length to be configured on the customer
+ *  router subinterface for this interconnect attachment.
+ */
+@property(nonatomic, copy, nullable) NSString *customerRouterIpv6Address;
+
+/**
+ *  If supplied, the interface id (index within the subnet) to be used for the
+ *  customer router address. The id must be in the range of 1 to 6. If a subnet
+ *  mask is supplied, it must be /125, and the subnet should either be 0 or
+ *  match the selected subnet.
+ */
+@property(nonatomic, copy, nullable) NSString *customerRouterIpv6InterfaceId;
 
 /**
  *  [Output only for types PARTNER and DEDICATED. Not present for
@@ -48580,6 +48648,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  The stack type for this interconnect attachment to identify whether the IPv6
+ *  feature is enabled or not. If not specified, IPV4_ONLY will be used. This
+ *  field can be both set at interconnect attachments creation and update
+ *  interconnect attachment operations.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InterconnectAttachment_StackType_Ipv4Ipv6 The
+ *        interconnect attachment can have both IPv4 and IPv6 addresses. (Value:
+ *        "IPV4_IPV6")
+ *    @arg @c kGTLRCompute_InterconnectAttachment_StackType_Ipv4Only The
+ *        interconnect attachment will only be assigned IPv4 addresses. (Value:
+ *        "IPV4_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *stackType;
 
 /**
  *  [Output Only] The current state of this attachment's functionality. Enum
@@ -52172,11 +52256,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        The network endpoint is represented by an IP address and port. The
  *        endpoint belongs to a VM or pod running in a customer's on-premises.
  *        (Value: "NON_GCP_PRIVATE_IP_PORT")
+ *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_PrivateServiceConnect
+ *        The network endpoint is either public Google APIs or services exposed
+ *        by other GCP Project with a Service Attachment. The connection is set
+ *        up by private service connect (Value: "PRIVATE_SERVICE_CONNECT")
  *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_Serverless
  *        The network endpoint is handled by specified serverless
  *        infrastructure. (Value: "SERVERLESS")
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointType;
+
+/**
+ *  The target service url used to set up private service connection to a Google
+ *  API. An example value is: "asia-northeast3-cloudkms.googleapis.com"
+ */
+@property(nonatomic, copy, nullable) NSString *pscTargetService;
 
 /**
  *  [Output Only] The URL of the region where the network endpoint group is
@@ -53102,9 +53196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *ipv6AccessType;
 
-/**
- *  [Output Only] An IPv6 internal network address for this network interface.
- */
+/** An IPv6 internal network address for this network interface. */
 @property(nonatomic, copy, nullable) NSString *ipv6Address;
 
 /**
@@ -59457,6 +59549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "EXTERNAL_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
  *    @arg @c kGTLRCompute_Quota_Metric_ForwardingRules Value "FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_GlobalExternalManagedForwardingRules
+ *        Value "GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_GlobalInternalAddresses Value
  *        "GLOBAL_INTERNAL_ADDRESSES"
  *    @arg @c kGTLRCompute_Quota_Metric_GpusAllRegions Value "GPUS_ALL_REGIONS"
@@ -66089,6 +66183,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  If specified, the domain name will be used during the integration between
+ *  the PSC connected endpoints and the Cloud DNS. For example, this is a valid
+ *  domain name: "p.mycompany.com.". Current max number of domain names
+ *  supported is 1.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domainNames;
+
+/**
  *  If true, enable the proxy protocol which is for supplying client TCP/IP
  *  address data in TCP connections that traverse proxies on their way to
  *  destination servers.
@@ -68770,7 +68872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The range of internal IPv6 addresses that are owned by this
- *  subnetwork.
+ *  subnetwork. Note this will be for private google access only eventually.
  */
 @property(nonatomic, copy, nullable) NSString *ipv6CidrRange;
 
