@@ -83,7 +83,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_ApiDimensionFilterGroup_Gr
 // GTLRSearchConsole_MobileFriendlyIssue.rule
 
 /**
- *  Viewsport is not specified using the meta viewport tag. [Learn more]
+ *  Viewport is not specified using the meta viewport tag. [Learn more]
  *  (https://support.google.com/webmasters/answer/6352293#viewport_not_configured).
  *
  *  Value: "CONFIGURE_VIEWPORT"
@@ -533,7 +533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *
  *  Likely values:
  *    @arg @c kGTLRSearchConsole_MobileFriendlyIssue_Rule_ConfigureViewport
- *        Viewsport is not specified using the meta viewport tag. [Learn more]
+ *        Viewport is not specified using the meta viewport tag. [Learn more]
  *        (https://support.google.com/webmasters/answer/6352293#viewport_not_configured).
  *        (Value: "CONFIGURE_VIEWPORT")
  *    @arg @c kGTLRSearchConsole_MobileFriendlyIssue_Rule_FixedWidthViewport

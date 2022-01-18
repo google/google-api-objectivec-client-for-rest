@@ -24,6 +24,12 @@
 @class GTLRCloudBuild_ApprovalResult;
 @class GTLRCloudBuild_ArtifactObjects;
 @class GTLRCloudBuild_Artifacts;
+@class GTLRCloudBuild_BitbucketServerConfig;
+@class GTLRCloudBuild_BitbucketServerConnectedRepository;
+@class GTLRCloudBuild_BitbucketServerRepository;
+@class GTLRCloudBuild_BitbucketServerRepositoryId;
+@class GTLRCloudBuild_BitbucketServerSecrets;
+@class GTLRCloudBuild_BitbucketServerTriggerConfig;
 @class GTLRCloudBuild_Build;
 @class GTLRCloudBuild_Build_Substitutions;
 @class GTLRCloudBuild_Build_Timing;
@@ -33,6 +39,7 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
+@class GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest;
 @class GTLRCloudBuild_FailureInfo;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_GitFileSource;
@@ -746,6 +753,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Running;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified;
+/**
+ *  `WorkerPool` is being updated; new builds cannot be run.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
+
+/**
+ *  RPC request object accepted by the AddBitbucketServerConnectedRepository RPC
+ *  method.
+ */
+@interface GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest : GTLRObject
+
+/** The connected repository to add. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *connectedRepository;
+
+@end
+
+
+/**
+ *  RPC request object returned by the AddBitbucketServerConnectedRepository RPC
+ *  method.
+ */
+@interface GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse : GTLRObject
+
+/**
+ *  The name of the `BitbucketServerConfig` that added connected repository.
+ *  Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *config;
+
+/** The connected repository. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *connectedRepository;
+
+@end
+
 
 /**
  *  ApprovalConfig describes configuration for manual approval of a build.
@@ -891,6 +935,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  RPC request object accepted by
+ *  BatchCreateBitbucketServerConnectedRepositories RPC method.
+ */
+@interface GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest : GTLRObject
+
+/** Required. Requests to connect Bitbucket Server repositories. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest *> *requests;
+
+@end
+
+
+/**
+ *  Response of BatchCreateBitbucketServerConnectedRepositories RPC method
+ *  including all successfully connected Bitbucket Server repositories.
+ */
+@interface GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponse : GTLRObject
+
+/** The connected Bitbucket Server repositories. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BitbucketServerConnectedRepository *> *bitbucketServerConnectedRepositories;
+
+@end
+
+
+/**
  *  Metadata for `BatchCreateBitbucketServerConnectedRepositories` operation.
  */
 @interface GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata : GTLRObject
@@ -907,6 +975,207 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 /** Time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
+ *  BitbucketServerConfig represents the configuration for a Bitbucket Server.
+ */
+@interface GTLRCloudBuild_BitbucketServerConfig : GTLRObject
+
+/**
+ *  Required. Immutable. API Key that will be attached to webhook. Once this
+ *  field has been set, it cannot be changed. If you need to change it, please
+ *  create another BitbucketServerConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/** Output only. Connected Bitbucket Server repositories for this config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BitbucketServerRepositoryId *> *connectedRepositories;
+
+/** Time when the config was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. The URI of the Bitbucket Server host. Once this field
+ *  has been set, it cannot be changed. If you need to change it, please create
+ *  another BitbucketServerConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/** The resource name for the config. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The network to be used when reaching out to the Bitbucket Server
+ *  instance. The VPC network must be enabled for private service connection.
+ *  This should be set if the Bitbucket Server instance is hosted on-premises
+ *  and not reachable by public internet. If this field is left empty, no
+ *  network peering will occur and calls to the Bitbucket Server instance will
+ *  be made over the public internet. Must be in the format
+ *  `projects/{project}/global/networks/{network}`, where {project} is a project
+ *  number or id and {network} is the name of a VPC network in the project.
+ */
+@property(nonatomic, copy, nullable) NSString *peeredNetwork;
+
+/** Required. Secret Manager secrets needed by the config. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerSecrets *secrets;
+
+/**
+ *  Optional. SSL certificate to use for requests to Bitbucket Server. The
+ *  format should be PEM format but the extension can be one of .pem, .cer, or
+ *  .crt.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCa;
+
+/** Username of the account Cloud Build will use on Bitbucket Server. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+/**
+ *  Output only. UUID included in webhook requests. The UUID is used to look up
+ *  the corresponding config.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookKey;
+
+@end
+
+
+/**
+ *  / BitbucketServerConnectedRepository represents a connected Bitbucket Server
+ *  / repository.
+ */
+@interface GTLRCloudBuild_BitbucketServerConnectedRepository : GTLRObject
+
+/**
+ *  The name of the `BitbucketServerConfig` that added connected repository.
+ *  Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The Bitbucket Server repositories to connect. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *repo;
+
+/** Output only. The status of the repo connection request. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_Status *status;
+
+@end
+
+
+/**
+ *  BitbucketServerRepository represents a repository hosted on a Bitbucket
+ *  Server.
+ */
+@interface GTLRCloudBuild_BitbucketServerRepository : GTLRObject
+
+/** Link to the browse repo page on the Bitbucket Server instance. */
+@property(nonatomic, copy, nullable) NSString *browseUri;
+
+/**
+ *  Description of the repository.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name of the repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The resource name of the repository. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Identifier for a repository hosted on a Bitbucket Server. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *repoId;
+
+@end
+
+
+/**
+ *  BitbucketServerRepositoryId identifies a specific repository hosted on a
+ *  Bitbucket Server.
+ */
+@interface GTLRCloudBuild_BitbucketServerRepositoryId : GTLRObject
+
+/** Required. Identifier for the project storing the repository. */
+@property(nonatomic, copy, nullable) NSString *projectKey;
+
+/** Required. Identifier for the repository. */
+@property(nonatomic, copy, nullable) NSString *repoSlug;
+
+/**
+ *  Output only. The ID of the webhook that was created for receiving events
+ *  from this repo. We only create and manage a single webhook for each repo.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *webhookId;
+
+@end
+
+
+/**
+ *  BitbucketServerSecrets represents the secrets in Secret Manager for a
+ *  Bitbucket Server.
+ */
+@interface GTLRCloudBuild_BitbucketServerSecrets : GTLRObject
+
+/**
+ *  Required. The resource name for the admin access token's secret version.
+ */
+@property(nonatomic, copy, nullable) NSString *adminAccessTokenVersionName;
+
+/** Required. The resource name for the read access token's secret version. */
+@property(nonatomic, copy, nullable) NSString *readAccessTokenVersionName;
+
+/**
+ *  Required. Immutable. The resource name for the webhook secret's secret
+ *  version. Once this field has been set, it cannot be changed. If you need to
+ *  change it, please create another BitbucketServerConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookSecretVersionName;
+
+@end
+
+
+/**
+ *  BitbucketServerTriggerConfig describes the configuration of a trigger that
+ *  creates a build whenever a Bitbucket Server event is received.
+ */
+@interface GTLRCloudBuild_BitbucketServerTriggerConfig : GTLRObject
+
+/**
+ *  Output only. The BitbucketServerConfig specified in the
+ *  bitbucket_server_config_resource field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerConfig *bitbucketServerConfig;
+
+/**
+ *  Required. The Bitbucket server config resource that this trigger config maps
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfigResource;
+
+/**
+ *  Required. Key of the project that the repo is in. For example: The key for
+ *  http://mybitbucket.server/projects/TEST/repos/test-repo is "TEST".
+ */
+@property(nonatomic, copy, nullable) NSString *projectKey;
+
+/** Filter to match changes in pull requests. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PullRequestFilter *pullRequest;
+
+/** Filter to match changes in refs like branches, tags. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PushFilter *push;
+
+/**
+ *  Required. Slug of the repository. A repository slug is a URL-friendly
+ *  version of a repository name, automatically generated by Bitbucket for use
+ *  in the URL. For example, if the repository name is 'test repo', in the URL
+ *  it would become 'test-repo' as in
+ *  http://mybitbucket.server/projects/TEST/repos/test-repo.
+ */
+@property(nonatomic, copy, nullable) NSString *repoSlug;
 
 @end
 
@@ -1489,6 +1758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  */
 @property(nonatomic, strong, nullable) NSNumber *autodetect;
 
+/**
+ *  BitbucketServerTriggerConfig describes the configuration of a trigger that
+ *  creates a build whenever a Bitbucket Server event is received.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerTriggerConfig *bitbucketServerTriggerConfig;
+
 /** Contents of the build template. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
 
@@ -1510,9 +1785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  Optional. EventType allows the user to explicitly set the type of event to
- *  which this BuildTrigger should respond. This field is optional but will be
- *  validated against the rest of the configuration if it is set.
+ *  EventType allows the user to explicitly set the type of event to which this
+ *  BuildTrigger should respond. This field will be validated against the rest
+ *  of the configuration if it is set.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildTrigger_EventType_EventTypeUnspecified
@@ -1706,6 +1981,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  Metadata for `CreateBitbucketServerConfig` operation.
+ */
+@interface GTLRCloudBuild_CreateBitbucketServerConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the BitbucketServerConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfig;
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
+ *  Request to connect a repository from a connected Bitbucket Server host.
+ */
+@interface GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest : GTLRObject
+
+/** Required. The Bitbucket Server repository to connect. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerConnectedRepository *bitbucketServerConnectedRepository;
+
+/**
+ *  Required. The name of the `BitbucketServerConfig` that added connected
+ *  repository. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
  *  Metadata for `CreateGithubEnterpriseConfig` operation.
  */
 @interface GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata : GTLRObject
@@ -1721,6 +2034,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
+@end
+
+
+/**
+ *  Metadata for `CreateGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_CreateGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 
@@ -1746,6 +2079,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  Metadata for `DeleteBitbucketServerConfig` operation.
+ */
+@interface GTLRCloudBuild_DeleteBitbucketServerConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the BitbucketServerConfig to be deleted. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfig;
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  Metadata for `DeleteGitHubEnterpriseConfig` operation.
  */
 @interface GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata : GTLRObject
@@ -1761,6 +2114,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
+@end
+
+
+/**
+ *  Metadata for `DeleteGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_DeleteGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 
@@ -2218,6 +2591,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBuild_InlineSecret_EnvMap : GTLRObject
+@end
+
+
+/**
+ *  RPC response object returned by ListBitbucketServerConfigs RPC method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "bitbucketServerConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudBuild_ListBitbucketServerConfigsResponse : GTLRCollectionObject
+
+/**
+ *  A list of BitbucketServerConfigs
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BitbucketServerConfig *> *bitbucketServerConfigs;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  RPC response object returned by the ListBitbucketServerRepositories RPC
+ *  method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "bitbucketServerRepositories" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRCloudBuild_ListBitbucketServerRepositoriesResponse : GTLRCollectionObject
+
+/**
+ *  List of Bitbucket Server repositories.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BitbucketServerRepository *> *bitbucketServerRepositories;
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -2775,6 +3203,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  RPC request object accepted by RemoveBitbucketServerConnectedRepository RPC
+ *  method.
+ */
+@interface GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest : GTLRObject
+
+/** The connected repository to remove. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_BitbucketServerRepositoryId *connectedRepository;
+
+@end
+
+
+/**
  *  Location of the source in a Google Cloud Source Repository.
  */
 @interface GTLRCloudBuild_RepoSource : GTLRObject
@@ -2918,7 +3358,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** Source to build against this trigger. */
+/**
+ *  Source to build against this trigger. Branch and tag names cannot consist of
+ *  regular expressions.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *source;
 
 /** Required. ID of the trigger. */
@@ -3252,6 +3695,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
 
 
 /**
+ *  Metadata for `UpdateBitbucketServerConfig` operation.
+ */
+@interface GTLRCloudBuild_UpdateBitbucketServerConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the BitbucketServerConfig to be updated. Format:
+ *  `projects/{project}/locations/{location}/bitbucketServerConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *bitbucketServerConfig;
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  Metadata for `UpdateGitHubEnterpriseConfig` operation.
  */
 @interface GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata : GTLRObject
@@ -3267,6 +3730,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *  `projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *githubEnterpriseConfig;
+
+@end
+
+
+/**
+ *  Metadata for `UpdateGitLabConfig` operation.
+ */
+@interface GTLRCloudBuild_UpdateGitLabConfigOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the GitLabConfig to be created. Format:
+ *  `projects/{project}/locations/{location}/gitlabConfigs/{id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitlabConfig;
 
 @end
 
@@ -3444,7 +3927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Private Pool using a v1 configuration. */
+/** Legacy Private Pool configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PrivatePoolV1Config *privatePoolV1Config;
 
 /**
@@ -3461,6 +3944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspeci
  *        (Value: "RUNNING")
  *    @arg @c kGTLRCloudBuild_WorkerPool_State_StateUnspecified State of the
  *        `WorkerPool` is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_Updating `WorkerPool` is being
+ *        updated; new builds cannot be run. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

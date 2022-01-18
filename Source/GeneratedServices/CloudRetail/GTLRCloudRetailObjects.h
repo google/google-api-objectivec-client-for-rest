@@ -906,23 +906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 
 /**
- *  Metadata related to the progress of the SetLocalInventories operation.
- *  Currently empty because there is no meaningful metadata populated from the
- *  SetLocalInventories method.
- */
-@interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata : GTLRObject
-@end
-
-
-/**
- *  Response of the SetLocalInventories API. Currently empty because there is no
- *  meaningful response populated from the SetLocalInventories method.
- */
-@interface GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse : GTLRObject
-@end
-
-
-/**
  *  A summary of import result. The UserEventImportSummary summarizes the import
  *  status for user events.
  */
@@ -2389,7 +2372,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The condition of the product. Strongly encouraged to use the standard
- *  values: "new", "refurbished", "used". A maximum of 5 values are allowed per
+ *  values: "new", "refurbished", "used". A maximum of 1 value is allowed per
  *  Product. Each value must be a UTF-8 encoded string with a length limit of
  *  128 characters. Otherwise, an INVALID_ARGUMENT error is returned.
  *  Corresponding properties: Google Merchant Center property
@@ -3950,12 +3933,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The main product details related to the event. This field is required for
  *  the following event types: * `add-to-cart` * `detail-page-view` *
- *  `purchase-complete` In a `search` event, this field represents the products
- *  returned to the end user on the current page (the end user may have not
- *  finished browsing the whole page yet). When a new page is returned to the
- *  end user, after pagination/filtering/ordering even for the same query, a new
- *  `search` event with different product_details is desired. The end user may
- *  have not finished browsing the whole page yet.
+ *  `purchase-complete` * `search` In a `search` event, this field represents
+ *  the products returned to the end user on the current page (the end user may
+ *  have not finished browsing the whole page yet). When a new page is returned
+ *  to the end user, after pagination/filtering/ordering even for the same
+ *  query, a new `search` event with different product_details is desired. The
+ *  end user may have not finished browsing the whole page yet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ProductDetail *> *productDetails;
 

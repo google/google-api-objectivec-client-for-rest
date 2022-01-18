@@ -1232,6 +1232,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Status *analysisStatusError;
 
 /**
+ *  Output only. The time occurrences related to this discovery occurrence were
+ *  archived.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *archiveTime;
+
+/**
  *  Whether the resource is continuously analyzed.
  *
  *  Likely values:
@@ -1502,10 +1508,10 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  */
 @interface GTLROnDemandScanning_InTotoStatement : GTLRObject
 
-/** Always "https://in-toto.io/Statement/v0.1". */
+/** Always `https://in-toto.io/Statement/v0.1`. */
 @property(nonatomic, copy, nullable) NSString *xType;
 
-/** "https://slsa.dev/provenance/v0.1" for SlsaProvenance. */
+/** `https://slsa.dev/provenance/v0.1` for SlsaProvenance. */
 @property(nonatomic, copy, nullable) NSString *predicateType;
 
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoProvenance *provenance;
@@ -1679,18 +1685,17 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  Details about files that caused a compliance check to fail.
+ *  Details about files that caused a compliance check to fail. display_command
+ *  is a single command that can be used to display a list of non compliant
+ *  files. When there is no such command, we can also iterate a list of non
+ *  compliant file using 'path'.
  */
 @interface GTLROnDemandScanning_NonCompliantFile : GTLRObject
 
 /** Command to display the non-compliant files. */
 @property(nonatomic, copy, nullable) NSString *displayCommand;
 
-/**
- *  display_command is a single command that can be used to display a list of
- *  non compliant files. When there is no such command, we can also iterate a
- *  list of non compliant file using 'path'. Empty if `display_command` is set.
- */
+/** Empty if `display_command` is set. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /** Explains why a file is non compliant for a CIS check. */
@@ -2527,7 +2532,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 @interface GTLROnDemandScanning_Subject : GTLRObject
 
 /**
- *  "": "" Algorithms can be e.g. sha256, sha512 See
+ *  `"": ""` Algorithms can be e.g. sha256, sha512 See
  *  https://github.com/in-toto/attestation/blob/main/spec/field_types.md#DigestSet
  */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_Subject_Digest *digest;
@@ -2538,7 +2543,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
- *  "": "" Algorithms can be e.g. sha256, sha512 See
+ *  `"": ""` Algorithms can be e.g. sha256, sha512 See
  *  https://github.com/in-toto/attestation/blob/main/spec/field_types.md#DigestSet
  *
  *  @note This class is documented as having more properties of NSString. Use @c

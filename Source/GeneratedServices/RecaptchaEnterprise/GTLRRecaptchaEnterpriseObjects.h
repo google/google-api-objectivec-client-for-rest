@@ -626,6 +626,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *expectedAction;
 
 /**
+ *  Optional. Optional unique stable hashed user identifier for the request. The
+ *  identifier should ideally be hashed using sha256 with stable secret.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *hashedAccountId;
+
+/**
  *  Optional. The site key that was used to invoke reCAPTCHA on your site and
  *  generate the token.
  */

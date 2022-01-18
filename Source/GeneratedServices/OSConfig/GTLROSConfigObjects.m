@@ -1267,7 +1267,8 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 //
 
 @implementation GTLROSConfig_PatchConfig
-@dynamic apt, goo, postStep, preStep, rebootConfig, windowsUpdate, yum, zypper;
+@dynamic apt, goo, migInstancesAllowed, postStep, preStep, rebootConfig,
+         windowsUpdate, yum, zypper;
 @end
 
 

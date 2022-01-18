@@ -1073,10 +1073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MysqlObjectIdentifier : GTLRObject
 
-/** The database name. */
+/** Required. The database name. */
 @property(nonatomic, copy, nullable) NSString *database;
 
-/** The table name. */
+/** Required. The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
 @end
@@ -1385,10 +1385,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_OracleObjectIdentifier : GTLRObject
 
-/** The schema name. */
+/** Required. The schema name. */
 @property(nonatomic, copy, nullable) NSString *schema;
 
-/** The table name. */
+/** Required. The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
 @end

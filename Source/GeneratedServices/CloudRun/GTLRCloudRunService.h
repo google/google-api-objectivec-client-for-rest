@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Run Admin API (run/v1)
+//   Cloud Run Admin API (run/v2)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
 //   based on incoming requests. The Cloud Run Admin API follows the Knative

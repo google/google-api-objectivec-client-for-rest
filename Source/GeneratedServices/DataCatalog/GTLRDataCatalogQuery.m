@@ -215,6 +215,60 @@
 
 @end
 
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyEntryContacts";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.modifyEntryContacts";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyEntryOverview";
+  GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview class];
+  query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.modifyEntryOverview";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch
 
 @dynamic name, updateMask;

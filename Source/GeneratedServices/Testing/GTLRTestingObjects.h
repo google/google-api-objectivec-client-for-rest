@@ -1127,21 +1127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *appPackageId;
 
 /**
- *  The max depth of the traversal stack Robo can explore. Needs to be at least
- *  2 to make Robo explore the app beyond the first activity. Default is 50.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxDepth;
-
-/**
- *  The max number of steps Robo can execute. Default is no limit.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSteps;
-
-/**
  *  A set of directives Robo should apply during the crawl. This allows users to
  *  customize the crawl. For example, the username and password for a test
  *  account can be provided.

@@ -232,9 +232,10 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic accountManagement, adsLinks, adultContent, automaticLabelIds,
-         businessInformation, cssId, googleMyBusinessLink, identifier, kind,
-         labelIds, name, sellerId, users, websiteUrl, youtubeChannelLinks;
+@dynamic accountManagement, adsLinks, adultContent, automaticImprovements,
+         automaticLabelIds, businessInformation, cssId, googleMyBusinessLink,
+         identifier, kind, labelIds, name, sellerId, users, websiteUrl,
+         youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -277,6 +278,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountAdsLink
 @dynamic adsId, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountAutomaticImprovements
+//
+
+@implementation GTLRShoppingContent_AccountAutomaticImprovements
+@dynamic imageImprovements, itemUpdates, shippingImprovements;
 @end
 
 
@@ -328,6 +339,49 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 
 @implementation GTLRShoppingContent_AccountIdentifier
 @dynamic aggregatorId, merchantId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountImageImprovements
+//
+
+@implementation GTLRShoppingContent_AccountImageImprovements
+@dynamic accountImageImprovementsSettings,
+         effectiveAllowAutomaticImageImprovements;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountImageImprovementsSettings
+//
+
+@implementation GTLRShoppingContent_AccountImageImprovementsSettings
+@dynamic allowAutomaticImageImprovements;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountItemUpdates
+//
+
+@implementation GTLRShoppingContent_AccountItemUpdates
+@dynamic accountItemUpdatesSettings, effectiveAllowAvailabilityUpdates,
+         effectiveAllowPriceUpdates, effectiveAllowStrictAvailabilityUpdates;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountItemUpdatesSettings
+//
+
+@implementation GTLRShoppingContent_AccountItemUpdatesSettings
+@dynamic allowAvailabilityUpdates, allowPriceUpdates,
+         allowStrictAvailabilityUpdates;
 @end
 
 
@@ -491,6 +545,16 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountShippingImprovements
+//
+
+@implementation GTLRShoppingContent_AccountShippingImprovements
+@dynamic allowShippingImprovements;
 @end
 
 
@@ -4218,7 +4282,15 @@ NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerification
 //
 
 @implementation GTLRShoppingContent_PosStore
-@dynamic kind, storeAddress, storeCode;
+@dynamic gcidCategory, kind, phoneNumber, placeId, storeAddress, storeCode,
+         storeName, websiteUrl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gcidCategory" : [NSString class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

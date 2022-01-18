@@ -798,6 +798,11 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /** The function name in the script project. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  The ordered list of parameter names of the function in the script project.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *parameters;
+
 @end
 
 

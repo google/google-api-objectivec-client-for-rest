@@ -1790,6 +1790,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTime
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.cameraAccess
+
+/**
+ *  The field
+ *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *  is ignored. All cameras on the device are disabled (for fully managed
+ *  devices, this applies device-wide and for work profiles this applies only to
+ *  the work profile).There are no explicit restrictions placed on the camera
+ *  access toggle on Android 12 and above: on fully managed devices, the camera
+ *  access toggle has no effect as all cameras are disabled. On devices with a
+ *  work profile, this toggle has no effect on apps in the work profile, but it
+ *  affects apps outside the work profile.
+ *
+ *  Value: "CAMERA_ACCESS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled;
+/**
+ *  The field
+ *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *  is ignored. All cameras on the device are available. On fully managed
+ *  devices running Android 12 and above, the user is unable to use the camera
+ *  access toggle. On devices which are not fully managed or which run Android
+ *  11 or below, this is equivalent to CAMERA_ACCESS_USER_CHOICE.
+ *
+ *  Value: "CAMERA_ACCESS_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced;
+/**
+ *  If camera_disabled is true, this is equivalent to CAMERA_ACCESS_DISABLED.
+ *  Otherwise, this is equivalent to CAMERA_ACCESS_USER_CHOICE.
+ *
+ *  Value: "CAMERA_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified;
+/**
+ *  The field
+ *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *  is ignored. This is the default device behaviour: all cameras on the device
+ *  are available. On Android 12 and above, the user can use the camera access
+ *  toggle.
+ *
+ *  Value: "CAMERA_ACCESS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 
 /**
@@ -1967,6 +2013,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Of
  *  Value: "SENSORS_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.microphoneAccess
+
+/**
+ *  The field
+ *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *  is ignored. The microphone on the device is disabled (for fully managed
+ *  devices, this applies device-wide).The microphone access toggle has no
+ *  effect as the microphone is disabled.
+ *
+ *  Value: "MICROPHONE_ACCESS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessDisabled;
+/**
+ *  The field
+ *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *  is ignored. The microphone on the device is available. On devices running
+ *  Android 12 and above, the user is unable to use the microphone access
+ *  toggle. On devices which run Android 11 or below, this is equivalent to
+ *  MICROPHONE_ACCESS_USER_CHOICE.
+ *
+ *  Value: "MICROPHONE_ACCESS_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessEnforced;
+/**
+ *  If unmute_microphone_disabled is true, this is equivalent to
+ *  MICROPHONE_ACCESS_DISABLED. Otherwise, this is equivalent to
+ *  MICROPHONE_ACCESS_USER_CHOICE.
+ *
+ *  Value: "MICROPHONE_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUnspecified;
+/**
+ *  The field
+ *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *  is ignored. This is the default device behaviour: the microphone on the
+ *  device is available. On Android 12 and above, the user can use the
+ *  microphone access toggle.
+ *
+ *  Value: "MICROPHONE_ACCESS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUserChoice;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.playStoreMode
@@ -2493,7 +2582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  The name of the app in the form
- *  enterprises/{enterpriseId}/applications/{package_name}.
+ *  enterprises/{enterprise}/applications/{package_name}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5371,6 +5460,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *bluetoothDisabled;
 
 /**
+ *  Controls the use of the camera and whether the user has access to the camera
+ *  access toggle.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled
+ *        The field
+ *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *        is ignored. All cameras on the device are disabled (for fully managed
+ *        devices, this applies device-wide and for work profiles this applies
+ *        only to the work profile).There are no explicit restrictions placed on
+ *        the camera access toggle on Android 12 and above: on fully managed
+ *        devices, the camera access toggle has no effect as all cameras are
+ *        disabled. On devices with a work profile, this toggle has no effect on
+ *        apps in the work profile, but it affects apps outside the work
+ *        profile. (Value: "CAMERA_ACCESS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced
+ *        The field
+ *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *        is ignored. All cameras on the device are available. On fully managed
+ *        devices running Android 12 and above, the user is unable to use the
+ *        camera access toggle. On devices which are not fully managed or which
+ *        run Android 11 or below, this is equivalent to
+ *        CAMERA_ACCESS_USER_CHOICE. (Value: "CAMERA_ACCESS_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified
+ *        If camera_disabled is true, this is equivalent to
+ *        CAMERA_ACCESS_DISABLED. Otherwise, this is equivalent to
+ *        CAMERA_ACCESS_USER_CHOICE. (Value: "CAMERA_ACCESS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice
+ *        The field
+ *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
+ *        is ignored. This is the default device behaviour: all cameras on the
+ *        device are available. On Android 12 and above, the user can use the
+ *        camera access toggle. (Value: "CAMERA_ACCESS_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *cameraAccess;
+
+/**
  *  Whether all cameras on the device are disabled.
  *
  *  Uses NSNumber of boolValue.
@@ -5579,6 +5705,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maximumTimeToLock;
+
+/**
+ *  Controls the use of the microphone and whether the user has access to the
+ *  microphone access toggle. This applies only on fully managed devices.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessDisabled
+ *        The field
+ *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *        is ignored. The microphone on the device is disabled (for fully
+ *        managed devices, this applies device-wide).The microphone access
+ *        toggle has no effect as the microphone is disabled. (Value:
+ *        "MICROPHONE_ACCESS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessEnforced
+ *        The field
+ *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *        is ignored. The microphone on the device is available. On devices
+ *        running Android 12 and above, the user is unable to use the microphone
+ *        access toggle. On devices which run Android 11 or below, this is
+ *        equivalent to MICROPHONE_ACCESS_USER_CHOICE. (Value:
+ *        "MICROPHONE_ACCESS_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUnspecified
+ *        If unmute_microphone_disabled is true, this is equivalent to
+ *        MICROPHONE_ACCESS_DISABLED. Otherwise, this is equivalent to
+ *        MICROPHONE_ACCESS_USER_CHOICE. (Value:
+ *        "MICROPHONE_ACCESS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUserChoice
+ *        The field
+ *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
+ *        is ignored. This is the default device behaviour: the microphone on
+ *        the device is available. On Android 12 and above, the user can use the
+ *        microphone access toggle. (Value: "MICROPHONE_ACCESS_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *microphoneAccess;
 
 /**
  *  The minimum allowed Android API level.

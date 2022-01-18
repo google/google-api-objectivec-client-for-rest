@@ -27,6 +27,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -42,20 +43,21 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Transcript field is not populated in the response for Insights conversation.
+ *  Populates all fields in the conversation except the transcript.
  *
  *  Value: "BASIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewBasic;
 /**
- *  Not specified. Defaults to FULL on GetConversationRequest and BASIC for
- *  ListConversationsRequest.
+ *  The conversation view is not specified. * Defaults to `FULL` in
+ *  `GetConversationRequest`. * Defaults to `BASIC` in
+ *  `ListConversationsRequest`.
  *
  *  Value: "CONVERSATION_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewConversationViewUnspecified;
 /**
- *  All fields are populated for Insights conversation.
+ *  Populates all fields in the conversation.
  *
  *  Value: "FULL"
  */
@@ -335,13 +337,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  The level of details of the conversation. Default is `FULL`.
  *
  *  Likely values:
- *    @arg @c kGTLRContactcenterinsightsViewConversationViewUnspecified Not
- *        specified. Defaults to FULL on GetConversationRequest and BASIC for
- *        ListConversationsRequest. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsightsViewBasic Transcript field is not
- *        populated in the response for Insights conversation. (Value: "BASIC")
- *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated for
- *        Insights conversation. (Value: "FULL")
+ *    @arg @c kGTLRContactcenterinsightsViewConversationViewUnspecified The
+ *        conversation view is not specified. * Defaults to `FULL` in
+ *        `GetConversationRequest`. * Defaults to `BASIC` in
+ *        `ListConversationsRequest`. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsightsViewFull Populates all fields in the
+ *        conversation. (Value: "FULL")
+ *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
+ *        conversation except the transcript. (Value: "BASIC")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -397,13 +400,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  The level of details of the conversation. Default is `BASIC`.
  *
  *  Likely values:
- *    @arg @c kGTLRContactcenterinsightsViewConversationViewUnspecified Not
- *        specified. Defaults to FULL on GetConversationRequest and BASIC for
- *        ListConversationsRequest. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRContactcenterinsightsViewBasic Transcript field is not
- *        populated in the response for Insights conversation. (Value: "BASIC")
- *    @arg @c kGTLRContactcenterinsightsViewFull All fields are populated for
- *        Insights conversation. (Value: "FULL")
+ *    @arg @c kGTLRContactcenterinsightsViewConversationViewUnspecified The
+ *        conversation view is not specified. * Defaults to `FULL` in
+ *        `GetConversationRequest`. * Defaults to `BASIC` in
+ *        `ListConversationsRequest`. (Value: "CONVERSATION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsightsViewFull Populates all fields in the
+ *        conversation. (Value: "FULL")
+ *    @arg @c kGTLRContactcenterinsightsViewBasic Populates all fields in the
+ *        conversation except the transcript. (Value: "BASIC")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1214,6 +1218,183 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsUpdateSettings
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view.
+ *
+ *  Method: contactcenterinsights.projects.locations.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsViewsCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent resource of the view. Required. The location to create
+ *  a view for. Format: `projects//locations/` or `projects//locations/`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View.
+ *
+ *  Creates a view.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the view. Required. The
+ *    location to create a view for. Format: `projects//locations/` or
+ *    `projects//locations/`
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view.
+ *
+ *  Method: contactcenterinsights.projects.locations.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsViewsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the view to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a view.
+ *
+ *  @param name Required. The name of the view to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: contactcenterinsights.projects.locations.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsViewsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the view to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The name of the view to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views.
+ *
+ *  Method: contactcenterinsights.projects.locations.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsViewsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  The maximum number of views to return in the response. If this value is
+ *  zero, the service will select a default size. A call may return fewer
+ *  objects than requested. A non-empty `next_page_token` in the response
+ *  indicates that more data is available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListViewsResponse`; indicates that this is a
+ *  continuation of a prior `ListViews` call and the system should return the
+ *  next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the views. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListViewsResponse.
+ *
+ *  Lists views.
+ *
+ *  @param parent Required. The parent resource of the views.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view.
+ *
+ *  Method: contactcenterinsights.projects.locations.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsViewsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Immutable. The resource name of the view. Format:
+ *  projects/{project}/locations/{location}/views/{view}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View.
+ *
+ *  Updates a view.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View to
+ *    include in the query.
+ *  @param name Immutable. The resource name of the view. Format:
+ *    projects/{project}/locations/{location}/views/{view}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View *)object
                            name:(NSString *)name;
 
 @end

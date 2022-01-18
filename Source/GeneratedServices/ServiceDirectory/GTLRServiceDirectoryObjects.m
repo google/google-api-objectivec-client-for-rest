@@ -44,7 +44,7 @@
 //
 
 @implementation GTLRServiceDirectory_Endpoint
-@dynamic address, annotations, name, port;
+@dynamic address, annotations, name, network, port;
 @end
 
 

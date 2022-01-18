@@ -55,23 +55,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *featureId;
 
 /**
- *  The parent (project and location) where the Feature will be created.
- *  Specified in the format `projects/ * /locations/ *`.
+ *  Required. The parent (project and location) where the Feature will be
+ *  created. Specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  A request ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes after the first request. For example, consider a situation where
+ *  you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -81,8 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Adds a new Feature.
  *
  *  @param object The @c GTLRGKEHub_Feature to include in the query.
- *  @param parent The parent (project and location) where the Feature will be
- *    created. Specified in the format `projects/ * /locations/ *`.
+ *  @param parent Required. The parent (project and location) where the Feature
+ *    will be created. Specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate
  */
@@ -109,7 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  The Feature resource name in the format `projects/ * /locations/ *
+ *  Required. The Feature resource name in the format `projects/ * /locations/ *
  *  /features/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -134,8 +133,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Removes a Feature.
  *
- *  @param name The Feature resource name in the format `projects/ * /locations/
- *    * /features/ *`.
+ *  @param name Required. The Feature resource name in the format `projects/ *
+ *    /locations/ * /features/ *`.
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesDelete
  */
@@ -154,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGKEHubQuery_ProjectsLocationsFeaturesGet : GTLRGKEHubQuery
 
 /**
- *  The Feature resource name in the format `projects/ * /locations/ *
+ *  Required. The Feature resource name in the format `projects/ * /locations/ *
  *  /features/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -164,8 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single Feature.
  *
- *  @param name The Feature resource name in the format `projects/ * /locations/
- *    * /features/ *`
+ *  @param name Required. The Feature resource name in the format `projects/ *
+ *    /locations/ * /features/ *`
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesGet
  */
@@ -260,8 +259,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent (project and location) where the Features will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
+ *  Required. The parent (project and location) where the Features will be
+ *  listed. Specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -270,8 +269,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Features in a given project and location.
  *
- *  @param parent The parent (project and location) where the Features will be
- *    listed. Specified in the format `projects/ * /locations/ *`.
+ *  @param parent Required. The parent (project and location) where the Features
+ *    will be listed. Specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesList
  *
@@ -294,23 +293,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch : GTLRGKEHubQuery
 
 /**
- *  The Feature resource name in the format `projects/ * /locations/ *
+ *  Required. The Feature resource name in the format `projects/ * /locations/ *
  *  /features/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A request ID to identify requests. Specify a unique request ID so
- *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed. The server will guarantee that for
- *  at least 60 minutes after the first request. For example, consider a
- *  situation where you make an initial request and the request times out. If
- *  you make the request again with the same request ID, the server can check if
- *  original operation with the same request ID was received, and if so, will
- *  ignore the second request. This prevents clients from accidentally creating
- *  duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
- *  (00000000-0000-0000-0000-000000000000).
+ *  A request ID to identify requests. Specify a unique request ID so that if
+ *  you must retry your request, the server will know to ignore the request if
+ *  it has already been completed. The server will guarantee that for at least
+ *  60 minutes after the first request. For example, consider a situation where
+ *  you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -327,8 +325,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates an existing Feature.
  *
  *  @param object The @c GTLRGKEHub_Feature to include in the query.
- *  @param name The Feature resource name in the format `projects/ * /locations/
- *    * /features/ *`.
+ *  @param name Required. The Feature resource name in the format `projects/ *
+ *    /locations/ * /features/ *`.
  *
  *  @return GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch
  */

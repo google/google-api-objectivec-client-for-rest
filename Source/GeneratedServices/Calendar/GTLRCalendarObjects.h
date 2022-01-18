@@ -613,8 +613,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The signature of the conference data.
- *  Generated on server side. Must be preserved while copying the conference
- *  data between events, otherwise the conference data will not be copied.
+ *  Generated on server side.
  *  Unset for a conference with a failed create request.
  *  Optional for a conference with a pending create request.
  */

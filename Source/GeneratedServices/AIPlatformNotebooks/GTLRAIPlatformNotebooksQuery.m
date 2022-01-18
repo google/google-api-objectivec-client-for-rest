@@ -12,6 +12,20 @@
 
 #import "GTLRAIPlatformNotebooksObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// type
+NSString * const kGTLRAIPlatformNotebooksTypeUpgradeAll        = @"UPGRADE_ALL";
+NSString * const kGTLRAIPlatformNotebooksTypeUpgradeCuda       = @"UPGRADE_CUDA";
+NSString * const kGTLRAIPlatformNotebooksTypeUpgradeFramework  = @"UPGRADE_FRAMEWORK";
+NSString * const kGTLRAIPlatformNotebooksTypeUpgradeOs         = @"UPGRADE_OS";
+NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified = @"UPGRADE_TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRAIPlatformNotebooksQuery
 
 @dynamic fields;
@@ -314,7 +328,7 @@
 
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesIsUpgradeable
 
-@dynamic notebookInstance;
+@dynamic notebookInstance, type;
 
 + (instancetype)queryWithNotebookInstance:(NSString *)notebookInstance {
   NSArray *pathParams = @[ @"notebookInstance" ];
@@ -669,6 +683,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
   query.loggingName = @"notebooks.projects.locations.instances.updateConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateMetadataItems
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:updateMetadataItems";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateMetadataItems *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.updateMetadataItems";
   return query;
 }
 

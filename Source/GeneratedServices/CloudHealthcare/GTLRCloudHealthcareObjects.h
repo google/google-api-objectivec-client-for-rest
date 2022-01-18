@@ -2399,9 +2399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  example: Patient, HumanName. For "choice" types (those defined in the FHIR
  *  spec with the form: field[x]) we use two separate components. For example,
  *  "deceasedAge.unit" is matched by "Deceased.Age.unit". Supported types are:
- *  AdministrativeGenderCode, Code, Date, DateTime, Decimal, HumanName, Id,
- *  LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml. Base64Binary is also
- *  supported, but may only be kept as-is or have all the content removed.
+ *  AdministrativeGenderCode, Base64Binary, Boolean, Code, Date, DateTime,
+ *  Decimal, HumanName, Id, Instant, Integer, LanguageCode, Markdown, Oid,
+ *  PositiveInt, String, UnsignedInt, Uri, Uuid, Xhtml.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -3922,8 +3922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *segmentTerminator;
 
 /**
- *  Immutable. Determines the version of the unschematized parser to be used
- *  when `schema` is not given. This field is immutable after store creation.
+ *  Immutable. Determines the version of both the default parser to be used when
+ *  `schema` is not given, as well as the schematized parser used when `schema`
+ *  is specified. This field is immutable after HL7v2 store creation.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_ParserConfig_Version_ParserVersionUnspecified
@@ -4817,6 +4818,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *disableFhirpathValidation;
 
 /**
+ *  Whether to disable profile validation for this FHIR store. Set this to true
+ *  to disable checking incoming resources for conformance against structure
+ *  definitions in this FHIR store.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableProfileValidation;
+
+/**
  *  Whether to disable reference type validation for incoming resources. Set
  *  this to true to disable checking incoming resources for conformance against
  *  reference type requirement defined in the FHIR specification. This property
@@ -4837,6 +4847,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableRequiredFieldValidation;
+
+/**
+ *  A list of implementation guide URLs in this FHIR store that are used to
+ *  configure the profiles to use for validation. For example, to use the US
+ *  Core profiles for validation, set `enabled_implementation_guides` to
+ *  `["http://hl7.org/fhir/us/core/ImplementationGuide/ig"]`. If
+ *  `enabled_implementation_guides` is empty or omitted, then incoming resources
+ *  are only required to conform to the base FHIR profiles. Otherwise, a
+ *  resource must conform to at least one profile listed in the `global`
+ *  property of one of the enabled ImplementationGuides. The Cloud Healthcare
+ *  API does not currently enforce all of the rules in a StructureDefinition.
+ *  The following rules are supported: - min/max - minValue/maxValue - maxLength
+ *  - type - fixed[x] - pattern[x] on simple types - slicing, when using "value"
+ *  as the discriminator type When a URL cannot be resolved (for example, in a
+ *  type assertion), the server does not return an error.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledImplementationGuides;
 
 @end
 

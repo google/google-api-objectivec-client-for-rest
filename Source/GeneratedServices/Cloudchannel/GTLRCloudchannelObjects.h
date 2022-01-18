@@ -105,7 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainVerified;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -145,7 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Pending;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "PROVISIONING_STATE_UNSPECIFIED"
  */
@@ -186,7 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_SuspensionReasons_ResellerInitiated;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "SUSPENSION_REASON_UNSPECIFIED"
  */
@@ -277,7 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1E
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_Suspended;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -341,7 +341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1O
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_CreateEntitlement;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
@@ -421,7 +421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1R
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentOption_Monthly;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "PAYMENT_OPTION_UNSPECIFIED"
  */
@@ -477,7 +477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1R
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Active;
 /**
- *  The state is not specified.
+ *  Not used.
  *
  *  Value: "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED"
  */
@@ -506,7 +506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Channel
 // GTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo.customerType
 
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
  */
@@ -528,7 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CloudId
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints.allowedCustomerTypes
 
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "CUSTOMER_TYPE_UNSPECIFIED"
  */
@@ -590,7 +590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Custome
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainVerified;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -600,7 +600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Custome
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
 
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "INSTITUTE_SIZE_UNSPECIFIED"
  */
@@ -652,7 +652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EduData
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteType
 
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "INSTITUTE_TYPE_UNSPECIFIED"
  */
@@ -680,7 +680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EduData
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_ProvisioningState_Active;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "PROVISIONING_STATE_UNSPECIFIED"
  */
@@ -721,7 +721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitle
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_SuspensionReasons_ResellerInitiated;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "SUSPENSION_REASON_UNSPECIFIED"
  */
@@ -812,7 +812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Entitle
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Suspended;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -874,7 +874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Operati
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1OperationMetadata_OperationType_CreateEntitlement;
 /**
- *  Default value. This state doesn't show unless an error occurs.
+ *  Not used.
  *
  *  Value: "OPERATION_TYPE_UNSPECIFIED"
  */
@@ -1162,7 +1162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Renewal
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_PendingTosAcceptance;
 /**
- *  Reason is not available.
+ *  Not used.
  *
  *  Value: "REASON_UNSPECIFIED"
  */
@@ -1269,8 +1269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Primary domain of the customer has been verified. (Value:
  *        "PRIMARY_DOMAIN_VERIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_TypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1378,8 +1377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        ProvisioningState=SUSPENDED and
  *        suspensionReason=PENDING_TOS_ACCEPTANCE (Value: "PENDING")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_ProvisioningStateUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "PROVISIONING_STATE_UNSPECIFIED")
+ *        Not used. (Value: "PROVISIONING_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement_ProvisioningState_Suspended
  *        The entitlement is currently suspended. (Value: "SUSPENDED")
  */
@@ -1457,8 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_Suspended
  *        Entitlement was suspended. (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_TypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -1502,8 +1499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Long Running Operation was triggered by CreateEntitlement. (Value:
  *        "CREATE_ENTITLEMENT")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_OperationTypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "OPERATION_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1OperationMetadata_OperationType_ProvisionCloudIdentity
  *        Long Running Operation was triggered by ProvisionCloudIdentity.
  *        (Value: "PROVISION_CLOUD_IDENTITY")
@@ -1639,8 +1635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentOption_Monthly
  *        Paid in monthly installments. (Value: "MONTHLY")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1alpha1RenewalSettings_PaymentOption_PaymentOptionUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "PAYMENT_OPTION_UNSPECIFIED")
+ *        Not used. (Value: "PAYMENT_OPTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *paymentOption;
 
@@ -1912,8 +1907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Active
  *        Status when the reseller is active. (Value: "ACTIVE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_ChannelPartnerLinkStateUnspecified
- *        The state is not specified. (Value:
- *        "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED")
+ *        Not used. (Value: "CHANNEL_PARTNER_LINK_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink_LinkState_Invited
  *        An invitation has been sent to the reseller to create a channel
  *        partner link. (Value: "INVITED")
@@ -2019,8 +2013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_CustomerTypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "CUSTOMER_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "CUSTOMER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CloudIdentityInfo_CustomerType_Domain
  *        Domain-owning customer which needs domain verification to use
  *        services. (Value: "DOMAIN")
@@ -2253,8 +2246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Primary domain of the customer has been verified. (Value:
  *        "PRIMARY_DOMAIN_VERIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -2271,8 +2263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_InstituteSizeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "INSTITUTE_SIZE_UNSPECIFIED")
+ *        Not used. (Value: "INSTITUTE_SIZE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_Size10001OrMore
  *        10,001 + (Value: "SIZE_10001_OR_MORE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteSize_Size10012000
@@ -2295,8 +2286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *
  *  Likely values:
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteType_InstituteTypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "INSTITUTE_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "INSTITUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteType_K12
  *        Elementary/Secondary Schools & Districts (Value: "K12")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EduData_InstituteType_University
@@ -2359,8 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_ProvisioningState_Active
  *        The entitlement is currently active. (Value: "ACTIVE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_ProvisioningState_ProvisioningStateUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "PROVISIONING_STATE_UNSPECIFIED")
+ *        Not used. (Value: "PROVISIONING_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1Entitlement_ProvisioningState_Suspended
  *        The entitlement is currently suspended. (Value: "SUSPENDED")
  */
@@ -2438,8 +2427,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Suspended
  *        Entitlement was suspended. (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_TypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        Not used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -2971,8 +2959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Long Running Operation was triggered by CreateEntitlement. (Value:
  *        "CREATE_ENTITLEMENT")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1OperationMetadata_OperationType_OperationTypeUnspecified
- *        Default value. This state doesn't show unless an error occurs. (Value:
- *        "OPERATION_TYPE_UNSPECIFIED")
+ *        Not used. (Value: "OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1OperationMetadata_OperationType_ProvisionCloudIdentity
  *        Long Running Operation was triggered by ProvisionCloudIdentity.
  *        (Value: "PROVISION_CLOUD_IDENTITY")
@@ -3593,7 +3580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        Reseller needs to accept TOS before transferring the SKU. (Value:
  *        "PENDING_TOS_ACCEPTANCE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_ReasonUnspecified
- *        Reason is not available. (Value: "REASON_UNSPECIFIED")
+ *        Not used. (Value: "REASON_UNSPECIFIED")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_SkuNotEligible
  *        Reseller not eligible to sell the SKU. (Value: "SKU_NOT_ELIGIBLE")
  *    @arg @c kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_IneligibilityReason_SkuSuspended

@@ -104,10 +104,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Clones the existing key's restriction and display name to a new API key. The
- *  service account must have the `apikeys.keys.get` and `apikeys.keys.create`
- *  permissions in the project. NOTE: Key is a global resource; hence the only
- *  supported value for location is `global`.
+ *  DEPRECATED: API customers can call `GetKey` and then `CreateKey` methods to
+ *  create a copy of an existing key. Retire `CloneKey` method to eliminate the
+ *  unnessary method from API Keys API. Clones the existing key's restriction
+ *  and display name to a new API key. The service account must have the
+ *  `apikeys.keys.get` and `apikeys.keys.create` permissions in the project.
+ *  NOTE: Key is a global resource; hence the only supported value for location
+ *  is `global`.
  *
  *  Method: apikeys.projects.locations.keys.clone
  *
@@ -124,10 +127,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApiKeysService_Operation.
  *
- *  Clones the existing key's restriction and display name to a new API key. The
- *  service account must have the `apikeys.keys.get` and `apikeys.keys.create`
- *  permissions in the project. NOTE: Key is a global resource; hence the only
- *  supported value for location is `global`.
+ *  DEPRECATED: API customers can call `GetKey` and then `CreateKey` methods to
+ *  create a copy of an existing key. Retire `CloneKey` method to eliminate the
+ *  unnessary method from API Keys API. Clones the existing key's restriction
+ *  and display name to a new API key. The service account must have the
+ *  `apikeys.keys.get` and `apikeys.keys.create` permissions in the project.
+ *  NOTE: Key is a global resource; hence the only supported value for location
+ *  is `global`.
  *
  *  @param object The @c GTLRApiKeysService_V2CloneKeyRequest to include in the
  *    query.
@@ -291,9 +297,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysList : GTLRApiKeysServiceQuery
 
 /**
- *  Optional. Only list keys that conform to the specified filter. The allowed
- *  filter strings are `state:ACTIVE` and `state:DELETED`. By default, ListKeys
- *  returns only active keys.
+ *  Optional. Deprecated: Use `show_deleted` instead. Only list keys that
+ *  conform to the specified filter. The allowed filter strings are
+ *  `state:ACTIVE` and `state:DELETED`. By default, ListKeys returns only active
+ *  keys.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -307,6 +314,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Required. Lists all API keys associated with this project. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Indicate that keys are marked as deleted within 30 days should
+ *  also be returned. Normally only active keys are returned.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
 
 /**
  *  Fetches a @c GTLRApiKeysService_V2ListKeysResponse.

@@ -438,6 +438,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Service.databaseType
+
+/**
+ *  The DATABASE_TYPE is not set.
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_DatabaseType_DatabaseTypeUnspecified;
+/**
+ *  MySQL is used to persist the metastore data.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Mysql;
+/**
+ *  Spanner is used to persist the metastore data.
+ *
+ *  Value: "SPANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Spanner;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Service.releaseChannel
 
 /**
@@ -952,7 +974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /**
  *  A mapping of Hive metastore configuration key-value pairs to apply to the
  *  Hive metastore (configured in hive-site.xml). The mappings override system
- *  defaults (some keys cannot be overridden).
+ *  defaults (some keys cannot be overridden). These overrides are also applied
+ *  to auxiliary versions and can be further customized in the auxiliary
+ *  version's AuxiliaryVersionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides *configOverrides;
 
@@ -990,7 +1014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /**
  *  A mapping of Hive metastore configuration key-value pairs to apply to the
  *  Hive metastore (configured in hive-site.xml). The mappings override system
- *  defaults (some keys cannot be overridden).
+ *  defaults (some keys cannot be overridden). These overrides are also applied
+ *  to auxiliary versions and can be further customized in the auxiliary
+ *  version's AuxiliaryVersionConfig.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1792,6 +1818,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /** Output only. The time when the metastore service was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. The database type that the Metastore service stores its data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Service_DatabaseType_DatabaseTypeUnspecified
+ *        The DATABASE_TYPE is not set. (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_Service_DatabaseType_Mysql MySQL is used to
+ *        persist the metastore data. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_Service_DatabaseType_Spanner Spanner is
+ *        used to persist the metastore data. (Value: "SPANNER")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseType;
 
 /**
  *  Immutable. Information used to configure the Dataproc Metastore service to

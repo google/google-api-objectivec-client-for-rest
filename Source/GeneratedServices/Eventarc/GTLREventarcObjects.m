@@ -87,7 +87,7 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Destination
-@dynamic cloudRun, gke;
+@dynamic cloudFunction, cloudRun, gke;
 @end
 
 

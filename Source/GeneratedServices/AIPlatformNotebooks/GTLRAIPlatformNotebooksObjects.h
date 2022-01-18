@@ -64,6 +64,8 @@
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
+@class GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest_Items;
+@class GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse_Items;
 @class GTLRAIPlatformNotebooks_UpgradeHistoryEntry;
 @class GTLRAIPlatformNotebooks_VertexAIParameters;
 @class GTLRAIPlatformNotebooks_VertexAIParameters_Env;
@@ -997,6 +999,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest.type
+
+/**
+ *  Upgrade All (OS, Framework and CUDA).
+ *
+ *  Value: "UPGRADE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeAll;
+/**
+ *  Upgrade CUDA.
+ *
+ *  Value: "UPGRADE_CUDA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeCuda;
+/**
+ *  Upgrade ML framework.
+ *
+ *  Value: "UPGRADE_FRAMEWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeFramework;
+/**
+ *  Upgrade Operating System.
+ *
+ *  Value: "UPGRADE_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeOs;
+/**
+ *  Upgrade type is not specified.
+ *
+ *  Value: "UPGRADE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_UpgradeInstanceRequest.type
+
+/**
+ *  Upgrade All (OS, Framework and CUDA).
+ *
+ *  Value: "UPGRADE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeAll;
+/**
+ *  Upgrade CUDA.
+ *
+ *  Value: "UPGRADE_CUDA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeCuda;
+/**
+ *  Upgrade ML framework.
+ *
+ *  Value: "UPGRADE_FRAMEWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeFramework;
+/**
+ *  Upgrade Operating System.
+ *
+ *  Value: "UPGRADE_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeOs;
+/**
+ *  Upgrade type is not specified.
+ *
+ *  Value: "UPGRADE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_VirtualMachineConfig.nicType
@@ -3551,6 +3621,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  Request for adding/changing metadata items for an instance.
+ */
+@interface GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest : GTLRObject
+
+/** Metadata items to add/update for the instance. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest_Items *items;
+
+@end
+
+
+/**
+ *  Metadata items to add/update for the instance.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest_Items : GTLRObject
+@end
+
+
+/**
+ *  Response for adding/changing metadata items for an instance.
+ */
+@interface GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse : GTLRObject
+
+/** Map of items that were added/updated to/in the metadata. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse_Items *items;
+
+@end
+
+
+/**
+ *  Map of items that were added/updated to/in the metadata.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse_Items : GTLRObject
+@end
+
+
+/**
  *  Request for updating the Shielded Instance config for a notebook instance.
  *  You can only use this method on a stopped instance
  */
@@ -3628,6 +3744,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @interface GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest : GTLRObject
 
 /**
+ *  Optional. The optional UpgradeType. Setting this field will search for
+ *  additional compute images to upgrade this instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeAll
+ *        Upgrade All (OS, Framework and CUDA). (Value: "UPGRADE_ALL")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeCuda
+ *        Upgrade CUDA. (Value: "UPGRADE_CUDA")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeFramework
+ *        Upgrade ML framework. (Value: "UPGRADE_FRAMEWORK")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeOs
+ *        Upgrade Operating System. (Value: "UPGRADE_OS")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeTypeUnspecified
+ *        Upgrade type is not specified. (Value: "UPGRADE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
  *  Required. The VM hardware token for authenticating the VM.
  *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
  */
@@ -3640,6 +3774,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for upgrading a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_UpgradeInstanceRequest : GTLRObject
+
+/**
+ *  Optional. The optional UpgradeType. Setting this field will search for
+ *  additional compute images to upgrade this instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeAll
+ *        Upgrade All (OS, Framework and CUDA). (Value: "UPGRADE_ALL")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeCuda
+ *        Upgrade CUDA. (Value: "UPGRADE_CUDA")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeFramework
+ *        Upgrade ML framework. (Value: "UPGRADE_FRAMEWORK")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeOs
+ *        Upgrade Operating System. (Value: "UPGRADE_OS")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeTypeUnspecified
+ *        Upgrade type is not specified. (Value: "UPGRADE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 

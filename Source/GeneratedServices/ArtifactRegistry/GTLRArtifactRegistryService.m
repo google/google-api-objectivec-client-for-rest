@@ -28,6 +28,7 @@ NSString * const kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly = @"https:/
   if (self) {
     // From discovery.
     self.rootURLString = @"https://artifactregistry.googleapis.com/";
+    self.simpleUploadPath = @"upload/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

@@ -588,6 +588,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_IdentityToolkit"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_IDS",
+            targets: ["GoogleAPIClientForREST_IDS"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Indexing",
             targets: ["GoogleAPIClientForREST_Indexing"]
         ),
@@ -1847,6 +1851,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_IdentityToolkit",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/IdentityToolkit",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_IDS",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/IDS",
             publicHeadersPath: "."
         ),
         .target(

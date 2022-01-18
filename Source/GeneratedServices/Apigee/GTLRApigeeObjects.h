@@ -7025,14 +7025,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required if `client_auth_enabled` is true. The resource ID of the keystore.
- *  References not yet supported.
  */
 @property(nonatomic, copy, nullable) NSString *keyStore;
 
 /** The TLS versioins to be used. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *protocols;
 
-/** The resource ID of the truststore. References not yet supported. */
+/** The resource ID of the truststore. */
 @property(nonatomic, copy, nullable) NSString *trustStore;
 
 @end

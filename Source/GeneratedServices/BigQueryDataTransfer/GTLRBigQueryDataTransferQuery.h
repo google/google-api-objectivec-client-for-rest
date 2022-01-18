@@ -138,10 +138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user. Some data sources doesn't support service account, so we
- *  need to talk to them on behalf of the end user. This API just checks whether
- *  we have OAuth token for the particular user, which is a pre-requisite before
- *  user can create a transfer config.
+ *  requesting user.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.checkValidCreds
  *
@@ -163,10 +160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Fetches a @c GTLRBigQueryDataTransfer_CheckValidCredsResponse.
  *
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user. Some data sources doesn't support service account, so we
- *  need to talk to them on behalf of the end user. This API just checks whether
- *  we have OAuth token for the particular user, which is a pre-requisite before
- *  user can create a transfer config.
+ *  requesting user.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
@@ -182,8 +176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Retrieves a supported data source and returns its settings, which can be
- *  used for UI rendering.
+ *  Retrieves a supported data source and returns its settings.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.get
  *
@@ -204,8 +197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_DataSource.
  *
- *  Retrieves a supported data source and returns its settings, which can be
- *  used for UI rendering.
+ *  Retrieves a supported data source and returns its settings.
  *
  *  @param name Required. The field will contain name of the resource requested,
  *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
@@ -218,8 +210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Lists supported data sources and returns their settings, which can be used
- *  for UI rendering.
+ *  Lists supported data sources and returns their settings.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.list
  *
@@ -251,8 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListDataSourcesResponse.
  *
- *  Lists supported data sources and returns their settings, which can be used
- *  for UI rendering.
+ *  Lists supported data sources and returns their settings.
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned. Must be in the form: `projects/{project_id}` or
@@ -311,10 +301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user. Some data sources doesn't support service account, so we
- *  need to talk to them on behalf of the end user. This API just checks whether
- *  we have OAuth token for the particular user, which is a pre-requisite before
- *  user can create a transfer config.
+ *  requesting user.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.checkValidCreds
  *
@@ -336,10 +323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Fetches a @c GTLRBigQueryDataTransfer_CheckValidCredsResponse.
  *
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user. Some data sources doesn't support service account, so we
- *  need to talk to them on behalf of the end user. This API just checks whether
- *  we have OAuth token for the particular user, which is a pre-requisite before
- *  user can create a transfer config.
+ *  requesting user.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
@@ -355,8 +339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Retrieves a supported data source and returns its settings, which can be
- *  used for UI rendering.
+ *  Retrieves a supported data source and returns its settings.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.get
  *
@@ -377,8 +360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_DataSource.
  *
- *  Retrieves a supported data source and returns its settings, which can be
- *  used for UI rendering.
+ *  Retrieves a supported data source and returns its settings.
  *
  *  @param name Required. The field will contain name of the resource requested,
  *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
@@ -391,8 +373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Lists supported data sources and returns their settings, which can be used
- *  for UI rendering.
+ *  Lists supported data sources and returns their settings.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.list
  *
@@ -424,8 +405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListDataSourcesResponse.
  *
- *  Lists supported data sources and returns their settings, which can be used
- *  for UI rendering.
+ *  Lists supported data sources and returns their settings.
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned. Must be in the form: `projects/{project_id}` or
@@ -911,7 +891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns information about running and completed jobs.
+ *  Returns information about running and completed transfer runs.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.runs.list
  *
@@ -975,7 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferRunsResponse.
  *
- *  Returns information about running and completed jobs.
+ *  Returns information about running and completed transfer runs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
  *    runs should be retrieved. Format of transfer configuration resource name
@@ -993,7 +973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns user facing log messages for the data transfer run.
+ *  Returns log messages for the transfer run.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.runs.transferLogs.list
  *
@@ -1041,7 +1021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferLogsResponse.
  *
- *  Returns user facing log messages for the data transfer run.
+ *  Returns log messages for the transfer run.
  *
  *  @param parent Required. Transfer run name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
@@ -1491,7 +1471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns information about running and completed jobs.
+ *  Returns information about running and completed transfer runs.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.runs.list
  *
@@ -1555,7 +1535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferRunsResponse.
  *
- *  Returns information about running and completed jobs.
+ *  Returns information about running and completed transfer runs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
  *    runs should be retrieved. Format of transfer configuration resource name
@@ -1573,7 +1553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns user facing log messages for the data transfer run.
+ *  Returns log messages for the transfer run.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.runs.transferLogs.list
  *
@@ -1621,7 +1601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferLogsResponse.
  *
- *  Returns user facing log messages for the data transfer run.
+ *  Returns log messages for the transfer run.
  *
  *  @param parent Required. Transfer run name in the form:
  *    `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or

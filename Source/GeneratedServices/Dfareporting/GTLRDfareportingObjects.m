@@ -919,6 +919,7 @@ NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMod
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Monitoring = @"MONITORING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly = @"MONITORING_ONLY";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None = @"NONE";
+NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring = @"NON_VPAID_MONITORING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking = @"TRACKING";
 NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring = @"VIDEO_PIXEL_MONITORING";
 
@@ -993,6 +994,7 @@ NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagStandard = @
 NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTracking = @"PLACEMENT_TAG_TRACKING";
 NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingIframe = @"PLACEMENT_TAG_TRACKING_IFRAME";
 NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingJavascript = @"PLACEMENT_TAG_TRACKING_JAVASCRIPT";
+NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingThirdPartyMeasurement = @"PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT";
 
 // GTLRDfareporting_Placement.vpaidAdapterChoice
 NSString * const kGTLRDfareporting_Placement_VpaidAdapterChoice_Both = @"BOTH";
@@ -1145,6 +1147,7 @@ NSString * const kGTLRDfareporting_TagData_Format_PlacementTagStandard = @"PLACE
 NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTracking = @"PLACEMENT_TAG_TRACKING";
 NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingIframe = @"PLACEMENT_TAG_TRACKING_IFRAME";
 NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingJavascript = @"PLACEMENT_TAG_TRACKING_JAVASCRIPT";
+NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingThirdPartyMeasurement = @"PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT";
 
 // GTLRDfareporting_TagSetting.keywordOption
 NSString * const kGTLRDfareporting_TagSetting_KeywordOption_GenerateSeparateTagForEachKeyword = @"GENERATE_SEPARATE_TAG_FOR_EACH_KEYWORD";

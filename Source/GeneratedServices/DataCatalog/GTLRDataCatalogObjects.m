@@ -208,6 +208,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext
+@dynamic contacts, entryOverview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec
 //
 
@@ -235,6 +245,34 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts
+@dynamic people;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"people" : [GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson
+@dynamic designation, email;
 @end
 
 
@@ -284,12 +322,12 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Entry
-@dynamic bigqueryDateShardedSpec, bigqueryTableSpec, databaseTableSpec,
-         dataSource, dataSourceConnectionSpec, descriptionProperty, displayName,
-         fullyQualifiedName, gcsFilesetSpec, integratedSystem, labels,
-         linkedResource, name, personalDetails, routineSpec, schema,
-         sourceSystemTimestamps, type, usageSignal, userSpecifiedSystem,
-         userSpecifiedType;
+@dynamic bigqueryDateShardedSpec, bigqueryTableSpec, businessContext,
+         databaseTableSpec, dataSource, dataSourceConnectionSpec,
+         descriptionProperty, displayName, fullyQualifiedName, gcsFilesetSpec,
+         integratedSystem, labels, linkedResource, name, personalDetails,
+         routineSpec, schema, sourceSystemTimestamps, type, usageSignal,
+         userSpecifiedSystem, userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -324,6 +362,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview
+@dynamic overview;
 @end
 
 
@@ -565,6 +613,26 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
   return @"taxonomies";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest
+@dynamic contacts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest
+@dynamic entryOverview;
 @end
 
 

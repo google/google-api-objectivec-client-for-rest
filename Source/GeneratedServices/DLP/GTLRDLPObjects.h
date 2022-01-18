@@ -3143,8 +3143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration to control the number of findings returned. Cannot be set if
- *  de-identification is requested.
+ *  Configuration to control the number of findings returned for inspection.
+ *  This is not used for de-identification or data profiling.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FindingLimits : GTLRObject
 
@@ -3628,10 +3628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectConfig : GTLRObject
 
-/**
- *  List of options defining data content to scan. If empty, text, images, and
- *  other content will be included.
- */
+/** Deprecated and unused. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contentOptions;
 
 /**
@@ -3641,7 +3638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2CustomInfoType *> *customInfoTypes;
 
 /**
- *  When true, excludes type information of the findings.
+ *  When true, excludes type information of the findings. This is not used for
+ *  data profiling.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3649,7 +3647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  When true, a contextual quote from the data that triggered a finding is
- *  included in the response; see Finding.quote.
+ *  included in the response; see Finding.quote. This is not used for data
+ *  profiling.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3668,7 +3667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
-/** Configuration to control the number of findings returned. */
+/**
+ *  Configuration to control the number of findings returned. This is not used
+ *  for data profiling.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FindingLimits *limits;
 
 /**

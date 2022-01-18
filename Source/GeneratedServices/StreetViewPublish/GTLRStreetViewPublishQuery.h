@@ -355,8 +355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
 
 /**
  *  Optional. The filter expression. For example:
- *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The filters supported at the moment
- *  are: `placeId`.
+ *  `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`. The filters supported are: `placeId`,
+ *  `min_latitude`, `max_latitude`, `min_longitude`, and `max_longitude`. See
+ *  https://google.aip.dev/160 for more information.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

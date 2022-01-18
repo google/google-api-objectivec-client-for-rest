@@ -40,7 +40,6 @@
 @class GTLRBigtableAdmin_EncryptionConfig;
 @class GTLRBigtableAdmin_EncryptionInfo;
 @class GTLRBigtableAdmin_Expr;
-@class GTLRBigtableAdmin_Frame;
 @class GTLRBigtableAdmin_GcRule;
 @class GTLRBigtableAdmin_GetPolicyOptions;
 @class GTLRBigtableAdmin_Instance;
@@ -1236,28 +1235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Added to the error payload.
- */
-@interface GTLRBigtableAdmin_FailureTrace : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Frame *> *frames;
-
-@end
-
-
-/**
- *  GTLRBigtableAdmin_Frame
- */
-@interface GTLRBigtableAdmin_Frame : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *targetName;
-@property(nonatomic, copy, nullable) NSString *workflowGuid;
-@property(nonatomic, copy, nullable) NSString *zoneId;
-
-@end
-
-
-/**
  *  Rule for determining which cells to delete during garbage collection.
  */
 @interface GTLRBigtableAdmin_GcRule : GTLRObject
@@ -2396,24 +2373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
-
-@end
-
-
-/**
- *  Metadata type for the operation returned by
- *  google.bigtable.admin.v2.BigtableTableAdmin.UndeleteTable.
- */
-@interface GTLRBigtableAdmin_UndeleteTableMetadata : GTLRObject
-
-/** If set, the time at which this operation finished or was cancelled. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** The name of the table being restored. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The time at which this operation started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

@@ -151,7 +151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_LabelDescriptor_ValueType_String
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_LogBucket_LifecycleState_Active;
 /**
- *  The bucket has been marked for deletion by the user.
+ *  The resource has been marked for deletion by the user. For some resources
+ *  (e.g. buckets), this can be reversed by an un-delete operation.
  *
  *  Value: "DELETE_REQUESTED"
  */
@@ -1530,8 +1531,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Likely values:
  *    @arg @c kGTLRLogging_LogBucket_LifecycleState_Active The normal and active
  *        state. (Value: "ACTIVE")
- *    @arg @c kGTLRLogging_LogBucket_LifecycleState_DeleteRequested The bucket
- *        has been marked for deletion by the user. (Value: "DELETE_REQUESTED")
+ *    @arg @c kGTLRLogging_LogBucket_LifecycleState_DeleteRequested The resource
+ *        has been marked for deletion by the user. For some resources (e.g.
+ *        buckets), this can be reversed by an un-delete operation. (Value:
+ *        "DELETE_REQUESTED")
  *    @arg @c kGTLRLogging_LogBucket_LifecycleState_LifecycleStateUnspecified
  *        Unspecified state. This is only used/useful for distinguishing unset
  *        values. (Value: "LIFECYCLE_STATE_UNSPECIFIED")
@@ -2065,11 +2068,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  include only the following characters: A-Z, a-z, 0-9, and the special
  *  characters _-.,+!*',()%/. The forward-slash character (/) denotes a
  *  hierarchy of name pieces, and it cannot be the first character of the
- *  name.The metric identifier in this field must not be URL-encoded
- *  (https://en.wikipedia.org/wiki/Percent-encoding). However, when the metric
- *  identifier appears as the [METRIC_ID] part of a metric_name API parameter,
- *  then the metric identifier must be URL-encoded. Example:
- *  "projects/my-project/metrics/nginx%2Frequests".
+ *  name.This field is the [METRIC_ID] part of a metric resource name in the
+ *  format "projects/PROJECT_ID/metrics/METRIC_ID". Example: If the resource
+ *  name of a metric is "projects/my-project/metrics/nginx%2Frequests", this
+ *  field's value is "nginx/requests".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2585,7 +2587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Required. The monitored resource type. This field must match the type field
  *  of a MonitoredResourceDescriptor object. For example, the type of a Compute
- *  Engine VM instance is gce_instance.
+ *  Engine VM instance is gce_instance. Some descriptors include the service
+ *  name in the type; for example, the type of a Datastream stream is
+ *  datastream.googleapis.com/Stream.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

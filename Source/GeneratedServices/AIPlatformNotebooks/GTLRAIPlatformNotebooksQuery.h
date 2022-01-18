@@ -44,6 +44,7 @@
 @class GTLRAIPlatformNotebooks_TestIamPermissionsRequest;
 @class GTLRAIPlatformNotebooks_TriggerScheduleRequest;
 @class GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest;
+@class GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest;
 @class GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceRequest;
@@ -54,6 +55,47 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// type
+
+/**
+ *  Upgrade All (OS, Framework and CUDA).
+ *
+ *  Value: "UPGRADE_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeAll;
+/**
+ *  Upgrade CUDA.
+ *
+ *  Value: "UPGRADE_CUDA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeCuda;
+/**
+ *  Upgrade ML framework.
+ *
+ *  Value: "UPGRADE_FRAMEWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeFramework;
+/**
+ *  Upgrade Operating System.
+ *
+ *  Value: "UPGRADE_OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeOs;
+/**
+ *  Upgrade type is not specified.
+ *
+ *  Value: "UPGRADE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
 
 /**
  *  Parent class for other AI Platform Notebooks query classes.
@@ -474,12 +516,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRAIPlatformNotebooksQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -551,6 +596,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
 @property(nonatomic, copy, nullable) NSString *notebookInstance;
+
+/**
+ *  Optional. The optional UpgradeType. Setting this field will search for
+ *  additional compute images to upgrade this instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooksTypeUpgradeTypeUnspecified Upgrade type is
+ *        not specified. (Value: "UPGRADE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooksTypeUpgradeFramework Upgrade ML framework.
+ *        (Value: "UPGRADE_FRAMEWORK")
+ *    @arg @c kGTLRAIPlatformNotebooksTypeUpgradeOs Upgrade Operating System.
+ *        (Value: "UPGRADE_OS")
+ *    @arg @c kGTLRAIPlatformNotebooksTypeUpgradeCuda Upgrade CUDA. (Value:
+ *        "UPGRADE_CUDA")
+ *    @arg @c kGTLRAIPlatformNotebooksTypeUpgradeAll Upgrade All (OS, Framework
+ *        and CUDA). (Value: "UPGRADE_ALL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRAIPlatformNotebooks_IsInstanceUpgradeableResponse.
@@ -1024,6 +1087,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Add/update metadata items for an instance.
+ *
+ *  Method: notebooks.projects.locations.instances.updateMetadataItems
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateMetadataItems : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse.
+ *
+ *  Add/update metadata items for an instance.
+ *
+ *  @param object The @c
+ *    GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest to include in
+ *    the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateMetadataItems
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates the Shielded instance configuration of a single Instance.
  *
  *  Method: notebooks.projects.locations.instances.updateShieldedInstanceConfig
@@ -1443,12 +1540,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGetIamPolicy : GTLRAIPlatformNotebooksQuery
 
 /**
- *  Optional. The policy format version to be returned. Valid values are 0, 1,
- *  and 3. Requests specifying an invalid value will be rejected. Requests for
- *  policies with any conditional bindings must specify version 3. Policies
- *  without any conditional bindings may specify any valid value or leave the
- *  field unset. To learn which resources support conditions in their IAM
- *  policies, see the [IAM
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;

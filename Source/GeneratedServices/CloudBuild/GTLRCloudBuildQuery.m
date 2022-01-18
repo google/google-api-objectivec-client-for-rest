@@ -18,6 +18,33 @@
 
 @end
 
+@implementation GTLRCloudBuildQuery_LocationsRegionalWebhook
+
+@dynamic location, webhookKey;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}/regionalWebhook";
+  GTLRCloudBuildQuery_LocationsRegionalWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.locations.regionalWebhook";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudBuildQuery_OperationsCancel
 
 @dynamic name;
@@ -340,6 +367,217 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudBuild_Operation class];
   query.loggingName = @"cloudbuild.projects.githubEnterpriseConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsAddBitbucketServerConnectedRepository
+
+@dynamic config;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest *)object
+                         config:(NSString *)config {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"config" ];
+  NSString *pathURITemplate = @"v1/{+config}:addBitbucketServerConnectedRepository";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsAddBitbucketServerConnectedRepository *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.config = config;
+  query.expectedObjectClass = [GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.addBitbucketServerConnectedRepository";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsConnectedRepositoriesBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/connectedRepositories:batchCreate";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsConnectedRepositoriesBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.connectedRepositories.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsCreate
+
+@dynamic bitbucketServerConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BitbucketServerConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bitbucketServerConfigs";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_BitbucketServerConfig class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bitbucketServerConfigs";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListBitbucketServerConfigsResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_BitbucketServerConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsRemoveBitbucketServerConnectedRepository
+
+@dynamic config;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest *)object
+                         config:(NSString *)config {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"config" ];
+  NSString *pathURITemplate = @"v1/{+config}:removeBitbucketServerConnectedRepository";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsRemoveBitbucketServerConnectedRepository *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.config = config;
+  query.expectedObjectClass = [GTLRCloudBuild_Empty class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.removeBitbucketServerConnectedRepository";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsReposList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/repos";
+  GTLRCloudBuildQuery_ProjectsLocationsBitbucketServerConfigsReposList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListBitbucketServerRepositoriesResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.bitbucketServerConfigs.repos.list";
   return query;
 }
 

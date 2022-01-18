@@ -13,6 +13,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataproc_Batch.state
+NSString * const kGTLRDataproc_Batch_State_Cancelled        = @"CANCELLED";
+NSString * const kGTLRDataproc_Batch_State_Cancelling       = @"CANCELLING";
+NSString * const kGTLRDataproc_Batch_State_Failed           = @"FAILED";
+NSString * const kGTLRDataproc_Batch_State_Pending          = @"PENDING";
+NSString * const kGTLRDataproc_Batch_State_Running          = @"RUNNING";
+NSString * const kGTLRDataproc_Batch_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataproc_Batch_State_Succeeded        = @"SUCCEEDED";
+
 // GTLRDataproc_BatchOperationMetadata.operationType
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch = @"BATCH";
 NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified = @"BATCH_OPERATION_TYPE_UNSPECIFIED";
@@ -107,6 +116,15 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr = @"SOLR";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
+// GTLRDataproc_StateHistory.state
+NSString * const kGTLRDataproc_StateHistory_State_Cancelled    = @"CANCELLED";
+NSString * const kGTLRDataproc_StateHistory_State_Cancelling   = @"CANCELLING";
+NSString * const kGTLRDataproc_StateHistory_State_Failed       = @"FAILED";
+NSString * const kGTLRDataproc_StateHistory_State_Pending      = @"PENDING";
+NSString * const kGTLRDataproc_StateHistory_State_Running      = @"RUNNING";
+NSString * const kGTLRDataproc_StateHistory_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataproc_StateHistory_State_Succeeded    = @"SUCCEEDED";
+
 // GTLRDataproc_WorkflowMetadata.state
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Done    = @"DONE";
 NSString * const kGTLRDataproc_WorkflowMetadata_State_Pending = @"PENDING";
@@ -200,6 +218,40 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_BasicYarnAutoscalingConfig
 @dynamic gracefulDecommissionTimeout, scaleDownFactor,
          scaleDownMinWorkerFraction, scaleUpFactor, scaleUpMinWorkerFraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Batch
+//
+
+@implementation GTLRDataproc_Batch
+@dynamic createTime, creator, environmentConfig, labels, name, operation,
+         pysparkBatch, runtimeConfig, runtimeInfo, sparkBatch, sparkRBatch,
+         sparkSqlBatch, state, stateHistory, stateMessage, stateTime, uuid;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stateHistory" : [GTLRDataproc_StateHistory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Batch_Labels
+//
+
+@implementation GTLRDataproc_Batch_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -491,7 +543,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiskConfig
-@dynamic bootDiskSizeGb, bootDiskType, numLocalSsds;
+@dynamic bootDiskSizeGb, bootDiskType, localSsdInterface, numLocalSsds;
 @end
 
 
@@ -533,6 +585,34 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_EnvironmentConfig
+//
+
+@implementation GTLRDataproc_EnvironmentConfig
+@dynamic executionConfig, peripheralsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutionConfig
+//
+
+@implementation GTLRDataproc_ExecutionConfig
+@dynamic kmsKey, networkTags, networkUri, serviceAccount, subnetworkUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networkTags" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -950,6 +1030,28 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ListBatchesResponse
+//
+
+@implementation GTLRDataproc_ListBatchesResponse
+@dynamic batches, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"batches" : [GTLRDataproc_Batch class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"batches";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ListClustersResponse
 //
 
@@ -1217,6 +1319,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_PeripheralsConfig
+//
+
+@implementation GTLRDataproc_PeripheralsConfig
+@dynamic metastoreService, sparkHistoryServerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_PigJob
 //
 
@@ -1312,6 +1424,29 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_PySparkBatch
+//
+
+@implementation GTLRDataproc_PySparkBatch
+@dynamic archiveUris, args, fileUris, jarFileUris, mainPythonFileUri,
+         pythonFileUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"args" : [NSString class],
+    @"fileUris" : [NSString class],
+    @"jarFileUris" : [NSString class],
+    @"pythonFileUris" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1420,6 +1555,54 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_RuntimeConfig
+//
+
+@implementation GTLRDataproc_RuntimeConfig
+@dynamic containerImage, properties, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RuntimeConfig_Properties
+//
+
+@implementation GTLRDataproc_RuntimeConfig_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RuntimeInfo
+//
+
+@implementation GTLRDataproc_RuntimeInfo
+@dynamic diagnosticOutputUri, endpoints, outputUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_RuntimeInfo_Endpoints
+//
+
+@implementation GTLRDataproc_RuntimeInfo_Endpoints
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SecurityConfig
 //
 
@@ -1519,6 +1702,37 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SparkBatch
+//
+
+@implementation GTLRDataproc_SparkBatch
+@dynamic archiveUris, args, fileUris, jarFileUris, mainClass, mainJarFileUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"args" : [NSString class],
+    @"fileUris" : [NSString class],
+    @"jarFileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkHistoryServerConfig
+//
+
+@implementation GTLRDataproc_SparkHistoryServerConfig
+@dynamic dataprocCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SparkJob
 //
 
@@ -1555,6 +1769,26 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SparkRBatch
+//
+
+@implementation GTLRDataproc_SparkRBatch
+@dynamic archiveUris, args, fileUris, mainRFileUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"args" : [NSString class],
+    @"fileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SparkRJob
 //
 
@@ -1579,6 +1813,38 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SparkRJob_Properties
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkSqlBatch
+//
+
+@implementation GTLRDataproc_SparkSqlBatch
+@dynamic jarFileUris, queryFileUri, queryVariables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jarFileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkSqlBatch_QueryVariables
+//
+
+@implementation GTLRDataproc_SparkSqlBatch_QueryVariables
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1652,6 +1918,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_StartClusterRequest
 @dynamic clusterUuid, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StateHistory
+//
+
+@implementation GTLRDataproc_StateHistory
+@dynamic state, stateMessage, stateStartTime;
 @end
 
 

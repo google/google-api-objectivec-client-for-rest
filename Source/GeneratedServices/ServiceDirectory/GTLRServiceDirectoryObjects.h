@@ -147,6 +147,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Immutable. The Google Compute Engine network (VPC) of the endpoint in the
+ *  format `projects//locations/global/networks/ *`. The project must be
+ *  specified by project number (project id is rejected). Incorrectly formatted
+ *  networks are rejected, we also check to make sure that you have the
+ *  servicedirectory.networks.attach permission on the project specified.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
  *  Optional. Service Directory rejects values outside of `[0, 65535]`.
  *
  *  Uses NSNumber of intValue.

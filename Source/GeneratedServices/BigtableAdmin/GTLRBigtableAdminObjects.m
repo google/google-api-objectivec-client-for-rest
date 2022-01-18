@@ -424,34 +424,6 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigtableAdmin_FailureTrace
-//
-
-@implementation GTLRBigtableAdmin_FailureTrace
-@dynamic frames;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"frames" : [GTLRBigtableAdmin_Frame class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigtableAdmin_Frame
-//
-
-@implementation GTLRBigtableAdmin_Frame
-@dynamic targetName, workflowGuid, zoneId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigtableAdmin_GcRule
 //
 
@@ -1076,16 +1048,6 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigtableAdmin_UndeleteTableMetadata
-//
-
-@implementation GTLRBigtableAdmin_UndeleteTableMetadata
-@dynamic endTime, name, startTime;
 @end
 
 

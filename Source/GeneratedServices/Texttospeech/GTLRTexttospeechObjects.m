@@ -55,16 +55,6 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTexttospeech_ImportDataRequest
-//
-
-@implementation GTLRTexttospeech_ImportDataRequest
-@dynamic csvCloudStorageUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRTexttospeech_ListVoicesResponse
 //
 
@@ -76,76 +66,6 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
     @"voices" : [GTLRTexttospeech_Voice class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTexttospeech_Operation
-//
-
-@implementation GTLRTexttospeech_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTexttospeech_Operation_Metadata
-//
-
-@implementation GTLRTexttospeech_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTexttospeech_Operation_Response
-//
-
-@implementation GTLRTexttospeech_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTexttospeech_Status
-//
-
-@implementation GTLRTexttospeech_Status
-@dynamic code, details, message;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRTexttospeech_Status_Details_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRTexttospeech_Status_Details_Item
-//
-
-@implementation GTLRTexttospeech_Status_Details_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
 }
 
 @end

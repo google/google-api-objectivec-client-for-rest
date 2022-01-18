@@ -471,24 +471,6 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata
-//
-
-@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse
-//
-
-@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetLocalInventoriesResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 //
 

@@ -210,6 +210,56 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists jobs for a given pipeline. Throws a "FORBIDDEN" error if the caller
+ *  doesn't have permission to access it.
+ *
+ *  Method: datapipelines.projects.locations.pipelines.jobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDatapipelinesCloudPlatform
+ */
+@interface GTLRDatapipelinesQuery_ProjectsLocationsPipelinesJobsList : GTLRDatapipelinesQuery
+
+/**
+ *  The maximum number of entities to return. The service may return fewer than
+ *  this value, even if there are additional pages. If unspecified, the max
+ *  limit will be determined by the backend implementation.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListJobs` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListJobs` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The pipeline name. For example:
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse.
+ *
+ *  Lists jobs for a given pipeline. Throws a "FORBIDDEN" error if the caller
+ *  doesn't have permission to access it.
+ *
+ *  @param parent Required. The pipeline name. For example:
+ *    `projects/PROJECT_ID/locations/LOCATION_ID/pipelines/PIPELINE_ID`.
+ *
+ *  @return GTLRDatapipelinesQuery_ProjectsLocationsPipelinesJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a pipeline. If successful, the updated Pipeline is returned. Returns
  *  `NOT_FOUND` if the pipeline doesn't exist. If UpdatePipeline does not return
  *  successfully, you can retry the UpdatePipeline request until you receive a

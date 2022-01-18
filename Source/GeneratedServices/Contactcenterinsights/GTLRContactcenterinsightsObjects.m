@@ -1177,6 +1177,28 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListViewsResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListViewsResponse
+@dynamic nextPageToken, views;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"views" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"views";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatchData
 //
 
@@ -1383,6 +1405,16 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ph
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View
+@dynamic createTime, displayName, name, updateTime, value;
 @end
 
 

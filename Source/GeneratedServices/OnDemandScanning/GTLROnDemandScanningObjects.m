@@ -429,8 +429,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
-@dynamic analysisStatus, analysisStatusError, continuousAnalysis, cpe,
-         lastScanTime;
+@dynamic analysisStatus, analysisStatusError, archiveTime, continuousAnalysis,
+         cpe, lastScanTime;
 @end
 
 

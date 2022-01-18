@@ -947,6 +947,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
+/**
+ *  Optional. Additional ip ranges for node placement, beyond those specified in
+ *  reserved_ip_range. At most 1 secondary IP range is supported. The mask value
+ *  must not exceed /28. Not supported for BASIC tier. Updates can only add new
+ *  ranges, once added ranges cannot be changed or deleted. Values in this list
+ *  cannot overlap with the reserved_ip_range. Not supported during instance
+ *  creation.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryIpRange;
+
 /** Output only. List of server CA certificates for the instance. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_TlsCertificate *> *serverCaCerts;
 

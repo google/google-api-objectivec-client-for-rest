@@ -28,8 +28,11 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource;
@@ -37,6 +40,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue;
@@ -730,6 +734,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Business Context of the entry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext : GTLRObject
+
+/** Contact people for the entry. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts *contacts;
+
+/** Entry overview fields for rich text descriptions of entries. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview *entryOverview;
+
+@end
+
+
+/**
  *  Specification for the BigQuery connection to a Cloud SQL instance.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec : GTLRObject
@@ -792,6 +810,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  of 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Contact people for the entry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts : GTLRObject
+
+/** The list of contact people for the entry. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson *> *people;
+
+@end
+
+
+/**
+ *  A contact person for the entry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson : GTLRObject
+
+/** Designation of the person, for example, Data Steward. */
+@property(nonatomic, copy, nullable) NSString *designation;
+
+/**
+ *  Email of the person in the format of `john.doe\@xyz`, ``, or `John Doe`.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
 
 @end
 
@@ -891,6 +936,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  the `TABLE` type.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec *bigqueryTableSpec;
+
+/** Business Context of the entry. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext *businessContext;
 
 /**
  *  Specification that applies to a table resource. Valid only for entries with
@@ -1119,6 +1167,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Entry overview fields for rich text descriptions of entries.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview : GTLRObject
+
+/**
+ *  Entry overview with support for rich text. The overview must only contain
+ *  Unicode characters, and should be formatted using HTML. The maximum length
+ *  is 10 MiB as this value holds HTML descriptions including encoded images.
+ *  The maximum length of the text without images is 100 KiB.
+ */
+@property(nonatomic, copy, nullable) NSString *overview;
 
 @end
 
@@ -1425,6 +1489,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *> *taxonomies;
+
+@end
+
+
+/**
+ *  Request message for ModifyEntryContacts.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest : GTLRObject
+
+/** Required. The new value for the Contacts. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts *contacts;
+
+@end
+
+
+/**
+ *  Request message for ModifyEntryOverview.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest : GTLRObject
+
+/** Required. The new value for the Entry Overview. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview *entryOverview;
 
 @end
 

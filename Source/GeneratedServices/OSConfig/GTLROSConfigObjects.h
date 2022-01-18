@@ -3549,6 +3549,13 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  */
 @property(nonatomic, strong, nullable) GTLROSConfig_GooSettings *goo;
 
+/**
+ *  Allows the patch job to run on Managed instance groups (MIGs).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *migInstancesAllowed;
+
 /** The `ExecStep` to run after the patch update. */
 @property(nonatomic, strong, nullable) GTLROSConfig_ExecStep *postStep;
 

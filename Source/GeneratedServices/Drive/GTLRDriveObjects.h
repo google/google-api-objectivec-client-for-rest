@@ -652,6 +652,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  The organizational unit of this shared drive. This field is only populated
+ *  on drives.list responses when the useDomainAdminAccess parameter is set to
+ *  true.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
  *  A set of restrictions that apply to this shared drive or items inside this
  *  shared drive.
  */
@@ -2506,6 +2513,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The name of this Team Drive. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The organizational unit of this shared drive. This field is only populated
+ *  on drives.list responses when the useDomainAdminAccess parameter is set to
+ *  true.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 /**
  *  A set of restrictions that apply to this Team Drive or items inside this
