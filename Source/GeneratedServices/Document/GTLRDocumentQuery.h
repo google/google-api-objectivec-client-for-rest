@@ -82,7 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Fetches processor types.
+ *  Fetches processor types. Note that we do not use ListProcessorTypes here
+ *  because it is not paginated.
  *
  *  Method: documentai.projects.locations.fetchProcessorTypes
  *
@@ -102,7 +103,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDocument_GoogleCloudDocumentaiV1FetchProcessorTypesResponse.
  *
- *  Fetches processor types.
+ *  Fetches processor types. Note that we do not use ListProcessorTypes here
+ *  because it is not paginated.
  *
  *  @param parent Required. The project of processor type to list. The available
  *    processor types may depend on the allow-listing on projects. Format:

@@ -346,8 +346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Instanc
 /**
  *  Instance with only an internal IP address tries to access external hosts,
  *  but Cloud NAT is not enabled in the subnet, unless special configurations on
- *  a VM allow this connection. For more details, see [Special configurations
- *  for VM instances](https://cloud.google.com/vpc/docs/special-configurations).
+ *  a VM allow this connection.
  *
  *  Value: "NO_EXTERNAL_ADDRESS"
  */
@@ -1369,10 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
  *        with only an internal IP address tries to access external hosts, but
  *        Cloud NAT is not enabled in the subnet, unless special configurations
- *        on a VM allow this connection. For more details, see [Special
- *        configurations for VM
- *        instances](https://cloud.google.com/vpc/docs/special-configurations).
- *        (Value: "NO_EXTERNAL_ADDRESS")
+ *        on a VM allow this connection. (Value: "NO_EXTERNAL_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRoute Dropped due to no
  *        routes. (Value: "NO_ROUTE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed

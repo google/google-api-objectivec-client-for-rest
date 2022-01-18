@@ -19,33 +19,6 @@
 
 @end
 
-@implementation GTLRTexttospeechQuery_ProjectsLocationsDatasetsImport
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRTexttospeech_ImportDataRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:import";
-  GTLRTexttospeechQuery_ProjectsLocationsDatasetsImport *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRTexttospeech_Operation class];
-  query.loggingName = @"texttospeech.projects.locations.datasets.import";
-  return query;
-}
-
-@end
-
 @implementation GTLRTexttospeechQuery_TextSynthesize
 
 + (instancetype)queryWithObject:(GTLRTexttospeech_SynthesizeSpeechRequest *)object {

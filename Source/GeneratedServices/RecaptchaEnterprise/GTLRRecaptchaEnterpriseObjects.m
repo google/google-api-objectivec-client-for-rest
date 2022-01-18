@@ -175,7 +175,8 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Event
-@dynamic expectedAction, siteKey, token, userAgent, userIpAddress;
+@dynamic expectedAction, hashedAccountId, siteKey, token, userAgent,
+         userIpAddress;
 @end
 
 

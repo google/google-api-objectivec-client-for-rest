@@ -338,6 +338,12 @@ NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTi
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified = @"AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice = @"AUTO_DATE_AND_TIME_ZONE_USER_CHOICE";
 
+// GTLRAndroidManagement_Policy.cameraAccess
+NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled = @"CAMERA_ACCESS_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced = @"CAMERA_ACCESS_ENFORCED";
+NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified = @"CAMERA_ACCESS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice = @"CAMERA_ACCESS_USER_CHOICE";
+
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @"GRANT";
@@ -371,6 +377,12 @@ NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecif
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice = @"LOCATION_USER_CHOICE";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off = @"OFF";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly = @"SENSORS_ONLY";
+
+// GTLRAndroidManagement_Policy.microphoneAccess
+NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessDisabled = @"MICROPHONE_ACCESS_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessEnforced = @"MICROPHONE_ACCESS_ENFORCED";
+NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUnspecified = @"MICROPHONE_ACCESS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUserChoice = @"MICROPHONE_ACCESS_USER_CHOICE";
 
 // GTLRAndroidManagement_Policy.playStoreMode
 NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_Blacklist = @"BLACKLIST";
@@ -1365,30 +1377,30 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          androidDevicePolicyTracks, appAutoUpdatePolicy, applications,
          autoDateAndTimeZone, autoTimeRequired, blockApplicationsEnabled,
          bluetoothConfigDisabled, bluetoothContactSharingDisabled,
-         bluetoothDisabled, cameraDisabled, cellBroadcastsConfigDisabled,
-         choosePrivateKeyRules, complianceRules, createWindowsDisabled,
-         credentialsConfigDisabled, crossProfilePolicies, dataRoamingDisabled,
-         debuggingFeaturesAllowed, defaultPermissionPolicy,
+         bluetoothDisabled, cameraAccess, cameraDisabled,
+         cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
+         createWindowsDisabled, credentialsConfigDisabled, crossProfilePolicies,
+         dataRoamingDisabled, debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
          installUnknownSourcesAllowed, keyguardDisabled,
          keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
-         maximumTimeToLock, minimumApiLevel, mobileNetworksConfigDisabled,
-         modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
-         networkEscapeHatchEnabled, networkResetDisabled,
-         oncCertificateProviders, openNetworkConfiguration,
-         outgoingBeamDisabled, outgoingCallsDisabled, passwordPolicies,
-         passwordRequirements, permissionGrants, permittedAccessibilityServices,
-         permittedInputMethods, persistentPreferredActivities,
-         personalUsagePolicies, playStoreMode, policyEnforcementRules,
-         preferentialNetworkService, privateKeySelectionEnabled,
-         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, setupActions, setUserIconDisabled,
-         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
-         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
-         statusReportingSettings, stayOnPluggedModes, systemUpdate,
-         tetheringConfigDisabled, uninstallAppsDisabled,
+         maximumTimeToLock, microphoneAccess, minimumApiLevel,
+         mobileNetworksConfigDisabled, modifyAccountsDisabled,
+         mountPhysicalMediaDisabled, name, networkEscapeHatchEnabled,
+         networkResetDisabled, oncCertificateProviders,
+         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
+         passwordPolicies, passwordRequirements, permissionGrants,
+         permittedAccessibilityServices, permittedInputMethods,
+         persistentPreferredActivities, personalUsagePolicies, playStoreMode,
+         policyEnforcementRules, preferentialNetworkService,
+         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
+         safeBootDisabled, screenCaptureDisabled, setupActions,
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;

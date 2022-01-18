@@ -882,6 +882,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage;
 /**
+ *  T1190
+ *
+ *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitPublicFacingApplication;
+/**
  *  T1090.002
  *
  *  Value: "EXTERNAL_PROXY"
@@ -1141,6 +1147,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  *  Value: "EXFILTRATION_TO_CLOUD_STORAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage;
+/**
+ *  T1190
+ *
+ *  Value: "EXPLOIT_PUBLIC_FACING_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitPublicFacingApplication;
 /**
  *  T1090.002
  *

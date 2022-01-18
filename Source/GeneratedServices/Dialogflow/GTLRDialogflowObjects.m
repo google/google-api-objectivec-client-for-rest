@@ -1283,7 +1283,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo
-@dynamic currentPage, formInfo;
+@dynamic currentPage, displayName, formInfo;
 @end
 
 
@@ -3305,7 +3305,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo
-@dynamic currentPage, formInfo;
+@dynamic currentPage, displayName, formInfo;
 @end
 
 
@@ -6419,7 +6419,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2Message
 @dynamic content, createTime, languageCode, messageAnnotation, name,
-         participant, participantRole;
+         participant, participantRole, sendTime, sentimentAnalysis;
 @end
 
 
@@ -6570,6 +6570,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer
+@dynamic answerRecord, confidence, reply;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse
 //
 
@@ -6610,7 +6620,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult
-@dynamic error, suggestArticlesResponse, suggestFaqAnswersResponse;
+@dynamic error, suggestArticlesResponse, suggestFaqAnswersResponse,
+         suggestSmartRepliesResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse
+@dynamic contextSize, latestMessage, smartReplyAnswers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"smartReplyAnswers" : [GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer class]
+  };
+  return map;
+}
+
 @end
 
 

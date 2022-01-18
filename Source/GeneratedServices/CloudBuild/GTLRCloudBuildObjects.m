@@ -147,6 +147,27 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Deleted      = @"DELETED";
 NSString * const kGTLRCloudBuild_WorkerPool_State_Deleting     = @"DELETING";
 NSString * const kGTLRCloudBuild_WorkerPool_State_Running      = @"RUNNING";
 NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest
+//
+
+@implementation GTLRCloudBuild_AddBitbucketServerConnectedRepositoryRequest
+@dynamic connectedRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse
+//
+
+@implementation GTLRCloudBuild_AddBitbucketServerConnectedRepositoryResponse
+@dynamic config, connectedRepository;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -234,11 +255,123 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest
+//
+
+@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponse
+//
+
+@implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponse
+@dynamic bitbucketServerConnectedRepositories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bitbucketServerConnectedRepositories" : [GTLRCloudBuild_BitbucketServerConnectedRepository class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
 //
 
 @implementation GTLRCloudBuild_BatchCreateBitbucketServerConnectedRepositoriesResponseMetadata
 @dynamic completeTime, config, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerConfig
+//
+
+@implementation GTLRCloudBuild_BitbucketServerConfig
+@dynamic apiKey, connectedRepositories, createTime, hostUri, name,
+         peeredNetwork, secrets, sslCa, username, webhookKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectedRepositories" : [GTLRCloudBuild_BitbucketServerRepositoryId class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerConnectedRepository
+//
+
+@implementation GTLRCloudBuild_BitbucketServerConnectedRepository
+@dynamic parent, repo, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerRepository
+//
+
+@implementation GTLRCloudBuild_BitbucketServerRepository
+@dynamic browseUri, descriptionProperty, displayName, name, repoId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerRepositoryId
+//
+
+@implementation GTLRCloudBuild_BitbucketServerRepositoryId
+@dynamic projectKey, repoSlug, webhookId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerSecrets
+//
+
+@implementation GTLRCloudBuild_BitbucketServerSecrets
+@dynamic adminAccessTokenVersionName, readAccessTokenVersionName,
+         webhookSecretVersionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_BitbucketServerTriggerConfig
+//
+
+@implementation GTLRCloudBuild_BitbucketServerTriggerConfig
+@dynamic bitbucketServerConfig, bitbucketServerConfigResource, projectKey,
+         pullRequest, push, repoSlug;
 @end
 
 
@@ -376,11 +509,11 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRCloudBuild_BuildTrigger
-@dynamic approvalConfig, autodetect, build, createTime, descriptionProperty,
-         disabled, eventType, filename, filter, gitFileSource, github,
-         identifier, ignoredFiles, includedFiles, name, pubsubConfig,
-         resourceName, serviceAccount, sourceToBuild, substitutions, tags,
-         triggerTemplate, webhookConfig;
+@dynamic approvalConfig, autodetect, bitbucketServerTriggerConfig, build,
+         createTime, descriptionProperty, disabled, eventType, filename, filter,
+         gitFileSource, github, identifier, ignoredFiles, includedFiles, name,
+         pubsubConfig, resourceName, serviceAccount, sourceToBuild,
+         substitutions, tags, triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -452,11 +585,41 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CreateBitbucketServerConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_CreateBitbucketServerConfigOperationMetadata
+@dynamic bitbucketServerConfig, completeTime, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest
+//
+
+@implementation GTLRCloudBuild_CreateBitbucketServerConnectedRepositoryRequest
+@dynamic bitbucketServerConnectedRepository, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
 //
 
 @implementation GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_CreateGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_CreateGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 
@@ -472,11 +635,31 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_DeleteBitbucketServerConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_DeleteBitbucketServerConfigOperationMetadata
+@dynamic bitbucketServerConfig, completeTime, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
 //
 
 @implementation GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_DeleteGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 
@@ -663,6 +846,50 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListBitbucketServerConfigsResponse
+//
+
+@implementation GTLRCloudBuild_ListBitbucketServerConfigsResponse
+@dynamic bitbucketServerConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bitbucketServerConfigs" : [GTLRCloudBuild_BitbucketServerConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"bitbucketServerConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListBitbucketServerRepositoriesResponse
+//
+
+@implementation GTLRCloudBuild_ListBitbucketServerRepositoriesResponse
+@dynamic bitbucketServerRepositories, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bitbucketServerRepositories" : [GTLRCloudBuild_BitbucketServerRepository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"bitbucketServerRepositories";
 }
 
 @end
@@ -971,6 +1198,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest
+//
+
+@implementation GTLRCloudBuild_RemoveBitbucketServerConnectedRepositoryRequest
+@dynamic connectedRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_RepoSource
 //
 
@@ -1224,11 +1461,31 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_UpdateBitbucketServerConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_UpdateBitbucketServerConfigOperationMetadata
+@dynamic bitbucketServerConfig, completeTime, createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
 //
 
 @implementation GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
 @dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_UpdateGitLabConfigOperationMetadata
+@dynamic completeTime, createTime, gitlabConfig;
 @end
 
 

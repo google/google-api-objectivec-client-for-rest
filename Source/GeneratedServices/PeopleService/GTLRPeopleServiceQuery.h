@@ -194,7 +194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Create a new contact group owned by the authenticated user. Created contact
  *  group names must be unique to the users contact groups. Attempting to create
- *  a group with a duplicate name will return a HTTP 409 error.
+ *  a group with a duplicate name will return a HTTP 409 error. Mutate requests
+ *  for the same user should be sent sequentially to avoid increased latency and
+ *  failures.
  *
  *  Method: people.contactGroups.create
  *
@@ -208,7 +210,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *
  *  Create a new contact group owned by the authenticated user. Created contact
  *  group names must be unique to the users contact groups. Attempting to create
- *  a group with a duplicate name will return a HTTP 409 error.
+ *  a group with a duplicate name will return a HTTP 409 error. Mutate requests
+ *  for the same user should be sent sequentially to avoid increased latency and
+ *  failures.
  *
  *  @param object The @c GTLRPeopleService_CreateContactGroupRequest to include
  *    in the query.
@@ -221,7 +225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Delete an existing contact group owned by the authenticated user by
- *  specifying a contact group resource name.
+ *  specifying a contact group resource name. Mutate requests for the same user
+ *  should be sent sequentially to avoid increased latency and failures.
  *
  *  Method: people.contactGroups.delete
  *
@@ -242,7 +247,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Empty.
  *
  *  Delete an existing contact group owned by the authenticated user by
- *  specifying a contact group resource name.
+ *  specifying a contact group resource name. Mutate requests for the same user
+ *  should be sent sequentially to avoid increased latency and failures.
  *
  *  @param resourceName Required. The resource name of the contact group to
  *    delete.
@@ -395,7 +401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Update the name of an existing contact group owned by the authenticated
  *  user. Updated contact group names must be unique to the users contact
  *  groups. Attempting to create a group with a duplicate name will return a
- *  HTTP 409 error.
+ *  HTTP 409 error. Mutate requests for the same user should be sent
+ *  sequentially to avoid increased latency and failures.
  *
  *  Method: people.contactGroups.update
  *
@@ -416,7 +423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Update the name of an existing contact group owned by the authenticated
  *  user. Updated contact group names must be unique to the users contact
  *  groups. Attempting to create a group with a duplicate name will return a
- *  HTTP 409 error.
+ *  HTTP 409 error. Mutate requests for the same user should be sent
+ *  sequentially to avoid increased latency and failures.
  *
  *  @param object The @c GTLRPeopleService_UpdateContactGroupRequest to include
  *    in the query.
@@ -433,6 +441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Copies an "Other contact" to a new contact in the user's "myContacts" group
+ *  Mutate requests for the same user should be sent sequentially to avoid
+ *  increased latency and failures.
  *
  *  Method: people.otherContacts.copyOtherContactToMyContactsGroup
  *
@@ -449,6 +459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Copies an "Other contact" to a new contact in the user's "myContacts" group
+ *  Mutate requests for the same user should be sent sequentially to avoid
+ *  increased latency and failures.
  *
  *  @param object The @c
  *    GTLRPeopleService_CopyOtherContactToMyContactsGroupRequest to include in
@@ -636,7 +648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Create a batch of new contacts and return the PersonResponses for the newly
- *  created contacts. Limited to 10 parallel requests per user.
+ *  Mutate requests for the same user should be sent sequentially to avoid
+ *  increased latency and failures.
  *
  *  Method: people.people.batchCreateContacts
  *
@@ -649,7 +662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_BatchCreateContactsResponse.
  *
  *  Create a batch of new contacts and return the PersonResponses for the newly
- *  created contacts. Limited to 10 parallel requests per user.
+ *  Mutate requests for the same user should be sent sequentially to avoid
+ *  increased latency and failures.
  *
  *  @param object The @c GTLRPeopleService_BatchCreateContactsRequest to include
  *    in the query.
@@ -661,8 +675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Delete a batch of contacts. Any non-contact data will not be deleted.
- *  Limited to 10 parallel requests per user.
+ *  Delete a batch of contacts. Any non-contact data will not be deleted. Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  Method: people.people.batchDeleteContacts
  *
@@ -674,8 +689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_Empty.
  *
- *  Delete a batch of contacts. Any non-contact data will not be deleted.
- *  Limited to 10 parallel requests per user.
+ *  Delete a batch of contacts. Any non-contact data will not be deleted. Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  @param object The @c GTLRPeopleService_BatchDeleteContactsRequest to include
  *    in the query.
@@ -688,8 +704,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Update a batch of contacts and return a map of resource names to
- *  PersonResponses for the updated contacts. Limited to 10 parallel requests
- *  per user.
+ *  PersonResponses for the updated contacts. Mutate requests for the same user
+ *  should be sent sequentially to avoid increased latency and failures.
  *
  *  Method: people.people.batchUpdateContacts
  *
@@ -702,8 +718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_BatchUpdateContactsResponse.
  *
  *  Update a batch of contacts and return a map of resource names to
- *  PersonResponses for the updated contacts. Limited to 10 parallel requests
- *  per user.
+ *  PersonResponses for the updated contacts. Mutate requests for the same user
+ *  should be sent sequentially to avoid increased latency and failures.
  *
  *  @param object The @c GTLRPeopleService_BatchUpdateContactsRequest to include
  *    in the query.
@@ -866,7 +882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Create a new contact and return the person resource for that contact. The
  *  request returns a 400 error if more than one field is specified on a field
  *  that is a singleton for contact sources: * biographies * birthdays * genders
- *  * names
+ *  * names Mutate requests for the same user should be sent sequentially to
+ *  avoid increased latency and failures.
  *
  *  Method: people.people.createContact
  *
@@ -912,7 +929,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Create a new contact and return the person resource for that contact. The
  *  request returns a 400 error if more than one field is specified on a field
  *  that is a singleton for contact sources: * biographies * birthdays * genders
- *  * names
+ *  * names Mutate requests for the same user should be sent sequentially to
+ *  avoid increased latency and failures.
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *
@@ -923,7 +941,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Delete a contact person. Any non-contact data will not be deleted.
+ *  Delete a contact person. Any non-contact data will not be deleted. Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  Method: people.people.deleteContact
  *
@@ -938,7 +958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_Empty.
  *
- *  Delete a contact person. Any non-contact data will not be deleted.
+ *  Delete a contact person. Any non-contact data will not be deleted. Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  @param resourceName Required. The resource name of the contact to delete.
  *
@@ -949,7 +971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Delete a contact's photo.
+ *  Delete a contact's photo. Mutate requests for the same user should be done
+ *  sequentially to avoid // lock contention.
  *
  *  Method: people.people.deleteContactPhoto
  *
@@ -995,7 +1018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_DeleteContactPhotoResponse.
  *
- *  Delete a contact's photo.
+ *  Delete a contact's photo. Mutate requests for the same user should be done
+ *  sequentially to avoid // lock contention.
  *
  *  @param resourceName Required. The resource name of the contact whose photo
  *    will be deleted.
@@ -1476,7 +1500,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  server returns a 400 error if `memberships` are being updated and there are
  *  no contact group memberships specified on the person. The server returns a
  *  400 error if more than one field is specified on a field that is a singleton
- *  for contact sources: * biographies * birthdays * genders * names
+ *  for contact sources: * biographies * birthdays * genders * names Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  Method: people.people.updateContact
  *
@@ -1550,7 +1576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  server returns a 400 error if `memberships` are being updated and there are
  *  no contact group memberships specified on the person. The server returns a
  *  400 error if more than one field is specified on a field that is a singleton
- *  for contact sources: * biographies * birthdays * genders * names
+ *  for contact sources: * biographies * birthdays * genders * names Mutate
+ *  requests for the same user should be sent sequentially to avoid increased
+ *  latency and failures.
  *
  *  @param object The @c GTLRPeopleService_Person to include in the query.
  *  @param resourceName The resource name for the person, assigned by the
@@ -1565,7 +1593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Update a contact's photo.
+ *  Update a contact's photo. Mutate requests for the same user should be sent
+ *  sequentially to avoid increased latency and failures.
  *
  *  Method: people.people.updateContactPhoto
  *
@@ -1580,7 +1609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_UpdateContactPhotoResponse.
  *
- *  Update a contact's photo.
+ *  Update a contact's photo. Mutate requests for the same user should be sent
+ *  sequentially to avoid increased latency and failures.
  *
  *  @param object The @c GTLRPeopleService_UpdateContactPhotoRequest to include
  *    in the query.

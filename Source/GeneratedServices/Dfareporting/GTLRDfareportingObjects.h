@@ -2015,6 +2015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingD
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_MonitoringOnly;
 /** Value: "NONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None;
+/** Value: "NON_VPAID_MONITORING" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring;
 /** Value: "TRACKING" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking;
 /** Value: "VIDEO_PIXEL_MONITORING" */
@@ -2163,6 +2165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_Placem
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingJavascript;
+/** Value: "PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Placement_TagFormats_PlacementTagTrackingThirdPartyMeasurement;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Placement.vpaidAdapterChoice
@@ -2467,6 +2471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTag
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingJavascript;
+/** Value: "PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TagData_Format_PlacementTagTrackingThirdPartyMeasurement;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TagSetting.keywordOption
@@ -4965,7 +4971,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *childDirectedTreatment;
 
-/** Custom floodlight variables. */
+/**
+ *  Custom floodlight variables. This field may only be used when calling
+ *  batchinsert; it is not supported by batchupdate.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomFloodlightVariable *> *customVariables;
 
 /**
@@ -7258,7 +7267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 
 /**
- *  A custom floodlight variable.
+ *  A custom floodlight variable. This field may only be used when calling
+ *  batchinsert; it is not supported by batchupdate.
  */
 @interface GTLRDfareporting_CustomFloodlightVariable : GTLRObject
 
@@ -9975,6 +9985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        Value "MONITORING_ONLY"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_None
  *        Value "NONE"
+ *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_NonVpaidMonitoring
+ *        Value "NON_VPAID_MONITORING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_Tracking
  *        Value "TRACKING"
  *    @arg @c kGTLRDfareporting_MeasurementPartnerWrappingData_TagWrappingMode_VideoPixelMonitoring
@@ -13935,6 +13947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        "PLACEMENT_TAG_TRACKING_IFRAME"
  *    @arg @c kGTLRDfareporting_TagData_Format_PlacementTagTrackingJavascript
  *        Value "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
+ *    @arg @c kGTLRDfareporting_TagData_Format_PlacementTagTrackingThirdPartyMeasurement
+ *        Value "PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT"
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

@@ -363,6 +363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTracki
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe;
 /** Value: "PLACEMENT_TAG_TRACKING_JAVASCRIPT" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript;
+/** Value: "PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement;
 
 // ----------------------------------------------------------------------------
 // type
@@ -6920,6 +6922,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        Value "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast4
  *        Value "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement
+ *        Value "PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagFormats;
 

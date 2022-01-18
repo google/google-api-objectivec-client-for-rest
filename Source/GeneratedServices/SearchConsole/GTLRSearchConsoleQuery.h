@@ -85,7 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a sitemap from this site.
+ *  Deletes a sitemap from the Sitemaps report. Does not stop Google from
+ *  crawling this sitemap or the URLs that were previously crawled in the
+ *  deleted sitemap.
  *
  *  Method: webmasters.sitemaps.delete
  *
@@ -109,7 +111,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a sitemap from this site.
+ *  Deletes a sitemap from the Sitemaps report. Does not stop Google from
+ *  crawling this sitemap or the URLs that were previously crawled in the
+ *  deleted sitemap.
  *
  *  @param siteUrl The site's URL, including protocol. For example:
  *    `http://www.example.com/`.

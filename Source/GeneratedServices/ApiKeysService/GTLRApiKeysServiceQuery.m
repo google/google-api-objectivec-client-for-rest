@@ -171,7 +171,7 @@
 
 @implementation GTLRApiKeysServiceQuery_ProjectsLocationsKeysList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, showDeleted;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

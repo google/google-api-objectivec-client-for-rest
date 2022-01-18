@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Run Admin API (run/v1)
+//   Cloud Run Admin API (run/v2)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
 //   based on incoming requests. The Cloud Run Admin API follows the Knative
@@ -15,44 +15,151 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudRun_AuditLogConfig.logType
-NSString * const kGTLRCloudRun_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
-NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataRead = @"DATA_READ";
-NSString * const kGTLRCloudRun_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
-NSString * const kGTLRCloudRun_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.domainMappingReason
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificateAlreadyExists = @"CERTIFICATE_ALREADY_EXISTS";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificateFailed = @"CERTIFICATE_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_CertificatePending = @"CERTIFICATE_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_DomainMappingReasonUndefined = @"DOMAIN_MAPPING_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_MappingAlreadyExists = @"MAPPING_ALREADY_EXISTS";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_RouteNotReady = @"ROUTE_NOT_READY";
 
-// GTLRCloudRun_DomainMappingSpec.certificateMode
-NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_Automatic = @"AUTOMATIC";
-NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_CertificateModeUnspecified = @"CERTIFICATE_MODE_UNSPECIFIED";
-NSString * const kGTLRCloudRun_DomainMappingSpec_CertificateMode_None = @"NONE";
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.executionReason
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
 
-// GTLRCloudRun_ResourceRecord.type
-NSString * const kGTLRCloudRun_ResourceRecord_Type_A           = @"A";
-NSString * const kGTLRCloudRun_ResourceRecord_Type_Aaaa        = @"AAAA";
-NSString * const kGTLRCloudRun_ResourceRecord_Type_Cname       = @"CNAME";
-NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"RECORD_TYPE_UNSPECIFIED";
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.internalReason
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_AssigningTraffic = @"ASSIGNING_TRAFFIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_ConfigurationMissing = @"CONFIGURATION_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_ConflictingRevisionName = @"CONFLICTING_REVISION_NAME";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_EnablingGcfv2UriSupport = @"ENABLING_GCFV2_URI_SUPPORT";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_InternalReasonUndefined = @"INTERNAL_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_RevisionMissing = @"REVISION_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_RevisionOrgPolicyViolation = @"REVISION_ORG_POLICY_VIOLATION";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_UpdatingIngressTrafficAllowed = @"UPDATING_INGRESS_TRAFFIC_ALLOWED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.reason
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_BuildStepFailed = @"BUILD_STEP_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_CommonReasonUndefined = @"COMMON_REASON_UNDEFINED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerImageAuthorizationCheckFailed = @"CONTAINER_IMAGE_AUTHORIZATION_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerImageUnauthorized = @"CONTAINER_IMAGE_UNAUTHORIZED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerMissing = @"CONTAINER_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ContainerPermissionDenied = @"CONTAINER_PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_EncryptionKeyCheckFailed = @"ENCRYPTION_KEY_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_EncryptionKeyPermissionDenied = @"ENCRYPTION_KEY_PERMISSION_DENIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ImmediateRetry = @"IMMEDIATE_RETRY";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_PostponedRetry = @"POSTPONED_RETRY";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_ProgressDeadlineExceeded = @"PROGRESS_DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_RevisionFailed = @"REVISION_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_RouteMissing = @"ROUTE_MISSING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_SecretsAccessCheckFailed = @"SECRETS_ACCESS_CHECK_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_WaitingForOperation = @"WAITING_FOR_OPERATION";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.revisionReason
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_ActiveRevisionLimitReached = @"ACTIVE_REVISION_LIMIT_REACHED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_CustomizedPathResponsePending = @"CUSTOMIZED_PATH_RESPONSE_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckContainerError = @"HEALTH_CHECK_CONTAINER_ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_MinInstancesNotProvisioned = @"MIN_INSTANCES_NOT_PROVISIONED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_NoDeployment = @"NO_DEPLOYMENT";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Pending = @"PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Recreating = @"RECREATING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Reserve = @"RESERVE";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Retired = @"RETIRED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Retiring = @"RETIRING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_RevisionReasonUndefined = @"REVISION_REASON_UNDEFINED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.severity
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Error = @"ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Info = @"INFO";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Severity_Warning = @"WARNING";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Condition.state
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionFailed = @"CONDITION_FAILED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionPending = @"CONDITION_PENDING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionReconciling = @"CONDITION_RECONCILING";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_ConditionSucceeded = @"CONDITION_SUCCEEDED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Revision.executionEnvironment
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Revision.launchStage
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate.executionEnvironment
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentDefault = @"EXECUTION_ENVIRONMENT_DEFAULT";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentGen2 = @"EXECUTION_ENVIRONMENT_GEN2";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_ExecutionEnvironment_ExecutionEnvironmentUnspecified = @"EXECUTION_ENVIRONMENT_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Service.ingress
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficAll = @"INGRESS_TRAFFIC_ALL";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficInternalLoadBalancer = @"INGRESS_TRAFFIC_INTERNAL_LOAD_BALANCER";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficInternalOnly = @"INGRESS_TRAFFIC_INTERNAL_ONLY";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingress_IngressTrafficUnspecified = @"INGRESS_TRAFFIC_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2Service.launchStage
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Alpha = @"ALPHA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Beta = @"BETA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_EarlyAccess = @"EARLY_ACCESS";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Ga = @"GA";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Prelaunch = @"PRELAUNCH";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget.type
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTarget_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus.type
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeLatest = @"TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeRevision = @"TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus_Type_TrafficTargetAllocationTypeUnspecified = @"TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleCloudRunOpV2VpcAccess.egress
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2VpcAccess_Egress_VpcEgressUnspecified = @"VPC_EGRESS_UNSPECIFIED";
+
+// GTLRCloudRun_GoogleIamV1AuditLogConfig.logType
+NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_Addressable
+//   GTLRCloudRun_GoogleCloudRunOpV2BinaryAuthorization
 //
 
-@implementation GTLRCloudRun_Addressable
-@dynamic url;
+@implementation GTLRCloudRun_GoogleCloudRunOpV2BinaryAuthorization
+@dynamic breakglassJustification, useDefault;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_AuditConfig
+//   GTLRCloudRun_GoogleCloudRunOpV2CloudSqlInstance
 //
 
-@implementation GTLRCloudRun_AuditConfig
-@dynamic auditLogConfigs, service;
+@implementation GTLRCloudRun_GoogleCloudRunOpV2CloudSqlInstance
+@dynamic connections;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRCloudRun_AuditLogConfig class]
+    @"connections" : [NSString class]
   };
   return map;
 }
@@ -62,10 +169,425 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_AuditLogConfig
+//   GTLRCloudRun_GoogleCloudRunOpV2Condition
 //
 
-@implementation GTLRCloudRun_AuditLogConfig
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Condition
+@dynamic domainMappingReason, executionReason, internalReason,
+         lastTransitionTime, message, reason, revisionReason, severity, state,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Container
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Container
+@dynamic args, command, env, image, name, ports, resources, volumeMounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"command" : [NSString class],
+    @"env" : [GTLRCloudRun_GoogleCloudRunOpV2EnvVar class],
+    @"ports" : [GTLRCloudRun_GoogleCloudRunOpV2ContainerPort class],
+    @"volumeMounts" : [GTLRCloudRun_GoogleCloudRunOpV2VolumeMount class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2ContainerPort
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2ContainerPort
+@dynamic containerPort, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2EnvVar
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2EnvVar
+@dynamic name, value, valueSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2EnvVarSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2EnvVarSource
+@dynamic secretKeyRef;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2ListRevisionsResponse
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2ListRevisionsResponse
+@dynamic nextPageToken, revisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"revisions" : [GTLRCloudRun_GoogleCloudRunOpV2Revision class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"revisions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2ListServicesResponse
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2ListServicesResponse
+@dynamic nextPageToken, services;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"services" : [GTLRCloudRun_GoogleCloudRunOpV2Service class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"services";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements
+@dynamic cpuIdle, limits;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements_Limits
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2ResourceRequirements_Limits
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Revision
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision
+@dynamic annotations, conditions, confidential, containerConcurrency,
+         containers, createTime, deleteTime, encryptionKey, ETag,
+         executionEnvironment, expireTime, generation, labels, launchStage,
+         logUri, name, observedGeneration, reconciling, scaling, service,
+         serviceAccount, timeout, uid, updateTime, volumes, vpcAccess;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunOpV2Condition class],
+    @"containers" : [GTLRCloudRun_GoogleCloudRunOpV2Container class],
+    @"volumes" : [GTLRCloudRun_GoogleCloudRunOpV2Volume class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Revision_Annotations
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Revision_Labels
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Revision_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2RevisionScaling
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionScaling
+@dynamic maxInstanceCount, minInstanceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate
+@dynamic annotations, confidential, containerConcurrency, containers,
+         encryptionKey, executionEnvironment, labels, revision, scaling,
+         serviceAccount, timeout, volumes, vpcAccess;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containers" : [GTLRCloudRun_GoogleCloudRunOpV2Container class],
+    @"volumes" : [GTLRCloudRun_GoogleCloudRunOpV2Volume class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Annotations
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Labels
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2RevisionTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2SecretKeySelector
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2SecretKeySelector
+@dynamic secret, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2SecretVolumeSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2SecretVolumeSource
+@dynamic defaultMode, items, secret;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRCloudRun_GoogleCloudRunOpV2VersionToPath class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Service
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Service
+@dynamic annotations, binaryAuthorization, client, clientVersion, conditions,
+         createTime, creator, deleteTime, descriptionProperty, ETag, expireTime,
+         generation, ingress, labels, lastModifier, latestCreatedRevision,
+         latestReadyRevision, launchStage, name, observedGeneration,
+         reconciling, templateProperty, terminalCondition, traffic,
+         trafficStatuses, uid, updateTime, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag",
+    @"templateProperty" : @"template"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRCloudRun_GoogleCloudRunOpV2Condition class],
+    @"traffic" : [GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget class],
+    @"trafficStatuses" : [GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Service_Annotations
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Service_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Service_Labels
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Service_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2TrafficTarget
+@dynamic percent, revision, tag, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2TrafficTargetStatus
+@dynamic percent, revision, tag, type, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2VersionToPath
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2VersionToPath
+@dynamic mode, path, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2Volume
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2Volume
+@dynamic cloudSqlInstance, name, secret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2VolumeMount
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2VolumeMount
+@dynamic mountPath, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunOpV2VpcAccess
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunOpV2VpcAccess
+@dynamic connector, egress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleIamV1AuditConfig
+//
+
+@implementation GTLRCloudRun_GoogleIamV1AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRCloudRun_GoogleIamV1AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleIamV1AuditLogConfig
+//
+
+@implementation GTLRCloudRun_GoogleIamV1AuditLogConfig
 @dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -80,25 +602,10 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_AuthorizedDomain
+//   GTLRCloudRun_GoogleIamV1Binding
 //
 
-@implementation GTLRCloudRun_AuthorizedDomain
-@dynamic identifier, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Binding
-//
-
-@implementation GTLRCloudRun_Binding
+@implementation GTLRCloudRun_GoogleIamV1Binding
 @dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -113,86 +620,20 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_ConfigMapEnvSource
+//   GTLRCloudRun_GoogleIamV1Policy
 //
 
-@implementation GTLRCloudRun_ConfigMapEnvSource
-@dynamic localObjectReference, name, optional;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ConfigMapKeySelector
-//
-
-@implementation GTLRCloudRun_ConfigMapKeySelector
-@dynamic key, localObjectReference, name, optional;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ConfigMapVolumeSource
-//
-
-@implementation GTLRCloudRun_ConfigMapVolumeSource
-@dynamic defaultMode, items, name, optional;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_KeyToPath class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Configuration
-//
-
-@implementation GTLRCloudRun_Configuration
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ConfigurationSpec
-//
-
-@implementation GTLRCloudRun_ConfigurationSpec
-@dynamic templateProperty;
+@implementation GTLRCloudRun_GoogleIamV1Policy
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"templateProperty" : @"template" };
+  return @{ @"ETag" : @"etag" };
 }
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ConfigurationStatus
-//
-
-@implementation GTLRCloudRun_ConfigurationStatus
-@dynamic conditions, latestCreatedRevisionName, latestReadyRevisionName,
-         observedGeneration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class]
+    @"auditConfigs" : [GTLRCloudRun_GoogleIamV1AuditConfig class],
+    @"bindings" : [GTLRCloudRun_GoogleIamV1Binding class]
   };
   return map;
 }
@@ -202,23 +643,25 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_Container
+//   GTLRCloudRun_GoogleIamV1SetIamPolicyRequest
 //
 
-@implementation GTLRCloudRun_Container
-@dynamic args, command, env, envFrom, image, imagePullPolicy, livenessProbe,
-         name, ports, readinessProbe, resources, securityContext, startupProbe,
-         terminationMessagePath, terminationMessagePolicy, volumeMounts,
-         workingDir;
+@implementation GTLRCloudRun_GoogleIamV1SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest
+//
+
+@implementation GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest
+@dynamic permissions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"args" : [NSString class],
-    @"command" : [NSString class],
-    @"env" : [GTLRCloudRun_EnvVar class],
-    @"envFrom" : [GTLRCloudRun_EnvFromSource class],
-    @"ports" : [GTLRCloudRun_ContainerPort class],
-    @"volumeMounts" : [GTLRCloudRun_VolumeMount class]
+    @"permissions" : [NSString class]
   };
   return map;
 }
@@ -228,53 +671,15 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_ContainerPort
+//   GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse
 //
 
-@implementation GTLRCloudRun_ContainerPort
-@dynamic containerPort, name, protocol;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_DomainMapping
-//
-
-@implementation GTLRCloudRun_DomainMapping
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_DomainMappingSpec
-//
-
-@implementation GTLRCloudRun_DomainMappingSpec
-@dynamic certificateMode, forceOverride, routeName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_DomainMappingStatus
-//
-
-@implementation GTLRCloudRun_DomainMappingStatus
-@dynamic conditions, mappedRouteName, observedGeneration, resourceRecords, url;
+@implementation GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse
+@dynamic permissions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class],
-    @"resourceRecords" : [GTLRCloudRun_ResourceRecord class]
+    @"permissions" : [NSString class]
   };
   return map;
 }
@@ -284,150 +689,21 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_Empty
+//   GTLRCloudRun_GoogleLongrunningListOperationsResponse
 //
 
-@implementation GTLRCloudRun_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_EnvFromSource
-//
-
-@implementation GTLRCloudRun_EnvFromSource
-@dynamic configMapRef, prefix, secretRef;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_EnvVar
-//
-
-@implementation GTLRCloudRun_EnvVar
-@dynamic name, value, valueFrom;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_EnvVarSource
-//
-
-@implementation GTLRCloudRun_EnvVarSource
-@dynamic configMapKeyRef, secretKeyRef;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ExecAction
-//
-
-@implementation GTLRCloudRun_ExecAction
-@dynamic command;
+@implementation GTLRCloudRun_GoogleLongrunningListOperationsResponse
+@dynamic nextPageToken, operations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"command" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Expr
-//
-
-@implementation GTLRCloudRun_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_GoogleCloudRunV1Condition
-//
-
-@implementation GTLRCloudRun_GoogleCloudRunV1Condition
-@dynamic lastTransitionTime, message, reason, severity, status, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_GoogleLongrunningCancelOperationRequest
-//
-
-@implementation GTLRCloudRun_GoogleLongrunningCancelOperationRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_HTTPGetAction
-//
-
-@implementation GTLRCloudRun_HTTPGetAction
-@dynamic host, httpHeaders, path, scheme;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"httpHeaders" : [GTLRCloudRun_HTTPHeader class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_HTTPHeader
-//
-
-@implementation GTLRCloudRun_HTTPHeader
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_KeyToPath
-//
-
-@implementation GTLRCloudRun_KeyToPath
-@dynamic key, mode, path;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListAuthorizedDomainsResponse
-//
-
-@implementation GTLRCloudRun_ListAuthorizedDomainsResponse
-@dynamic domains, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"domains" : [GTLRCloudRun_AuthorizedDomain class]
+    @"operations" : [GTLRCloudRun_GoogleLongrunningOperation class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"domains";
+  return @"operations";
 }
 
 @end
@@ -435,206 +711,20 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_ListConfigurationsResponse
+//   GTLRCloudRun_GoogleLongrunningOperation
 //
 
-@implementation GTLRCloudRun_ListConfigurationsResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_Configuration class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
+@implementation GTLRCloudRun_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_ListDomainMappingsResponse
+//   GTLRCloudRun_GoogleLongrunningOperation_Metadata
 //
 
-@implementation GTLRCloudRun_ListDomainMappingsResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_DomainMapping class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListLocationsResponse
-//
-
-@implementation GTLRCloudRun_ListLocationsResponse
-@dynamic locations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRCloudRun_Location class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"locations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListMeta
-//
-
-@implementation GTLRCloudRun_ListMeta
-@dynamic continueProperty, resourceVersion, selfLink;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"continueProperty" : @"continue" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListRevisionsResponse
-//
-
-@implementation GTLRCloudRun_ListRevisionsResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_Revision class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListRoutesResponse
-//
-
-@implementation GTLRCloudRun_ListRoutesResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_Route class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ListServicesResponse
-//
-
-@implementation GTLRCloudRun_ListServicesResponse
-@dynamic apiVersion, items, kind, metadata, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_Service class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_LocalObjectReference
-//
-
-@implementation GTLRCloudRun_LocalObjectReference
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Location
-//
-
-@implementation GTLRCloudRun_Location
-@dynamic displayName, labels, locationId, metadata, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Location_Labels
-//
-
-@implementation GTLRCloudRun_Location_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Location_Metadata
-//
-
-@implementation GTLRCloudRun_Location_Metadata
+@implementation GTLRCloudRun_GoogleLongrunningOperation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -645,508 +735,69 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudRun_ObjectMeta
+//   GTLRCloudRun_GoogleLongrunningOperation_Response
 //
 
-@implementation GTLRCloudRun_ObjectMeta
-@dynamic annotations, clusterName, creationTimestamp,
-         deletionGracePeriodSeconds, deletionTimestamp, finalizers,
-         generateName, generation, labels, name, namespaceProperty,
-         ownerReferences, resourceVersion, selfLink, uid;
+@implementation GTLRCloudRun_GoogleLongrunningOperation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleProtobufEmpty
+//
+
+@implementation GTLRCloudRun_GoogleProtobufEmpty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleRpcStatus
+//
+
+@implementation GTLRCloudRun_GoogleRpcStatus
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRCloudRun_GoogleRpcStatus_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleRpcStatus_Details_Item
+//
+
+@implementation GTLRCloudRun_GoogleRpcStatus_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleTypeExpr
+//
+
+@implementation GTLRCloudRun_GoogleTypeExpr
+@dynamic descriptionProperty, expression, location, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"namespaceProperty" : @"namespace" };
+  return @{ @"descriptionProperty" : @"description" };
 }
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"finalizers" : [NSString class],
-    @"ownerReferences" : [GTLRCloudRun_OwnerReference class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ObjectMeta_Annotations
-//
-
-@implementation GTLRCloudRun_ObjectMeta_Annotations
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ObjectMeta_Labels
-//
-
-@implementation GTLRCloudRun_ObjectMeta_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_OwnerReference
-//
-
-@implementation GTLRCloudRun_OwnerReference
-@dynamic apiVersion, blockOwnerDeletion, controller, kind, name, uid;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Policy
-//
-
-@implementation GTLRCloudRun_Policy
-@dynamic auditConfigs, bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"auditConfigs" : [GTLRCloudRun_AuditConfig class],
-    @"bindings" : [GTLRCloudRun_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Probe
-//
-
-@implementation GTLRCloudRun_Probe
-@dynamic exec, failureThreshold, httpGet, initialDelaySeconds, periodSeconds,
-         successThreshold, tcpSocket, timeoutSeconds;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ResourceRecord
-//
-
-@implementation GTLRCloudRun_ResourceRecord
-@dynamic name, rrdata, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ResourceRequirements
-//
-
-@implementation GTLRCloudRun_ResourceRequirements
-@dynamic limits, requests;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ResourceRequirements_Limits
-//
-
-@implementation GTLRCloudRun_ResourceRequirements_Limits
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ResourceRequirements_Requests
-//
-
-@implementation GTLRCloudRun_ResourceRequirements_Requests
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Revision
-//
-
-@implementation GTLRCloudRun_Revision
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_RevisionSpec
-//
-
-@implementation GTLRCloudRun_RevisionSpec
-@dynamic containerConcurrency, containers, serviceAccountName, timeoutSeconds,
-         volumes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"containers" : [GTLRCloudRun_Container class],
-    @"volumes" : [GTLRCloudRun_Volume class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_RevisionStatus
-//
-
-@implementation GTLRCloudRun_RevisionStatus
-@dynamic conditions, imageDigest, logUrl, observedGeneration, serviceName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_RevisionTemplate
-//
-
-@implementation GTLRCloudRun_RevisionTemplate
-@dynamic metadata, spec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Route
-//
-
-@implementation GTLRCloudRun_Route
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_RouteSpec
-//
-
-@implementation GTLRCloudRun_RouteSpec
-@dynamic traffic;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"traffic" : [GTLRCloudRun_TrafficTarget class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_RouteStatus
-//
-
-@implementation GTLRCloudRun_RouteStatus
-@dynamic address, conditions, observedGeneration, traffic, url;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class],
-    @"traffic" : [GTLRCloudRun_TrafficTarget class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_SecretEnvSource
-//
-
-@implementation GTLRCloudRun_SecretEnvSource
-@dynamic localObjectReference, name, optional;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_SecretKeySelector
-//
-
-@implementation GTLRCloudRun_SecretKeySelector
-@dynamic key, localObjectReference, name, optional;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_SecretVolumeSource
-//
-
-@implementation GTLRCloudRun_SecretVolumeSource
-@dynamic defaultMode, items, optional, secretName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRCloudRun_KeyToPath class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_SecurityContext
-//
-
-@implementation GTLRCloudRun_SecurityContext
-@dynamic runAsUser;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Service
-//
-
-@implementation GTLRCloudRun_Service
-@dynamic apiVersion, kind, metadata, spec, status;
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ServiceSpec
-//
-
-@implementation GTLRCloudRun_ServiceSpec
-@dynamic templateProperty, traffic;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"templateProperty" : @"template" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"traffic" : [GTLRCloudRun_TrafficTarget class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_ServiceStatus
-//
-
-@implementation GTLRCloudRun_ServiceStatus
-@dynamic address, conditions, latestCreatedRevisionName,
-         latestReadyRevisionName, observedGeneration, traffic, url;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRCloudRun_GoogleCloudRunV1Condition class],
-    @"traffic" : [GTLRCloudRun_TrafficTarget class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_SetIamPolicyRequest
-//
-
-@implementation GTLRCloudRun_SetIamPolicyRequest
-@dynamic policy, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Status
-//
-
-@implementation GTLRCloudRun_Status
-@dynamic code, details, message, metadata, reason, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_StatusCause
-//
-
-@implementation GTLRCloudRun_StatusCause
-@dynamic field, message, reason;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_StatusDetails
-//
-
-@implementation GTLRCloudRun_StatusDetails
-@dynamic causes, group, kind, name, retryAfterSeconds, uid;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"causes" : [GTLRCloudRun_StatusCause class]
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_TCPSocketAction
-//
-
-@implementation GTLRCloudRun_TCPSocketAction
-@dynamic host, port;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_TestIamPermissionsRequest
-//
-
-@implementation GTLRCloudRun_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_TestIamPermissionsResponse
-//
-
-@implementation GTLRCloudRun_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_TrafficTarget
-//
-
-@implementation GTLRCloudRun_TrafficTarget
-@dynamic configurationName, latestRevision, percent, revisionName, tag, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_Volume
-//
-
-@implementation GTLRCloudRun_Volume
-@dynamic configMap, name, secret;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudRun_VolumeMount
-//
-
-@implementation GTLRCloudRun_VolumeMount
-@dynamic mountPath, name, readOnly, subPath;
 @end

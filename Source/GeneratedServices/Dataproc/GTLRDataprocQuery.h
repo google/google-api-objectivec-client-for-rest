@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRDataproc_AutoscalingPolicy;
+@class GTLRDataproc_Batch;
 @class GTLRDataproc_CancelJobRequest;
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_DiagnoseClusterRequest;
@@ -452,6 +453,152 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @end
 
 /**
+ *  Creates a batch workload that executes asynchronously.
+ *
+ *  Method: dataproc.projects.locations.batches.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesCreate : GTLRDataprocQuery
+
+/**
+ *  Optional. The ID to use for the batch, which will become the final component
+ *  of the batch's resource name.This value must be 4-63 characters. Valid
+ *  characters are /[a-z][0-9]-/.
+ */
+@property(nonatomic, copy, nullable) NSString *batchId;
+
+/** Required. The parent resource where this batch will be created. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the service receives
+ *  two CreateBatchRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest)s
+ *  with the same request_id, the second request is ignored and the Operation
+ *  that corresponds to the first Batch created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Creates a batch workload that executes asynchronously.
+ *
+ *  @param object The @c GTLRDataproc_Batch to include in the query.
+ *  @param parent Required. The parent resource where this batch will be
+ *    created.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_Batch *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the batch workload resource. If the batch is not in terminal state,
+ *  the delete fails and the response returns FAILED_PRECONDITION.
+ *
+ *  Method: dataproc.projects.locations.batches.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesDelete : GTLRDataprocQuery
+
+/** Required. The name of the batch resource to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Empty.
+ *
+ *  Deletes the batch workload resource. If the batch is not in terminal state,
+ *  the delete fails and the response returns FAILED_PRECONDITION.
+ *
+ *  @param name Required. The name of the batch resource to delete.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the batch workload resource representation.
+ *
+ *  Method: dataproc.projects.locations.batches.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesGet : GTLRDataprocQuery
+
+/** Required. The name of the batch to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataproc_Batch.
+ *
+ *  Gets the batch workload resource representation.
+ *
+ *  @param name Required. The name of the batch to retrieve.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists batch workloads.
+ *
+ *  Method: dataproc.projects.locations.batches.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsLocationsBatchesList : GTLRDataprocQuery
+
+/**
+ *  Optional. The maximum number of batches to return in each response. The
+ *  service may return fewer than this value. The default page size is 20; the
+ *  maximum page size is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous ListBatches call. Provide
+ *  this token to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent, which owns this collection of batches. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataproc_ListBatchesResponse.
+ *
+ *  Lists batch workloads.
+ *
+ *  @param parent Required. The parent, which owns this collection of batches.
+ *
+ *  @return GTLRDataprocQuery_ProjectsLocationsBatchesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates new workflow template.
  *
  *  Method: dataproc.projects.locations.workflowTemplates.create
@@ -464,7 +611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Required. The resource name of the region or location, as described in
  *  https://cloud.google.com/apis/design/resource_names. For
- *  projects.regions.workflowTemplates,create, the resource name of the region
+ *  projects.regions.workflowTemplates.create, the resource name of the region
  *  has the following format: projects/{project_id}/regions/{region} For
  *  projects.locations.workflowTemplates.create, the resource name of the
  *  location has the following format:
@@ -480,7 +627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
  *    described in https://cloud.google.com/apis/design/resource_names. For
- *    projects.regions.workflowTemplates,create, the resource name of the region
+ *    projects.regions.workflowTemplates.create, the resource name of the region
  *    has the following format: projects/{project_id}/regions/{region} For
  *    projects.locations.workflowTemplates.create, the resource name of the
  *    location has the following format:
@@ -2704,7 +2851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 /**
  *  Required. The resource name of the region or location, as described in
  *  https://cloud.google.com/apis/design/resource_names. For
- *  projects.regions.workflowTemplates,create, the resource name of the region
+ *  projects.regions.workflowTemplates.create, the resource name of the region
  *  has the following format: projects/{project_id}/regions/{region} For
  *  projects.locations.workflowTemplates.create, the resource name of the
  *  location has the following format:
@@ -2720,7 +2867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @param object The @c GTLRDataproc_WorkflowTemplate to include in the query.
  *  @param parent Required. The resource name of the region or location, as
  *    described in https://cloud.google.com/apis/design/resource_names. For
- *    projects.regions.workflowTemplates,create, the resource name of the region
+ *    projects.regions.workflowTemplates.create, the resource name of the region
  *    has the following format: projects/{project_id}/regions/{region} For
  *    projects.locations.workflowTemplates.create, the resource name of the
  *    location has the following format:

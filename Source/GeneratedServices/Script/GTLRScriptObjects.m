@@ -281,7 +281,15 @@ NSString * const kGTLRScript_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRScript_GoogleAppsScriptTypeFunction
-@dynamic name;
+@dynamic name, parameters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

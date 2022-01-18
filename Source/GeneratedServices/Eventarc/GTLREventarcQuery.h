@@ -44,6 +44,133 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
+ *  Method: eventarc.projects.locations.channelConnections.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy : GTLREventarcQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLREventarc_SetIamPolicyRequest to include in the
+ *    query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: eventarc.projects.locations.channelConnections.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsChannelConnectionsTestIamPermissions : GTLREventarcQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLREventarc_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLREventarc_TestIamPermissionsRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsChannelConnectionsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
  *  Method: eventarc.projects.locations.channels.getIamPolicy
  *
  *  Authorization scope(s):
@@ -422,7 +549,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. If set, validate the request and preview the review, but do not
- *  actually post it.
+ *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -468,7 +595,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. If set, validate the request and preview the review, but do not
- *  actually post it.
+ *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -569,10 +696,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLREventarcQuery_ProjectsLocationsTriggersList : GTLREventarcQuery
 
 /**
- *  The sorting order of the resources returned. Value should be a comma
- *  separated list of fields. The default sorting oder is ascending. To specify
- *  descending order for a field, append a ` desc` suffix; for example: `name
- *  desc, trigger_id`.
+ *  The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting order is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, trigger_id`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -628,15 +755,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the trigger. Must be unique within the
- *  location on the project and must be in
+ *  location of the project and must be in
  *  `projects/{project}/locations/{location}/triggers/{trigger}` format.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to be updated; only fields explicitly provided will be updated.
- *  If no field mask is provided, all provided fields in the request will be
- *  updated. To update all fields, provide a field mask of "*".
+ *  The fields to be updated; only fields explicitly provided are updated. If no
+ *  field mask is provided, all provided fields in the request are updated. To
+ *  update all fields, provide a field mask of "*".
  *
  *  String format is a comma-separated list of fields.
  */
@@ -644,7 +771,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. If set, validate the request and preview the review, but do not
- *  actually post it.
+ *  post it.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -655,7 +782,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLREventarc_Trigger to include in the query.
  *  @param name Required. The resource name of the trigger. Must be unique
- *    within the location on the project and must be in
+ *    within the location of the project and must be in
  *    `projects/{project}/locations/{location}/triggers/{trigger}` format.
  *
  *  @return GTLREventarcQuery_ProjectsLocationsTriggersPatch

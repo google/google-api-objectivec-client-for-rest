@@ -18,7 +18,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesCreate
 
-@dynamic connectionProfileId, force, parent, requestId;
+@dynamic connectionProfileId, force, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDatastream_ConnectionProfile *)object
                          parent:(NSString *)parent {
@@ -129,7 +129,7 @@
 
 @implementation GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesPatch
 
-@dynamic force, name, requestId, updateMask;
+@dynamic force, name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRDatastream_ConnectionProfile *)object
                            name:(NSString *)name {

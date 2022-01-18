@@ -103,6 +103,25 @@
 
 @end
 
+@implementation GTLRDatapipelinesQuery_ProjectsLocationsPipelinesJobsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/jobs";
+  GTLRDatapipelinesQuery_ProjectsLocationsPipelinesJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse class];
+  query.loggingName = @"datapipelines.projects.locations.pipelines.jobs.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDatapipelinesQuery_ProjectsLocationsPipelinesPatch
 
 @dynamic name, updateMask;

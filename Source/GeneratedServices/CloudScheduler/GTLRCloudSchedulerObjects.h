@@ -222,17 +222,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"`. This header can
  *  be modified, but Cloud Scheduler will append `"AppEngine-Google;
  *  (+http://code.google.com/appengine)"` to the modified `User-Agent`. *
- *  `X-CloudScheduler`: This header will be set to true. If the job has an body,
- *  Cloud Scheduler sets the following headers: * `Content-Type`: By default,
- *  the `Content-Type` header is set to `"application/octet-stream"`. The
- *  default can be overridden by explictly setting `Content-Type` to a
- *  particular media type when the job is created. For example, `Content-Type`
- *  can be set to `"application/json"`. * `Content-Length`: This is computed by
- *  Cloud Scheduler. This value is output only. It cannot be changed. The
- *  headers below are output only. They cannot be set or overridden: *
- *  `X-Google-*`: For Google internal use only. * `X-AppEngine-*`: For Google
- *  internal use only. In addition, some App Engine headers, which contain
- *  job-specific information, are also be sent to the job handler.
+ *  `X-CloudScheduler`: This header will be set to true. *
+ *  `X-CloudScheduler-JobName`: This header will contain the job name. *
+ *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
+ *  unix-cron format, this header will contain the job schedule time in RFC3339
+ *  UTC "Zulu" format. If the job has an body, Cloud Scheduler sets the
+ *  following headers: * `Content-Type`: By default, the `Content-Type` header
+ *  is set to `"application/octet-stream"`. The default can be overridden by
+ *  explictly setting `Content-Type` to a particular media type when the job is
+ *  created. For example, `Content-Type` can be set to `"application/json"`. *
+ *  `Content-Length`: This is computed by Cloud Scheduler. This value is output
+ *  only. It cannot be changed. The headers below are output only. They cannot
+ *  be set or overridden: * `X-Google-*`: For Google internal use only. *
+ *  `X-AppEngine-*`: For Google internal use only. In addition, some App Engine
+ *  headers, which contain job-specific information, are also be sent to the job
+ *  handler.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_AppEngineHttpTarget_Headers *headers;
 
@@ -279,17 +283,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `"AppEngine-Google; (+http://code.google.com/appengine)"`. This header can
  *  be modified, but Cloud Scheduler will append `"AppEngine-Google;
  *  (+http://code.google.com/appengine)"` to the modified `User-Agent`. *
- *  `X-CloudScheduler`: This header will be set to true. If the job has an body,
- *  Cloud Scheduler sets the following headers: * `Content-Type`: By default,
- *  the `Content-Type` header is set to `"application/octet-stream"`. The
- *  default can be overridden by explictly setting `Content-Type` to a
- *  particular media type when the job is created. For example, `Content-Type`
- *  can be set to `"application/json"`. * `Content-Length`: This is computed by
- *  Cloud Scheduler. This value is output only. It cannot be changed. The
- *  headers below are output only. They cannot be set or overridden: *
- *  `X-Google-*`: For Google internal use only. * `X-AppEngine-*`: For Google
- *  internal use only. In addition, some App Engine headers, which contain
- *  job-specific information, are also be sent to the job handler.
+ *  `X-CloudScheduler`: This header will be set to true. *
+ *  `X-CloudScheduler-JobName`: This header will contain the job name. *
+ *  `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs specified in the
+ *  unix-cron format, this header will contain the job schedule time in RFC3339
+ *  UTC "Zulu" format. If the job has an body, Cloud Scheduler sets the
+ *  following headers: * `Content-Type`: By default, the `Content-Type` header
+ *  is set to `"application/octet-stream"`. The default can be overridden by
+ *  explictly setting `Content-Type` to a particular media type when the job is
+ *  created. For example, `Content-Type` can be set to `"application/json"`. *
+ *  `Content-Length`: This is computed by Cloud Scheduler. This value is output
+ *  only. It cannot be changed. The headers below are output only. They cannot
+ *  be set or overridden: * `X-Google-*`: For Google internal use only. *
+ *  `X-AppEngine-*`: For Google internal use only. In addition, some App Engine
+ *  headers, which contain job-specific information, are also be sent to the job
+ *  handler.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -409,8 +417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  be computed by Cloud Scheduler and derived from uri. * `Content-Length`:
  *  This will be computed by Cloud Scheduler. * `User-Agent`: This will be set
  *  to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google internal use only. *
- *  `X-AppEngine-*`: Google internal use only. The total size of headers must be
- *  less than 80KB.
+ *  `X-AppEngine-*`: Google internal use only. * `X-CloudScheduler`: This header
+ *  will be set to true. * `X-CloudScheduler-JobName`: This header will contain
+ *  the job name. * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs
+ *  specified in the unix-cron format, this header will contain the job schedule
+ *  time in RFC3339 UTC "Zulu" format. The total size of headers must be less
+ *  than 80KB.
  */
 @property(nonatomic, strong, nullable) GTLRCloudScheduler_HttpTarget_Headers *headers;
 
@@ -479,8 +491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  be computed by Cloud Scheduler and derived from uri. * `Content-Length`:
  *  This will be computed by Cloud Scheduler. * `User-Agent`: This will be set
  *  to `"Google-Cloud-Scheduler"`. * `X-Google-*`: Google internal use only. *
- *  `X-AppEngine-*`: Google internal use only. The total size of headers must be
- *  less than 80KB.
+ *  `X-AppEngine-*`: Google internal use only. * `X-CloudScheduler`: This header
+ *  will be set to true. * `X-CloudScheduler-JobName`: This header will contain
+ *  the job name. * `X-CloudScheduler-ScheduleTime`: For Cloud Scheduler jobs
+ *  specified in the unix-cron format, this header will contain the job schedule
+ *  time in RFC3339 UTC "Zulu" format. The total size of headers must be less
+ *  than 80KB.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -492,7 +508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
- *  Configuration for a job. The maximum allowed size for a job is 100KB.
+ *  Configuration for a job. The maximum allowed size for a job is 1MB.
  */
 @interface GTLRCloudScheduler_Job : GTLRObject
 
@@ -506,7 +522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  logs. Cloud Scheduler will retry the job according to the RetryConfig. The
  *  allowed duration for this deadline is: * For HTTP targets, between 15
  *  seconds and 30 minutes. * For App Engine HTTP targets, between 15 seconds
- *  and 24 hours.
+ *  and 24 hours 15 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *attemptDeadline;
 

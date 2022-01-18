@@ -191,6 +191,20 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Started = @"
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = @"SUCCEEDED";
 
+// GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest.type
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeAll = @"UPGRADE_ALL";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeCuda = @"UPGRADE_CUDA";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeFramework = @"UPGRADE_FRAMEWORK";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeOs = @"UPGRADE_OS";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest_Type_UpgradeTypeUnspecified = @"UPGRADE_TYPE_UNSPECIFIED";
+
+// GTLRAIPlatformNotebooks_UpgradeInstanceRequest.type
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeAll = @"UPGRADE_ALL";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeCuda = @"UPGRADE_CUDA";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeFramework = @"UPGRADE_FRAMEWORK";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeOs = @"UPGRADE_OS";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeInstanceRequest_Type_UpgradeTypeUnspecified = @"UPGRADE_TYPE_UNSPECIFIED";
+
 // GTLRAIPlatformNotebooks_VirtualMachineConfig.nicType
 NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_Gvnic = @"GVNIC";
 NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_UnspecifiedNicType = @"UNSPECIFIED_NIC_TYPE";
@@ -1225,6 +1239,54 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest
+@dynamic items;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest_Items
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsRequest_Items
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse
+@dynamic items;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse_Items
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateInstanceMetadataItemsResponse_Items
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest
 //
 
@@ -1250,7 +1312,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest
-@dynamic vmId;
+@dynamic type, vmId;
 @end
 
 
@@ -1260,6 +1322,7 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceRequest
+@dynamic type;
 @end
 
 

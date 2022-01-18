@@ -85,7 +85,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamKeyTypesUserManaged;
 // publicKeyType
 
 /**
- *  Unspecified. Returns nothing here.
+ *  Do not return the public key.
  *
  *  Value: "TYPE_NONE"
  */
@@ -2111,11 +2111,11 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The output format of the public key requested. X509_PEM is the default
- *  output format.
+ *  Optional. The output format of the public key. The default is `TYPE_NONE`,
+ *  which means that the public key is not returned.
  *
  *  Likely values:
- *    @arg @c kGTLRIamPublicKeyTypeTypeNone Unspecified. Returns nothing here.
+ *    @arg @c kGTLRIamPublicKeyTypeTypeNone Do not return the public key.
  *        (Value: "TYPE_NONE")
  *    @arg @c kGTLRIamPublicKeyTypeTypeX509PemFile X509 PEM format. (Value:
  *        "TYPE_X509_PEM_FILE")

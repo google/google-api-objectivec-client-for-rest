@@ -10904,7 +10904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Audio content type details. This field will be populated when the
- *  targeting_type is 'TARGETING_TYPE_AUDIO_CONTENT_TYPE'.
+ *  targeting_type is `TARGETING_TYPE_AUDIO_CONTENT_TYPE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails *audioContentTypeDetails;
 
@@ -15941,7 +15941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *firstAndThirdPartyAudienceId;
 
 /**
- *  Output only. Whether the audience is a first or third party audience.
+ *  Whether the audience is a first or third party audience.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_FirstAndThirdPartyAudienceType_FirstAndThirdPartyAudienceTypeFirstParty

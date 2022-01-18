@@ -185,8 +185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 /**
  *  Required. Name of the organization or project the assets belong to. Format:
  *  "organizations/[organization-number]" (such as "organizations/123"),
- *  "projects/[project-id]" (such as "projects/my-project-id"), or
- *  "projects/[project-number]" (such as "projects/12345").
+ *  "projects/[project-id]" (such as "projects/my-project-id"),
+ *  "projects/[project-number]" (such as "projects/12345"), or
+ *  "folders/[folder-number]" (such as "folders/12345").
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -224,8 +225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  @param parent Required. Name of the organization or project the assets
  *    belong to. Format: "organizations/[organization-number]" (such as
  *    "organizations/123"), "projects/[project-id]" (such as
- *    "projects/my-project-id"), or "projects/[project-number]" (such as
- *    "projects/12345").
+ *    "projects/my-project-id"), "projects/[project-number]" (such as
+ *    "projects/12345"), or "folders/[folder-number]" (such as "folders/12345").
  *
  *  @return GTLRCloudAssetQuery_AssetsList
  *
@@ -720,8 +721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  service account SA has permission P to the GCP folder F, then user A
  *  potentially has access to the GCP folder F. And those advanced analysis
  *  results will be included in
- *  AnalyzeIamPolicyResponse.service_account_impersonation_analysis. Default is
- *  false.
+ *  AnalyzeIamPolicyResponse.service_account_impersonation_analysis. Only the
+ *  following permissions are considered in this analysis: *
+ *  `iam.serviceAccounts.actAs` * `iam.serviceAccounts.signBlob` *
+ *  `iam.serviceAccounts.signJwt` * `iam.serviceAccounts.getAccessToken` *
+ *  `iam.serviceAccounts.getOpenIdToken` *
+ *  `iam.serviceAccounts.implicitDelegation` Default is false.
  */
 @property(nonatomic, assign) BOOL analysisQueryOptionsAnalyzeServiceAccountImpersonation;
 

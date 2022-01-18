@@ -16,6 +16,83 @@
 
 @end
 
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_Policy class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLREventarc_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_Policy class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsChannelConnectionsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLREventarc_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLREventarcQuery_ProjectsLocationsChannelConnectionsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLREventarc_TestIamPermissionsResponse class];
+  query.loggingName = @"eventarc.projects.locations.channelConnections.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLREventarcQuery_ProjectsLocationsChannelsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;

@@ -346,9 +346,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleCloudLocationLocation;
@@ -4144,6 +4146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *currentPage;
+
+/**
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The display
+ *  name of the current page.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Optional for both WebhookRequest and WebhookResponse. Information about the
@@ -8107,6 +8115,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *currentPage;
+
+/**
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The display
+ *  name of the current page.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Optional for both WebhookRequest and WebhookResponse. Information about the
@@ -14511,7 +14525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Required. The message content. */
 @property(nonatomic, copy, nullable) NSString *content;
 
-/** Output only. The time when the message was created. */
+/**
+ *  Output only. The time when the message was created in Contact Center AI.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -14525,7 +14541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation *messageAnnotation;
 
 /**
- *  The unique identifier of the message. Format:
+ *  Optional. The unique identifier of the message. Format:
  *  `projects//locations//conversations//messages/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -14549,6 +14565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *participantRole;
+
+/** Optional. The time when the message was sent. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
+
+/** Output only. The sentiment analysis result for the message. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult *sentimentAnalysis;
 
 @end
 
@@ -14909,6 +14931,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a smart reply answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Smart reply confidence. The system's confidence score that this reply is a
+ *  good match for this conversation, as a value from 0.0 (completely uncertain)
+ *  to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** The content of the reply. */
+@property(nonatomic, copy, nullable) NSString *reply;
+
+@end
+
+
+/**
  *  The response message for Participants.SuggestArticles.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse : GTLRObject
@@ -14975,6 +15023,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
+
+/** SuggestSmartRepliesResponse if request is for SMART_REPLY. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse *suggestSmartRepliesResponse;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestSmartReplies.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestSmartRepliesResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the
+ *  SuggestSmartRepliesRequest.context_size field in the request if there aren't
+ *  that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+/**
+ *  Output only. Multiple reply options provided by smart reply service. The
+ *  order is based on the rank of the model prediction. The maximum number of
+ *  the returned replies is set in SmartReplyConfig.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer *> *smartReplyAnswers;
 
 @end
 

@@ -413,6 +413,7 @@ NSString * const kGTLRCompute_BackendBucketList_Warning_Code_Unreachable = @"UNR
 
 // GTLRCompute_BackendService.loadBalancingScheme
 NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External = @"EXTERNAL";
+NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
 NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_Internal = @"INTERNAL";
 NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
 NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_InternalSelfManaged = @"INTERNAL_SELF_MANAGED";
@@ -1061,6 +1062,7 @@ NSString * const kGTLRCompute_ForwardingRule_IpVersion_UnspecifiedVersion = @"UN
 
 // GTLRCompute_ForwardingRule.loadBalancingScheme
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External = @"EXTERNAL";
+NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal = @"INTERNAL";
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
 NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalSelfManaged = @"INTERNAL_SELF_MANAGED";
@@ -1802,6 +1804,10 @@ NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Act
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Recreating = @"RECREATING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Refreshing = @"REFRESHING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting = @"RESTARTING";
+NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Resuming = @"RESUMING";
+NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Starting = @"STARTING";
+NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Stopping = @"STOPPING";
+NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying = @"VERIFYING";
 
 // GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
@@ -2298,6 +2304,10 @@ NSString * const kGTLRCompute_ManagedInstance_CurrentAction_None = @"NONE";
 NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Recreating = @"RECREATING";
 NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Refreshing = @"REFRESHING";
 NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Restarting = @"RESTARTING";
+NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Resuming = @"RESUMING";
+NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Starting = @"STARTING";
+NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Stopping = @"STOPPING";
+NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Suspending = @"SUSPENDING";
 NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Verifying = @"VERIFYING";
 
 // GTLRCompute_ManagedInstance.instanceStatus
@@ -3233,6 +3243,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedCpus       = @"COMMITTED_CPU
 NSString * const kGTLRCompute_Quota_Metric_CommittedE2Cpus     = @"COMMITTED_E2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses   = @"COMMITTED_LICENSES";
 NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb = @"COMMITTED_LOCAL_SSD_TOTAL_GB";
+NSString * const kGTLRCompute_Quota_Metric_CommittedM3Cpus     = @"COMMITTED_M3_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus = @"COMMITTED_MEMORY_OPTIMIZED_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2aCpus    = @"COMMITTED_N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus     = @"COMMITTED_N2_CPUS";
@@ -3276,6 +3287,7 @@ NSString * const kGTLRCompute_Quota_Metric_InUseSnapshotSchedules = @"IN_USE_SNA
 NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_M1Cpus              = @"M1_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_M2Cpus              = @"M2_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_M3Cpus              = @"M3_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_MachineImages       = @"MACHINE_IMAGES";
 NSString * const kGTLRCompute_Quota_Metric_N2aCpus             = @"N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2Cpus              = @"N2_CPUS";
@@ -5816,7 +5828,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AdvancedMachineFeatures
-@dynamic enableNestedVirtualization, threadsPerCore;
+@dynamic enableNestedVirtualization, enableUefiNetworking, threadsPerCore;
 @end
 
 
@@ -9775,7 +9787,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InstanceGroupManagerActionsSummary
 @dynamic abandoning, creating, creatingWithoutRetries, deleting, none,
-         recreating, refreshing, restarting, verifying;
+         recreating, refreshing, restarting, resuming, starting, stopping,
+         suspending, verifying;
 @end
 
 
@@ -10578,8 +10591,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @dynamic advancedMachineFeatures, canIpForward, confidentialInstanceConfig,
          descriptionProperty, disks, guestAccelerators, labels, machineType,
          metadata, minCpuPlatform, networkInterfaces, networkPerformanceConfig,
-         privateIpv6GoogleAccess, reservationAffinity, resourcePolicies,
-         scheduling, serviceAccounts, shieldedInstanceConfig, tags;
+         privateIpv6GoogleAccess, reservationAffinity, resourceManagerTags,
+         resourcePolicies, scheduling, serviceAccounts, shieldedInstanceConfig,
+         tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -10605,6 +10619,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InstanceProperties_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_InstanceProperties_ResourceManagerTags
+//
+
+@implementation GTLRCompute_InstanceProperties_ResourceManagerTags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

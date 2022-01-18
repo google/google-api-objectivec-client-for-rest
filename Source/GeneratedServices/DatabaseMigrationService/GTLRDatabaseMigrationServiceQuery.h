@@ -213,7 +213,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve a list of all connection profiles in a given project and location.
+ *  Retrieves a list of all connection profiles in a given project and location.
  *
  *  Method: datamigration.projects.locations.connectionProfiles.list
  *
@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** the order by fields for the result. */
+/** A comma-separated list of fields to order results according to. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -262,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDatabaseMigrationService_ListConnectionProfilesResponse.
  *
- *  Retrieve a list of all connection profiles in a given project and location.
+ *  Retrieves a list of all connection profiles in a given project and location.
  *
  *  @param parent Required. The parent, which owns this collection of connection
  *    profiles.

@@ -32,6 +32,16 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec
+//
+
+@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec
+@dynamic launch, spec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint
 //
 
@@ -139,7 +149,7 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 //
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy
-@dynamic name, spec;
+@dynamic alternate, name, spec;
 @end
 
 

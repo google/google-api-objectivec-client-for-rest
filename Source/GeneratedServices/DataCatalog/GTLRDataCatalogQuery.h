@@ -25,6 +25,8 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesRequest;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest;
@@ -487,6 +489,74 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Modifies contacts, part of the business context of an Entry. To call this
+ *  method, you must have the `datacatalog.entries.updateContacts` IAM
+ *  permission on the corresponding project.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.modifyEntryContacts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts : GTLRDataCatalogQuery
+
+/** Required. The full resource name of the entry. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1Contacts.
+ *
+ *  Modifies contacts, part of the business context of an Entry. To call this
+ *  method, you must have the `datacatalog.entries.updateContacts` IAM
+ *  permission on the corresponding project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest to
+ *    include in the query.
+ *  @param name Required. The full resource name of the entry.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryContacts
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryContactsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Modifies entry overview, part of the business context of an Entry. To call
+ *  this method, you must have the `datacatalog.entries.updateOverview` IAM
+ *  permission on the corresponding project.
+ *
+ *  Method: datacatalog.projects.locations.entryGroups.entries.modifyEntryOverview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataCatalogCloudPlatform
+ */
+@interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview : GTLRDataCatalogQuery
+
+/** Required. The full resource name of the entry. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1EntryOverview.
+ *
+ *  Modifies entry overview, part of the business context of an Entry. To call
+ *  this method, you must have the `datacatalog.entries.updateOverview` IAM
+ *  permission on the corresponding project.
+ *
+ *  @param object The @c
+ *    GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest to
+ *    include in the query.
+ *  @param name Required. The full resource name of the entry.
+ *
+ *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesModifyEntryOverview
+ */
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ModifyEntryOverviewRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates an existing entry. You must enable the Data Catalog API in the
  *  project identified by the `entry.name` parameter. For more information, see
  *  [Data Catalog resource
@@ -652,7 +722,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists tags assigned to an Entry.
+ *  Lists tags assigned to an Entry. The columns in the response are lowercased.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.tags.list
  *
@@ -682,7 +752,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse.
  *
- *  Lists tags assigned to an Entry.
+ *  Lists tags assigned to an Entry. The columns in the response are lowercased.
  *
  *  @param parent Required. The name of the Data Catalog resource to list the
  *    tags of. The resource can be an Entry or an EntryGroup (without
@@ -1127,7 +1197,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists tags assigned to an Entry.
+ *  Lists tags assigned to an Entry. The columns in the response are lowercased.
  *
  *  Method: datacatalog.projects.locations.entryGroups.tags.list
  *
@@ -1157,7 +1227,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse.
  *
- *  Lists tags assigned to an Entry.
+ *  Lists tags assigned to an Entry. The columns in the response are lowercased.
  *
  *  @param parent Required. The name of the Data Catalog resource to list the
  *    tags of. The resource can be an Entry or an EntryGroup (without

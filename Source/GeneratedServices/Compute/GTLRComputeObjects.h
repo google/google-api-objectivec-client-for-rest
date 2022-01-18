@@ -276,6 +276,7 @@
 @class GTLRCompute_InstanceManagedByIgmErrorManagedInstanceError;
 @class GTLRCompute_InstanceProperties;
 @class GTLRCompute_InstanceProperties_Labels;
+@class GTLRCompute_InstanceProperties_ResourceManagerTags;
 @class GTLRCompute_InstanceReference;
 @class GTLRCompute_InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy;
 @class GTLRCompute_InstancesScopedList;
@@ -2996,6 +2997,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_U
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_External;
+/**
+ *  Signifies that this will be used for External Managed HTTP(S) Load
+ *  Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged;
 /**
  *  Signifies that this will be used for Internal TCP/UDP Load Balancing.
  *
@@ -6385,6 +6393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_IpVersion_Unspeci
 
 /** Value: "EXTERNAL" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_External;
+/** Value: "EXTERNAL_MANAGED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalManaged;
 /** Value: "INTERNAL" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal;
 /** Value: "INTERNAL_MANAGED" */
@@ -10526,6 +10536,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanc
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting;
 /**
+ *  The managed instance group is resuming this instance.
+ *
+ *  Value: "RESUMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Resuming;
+/**
+ *  The managed instance group is starting this instance.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Starting;
+/**
+ *  The managed instance group is stopping this instance.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Stopping;
+/**
+ *  The managed instance group is suspending this instance.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Suspending;
+/**
  *  The managed instance group is verifying this already created instance.
  *  Verification happens every time the instance is (re)created or restarted and
  *  consists of: 1. Waiting until health check specified as part of this managed
@@ -13257,6 +13291,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Re
  *  Value: "RESTARTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Restarting;
+/**
+ *  The managed instance group is resuming this instance.
+ *
+ *  Value: "RESUMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Resuming;
+/**
+ *  The managed instance group is starting this instance.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Starting;
+/**
+ *  The managed instance group is stopping this instance.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Stopping;
+/**
+ *  The managed instance group is suspending this instance.
+ *
+ *  Value: "SUSPENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ManagedInstance_CurrentAction_Suspending;
 /**
  *  The managed instance group is verifying this already created instance.
  *  Verification happens every time the instance is (re)created or restarted and
@@ -18439,6 +18497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedE2Cpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses;
 /** Value: "COMMITTED_LOCAL_SSD_TOTAL_GB" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
+/** Value: "COMMITTED_M3_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedM3Cpus;
 /** Value: "COMMITTED_MEMORY_OPTIMIZED_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus;
 /** Value: "COMMITTED_N2A_CPUS" */
@@ -18529,6 +18589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_M1Cpus;
 /** Value: "M2_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_M2Cpus;
+/** Value: "M3_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_M3Cpus;
 /** Value: "MACHINE_IMAGES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_MachineImages;
 /** Value: "N2A_CPUS" */
@@ -31533,6 +31595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
 /**
+ *  Whether to enable UEFI networking for instance creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableUefiNetworking;
+
+/**
  *  The number of threads per physical core. To disable simultaneous
  *  multithreading (SMT) set this to 1. If unset, the maximum number of threads
  *  supported per core by the underlying processor is assumed.
@@ -33902,6 +33971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_External Signifies
  *        that this will be used for external HTTP(S), SSL Proxy, TCP Proxy, or
  *        Network Load Balancing (Value: "EXTERNAL")
+ *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this will be used for External Managed HTTP(S) Load
+ *        Balancing. (Value: "EXTERNAL_MANAGED")
  *    @arg @c kGTLRCompute_BackendService_LoadBalancingScheme_Internal Signifies
  *        that this will be used for Internal TCP/UDP Load Balancing. (Value:
  *        "INTERNAL")
@@ -40003,6 +40075,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_External Value
  *        "EXTERNAL"
+ *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_ExternalManaged
+ *        Value "EXTERNAL_MANAGED"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_Internal Value
  *        "INTERNAL"
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_InternalManaged
@@ -45223,6 +45297,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The number of instances in the managed instance group that are
+ *  scheduled to be resumed or are currently being resumed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *resuming;
+
+/**
+ *  [Output Only] The number of instances in the managed instance group that are
+ *  scheduled to be started or are currently being started.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *starting;
+
+/**
+ *  [Output Only] The number of instances in the managed instance group that are
+ *  scheduled to be stopped or are currently being stopped.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stopping;
+
+/**
+ *  [Output Only] The number of instances in the managed instance group that are
+ *  scheduled to be suspended or are currently being suspended.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suspending;
+
+/**
+ *  [Output Only] The number of instances in the managed instance group that are
  *  being verified. See the managedInstances[].currentAction property in the
  *  listManagedInstances method documentation.
  *
@@ -47248,6 +47354,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting
  *        The managed instance group is restarting this instance. (Value:
  *        "RESTARTING")
+ *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Resuming
+ *        The managed instance group is resuming this instance. (Value:
+ *        "RESUMING")
+ *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Starting
+ *        The managed instance group is starting this instance. (Value:
+ *        "STARTING")
+ *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Stopping
+ *        The managed instance group is stopping this instance. (Value:
+ *        "STOPPING")
+ *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Suspending
+ *        The managed instance group is suspending this instance. (Value:
+ *        "SUSPENDING")
  *    @arg @c kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying
  *        The managed instance group is verifying this already created instance.
  *        Verification happens every time the instance is (re)created or
@@ -47426,6 +47544,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAffinity *reservationAffinity;
 
 /**
+ *  Resource manager tags to be bound to the instance. Tag keys and values have
+ *  the same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceProperties_ResourceManagerTags *resourceManagerTags;
+
+/**
  *  Resource policies (names, not URLs) applied to instances created from these
  *  properties. Note that for MachineImage, this is not supported yet.
  */
@@ -47468,6 +47594,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        fetch them all at once.
  */
 @interface GTLRCompute_InstanceProperties_Labels : GTLRObject
+@end
+
+
+/**
+ *  Resource manager tags to be bound to the instance. Tag keys and values have
+ *  the same definition as resource manager tags. Keys must be in the format
+ *  `tagKeys/{tag_key_id}`, and values are in the format `tagValues/456`. The
+ *  field is ignored (both PUT & PATCH) when empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_InstanceProperties_ResourceManagerTags : GTLRObject
 @end
 
 
@@ -50537,7 +50678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_LocationPolicyLocation : GTLRObject
 
 /**
- *  Preference for a given location: ALLOW or DENY.
+ *  Preference for a given location.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_LocationPolicyLocation_Preference_Allow Location is
@@ -51654,6 +51795,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "REFRESHING")
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Restarting The managed
  *        instance group is restarting this instance. (Value: "RESTARTING")
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Resuming The managed
+ *        instance group is resuming this instance. (Value: "RESUMING")
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Starting The managed
+ *        instance group is starting this instance. (Value: "STARTING")
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Stopping The managed
+ *        instance group is stopping this instance. (Value: "STOPPING")
+ *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Suspending The managed
+ *        instance group is suspending this instance. (Value: "SUSPENDING")
  *    @arg @c kGTLRCompute_ManagedInstance_CurrentAction_Verifying The managed
  *        instance group is verifying this already created instance.
  *        Verification happens every time the instance is (re)created or
@@ -59513,6 +59662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_LICENSES"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb Value
  *        "COMMITTED_LOCAL_SSD_TOTAL_GB"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedM3Cpus Value
+ *        "COMMITTED_M3_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus Value
  *        "COMMITTED_MEMORY_OPTIMIZED_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2aCpus Value
@@ -59584,6 +59735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_M1Cpus Value "M1_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_M2Cpus Value "M2_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_M3Cpus Value "M3_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_MachineImages Value "MACHINE_IMAGES"
  *    @arg @c kGTLRCompute_Quota_Metric_N2aCpus Value "N2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2Cpus Value "N2_CPUS"

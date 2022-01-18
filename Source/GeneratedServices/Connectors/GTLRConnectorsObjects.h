@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Connectors API (connectors/v1)
+// Description:
+//   Enables users to create and manage connections to Google Cloud services and
+//   third-party business applications using the Connectors interface.
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors
 
@@ -239,6 +242,34 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_ConnectionStatus_State_StateU
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_ConnectionStatus_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRConnectors_Connector.launchStage
+
+/**
+ *  DEPRECATED.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Connector_LaunchStage_Deprecated;
+/**
+ *  GA.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Connector_LaunchStage_Ga;
+/**
+ *  LAUNCH_STAGE_UNSPECIFIED.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Connector_LaunchStage_LaunchStageUnspecified;
+/**
+ *  PREVIEW.
+ *
+ *  Value: "PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Connector_LaunchStage_Preview;
 
 // ----------------------------------------------------------------------------
 // GTLRConnectors_ConnectorVersion.launchStage
@@ -815,6 +846,34 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_DataT
  *  Value: "DATA_TYPE_VARCHAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeVarchar;
+
+// ----------------------------------------------------------------------------
+// GTLRConnectors_Provider.launchStage
+
+/**
+ *  DEPRECATED.
+ *
+ *  Value: "DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Provider_LaunchStage_Deprecated;
+/**
+ *  GA.
+ *
+ *  Value: "GA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Provider_LaunchStage_Ga;
+/**
+ *  LAUNCH_STAGE_UNSPECIFIED.
+ *
+ *  Value: "LAUNCH_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Provider_LaunchStage_LaunchStageUnspecified;
+/**
+ *  PREVIEW.
+ *
+ *  Value: "PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_Provider_LaunchStage_Preview;
 
 // ----------------------------------------------------------------------------
 // GTLRConnectors_Resource.type
@@ -1680,6 +1739,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *  https://cloud.google.com/compute/docs/labeling-resources
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_Connector_Labels *labels;
+
+/**
+ *  Output only. Flag to mark the version indicating the launch stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_Connector_LaunchStage_Deprecated DEPRECATED.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRConnectors_Connector_LaunchStage_Ga GA. (Value: "GA")
+ *    @arg @c kGTLRConnectors_Connector_LaunchStage_LaunchStageUnspecified
+ *        LAUNCH_STAGE_UNSPECIFIED. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRConnectors_Connector_LaunchStage_Preview PREVIEW. (Value:
+ *        "PREVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
 
 /**
  *  Output only. Resource name of the Connector. Format:
@@ -2788,6 +2861,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
  *  https://cloud.google.com/compute/docs/labeling-resources
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_Provider_Labels *labels;
+
+/**
+ *  Output only. Flag to mark the version indicating the launch stage.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_Provider_LaunchStage_Deprecated DEPRECATED.
+ *        (Value: "DEPRECATED")
+ *    @arg @c kGTLRConnectors_Provider_LaunchStage_Ga GA. (Value: "GA")
+ *    @arg @c kGTLRConnectors_Provider_LaunchStage_LaunchStageUnspecified
+ *        LAUNCH_STAGE_UNSPECIFIED. (Value: "LAUNCH_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRConnectors_Provider_LaunchStage_Preview PREVIEW. (Value:
+ *        "PREVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStage;
 
 /**
  *  Output only. Resource name of the Provider. Format:

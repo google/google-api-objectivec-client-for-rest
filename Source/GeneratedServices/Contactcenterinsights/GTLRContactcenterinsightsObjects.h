@@ -99,6 +99,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
 @class GTLRContactcenterinsights_GoogleLongrunningOperation;
 @class GTLRContactcenterinsights_GoogleLongrunningOperation_Metadata;
 @class GTLRContactcenterinsights_GoogleLongrunningOperation_Response;
@@ -2494,7 +2495,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelResult : GTLRObject
 
-/** Issue model that generates the result. */
+/**
+ *  Issue model that generates the result. Format:
+ *  projects/{project}/locations/{location}/issueModels/{issue_model}
+ */
 @property(nonatomic, copy, nullable) NSString *issueModel;
 
 /** All the matched issues. */
@@ -2603,6 +2607,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PhraseMatcher *> *phraseMatchers;
+
+@end
+
+
+/**
+ *  The response of listing views.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "views" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListViewsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The views that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View *> *views;
 
 @end
 
@@ -3059,6 +3090,32 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  The response to undeploy an issue model.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelResponse : GTLRObject
+@end
+
+
+/**
+ *  The View resource.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View : GTLRObject
+
+/** Output only. The time at which this view was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The human-readable display name of the view. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The resource name of the view. Format:
+ *  projects/{project}/locations/{location}/views/{view}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The most recent time at which the view was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** String with specific view properties. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 

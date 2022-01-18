@@ -249,6 +249,28 @@ NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1SdkVersion_SdkSupp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse
+//
+
+@implementation GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse
+@dynamic jobs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [GTLRDatapipelines_GoogleCloudDatapipelinesV1Job class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"jobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatapipelines_GoogleCloudDatapipelinesV1ListPipelinesResponse
 //
 

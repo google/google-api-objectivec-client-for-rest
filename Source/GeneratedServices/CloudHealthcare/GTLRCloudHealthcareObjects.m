@@ -2225,8 +2225,17 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ValidationConfig
-@dynamic disableFhirpathValidation, disableReferenceTypeValidation,
-         disableRequiredFieldValidation;
+@dynamic disableFhirpathValidation, disableProfileValidation,
+         disableReferenceTypeValidation, disableRequiredFieldValidation,
+         enabledImplementationGuides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledImplementationGuides" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

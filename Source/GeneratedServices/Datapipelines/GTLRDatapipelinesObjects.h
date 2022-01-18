@@ -729,6 +729,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatapipelines_GoogleCloudDatapipelinesV1
 
 
 /**
+ *  Response message for ListJobs
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "jobs" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDatapipelines_GoogleCloudDatapipelinesV1ListJobsResponse : GTLRCollectionObject
+
+/**
+ *  Results that were accessible to the caller. Results are always in descending
+ *  order of job creation date.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatapipelines_GoogleCloudDatapipelinesV1Job *> *jobs;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListPipelines.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over

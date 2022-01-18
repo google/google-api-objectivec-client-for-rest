@@ -23,15 +23,21 @@
 @class GTLRShoppingContent_Account;
 @class GTLRShoppingContent_AccountAddress;
 @class GTLRShoppingContent_AccountAdsLink;
+@class GTLRShoppingContent_AccountAutomaticImprovements;
 @class GTLRShoppingContent_AccountBusinessInformation;
 @class GTLRShoppingContent_AccountCustomerService;
 @class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
+@class GTLRShoppingContent_AccountImageImprovements;
+@class GTLRShoppingContent_AccountImageImprovementsSettings;
+@class GTLRShoppingContent_AccountItemUpdates;
+@class GTLRShoppingContent_AccountItemUpdatesSettings;
 @class GTLRShoppingContent_AccountLabel;
 @class GTLRShoppingContent_AccountReturnCarrier;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest;
 @class GTLRShoppingContent_AccountsCustomBatchResponseEntry;
+@class GTLRShoppingContent_AccountShippingImprovements;
 @class GTLRShoppingContent_AccountStatus;
 @class GTLRShoppingContent_AccountStatusAccountLevelIssue;
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequestEntry;
@@ -1359,6 +1365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *adultContent;
 
 /**
+ *  The automatic improvements of the account can be used to automatically
+ *  update items, improve images and shipping. Each section inside
+ *  AutomaticImprovements is updated separately.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountAutomaticImprovements *automaticImprovements;
+
+/**
  *  Automatically created label IDs that are assigned to the account by CSS
  *  Center.
  *
@@ -1489,6 +1502,53 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Acceptable values are: - "`active`" - "`pending`"
  */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  The automatic improvements of the account can be used to automatically
+ *  update items, improve images and shipping.
+ */
+@interface GTLRShoppingContent_AccountAutomaticImprovements : GTLRObject
+
+/**
+ *  This improvement will attempt to automatically correct submitted images if
+ *  they don't meet the [image
+ *  requirements](https://support.google.com/merchants/answer/6324350), for
+ *  example, removing overlays. If successful, the image will be replaced and
+ *  approved. This improvement is only applied to images of disapproved offers.
+ *  For more information see: [Automatic image
+ *  improvements](https://support.google.com/merchants/answer/9242973) This
+ *  field is only updated (cleared) if provided.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountImageImprovements *imageImprovements;
+
+/**
+ *  Turning on [item
+ *  updates](https://support.google.com/merchants/answer/3246284) allows Google
+ *  to automatically update items for you. When item updates are on, Google uses
+ *  the structured data markup on the website and advanced data extractors to
+ *  update the price and availability of the items. When the item updates are
+ *  off, items with mismatched data aren't shown. This field is only updated
+ *  (cleared) if provided.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountItemUpdates *itemUpdates;
+
+/**
+ *  Not available for MCAs
+ *  [accounts](https://support.google.com/merchants/answer/188487). By turning
+ *  on [automatic shipping
+ *  improvements](https://support.google.com/merchants/answer/10027038), you are
+ *  allowing Google to improve the accuracy of your delivery times shown to
+ *  shoppers using Google. More accurate delivery times, especially when faster,
+ *  typically lead to better conversion rates. Google will improve your
+ *  estimated delivery times based on various factors: - Delivery address of an
+ *  order - Current handling time and shipping time settings - Estimated
+ *  weekdays or business days - Parcel tracking data This field is only updated
+ *  (cleared) if provided.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountShippingImprovements *shippingImprovements;
 
 @end
 
@@ -1627,6 +1687,140 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *merchantId;
+
+@end
+
+
+/**
+ *  This improvement will attempt to automatically correct submitted images if
+ *  they don't meet the [image
+ *  requirements](https://support.google.com/merchants/answer/6324350), for
+ *  example, removing overlays. If successful, the image will be replaced and
+ *  approved. This improvement is only applied to images of disapproved offers.
+ *  For more information see: [Automatic image
+ *  improvements](https://support.google.com/merchants/answer/9242973)
+ */
+@interface GTLRShoppingContent_AccountImageImprovements : GTLRObject
+
+/**
+ *  Determines how the images should be automatically updated. If this field is
+ *  not present, then the settings will be deleted. If there are no settings for
+ *  subaccount, they are inherited from aggregator.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountImageImprovementsSettings *accountImageImprovementsSettings;
+
+/**
+ *  Output only. The effective value of allow_automatic_image_improvements. If
+ *  account_image_improvements_settings is present, then this value is the same.
+ *  Otherwise, it represents the inherited value of the parent account.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveAllowAutomaticImageImprovements;
+
+@end
+
+
+/**
+ *  Settings for the Automatic Image Improvements.
+ */
+@interface GTLRShoppingContent_AccountImageImprovementsSettings : GTLRObject
+
+/**
+ *  Enables automatic image improvements.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAutomaticImageImprovements;
+
+@end
+
+
+/**
+ *  Turning on [item
+ *  updates](https://support.google.com/merchants/answer/3246284) allows Google
+ *  to automatically update items for you. When item updates are on, Google uses
+ *  the structured data markup on the website and advanced data extractors to
+ *  update the price and availability of the items. When the item updates are
+ *  off, items with mismatched data aren't shown.
+ */
+@interface GTLRShoppingContent_AccountItemUpdates : GTLRObject
+
+/**
+ *  Determines which attributes of the items should be automatically updated. If
+ *  this field is not present, then the settings will be deleted. If there are
+ *  no settings for subaccount, they are inherited from aggregator.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_AccountItemUpdatesSettings *accountItemUpdatesSettings;
+
+/**
+ *  Output only. The effective value of allow_availability_updates. If
+ *  account_item_updates_settings is present, then this value is the same.
+ *  Otherwise, it represents the inherited value of the parent account.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveAllowAvailabilityUpdates;
+
+/**
+ *  Output only. The effective value of allow_price_updates. If
+ *  account_item_updates_settings is present, then this value is the same.
+ *  Otherwise, it represents the inherited value of the parent account.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveAllowPriceUpdates;
+
+/**
+ *  Output only. The effective value of allow_strict_availability_updates. If
+ *  account_item_updates_settings is present, then this value is the same.
+ *  Otherwise, it represents the inherited value of the parent account.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveAllowStrictAvailabilityUpdates;
+
+@end
+
+
+/**
+ *  Settings for the Automatic Item Updates.
+ */
+@interface GTLRShoppingContent_AccountItemUpdatesSettings : GTLRObject
+
+/**
+ *  If availability updates are enabled, any previous availability values get
+ *  overwritten if Google finds an out-of-stock annotation on the offer's page.
+ *  If additionally `allow_availability_updates` field is set to true, values
+ *  get overwritten if Google finds an in-stock annotation on the offer’s page.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowAvailabilityUpdates;
+
+/**
+ *  If price updates are enabled, Google always updates the active price with
+ *  the crawled information.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPriceUpdates;
+
+/**
+ *  If allow_availability_updates is enabled, items are automatically updated in
+ *  all your Shopping target countries. By default, availability updates will
+ *  only be applied to items that are 'out of stock' on your website but 'in
+ *  stock' on Shopping. Set this to true to also update items that are 'in
+ *  stock' on your website, but 'out of stock' on Google Shopping. In order for
+ *  this field to have an effect, you must also allow availability updates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowStrictAvailabilityUpdates;
 
 @end
 
@@ -1906,6 +2100,30 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  "`content#accountsCustomBatchResponseEntry`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Not available for MCAs
+ *  [accounts](https://support.google.com/merchants/answer/188487). By turning
+ *  on [automatic shipping
+ *  improvements](https://support.google.com/merchants/answer/10027038), you are
+ *  allowing Google to improve the accuracy of your delivery times shown to
+ *  shoppers using Google. More accurate delivery times, especially when faster,
+ *  typically lead to better conversion rates. Google will improve your
+ *  estimated delivery times based on various factors: * Delivery address of an
+ *  order * Current handling time and shipping time settings * Estimated
+ *  weekdays or business days * Parcel tracking data
+ */
+@interface GTLRShoppingContent_AccountShippingImprovements : GTLRObject
+
+/**
+ *  Enables automatic shipping improvements.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowShippingImprovements;
 
 @end
 
@@ -3742,9 +3960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  The list of destinations to include for this target (corresponds to checked
  *  check boxes in Merchant Center). Default destinations are always included
- *  unless provided in `excludedDestinations`. List of supported destinations
- *  (if available to the account): - DisplayAds - Shopping - ShoppingActions -
- *  SurfacesAcrossGoogle
+ *  unless provided in `excludedDestinations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestinations;
 
@@ -9035,17 +9251,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_PosStore : GTLRObject
 
+/** The business type of the store. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gcidCategory;
+
 /**
  *  Identifies what kind of resource this is. Value: the fixed string
  *  "`content#posStore`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** The store phone number. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/** The Google Place Id of the store location. */
+@property(nonatomic, copy, nullable) NSString *placeId;
+
 /** Required. The street address of the store. */
 @property(nonatomic, copy, nullable) NSString *storeAddress;
 
 /** Required. A store identifier that is unique for the given merchant. */
 @property(nonatomic, copy, nullable) NSString *storeCode;
+
+/** The merchant or store name. */
+@property(nonatomic, copy, nullable) NSString *storeName;
+
+/** The website url for the store or merchant. */
+@property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 @end
 

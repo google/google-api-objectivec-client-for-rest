@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Connectors API (connectors/v1)
+// Description:
+//   Enables users to create and manage connections to Google Cloud services and
+//   third-party business applications using the Connectors interface.
 // Documentation:
 //   https://cloud.google.com/apigee/docs/api-platform/connectors/about-connectors
 
@@ -44,6 +47,12 @@ NSString * const kGTLRConnectors_ConnectionStatus_State_Error  = @"ERROR";
 NSString * const kGTLRConnectors_ConnectionStatus_State_Inactive = @"INACTIVE";
 NSString * const kGTLRConnectors_ConnectionStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRConnectors_ConnectionStatus_State_Updating = @"UPDATING";
+
+// GTLRConnectors_Connector.launchStage
+NSString * const kGTLRConnectors_Connector_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRConnectors_Connector_LaunchStage_Ga      = @"GA";
+NSString * const kGTLRConnectors_Connector_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRConnectors_Connector_LaunchStage_Preview = @"PREVIEW";
 
 // GTLRConnectors_ConnectorVersion.launchStage
 NSString * const kGTLRConnectors_ConnectorVersion_LaunchStage_Deprecated = @"DEPRECATED";
@@ -144,6 +153,12 @@ NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeUnspecified = @
 NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeUuid = @"DATA_TYPE_UUID";
 NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeVarbinary = @"DATA_TYPE_VARBINARY";
 NSString * const kGTLRConnectors_InputParameter_DataType_DataTypeVarchar = @"DATA_TYPE_VARCHAR";
+
+// GTLRConnectors_Provider.launchStage
+NSString * const kGTLRConnectors_Provider_LaunchStage_Deprecated = @"DEPRECATED";
+NSString * const kGTLRConnectors_Provider_LaunchStage_Ga       = @"GA";
+NSString * const kGTLRConnectors_Provider_LaunchStage_LaunchStageUnspecified = @"LAUNCH_STAGE_UNSPECIFIED";
+NSString * const kGTLRConnectors_Provider_LaunchStage_Preview  = @"PREVIEW";
 
 // GTLRConnectors_Resource.type
 NSString * const kGTLRConnectors_Resource_Type_GcpProject      = @"GCP_PROJECT";
@@ -423,7 +438,7 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 @implementation GTLRConnectors_Connector
 @dynamic createTime, descriptionProperty, displayName, documentationUri,
-         externalUri, labels, name, updateTime, webAssetsLocation;
+         externalUri, labels, launchStage, name, updateTime, webAssetsLocation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -926,7 +941,7 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 
 @implementation GTLRConnectors_Provider
 @dynamic createTime, descriptionProperty, displayName, documentationUri,
-         externalUri, labels, name, updateTime, webAssetsLocation;
+         externalUri, labels, launchStage, name, updateTime, webAssetsLocation;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

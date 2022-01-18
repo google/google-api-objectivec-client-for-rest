@@ -26,6 +26,8 @@
 @class GTLRDataproc_AutoscalingPolicy_Labels;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
 @class GTLRDataproc_BasicYarnAutoscalingConfig;
+@class GTLRDataproc_Batch;
+@class GTLRDataproc_Batch_Labels;
 @class GTLRDataproc_BatchOperationMetadata_Labels;
 @class GTLRDataproc_Binding;
 @class GTLRDataproc_Cluster;
@@ -45,6 +47,8 @@
 @class GTLRDataproc_EncryptionConfig;
 @class GTLRDataproc_EndpointConfig;
 @class GTLRDataproc_EndpointConfig_HttpPorts;
+@class GTLRDataproc_EnvironmentConfig;
+@class GTLRDataproc_ExecutionConfig;
 @class GTLRDataproc_Expr;
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
@@ -85,30 +89,42 @@
 @class GTLRDataproc_OrderedJob;
 @class GTLRDataproc_OrderedJob_Labels;
 @class GTLRDataproc_ParameterValidation;
+@class GTLRDataproc_PeripheralsConfig;
 @class GTLRDataproc_PigJob;
 @class GTLRDataproc_PigJob_Properties;
 @class GTLRDataproc_PigJob_ScriptVariables;
 @class GTLRDataproc_Policy;
 @class GTLRDataproc_PrestoJob;
 @class GTLRDataproc_PrestoJob_Properties;
+@class GTLRDataproc_PySparkBatch;
 @class GTLRDataproc_PySparkJob;
 @class GTLRDataproc_PySparkJob_Properties;
 @class GTLRDataproc_QueryList;
 @class GTLRDataproc_RegexValidation;
 @class GTLRDataproc_ReservationAffinity;
+@class GTLRDataproc_RuntimeConfig;
+@class GTLRDataproc_RuntimeConfig_Properties;
+@class GTLRDataproc_RuntimeInfo;
+@class GTLRDataproc_RuntimeInfo_Endpoints;
 @class GTLRDataproc_SecurityConfig;
 @class GTLRDataproc_SessionOperationMetadata_Labels;
 @class GTLRDataproc_ShieldedInstanceConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
+@class GTLRDataproc_SparkBatch;
+@class GTLRDataproc_SparkHistoryServerConfig;
 @class GTLRDataproc_SparkJob;
 @class GTLRDataproc_SparkJob_Properties;
+@class GTLRDataproc_SparkRBatch;
 @class GTLRDataproc_SparkRJob;
 @class GTLRDataproc_SparkRJob_Properties;
+@class GTLRDataproc_SparkSqlBatch;
+@class GTLRDataproc_SparkSqlBatch_QueryVariables;
 @class GTLRDataproc_SparkSqlJob;
 @class GTLRDataproc_SparkSqlJob_Properties;
 @class GTLRDataproc_SparkSqlJob_ScriptVariables;
 @class GTLRDataproc_SparkStandaloneAutoscalingConfig;
+@class GTLRDataproc_StateHistory;
 @class GTLRDataproc_Status;
 @class GTLRDataproc_Status_Details_Item;
 @class GTLRDataproc_TemplateParameter;
@@ -130,6 +146,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_Batch.state
+
+/**
+ *  The batch cancellation was successful.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Cancelled;
+/**
+ *  The batch is cancelling.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Cancelling;
+/**
+ *  The batch is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Failed;
+/**
+ *  The batch is created before running.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Pending;
+/**
+ *  The batch is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Running;
+/**
+ *  The batch state is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_StateUnspecified;
+/**
+ *  The batch completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Batch_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_BatchOperationMetadata.operationType
@@ -616,6 +678,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_StateHistory.state
+
+/**
+ *  The batch cancellation was successful.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Cancelled;
+/**
+ *  The batch is cancelling.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Cancelling;
+/**
+ *  The batch is no longer running due to an error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Failed;
+/**
+ *  The batch is created before running.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Pending;
+/**
+ *  The batch is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Running;
+/**
+ *  The batch state is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_StateUnspecified;
+/**
+ *  The batch completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_StateHistory_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_WorkflowMetadata.state
 
 /**
@@ -942,6 +1050,115 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSNumber *scaleUpMinWorkerFraction;
 
+@end
+
+
+/**
+ *  A representation of a batch workload in the service.
+ */
+@interface GTLRDataproc_Batch : GTLRObject
+
+/** Output only. The time when the batch was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The email address of the user who created the batch. */
+@property(nonatomic, copy, nullable) NSString *creator;
+
+/** Optional. Environment configuration for the batch execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_EnvironmentConfig *environmentConfig;
+
+/**
+ *  Optional. The labels to associate with this batch. Label keys must contain 1
+ *  to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a batch.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_Batch_Labels *labels;
+
+/** Output only. The resource name of the batch. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resource name of the operation associated with this batch.
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** Optional. PySpark batch config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PySparkBatch *pysparkBatch;
+
+/** Optional. Runtime configuration for the batch execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
+
+/** Output only. Runtime information about batch execution. */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeInfo *runtimeInfo;
+
+/** Optional. Spark batch config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkBatch *sparkBatch;
+
+/** Optional. SparkR batch config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkRBatch *sparkRBatch;
+
+/** Optional. SparkSql batch config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlBatch *sparkSqlBatch;
+
+/**
+ *  Output only. The state of the batch.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_Batch_State_Cancelled The batch cancellation was
+ *        successful. (Value: "CANCELLED")
+ *    @arg @c kGTLRDataproc_Batch_State_Cancelling The batch is cancelling.
+ *        (Value: "CANCELLING")
+ *    @arg @c kGTLRDataproc_Batch_State_Failed The batch is no longer running
+ *        due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRDataproc_Batch_State_Pending The batch is created before
+ *        running. (Value: "PENDING")
+ *    @arg @c kGTLRDataproc_Batch_State_Running The batch is running. (Value:
+ *        "RUNNING")
+ *    @arg @c kGTLRDataproc_Batch_State_StateUnspecified The batch state is
+ *        unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_Batch_State_Succeeded The batch completed
+ *        successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Historical state information for the batch. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_StateHistory *> *stateHistory;
+
+/**
+ *  Output only. Batch state details, such as a failure description if the state
+ *  is FAILED.
+ */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/** Output only. The time when the batch entered a current state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateTime;
+
+/**
+ *  Output only. A batch UUID (Unique Universal Identifier). The service
+ *  generates this value when it creates the batch.
+ */
+@property(nonatomic, copy, nullable) NSString *uuid;
+
+@end
+
+
+/**
+ *  Optional. The labels to associate with this batch. Label keys must contain 1
+ *  to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). Label values may be empty, but, if
+ *  present, must contain 1 to 63 characters, and must conform to RFC 1035
+ *  (https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a batch.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_Batch_Labels : GTLRObject
 @end
 
 
@@ -1540,6 +1757,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *bootDiskType;
 
 /**
+ *  Optional. Interface type of local SSDs (default is "scsi"). Valid values:
+ *  "scsi" (Small Computer System Interface), "nvme" (Non-Volatile Memory
+ *  Express). See SSD Interface types
+ *  (https://cloud.google.com/compute/docs/disks/local-ssd#performance).
+ */
+@property(nonatomic, copy, nullable) NSString *localSsdInterface;
+
+/**
  *  Optional. Number of attached SSDs, from 0 to 4 (default is 0). If SSDs are
  *  not attached, the boot disk is used to store runtime logs and HDFS
  *  (https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data. If one or
@@ -1610,6 +1835,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_EndpointConfig_HttpPorts : GTLRObject
+@end
+
+
+/**
+ *  Environment configuration for a workload.
+ */
+@interface GTLRDataproc_EnvironmentConfig : GTLRObject
+
+/** Optional. Execution configuration for a workload. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutionConfig *executionConfig;
+
+/** Optional. Peripherals configuration that workload has access to. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PeripheralsConfig *peripheralsConfig;
+
+@end
+
+
+/**
+ *  Execution configuration for a workload.
+ */
+@interface GTLRDataproc_ExecutionConfig : GTLRObject
+
+/** Optional. The Cloud KMS key to use for encryption. */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/** Optional. Tags used for network traffic control. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
+
+/** Optional. Network URI to connect workload to. */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/** Optional. Service account that used to execute workload. */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Optional. Subnetwork URI to connect workload to. */
+@property(nonatomic, copy, nullable) NSString *subnetworkUri;
+
 @end
 
 
@@ -2472,7 +2734,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. Maximum number of times per hour a driver may be restarted as a
  *  result of driver exiting with non-zero code before job is reported failed.A
  *  job may be reported as thrashing if driver exits with non-zero code 4 times
- *  within 10 minute window.Maximum value is 10.
+ *  within 10 minute window.Maximum value is 10.Note: Currently, this
+ *  restartable job option is not supported in Dataproc workflow template
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
+ *  jobs.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2481,7 +2746,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Maximum number of times in total a driver may be restarted as a
  *  result of driver exiting with non-zero code before job is reported failed.
- *  Maximum value is 240.
+ *  Maximum value is 240.Note: Currently, this restartable job option is not
+ *  supported in Dataproc workflow template
+ *  (https://cloud.google.com/dataproc/docs/concepts/workflows/using-workflows#adding_jobs_to_a_template)
+ *  jobs.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2728,6 +2996,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AutoscalingPolicy *> *policies;
+
+@end
+
+
+/**
+ *  A list of batch workloads.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "batches" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataproc_ListBatchesResponse : GTLRCollectionObject
+
+/**
+ *  The batches from the specified collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Batch *> *batches;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3176,6 +3471,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Auxiliary services configuration for a workload.
+ */
+@interface GTLRDataproc_PeripheralsConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of an existing Dataproc Metastore service.Example:
+ *  projects/[project_id]/locations/[region]/services/[service_id]
+ */
+@property(nonatomic, copy, nullable) NSString *metastoreService;
+
+/** Optional. The Spark History Server configuration for the workload. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkHistoryServerConfig *sparkHistoryServerConfig;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache Pig (https://pig.apache.org/) queries on
  *  YARN.
  */
@@ -3397,6 +3709,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A configuration for running an Apache PySpark
+ *  (https://spark.apache.org/docs/latest/api/python/getting_started/quickstart.html)
+ *  batch workload.
+ */
+@interface GTLRDataproc_PySparkBatch : GTLRObject
+
+/**
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Optional. The arguments to pass to the driver. Do not include arguments that
+ *  can be set as batch properties, such as --conf, since a collision can occur
+ *  that causes an incorrect batch submission.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/**
+ *  Optional. HCFS URIs of jar files to add to the classpath of the Spark driver
+ *  and tasks.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarFileUris;
+
+/**
+ *  Required. The HCFS URI of the main Python file to use as the Spark driver.
+ *  Must be a .py file.
+ */
+@property(nonatomic, copy, nullable) NSString *mainPythonFileUri;
+
+/**
+ *  Optional. HCFS file URIs of Python files to pass to the PySpark framework.
+ *  Supported file types: .py, .egg, and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pythonFileUris;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache PySpark
  *  (https://spark.apache.org/docs/0.9.0/python-programming-guide.html)
  *  applications on YARN.
@@ -3554,6 +3913,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Corresponds to the label values of reservation resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
+@end
+
+
+/**
+ *  Runtime configuration for a workload.
+ */
+@interface GTLRDataproc_RuntimeConfig : GTLRObject
+
+/**
+ *  Optional. Optional custom container image for the job runtime environment.
+ *  If not specified, a default container image will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *containerImage;
+
+/**
+ *  Optional. A mapping of property names to values, which are used to configure
+ *  workload execution.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig_Properties *properties;
+
+/** Optional. Version of the batch runtime. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Optional. A mapping of property names to values, which are used to configure
+ *  workload execution.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_RuntimeConfig_Properties : GTLRObject
+@end
+
+
+/**
+ *  Runtime information about workload execution.
+ */
+@interface GTLRDataproc_RuntimeInfo : GTLRObject
+
+/** Output only. A URI pointing to the location of the diagnostics tarball. */
+@property(nonatomic, copy, nullable) NSString *diagnosticOutputUri;
+
+/**
+ *  Output only. Map of remote access endpoints (such as web interfaces and
+ *  APIs) to their URIs.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_RuntimeInfo_Endpoints *endpoints;
+
+/**
+ *  Output only. A URI pointing to the location of the stdout and stderr of the
+ *  workload.
+ */
+@property(nonatomic, copy, nullable) NSString *outputUri;
+
+@end
+
+
+/**
+ *  Output only. Map of remote access endpoints (such as web interfaces and
+ *  APIs) to their URIs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_RuntimeInfo_Endpoints : GTLRObject
 @end
 
 
@@ -3734,6 +4165,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A configuration for running an Apache Spark (http://spark.apache.org/) batch
+ *  workload.
+ */
+@interface GTLRDataproc_SparkBatch : GTLRObject
+
+/**
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Optional. The arguments to pass to the driver. Do not include arguments that
+ *  can be set as batch properties, such as --conf, since a collision can occur
+ *  that causes an incorrect batch submission.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/**
+ *  Optional. HCFS URIs of jar files to add to the classpath of the Spark driver
+ *  and tasks.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarFileUris;
+
+/**
+ *  Optional. The name of the driver main class. The jar file that contains the
+ *  class must be in the classpath or specified in jar_file_uris.
+ */
+@property(nonatomic, copy, nullable) NSString *mainClass;
+
+/** Optional. The HCFS URI of the jar file that contains the main class. */
+@property(nonatomic, copy, nullable) NSString *mainJarFileUri;
+
+@end
+
+
+/**
+ *  Spark History Server configuration for the workload.
+ */
+@interface GTLRDataproc_SparkHistoryServerConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of an existing Dataproc Cluster to act as a Spark
+ *  History Server for the workload.Example:
+ *  projects/[project_id]/regions/[region]/clusters/[cluster_name]
+ */
+@property(nonatomic, copy, nullable) NSString *dataprocCluster;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache Spark (http://spark.apache.org/)
  *  applications on YARN.
  */
@@ -3803,6 +4292,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A configuration for running an Apache SparkR
+ *  (https://spark.apache.org/docs/latest/sparkr.html) batch workload.
+ */
+@interface GTLRDataproc_SparkRBatch : GTLRObject
+
+/**
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Optional. The arguments to pass to the Spark driver. Do not include
+ *  arguments that can be set as batch properties, such as --conf, since a
+ *  collision can occur that causes an incorrect batch submission.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/**
+ *  Required. The HCFS URI of the main R file to use as the driver. Must be a .R
+ *  or .r file.
+ */
+@property(nonatomic, copy, nullable) NSString *mainRFileUri;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache SparkR
  *  (https://spark.apache.org/docs/latest/sparkr.html) applications on YARN.
  */
@@ -3859,6 +4382,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_SparkRJob_Properties : GTLRObject
+@end
+
+
+/**
+ *  A configuration for running Apache Spark SQL (http://spark.apache.org/sql/)
+ *  queries as a batch workload.
+ */
+@interface GTLRDataproc_SparkSqlBatch : GTLRObject
+
+/** Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarFileUris;
+
+/**
+ *  Required. The HCFS URI of the script that contains Spark SQL queries to
+ *  execute.
+ */
+@property(nonatomic, copy, nullable) NSString *queryFileUri;
+
+/**
+ *  Optional. Mapping of query variable names to values (equivalent to the Spark
+ *  SQL command: SET name="value";).
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkSqlBatch_QueryVariables *queryVariables;
+
+@end
+
+
+/**
+ *  Optional. Mapping of query variable names to values (equivalent to the Spark
+ *  SQL command: SET name="value";).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SparkSqlBatch_QueryVariables : GTLRObject
 @end
 
 
@@ -4006,6 +4566,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Historical state information.
+ */
+@interface GTLRDataproc_StateHistory : GTLRObject
+
+/**
+ *  Output only. The state of the batch at this point in history.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_StateHistory_State_Cancelled The batch cancellation
+ *        was successful. (Value: "CANCELLED")
+ *    @arg @c kGTLRDataproc_StateHistory_State_Cancelling The batch is
+ *        cancelling. (Value: "CANCELLING")
+ *    @arg @c kGTLRDataproc_StateHistory_State_Failed The batch is no longer
+ *        running due to an error. (Value: "FAILED")
+ *    @arg @c kGTLRDataproc_StateHistory_State_Pending The batch is created
+ *        before running. (Value: "PENDING")
+ *    @arg @c kGTLRDataproc_StateHistory_State_Running The batch is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDataproc_StateHistory_State_StateUnspecified The batch state
+ *        is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_StateHistory_State_Succeeded The batch completed
+ *        successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Details about the state at this point in history. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/** Output only. The time when the batch entered the historical state. */
+@property(nonatomic, strong, nullable) GTLRDateTime *stateStartTime;
 
 @end
 

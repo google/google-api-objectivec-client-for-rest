@@ -596,8 +596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  Input only. AWS access key used to sign the API requests to the AWS S3
  *  bucket. Permissions on the bucket must be granted to the access ID of the
- *  AWS access key. This field is required. For information on our data
- *  retention policy for user credentials, see [User
+ *  AWS access key. For information on our data retention policy for user
+ *  credentials, see [User
  *  credentials](/storage-transfer/docs/data-retention#user-credentials).
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
@@ -2007,10 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  Required. The job to update. `transferJob` is expected to specify one or
  *  more of five fields: description, transfer_spec, notification_config,
- *  [logging_config[TransferJob.logging_config], and status. An
- *  `UpdateTransferJobRequest` that specifies other fields are rejected with the
- *  error INVALID_ARGUMENT. Updating a job status to DELETED requires
- *  `storagetransfer.jobs.delete` permissions.
+ *  logging_config, and status. An `UpdateTransferJobRequest` that specifies
+ *  other fields are rejected with the error INVALID_ARGUMENT. Updating a job
+ *  status to DELETED requires `storagetransfer.jobs.delete` permissions.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 

@@ -962,6 +962,29 @@
 
 @end
 
+@implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsManagedPkisGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCertificateAuthorityServiceQuery_ProjectsLocationsManagedPkisGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCertificateAuthorityService_Policy class];
+  query.loggingName = @"privateca.projects.locations.managedPkis.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsCancel
 
 @dynamic name;

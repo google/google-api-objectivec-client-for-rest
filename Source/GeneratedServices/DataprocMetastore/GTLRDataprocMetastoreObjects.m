@@ -93,6 +93,11 @@ NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full =
 NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly = @"METADATA_ONLY";
 NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_Service.databaseType
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Spanner = @"SPANNER";
+
 // GTLRDataprocMetastore_Service.releaseChannel
 NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Canary = @"CANARY";
 NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
@@ -702,10 +707,11 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_Service
-@dynamic artifactGcsUri, createTime, encryptionConfig, endpointUri,
-         hiveMetastoreConfig, labels, maintenanceWindow, metadataIntegration,
-         metadataManagementActivity, name, network, networkConfig, port,
-         releaseChannel, state, stateMessage, tier, uid, updateTime;
+@dynamic artifactGcsUri, createTime, databaseType, encryptionConfig,
+         endpointUri, hiveMetastoreConfig, labels, maintenanceWindow,
+         metadataIntegration, metadataManagementActivity, name, network,
+         networkConfig, port, releaseChannel, state, stateMessage, tier, uid,
+         updateTime;
 @end
 
 

@@ -162,6 +162,7 @@ NSString * const kGTLRDfareportingTagFormatsPlacementTagStandard = @"PLACEMENT_T
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTracking = @"PLACEMENT_TAG_TRACKING";
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe = @"PLACEMENT_TAG_TRACKING_IFRAME";
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript = @"PLACEMENT_TAG_TRACKING_JAVASCRIPT";
+NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement = @"PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT";
 
 // type
 NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd     = @"AD_SERVING_BRAND_SAFE_AD";

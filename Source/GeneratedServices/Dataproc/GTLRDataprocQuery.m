@@ -227,6 +227,90 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesCreate
+
+@dynamic batchId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataproc_Batch *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/batches";
+  GTLRDataprocQuery_ProjectsLocationsBatchesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.locations.batches.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsBatchesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Empty class];
+  query.loggingName = @"dataproc.projects.locations.batches.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataprocQuery_ProjectsLocationsBatchesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataproc_Batch class];
+  query.loggingName = @"dataproc.projects.locations.batches.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsLocationsBatchesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/batches";
+  GTLRDataprocQuery_ProjectsLocationsBatchesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataproc_ListBatchesResponse class];
+  query.loggingName = @"dataproc.projects.locations.batches.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate
 
 @dynamic parent;

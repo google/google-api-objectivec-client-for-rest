@@ -167,6 +167,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Cre
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
@@ -213,6 +214,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Create
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_DynamicResolution = @"DYNAMIC_RESOLUTION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationOverWebService = @"EXFILTRATION_OVER_WEB_SERVICE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExfiltrationToCloudStorage = @"EXFILTRATION_TO_CLOUD_STORAGE";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitPublicFacingApplication = @"EXPLOIT_PUBLIC_FACING_APPLICATION";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
