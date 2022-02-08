@@ -697,9 +697,6 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Get which branch is currently default branch set by
  *  CatalogService.SetDefaultBranch method under a specified parent catalog.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please submit a form [here](https://cloud.google.com/contact) to contact
- *  cloud sales if you are interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.getDefaultBranch
  *
@@ -719,9 +716,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Get which branch is currently default branch set by
  *  CatalogService.SetDefaultBranch method under a specified parent catalog.
- *  This feature is only available for users who have Retail Search enabled.
- *  Please submit a form [here](https://cloud.google.com/contact) to contact
- *  cloud sales if you are interested in using Retail Search.
  *
  *  @param catalog The parent catalog resource name, such as `projects/ *
  *    /locations/global/catalogs/default_catalog`.
@@ -1018,10 +1012,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  PredictionService will only return product IDs from branch {newBranch}. *
  *  SearchService will only return product IDs from branch {newBranch} (if
  *  branch is not explicitly set). * UserEventService will only join events with
- *  products from branch {newBranch}. This feature is only available for users
- *  who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  products from branch {newBranch}.
  *
  *  Method: retail.projects.locations.catalogs.setDefaultBranch
  *
@@ -1057,10 +1048,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  PredictionService will only return product IDs from branch {newBranch}. *
  *  SearchService will only return product IDs from branch {newBranch} (if
  *  branch is not explicitly set). * UserEventService will only join events with
- *  products from branch {newBranch}. This feature is only available for users
- *  who have Retail Search enabled. Please submit a form
- *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
- *  interested in using Retail Search.
+ *  products from branch {newBranch}.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest to include in

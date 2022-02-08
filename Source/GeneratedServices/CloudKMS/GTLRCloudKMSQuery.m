@@ -34,6 +34,52 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsCreate
+
+@dynamic ekmConnectionId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConnection *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/ekmConnections";
+  GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_EkmConnection class];
+  query.loggingName = @"cloudkms.projects.locations.ekmConnections.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_EkmConnection class];
+  query.loggingName = @"cloudkms.projects.locations.ekmConnections.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -52,6 +98,52 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudKMS_Policy class];
   query.loggingName = @"cloudkms.projects.locations.ekmConnections.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/ekmConnections";
+  GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ListEkmConnectionsResponse class];
+  query.loggingName = @"cloudkms.projects.locations.ekmConnections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConnection *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_EkmConnection class];
+  query.loggingName = @"cloudkms.projects.locations.ekmConnections.patch";
   return query;
 }
 

@@ -1718,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  The domain name. Use this field to get fields from only one domain. To
+ *  The domain name. Use this field to get groups from only one domain. To
  *  return all domains for a customer account, use the `customer` query
  *  parameter instead.
  */
@@ -4509,7 +4509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
- *  The domain name. Use this field to get fields from only one domain. To
+ *  The domain name. Use this field to get groups from only one domain. To
  *  return all domains for a customer account, use the `customer` query
  *  parameter instead. Either the `customer` or the `domain` parameter must be
  *  provided.
@@ -4583,7 +4583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**
- *  Whether to return results in ascending or descending order.
+ *  Whether to return results in ascending or descending order, ignoring case.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:

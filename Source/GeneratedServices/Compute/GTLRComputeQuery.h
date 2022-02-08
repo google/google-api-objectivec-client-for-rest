@@ -12140,6 +12140,60 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Resumes an instance that was suspended using the instances().suspend method.
+ *
+ *  Method: compute.instances.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesResume : GTLRComputeQuery
+
+/** Name of the instance resource to resume. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Resumes an instance that was suspended using the instances().suspend method.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance resource to resume.
+ *
+ *  @return GTLRComputeQuery_InstancesResume
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Sends diagnostic interrupt to the instance.
  *
  *  Method: compute.instances.sendDiagnosticInterrupt
@@ -12657,7 +12711,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Sets an instance's scheduling options. You can only call this method on a
  *  stopped instance, that is, a VM instance that is in a `TERMINATED` state.
  *  See Instance Life Cycle for more information on the possible instance
- *  states.
+ *  states. For more information about setting scheduling options for a VM, see
+ *  Set VM availability policies.
  *
  *  Method: compute.instances.setScheduling
  *
@@ -12699,7 +12754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Sets an instance's scheduling options. You can only call this method on a
  *  stopped instance, that is, a VM instance that is in a `TERMINATED` state.
  *  See Instance Life Cycle for more information on the possible instance
- *  states.
+ *  states. For more information about setting scheduling options for a VM, see
+ *  Set VM availability policies.
  *
  *  @param object The @c GTLRCompute_Scheduling to include in the query.
  *  @param project Project ID for this request.
@@ -12894,7 +12950,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Simulates a maintenance event on the instance.
+ *  Simulates a host maintenance event on a VM. For more information, see
+ *  Simulate a host maintenance event.
  *
  *  Method: compute.instances.simulateMaintenanceEvent
  *
@@ -12920,7 +12977,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Simulates a maintenance event on the instance.
+ *  Simulates a host maintenance event on a VM. For more information, see
+ *  Simulate a host maintenance event.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -13106,6 +13164,72 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param instance Name of the instance resource to stop.
  *
  *  @return GTLRComputeQuery_InstancesStop
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  This method suspends a running instance, saving its state to persistent
+ *  storage, and allows you to resume the instance at a later time. Suspended
+ *  instances have no compute costs (cores or RAM), and incur only storage
+ *  charges for the saved VM memory and localSSD data. Any charged resources the
+ *  virtual machine was using, such as persistent disks and static IP addresses,
+ *  will continue to be charged while the instance is suspended. For more
+ *  information, see Suspending and resuming an instance.
+ *
+ *  Method: compute.instances.suspend
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSuspend : GTLRComputeQuery
+
+/** Name of the instance resource to suspend. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  This method suspends a running instance, saving its state to persistent
+ *  storage, and allows you to resume the instance at a later time. Suspended
+ *  instances have no compute costs (cores or RAM), and incur only storage
+ *  charges for the saved VM memory and localSSD data. Any charged resources the
+ *  virtual machine was using, such as persistent disks and static IP addresses,
+ *  will continue to be charged while the instance is suspended. For more
+ *  information, see Suspending and resuming an instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance resource to suspend.
+ *
+ *  @return GTLRComputeQuery_InstancesSuspend
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty

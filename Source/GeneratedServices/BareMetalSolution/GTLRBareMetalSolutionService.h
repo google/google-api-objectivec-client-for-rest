@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Bare Metal Solution API (baremetalsolution/v1)
+//   Bare Metal Solution API (baremetalsolution/v2)
 // Description:
 //   Provides ways to manage Bare Metal Solution hardware installed in a
 //   regional extension located near a Google Cloud data center.

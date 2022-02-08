@@ -38,7 +38,9 @@
 @class GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest_Labels;
 @class GTLRDatastore_GoogleDatastoreAdminV1Index;
 @class GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty;
+@class GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails;
 @class GTLRDatastore_GoogleDatastoreAdminV1Progress;
+@class GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails;
 @class GTLRDatastore_GoogleLongrunningOperation;
 @class GTLRDatastore_GoogleLongrunningOperation_Metadata;
 @class GTLRDatastore_GoogleLongrunningOperation_Response;
@@ -448,6 +450,131 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedP
  *  Value: "DIRECTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent.step
+
+/**
+ *  Writes are applied synchronously to at least one replica.
+ *
+ *  Value: "APPLY_WRITES_SYNCHRONOUSLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_ApplyWritesSynchronously;
+/**
+ *  Data is copied to Cloud Firestore and then verified to match the data in
+ *  Cloud Datastore.
+ *
+ *  Value: "COPY_AND_VERIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_CopyAndVerify;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MIGRATION_STEP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_MigrationStepUnspecified;
+/**
+ *  Pre-migration: the database is prepared for migration.
+ *
+ *  Value: "PREPARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Prepare;
+/**
+ *  Eventually-consistent reads are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_EVENTUALLY_CONSISTENT_READS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectEventuallyConsistentReads;
+/**
+ *  Strongly-consistent reads are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_STRONGLY_CONSISTENT_READS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectStronglyConsistentReads;
+/**
+ *  Writes are redirected to Cloud Firestore.
+ *
+ *  Value: "REDIRECT_WRITES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectWrites;
+/**
+ *  Start of migration.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent.state
+
+/**
+ *  The migration is complete.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Complete;
+/**
+ *  Unspecified.
+ *
+ *  Value: "MIGRATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_MigrationStateUnspecified;
+/**
+ *  The migration is paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Paused;
+/**
+ *  The migration is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails.concurrencyMode
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "CONCURRENCY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified;
+/**
+ *  Optimistic concurrency.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic;
+/**
+ *  Pessimistic concurrency.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Pessimistic;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails.concurrencyMode
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "CONCURRENCY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified;
+/**
+ *  Optimistic concurrency.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic;
+/**
+ *  Pessimistic concurrency.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastore_PropertyFilter.op
@@ -1151,7 +1278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  DatastoreFirestoreMigration operation is not started by the end-user via an
  *  explicit "creation" method. This is an intentional deviation from the LRO
  *  design pattern. This singleton resource can be accessed at:
- *  "projects/{project_id}/datastore-firestore-migration"
+ *  "projects/{project_id}/operations/datastore-firestore-migration"
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1DatastoreFirestoreMigrationMetadata : GTLRObject
 
@@ -1525,6 +1652,98 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
+ *  An event signifying the start of a new step in a [migration from Cloud
+ *  Datastore to Cloud Firestore in Datastore
+ *  mode](https://cloud.google.com/datastore/docs/upgrade-to-firestore).
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent : GTLRObject
+
+/** Details for the `PREPARE` step. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails *prepareStepDetails;
+
+/** Details for the `REDIRECT_WRITES` step. */
+@property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails *redirectWritesStepDetails;
+
+/**
+ *  The step that is starting. An event with step set to `START` indicates that
+ *  the migration has been reverted back to the initial pre-migration state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_ApplyWritesSynchronously
+ *        Writes are applied synchronously to at least one replica. (Value:
+ *        "APPLY_WRITES_SYNCHRONOUSLY")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_CopyAndVerify
+ *        Data is copied to Cloud Firestore and then verified to match the data
+ *        in Cloud Datastore. (Value: "COPY_AND_VERIFY")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_MigrationStepUnspecified
+ *        Unspecified. (Value: "MIGRATION_STEP_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Prepare
+ *        Pre-migration: the database is prepared for migration. (Value:
+ *        "PREPARE")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectEventuallyConsistentReads
+ *        Eventually-consistent reads are redirected to Cloud Firestore. (Value:
+ *        "REDIRECT_EVENTUALLY_CONSISTENT_READS")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectStronglyConsistentReads
+ *        Strongly-consistent reads are redirected to Cloud Firestore. (Value:
+ *        "REDIRECT_STRONGLY_CONSISTENT_READS")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectWrites
+ *        Writes are redirected to Cloud Firestore. (Value: "REDIRECT_WRITES")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Start
+ *        Start of migration. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  An event signifying a change in state of a [migration from Cloud Datastore
+ *  to Cloud Firestore in Datastore
+ *  mode](https://cloud.google.com/datastore/docs/upgrade-to-firestore).
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent : GTLRObject
+
+/**
+ *  The new state of the migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Complete
+ *        The migration is complete. (Value: "COMPLETE")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_MigrationStateUnspecified
+ *        Unspecified. (Value: "MIGRATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Paused
+ *        The migration is paused. (Value: "PAUSED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Running
+ *        The migration is running. (Value: "RUNNING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Details for the `PREPARE` step.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails : GTLRObject
+
+/**
+ *  The concurrency mode this database will use when it reaches the
+ *  `REDIRECT_WRITES` step.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified
+ *        Unspecified. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic
+ *        Optimistic concurrency. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Pessimistic
+ *        Pessimistic concurrency. (Value: "PESSIMISTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *concurrencyMode;
+
+@end
+
+
+/**
  *  Measures the progress of a particular metric.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1Progress : GTLRObject
@@ -1544,6 +1763,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *workEstimated;
+
+@end
+
+
+/**
+ *  Details for the `REDIRECT_WRITES` step.
+ */
+@interface GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails : GTLRObject
+
+/**
+ *  Ths concurrency mode for this database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified
+ *        Unspecified. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic
+ *        Optimistic concurrency. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic
+ *        Pessimistic concurrency. (Value: "PESSIMISTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
 @end
 

@@ -292,6 +292,44 @@
 
 @end
 
+@implementation GTLREventarcQuery_ProjectsLocationsProvidersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsProvidersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_Provider class];
+  query.loggingName = @"eventarc.projects.locations.providers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsProvidersList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/providers";
+  GTLREventarcQuery_ProjectsLocationsProvidersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLREventarc_ListProvidersResponse class];
+  query.loggingName = @"eventarc.projects.locations.providers.list";
+  return query;
+}
+
+@end
+
 @implementation GTLREventarcQuery_ProjectsLocationsTriggersCreate
 
 @dynamic parent, triggerId, validateOnly;

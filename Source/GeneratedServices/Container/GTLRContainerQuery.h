@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to complete IP
+ *  The name (project, location, cluster name) of the cluster to complete IP
  *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -139,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_CompleteIPRotationRequest to include in
  *    the query.
- *  @param name The name (project, location, cluster id) of the cluster to
+ *  @param name The name (project, location, cluster name) of the cluster to
  *    complete IP rotation. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
@@ -324,7 +324,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersGetJwks : GTLRContainerQuery
 
 /**
- *  The cluster (project, location, cluster id) to get keys for. Specified in
+ *  The cluster (project, location, cluster name) to get keys for. Specified in
  *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -336,7 +336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  format. This API is not yet intended for general use, and is not available
  *  for all clusters.
  *
- *  @param parent The cluster (project, location, cluster id) to get keys for.
+ *  @param parent The cluster (project, location, cluster name) to get keys for.
  *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersGetJwks
@@ -407,7 +407,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate : GTLRContainerQuery
 
 /**
- *  The parent (project, location, cluster id) where the node pool will be
+ *  The parent (project, location, cluster name) where the node pool will be
  *  created. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -419,8 +419,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_CreateNodePoolRequest to include in the
  *    query.
- *  @param parent The parent (project, location, cluster id) where the node pool
- *    will be created. Specified in the format `projects/ * /locations/ *
+ *  @param parent The parent (project, location, cluster name) where the node
+ *    pool will be created. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
@@ -569,7 +569,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The parent (project, location, cluster id) where the node pools will be
+ *  The parent (project, location, cluster name) where the node pools will be
  *  listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -596,7 +596,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the node pools for a cluster.
  *
- *  @param parent The parent (project, location, cluster id) where the node
+ *  @param parent The parent (project, location, cluster name) where the node
  *    pools will be listed. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
@@ -829,8 +829,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to set legacy abac.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster name) of the cluster to set legacy
+ *  abac. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -841,7 +841,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_SetLegacyAbacRequest to include in the
  *    query.
- *  @param name The name (project, location, cluster id) of the cluster to set
+ *  @param name The name (project, location, cluster name) of the cluster to set
  *    legacy abac. Specified in the format `projects/ * /locations/ * /clusters/
  *    *`.
  *
@@ -934,7 +934,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to set maintenance
+ *  The name (project, location, cluster name) of the cluster to set maintenance
  *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -946,7 +946,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_SetMaintenancePolicyRequest to include in
  *    the query.
- *  @param name The name (project, location, cluster id) of the cluster to set
+ *  @param name The name (project, location, cluster name) of the cluster to set
  *    maintenance policy. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
@@ -1039,7 +1039,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to set networking
+ *  The name (project, location, cluster name) of the cluster to set networking
  *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1051,7 +1051,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_SetNetworkPolicyRequest to include in the
  *    query.
- *  @param name The name (project, location, cluster id) of the cluster to set
+ *  @param name The name (project, location, cluster name) of the cluster to set
  *    networking policy. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
@@ -1073,7 +1073,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to set labels.
+ *  The name (project, location, cluster name) of the cluster to set labels.
  *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1084,7 +1084,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Sets labels on a cluster.
  *
  *  @param object The @c GTLRContainer_SetLabelsRequest to include in the query.
- *  @param name The name (project, location, cluster id) of the cluster to set
+ *  @param name The name (project, location, cluster name) of the cluster to set
  *    labels. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels
@@ -1105,7 +1105,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation : GTLRContainerQuery
 
 /**
- *  The name (project, location, cluster id) of the cluster to start IP
+ *  The name (project, location, cluster name) of the cluster to start IP
  *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1117,9 +1117,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
  *    query.
- *  @param name The name (project, location, cluster id) of the cluster to start
- *    IP rotation. Specified in the format `projects/ * /locations/ * /clusters/
- *    *`.
+ *  @param name The name (project, location, cluster name) of the cluster to
+ *    start IP rotation. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
  */
@@ -1206,7 +1206,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration : GTLRContainerQuery
 
 /**
- *  The cluster (project, location, cluster id) to get the discovery document
+ *  The cluster (project, location, cluster name) to get the discovery document
  *  for. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1220,7 +1220,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  for details. This API is not yet intended for general use, and is not
  *  available for all clusters.
  *
- *  @param parent The cluster (project, location, cluster id) to get the
+ *  @param parent The cluster (project, location, cluster name) to get the
  *    discovery document for. Specified in the format `projects/ * /locations/ *
  *    /clusters/ *`.
  *
@@ -2376,7 +2376,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The parent (project, location, cluster id) where the node pools will be
+ *  The parent (project, location, cluster name) where the node pools will be
  *  listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;

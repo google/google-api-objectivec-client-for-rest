@@ -827,17 +827,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  A person's birthday. At least one of the `date` and `text` fields are
  *  specified. The `date` and `text` fields typically represent the same date,
- *  but are not guaranteed to.
+ *  but are not guaranteed to. Clients should always set the `date` field when
+ *  mutating birthdays.
  */
 @interface GTLRPeopleService_Birthday : GTLRObject
 
-/** The date of the birthday. */
+/** The structured date of the birthday. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_Date *date;
 
 /** Metadata about the birthday. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
 
-/** A free-form string representing the user's birthday. */
+/**
+ *  Prefer to use the `date` field if set. A free-form string representing the
+ *  user's birthday. This value is not validated.
+ */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
@@ -1128,10 +1132,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRPeopleService_Date : GTLRObject
 

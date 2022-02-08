@@ -1546,7 +1546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @interface GTLRCloudHealthcare_DeidentifyDicomStoreRequest : GTLRObject
 
-/** De-identify configuration. */
+/** Deidentify configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**

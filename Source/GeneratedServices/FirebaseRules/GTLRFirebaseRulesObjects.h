@@ -271,7 +271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @interface GTLRFirebaseRules_File : GTLRObject
 
-/** Textual Content. */
+/** Required. Textual Content. */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -282,7 +282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/** File name. */
+/** Required. File name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -506,12 +506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 /** Output only. Time the release was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Format: `projects/{project_id}/releases/{release_id}` */
+/** Required. Format: `projects/{project_id}/releases/{release_id}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Name of the `Ruleset` referred to by this `Release`. The `Ruleset` must
- *  exist the `Release` to be created.
+ *  Required. Name of the `Ruleset` referred to by this `Release`. The `Ruleset`
+ *  must exist the `Release` to be created.
  */
 @property(nonatomic, copy, nullable) NSString *rulesetName;
 
@@ -558,7 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** `Source` for the `Ruleset`. */
+/** Required. `Source` for the `Ruleset`. */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Source *source;
 
 @end
@@ -569,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @interface GTLRFirebaseRules_Source : GTLRObject
 
-/** `File` set constituting the `Source` bundle. */
+/** Required. `File` set constituting the `Source` bundle. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_File *> *files;
 
 @end
@@ -827,7 +827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @interface GTLRFirebaseRules_UpdateReleaseRequest : GTLRObject
 
 /**
- *  `Release` to update.
+ *  Required. `Release` to update.
  *
  *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
  */

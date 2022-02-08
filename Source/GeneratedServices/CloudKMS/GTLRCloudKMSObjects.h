@@ -24,12 +24,14 @@
 @class GTLRCloudKMS_AuditConfig;
 @class GTLRCloudKMS_AuditLogConfig;
 @class GTLRCloudKMS_Binding;
+@class GTLRCloudKMS_Certificate;
 @class GTLRCloudKMS_CertificateChains;
 @class GTLRCloudKMS_CryptoKey;
 @class GTLRCloudKMS_CryptoKey_Labels;
 @class GTLRCloudKMS_CryptoKeyVersion;
 @class GTLRCloudKMS_CryptoKeyVersionTemplate;
 @class GTLRCloudKMS_Digest;
+@class GTLRCloudKMS_EkmConnection;
 @class GTLRCloudKMS_Expr;
 @class GTLRCloudKMS_ExternalProtectionLevelOptions;
 @class GTLRCloudKMS_ImportJob;
@@ -39,6 +41,7 @@
 @class GTLRCloudKMS_Location_Labels;
 @class GTLRCloudKMS_Location_Metadata;
 @class GTLRCloudKMS_Policy;
+@class GTLRCloudKMS_ServiceResolver;
 @class GTLRCloudKMS_WrappingPublicKey;
 
 // Generated comments include content from the discovery document; avoid them
@@ -60,6 +63,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ExternalVpc;
 /**
  *  Crypto operations are performed in a Hardware Security Module.
  *
@@ -88,6 +97,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_Prote
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ExternalVpc;
 /**
  *  Crypto operations are performed in a Hardware Security Module.
  *
@@ -336,6 +351,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -582,6 +603,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -609,6 +636,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Protec
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ExternalVpc;
 /**
  *  Crypto operations are performed in a Hardware Security Module.
  *
@@ -638,6 +671,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -665,6 +704,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ExternalVpc;
 /**
  *  Crypto operations are performed in a Hardware Security Module.
  *
@@ -879,6 +924,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -961,6 +1012,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -988,6 +1045,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel
  *  Value: "EXTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ExternalVpc;
 /**
  *  Crypto operations are performed in a Hardware Security Module.
  *
@@ -1172,6 +1235,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_External;
 /**
+ *  Crypto operations are performed in an EKM-over-VPC backend.
+ *
+ *  Value: "EXTERNAL_VPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_ExternalVpc;
+/**
  *  Crypto operations are performed in a Hardware Security Module.
  *
  *  Value: "HSM"
@@ -1261,6 +1330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External
  *        Crypto operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -1365,6 +1437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External
  *        Crypto operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -1551,6 +1626,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 
 /**
+ *  A Certificate represents an X.509 certificate used to authenticate HTTPS
+ *  connections to EKM replicas.
+ */
+@interface GTLRCloudKMS_Certificate : GTLRObject
+
+/**
+ *  Output only. The issuer distinguished name in RFC 2253 format. Only present
+ *  if parsed is true.
+ */
+@property(nonatomic, copy, nullable) NSString *issuer;
+
+/**
+ *  Output only. The certificate is not valid after this time. Only present if
+ *  parsed is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *notAfterTime;
+
+/**
+ *  Output only. The certificate is not valid before this time. Only present if
+ *  parsed is true.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *notBeforeTime;
+
+/**
+ *  Output only. True if the certificate was parsed successfully.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *parsed;
+
+/**
+ *  Required. The raw certificate bytes in DER format.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *rawDer;
+
+/**
+ *  Output only. The certificate serial number as a hex string. Only present if
+ *  parsed is true.
+ */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/**
+ *  Output only. The SHA-256 certificate fingerprint as a hex string. Only
+ *  present if parsed is true.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256Fingerprint;
+
+/**
+ *  Output only. The subject distinguished name in RFC 2253 format. Only present
+ *  if parsed is true.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  Output only. The subject Alternative DNS names. Only present if parsed is
+ *  true.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAlternativeDnsNames;
+
+@end
+
+
+/**
  *  Certificate chains needed to verify the attestation. Certificates in chains
  *  are PEM-encoded and are ordered based on
  *  https://tools.ietf.org/html/rfc5246#section-7.4.2.
@@ -1578,6 +1719,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /** Output only. The time at which this CryptoKey was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. The resource name of the backend environment where the key
+ *  material for all CryptoKeyVersions associated with this CryptoKey reside and
+ *  where all related cryptographic operations are performed. Only applicable if
+ *  CryptoKeyVersions have a ProtectionLevel of EXTERNAL_VPC, with the resource
+ *  name in the format `projects/ * /locations/ * /ekmConnections/ *`. Note,
+ *  this list is non-exhaustive and may apply to additional ProtectionLevels in
+ *  the future.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyBackend;
 
 /**
  *  Immutable. The period of time that versions of this key spend in the
@@ -1793,7 +1945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /**
  *  ExternalProtectionLevelOptions stores a group of additional fields for
  *  configuring a CryptoKeyVersion that are specific to the EXTERNAL protection
- *  level.
+ *  level and EXTERNAL_VPC protection levels.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_ExternalProtectionLevelOptions *externalProtectionLevelOptions;
 
@@ -1836,6 +1988,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_External Crypto
  *        operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ProtectionLevelUnspecified
@@ -1992,6 +2147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_External
  *        Crypto operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified
@@ -2105,6 +2263,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External Crypto
  *        operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -2159,6 +2320,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *sha512;
+
+@end
+
+
+/**
+ *  An EkmConnection represents an individual EKM connection. It can be used for
+ *  creating CryptoKeys and CryptoKeyVersions with a ProtectionLevel of
+ *  EXTERNAL_VPC, as well as performing cryptographic operations using keys
+ *  created within the EkmConnection.
+ */
+@interface GTLRCloudKMS_EkmConnection : GTLRObject
+
+/** Output only. The time at which the EkmConnection was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update requests to ensure the client has an up-to-date
+ *  value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name for the EkmConnection in the format
+ *  `projects/ * /locations/ * /ekmConnections/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of ServiceResolvers where the EKM can be reached. There should be one
+ *  ServiceResolver per EKM replica. Currently, only a single ServiceResolver is
+ *  supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_ServiceResolver *> *serviceResolvers;
 
 @end
 
@@ -2275,6 +2470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External Crypto
  *        operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -2366,9 +2564,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 /**
  *  ExternalProtectionLevelOptions stores a group of additional fields for
  *  configuring a CryptoKeyVersion that are specific to the EXTERNAL protection
- *  level.
+ *  level and EXTERNAL_VPC protection levels.
  */
 @interface GTLRCloudKMS_ExternalProtectionLevelOptions : GTLRObject
+
+/**
+ *  The path to the external key material on the EKM when using EkmConnection
+ *  e.g., "v0/my/key". Set this field instead of external_key_uri when using an
+ *  EkmConnection.
+ */
+@property(nonatomic, copy, nullable) NSString *ekmConnectionKeyPath;
 
 /** The URI for an external resource that this CryptoKeyVersion represents. */
 @property(nonatomic, copy, nullable) NSString *externalKeyUri;
@@ -2397,6 +2602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External
  *        Crypto operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ExternalVpc
+ *        Crypto operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm
  *        Crypto operations are performed in a Hardware Security Module. (Value:
  *        "HSM")
@@ -2652,6 +2860,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_External Crypto operations
  *        are performed by an external key manager. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm Crypto operations are
  *        performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified
@@ -2804,6 +3015,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /**
  *  The total number of CryptoKeyVersions that matched the query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response message for KeyManagementService.ListEkmConnections.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "ekmConnections" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudKMS_ListEkmConnectionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of EkmConnections.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_EkmConnection *> *ekmConnections;
+
+/**
+ *  A token to retrieve next page of results. Pass this value in
+ *  ListEkmConnectionsRequest.page_token to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The total number of EkmConnections that matched the query.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3065,6 +3310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External Crypto
  *        operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -3167,6 +3415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External Crypto
  *        operations are performed by an external key manager. (Value:
  *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified
@@ -3429,6 +3680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Likely values:
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_External Crypto operations
  *        are performed by an external key manager. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_ExternalVpc Crypto
+ *        operations are performed in an EKM-over-VPC backend. (Value:
+ *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm Crypto operations are
  *        performed in a Hardware Security Module. (Value: "HSM")
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified
@@ -3445,6 +3699,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  Request message for KeyManagementService.RestoreCryptoKeyVersion.
  */
 @interface GTLRCloudKMS_RestoreCryptoKeyVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  A ServiceResolver represents an EKM replica that can be reached within an
+ *  EkmConnection.
+ */
+@interface GTLRCloudKMS_ServiceResolver : GTLRObject
+
+/**
+ *  Optional. The filter applied to the endpoints of the resolved service. If no
+ *  filter is specified, all endpoints will be considered. An endpoint will be
+ *  chosen arbitrarily from the filtered list for each request. For endpoint
+ *  filter syntax and examples, see
+ *  https://cloud.google.com/service-directory/docs/reference/rpc/google.cloud.servicedirectory.v1#resolveservicerequest.
+ */
+@property(nonatomic, copy, nullable) NSString *endpointFilter;
+
+/** Required. The hostname of the EKM replica used at TLS and HTTP layers. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Required. A list of leaf server certificates used to authenticate HTTPS
+ *  connections to the EKM replica.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_Certificate *> *serverCertificates;
+
+/**
+ *  Required. The resource name of the Service Directory service pointing to an
+ *  EKM replica, in the format `projects/ * /locations/ * /namespaces/ *
+ *  /services/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceDirectoryService;
+
 @end
 
 

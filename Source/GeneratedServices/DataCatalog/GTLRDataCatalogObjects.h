@@ -937,7 +937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec *bigqueryTableSpec;
 
-/** Business Context of the entry. */
+/** Business Context of the entry. Not supported for BigQuery datasets */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BusinessContext *businessContext;
 
 /**
@@ -1792,11 +1792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeProjectIds;
 
 /**
- *  Optional. If `true`, include public tag templates in the search results. By
- *  default, they are included only if you have explicit permissions on them to
- *  view them. For example, if you are the owner. Other scope fields, for
- *  example, `include_org_ids`, still restrict the returned public tag templates
- *  and at least one of them is required.
+ *  Optional. This field is deprecated. The search mechanism for public and
+ *  private tag templates is the same.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2228,22 +2225,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields *fields;
 
 /**
- *  Indicates whether this is a public tag template. Every user has view access
- *  to a *public* tag template by default. This means that: * Every user can use
- *  this tag template to tag an entry. * If an entry is tagged using the tag
- *  template, the tag is always shown in the response to ``ListTags`` called on
- *  the entry. * To get the template using the GetTagTemplate method, you need
- *  view access either on the project or the organization the tag template
- *  resides in but no other permission is needed. * Operations on the tag
- *  template other than viewing (for example, editing IAM policies) follow
- *  standard IAM structures. Tags created with a public tag template are
- *  referred to as public tags. You can search for a public tag by value with a
- *  simple search query instead of using a ``tag:`` predicate. Public tag
- *  templates may not appear in search results depending on scope, see:
- *  include_public_tag_templates Note: If an [IAM domain
- *  restriction](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains)
- *  is configured in the tag template's location, the public access will not be
- *  enabled but the simple search for tag values will still work.
+ *  Indicates whether tags created with this template are public. Public tags do
+ *  not require tag template access to appear in ListTags API response.
+ *  Additionally, you can search for a public tag by value with a simple search
+ *  query instead of using a ``tag:`` predicate.
  *
  *  Uses NSNumber of boolValue.
  */

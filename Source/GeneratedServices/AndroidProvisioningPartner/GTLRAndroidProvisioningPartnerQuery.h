@@ -62,7 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The customer that manages the configuration. An API resource name
- *  in the format `customers/[CUSTOMER_ID]`.
+ *  in the format `customers/[CUSTOMER_ID]`. This field has custom validation in
+ *  CreateConfigurationRequestValidator
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -75,7 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRAndroidProvisioningPartner_Configuration to include
  *    in the query.
  *  @param parent Required. The customer that manages the configuration. An API
- *    resource name in the format `customers/[CUSTOMER_ID]`.
+ *    resource name in the format `customers/[CUSTOMER_ID]`. This field has
+ *    custom validation in CreateConfigurationRequestValidator
  *
  *  @return GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsCreate
  */
@@ -423,7 +425,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A token specifying which result page to return. */
+/**
+ *  A token specifying which result page to return. This field has custom
+ *  validations in ListCustomersRequestValidator
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

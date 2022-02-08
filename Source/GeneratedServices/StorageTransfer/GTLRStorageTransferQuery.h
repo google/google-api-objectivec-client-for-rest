@@ -413,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Attempts to start a new TransferOperation for the current TransferJob. A
  *  TransferJob has a maximum of one active TransferOperation. If this method is
- *  called while a TransferOperation is active, an error wil be returned.
+ *  called while a TransferOperation is active, an error will be returned.
  *
  *  Method: storagetransfer.transferJobs.run
  *
@@ -430,7 +430,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Attempts to start a new TransferOperation for the current TransferJob. A
  *  TransferJob has a maximum of one active TransferOperation. If this method is
- *  called while a TransferOperation is active, an error wil be returned.
+ *  called while a TransferOperation is active, an error will be returned.
  *
  *  @param object The @c GTLRStorageTransfer_RunTransferJobRequest to include in
  *    the query.

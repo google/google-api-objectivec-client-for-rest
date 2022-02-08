@@ -1806,7 +1806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /** Optional. Dynamic group metadata like queries and status. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_DynamicGroupMetadata *dynamicGroupMetadata;
 
-/** Required. Immutable. The `EntityKey` of the `Group`. */
+/** Required. The `EntityKey` of the `Group`. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_EntityKey *groupKey;
 
 /**

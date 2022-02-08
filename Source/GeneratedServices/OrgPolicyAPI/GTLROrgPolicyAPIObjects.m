@@ -19,17 +19,6 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDe
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_ConstraintDefaultUnspecified = @"CONSTRAINT_DEFAULT_UNSPECIFIED";
 NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny = @"DENY";
 
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow = @"ALLOW";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny = @"DENY";
-
-// GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.methodTypes
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create = @"CREATE";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Delete = @"DELETE";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_MethodTypeUnspecified = @"METHOD_TYPE_UNSPECIFIED";
-NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Update = @"UPDATE";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2AlternatePolicySpec
@@ -72,30 +61,6 @@ NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_Method
 
 @implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintListConstraint
 @dynamic supportsIn, supportsUnder;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint
-//
-
-@implementation GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint
-@dynamic actionType, condition, descriptionProperty, displayName, methodTypes,
-         name, resourceTypes;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"methodTypes" : [NSString class],
-    @"resourceTypes" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

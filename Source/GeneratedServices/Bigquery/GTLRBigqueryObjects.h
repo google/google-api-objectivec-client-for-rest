@@ -52,8 +52,8 @@
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
+@class GTLRBigquery_Dataset_Tags_Item;
 @class GTLRBigquery_DatasetAccessEntry;
-@class GTLRBigquery_DatasetAccessEntry_TargetTypes_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item_Labels;
 @class GTLRBigquery_DatasetReference;
@@ -417,6 +417,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrit
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_DatasetAccessEntry.targetTypes
+
+/**
+ *  Do not use. You must set a target type explicitly.
+ *
+ *  Value: "TARGET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_TargetTypeUnspecified;
+/**
+ *  This entry applies to views in the dataset.
+ *
+ *  Value: "VIEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_Model.modelType
@@ -2726,6 +2742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/**
+ *  [Optional]The tags associated with this dataset. Tag keys are globally
+ *  unique.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Tags_Item *> *tags;
+
 @end
 
 
@@ -2825,6 +2847,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
+ *  GTLRBigquery_Dataset_Tags_Item
+ */
+@interface GTLRBigquery_Dataset_Tags_Item : GTLRObject
+
+/**
+ *  [Required] The namespaced friendly name of the tag key, e.g.
+ *  "12345/environment" where 12345 is org id.
+ */
+@property(nonatomic, copy, nullable) NSString *tagKey;
+
+/** [Required] Friendly short name of the tag value, e.g. "production". */
+@property(nonatomic, copy, nullable) NSString *tagValue;
+
+@end
+
+
+/**
  *  GTLRBigquery_DatasetAccessEntry
  */
 @interface GTLRBigquery_DatasetAccessEntry : GTLRObject
@@ -2832,23 +2871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 /** [Required] The dataset this entry applies to. */
 @property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *dataset;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DatasetAccessEntry_TargetTypes_Item *> *targetTypes;
-
-@end
-
-
-/**
- *  GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
- */
-@interface GTLRBigquery_DatasetAccessEntry_TargetTypes_Item : GTLRObject
-
-/**
- *  [Required] Which resources in the dataset this entry applies to. Currently,
- *  only views are supported, but additional target types may be added in the
- *  future. Possible values: VIEWS: This entry applies to all views in the
- *  dataset.
- */
-@property(nonatomic, copy, nullable) NSString *targetType;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetTypes;
 
 @end
 
@@ -6622,11 +6645,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 
 
 /**
- *  The type of a variable, e.g., a function argument. Examples: INT64:
- *  {type_kind="INT64"} ARRAY: {type_kind="ARRAY", array_element_type="STRING"}
- *  STRUCT>: {type_kind="STRUCT", struct_type={fields=[ {name="x",
- *  type={type_kind="STRING"}}, {name="y", type={type_kind="ARRAY",
- *  array_element_type="DATE"}} ]}}
+ *  The data type of a variable such as a function argument. Examples include: *
+ *  INT64: `{"typeKind": "INT64"}` * ARRAY: { "typeKind": "ARRAY",
+ *  "arrayElementType": {"typeKind": "STRING"} } * STRUCT>: { "typeKind":
+ *  "STRUCT", "structType": { "fields": [ { "name": "x", "type": {"typeKind:
+ *  "STRING"} }, { "name": "y", "type": { "typeKind": "ARRAY",
+ *  "arrayElementType": {"typekind": "DATE"} } } ] } }
  */
 @interface GTLRBigquery_StandardSqlDataType : GTLRObject
 

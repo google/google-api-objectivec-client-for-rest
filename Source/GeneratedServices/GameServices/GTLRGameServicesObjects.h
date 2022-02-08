@@ -490,8 +490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 /** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_AuditLogConfig *> *auditLogConfigs;
 
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
-
 /**
  *  Specifies a service that will be enabled for audit logging. For example,
  *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a

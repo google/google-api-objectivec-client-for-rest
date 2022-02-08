@@ -160,6 +160,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CertificateAuthorityService"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CertificateManager",
+            targets: ["GoogleAPIClientForREST_CertificateManager"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ChromeManagement",
             targets: ["GoogleAPIClientForREST_ChromeManagement"]
         ),
@@ -708,6 +712,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_PlayIntegrity",
+            targets: ["GoogleAPIClientForREST_PlayIntegrity"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_PolicyAnalyzer",
             targets: ["GoogleAPIClientForREST_PolicyAnalyzer"]
         ),
@@ -1209,6 +1217,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CertificateAuthorityService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CertificateAuthorityService",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CertificateManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CertificateManager",
             publicHeadersPath: "."
         ),
         .target(
@@ -2031,6 +2045,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PlayIntegrity",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PlayIntegrity",
             publicHeadersPath: "."
         ),
         .target(

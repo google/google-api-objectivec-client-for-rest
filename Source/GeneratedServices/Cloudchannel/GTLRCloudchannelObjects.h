@@ -1587,7 +1587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  would be the underlying Subscription ID.
+ *  would be the underlying Subscription ID. For Google Cloud Platform, this
+ *  would be the Billing Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -3341,7 +3342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  would be the underlying Subscription ID.
+ *  would be the underlying Subscription ID. For Google Cloud Platform, this
+ *  would be the Billing Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 

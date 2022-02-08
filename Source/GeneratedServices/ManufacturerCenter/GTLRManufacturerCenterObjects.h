@@ -286,7 +286,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *disclosureDate;
 
-/** A list of excluded destinations. */
+/**
+ *  A list of excluded destinations such as "ClientExport",
+ *  "ClientShoppingCatalog" or "PartnerShoppingCatalog". For more information,
+ *  see https://support.google.com/manufacturers/answer/7443550
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestination;
 
 /**
@@ -325,7 +329,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Image *imageLink;
 
-/** A list of included destinations. */
+/**
+ *  A list of included destinations such as "ClientExport",
+ *  "ClientShoppingCatalog" or "PartnerShoppingCatalog". For more information,
+ *  see https://support.google.com/manufacturers/answer/7443550
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedDestination;
 
 /**
@@ -433,7 +441,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 /**
  *  The target client id. Should only be used in the accounts of the data
- *  partners.
+ *  partners. For more information, see
+ *  https://support.google.com/manufacturers/answer/10857344
  */
 @property(nonatomic, copy, nullable) NSString *targetClientId;
 

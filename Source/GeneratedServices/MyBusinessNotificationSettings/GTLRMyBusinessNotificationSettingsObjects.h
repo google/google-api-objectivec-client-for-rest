@@ -50,8 +50,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_GoogleUpdate;
 /**
- *  Indicates whether the location has a loss in voice of merchant status. Call
- *  GetVoiceOfMerchantState rpc for more details
+ *  Deprecated: Migrate the existing usages of this value to the more expanded
+ *  "VOICE_OF_MERCHANT_UPDATED".
  *
  *  Value: "LOSS_OF_VOICE_OF_MERCHANT"
  */
@@ -113,6 +113,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  *  Value: "UPDATED_REVIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedReview;
+/**
+ *  Indicates whether the location has an update in voice of merchant status.
+ *  Call GetVoiceOfMerchantState rpc for more details
+ *
+ *  Value: "VOICE_OF_MERCHANT_UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_VoiceOfMerchantUpdated;
 
 /**
  *  A Google Pub/Sub topic where notifications can be published when a location

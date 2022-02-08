@@ -131,6 +131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Exe
  *  Value: "JOB_STATUS_SERVICE_POLLING_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_JobStatusServicePollingError;
+/**
+ *  A task reached its retry limit and the last attempt failed due to the user
+ *  container exiting with a non-zero exit code.
+ *
+ *  Value: "NON_ZERO_EXIT_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_NonZeroExitCode;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunOpV2Condition.internalReason
@@ -306,6 +313,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Rev
  *  Value: "HEALTH_CHECK_CONTAINER_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckContainerError;
+/**
+ *  A revision's container has no port specified since the revision is of a
+ *  manually scaled service with 0 instance count
+ *
+ *  Value: "HEALTH_CHECK_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckSkipped;
 /**
  *  A revision with min_instance_count > 0 was created and is reserved, but it
  *  was not configured to serve traffic, so it's not live. This can also happen
@@ -806,6 +820,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_JobStatusServicePollingError
  *        Internal system error getting execution status. System will retry.
  *        (Value: "JOB_STATUS_SERVICE_POLLING_ERROR")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_NonZeroExitCode
+ *        A task reached its retry limit and the last attempt failed due to the
+ *        user container exiting with a non-zero exit code. (Value:
+ *        "NON_ZERO_EXIT_CODE")
  */
 @property(nonatomic, copy, nullable) NSString *executionReason;
 
@@ -906,6 +924,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckContainerError
  *        There was a health check error. (Value:
  *        "HEALTH_CHECK_CONTAINER_ERROR")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckSkipped
+ *        A revision's container has no port specified since the revision is of
+ *        a manually scaled service with 0 instance count (Value:
+ *        "HEALTH_CHECK_SKIPPED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_MinInstancesNotProvisioned
  *        A revision with min_instance_count > 0 was created and is reserved,
  *        but it was not configured to serve traffic, so it's not live. This can
@@ -1943,8 +1965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Specifies percent of the traffic to this Revision. This defaults to zero if
- *  unspecified. Cloud Run currently requires 100 percent for a single
- *  TrafficTarget entry.
+ *  unspecified.
  *
  *  Uses NSNumber of intValue.
  */

@@ -766,6 +766,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig
+@dynamic diskSizeGb, memoryGb, vcpuCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
 //
 
@@ -824,6 +834,26 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_HTTPDelivery
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_HybridPoolConfig
+//
+
+@implementation GTLRCloudBuild_HybridPoolConfig
+@dynamic defaultWorkerConfig, membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_HybridWorkerConfig
+//
+
+@implementation GTLRCloudBuild_HybridWorkerConfig
+@dynamic diskSizeGb, memoryGb, vcpuCount;
 @end
 
 
@@ -1133,7 +1163,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_PoolOption
-@dynamic name;
+@dynamic name, workerConfig;
 @end
 
 
@@ -1545,8 +1575,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_WorkerPool
-@dynamic annotations, createTime, deleteTime, displayName, ETag, name,
-         privatePoolV1Config, state, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, ETag,
+         hybridPoolConfig, name, privatePoolV1Config, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

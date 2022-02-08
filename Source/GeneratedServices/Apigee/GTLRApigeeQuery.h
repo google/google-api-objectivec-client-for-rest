@@ -1213,7 +1213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Creates a key value map in an api proxy.
+ *  Creates a key value map in an API proxy.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.create
  *
@@ -1223,21 +1223,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate : GTLRApigeeQuery
 
 /**
- *  Required. The name of the environment in which to create the key value map.
- *  Must be of the form `organizations/{organization}/apis/{api}`.
+ *  Required. Name of the environment in which to create the key value map. Use
+ *  the following structure in your request: `organizations/{org}/apis/{api}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
  *
- *  Creates a key value map in an api proxy.
+ *  Creates a key value map in an API proxy.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
- *  @param parent Required. The name of the environment in which to create the
- *    key value map. Must be of the form
- *    `organizations/{organization}/apis/{api}`.
+ *  @param parent Required. Name of the environment in which to create the key
+ *    value map. Use the following structure in your request:
+ *    `organizations/{org}/apis/{api}`
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate
  */
@@ -1247,7 +1247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Delete a key value map in an api proxy.
+ *  Deletes a key value map from an API proxy.
  *
  *  Method: apigee.organizations.apis.keyvaluemaps.delete
  *
@@ -1257,18 +1257,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete : GTLRApigeeQuery
 
 /**
- *  Required. The name of the key value map. Must be of the form
- *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`.
+ *  Required. Name of the key value map. Use the following structure in your
+ *  request: `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
  *
- *  Delete a key value map in an api proxy.
+ *  Deletes a key value map from an API proxy.
  *
- *  @param name Required. The name of the key value map. Must be of the form
- *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`.
+ *  @param name Required. Name of the key value map. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/apis/{api}/keyvaluemaps/{keyvaluemap}`
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete
  */
@@ -5608,9 +5609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsCreate : GTLRApigeeQuery
 
 /**
- *  Required. The name of the environment in which to create the key value map.
- *  Must be of the form
- *  `organizations/{organization}/environments/{environment}`.
+ *  Required. Name of the environment in which to create the key value map. Use
+ *  the following structure in your request:
+ *  `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5621,9 +5622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
- *  @param parent Required. The name of the environment in which to create the
- *    key value map. Must be of the form
- *    `organizations/{organization}/environments/{environment}`.
+ *  @param parent Required. Name of the environment in which to create the key
+ *    value map. Use the following structure in your request:
+ *    `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsCreate
  */
@@ -5633,7 +5634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Delete a key value map in an environment.
+ *  Deletes a key value map from an environment.
  *
  *  Method: apigee.organizations.environments.keyvaluemaps.delete
  *
@@ -5643,18 +5644,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsDelete : GTLRApigeeQuery
 
 /**
- *  Required. The name of the key value map. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`.
+ *  Required. Name of the key value map. Use the following structure in your
+ *  request: `organizations/{org}/environments/{env}/keyvaluemaps/{keyvaluemap}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
  *
- *  Delete a key value map in an environment.
+ *  Deletes a key value map from an environment.
  *
- *  @param name Required. The name of the key value map. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`.
+ *  @param name Required. Name of the key value map. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/environments/{env}/keyvaluemaps/{keyvaluemap}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsDelete
  */
@@ -7148,7 +7150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  existing properties to the API, even if they are not being changed. If you
  *  omit properties from the payload, the properties are removed. To get the
  *  current list of properties for the environment, use the [Get Environment
- *  API](get).
+ *  API](get). **Note**: Both `PUT` and `POST` methods are supported for
+ *  updating an existing environment.
  *
  *  Method: apigee.organizations.environments.update
  *
@@ -7170,7 +7173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  existing properties to the API, even if they are not being changed. If you
  *  omit properties from the payload, the properties are removed. To get the
  *  current list of properties for the environment, use the [Get Environment
- *  API](get).
+ *  API](get). **Note**: Both `PUT` and `POST` methods are supported for
+ *  updating an existing environment.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
  *    the query.
@@ -7232,7 +7236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  existing properties to the API, even if they are not being changed. If you
  *  omit properties from the payload, the properties are removed. To get the
  *  current list of properties for the environment, use the [Get Environment
- *  API](get).
+ *  API](get). **Note**: Both `PUT` and `POST` methods are supported for
+ *  updating an existing environment.
  *
  *  Method: apigee.organizations.environments.updateEnvironment
  *
@@ -7254,7 +7259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  existing properties to the API, even if they are not being changed. If you
  *  omit properties from the payload, the properties are removed. To get the
  *  current list of properties for the environment, use the [Get Environment
- *  API](get).
+ *  API](get). **Note**: Both `PUT` and `POST` methods are supported for
+ *  updating an existing environment.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
  *    the query.
@@ -8426,8 +8432,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsCreate : GTLRApigeeQuery
 
 /**
- *  Required. The name of the organization in which to create the key value map
- *  file. Must be of the form `organizations/{organization}`.
+ *  Required. Name of the organization in which to create the key value map
+ *  file. Use the following structure in your request: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -8438,8 +8444,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
- *  @param parent Required. The name of the organization in which to create the
- *    key value map file. Must be of the form `organizations/{organization}`.
+ *  @param parent Required. Name of the organization in which to create the key
+ *    value map file. Use the following structure in your request:
+ *    `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsCreate
  */
@@ -8449,7 +8456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Delete a key value map in an organization.
+ *  Deletes a key value map from an organization.
  *
  *  Method: apigee.organizations.keyvaluemaps.delete
  *
@@ -8459,18 +8466,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsDelete : GTLRApigeeQuery
 
 /**
- *  Required. The name of the key value map. Must be of the form
- *  `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  Required. Name of the key value map. Use the following structure in your
+ *  request: `organizations/{org}/keyvaluemaps/{keyvaluemap}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
  *
- *  Delete a key value map in an organization.
+ *  Deletes a key value map from an organization.
  *
- *  @param name Required. The name of the key value map. Must be of the form
- *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
+ *  @param name Required. Name of the key value map. Use the following structure
+ *    in your request: `organizations/{org}/keyvaluemaps/{keyvaluemap}`
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsDelete
  */

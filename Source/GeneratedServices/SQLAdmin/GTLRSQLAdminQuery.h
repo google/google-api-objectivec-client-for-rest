@@ -1714,7 +1714,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-custom-1-3840. For more information, see
+ *  `db-custom-1-3840`. For more information, see
  *  https://cloud.google.com/sql/pricing.
  *
  *  Method: sql.tiers.list
@@ -1732,7 +1732,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-custom-1-3840. For more information, see
+ *  `db-custom-1-3840`. For more information, see
  *  https://cloud.google.com/sql/pricing.
  *
  *  @param project Project ID of the project for which to list tiers.

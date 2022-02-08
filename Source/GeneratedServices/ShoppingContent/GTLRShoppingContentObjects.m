@@ -57,8 +57,8 @@ NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_Execu
 NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified = @"EXECUTION_STATUS_UNSPECIFIED";
 
 // GTLRShoppingContent_FreeListingsProgramStatus.state
-NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded = @"NOT_ONBOARDED";
-NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded = @"ONBOARDED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Enabled = @"ENABLED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotEnabled = @"NOT_ENABLED";
 NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified = @"PROGRAM_STATE_UNSPECIFIED";
 
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.eligibilityStatus
@@ -203,8 +203,8 @@ NSString * const kGTLRShoppingContent_Segments_Program_ProgramUnspecified = @"PR
 NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_ADS";
 
 // GTLRShoppingContent_ShoppingAdsProgramStatus.state
-NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded = @"NOT_ONBOARDED";
-NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded = @"ONBOARDED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Enabled = @"ENABLED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotEnabled = @"NOT_ENABLED";
 NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified = @"PROGRAM_STATE_UNSPECIFIED";
 
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.eligibilityStatus

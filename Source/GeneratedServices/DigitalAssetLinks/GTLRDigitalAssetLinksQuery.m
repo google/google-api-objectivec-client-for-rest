@@ -19,6 +19,28 @@
 
 @end
 
+@implementation GTLRDigitalAssetLinksQuery_AssetlinksBulkCheck
+
++ (instancetype)queryWithObject:(GTLRDigitalAssetLinks_BulkCheckRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/assetlinks:bulkCheck";
+  GTLRDigitalAssetLinksQuery_AssetlinksBulkCheck *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDigitalAssetLinks_BulkCheckResponse class];
+  query.loggingName = @"digitalassetlinks.assetlinks.bulkCheck";
+  return query;
+}
+
+@end
+
 @implementation GTLRDigitalAssetLinksQuery_AssetlinksCheck
 
 @dynamic relation, sourceAndroidAppCertificateSha256Fingerprint,

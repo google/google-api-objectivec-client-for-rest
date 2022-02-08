@@ -26,6 +26,7 @@ NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_Notific
 NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedAnswer = @"UPDATED_ANSWER";
 NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedQuestion = @"UPDATED_QUESTION";
 NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_UpdatedReview = @"UPDATED_REVIEW";
+NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_VoiceOfMerchantUpdated = @"VOICE_OF_MERCHANT_UPDATED";
 
 // ----------------------------------------------------------------------------
 //

@@ -65,6 +65,16 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_AnthosCluster
+//
+
+@implementation GTLRCloudDeploy_AnthosCluster
+@dynamic membership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_ApproveRolloutRequest
 //
 
@@ -256,7 +266,8 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_ExecutionConfig
-@dynamic defaultPool, privatePool, usages;
+@dynamic artifactStorage, defaultPool, privatePool, serviceAccount, usages,
+         workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -799,8 +810,9 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateU
 //
 
 @implementation GTLRCloudDeploy_Target
-@dynamic annotations, createTime, descriptionProperty, ETag, executionConfigs,
-         gke, labels, name, requireApproval, targetId, uid, updateTime;
+@dynamic annotations, anthosCluster, createTime, descriptionProperty, ETag,
+         executionConfigs, gke, labels, name, requireApproval, targetId, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

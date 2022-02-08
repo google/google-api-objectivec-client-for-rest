@@ -88,6 +88,32 @@ NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Descending = @"DESCENDING";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
 
+// GTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent.step
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_ApplyWritesSynchronously = @"APPLY_WRITES_SYNCHRONOUSLY";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_CopyAndVerify = @"COPY_AND_VERIFY";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_MigrationStepUnspecified = @"MIGRATION_STEP_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Prepare = @"PREPARE";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectEventuallyConsistentReads = @"REDIRECT_EVENTUALLY_CONSISTENT_READS";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectStronglyConsistentReads = @"REDIRECT_STRONGLY_CONSISTENT_READS";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_RedirectWrites = @"REDIRECT_WRITES";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent_Step_Start = @"START";
+
+// GTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent.state
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Complete = @"COMPLETE";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_MigrationStateUnspecified = @"MIGRATION_STATE_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Paused = @"PAUSED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_Running = @"RUNNING";
+
+// GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails.concurrencyMode
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
+
+// GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails.concurrencyMode
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
+
 // GTLRDatastore_PropertyFilter.op
 NSString * const kGTLRDatastore_PropertyFilter_Op_Equal        = @"EQUAL";
 NSString * const kGTLRDatastore_PropertyFilter_Op_GreaterThan  = @"GREATER_THAN";
@@ -586,11 +612,51 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent
+//
+
+@implementation GTLRDatastore_GoogleDatastoreAdminV1MigrationProgressEvent
+@dynamic prepareStepDetails, redirectWritesStepDetails, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent
+//
+
+@implementation GTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails
+//
+
+@implementation GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails
+@dynamic concurrencyMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastore_GoogleDatastoreAdminV1Progress
 //
 
 @implementation GTLRDatastore_GoogleDatastoreAdminV1Progress
 @dynamic workCompleted, workEstimated;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails
+//
+
+@implementation GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails
+@dynamic concurrencyMode;
 @end
 
 

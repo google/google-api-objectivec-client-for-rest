@@ -186,6 +186,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUsefu
 // GTLRAlertCenter_AppsOutage.status
 
 /**
+ *  The incident has lower impact than initially anticipated.
+ *
+ *  Value: "DOWNGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_Downgraded;
+/**
  *  Further assessment indicated no customer impact.
  *
  *  Value: "FALSE_POSITIVE"
@@ -803,6 +809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Current outage status.
  *
  *  Likely values:
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Downgraded The incident has
+ *        lower impact than initially anticipated. (Value: "DOWNGRADED")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_FalsePositive Further
  *        assessment indicated no customer impact. (Value: "FALSE_POSITIVE")
  *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Merged The incident was merged
@@ -1315,8 +1323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_MergeInfo : GTLRObject
 
 /**
- *  New alert ID. Reference the [google.apps.alertcenter.Alert] with this ID for
- *  the current state.
+ *  Optional. New alert ID. Reference the [google.apps.alertcenter.Alert] with
+ *  this ID for the current state.
  */
 @property(nonatomic, copy, nullable) NSString *newAlertId NS_RETURNS_NOT_RETAINED;
 

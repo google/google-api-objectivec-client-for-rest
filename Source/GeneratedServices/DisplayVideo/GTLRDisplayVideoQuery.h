@@ -43,6 +43,8 @@
 @class GTLRDisplayVideo_CustomBiddingAlgorithm;
 @class GTLRDisplayVideo_CustomBiddingScript;
 @class GTLRDisplayVideo_DeactivateManualTriggerRequest;
+@class GTLRDisplayVideo_EditCustomerMatchMembersRequest;
+@class GTLRDisplayVideo_FirstAndThirdPartyAudience;
 @class GTLRDisplayVideo_FloodlightGroup;
 @class GTLRDisplayVideo_GenerateDefaultLineItemRequest;
 @class GTLRDisplayVideo_GoogleBytestreamMedia;
@@ -380,7 +382,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Uploads an asset. Returns the ID of the newly uploaded asset if successful.
  *  The asset file size should be no more than 10 MB for images, 200 MB for ZIP
- *  files, and 1 GB for videos.
+ *  files, and 1 GB for videos. Must be used within the [multipart media upload
+ *  process](/display-video/api/guides/how-tos/upload#multipart). Examples using
+ *  provided client libraries can be found in our [Creating Creatives
+ *  guide](/display-video/api/guides/creating-creatives/overview#upload_an_asset).
  *
  *  Method: displayvideo.advertisers.assets.upload
  *
@@ -397,7 +402,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  Uploads an asset. Returns the ID of the newly uploaded asset if successful.
  *  The asset file size should be no more than 10 MB for images, 200 MB for ZIP
- *  files, and 1 GB for videos.
+ *  files, and 1 GB for videos. Must be used within the [multipart media upload
+ *  process](/display-video/api/guides/how-tos/upload#multipart). Examples using
+ *  provided client libraries can be found in our [Creating Creatives
+ *  guide](/display-video/api/guides/creating-creatives/overview#upload_an_asset).
  *
  *  @param object The @c GTLRDisplayVideo_CreateAssetRequest to include in the
  *    query.
@@ -8213,6 +8221,75 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @end
 
 /**
+ *  Creates a FirstAndThirdPartyAudience. Only supported for the following
+ *  audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  Method: displayvideo.firstAndThirdPartyAudiences.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the advertiser under whom the FirstAndThirdPartyAudience
+ *  will be created.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_FirstAndThirdPartyAudience.
+ *
+ *  Creates a FirstAndThirdPartyAudience. Only supported for the following
+ *  audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  @param object The @c GTLRDisplayVideo_FirstAndThirdPartyAudience to include
+ *    in the query.
+ *
+ *  @return GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object;
+
+@end
+
+/**
+ *  Updates the member list of a Customer Match audience. Only supported for the
+ *  following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` *
+ *  `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  Method: displayvideo.firstAndThirdPartyAudiences.editCustomerMatchMembers
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the Customer Match FirstAndThirdPartyAudience whose
+ *  members will be edited.
+ */
+@property(nonatomic, assign) long long firstAndThirdPartyAudienceId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_EditCustomerMatchMembersResponse.
+ *
+ *  Updates the member list of a Customer Match audience. Only supported for the
+ *  following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` *
+ *  `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  @param object The @c GTLRDisplayVideo_EditCustomerMatchMembersRequest to
+ *    include in the query.
+ *  @param firstAndThirdPartyAudienceId Required. The ID of the Customer Match
+ *    FirstAndThirdPartyAudience whose members will be edited.
+ *
+ *  @return GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditCustomerMatchMembersRequest *)object
+   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId;
+
+@end
+
+/**
  *  Gets a first and third party audience.
  *
  *  Method: displayvideo.firstAndThirdPartyAudiences.get
@@ -8321,6 +8398,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Updates an existing FirstAndThirdPartyAudience. Only supported for the
+ *  following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` *
+ *  `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  Method: displayvideo.firstAndThirdPartyAudiences.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the owner advertiser of the updated
+ *  FirstAndThirdPartyAudience.
+ */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Output only. The unique ID of the first and third party audience. Assigned
+ *  by the system.
+ */
+@property(nonatomic, assign) long long firstAndThirdPartyAudienceId;
+
+/**
+ *  Required. The mask to control which fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_FirstAndThirdPartyAudience.
+ *
+ *  Updates an existing FirstAndThirdPartyAudience. Only supported for the
+ *  following audience_type: * `CUSTOMER_MATCH_CONTACT_INFO` *
+ *  `CUSTOMER_MATCH_DEVICE_ID`
+ *
+ *  @param object The @c GTLRDisplayVideo_FirstAndThirdPartyAudience to include
+ *    in the query.
+ *  @param firstAndThirdPartyAudienceId Output only. The unique ID of the first
+ *    and third party audience. Assigned by the system.
+ *
+ *  @return GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object
+   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId;
 
 @end
 

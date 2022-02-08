@@ -281,7 +281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 /**
  *  An approximate projection on amount saved or amount incurred. Negative cost
  *  units indicate cost savings and positive cost units indicate increase. See
- *  google.type.Money documentation for positive/negative units.
+ *  google.type.Money documentation for positive/negative units. A user's
+ *  permissions may affect whether the cost is computed using list prices or
+ *  custom contract prices.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleTypeMoney *cost;
 

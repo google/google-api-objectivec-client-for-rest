@@ -96,7 +96,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptartifactsUpload
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptArtifactsUpload
 
 @dynamic parent;
 
@@ -111,7 +111,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1/{+parent}/aptArtifacts:create";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptartifactsUpload *query =
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptArtifactsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -119,7 +119,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.parent = parent;
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRArtifactRegistry_UploadAptArtifactMediaResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.aptartifacts.upload";
+  query.loggingName = @"artifactregistry.projects.locations.repositories.aptArtifacts.upload";
   return query;
 }
 
@@ -316,7 +316,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetartifactsUpload
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload
 
 @dynamic parent;
 
@@ -331,7 +331,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1/{+parent}/googetArtifacts:create";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetartifactsUpload *query =
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -339,7 +339,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.parent = parent;
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.googetartifacts.upload";
+  query.loggingName = @"artifactregistry.projects.locations.repositories.googetArtifacts.upload";
   return query;
 }
 
@@ -697,7 +697,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumartifactsUpload
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumArtifactsUpload
 
 @dynamic parent;
 
@@ -712,7 +712,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   }
   NSArray *pathParams = @[ @"parent" ];
   NSString *pathURITemplate = @"v1/{+parent}/yumArtifacts:create";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumartifactsUpload *query =
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumArtifactsUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -720,7 +720,7 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.parent = parent;
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRArtifactRegistry_UploadYumArtifactMediaResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.yumartifacts.upload";
+  query.loggingName = @"artifactregistry.projects.locations.repositories.yumArtifacts.upload";
   return query;
 }
 

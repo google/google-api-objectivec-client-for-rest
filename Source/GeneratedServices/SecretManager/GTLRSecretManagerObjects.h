@@ -879,6 +879,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *data;
 
+/**
+ *  Optional. If specified, SecretManagerService will verify the integrity of
+ *  the received data on SecretManagerService.AddSecretVersion calls using the
+ *  crc32c checksum and store it to include in future
+ *  SecretManagerService.AccessSecretVersion responses. If a checksum is not
+ *  provided in the SecretManagerService.AddSecretVersion request, the
+ *  SecretManagerService will generate and store one for you. The CRC32C value
+ *  is encoded as a Int64 for compatibility, and can be safely downconverted to
+ *  uint32 in languages that support this type.
+ *  https://cloud.google.com/apis/design/design_patterns#integer_types
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataCrc32c;
+
 @end
 
 
@@ -886,6 +901,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  A secret version resource in the Secret Manager API.
  */
 @interface GTLRSecretManager_SecretVersion : GTLRObject
+
+/**
+ *  Output only. True if payload checksum specified in SecretPayload object has
+ *  been received by SecretManagerService on
+ *  SecretManagerService.AddSecretVersion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientSpecifiedPayloadChecksum;
 
 /** Output only. The time at which the SecretVersion was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

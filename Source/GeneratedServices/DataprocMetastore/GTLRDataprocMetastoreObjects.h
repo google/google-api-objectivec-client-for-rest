@@ -23,6 +23,8 @@
 
 @class GTLRDataprocMetastore_AuditConfig;
 @class GTLRDataprocMetastore_AuditLogConfig;
+@class GTLRDataprocMetastore_AuxiliaryVersionConfig;
+@class GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_Consumer;
@@ -33,6 +35,7 @@
 @class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
+@class GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
 @class GTLRDataprocMetastore_HiveMetastoreVersion;
 @class GTLRDataprocMetastore_KerberosConfig;
@@ -630,6 +633,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Configuration information for the auxiliary service versions.
+ */
+@interface GTLRDataprocMetastore_AuxiliaryVersionConfig : GTLRObject
+
+/**
+ *  A mapping of Hive metastore configuration key-value pairs to apply to the
+ *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
+ *  primary version's overrides. If keys are present in both the auxiliary
+ *  version's overrides and the primary version's overrides, the value from the
+ *  auxiliary version's overrides takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides *configOverrides;
+
+/**
+ *  Output only. The network configuration contains the endpoint URI(s) of the
+ *  auxiliary Hive metastore service.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_NetworkConfig *networkConfig;
+
+/**
+ *  The Hive metastore version of the auxiliary service. It must be less than
+ *  the primary Hive metastore service's version.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  A mapping of Hive metastore configuration key-value pairs to apply to the
+ *  auxiliary Hive metastore (configured in hive-site.xml) in addition to the
+ *  primary version's overrides. If keys are present in both the auxiliary
+ *  version's overrides and the primary version's overrides, the value from the
+ *  auxiliary version's overrides takes precedence.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides : GTLRObject
+@end
+
+
+/**
  *  The details of a backup resource.
  */
 @interface GTLRDataprocMetastore_Backup : GTLRObject
@@ -972,6 +1020,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @interface GTLRDataprocMetastore_HiveMetastoreConfig : GTLRObject
 
 /**
+ *  A mapping of Hive metastore version to the auxiliary version configuration.
+ *  When specified, a secondary Hive metastore service is created along with the
+ *  primary service. All auxiliary versions must be less than the service's
+ *  primary version. The key is the auxiliary service name and it must match the
+ *  regular expression a-z?. This means that the first character must be a
+ *  lowercase letter, and all the following characters must be hyphens,
+ *  lowercase letters, or digits, except the last character, which cannot be a
+ *  hyphen.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions *auxiliaryVersions;
+
+/**
  *  A mapping of Hive metastore configuration key-value pairs to apply to the
  *  Hive metastore (configured in hive-site.xml). The mappings override system
  *  defaults (some keys cannot be overridden). These overrides are also applied
@@ -1008,6 +1068,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /** Immutable. The Hive metastore schema version. */
 @property(nonatomic, copy, nullable) NSString *version;
 
+@end
+
+
+/**
+ *  A mapping of Hive metastore version to the auxiliary version configuration.
+ *  When specified, a secondary Hive metastore service is created along with the
+ *  primary service. All auxiliary versions must be less than the service's
+ *  primary version. The key is the auxiliary service name and it must match the
+ *  regular expression a-z?. This means that the first character must be a
+ *  lowercase letter, and all the following characters must be hyphens,
+ *  lowercase letters, or digits, except the last character, which cannot be a
+ *  hyphen.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataprocMetastore_AuxiliaryVersionConfig. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions : GTLRObject
 @end
 
 
@@ -1688,6 +1768,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Request message for DataprocMetastore.RemoveIamPolicy.
+ */
+@interface GTLRDataprocMetastore_RemoveIamPolicyRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for DataprocMetastore.RemoveIamPolicy.
+ */
+@interface GTLRDataprocMetastore_RemoveIamPolicyResponse : GTLRObject
+
+/**
+ *  whether related policies are removed
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *success;
 
 @end
 

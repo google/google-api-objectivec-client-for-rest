@@ -114,6 +114,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_Backup.databaseDialect
+
+/**
+ *  Default value. This value will create a database with the
+ *  GOOGLE_STANDARD_SQL dialect.
+ *
+ *  Value: "DATABASE_DIALECT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified;
+/**
+ *  Google standard SQL.
+ *
+ *  Value: "GOOGLE_STANDARD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql;
+/**
+ *  PostgreSQL supported SQL.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_Postgresql;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Backup.state
 
 /**
@@ -169,6 +192,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUn
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_CreateDatabaseRequest.databaseDialect
+
+/**
+ *  Default value. This value will create a database with the
+ *  GOOGLE_STANDARD_SQL dialect.
+ *
+ *  Value: "DATABASE_DIALECT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDialectUnspecified;
+/**
+ *  Google standard SQL.
+ *
+ *  Value: "GOOGLE_STANDARD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql;
+/**
+ *  PostgreSQL supported SQL.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Database.databaseDialect
+
+/**
+ *  Default value. This value will create a database with the
+ *  GOOGLE_STANDARD_SQL dialect.
+ *
+ *  Value: "DATABASE_DIALECT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified;
+/**
+ *  Google standard SQL.
+ *
+ *  Value: "GOOGLE_STANDARD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql;
+/**
+ *  PostgreSQL supported SQL.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_DatabaseDialect_Postgresql;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Database.state
@@ -576,6 +645,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_Type.typeAnnotation
+
+/**
+ *  PostgreSQL compatible NUMERIC type. This annotation needs to be applied to
+ *  Type instances having NUMERIC type code to specify that values of this type
+ *  should be treated as PostgreSQL NUMERIC values. Currently this annotation is
+ *  always needed for NUMERIC when a client interacts with PostgreSQL-enabled
+ *  Spanner databases.
+ *
+ *  Value: "PG_NUMERIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric;
+/**
+ *  Not specified.
+ *
+ *  Value: "TYPE_ANNOTATION_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_VisualizationData.keyUnit
 
 /**
@@ -615,6 +704,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  backup. Values are of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Output only. The database dialect information for the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified
+ *        Default value. This value will create a database with the
+ *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql Google
+ *        standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *    @arg @c kGTLRSpanner_Backup_DatabaseDialect_Postgresql PostgreSQL
+ *        supported SQL. (Value: "POSTGRESQL")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDialect;
 
 /** Output only. The encryption information for the backup. */
 @property(nonatomic, strong, nullable) GTLRSpanner_EncryptionInfo *encryptionInfo;
@@ -1024,6 +1127,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *createStatement;
 
 /**
+ *  Optional. The dialect of the Cloud Spanner Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDialectUnspecified
+ *        Default value. This value will create a database with the
+ *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql
+ *        Google standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *    @arg @c kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql
+ *        PostgreSQL supported SQL. (Value: "POSTGRESQL")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDialect;
+
+/**
  *  Optional. The encryption configuration for the database. If this field is
  *  not specified, Cloud Spanner will encrypt/decrypt all data at rest using
  *  Google default encryption.
@@ -1105,6 +1222,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Output only. If exists, the time at which the database creation started.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The dialect of the Cloud Spanner Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified
+ *        Default value. This value will create a database with the
+ *        GOOGLE_STANDARD_SQL dialect. (Value: "DATABASE_DIALECT_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql Google
+ *        standard SQL. (Value: "GOOGLE_STANDARD_SQL")
+ *    @arg @c kGTLRSpanner_Database_DatabaseDialect_Postgresql PostgreSQL
+ *        supported SQL. (Value: "POSTGRESQL")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDialect;
 
 /**
  *  Output only. The read-write region which contains the database's leader
@@ -2081,11 +2212,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The list of matching backup long-running operations. Each operation's name
- *  will be prefixed by the backup's name and the operation's metadata will be
- *  of type CreateBackupMetadata. Operations returned include those that are
- *  pending or have completed/failed/canceled within the last 7 days. Operations
- *  returned are ordered by `operation.metadata.value.progress.start_time` in
- *  descending order starting from the most recently started operation.
+ *  will be prefixed by the backup's name. The operation's metadata field type
+ *  `metadata.type_url` describes the type of the metadata. Operations returned
+ *  include those that are pending or have completed/failed/canceled within the
+ *  last 7 days. Operations returned are ordered by
+ *  `operation.metadata.value.progress.start_time` in descending order starting
+ *  from the most recently started operation.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -4370,6 +4502,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  struct's fields.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_StructType *structType;
+
+/**
+ *  The TypeAnnotationCode that disambiguates SQL type that Spanner will use to
+ *  represent values of this type during query processing. This is necessary for
+ *  some type codes because a single TypeCode can be mapped to different SQL
+ *  types depending on the SQL dialect. type_annotation typically is not needed
+ *  to process the content of a value (it doesn't affect serialization) and
+ *  clients can ignore it on the read path.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Type_TypeAnnotation_PgNumeric PostgreSQL compatible
+ *        NUMERIC type. This annotation needs to be applied to Type instances
+ *        having NUMERIC type code to specify that values of this type should be
+ *        treated as PostgreSQL NUMERIC values. Currently this annotation is
+ *        always needed for NUMERIC when a client interacts with
+ *        PostgreSQL-enabled Spanner databases. (Value: "PG_NUMERIC")
+ *    @arg @c kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified Not
+ *        specified. (Value: "TYPE_ANNOTATION_CODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *typeAnnotation;
 
 @end
 

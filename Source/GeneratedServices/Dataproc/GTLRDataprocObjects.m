@@ -89,6 +89,15 @@ NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Off 
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Trace = @"TRACE";
 NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn = @"WARN";
 
+// GTLRDataproc_Metric.metricSource
+NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs        = @"HDFS";
+NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2 = @"HIVESERVER2";
+NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified = @"METRIC_SOURCE_UNSPECIFIED";
+NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults = @"MONITORING_AGENT_DEFAULTS";
+NSString * const kGTLRDataproc_Metric_MetricSource_Spark       = @"SPARK";
+NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer = @"SPARK_HISTORY_SERVER";
+NSString * const kGTLRDataproc_Metric_MetricSource_Yarn        = @"YARN";
+
 // GTLRDataproc_ReservationAffinity.consumeReservationType
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
 NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
@@ -358,10 +367,11 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ClusterConfig
-@dynamic autoscalingConfig, configBucket, encryptionConfig, endpointConfig,
-         gceClusterConfig, gkeClusterConfig, initializationActions,
-         lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
-         securityConfig, softwareConfig, tempBucket, workerConfig;
+@dynamic autoscalingConfig, configBucket, dataprocMetricConfig,
+         encryptionConfig, endpointConfig, gceClusterConfig, gkeClusterConfig,
+         initializationActions, lifecycleConfig, masterConfig, metastoreConfig,
+         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
+         workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1203,6 +1213,42 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_MetastoreConfig
 @dynamic dataprocMetastoreService;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_Metric
+//
+
+@implementation GTLRDataproc_Metric
+@dynamic metricOverrides, metricSource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metricOverrides" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_MetricConfig
+//
+
+@implementation GTLRDataproc_MetricConfig
+@dynamic metrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRDataproc_Metric class]
+  };
+  return map;
+}
+
 @end
 
 

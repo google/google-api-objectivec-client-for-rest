@@ -980,8 +980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsList : GTLRAndroidManagementQuery
 
 /**
- *  The requested page size. The actual page size may be fixed to a min or max
- *  value.
+ *  The requested page size. This is a hint and the actual page size in the
+ *  response may be different.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

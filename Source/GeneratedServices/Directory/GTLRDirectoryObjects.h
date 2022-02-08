@@ -1133,8 +1133,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  version of orgUnitId. While orgUnitPath may change by renaming an
  *  organizational unit within the path, orgUnitId is unchangeable for one
  *  organizational unit. This property can be
- *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#update_chrome_device)
- *  using the API, and this will be supported in the future.
+ *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
+ *  using the API. For more information about how to create an organizational
+ *  structure for your device, see the [administration help
+ *  center](https://support.google.com/a/answer/182433).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
@@ -1143,7 +1145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  device. Path names are case insensitive. If the parent organizational unit
  *  is the top-level organization, it is represented as a forward slash, `/`.
  *  This property can be
- *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#update_chrome_device)
+ *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#move_chrome_devices_to_ou)
  *  using the API. For more information about how to create an organizational
  *  structure for your device, see the [administration help
  *  center](https://support.google.com/a/answer/182433).
@@ -2329,8 +2331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 /**
  *  List of printers. If `org_unit_id` was given in the request, then only
- *  printers visible for this OU will be returned. If `org_unit_id` was given in
- *  the request, then all printers will be returned.
+ *  printers visible for this OU will be returned. If `org_unit_id` was not
+ *  given in the request, then all printers will be returned.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3448,10 +3450,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 /**
  *  Stores the hash format of the password property. We recommend sending the
  *  `password` property value as a base 16 bit hexadecimal-encoded hash value.
- *  Set the `hashFunction` values as either the
- *  [SHA-1](https://wikipedia.org/wiki/SHA-1),
- *  [MD5](https://wikipedia.org/wiki/MD5), or
- *  [crypt](https://en.wikipedia.org/wiki/Crypt_\\(C\\)) hash format.
+ *  The following `hashFunction` values are allowed: * `DES` * `MD5` - hash
+ *  prefix is `$1$` * `SHA2-256` - hash prefix is `$5$` * `SHA2-512` - hash
+ *  prefix is `$6$` If rounds are specified as part of the prefix, they must be
+ *  10,000 or fewer.
  */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 

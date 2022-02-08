@@ -183,8 +183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization or project the assets belong to. Format:
- *  "organizations/[organization-number]" (such as "organizations/123"),
+ *  Required. Name of the organization, folder, or project the assets belong to.
+ *  Format: "organizations/[organization-number]" (such as "organizations/123"),
  *  "projects/[project-id]" (such as "projects/my-project-id"),
  *  "projects/[project-number]" (such as "projects/12345"), or
  *  "folders/[folder-number]" (such as "folders/12345").
@@ -222,8 +222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Lists assets with time and resource types and returns paged results in
  *  response.
  *
- *  @param parent Required. Name of the organization or project the assets
- *    belong to. Format: "organizations/[organization-number]" (such as
+ *  @param parent Required. Name of the organization, folder, or project the
+ *    assets belong to. Format: "organizations/[organization-number]" (such as
  *    "organizations/123"), "projects/[project-id]" (such as
  *    "projects/my-project-id"), "projects/[project-number]" (such as
  *    "projects/12345"), or "folders/[folder-number]" (such as "folders/12345").
@@ -735,7 +735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  Google groups appearing in an IAM policy binding. If
  *  IamPolicyAnalysisQuery.identity_selector is specified, the identity in the
  *  result will be determined by the selector, and this flag is not allowed to
- *  set. Default is false.
+ *  set. If true, the default max expansion per group is 1000 for
+ *  AssetService.AnalyzeIamPolicy][]. Default is false.
  */
 @property(nonatomic, assign) BOOL analysisQueryOptionsExpandGroups;
 
@@ -753,7 +754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  used together with this option. For example, if the request analyzes for
  *  which users have permission P on a GCP project with this option enabled, the
  *  results will include all users who have permission P on that project or any
- *  lower resource. Default is false.
+ *  lower resource. If true, the default max expansion per resource is 1000 for
+ *  AssetService.AnalyzeIamPolicy][] and 100000 for
+ *  AssetService.AnalyzeIamPolicyLongrunning][]. Default is false.
  */
 @property(nonatomic, assign) BOOL analysisQueryOptionsExpandResources;
 

@@ -460,8 +460,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_CloneContext
-@dynamic binLogCoordinates, destinationInstanceName, kind, pitrTimestampMs,
-         pointInTime;
+@dynamic allocatedIpRange, binLogCoordinates, destinationInstanceName, kind,
+         pitrTimestampMs, pointInTime;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -534,10 +534,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_DatabaseInstance
-@dynamic backendType, connectionName, createTime, currentDiskSize,
-         databaseInstalledVersion, databaseVersion, diskEncryptionConfiguration,
-         diskEncryptionStatus, ETag, failoverReplica, gceZone, instanceType,
-         ipAddresses, ipv6Address, kind, masterInstanceName, maxDiskSize, name,
+@dynamic availableMaintenanceVersions, backendType, connectionName, createTime,
+         currentDiskSize, databaseInstalledVersion, databaseVersion,
+         diskEncryptionConfiguration, diskEncryptionStatus, ETag,
+         failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
+         maintenanceVersion, masterInstanceName, maxDiskSize, name,
          onPremisesConfiguration, outOfDiskReport, project, region,
          replicaConfiguration, replicaNames, rootPassword, satisfiesPzs,
          scheduledMaintenance, secondaryGceZone, selfLink, serverCaCert,
@@ -549,6 +550,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"availableMaintenanceVersions" : [NSString class],
     @"ipAddresses" : [GTLRSQLAdmin_IpMapping class],
     @"replicaNames" : [NSString class],
     @"suspensionReason" : [NSString class]

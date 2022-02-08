@@ -34151,11 +34151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *securityPolicy;
 
 /**
- *  This field specifies the security policy that applies to this backend
- *  service. This field is applicable to either: - A regional backend service
- *  with the service_protocol set to HTTP, HTTPS, or HTTP2, and
- *  load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service
- *  with the load_balancing_scheme set to INTERNAL_SELF_MANAGED.
+ *  This field specifies the security settings that apply to this backend
+ *  service. This field is applicable to a global backend service with the
+ *  load_balancing_scheme set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_SecuritySettings *securitySettings;
 
@@ -65418,8 +65416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Defines the maintenance behavior for this instance. For standard instances,
  *  the default behavior is MIGRATE. For preemptible instances, the default and
- *  only possible behavior is TERMINATE. For more information, see Setting
- *  Instance Scheduling Options.
+ *  only possible behavior is TERMINATE. For more information, see Set VM
+ *  availability policies.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Scheduling_OnHostMaintenance_Migrate *[Default]*

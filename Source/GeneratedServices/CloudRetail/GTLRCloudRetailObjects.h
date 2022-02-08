@@ -71,6 +71,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey;
+@class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue;
@@ -107,9 +108,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Calculates diff and replaces the entire product dataset. Existing products
  *  may be deleted if they are not present in the source location. Can only be
- *  while using BigQuerySource. Add the IAM permission "BigQuery Data Viewer"
- *  for cloud-retail-customer-data-access\@system.gserviceaccount.com before
- *  using this feature otherwise an error is thrown. This feature is only
+ *  set while using BigQuerySource. And the BigQuery dataset must be created in
+ *  the data location "us (multiple regions in United States)", otherwise a
+ *  PERMISSION_DENIED error is thrown. Add the IAM permission "BigQuery Data
+ *  Viewer" for cloud-retail-customer-data-access\@system.gserviceaccount.com
+ *  before using this feature otherwise an error is thrown. This feature is only
  *  available for users who have Retail Search enabled. Please submit a form
  *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
  *  interested in using Retail Search.
@@ -274,6 +277,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Value: "MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec.mode
+
+/**
+ *  Let CRS decide whether to use personalization.
+ *
+ *  Value: "AUTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Auto;
+/**
+ *  Disable personalization.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Disabled;
+/**
+ *  Default value. Defaults to Mode.AUTO.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec.condition
@@ -1281,8 +1306,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  [Importing catalog data from Merchant
  *  Center](https://cloud.google.com/retail/recommendations-ai/docs/upload-catalog#mc).
  *  Supported values for user events imports: * `user_event` (default): One JSON
- *  UserEvent per line. * `user_event_ga360`: Using
- *  https://support.google.com/analytics/answer/3437719.
+ *  UserEvent per line. * `user_event_ga360`: The schema is available here:
+ *  https://support.google.com/analytics/answer/3437719. * `user_event_ga4`:
+ *  This feature is in private preview. Please contact the support team for
+ *  importing Google Analytics 4 events. The schema is available here:
+ *  https://support.google.com/analytics/answer/7029846.
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
@@ -1574,7 +1602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Supported values for user events imports: * `user_event` (default): One JSON
  *  UserEvent per line. * `user_event_ga360`: Using
  *  https://support.google.com/analytics/answer/3437719. Supported values for
- *  control imports: * 'control' (default): One JSON Control per line.
+ *  control imports: * 'control' (default): One JSON Control per line. Supported
+ *  values for catalog attribute imports: * 'catalog_attribute' (default): One
+ *  CSV CatalogAttribute per line.
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
@@ -1766,8 +1796,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Full
  *        Calculates diff and replaces the entire product dataset. Existing
  *        products may be deleted if they are not present in the source
- *        location. Can only be while using BigQuerySource. Add the IAM
- *        permission "BigQuery Data Viewer" for
+ *        location. Can only be set while using BigQuerySource. And the BigQuery
+ *        dataset must be created in the data location "us (multiple regions in
+ *        United States)", otherwise a PERMISSION_DENIED error is thrown. Add
+ *        the IAM permission "BigQuery Data Viewer" for
  *        cloud-retail-customer-data-access\@system.gserviceaccount.com before
  *        using this feature otherwise an error is thrown. This feature is only
  *        available for users who have Retail Search enabled. Please submit a
@@ -2357,7 +2389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
 /**
- *  The id of the collection members when type is Type.COLLECTION. Should not
+ *  The id of the collection members when type is Type.COLLECTION. Non-existent
+ *  product ids are allowed. The type of the members must be either Type.PRIMARY
+ *  or Type.VARIANT otherwise and INVALID_ARGUMENT error is thrown. Should not
  *  set it for other types. A maximum of 1000 values are allowed. Otherwise, an
  *  INVALID_ARGUMENT error is return.
  */
@@ -2511,7 +2545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The promotions applied to the product. A maximum of 10 values are allowed
- *  per Product.
+ *  per Product. Only Promotion.promotion_id will be used, other fields will be
+ *  ignored if set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Promotion *> *promotions;
 
@@ -2776,10 +2811,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2Promotion : GTLRObject
 
 /**
- *  ID of the promotion. For example, "free gift". The value value must be a
- *  UTF-8 encoded string with a length limit of 128 characters, and match the
- *  pattern: `a-zA-Z*`. For example, id0LikeThis or ID_1_LIKE_THIS. Otherwise,
- *  an INVALID_ARGUMENT error is returned. Google Merchant Center property
+ *  ID of the promotion. For example, "free gift". The value must be a UTF-8
+ *  encoded string with a length limit of 128 characters, and match the pattern:
+ *  `a-zA-Z*`. For example, id0LikeThis or ID_1_LIKE_THIS. Otherwise, an
+ *  INVALID_ARGUMENT error is returned. Google Merchant Center property
  *  [promotion](https://support.google.com/merchants/answer/7050148).
  */
 @property(nonatomic, copy, nullable) NSString *promotionId;
@@ -3143,6 +3178,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
+/** The specification for personalization. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec *personalizationSpec;
+
 /** Raw search query. */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -3440,6 +3478,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  customFulfillment3 * customFulfillment4 * customFulfillment5
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedValues;
+
+@end
+
+
+/**
+ *  The specification for personalization.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec : GTLRObject
+
+/**
+ *  Defaults to Mode.AUTO.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Auto
+ *        Let CRS decide whether to use personalization. (Value: "AUTO")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Disabled
+ *        Disable personalization. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_ModeUnspecified
+ *        Default value. Defaults to Mode.AUTO. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
 
 @end
 
@@ -4292,10 +4351,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudRetail_GoogleTypeDate : GTLRObject
 

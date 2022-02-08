@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSpanner_Backup.databaseDialect
+NSString * const kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified = @"DATABASE_DIALECT_UNSPECIFIED";
+NSString * const kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
+NSString * const kGTLRSpanner_Backup_DatabaseDialect_Postgresql = @"POSTGRESQL";
+
 // GTLRSpanner_Backup.state
 NSString * const kGTLRSpanner_Backup_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Backup_State_Ready            = @"READY";
@@ -25,6 +30,16 @@ NSString * const kGTLRSpanner_ContextValue_Severity_Fatal      = @"FATAL";
 NSString * const kGTLRSpanner_ContextValue_Severity_Info       = @"INFO";
 NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 NSString * const kGTLRSpanner_ContextValue_Severity_Warning    = @"WARNING";
+
+// GTLRSpanner_CreateDatabaseRequest.databaseDialect
+NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_DatabaseDialectUnspecified = @"DATABASE_DIALECT_UNSPECIFIED";
+NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
+NSString * const kGTLRSpanner_CreateDatabaseRequest_DatabaseDialect_Postgresql = @"POSTGRESQL";
+
+// GTLRSpanner_Database.databaseDialect
+NSString * const kGTLRSpanner_Database_DatabaseDialect_DatabaseDialectUnspecified = @"DATABASE_DIALECT_UNSPECIFIED";
+NSString * const kGTLRSpanner_Database_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
+NSString * const kGTLRSpanner_Database_DatabaseDialect_Postgresql = @"POSTGRESQL";
 
 // GTLRSpanner_Database.state
 NSString * const kGTLRSpanner_Database_State_Creating         = @"CREATING";
@@ -104,6 +119,10 @@ NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
 
+// GTLRSpanner_Type.typeAnnotation
+NSString * const kGTLRSpanner_Type_TypeAnnotation_PgNumeric    = @"PG_NUMERIC";
+NSString * const kGTLRSpanner_Type_TypeAnnotation_TypeAnnotationCodeUnspecified = @"TYPE_ANNOTATION_CODE_UNSPECIFIED";
+
 // GTLRSpanner_VisualizationData.keyUnit
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk  = @"CHUNK";
 NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key    = @"KEY";
@@ -115,8 +134,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Backup
-@dynamic createTime, database, encryptionInfo, expireTime, name,
-         referencingDatabases, sizeBytes, state, versionTime;
+@dynamic createTime, database, databaseDialect, encryptionInfo, expireTime,
+         name, referencingDatabases, sizeBytes, state, versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -279,7 +298,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CreateDatabaseRequest
-@dynamic createStatement, encryptionConfig, extraStatements;
+@dynamic createStatement, databaseDialect, encryptionConfig, extraStatements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -327,8 +346,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Database
-@dynamic createTime, defaultLeader, earliestVersionTime, encryptionConfig,
-         encryptionInfo, name, restoreInfo, state, versionRetentionPeriod;
+@dynamic createTime, databaseDialect, defaultLeader, earliestVersionTime,
+         encryptionConfig, encryptionInfo, name, restoreInfo, state,
+         versionRetentionPeriod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1748,7 +1768,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Type
-@dynamic arrayElementType, code, structType;
+@dynamic arrayElementType, code, structType, typeAnnotation;
 @end
 
 

@@ -2900,7 +2900,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  */
 @interface GTLRCertificateAuthorityService_SubjectAltNames : GTLRObject
 
-/** Contains additional subject alternative name values. */
+/**
+ *  Contains additional subject alternative name values. For each custom_san,
+ *  the `value` field must contain an ASN.1 encoded UTF8String.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_X509Extension *> *customSans;
 
 /** Contains only valid, fully-qualified host names. */

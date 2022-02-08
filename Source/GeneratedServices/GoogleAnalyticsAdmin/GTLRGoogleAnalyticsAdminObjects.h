@@ -20,6 +20,7 @@
 
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccount;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary;
+@class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource;
@@ -39,12 +40,14 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
+@class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails;
 @class GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -833,6 +836,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Response message for AcknowledgeUserDataCollection RPC.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaAcknowledgeUserDataCollectionResponse : GTLRObject
+@end
+
+
+/**
+ *  A resource message representing a Google Analytics Android app stream.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream : GTLRObject
+
+/** Output only. Time when this stream was originally created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human-readable display name for the Data Stream. The max allowed display
+ *  name length is 255 UTF-16 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. ID of the corresponding Android app in Firebase, if any. This
+ *  ID can change if the Android app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+/**
+ *  Output only. Resource name of this Data Stream. Format:
+ *  properties/{property_id}/androidAppDataStreams/{stream_id} Example:
+ *  "properties/1000/androidAppDataStreams/2000"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The package name for the app being measured. Example:
+ *  "com.example.myandroidapp"
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Output only. Time when stream payload fields were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -1794,13 +1836,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /**
  *  Read-only resource with the tag for sending data from a website to a
- *  WebDataStream.
+ *  DataStream. Only present for web DataStream resources.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag : GTLRObject
 
 /**
  *  Output only. Resource name for this GlobalSiteTag resource. Format:
- *  properties/{propertyId}/globalSiteTag
+ *  properties/{property_id}/dataStreams/{stream_id}/globalSiteTag Example:
+ *  "properties/123/dataStreams/456/globalSiteTag"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1904,6 +1947,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        "GOOGLE_SIGNALS_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A resource message representing a Google Analytics IOS app stream.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream : GTLRObject
+
+/**
+ *  Required. Immutable. The Apple App Store Bundle ID for the app Example:
+ *  "com.example.myiosapp"
+ */
+@property(nonatomic, copy, nullable) NSString *bundleId;
+
+/** Output only. Time when this stream was originally created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Human-readable display name for the Data Stream. The max allowed display
+ *  name length is 255 UTF-16 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. ID of the corresponding iOS app in Firebase, if any. This ID
+ *  can change if the iOS app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+/**
+ *  Output only. Resource name of this Data Stream. Format:
+ *  properties/{property_id}/iosAppDataStreams/{stream_id} Example:
+ *  "properties/1000/iosAppDataStreams/2000"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Time when stream payload fields were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -2013,6 +2095,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary *> *accountSummaries;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request message for ListAndroidDataStreams RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "androidAppDataStreams" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListAndroidAppDataStreamsResponse : GTLRCollectionObject
+
+/**
+ *  Results that matched the filter criteria and were accessible to the caller.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *> *androidAppDataStreams;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -2242,6 +2351,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Request message for ListIosAppDataStreams RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "iosAppDataStreams" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListIosAppDataStreamsResponse : GTLRCollectionObject
+
+/**
+ *  Results that matched the filter criteria and were accessible to the caller.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream *> *iosAppDataStreams;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListMeasurementProtocolSecret RPC
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2318,6 +2454,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaUserLink *> *userLinks;
+
+@end
+
+
+/**
+ *  Request message for ListWebDataStreams RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "webDataStreams" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListWebDataStreamsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Results that matched the filter criteria and were accessible to the caller.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream *> *webDataStreams;
 
 @end
 
@@ -2655,6 +2818,51 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** Output only. Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A resource message representing a Google Analytics web stream.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream : GTLRObject
+
+/** Output only. Time when this stream was originally created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. Domain name of the web app being measured, or empty. Example:
+ *  "http://www.google.com", "https://www.google.com"
+ */
+@property(nonatomic, copy, nullable) NSString *defaultUri;
+
+/**
+ *  Required. Human-readable display name for the Data Stream. The max allowed
+ *  display name length is 255 UTF-16 code units.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. ID of the corresponding web app in Firebase, if any. This ID
+ *  can change if the web app is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *firebaseAppId;
+
+/**
+ *  Output only. Analytics "Measurement ID", without the "G-" prefix. Example:
+ *  "G-1A2BCD345E" would just be "1A2BCD345E"
+ */
+@property(nonatomic, copy, nullable) NSString *measurementId;
+
+/**
+ *  Output only. Resource name of this Data Stream. Format:
+ *  properties/{property_id}/webDataStreams/{stream_id} Example:
+ *  "properties/1000/webDataStreams/2000"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Time when stream payload fields were last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

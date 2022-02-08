@@ -476,10 +476,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRAdsense_Date : GTLRObject
 
@@ -917,8 +917,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
 @property(nonatomic, strong, nullable) GTLRAdsense_Date *date;
 
 /**
- *  Resource name of the payment. Format: accounts/{account}/payments/unpaid for
- *  unpaid (current) earnings. accounts/{account}/payments/yyyy-MM-dd for paid
+ *  Resource name of the payment. Format: - accounts/{account}/payments/unpaid
+ *  for unpaid (current) AdSense earnings. -
+ *  accounts/{account}/payments/youtube-unpaid for unpaid (current) YouTube
+ *  earnings. - accounts/{account}/payments/yyyy-MM-dd for paid AdSense
+ *  earnings. - accounts/{account}/payments/youtube-yyyy-MM-dd for paid YouTube
  *  earnings.
  */
 @property(nonatomic, copy, nullable) NSString *name;

@@ -1442,11 +1442,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest : GTLRObject
 
 /**
- *  * A positive value of `adjustment` means that that the API provider wishes
- *  to adjust the balance for an over-charged developer i.e. the balance of the
- *  developer will increase. * A negative value of `adjustment` means that that
- *  the API provider wishes to adjust the balance for an under-charged developer
- *  i.e. the balance of the developer will decrease.
+ *  * A positive value of `adjustment` means that that the API provider wants to
+ *  adjust the balance for an under-charged developer i.e. the balance of the
+ *  developer will decrease. * A negative value of `adjustment` means that that
+ *  the API provider wants to adjust the balance for an over-charged developer
+ *  i.e. the balance of the developer will increase.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *adjustment;
 
@@ -2870,6 +2870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
+/** Output only. The first transaction creation timestamp, recorded by UAP. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  Optional. A conditional statement which is evaluated against the request
  *  message to determine if it should be traced. Syntax matches that of on API
@@ -4226,6 +4229,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
+ *  Optional. IP range represents the customer-provided CIDR block of length 22
+ *  that will be used for the Apigee instance creation. This optional range, if
+ *  provided, should be freely available as part of larger named range the
+ *  customer has allocated to the Service Networking peering. If this is not
+ *  provided, Apigee will automatically request for any available /22 CIDR block
+ *  from Service Networking. The customer should use this CIDR block for
+ *  configuring their firewall needs to allow traffic from Apigee. Input format:
+ *  "a.b.c.d/22", Output format: a.b.c.d/22, e.f.g.h/28"
+ */
+@property(nonatomic, copy, nullable) NSString *ipRange;
+
+/**
  *  Output only. Time the instance was last modified in milliseconds since
  *  epoch.
  *
@@ -4452,18 +4467,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  A collection of key, value string pairs
+ *  Collection of key/value string pairs.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1KeyValueMap : GTLRObject
 
 /**
- *  Optional. If `true` entry values will be encrypted.
+ *  Optional. Flag that specifies whether entry values will be encrypted. Enable
+ *  to encrypt entry values.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *encrypted;
 
-/** Required. The id of the key value map. */
+/** Required. ID of the key value map. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -6593,7 +6609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The first transaction creation timestamp in millisecond, recoreded by UAP.
+ *  The first transaction creation timestamp in millisecond, recorded by UAP.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -6976,7 +6992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  TLS configuration information for VirtualHosts and TargetServers.
+ *  TLS configuration information for virtual hosts and TargetServers.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1TlsInfo : GTLRObject
 

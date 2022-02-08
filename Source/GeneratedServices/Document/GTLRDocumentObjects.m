@@ -34,6 +34,14 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_R
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_LatestTimestamp = @"LATEST_TIMESTAMP";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_RevisionCaseUnspecified = @"REVISION_CASE_UNSPECIFIED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata_State_Cancelling = @"CANCELLING";
@@ -612,6 +620,26 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata
 @dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1alpha1AnalyzeHitlDataMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1alpha1AnalyzeHitlDataMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata
+@dynamic createTime, resource, state, stateMessage, updateTime;
 @end
 
 
@@ -2054,7 +2082,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata
-@dynamic commonMetadata, createTime, state, stateMessage, updateTime;
+@dynamic commonMetadata, createTime, questionId, state, stateMessage,
+         updateTime;
 @end
 
 
@@ -2962,7 +2991,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentOperationMetadata
-@dynamic commonMetadata;
+@dynamic commonMetadata, questionId;
 @end
 
 

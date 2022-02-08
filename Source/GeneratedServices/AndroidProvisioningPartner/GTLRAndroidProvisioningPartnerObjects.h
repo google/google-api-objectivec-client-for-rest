@@ -579,7 +579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @property(nonatomic, copy, nullable) NSString *configuration;
 
-/** Required. The device the configuration is applied to. */
+/**
+ *  Required. The device the configuration is applied to. There are custom
+ *  validations in ApplyConfigurationRequestValidator
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
 
 @end
@@ -669,7 +672,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_CustomerRemoveConfigurationRequest : GTLRObject
 
-/** Required. The device to remove the configuration from. */
+/**
+ *  Required. The device to remove the configuration from. There are custom
+ *  validations in RemoveConfigurationRequestValidator
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
 
 @end
@@ -680,7 +686,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  */
 @interface GTLRAndroidProvisioningPartner_CustomerUnclaimDeviceRequest : GTLRObject
 
-/** Required. The device to unclaim. */
+/**
+ *  Required. The device to unclaim. There are custom validations in
+ *  UnclaimDeviceRequestValidator.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidProvisioningPartner_DeviceReference *device;
 
 @end

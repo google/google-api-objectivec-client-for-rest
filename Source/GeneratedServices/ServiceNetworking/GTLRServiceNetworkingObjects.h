@@ -362,7 +362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxPr
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -382,7 +382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_Launc
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -513,7 +513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -533,7 +533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -605,7 +605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescr
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -888,6 +888,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Request to create a subnetwork in a previously peered service network.
  */
 @interface GTLRServiceNetworking_AddSubnetworkRequest : GTLRObject
+
+/**
+ *  Optional. The IAM permission check determines whether the consumer project
+ *  has 'servicenetworking.services.use' permission or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *checkServiceNetworkingUsePermission;
 
 /**
  *  Required. A resource that represents the service consumer, such as
@@ -2724,7 +2732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don't have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -2737,7 +2745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceNetworking_MetricDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -2906,7 +2914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -2919,7 +2927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceNetworking_MetricDescriptorMetadata_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -3081,7 +3089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3094,7 +3102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceNetworking_MonitoredResourceDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.

@@ -14,6 +14,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudSupport_Case.priority
+NSString * const kGTLRCloudSupport_Case_Priority_P0            = @"P0";
+NSString * const kGTLRCloudSupport_Case_Priority_P1            = @"P1";
+NSString * const kGTLRCloudSupport_Case_Priority_P2            = @"P2";
+NSString * const kGTLRCloudSupport_Case_Priority_P3            = @"P3";
+NSString * const kGTLRCloudSupport_Case_Priority_P4            = @"P4";
+NSString * const kGTLRCloudSupport_Case_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
 // GTLRCloudSupport_Case.severity
 NSString * const kGTLRCloudSupport_Case_Severity_S0            = @"S0";
 NSString * const kGTLRCloudSupport_Case_Severity_S1            = @"S1";
@@ -107,8 +115,8 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 
 @implementation GTLRCloudSupport_Case
 @dynamic classification, createTime, creator, descriptionProperty, displayName,
-         escalated, name, severity, state, subscriberEmailAddresses, testCase,
-         timeZone, updateTime;
+         escalated, name, priority, severity, state, subscriberEmailAddresses,
+         testCase, timeZone, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

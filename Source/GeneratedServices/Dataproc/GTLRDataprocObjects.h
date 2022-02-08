@@ -80,6 +80,8 @@
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
 @class GTLRDataproc_MetastoreConfig;
+@class GTLRDataproc_Metric;
+@class GTLRDataproc_MetricConfig;
 @class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
@@ -266,7 +268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate;
 /**
- *  The cluster is currently running and healthy. It is ready for use.
+ *  The cluster is currently running and healthy. It is ready for use.Note: The
+ *  cluster state changes from "creating" to "running" status after the master
+ *  node(s), first two primary worker nodes (and the last primary worker node if
+ *  primary workers > 2) are running.
  *
  *  Value: "RUNNING"
  */
@@ -540,6 +545,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_D
  *  Value: "WARN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_LoggingConfig_DriverLogLevels_DriverLogLevel_Warn;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_Metric.metricSource
+
+/**
+ *  Hdfs metric source
+ *
+ *  Value: "HDFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hdfs;
+/**
+ *  hiveserver2 metric source
+ *
+ *  Value: "HIVESERVER2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Hiveserver2;
+/**
+ *  Required unspecified metric source
+ *
+ *  Value: "METRIC_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified;
+/**
+ *  all default monitoring agent metrics that are published with prefix
+ *  "agent.googleapis.com" when we enable a monitoring agent in Compute Engine
+ *
+ *  Value: "MONITORING_AGENT_DEFAULTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults;
+/**
+ *  Spark metric source
+ *
+ *  Value: "SPARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Spark;
+/**
+ *  Spark history server metric source
+ *
+ *  Value: "SPARK_HISTORY_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_SparkHistoryServer;
+/**
+ *  Yarn metric source
+ *
+ *  Value: "YARN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_Metric_MetricSource_Yarn;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ReservationAffinity.consumeReservationType
@@ -1379,6 +1431,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
+/** Optional. The configuration(s) for a dataproc metric(s). */
+@property(nonatomic, strong, nullable) GTLRDataproc_MetricConfig *dataprocMetricConfig;
+
 /** Optional. Encryption settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_EncryptionConfig *encryptionConfig;
 
@@ -1655,7 +1710,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        cluster, but the cluster cannot be updated. (Value:
  *        "ERROR_DUE_TO_UPDATE")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
- *        running and healthy. It is ready for use. (Value: "RUNNING")
+ *        running and healthy. It is ready for use.Note: The cluster state
+ *        changes from "creating" to "running" status after the master node(s),
+ *        first two primary worker nodes (and the last primary worker node if
+ *        primary workers > 2) are running. (Value: "RUNNING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Starting The cluster is being
  *        started. It is not ready for use. (Value: "STARTING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopped The cluster is currently
@@ -1759,7 +1817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Interface type of local SSDs (default is "scsi"). Valid values:
  *  "scsi" (Small Computer System Interface), "nvme" (Non-Volatile Memory
- *  Express). See SSD Interface types
+ *  Express). See local SSD performance
  *  (https://cloud.google.com/compute/docs/disks/local-ssd#performance).
  */
 @property(nonatomic, copy, nullable) NSString *localSsdInterface;
@@ -3242,6 +3300,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Metric source to enable along with any optional metrics for this source that
+ *  override the dataproc defaults
+ */
+@interface GTLRDataproc_Metric : GTLRObject
+
+/**
+ *  Optional. Optional Metrics to override the dataproc default metrics
+ *  configured for the metric source
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricOverrides;
+
+/**
+ *  Required. MetricSource that should be enabled
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Hdfs Hdfs metric source (Value:
+ *        "HDFS")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Hiveserver2 hiveserver2 metric
+ *        source (Value: "HIVESERVER2")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_MetricSourceUnspecified Required
+ *        unspecified metric source (Value: "METRIC_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_MonitoringAgentDefaults all
+ *        default monitoring agent metrics that are published with prefix
+ *        "agent.googleapis.com" when we enable a monitoring agent in Compute
+ *        Engine (Value: "MONITORING_AGENT_DEFAULTS")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Spark Spark metric source
+ *        (Value: "SPARK")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_SparkHistoryServer Spark history
+ *        server metric source (Value: "SPARK_HISTORY_SERVER")
+ *    @arg @c kGTLRDataproc_Metric_MetricSource_Yarn Yarn metric source (Value:
+ *        "YARN")
+ */
+@property(nonatomic, copy, nullable) NSString *metricSource;
+
+@end
+
+
+/**
+ *  Contains dataproc metric config.
+ */
+@interface GTLRDataproc_MetricConfig : GTLRObject
+
+/** Required. Metrics to be enabled. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Metric *> *metrics;
+
+@end
+
+
+/**
  *  A full, namespace-isolated deployment target for an existing GKE cluster.
  */
 @interface GTLRDataproc_NamespacedGkeDeploymentTarget : GTLRObject
@@ -4165,8 +4272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A configuration for running an Apache Spark (http://spark.apache.org/) batch
- *  workload.
+ *  A configuration for running an Apache Spark (https://spark.apache.org/)
+ *  batch workload.
  */
 @interface GTLRDataproc_SparkBatch : GTLRObject
 
@@ -4223,7 +4330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A Dataproc job for running Apache Spark (http://spark.apache.org/)
+ *  A Dataproc job for running Apache Spark (https://spark.apache.org/)
  *  applications on YARN.
  */
 @interface GTLRDataproc_SparkJob : GTLRObject
@@ -4386,7 +4493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A configuration for running Apache Spark SQL (http://spark.apache.org/sql/)
+ *  A configuration for running Apache Spark SQL (https://spark.apache.org/sql/)
  *  queries as a batch workload.
  */
 @interface GTLRDataproc_SparkSqlBatch : GTLRObject
@@ -4423,7 +4530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  A Dataproc job for running Apache Spark SQL (http://spark.apache.org/sql/)
+ *  A Dataproc job for running Apache Spark SQL (https://spark.apache.org/sql/)
  *  queries.
  */
 @interface GTLRDataproc_SparkSqlJob : GTLRObject

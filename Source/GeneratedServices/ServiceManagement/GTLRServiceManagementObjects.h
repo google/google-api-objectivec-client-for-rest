@@ -494,7 +494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxPr
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -514,7 +514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_Launc
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -645,7 +645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -665,7 +665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetada
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -717,7 +717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetada
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -737,7 +737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescr
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -2831,7 +2831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don't have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -2844,7 +2844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceManagement_MetricDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -3013,7 +3013,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3026,7 +3026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceManagement_MetricDescriptorMetadata_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -3188,7 +3188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3201,7 +3201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRServiceManagement_MonitoredResourceDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.

@@ -187,33 +187,6 @@
 
 @end
 
-@implementation GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLROrgPolicyAPIQuery_OrganizationsCustomConstraintsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint class];
-  query.loggingName = @"orgpolicy.organizations.customConstraints.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate
 
 @dynamic parent;

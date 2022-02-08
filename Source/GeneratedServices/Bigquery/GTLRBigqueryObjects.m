@@ -66,6 +66,10 @@ NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRBigquery_DatasetAccessEntry.targetTypes
+NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views = @"VIEWS";
+
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
 NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus       = @"ARIMA_PLUS";
@@ -755,7 +759,7 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
          defaultEncryptionConfiguration, defaultPartitionExpirationMs,
          defaultTableExpirationMs, descriptionProperty, ETag, friendlyName,
          identifier, isCaseInsensitive, kind, labels, lastModifiedTime,
-         location, satisfiesPZS, selfLink;
+         location, satisfiesPZS, selfLink, tags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -768,7 +772,8 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"access" : [GTLRBigquery_Dataset_Access_Item class]
+    @"access" : [GTLRBigquery_Dataset_Access_Item class],
+    @"tags" : [GTLRBigquery_Dataset_Tags_Item class]
   };
   return map;
 }
@@ -803,6 +808,16 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_Dataset_Tags_Item
+//
+
+@implementation GTLRBigquery_Dataset_Tags_Item
+@dynamic tagKey, tagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_DatasetAccessEntry
 //
 
@@ -815,21 +830,11 @@ NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_TreeMethodUnspecified 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"target_types" : [GTLRBigquery_DatasetAccessEntry_TargetTypes_Item class]
+    @"target_types" : [NSString class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
-//
-
-@implementation GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
-@dynamic targetType;
 @end
 
 

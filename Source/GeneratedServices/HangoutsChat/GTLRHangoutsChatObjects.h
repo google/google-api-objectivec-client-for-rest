@@ -116,8 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage;
 /**
- *  Update a message, with cards only. (Only after a MESSAGE event with a
- *  matched url, or a CARD_CLICKED event on a human created message).
+ *  Privately ask the user for additional auth or config.
  *
  *  Value: "REQUEST_CONFIG"
  */
@@ -1061,10 +1060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_NewMessage Post as a new
  *        message in the topic. (Value: "NEW_MESSAGE")
- *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Update a
- *        message, with cards only. (Only after a MESSAGE event with a matched
- *        url, or a CARD_CLICKED event on a human created message). (Value:
- *        "REQUEST_CONFIG")
+ *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Privately ask
+ *        the user for additional auth or config. (Value: "REQUEST_CONFIG")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified Default
  *        type; will be handled as NEW_MESSAGE. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage Update the
@@ -3126,17 +3123,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  A user in Google Chat. Represents a person in the People API. Formatted as
- *  `users/person_id` where `person_id` is available from the [People
- *  API](https://developers.google.com/people/api/rest/v1/people).
+ *  A user in Google Chat. Represents a
+ *  [person](https://developers.google.com/people/api/rest/v1/people) in the
+ *  People API. Format: `users/{person}`
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *member;
 
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  State of the membership. Required for `CreateMembership`. Read-only for
- *  other usage.
+ *  Output only. State of the membership.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_State_Invited The user has been

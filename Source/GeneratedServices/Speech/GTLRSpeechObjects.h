@@ -1013,7 +1013,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  This is a premium model that costs more than the standard rate. default Best
  *  for audio that is not one of the specific audio models. For example,
  *  long-form audio. Ideally the audio is high-fidelity, recorded at a 16khz or
- *  greater sampling rate.
+ *  greater sampling rate. medical_conversation Best for audio that originated
+ *  from a conversation between a medical provider and patient.
+ *  medical_dictation Best for audio that originated from dictation notes by a
+ *  medical provider.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 

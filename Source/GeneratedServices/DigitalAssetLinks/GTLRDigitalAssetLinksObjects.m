@@ -14,6 +14,19 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDigitalAssetLinks_BulkCheckResponse.bulkErrorCode
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFailedSslValidation = @"ERROR_CODE_FAILED_SSL_VALIDATION";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchBudgetExhausted = @"ERROR_CODE_FETCH_BUDGET_EXHAUSTED";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchError = @"ERROR_CODE_FETCH_ERROR";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeInvalidQuery = @"ERROR_CODE_INVALID_QUERY";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedContent = @"ERROR_CODE_MALFORMED_CONTENT";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedHttpResponse = @"ERROR_CODE_MALFORMED_HTTP_RESPONSE";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeRedirect = @"ERROR_CODE_REDIRECT";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeSecureAssetIncludesInsecure = @"ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeTooLarge = @"ERROR_CODE_TOO_LARGE";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeWrongContentType = @"ERROR_CODE_WRONG_CONTENT_TYPE";
+
 // GTLRDigitalAssetLinks_CheckResponse.errorCode
 NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFailedSslValidation = @"ERROR_CODE_FAILED_SSL_VALIDATION";
 NSString * const kGTLRDigitalAssetLinks_CheckResponse_ErrorCode_ErrorCodeFetchBudgetExhausted = @"ERROR_CODE_FETCH_BUDGET_EXHAUSTED";
@@ -57,6 +70,43 @@ NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongCon
 
 @implementation GTLRDigitalAssetLinks_Asset
 @dynamic androidApp, web;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDigitalAssetLinks_BulkCheckRequest
+//
+
+@implementation GTLRDigitalAssetLinks_BulkCheckRequest
+@dynamic allowGoogleInternalDataSources, defaultRelation, defaultSource,
+         defaultTarget, skipCacheLookup, statements;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"statements" : [GTLRDigitalAssetLinks_StatementTemplate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDigitalAssetLinks_BulkCheckResponse
+//
+
+@implementation GTLRDigitalAssetLinks_BulkCheckResponse
+@dynamic bulkErrorCode, checkResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checkResults" : [GTLRDigitalAssetLinks_CheckResponse class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -113,6 +163,16 @@ NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode_ErrorCodeWrongCon
 //
 
 @implementation GTLRDigitalAssetLinks_Statement
+@dynamic relation, source, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDigitalAssetLinks_StatementTemplate
+//
+
+@implementation GTLRDigitalAssetLinks_StatementTemplate
 @dynamic relation, source, target;
 @end
 

@@ -15,6 +15,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudSearch_AclInfo.scope
+NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomain   = @"DASHER_DOMAIN";
+NSString * const kGTLRCloudSearch_AclInfo_Scope_DasherDomainWithLink = @"DASHER_DOMAIN_WITH_LINK";
+NSString * const kGTLRCloudSearch_AclInfo_Scope_Limited        = @"LIMITED";
+NSString * const kGTLRCloudSearch_AclInfo_Scope_Public         = @"PUBLIC";
+NSString * const kGTLRCloudSearch_AclInfo_Scope_PublicWithLink = @"PUBLIC_WITH_LINK";
+NSString * const kGTLRCloudSearch_AclInfo_Scope_TeamDrive      = @"TEAM_DRIVE";
+
 // GTLRCloudSearch_CompositeFilter.logicOperator
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_And = @"AND";
 NSString * const kGTLRCloudSearch_CompositeFilter_LogicOperator_Not = @"NOT";
@@ -59,6 +67,25 @@ NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Yesterday = @"YESTE
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending = @"ASCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending = @"DESCENDING";
 NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder = @"NO_ORDER";
+
+// GTLRCloudSearch_GoogleDocsMetadata.documentType
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_BinaryBlob = @"BINARY_BLOB";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Document = @"DOCUMENT";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_DraftSite = @"DRAFT_SITE";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_DraftSitePage = @"DRAFT_SITE_PAGE";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Drawing = @"DRAWING";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Folder = @"FOLDER";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Form = @"FORM";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_FusionTable = @"FUSION_TABLE";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Image = @"IMAGE";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Jam = @"JAM";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Pdf = @"PDF";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Presentation = @"PRESENTATION";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Script = @"SCRIPT";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Shortcut = @"SHORTCUT";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Spreadsheet = @"SPREADSHEET";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Unknown = @"UNKNOWN";
+NSString * const kGTLRCloudSearch_GoogleDocsMetadata_DocumentType_Video = @"VIDEO";
 
 // GTLRCloudSearch_IndexItemRequest.mode
 NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous = @"ASYNCHRONOUS";
@@ -168,6 +195,14 @@ NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Highest = @"HIG
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low = @"LOW";
 NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_None = @"NONE";
 
+// GTLRCloudSearch_ShareScope.scope
+NSString * const kGTLRCloudSearch_ShareScope_Scope_DasherDomain = @"DASHER_DOMAIN";
+NSString * const kGTLRCloudSearch_ShareScope_Scope_Extended    = @"EXTENDED";
+NSString * const kGTLRCloudSearch_ShareScope_Scope_Limited     = @"LIMITED";
+NSString * const kGTLRCloudSearch_ShareScope_Scope_Private     = @"PRIVATE";
+NSString * const kGTLRCloudSearch_ShareScope_Scope_Public      = @"PUBLIC";
+NSString * const kGTLRCloudSearch_ShareScope_Scope_Unknown     = @"UNKNOWN";
+
 // GTLRCloudSearch_SortOptions.sortOrder
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Ascending = @"ASCENDING";
 NSString * const kGTLRCloudSearch_SortOptions_SortOrder_Descending = @"DESCENDING";
@@ -195,6 +230,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_Identity
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound = @"NOT_FOUND";
 NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound = @"TOO_MANY_MAPPINGS_FOUND";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_AclInfo
+//
+
+@implementation GTLRCloudSearch_AclInfo
+@dynamic groupsCount, scope, usersCount;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -904,6 +949,28 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_GoogleDocsMetadata
+//
+
+@implementation GTLRCloudSearch_GoogleDocsMetadata
+@dynamic aclInfo, documentType, fileExtension, lastContentModifiedTimestamp,
+         resultInfo, typeInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_GoogleDocsResultInfo
+//
+
+@implementation GTLRCloudSearch_GoogleDocsResultInfo
+@dynamic attachmentSha1, cosmoId, cosmoNameSpace, encryptedId, mimeType,
+         shareScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_GSuitePrincipal
 //
 
@@ -947,6 +1014,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_Id
+//
+
+@implementation GTLRCloudSearch_Id
+@dynamic creatorUserId, localId, nameSpace;
 @end
 
 
@@ -2063,6 +2140,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_ShareScope
+//
+
+@implementation GTLRCloudSearch_ShareScope
+@dynamic domain, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_Snippet
 //
 
@@ -2343,6 +2430,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_TypeInfo
+//
+
+@implementation GTLRCloudSearch_TypeInfo
+@dynamic videoInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_UnmappedIdentity
 //
 
@@ -2409,6 +2506,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_ValueFilter
 @dynamic operatorName, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_VideoInfo
+//
+
+@implementation GTLRCloudSearch_VideoInfo
+@dynamic duration;
 @end
 
 

@@ -235,7 +235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Required. The BigQuery project id for which data sources should be returned.
  *  Must be in the form: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -246,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned. Must be in the form: `projects/{project_id}` or
- *    `projects/{project_id}/locations/{location_id}
+ *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesList
  *
@@ -398,7 +398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Required. The BigQuery project id for which data sources should be returned.
  *  Must be in the form: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -409,7 +409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned. Must be in the form: `projects/{project_id}` or
- *    `projects/{project_id}/locations/{location_id}
+ *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesList
  *
@@ -712,8 +712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The BigQuery project id for which data sources should be returned:
- *  `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+ *  Required. The BigQuery project id for which transfer configs should be
+ *  returned: `projects/{project_id}` or
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -723,7 +724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about all transfer configs owned by a project in the
  *  specified location.
  *
- *  @param parent Required. The BigQuery project id for which data sources
+ *  @param parent Required. The BigQuery project id for which transfer configs
  *    should be returned: `projects/{project_id}` or
  *    `projects/{project_id}/locations/{location_id}`
  *
@@ -1292,8 +1293,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The BigQuery project id for which data sources should be returned:
- *  `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
+ *  Required. The BigQuery project id for which transfer configs should be
+ *  returned: `projects/{project_id}` or
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1303,7 +1305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about all transfer configs owned by a project in the
  *  specified location.
  *
- *  @param parent Required. The BigQuery project id for which data sources
+ *  @param parent Required. The BigQuery project id for which transfer configs
  *    should be returned: `projects/{project_id}` or
  *    `projects/{project_id}/locations/{location_id}`
  *

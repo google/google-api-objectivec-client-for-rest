@@ -429,7 +429,7 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_SecretPayload
-@dynamic data;
+@dynamic data, dataCrc32c;
 @end
 
 
@@ -439,7 +439,8 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_SecretVersion
-@dynamic createTime, destroyTime, ETag, name, replicationStatus, state;
+@dynamic clientSpecifiedPayloadChecksum, createTime, destroyTime, ETag, name,
+         replicationStatus, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

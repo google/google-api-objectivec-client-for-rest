@@ -1596,7 +1596,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
-/** Configuration of Confidential Nodes */
+/**
+ *  Configuration of Confidential Nodes. All the nodes in the cluster will be
+ *  Confidential VM once enabled.
+ */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
 /**
@@ -2218,7 +2221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster id) of the cluster to complete IP
+ *  The name (project, location, cluster name) of the cluster to complete IP
  *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2250,7 +2253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_ConfidentialNodes : GTLRObject
 
 /**
- *  Whether Confidential Nodes feature is enabled for all nodes in this cluster.
+ *  Whether Confidential Nodes feature is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2342,7 +2345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_NodePool *nodePool;
 
 /**
- *  The parent (project, location, cluster id) where the node pool will be
+ *  The parent (project, location, cluster name) where the node pool will be
  *  created. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4647,7 +4650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *labelFingerprint;
 
 /**
- *  The name (project, location, cluster id) of the cluster to set labels.
+ *  The name (project, location, cluster name) of the cluster to set labels.
  *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4707,8 +4710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  The name (project, location, cluster id) of the cluster to set legacy abac.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster name) of the cluster to set legacy
+ *  abac. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4842,7 +4845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
 
 /**
- *  The name (project, location, cluster id) of the cluster to set maintenance
+ *  The name (project, location, cluster name) of the cluster to set maintenance
  *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4985,7 +4988,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster id) of the cluster to set networking
+ *  The name (project, location, cluster name) of the cluster to set networking
  *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5216,7 +5219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster id) of the cluster to start IP
+ *  The name (project, location, cluster name) of the cluster to start IP
  *  rotation. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

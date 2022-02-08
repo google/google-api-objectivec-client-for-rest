@@ -233,10 +233,10 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
-@dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength,
-         outsideAllocationPublicIpRange, privateIpv6GoogleAccess, purpose,
-         region, requestedAddress, requestedRanges, secondaryIpRangeSpecs,
-         subnetwork, subnetworkUsers;
+@dynamic checkServiceNetworkingUsePermission, consumer, consumerNetwork,
+         descriptionProperty, ipPrefixLength, outsideAllocationPublicIpRange,
+         privateIpv6GoogleAccess, purpose, region, requestedAddress,
+         requestedRanges, secondaryIpRangeSpecs, subnetwork, subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
