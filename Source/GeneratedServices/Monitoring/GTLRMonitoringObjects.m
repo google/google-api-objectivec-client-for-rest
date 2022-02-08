@@ -231,6 +231,11 @@ NSString * const kGTLRMonitoring_TimeSeries_ValueType_ValueTypeUnspecified = @"V
 NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2 = @"SYNTAX_PROTO2";
 NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 
+// GTLRMonitoring_UptimeCheckConfig.checkerType
+NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_CheckerTypeUnspecified = @"CHECKER_TYPE_UNSPECIFIED";
+NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_StaticIpCheckers = @"STATIC_IP_CHECKERS";
+NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_VpcCheckers = @"VPC_CHECKERS";
+
 // GTLRMonitoring_UptimeCheckConfig.selectedRegions
 NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_AsiaPacific = @"ASIA_PACIFIC";
 NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Europe = @"EUROPE";
@@ -1857,9 +1862,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_UptimeCheckConfig
-@dynamic contentMatchers, displayName, httpCheck, internalCheckers, isInternal,
-         monitoredResource, name, period, resourceGroup, selectedRegions,
-         tcpCheck, timeout;
+@dynamic checkerType, contentMatchers, displayName, httpCheck, internalCheckers,
+         isInternal, monitoredResource, name, period, resourceGroup,
+         selectedRegions, tcpCheck, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

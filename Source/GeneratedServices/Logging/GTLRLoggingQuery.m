@@ -186,6 +186,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_BillingAccountsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_BillingAccountsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.billingAccounts.getSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_BillingAccountsLocationsBucketsCreate
 
 @dynamic bucketId, parent;
@@ -1007,6 +1026,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_CmekSettings class];
   query.loggingName = @"logging.folders.getCmekSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_FoldersGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_FoldersGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.folders.getSettings";
   return query;
 }
 
@@ -2091,6 +2129,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_OrganizationsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.organizations.getSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_OrganizationsLocationsBucketsCreate
 
 @dynamic bucketId, parent;
@@ -2653,6 +2710,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_OrganizationsUpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_OrganizationsUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.organizations.updateSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_ProjectsExclusionsCreate
 
 @dynamic parent;
@@ -2778,6 +2862,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_CmekSettings class];
   query.loggingName = @"logging.projects.getCmekSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_ProjectsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_ProjectsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.projects.getSettings";
   return query;
 }
 
@@ -3559,6 +3662,25 @@
 
 @end
 
+@implementation GTLRLoggingQuery_V2GetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_V2GetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.getSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_V2UpdateCmekSettings
 
 @dynamic name, updateMask;
@@ -3581,6 +3703,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRLogging_CmekSettings class];
   query.loggingName = @"logging.updateCmekSettings";
+  return query;
+}
+
+@end
+
+@implementation GTLRLoggingQuery_V2UpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_V2UpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.updateSettings";
   return query;
 }
 

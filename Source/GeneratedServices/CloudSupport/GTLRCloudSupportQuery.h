@@ -396,14 +396,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  A comma separated list of fields to order by, followed by `asc` or `desc`
- *  postfix. This list is case-insensitive, default sorting order is ascending,
- *  redundant space characters are insignificant. Example: `name
- *  asc,update_time, create_time desc`
- */
-@property(nonatomic, copy, nullable) NSString *orderBy;
-
 /** The maximum number of cases fetched with each request. Defaults to 10. */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -439,7 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Update the specified case. Only a subset of fields (display_name,
  *  description, time_zone, subscriber_email_addresses, related_resources,
- *  severity, primary_contact, and labels) can be updated.
+ *  severity, priority, primary_contact, and labels) can be updated.
  *
  *  Method: cloudsupport.cases.patch
  *
@@ -469,7 +461,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Update the specified case. Only a subset of fields (display_name,
  *  description, time_zone, subscriber_email_addresses, related_resources,
- *  severity, primary_contact, and labels) can be updated.
+ *  severity, priority, primary_contact, and labels) can be updated.
  *
  *  @param object The @c GTLRCloudSupport_Case to include in the query.
  *  @param name The resource name for the case.

@@ -1424,18 +1424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
 /**
- *  Output only. The earliest timestamp at which older versions of the data can
- *  be read from the database. See [version_retention_period] above; this field
- *  is populated with `now - version_retention_period`. This value is
- *  continuously updated, and becomes stale the moment it is queried. If you are
- *  using this value to recover data, make sure to account for the time from the
- *  moment when the value is queried to the moment when you initiate the
- *  recovery. Note that you should not need to query this field: if you know the
- *  `version_retention_period` then you can query within that time.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
-
-/**
  *  This checksum is computed by the server based on the value of other fields,
  *  and may be sent on update and delete requests to ensure the client has an
  *  up-to-date value before proceeding.
@@ -2084,6 +2072,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSNumber *estimatedWork;
 
+@end
+
+
+/**
+ *  Metadata related to the update database operation.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1UpdateDatabaseMetadata : GTLRObject
 @end
 
 

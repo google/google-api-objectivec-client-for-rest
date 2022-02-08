@@ -49,6 +49,48 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSupport_Case.priority
+
+/**
+ *  Extreme impact on a production service. Service is hard down.
+ *
+ *  Value: "P0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P0;
+/**
+ *  Critical impact on a production service. Service is currently unusable.
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P1;
+/**
+ *  Severe impact on a production service. Service is usable but greatly
+ *  impaired.
+ *
+ *  Value: "P2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P2;
+/**
+ *  Medium impact on a production service. Service is available, but moderately
+ *  impaired.
+ *
+ *  Value: "P3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P3;
+/**
+ *  General questions or minor issues. Production service is fully available.
+ *
+ *  Value: "P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_P4;
+/**
+ *  Severity is undefined or has not been set yet.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Case_Priority_PriorityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSupport_Case.severity
 
 /**
@@ -476,7 +518,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_W
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The severity of this case.
+ *  The priority of this case. If this is set, do not set severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSupport_Case_Priority_P0 Extreme impact on a production
+ *        service. Service is hard down. (Value: "P0")
+ *    @arg @c kGTLRCloudSupport_Case_Priority_P1 Critical impact on a production
+ *        service. Service is currently unusable. (Value: "P1")
+ *    @arg @c kGTLRCloudSupport_Case_Priority_P2 Severe impact on a production
+ *        service. Service is usable but greatly impaired. (Value: "P2")
+ *    @arg @c kGTLRCloudSupport_Case_Priority_P3 Medium impact on a production
+ *        service. Service is available, but moderately impaired. (Value: "P3")
+ *    @arg @c kGTLRCloudSupport_Case_Priority_P4 General questions or minor
+ *        issues. Production service is fully available. (Value: "P4")
+ *    @arg @c kGTLRCloudSupport_Case_Priority_PriorityUnspecified Severity is
+ *        undefined or has not been set yet. (Value: "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/**
+ *  The severity of this case. Deprecated. Use priority instead.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSupport_Case_Severity_S0 Extreme impact on a production

@@ -530,11 +530,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The VPC network associated with this hub's spokes. All of the VPN tunnels,
- *  VLAN attachments, and router appliance instances referenced by this hub's
- *  spokes must belong to this VPC network. This field is read-only. Network
- *  Connectivity Center automatically populates it based on the set of spokes
- *  attached to the hub.
+ *  The VPC networks associated with this hub's spokes. This field is read-only.
+ *  Network Connectivity Center automatically populates it based on the set of
+ *  spokes attached to the hub.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RoutingVPC *> *routingVpcs;
 
@@ -590,8 +588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 /**
  *  A value that controls whether site-to-site data transfer is enabled for
- *  these resources. This field is set to false by default, but you must set it
- *  to true. Note that data transfer is available only in supported locations.
+ *  these resources. Data transfer is available only in [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -615,8 +613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 /**
  *  A value that controls whether site-to-site data transfer is enabled for
- *  these resources. This field is set to false by default, but you must set it
- *  to true. Note that data transfer is available only in supported locations.
+ *  these resources. Data transfer is available only in [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -635,8 +633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 /**
  *  A value that controls whether site-to-site data transfer is enabled for
- *  these resources. This field is set to false by default, but you must set it
- *  to true. Note that data transfer is available only in supported locations.
+ *  these resources. Data transfer is available only in [supported
+ *  locations](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -950,7 +948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
 
 
 /**
- *  RoutingVPC contains information about the VPC network that is associated
+ *  RoutingVPC contains information about the VPC networks that are associated
  *  with a hub's spokes.
  */
 @interface GTLRNetworkconnectivity_RoutingVPC : GTLRObject
@@ -959,7 +957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUns
  *  Output only. If true, indicates that this VPC network is currently
  *  associated with spokes that use the data transfer feature (spokes where the
  *  site_to_site_data_transfer field is set to true). If you create new spokes
- *  that use data transfer, they must be associated with this VPC network.
+ *  that use data transfer, they must be associated with this VPC network. At
+ *  most, one VPC network will have this field set to true.
  *
  *  Uses NSNumber of boolValue.
  */

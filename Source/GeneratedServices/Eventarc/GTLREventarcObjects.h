@@ -24,7 +24,9 @@
 @class GTLREventarc_CloudRun;
 @class GTLREventarc_Destination;
 @class GTLREventarc_EventFilter;
+@class GTLREventarc_EventType;
 @class GTLREventarc_Expr;
+@class GTLREventarc_FilteringAttribute;
 @class GTLREventarc_GKE;
 @class GTLREventarc_GoogleLongrunningOperation;
 @class GTLREventarc_GoogleLongrunningOperation_Metadata;
@@ -35,6 +37,7 @@
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
 @class GTLREventarc_Policy;
+@class GTLREventarc_Provider;
 @class GTLREventarc_Pubsub;
 @class GTLREventarc_Transport;
 @class GTLREventarc_Trigger;
@@ -283,6 +286,40 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  A representation of the event type resource.
+ */
+@interface GTLREventarc_EventType : GTLRObject
+
+/**
+ *  Output only. Human friendly description of what the event type is about. For
+ *  example "Bucket created in Cloud Storage".
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. URI for the event schema. For example
+ *  "https://github.com/googleapis/google-cloudevents/blob/master/proto/google/events/cloud/storage/v1/events.proto"
+ */
+@property(nonatomic, copy, nullable) NSString *eventSchemaUri;
+
+/** Output only. Filtering attributes for the event type. */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_FilteringAttribute *> *filteringAttributes;
+
+/**
+ *  Output only. The full name of the event type (for example,
+ *  "google.cloud.storage.object.v1.finalized"). In the form of
+ *  {provider-id}.{resource}.{version}.{verb}. Types MUST be versioned and event
+ *  schemas are guaranteed to remain backward compatible within one version.
+ *  Note that event type versions and API versions do not need to match.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -327,6 +364,41 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A representation of the FilteringAttribute resource. Filtering attributes
+ *  are per event type.
+ */
+@interface GTLREventarc_FilteringAttribute : GTLRObject
+
+/** Output only. Attribute used for filtering the event type. */
+@property(nonatomic, copy, nullable) NSString *attribute;
+
+/**
+ *  Output only. Description of the purpose of the attribute.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. If true, the attribute accepts matching expressions in the
+ *  Eventarc PathPattern format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pathPatternSupported;
+
+/**
+ *  Output only. If true, the triggers for this provider should always specify a
+ *  filter on these attributes. Trigger creation will fail otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
 
 @end
 
@@ -551,6 +623,36 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  The response message for the `ListProviders` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "providers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLREventarc_ListProvidersResponse : GTLRCollectionObject
+
+/**
+ *  A page token that can be sent to ListProviders to request the next page. If
+ *  this is empty, then there are no more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The requested providers, up to the number specified in `page_size`.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_Provider *> *providers;
+
+/** Unreachable resources, if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response message for the `ListTriggers` method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -765,6 +867,29 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  A representation of the Provider resource.
+ */
+@interface GTLREventarc_Provider : GTLRObject
+
+/**
+ *  Output only. Human friendly name for the Provider. For example "Cloud
+ *  Storage".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Event types for this provider. */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_EventType *> *eventTypes;
+
+/**
+ *  Output only. In
+ *  `projects/{project}/locations/{location}/providers/{provider-id}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

@@ -334,10 +334,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudComposer_Date : GTLRObject
 
@@ -1089,6 +1089,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  environment.
  */
 @interface GTLRCloudComposer_PrivateEnvironmentConfig : GTLRObject
+
+/**
+ *  Optional. When specified, the environment will use Private Service Connect
+ *  instead of VPC peerings to connect to Cloud SQL in the Tenant Project, and
+ *  the PSC endpoint in the Customer Project will use an IP address from this
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudComposerConnectionSubnetwork;
 
 /**
  *  Optional. The CIDR block from which IP range for Cloud Composer Network in

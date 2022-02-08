@@ -27,6 +27,7 @@
 @class GTLRCloudKMS_CryptoKeyVersion;
 @class GTLRCloudKMS_DecryptRequest;
 @class GTLRCloudKMS_DestroyCryptoKeyVersionRequest;
+@class GTLRCloudKMS_EkmConnection;
 @class GTLRCloudKMS_EncryptRequest;
 @class GTLRCloudKMS_GenerateRandomBytesRequest;
 @class GTLRCloudKMS_ImportCryptoKeyVersionRequest;
@@ -98,6 +99,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Creates a new EkmConnection in a given Project and Location.
+ *
+ *  Method: cloudkms.projects.locations.ekmConnections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsCreate : GTLRCloudKMSQuery
+
+/**
+ *  Required. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`.
+ */
+@property(nonatomic, copy, nullable) NSString *ekmConnectionId;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  EkmConnection, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_EkmConnection.
+ *
+ *  Creates a new EkmConnection in a given Project and Location.
+ *
+ *  @param object The @c GTLRCloudKMS_EkmConnection to include in the query.
+ *  @param parent Required. The resource name of the location associated with
+ *    the EkmConnection, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConnection *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns metadata for a given EkmConnection.
+ *
+ *  Method: cloudkms.projects.locations.ekmConnections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGet : GTLRCloudKMSQuery
+
+/** Required. The name of the EkmConnection to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_EkmConnection.
+ *
+ *  Returns metadata for a given EkmConnection.
+ *
+ *  @param name Required. The name of the EkmConnection to get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -142,6 +209,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists EkmConnections.
+ *
+ *  Method: cloudkms.projects.locations.ekmConnections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Optional limit on the number of EkmConnections to include in the
+ *  response. Further EkmConnections can subsequently be obtained by including
+ *  the ListEkmConnectionsResponse.next_page_token in a subsequent request. If
+ *  unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListEkmConnectionsResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  EkmConnections to list, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListEkmConnectionsResponse.
+ *
+ *  Lists EkmConnections.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the EkmConnections to list, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an EkmConnection's metadata.
+ *
+ *  Method: cloudkms.projects.locations.ekmConnections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsPatch : GTLRCloudKMSQuery
+
+/**
+ *  Output only. The resource name for the EkmConnection in the format
+ *  `projects/ * /locations/ * /ekmConnections/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. List of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_EkmConnection.
+ *
+ *  Updates an EkmConnection's metadata.
+ *
+ *  @param object The @c GTLRCloudKMS_EkmConnection to include in the query.
+ *  @param name Output only. The resource name for the EkmConnection in the
+ *    format `projects/ * /locations/ * /ekmConnections/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsEkmConnectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_EkmConnection *)object
+                           name:(NSString *)name;
 
 @end
 

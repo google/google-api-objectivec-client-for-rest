@@ -29,6 +29,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ImportDocumentsMetadataIndividualImportStatus;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference;
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
+@class GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchDocumentsInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly;
@@ -275,6 +276,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3R
  *  Value: "REVISION_CASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference_RevisionCase_RevisionCaseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata.state
+
+/**
+ *  Operation is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelled;
+/**
+ *  Operation is being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelling;
+/**
+ *  Operation failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Failed;
+/**
+ *  Operation is still running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Running;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_StateUnspecified;
+/**
+ *  Operation succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
@@ -1216,7 +1257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1236,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Processo
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -1835,6 +1876,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for AnalyzeHitlData.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1alpha1AnalyzeHitlDataMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The common metadata for long running operations.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata : GTLRObject
+
+/** The creation time of the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** A related resource to this operation. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The state of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelled
+ *        Operation is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Cancelling
+ *        Operation is being cancelled. (Value: "CANCELLING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Failed
+ *        Operation failed. (Value: "FAILED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Running
+ *        Operation is still running. (Value: "RUNNING")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1alpha1CommonOperationMetadata_State_Succeeded
+ *        Operation succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** A message providing more details about the current state of processing. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+/** The last update time of the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -4780,6 +4871,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 /** The creation time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** The Crowd Compute question ID. */
+@property(nonatomic, copy, nullable) NSString *questionId;
+
 /**
  *  Used only when Operation.done is false.
  *
@@ -6359,7 +6453,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -6372,7 +6466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ProcessorType_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -6539,6 +6633,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata *commonMetadata;
+
+/** The Crowd Compute question ID. */
+@property(nonatomic, copy, nullable) NSString *questionId;
 
 @end
 
@@ -7002,14 +7099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
- *  Represents a whole or partial calendar date, such as a birthday. The time of
- *  day and time zone are either specified elsewhere or are insignificant. The
- *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  GTLRDocument_GoogleTypeDate
  */
 @interface GTLRDocument_GoogleTypeDate : GTLRObject
 

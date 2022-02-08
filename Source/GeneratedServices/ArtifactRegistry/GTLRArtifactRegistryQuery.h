@@ -179,12 +179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  based on the imported artifact. Imported artifacts that conflict with
  *  existing resources are ignored.
  *
- *  Method: artifactregistry.projects.locations.repositories.aptartifacts.upload
+ *  Method: artifactregistry.projects.locations.repositories.aptArtifacts.upload
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
  */
-@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptartifactsUpload : GTLRArtifactRegistryQuery
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptArtifactsUpload : GTLRArtifactRegistryQuery
 
 /** The name of the parent resource where the artifacts will be uploaded. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -204,7 +204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
- *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptartifactsUpload
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesAptArtifactsUpload
  */
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadAptArtifactRequest *)object
                          parent:(NSString *)parent
@@ -542,12 +542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  created based on the imported artifact. Imported artifacts that conflict
  *  with existing resources are ignored.
  *
- *  Method: artifactregistry.projects.locations.repositories.googetartifacts.upload
+ *  Method: artifactregistry.projects.locations.repositories.googetArtifacts.upload
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
  */
-@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetartifactsUpload : GTLRArtifactRegistryQuery
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload : GTLRArtifactRegistryQuery
 
 /** The name of the parent resource where the artifacts will be uploaded. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -567,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
- *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetartifactsUpload
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGoogetArtifactsUpload
  */
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadGooGetArtifactRequest *)object
                          parent:(NSString *)parent
@@ -979,7 +979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsList : GTLRArtifactRegistryQuery
 
-/** Optional. Sorting field and order */
+/** Optional. The field to order the results by. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** The maximum number of versions to return. Maximum page size is 1,000. */
@@ -1175,12 +1175,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  based on the imported artifact. Imported artifacts that conflict with
  *  existing resources are ignored.
  *
- *  Method: artifactregistry.projects.locations.repositories.yumartifacts.upload
+ *  Method: artifactregistry.projects.locations.repositories.yumArtifacts.upload
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
  */
-@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumartifactsUpload : GTLRArtifactRegistryQuery
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumArtifactsUpload : GTLRArtifactRegistryQuery
 
 /** The name of the parent resource where the artifacts will be uploaded. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1200,7 +1200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
- *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumartifactsUpload
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesYumArtifactsUpload
  */
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadYumArtifactRequest *)object
                          parent:(NSString *)parent

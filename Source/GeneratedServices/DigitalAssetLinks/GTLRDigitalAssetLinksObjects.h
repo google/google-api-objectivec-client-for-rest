@@ -24,7 +24,9 @@
 @class GTLRDigitalAssetLinks_AndroidAppAsset;
 @class GTLRDigitalAssetLinks_Asset;
 @class GTLRDigitalAssetLinks_CertificateInfo;
+@class GTLRDigitalAssetLinks_CheckResponse;
 @class GTLRDigitalAssetLinks_Statement;
+@class GTLRDigitalAssetLinks_StatementTemplate;
 @class GTLRDigitalAssetLinks_WebAsset;
 
 // Generated comments include content from the discovery document; avoid them
@@ -36,6 +38,72 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDigitalAssetLinks_BulkCheckResponse.bulkErrorCode
+
+/**
+ *  Invalid HTTPS certificate .
+ *
+ *  Value: "ERROR_CODE_FAILED_SSL_VALIDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFailedSslValidation;
+/**
+ *  Too many includes (maybe a loop).
+ *
+ *  Value: "ERROR_CODE_FETCH_BUDGET_EXHAUSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchBudgetExhausted;
+/**
+ *  Unable to fetch the asset links data.
+ *
+ *  Value: "ERROR_CODE_FETCH_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchError;
+/**
+ *  Unable to parse query.
+ *
+ *  Value: "ERROR_CODE_INVALID_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeInvalidQuery;
+/**
+ *  JSON content is malformed.
+ *
+ *  Value: "ERROR_CODE_MALFORMED_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedContent;
+/**
+ *  Can't parse HTTP response.
+ *
+ *  Value: "ERROR_CODE_MALFORMED_HTTP_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedHttpResponse;
+/**
+ *  HTTP redirects (e.g, 301) are not allowed.
+ *
+ *  Value: "ERROR_CODE_REDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeRedirect;
+/**
+ *  A secure asset includes an insecure asset (security downgrade).
+ *
+ *  Value: "ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeSecureAssetIncludesInsecure;
+/**
+ *  Asset links data exceeds maximum size.
+ *
+ *  Value: "ERROR_CODE_TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeTooLarge;
+/** Value: "ERROR_CODE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeUnspecified;
+/**
+ *  HTTP Content-type should be application/json.
+ *
+ *  Value: "ERROR_CODE_WRONG_CONTENT_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeWrongContentType;
 
 // ----------------------------------------------------------------------------
 // GTLRDigitalAssetLinks_CheckResponse.errorCode
@@ -216,6 +284,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
 
 
 /**
+ *  Message used to check for the existence of multiple digital asset links
+ *  within a single RPC.
+ */
+@interface GTLRDigitalAssetLinks_BulkCheckRequest : GTLRObject
+
+/**
+ *  Same configuration as in Check request, all statements checks will use same
+ *  configurations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowGoogleInternalDataSources;
+
+/**
+ *  If specified, will be used in any given template statement that doesn’t
+ *  specify a relation.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultRelation;
+
+/**
+ *  If specified, will be used in any given template statement that doesn’t
+ *  specify a source.
+ */
+@property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *defaultSource;
+
+/**
+ *  If specified, will be used in any given template statement that doesn’t
+ *  specify a target.
+ */
+@property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *defaultTarget;
+
+/**
+ *  Same configuration as in Check request, all statements checks will use same
+ *  configurations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipCacheLookup;
+
+/**
+ *  List of statements to check. For each statement, you can omit a field if the
+ *  corresponding default_* field below was supplied. Minimum 1 statement;
+ *  maximum 1,000 statements. Any additional statements will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDigitalAssetLinks_StatementTemplate *> *statements;
+
+@end
+
+
+/**
+ *  Response for BulkCheck call. Results are sent in a list in the same order in
+ *  which they were sent. Individual check errors are described in the
+ *  appropriate check_results entry. If the entire call fails, the response will
+ *  include a bulk_error_code field describing the error.
+ */
+@interface GTLRDigitalAssetLinks_BulkCheckResponse : GTLRObject
+
+/**
+ *  Error code for the entire request. Present only if the entire request
+ *  failed. Individual check errors will not trigger the presence of this field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFailedSslValidation
+ *        Invalid HTTPS certificate . (Value:
+ *        "ERROR_CODE_FAILED_SSL_VALIDATION")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchBudgetExhausted
+ *        Too many includes (maybe a loop). (Value:
+ *        "ERROR_CODE_FETCH_BUDGET_EXHAUSTED")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeFetchError
+ *        Unable to fetch the asset links data. (Value:
+ *        "ERROR_CODE_FETCH_ERROR")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeInvalidQuery
+ *        Unable to parse query. (Value: "ERROR_CODE_INVALID_QUERY")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedContent
+ *        JSON content is malformed. (Value: "ERROR_CODE_MALFORMED_CONTENT")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeMalformedHttpResponse
+ *        Can't parse HTTP response. (Value:
+ *        "ERROR_CODE_MALFORMED_HTTP_RESPONSE")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeRedirect
+ *        HTTP redirects (e.g, 301) are not allowed. (Value:
+ *        "ERROR_CODE_REDIRECT")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeSecureAssetIncludesInsecure
+ *        A secure asset includes an insecure asset (security downgrade).
+ *        (Value: "ERROR_CODE_SECURE_ASSET_INCLUDES_INSECURE")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeTooLarge
+ *        Asset links data exceeds maximum size. (Value: "ERROR_CODE_TOO_LARGE")
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeUnspecified
+ *        Value "ERROR_CODE_UNSPECIFIED"
+ *    @arg @c kGTLRDigitalAssetLinks_BulkCheckResponse_BulkErrorCode_ErrorCodeWrongContentType
+ *        HTTP Content-type should be application/json. (Value:
+ *        "ERROR_CODE_WRONG_CONTENT_TYPE")
+ */
+@property(nonatomic, copy, nullable) NSString *bulkErrorCode;
+
+/**
+ *  List of results for each check request. Results are returned in the same
+ *  order in which they were sent in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDigitalAssetLinks_CheckResponse *> *checkResults;
+
+@end
+
+
+/**
  *  Describes an X509 certificate.
  */
 @interface GTLRDigitalAssetLinks_CertificateInfo : GTLRObject
@@ -335,6 +507,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDigitalAssetLinks_ListResponse_ErrorCode
 @property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *source;
 
 /** Every statement has a target asset. REQUIRED */
+@property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *target;
+
+@end
+
+
+/**
+ *  A single statement to check in a bulk call using BulkCheck. See CheckRequest
+ *  for details about each field.
+ */
+@interface GTLRDigitalAssetLinks_StatementTemplate : GTLRObject
+
+/**
+ *  The relationship being asserted between the source and target. If omitted,
+ *  you must specify a BulkCheckRequest.default_relation value to use here.
+ */
+@property(nonatomic, copy, nullable) NSString *relation;
+
+/**
+ *  The source asset that is asserting the statement. If omitted, you must
+ *  specify a BulkCheckRequest.default_source value to use here.
+ */
+@property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *source;
+
+/**
+ *  The target that the source is declaring the relationship with. If omitted,
+ *  you must specify a BulkCheckRequest.default_target to use here.
+ */
 @property(nonatomic, strong, nullable) GTLRDigitalAssetLinks_Asset *target;
 
 @end

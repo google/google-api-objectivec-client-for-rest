@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Bare Metal Solution API (baremetalsolution/v1)
+//   Bare Metal Solution API (baremetalsolution/v2)
 // Description:
 //   Provides ways to manage Bare Metal Solution hardware installed in a
 //   regional extension located near a Google Cloud data center.
@@ -19,28 +19,521 @@
 
 @end
 
-@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesResetInstance
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsGet
 
-@dynamic instance;
+@dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRBareMetalSolution_ResetInstanceRequest *)object
-                       instance:(NSString *)instance {
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Location class];
+  query.loggingName = @"baremetalsolution.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Instance class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/instances";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListInstancesResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_Instance *)object
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"instance" ];
-  NSString *pathURITemplate = @"v1/{+instance}:resetInstance";
-  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesResetInstance *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReset
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_ResetInstanceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:reset";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsInstancesReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.instance = instance;
-  query.expectedObjectClass = [GTLRBareMetalSolution_ResetInstanceResponse class];
-  query.loggingName = @"baremetalsolution.projects.locations.instances.resetInstance";
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.instances.reset";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/locations";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListLocationsResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Network class];
+  query.loggingName = @"baremetalsolution.projects.locations.networks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/networks";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListNetworksResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.networks.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_Network *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsNetworksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.networks.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesCreate
+
+@dynamic parent, snapshotSchedulePolicyId;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_SnapshotSchedulePolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshotSchedulePolicies";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_SnapshotSchedulePolicy class];
+  query.loggingName = @"baremetalsolution.projects.locations.snapshotSchedulePolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Empty class];
+  query.loggingName = @"baremetalsolution.projects.locations.snapshotSchedulePolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_SnapshotSchedulePolicy class];
+  query.loggingName = @"baremetalsolution.projects.locations.snapshotSchedulePolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshotSchedulePolicies";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.snapshotSchedulePolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_SnapshotSchedulePolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsSnapshotSchedulePoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_SnapshotSchedulePolicy class];
+  query.loggingName = @"baremetalsolution.projects.locations.snapshotSchedulePolicies.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Volume class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/volumes";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListVolumesResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Lun class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.luns.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/luns";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesLunsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListLunsResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.luns.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_Volume *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_VolumeSnapshot *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshots";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_VolumeSnapshot class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Empty class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBareMetalSolution_VolumeSnapshot class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/snapshots";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBareMetalSolution_ListVolumeSnapshotsResponse class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot
+
+@dynamic volumeSnapshot;
+
++ (instancetype)queryWithObject:(GTLRBareMetalSolution_RestoreVolumeSnapshotRequest *)object
+                 volumeSnapshot:(NSString *)volumeSnapshot {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"volumeSnapshot" ];
+  NSString *pathURITemplate = @"v2/{+volumeSnapshot}:restoreVolumeSnapshot";
+  GTLRBareMetalSolutionQuery_ProjectsLocationsVolumesSnapshotsRestoreVolumeSnapshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.volumeSnapshot = volumeSnapshot;
+  query.expectedObjectClass = [GTLRBareMetalSolution_Operation class];
+  query.loggingName = @"baremetalsolution.projects.locations.volumes.snapshots.restoreVolumeSnapshot";
   return query;
 }
 

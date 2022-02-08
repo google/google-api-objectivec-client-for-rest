@@ -27,6 +27,7 @@ NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_DomainMappingReason_R
 // GTLRCloudRun_GoogleCloudRunOpV2Condition.executionReason
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_ExecutionReason_NonZeroExitCode = @"NON_ZERO_EXIT_CODE";
 
 // GTLRCloudRun_GoogleCloudRunOpV2Condition.internalReason
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_InternalReason_AssigningTraffic = @"ASSIGNING_TRAFFIC";
@@ -60,6 +61,7 @@ NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_Reason_WaitingForOper
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_ActiveRevisionLimitReached = @"ACTIVE_REVISION_LIMIT_REACHED";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_CustomizedPathResponsePending = @"CUSTOMIZED_PATH_RESPONSE_PENDING";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckContainerError = @"HEALTH_CHECK_CONTAINER_ERROR";
+NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_HealthCheckSkipped = @"HEALTH_CHECK_SKIPPED";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_MinInstancesNotProvisioned = @"MIN_INSTANCES_NOT_PROVISIONED";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_NoDeployment = @"NO_DEPLOYMENT";
 NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Condition_RevisionReason_Pending = @"PENDING";

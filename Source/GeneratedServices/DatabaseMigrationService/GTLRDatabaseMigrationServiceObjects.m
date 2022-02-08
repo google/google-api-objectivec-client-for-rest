@@ -41,6 +41,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_PdS
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DataDiskType_SqlDataDiskTypeUnspecified = @"SQL_DATA_DISK_TYPE_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
+NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora = @"AURORA";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Rds = @"RDS";
@@ -61,6 +62,7 @@ NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql = @"MYS
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql = @"POSTGRESQL";
 
 // GTLRDatabaseMigrationService_DatabaseType.provider
+NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora = @"AURORA";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = @"CLOUDSQL";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified = @"DATABASE_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Rds = @"RDS";

@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the AppAttestConfigs for the specified list of apps atomically.
+ *  Atomically gets the AppAttestConfigs for the specified list of apps.
  *
  *  Method: firebaseappcheck.projects.apps.appAttestConfig.batchGet
  *
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse.
  *
- *  Gets the AppAttestConfigs for the specified list of apps atomically.
+ *  Atomically gets the AppAttestConfigs for the specified list of apps.
  *
  *  @param parent Required. The parent project name shared by all
  *    AppAttestConfigs being retrieved, in the format ```
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the DeviceCheckConfigs for the specified list of apps atomically. For
+ *  Atomically gets the DeviceCheckConfigs for the specified list of apps. For
  *  security reasons, the `private_key` field is never populated in the
  *  response.
  *
@@ -471,7 +471,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetDeviceCheckConfigsResponse.
  *
- *  Gets the DeviceCheckConfigs for the specified list of apps atomically. For
+ *  Atomically gets the DeviceCheckConfigs for the specified list of apps. For
  *  security reasons, the `private_key` field is never populated in the
  *  response.
  *
@@ -621,13 +621,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Accepts an App Attest CBOR attestation and verifies it with Apple using the
- *  developer's preconfigured team and bundle IDs. If valid, returns an
- *  attestation artifact that can later be exchanged for an
- *  AttestationTokenResponse using ExchangeAppAttestAssertion. For convenience
- *  and performance, this method's response object will also contain an App
- *  Check token encapsulated in an AttestationTokenResponse (if the verification
- *  is successful).
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
+ *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
+ *  that can later be exchanged for an AttestationTokenResponse using
+ *  ExchangeAppAttestAssertion. For convenience and performance, this method's
+ *  response object will also contain an App Check token encapsulated in an
+ *  AttestationTokenResponse (if the verification is successful).
  *
  *  Method: firebaseappcheck.projects.apps.exchangeAppAttestAttestation
  *
@@ -650,13 +649,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationResponse.
  *
- *  Accepts an App Attest CBOR attestation and verifies it with Apple using the
- *  developer's preconfigured team and bundle IDs. If valid, returns an
- *  attestation artifact that can later be exchanged for an
- *  AttestationTokenResponse using ExchangeAppAttestAssertion. For convenience
- *  and performance, this method's response object will also contain an App
- *  Check token encapsulated in an AttestationTokenResponse (if the verification
- *  is successful).
+ *  Accepts an App Attest CBOR attestation and verifies it with Apple using your
+ *  preconfigured team and bundle IDs. If valid, returns an attestation artifact
+ *  that can later be exchanged for an AttestationTokenResponse using
+ *  ExchangeAppAttestAssertion. For convenience and performance, this method's
+ *  response object will also contain an App Check token encapsulated in an
+ *  AttestationTokenResponse (if the verification is successful).
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaExchangeAppAttestAttestationRequest
@@ -1007,7 +1005,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the RecaptchaConfigs for the specified list of apps atomically. For
+ *  Atomically gets the RecaptchaConfigs for the specified list of apps. For
  *  security reasons, the `site_secret` field is never populated in the
  *  response.
  *
@@ -1038,7 +1036,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaConfigsResponse.
  *
- *  Gets the RecaptchaConfigs for the specified list of apps atomically. For
+ *  Atomically gets the RecaptchaConfigs for the specified list of apps. For
  *  security reasons, the `site_secret` field is never populated in the
  *  response.
  *
@@ -1142,8 +1140,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the RecaptchaEnterpriseConfigs for the specified list of apps
- *  atomically.
+ *  Atomically gets the RecaptchaEnterpriseConfigs for the specified list of
+ *  apps.
  *
  *  Method: firebaseappcheck.projects.apps.recaptchaEnterpriseConfig.batchGet
  *
@@ -1173,8 +1171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetRecaptchaEnterpriseConfigsResponse.
  *
- *  Gets the RecaptchaEnterpriseConfigs for the specified list of apps
- *  atomically.
+ *  Atomically gets the RecaptchaEnterpriseConfigs for the specified list of
+ *  apps.
  *
  *  @param parent Required. The parent project name shared by all
  *    RecaptchaEnterpriseConfigs being retrieved, in the format ```
@@ -1273,7 +1271,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the SafetyNetConfigs for the specified list of apps atomically.
+ *  Atomically gets the SafetyNetConfigs for the specified list of apps.
  *
  *  Method: firebaseappcheck.projects.apps.safetyNetConfig.batchGet
  *
@@ -1302,7 +1300,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse.
  *
- *  Gets the SafetyNetConfigs for the specified list of apps atomically.
+ *  Atomically gets the SafetyNetConfigs for the specified list of apps.
  *
  *  @param parent Required. The parent project name shared by all
  *    SafetyNetConfigs being retrieved, in the format ```
@@ -1400,7 +1398,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the specified Service configurations atomically.
+ *  Atomically updates the specified Service configurations.
  *
  *  Method: firebaseappcheck.projects.services.batchUpdate
  *
@@ -1422,7 +1420,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesResponse.
  *
- *  Updates the specified Service configurations atomically.
+ *  Atomically updates the specified Service configurations.
  *
  *  @param object The @c
  *    GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchUpdateServicesRequest

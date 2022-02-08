@@ -1839,53 +1839,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: privateca.projects.locations.managedPkis.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
- */
-@interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsManagedPkisGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See the
- *  operation documentation for the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCertificateAuthorityService_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See the operation documentation for the appropriate value for
- *    this field.
- *
- *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsManagedPkisGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns

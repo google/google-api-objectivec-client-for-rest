@@ -39,6 +39,8 @@
 @class GTLRClassroom_Feed;
 @class GTLRClassroom_Form;
 @class GTLRClassroom_GlobalPermission;
+@class GTLRClassroom_GradebookSettings;
+@class GTLRClassroom_GradeCategory;
 @class GTLRClassroom_GradeHistory;
 @class GTLRClassroom_Guardian;
 @class GTLRClassroom_GuardianInvitation;
@@ -388,6 +390,59 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_Cr
  *  Value: "PERMISSION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_GradebookSettings.calculationType
+
+/**
+ *  No method specified. This is never returned.
+ *
+ *  Value: "CALCULATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_CalculationType_CalculationTypeUnspecified;
+/**
+ *  Overall grade is the sum of grades divided by the sum of total points
+ *  regardless of category.
+ *
+ *  Value: "TOTAL_POINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_CalculationType_TotalPoints;
+/**
+ *  Overall grade is the weighted average by category.
+ *
+ *  Value: "WEIGHTED_CATEGORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_CalculationType_WeightedCategories;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_GradebookSettings.displaySetting
+
+/**
+ *  No setting specified. This is never returned.
+ *
+ *  Value: "DISPLAY_SETTING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_DisplaySettingUnspecified;
+/**
+ *  Does not show overall grade in the gradebook or student profile.
+ *
+ *  Value: "HIDE_OVERALL_GRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_HideOverallGrade;
+/**
+ *  Shows overall grade in the gradebook and student profile to both teachers
+ *  and students.
+ *
+ *  Value: "SHOW_OVERALL_GRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_ShowOverallGrade;
+/**
+ *  Shows the overall grade to teachers in the gradebook and student profile.
+ *  Hides from students in their student profile.
+ *
+ *  Value: "SHOW_TEACHERS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_ShowTeachersOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_GradeHistory.gradeChangeType
@@ -904,6 +959,12 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, copy, nullable) NSString *enrollmentCode;
 
 /**
+ *  The gradebook settings that specify how a student's overall grade for the
+ *  course will be calculated and who it will be displayed to. Read-only
+ */
+@property(nonatomic, strong, nullable) GTLRClassroom_GradebookSettings *gradebookSettings;
+
+/**
  *  Whether or not guardian notifications are enabled for this course.
  *  Read-only.
  *
@@ -1116,6 +1177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  This must be specified if `due_date` is specified.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_TimeOfDay *dueTime;
+
+/**
+ *  The category that this coursework's grade contributes to. Present only when
+ *  a category has been chosen for the coursework. May be used in calculating
+ *  the overall grade. Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRClassroom_GradeCategory *gradeCategory;
 
 /**
  *  Classroom-assigned identifier of this course work, unique per course.
@@ -1361,10 +1429,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRClassroom_Date : GTLRObject
 
@@ -1542,6 +1610,95 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *        value. (Value: "PERMISSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *permission;
+
+@end
+
+
+/**
+ *  The gradebook settings for a course. See the [help center
+ *  article](https://support.google.com/edu/classroom/answer/9184995) for
+ *  details.
+ */
+@interface GTLRClassroom_GradebookSettings : GTLRObject
+
+/**
+ *  Indicates how the overall grade is calculated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_GradebookSettings_CalculationType_CalculationTypeUnspecified
+ *        No method specified. This is never returned. (Value:
+ *        "CALCULATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_GradebookSettings_CalculationType_TotalPoints
+ *        Overall grade is the sum of grades divided by the sum of total points
+ *        regardless of category. (Value: "TOTAL_POINTS")
+ *    @arg @c kGTLRClassroom_GradebookSettings_CalculationType_WeightedCategories
+ *        Overall grade is the weighted average by category. (Value:
+ *        "WEIGHTED_CATEGORIES")
+ */
+@property(nonatomic, copy, nullable) NSString *calculationType;
+
+/**
+ *  Indicates who can see the overall grade..
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_GradebookSettings_DisplaySetting_DisplaySettingUnspecified
+ *        No setting specified. This is never returned. (Value:
+ *        "DISPLAY_SETTING_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_GradebookSettings_DisplaySetting_HideOverallGrade
+ *        Does not show overall grade in the gradebook or student profile.
+ *        (Value: "HIDE_OVERALL_GRADE")
+ *    @arg @c kGTLRClassroom_GradebookSettings_DisplaySetting_ShowOverallGrade
+ *        Shows overall grade in the gradebook and student profile to both
+ *        teachers and students. (Value: "SHOW_OVERALL_GRADE")
+ *    @arg @c kGTLRClassroom_GradebookSettings_DisplaySetting_ShowTeachersOnly
+ *        Shows the overall grade to teachers in the gradebook and student
+ *        profile. Hides from students in their student profile. (Value:
+ *        "SHOW_TEACHERS_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *displaySetting;
+
+/** Grade categories that are available for coursework in the course. */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_GradeCategory *> *gradeCategories;
+
+@end
+
+
+/**
+ *  Details for a grade category in a course. Coursework may have zero or one
+ *  grade category, and the category may be used in computing the overall grade.
+ *  See the [help center
+ *  article](https://support.google.com/edu/classroom/answer/9184995) for
+ *  details.
+ */
+@interface GTLRClassroom_GradeCategory : GTLRObject
+
+/**
+ *  Default value of denominator. Only applicable when grade calculation type is
+ *  TOTAL_POINTS.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultGradeDenominator;
+
+/**
+ *  ID of the grade category.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Name of the grade category. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The weight of the category average as part of overall average. A weight of
+ *  12.34% is represented as 123400 (100% is 1,000,000). The last two digits
+ *  should always be zero since we use two decimal precision. Only applicable
+ *  when grade calculation type is WEIGHTED_CATEGORIES.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

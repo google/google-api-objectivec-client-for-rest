@@ -308,6 +308,32 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionS
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.acl
+
+/**
+ *  Use the destination bucket's default object ACLS, if applicable.
+ *
+ *  Value: "ACL_DESTINATION_BUCKET_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclDestinationBucketDefault;
+/**
+ *  Preserve the object's original ACLs. This requires the service account to
+ *  have `storage.objects.getIamPolicy` permission for the source object.
+ *  [Uniform bucket-level
+ *  access](https://cloud.google.com/storage/docs/uniform-bucket-level-access)
+ *  must not be enabled on either the source or destination buckets.
+ *
+ *  Value: "ACL_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclPreserve;
+/**
+ *  ACL behavior is unspecified.
+ *
+ *  Value: "ACL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_MetadataOptions.gid
 
 /**
@@ -317,7 +343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionS
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber;
 /**
- *  Skip GID during a transfer job.
+ *  Do not preserve GID during a transfer job.
  *
  *  Value: "GID_SKIP"
  */
@@ -330,6 +356,30 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidS
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.kmsKey
+
+/**
+ *  Use the destination bucket's default encryption settings.
+ *
+ *  Value: "KMS_KEY_DESTINATION_BUCKET_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyDestinationBucketDefault;
+/**
+ *  Preserve the object's original Cloud KMS customer-managed encryption key
+ *  (CMEK) if present. Objects that do not use a Cloud KMS encryption key will
+ *  be encrypted using the destination bucket's encryption settings.
+ *
+ *  Value: "KMS_KEY_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyPreserve;
+/**
+ *  KmsKey behavior is unspecified.
+ *
+ *  Value: "KMS_KEY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_MetadataOptions.mode
 
 /**
@@ -339,7 +389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidU
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve;
 /**
- *  Skip mode during a transfer job.
+ *  Do not preserve mode during a transfer job.
  *
  *  Value: "MODE_SKIP"
  */
@@ -352,6 +402,53 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_Mod
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.storageClass
+
+/**
+ *  Set the storage class to ARCHIVE.
+ *
+ *  Value: "STORAGE_CLASS_ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassArchive;
+/**
+ *  Set the storage class to COLDLINE.
+ *
+ *  Value: "STORAGE_CLASS_COLDLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassColdline;
+/**
+ *  Use the destination bucket's default storage class.
+ *
+ *  Value: "STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassDestinationBucketDefault;
+/**
+ *  Set the storage class to NEARLINE.
+ *
+ *  Value: "STORAGE_CLASS_NEARLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassNearline;
+/**
+ *  Preserve the object's original storage class. This is only supported for
+ *  transfers from Google Cloud Storage buckets.
+ *
+ *  Value: "STORAGE_CLASS_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassPreserve;
+/**
+ *  Set the storage class to STANDARD.
+ *
+ *  Value: "STORAGE_CLASS_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassStandard;
+/**
+ *  Storage class behavior is unspecified.
+ *
+ *  Value: "STORAGE_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_MetadataOptions.symlink
 
 /**
@@ -361,18 +458,39 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_Mod
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve;
 /**
- *  Skip symlinks during a transfer job.
+ *  Do not preserve symlinks during a transfer job.
  *
  *  Value: "SYMLINK_SKIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip;
 /**
- *  Symlink behavior is unspecified. The default behavior is to skip symlinks
- *  during a transfer job.
+ *  Symlink behavior is unspecified.
  *
  *  Value: "SYMLINK_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.temporaryHold
+
+/**
+ *  Preserve the object's original temporary hold status.
+ *
+ *  Value: "TEMPORARY_HOLD_PRESERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldPreserve;
+/**
+ *  Do not set a temporary hold on the destination object.
+ *
+ *  Value: "TEMPORARY_HOLD_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldSkip;
+/**
+ *  Temporary hold behavior is unspecified.
+ *
+ *  Value: "TEMPORARY_HOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_MetadataOptions.uid
@@ -384,7 +502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber;
 /**
- *  Skip UID during a transfer job.
+ *  Do not preserve UID during a transfer job.
  *
  *  Value: "UID_SKIP"
  */
@@ -709,10 +827,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRStorageTransfer_Date : GTLRObject
 
@@ -1086,66 +1204,149 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Specifies the metadata options for running a transfer.
+ *  Specifies the metadata options for running a transfer. These options only
+ *  apply to transfers involving a POSIX filesystem and are ignored for other
+ *  transfers.
  */
 @interface GTLRStorageTransfer_MetadataOptions : GTLRObject
 
 /**
- *  Specifies how each file's GID attribute should be handled by the transfer.
- *  If unspecified, the default behavior is the same as GID_SKIP when the source
- *  is a POSIX file system.
+ *  Specifies how each object's ACLs should be preserved for transfers between
+ *  Google Cloud Storage buckets. If unspecified, the default behavior is the
+ *  same as ACL_DESTINATION_BUCKET_DEFAULT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Acl_AclDestinationBucketDefault
+ *        Use the destination bucket's default object ACLS, if applicable.
+ *        (Value: "ACL_DESTINATION_BUCKET_DEFAULT")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Acl_AclPreserve Preserve the
+ *        object's original ACLs. This requires the service account to have
+ *        `storage.objects.getIamPolicy` permission for the source object.
+ *        [Uniform bucket-level
+ *        access](https://cloud.google.com/storage/docs/uniform-bucket-level-access)
+ *        must not be enabled on either the source or destination buckets.
+ *        (Value: "ACL_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Acl_AclUnspecified ACL
+ *        behavior is unspecified. (Value: "ACL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *acl;
+
+/**
+ *  Specifies how each file's POSIX group ID (GID) attribute should be handled
+ *  by the transfer. By default, GID is not preserved.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber Preserve GID
  *        during a transfer job. (Value: "GID_NUMBER")
- *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip Skip GID during a
- *        transfer job. (Value: "GID_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip Do not preserve
+ *        GID during a transfer job. (Value: "GID_SKIP")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified GID
  *        behavior is unspecified. (Value: "GID_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *gid;
 
 /**
+ *  Specifies how each object's Cloud KMS customer-managed encryption key (CMEK)
+ *  is preserved for transfers between Google Cloud Storage buckets. If
+ *  unspecified, the default behavior is the same as
+ *  KMS_KEY_DESTINATION_BUCKET_DEFAULT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyDestinationBucketDefault
+ *        Use the destination bucket's default encryption settings. (Value:
+ *        "KMS_KEY_DESTINATION_BUCKET_DEFAULT")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyPreserve
+ *        Preserve the object's original Cloud KMS customer-managed encryption
+ *        key (CMEK) if present. Objects that do not use a Cloud KMS encryption
+ *        key will be encrypted using the destination bucket's encryption
+ *        settings. (Value: "KMS_KEY_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyUnspecified
+ *        KmsKey behavior is unspecified. (Value: "KMS_KEY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
  *  Specifies how each file's mode attribute should be handled by the transfer.
- *  If unspecified, the default behavior is the same as MODE_SKIP when the
- *  source is a POSIX file system.
+ *  By default, mode is not preserved.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve Preserve
  *        mode during a transfer job. (Value: "MODE_PRESERVE")
- *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip Skip mode
- *        during a transfer job. (Value: "MODE_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip Do not preserve
+ *        mode during a transfer job. (Value: "MODE_SKIP")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified Mode
  *        behavior is unspecified. (Value: "MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  Specifies how symlinks should be handled by the transfer. If unspecified,
- *  the default behavior is the same as SYMLINK_SKIP when the source is a POSIX
- *  file system.
+ *  Specifies the storage class to set on objects being transferred to Google
+ *  Cloud Storage buckets. If unspecified, the default behavior is the same as
+ *  STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassArchive
+ *        Set the storage class to ARCHIVE. (Value: "STORAGE_CLASS_ARCHIVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassColdline
+ *        Set the storage class to COLDLINE. (Value: "STORAGE_CLASS_COLDLINE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassDestinationBucketDefault
+ *        Use the destination bucket's default storage class. (Value:
+ *        "STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassNearline
+ *        Set the storage class to NEARLINE. (Value: "STORAGE_CLASS_NEARLINE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassPreserve
+ *        Preserve the object's original storage class. This is only supported
+ *        for transfers from Google Cloud Storage buckets. (Value:
+ *        "STORAGE_CLASS_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassStandard
+ *        Set the storage class to STANDARD. (Value: "STORAGE_CLASS_STANDARD")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassUnspecified
+ *        Storage class behavior is unspecified. (Value:
+ *        "STORAGE_CLASS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageClass;
+
+/**
+ *  Specifies how symlinks should be handled by the transfer. By default,
+ *  symlinks are not preserved.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve
  *        Preserve symlinks during a transfer job. (Value: "SYMLINK_PRESERVE")
- *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip Skip
- *        symlinks during a transfer job. (Value: "SYMLINK_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip Do not
+ *        preserve symlinks during a transfer job. (Value: "SYMLINK_SKIP")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified
- *        Symlink behavior is unspecified. The default behavior is to skip
- *        symlinks during a transfer job. (Value: "SYMLINK_UNSPECIFIED")
+ *        Symlink behavior is unspecified. (Value: "SYMLINK_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *symlink;
 
 /**
- *  Specifies how each file's UID attribute should be handled by the transfer.
- *  If unspecified, the default behavior is the same as UID_SKIP when the source
- *  is a POSIX file system.
+ *  Specifies how each object's temporary hold status should be preserved for
+ *  transfers between Google Cloud Storage buckets. If unspecified, the default
+ *  behavior is the same as TEMPORARY_HOLD_PRESERVE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldPreserve
+ *        Preserve the object's original temporary hold status. (Value:
+ *        "TEMPORARY_HOLD_PRESERVE")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldSkip
+ *        Do not set a temporary hold on the destination object. (Value:
+ *        "TEMPORARY_HOLD_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldUnspecified
+ *        Temporary hold behavior is unspecified. (Value:
+ *        "TEMPORARY_HOLD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *temporaryHold;
+
+/**
+ *  Specifies how each file's POSIX user ID (UID) attribute should be handled by
+ *  the transfer. By default, UID is not preserved.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber Preserve UID
  *        during a transfer job. (Value: "UID_NUMBER")
- *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip Skip UID during a
- *        transfer job. (Value: "UID_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidSkip Do not preserve
+ *        UID during a transfer job. (Value: "UID_SKIP")
  *    @arg @c kGTLRStorageTransfer_MetadataOptions_Uid_UidUnspecified UID
  *        behavior is unspecified. (Value: "UID_UNSPECIFIED")
  */
@@ -1915,7 +2116,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsUniqueInSink;
 
-/** Represents the selected metadata options for a transfer job. */
+/**
+ *  Represents the selected metadata options for a transfer job. This feature is
+ *  in Preview.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_MetadataOptions *metadataOptions;
 
 /**

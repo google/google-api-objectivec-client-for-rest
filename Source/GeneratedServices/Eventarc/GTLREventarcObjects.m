@@ -112,11 +112,48 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_EventType
+//
+
+@implementation GTLREventarc_EventType
+@dynamic descriptionProperty, eventSchemaUri, filteringAttributes, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filteringAttributes" : [GTLREventarc_FilteringAttribute class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_Expr
 //
 
 @implementation GTLREventarc_Expr
 @dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_FilteringAttribute
+//
+
+@implementation GTLREventarc_FilteringAttribute
+@dynamic attribute, descriptionProperty, pathPatternSupported, required;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -265,6 +302,29 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_ListProvidersResponse
+//
+
+@implementation GTLREventarc_ListProvidersResponse
+@dynamic nextPageToken, providers, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"providers" : [GTLREventarc_Provider class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"providers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_ListTriggersResponse
 //
 
@@ -351,6 +411,24 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLREventarc_AuditConfig class],
     @"bindings" : [GTLREventarc_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Provider
+//
+
+@implementation GTLREventarc_Provider
+@dynamic displayName, eventTypes, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventTypes" : [GTLREventarc_EventType class]
   };
   return map;
 }

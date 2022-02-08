@@ -1302,10 +1302,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudAsset_Date : GTLRObject
 
@@ -1526,9 +1526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  either or both of asset_names and asset_types. Only asset updates matching
  *  specified asset_names or asset_types are exported to the feed. Example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
- *  See [Resource
- *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
- *  for more info.
+ *  For a list of the full names for supported asset types, see [Resource name
+ *  format](/asset-inventory/docs/resource-name-format).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetNames;
 
@@ -1536,9 +1535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  A list of types of the assets to receive updates. You must specify either or
  *  both of asset_names and asset_types. Only asset updates matching specified
  *  asset_names or asset_types are exported to the feed. Example:
- *  `"compute.googleapis.com/Disk"` See [this
- *  topic](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
- *  for a list of all supported asset types.
+ *  `"compute.googleapis.com/Disk"` For a list of all supported asset types, see
+ *  [Supported asset types](/asset-inventory/docs/supported-asset-types).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
@@ -3748,7 +3746,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Google groups appearing in an IAM policy binding. If
  *  IamPolicyAnalysisQuery.identity_selector is specified, the identity in the
  *  result will be determined by the selector, and this flag is not allowed to
- *  set. Default is false.
+ *  set. If true, the default max expansion per group is 1000 for
+ *  AssetService.AnalyzeIamPolicy][]. Default is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3768,7 +3767,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  used together with this option. For example, if the request analyzes for
  *  which users have permission P on a GCP project with this option enabled, the
  *  results will include all users who have permission P on that project or any
- *  lower resource. Default is false.
+ *  lower resource. If true, the default max expansion per resource is 1000 for
+ *  AssetService.AnalyzeIamPolicy][] and 100000 for
+ *  AssetService.AnalyzeIamPolicyLongrunning][]. Default is false.
  *
  *  Uses NSNumber of boolValue.
  */

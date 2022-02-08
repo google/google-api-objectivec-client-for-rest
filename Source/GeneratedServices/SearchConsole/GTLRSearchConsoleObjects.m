@@ -14,6 +14,50 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSearchConsole_AmpInspectionResult.ampIndexStatusVerdict
+NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Fail = @"FAIL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Neutral = @"NEUTRAL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Partial = @"PARTIAL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_Pass = @"PASS";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_AmpIndexStatusVerdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
+// GTLRSearchConsole_AmpInspectionResult.indexingState
+NSString * const kGTLRSearchConsole_AmpInspectionResult_IndexingState_AmpIndexingAllowed = @"AMP_INDEXING_ALLOWED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_IndexingState_AmpIndexingStateUnspecified = @"AMP_INDEXING_STATE_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_IndexingState_BlockedDueToExpiredUnavailableAfter = @"BLOCKED_DUE_TO_EXPIRED_UNAVAILABLE_AFTER";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_IndexingState_BlockedDueToNoindex = @"BLOCKED_DUE_TO_NOINDEX";
+
+// GTLRSearchConsole_AmpInspectionResult.pageFetchState
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_AccessDenied = @"ACCESS_DENIED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_AccessForbidden = @"ACCESS_FORBIDDEN";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_Blocked4xx = @"BLOCKED_4XX";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_BlockedRobotsTxt = @"BLOCKED_ROBOTS_TXT";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_InternalCrawlError = @"INTERNAL_CRAWL_ERROR";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_InvalidUrl = @"INVALID_URL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_NotFound = @"NOT_FOUND";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_PageFetchStateUnspecified = @"PAGE_FETCH_STATE_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_RedirectError = @"REDIRECT_ERROR";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_ServerError = @"SERVER_ERROR";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_Soft404 = @"SOFT_404";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_PageFetchState_Successful = @"SUCCESSFUL";
+
+// GTLRSearchConsole_AmpInspectionResult.robotsTxtState
+NSString * const kGTLRSearchConsole_AmpInspectionResult_RobotsTxtState_Allowed = @"ALLOWED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_RobotsTxtState_Disallowed = @"DISALLOWED";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_RobotsTxtState_RobotsTxtStateUnspecified = @"ROBOTS_TXT_STATE_UNSPECIFIED";
+
+// GTLRSearchConsole_AmpInspectionResult.verdict
+NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_Fail = @"FAIL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_Neutral = @"NEUTRAL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_Partial = @"PARTIAL";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_Pass = @"PASS";
+NSString * const kGTLRSearchConsole_AmpInspectionResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
+// GTLRSearchConsole_AmpIssue.severity
+NSString * const kGTLRSearchConsole_AmpIssue_Severity_Error    = @"ERROR";
+NSString * const kGTLRSearchConsole_AmpIssue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_AmpIssue_Severity_Warning  = @"WARNING";
+
 // GTLRSearchConsole_ApiDimensionFilter.dimension
 NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Country = @"COUNTRY";
 NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Device = @"DEVICE";
@@ -32,6 +76,44 @@ NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotEqual
 // GTLRSearchConsole_ApiDimensionFilterGroup.groupType
 NSString * const kGTLRSearchConsole_ApiDimensionFilterGroup_GroupType_And = @"AND";
 
+// GTLRSearchConsole_IndexStatusInspectionResult.crawledAs
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_CrawledAs_CrawlingUserAgentUnspecified = @"CRAWLING_USER_AGENT_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_CrawledAs_Desktop = @"DESKTOP";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_CrawledAs_Mobile = @"MOBILE";
+
+// GTLRSearchConsole_IndexStatusInspectionResult.indexingState
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_BlockedByHttpHeader = @"BLOCKED_BY_HTTP_HEADER";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_BlockedByMetaTag = @"BLOCKED_BY_META_TAG";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_BlockedByRobotsTxt = @"BLOCKED_BY_ROBOTS_TXT";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_IndexingAllowed = @"INDEXING_ALLOWED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_IndexingStateUnspecified = @"INDEXING_STATE_UNSPECIFIED";
+
+// GTLRSearchConsole_IndexStatusInspectionResult.pageFetchState
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_AccessDenied = @"ACCESS_DENIED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_AccessForbidden = @"ACCESS_FORBIDDEN";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_Blocked4xx = @"BLOCKED_4XX";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_BlockedRobotsTxt = @"BLOCKED_ROBOTS_TXT";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_InternalCrawlError = @"INTERNAL_CRAWL_ERROR";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_InvalidUrl = @"INVALID_URL";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_NotFound = @"NOT_FOUND";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_PageFetchStateUnspecified = @"PAGE_FETCH_STATE_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_RedirectError = @"REDIRECT_ERROR";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_ServerError = @"SERVER_ERROR";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_Soft404 = @"SOFT_404";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_PageFetchState_Successful = @"SUCCESSFUL";
+
+// GTLRSearchConsole_IndexStatusInspectionResult.robotsTxtState
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_RobotsTxtState_Allowed = @"ALLOWED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_RobotsTxtState_Disallowed = @"DISALLOWED";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_RobotsTxtState_RobotsTxtStateUnspecified = @"ROBOTS_TXT_STATE_UNSPECIFIED";
+
+// GTLRSearchConsole_IndexStatusInspectionResult.verdict
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Fail = @"FAIL";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Neutral = @"NEUTRAL";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Partial = @"PARTIAL";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_Pass = @"PASS";
+NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
 // GTLRSearchConsole_MobileFriendlyIssue.rule
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_ConfigureViewport = @"CONFIGURE_VIEWPORT";
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_FixedWidthViewport = @"FIXED_WIDTH_VIEWPORT";
@@ -40,6 +122,39 @@ NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_SizeContentToViewpo
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_TapTargetsTooClose = @"TAP_TARGETS_TOO_CLOSE";
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UseLegibleFontSizes = @"USE_LEGIBLE_FONT_SIZES";
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_UsesIncompatiblePlugins = @"USES_INCOMPATIBLE_PLUGINS";
+
+// GTLRSearchConsole_MobileUsabilityInspectionResult.verdict
+NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Fail = @"FAIL";
+NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Neutral = @"NEUTRAL";
+NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Partial = @"PARTIAL";
+NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_Pass = @"PASS";
+NSString * const kGTLRSearchConsole_MobileUsabilityInspectionResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
+// GTLRSearchConsole_MobileUsabilityIssue.issueType
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_ConfigureViewport = @"CONFIGURE_VIEWPORT";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_FixedWidthViewport = @"FIXED_WIDTH_VIEWPORT";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_MobileUsabilityIssueTypeUnspecified = @"MOBILE_USABILITY_ISSUE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_SizeContentToViewport = @"SIZE_CONTENT_TO_VIEWPORT";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_TapTargetsTooClose = @"TAP_TARGETS_TOO_CLOSE";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_UseLegibleFontSizes = @"USE_LEGIBLE_FONT_SIZES";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_IssueType_UsesIncompatiblePlugins = @"USES_INCOMPATIBLE_PLUGINS";
+
+// GTLRSearchConsole_MobileUsabilityIssue.severity
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_Severity_Error = @"ERROR";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_MobileUsabilityIssue_Severity_Warning = @"WARNING";
+
+// GTLRSearchConsole_RichResultsInspectionResult.verdict
+NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Fail = @"FAIL";
+NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Neutral = @"NEUTRAL";
+NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Partial = @"PARTIAL";
+NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_Pass = @"PASS";
+NSString * const kGTLRSearchConsole_RichResultsInspectionResult_Verdict_VerdictUnspecified = @"VERDICT_UNSPECIFIED";
+
+// GTLRSearchConsole_RichResultsIssue.severity
+NSString * const kGTLRSearchConsole_RichResultsIssue_Severity_Error = @"ERROR";
+NSString * const kGTLRSearchConsole_RichResultsIssue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_RichResultsIssue_Severity_Warning = @"WARNING";
 
 // GTLRSearchConsole_RunMobileFriendlyTestResponse.mobileFriendliness
 NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendly = @"MOBILE_FRIENDLY";
@@ -120,6 +235,35 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSearchConsole_AmpInspectionResult
+//
+
+@implementation GTLRSearchConsole_AmpInspectionResult
+@dynamic ampIndexStatusVerdict, ampUrl, indexingState, issues, lastCrawlTime,
+         pageFetchState, robotsTxtState, verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRSearchConsole_AmpIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_AmpIssue
+//
+
+@implementation GTLRSearchConsole_AmpIssue
+@dynamic issueMessage, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSearchConsole_ApiDataRow
 //
 
@@ -181,11 +325,88 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSearchConsole_DetectedItems
+//
+
+@implementation GTLRSearchConsole_DetectedItems
+@dynamic items, richResultType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRSearchConsole_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSearchConsole_Image
 //
 
 @implementation GTLRSearchConsole_Image
 @dynamic data, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_IndexStatusInspectionResult
+//
+
+@implementation GTLRSearchConsole_IndexStatusInspectionResult
+@dynamic coverageState, crawledAs, googleCanonical, indexingState,
+         lastCrawlTime, pageFetchState, referringUrls, robotsTxtState, sitemap,
+         userCanonical, verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"referringUrls" : [NSString class],
+    @"sitemap" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_InspectUrlIndexRequest
+//
+
+@implementation GTLRSearchConsole_InspectUrlIndexRequest
+@dynamic inspectionUrl, languageCode, siteUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_InspectUrlIndexResponse
+//
+
+@implementation GTLRSearchConsole_InspectUrlIndexResponse
+@dynamic inspectionResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_Item
+//
+
+@implementation GTLRSearchConsole_Item
+@dynamic issues, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRSearchConsole_RichResultsIssue class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -201,11 +422,67 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSearchConsole_MobileUsabilityInspectionResult
+//
+
+@implementation GTLRSearchConsole_MobileUsabilityInspectionResult
+@dynamic issues, verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [GTLRSearchConsole_MobileUsabilityIssue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_MobileUsabilityIssue
+//
+
+@implementation GTLRSearchConsole_MobileUsabilityIssue
+@dynamic issueType, message, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSearchConsole_ResourceIssue
 //
 
 @implementation GTLRSearchConsole_ResourceIssue
 @dynamic blockedResource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_RichResultsInspectionResult
+//
+
+@implementation GTLRSearchConsole_RichResultsInspectionResult
+@dynamic detectedItems, verdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedItems" : [GTLRSearchConsole_DetectedItems class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_RichResultsIssue
+//
+
+@implementation GTLRSearchConsole_RichResultsIssue
+@dynamic issueMessage, severity;
 @end
 
 
@@ -320,6 +597,17 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 
 @implementation GTLRSearchConsole_TestStatus
 @dynamic details, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_UrlInspectionResult
+//
+
+@implementation GTLRSearchConsole_UrlInspectionResult
+@dynamic ampResult, indexStatusResult, inspectionResultLink,
+         mobileUsabilityResult, richResultsResult;
 @end
 
 

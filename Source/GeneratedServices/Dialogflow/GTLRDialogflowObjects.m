@@ -5896,6 +5896,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2ImportDocumentsResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ImportDocumentsResponse
+@dynamic warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [GTLRDialogflow_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2Intent
 //
 
@@ -6408,7 +6426,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata
-@dynamic state;
+@dynamic knowledgeBase, state;
 @end
 
 

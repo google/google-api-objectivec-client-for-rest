@@ -1595,7 +1595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Target CRF level. Must be between 10 and 36, where 10 is the highest quality
- *  and 36 is the most efficient compression. The default is 21.
+ *  and 36 is the most efficient compression. The default is 21. *Note*: This
+ *  field is not supported.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1659,7 +1660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Specify the `rate_control_mode`. The default is `vbr`. Supported rate
- *  control modes: - `vbr` - variable bitrate - `crf` - constant rate factor
+ *  control modes: - `vbr` - variable bitrate
  */
 @property(nonatomic, copy, nullable) NSString *rateControlMode;
 

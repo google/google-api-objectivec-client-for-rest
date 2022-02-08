@@ -48,6 +48,11 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSp
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_Enabled = @"ENABLED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec.mode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Auto = @"AUTO";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec.condition
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
@@ -1434,8 +1439,9 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
 @dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
-         filter, offset, orderBy, pageCategories, pageSize, pageToken, query,
-         queryExpansionSpec, searchMode, userInfo, variantRollupKeys, visitorId;
+         filter, offset, orderBy, pageCategories, pageSize, pageToken,
+         personalizationSpec, query, queryExpansionSpec, searchMode, userInfo,
+         variantRollupKeys, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1523,6 +1529,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestPersonalizationSpec
+@dynamic mode;
 @end
 
 

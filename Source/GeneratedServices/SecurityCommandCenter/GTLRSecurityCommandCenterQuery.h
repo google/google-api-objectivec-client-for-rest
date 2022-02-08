@@ -254,7 +254,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -931,7 +932,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1251,7 +1253,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -2386,7 +2389,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -2885,7 +2889,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -3562,7 +3567,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The time at which the updated SecurityMarks take effect. If not set uses
  *  current server time. Updates will be applied to the SecurityMarks that are
- *  active immediately preceding this time.
+ *  active immediately preceding this time. Must be smaller or equal to the
+ *  server time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 

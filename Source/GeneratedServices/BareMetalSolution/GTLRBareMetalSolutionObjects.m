@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Bare Metal Solution API (baremetalsolution/v1)
+//   Bare Metal Solution API (baremetalsolution/v2)
 // Description:
 //   Provides ways to manage Bare Metal Solution hardware installed in a
 //   regional extension located near a Google Cloud data center.
@@ -10,6 +10,409 @@
 //   https://cloud.google.com/bare-metal
 
 #import "GTLRBareMetalSolutionObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRBareMetalSolution_Instance.state
+NSString * const kGTLRBareMetalSolution_Instance_State_Deleted = @"DELETED";
+NSString * const kGTLRBareMetalSolution_Instance_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRBareMetalSolution_Instance_State_Running = @"RUNNING";
+NSString * const kGTLRBareMetalSolution_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Lun.multiprotocolType
+NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_Linux = @"LINUX";
+NSString * const kGTLRBareMetalSolution_Lun_MultiprotocolType_MultiprotocolTypeUnspecified = @"MULTIPROTOCOL_TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Lun.state
+NSString * const kGTLRBareMetalSolution_Lun_State_Creating     = @"CREATING";
+NSString * const kGTLRBareMetalSolution_Lun_State_Deleting     = @"DELETING";
+NSString * const kGTLRBareMetalSolution_Lun_State_Ready        = @"READY";
+NSString * const kGTLRBareMetalSolution_Lun_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRBareMetalSolution_Lun_State_Updating     = @"UPDATING";
+
+// GTLRBareMetalSolution_Lun.storageType
+NSString * const kGTLRBareMetalSolution_Lun_StorageType_Hdd    = @"HDD";
+NSString * const kGTLRBareMetalSolution_Lun_StorageType_Ssd    = @"SSD";
+NSString * const kGTLRBareMetalSolution_Lun_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Network.state
+NSString * const kGTLRBareMetalSolution_Network_State_Provisioned = @"PROVISIONED";
+NSString * const kGTLRBareMetalSolution_Network_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRBareMetalSolution_Network_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Network.type
+NSString * const kGTLRBareMetalSolution_Network_Type_Client    = @"CLIENT";
+NSString * const kGTLRBareMetalSolution_Network_Type_Private   = @"PRIVATE";
+NSString * const kGTLRBareMetalSolution_Network_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Volume.snapshotAutoDeleteBehavior
+NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_Disabled = @"DISABLED";
+NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_NewestFirst = @"NEWEST_FIRST";
+NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_OldestFirst = @"OLDEST_FIRST";
+NSString * const kGTLRBareMetalSolution_Volume_SnapshotAutoDeleteBehavior_SnapshotAutoDeleteBehaviorUnspecified = @"SNAPSHOT_AUTO_DELETE_BEHAVIOR_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Volume.state
+NSString * const kGTLRBareMetalSolution_Volume_State_Creating  = @"CREATING";
+NSString * const kGTLRBareMetalSolution_Volume_State_Deleting  = @"DELETING";
+NSString * const kGTLRBareMetalSolution_Volume_State_Ready     = @"READY";
+NSString * const kGTLRBareMetalSolution_Volume_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_Volume.storageType
+NSString * const kGTLRBareMetalSolution_Volume_StorageType_Hdd = @"HDD";
+NSString * const kGTLRBareMetalSolution_Volume_StorageType_Ssd = @"SSD";
+NSString * const kGTLRBareMetalSolution_Volume_StorageType_StorageTypeUnspecified = @"STORAGE_TYPE_UNSPECIFIED";
+
+// GTLRBareMetalSolution_VRF.state
+NSString * const kGTLRBareMetalSolution_VRF_State_Provisioned  = @"PROVISIONED";
+NSString * const kGTLRBareMetalSolution_VRF_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRBareMetalSolution_VRF_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Empty
+//
+
+@implementation GTLRBareMetalSolution_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Instance
+//
+
+@implementation GTLRBareMetalSolution_Instance
+@dynamic createTime, hyperthreadingEnabled, identifier,
+         interactiveSerialConsoleEnabled, labels, luns, machineType, name,
+         networks, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"luns" : [GTLRBareMetalSolution_Lun class],
+    @"networks" : [GTLRBareMetalSolution_Network class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Instance_Labels
+//
+
+@implementation GTLRBareMetalSolution_Instance_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListInstancesResponse
+//
+
+@implementation GTLRBareMetalSolution_ListInstancesResponse
+@dynamic instances, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instances" : [GTLRBareMetalSolution_Instance class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"instances";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListLocationsResponse
+//
+
+@implementation GTLRBareMetalSolution_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRBareMetalSolution_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListLunsResponse
+//
+
+@implementation GTLRBareMetalSolution_ListLunsResponse
+@dynamic luns, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"luns" : [GTLRBareMetalSolution_Lun class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"luns";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListNetworksResponse
+//
+
+@implementation GTLRBareMetalSolution_ListNetworksResponse
+@dynamic networks, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"networks" : [GTLRBareMetalSolution_Network class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"networks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse
+//
+
+@implementation GTLRBareMetalSolution_ListSnapshotSchedulePoliciesResponse
+@dynamic nextPageToken, snapshotSchedulePolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"snapshotSchedulePolicies" : [GTLRBareMetalSolution_SnapshotSchedulePolicy class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"snapshotSchedulePolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListVolumeSnapshotsResponse
+//
+
+@implementation GTLRBareMetalSolution_ListVolumeSnapshotsResponse
+@dynamic nextPageToken, unreachable, volumeSnapshots;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"volumeSnapshots" : [GTLRBareMetalSolution_VolumeSnapshot class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"volumeSnapshots";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_ListVolumesResponse
+//
+
+@implementation GTLRBareMetalSolution_ListVolumesResponse
+@dynamic nextPageToken, unreachable, volumes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unreachable" : [NSString class],
+    @"volumes" : [GTLRBareMetalSolution_Volume class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"volumes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Location
+//
+
+@implementation GTLRBareMetalSolution_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Location_Labels
+//
+
+@implementation GTLRBareMetalSolution_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Location_Metadata
+//
+
+@implementation GTLRBareMetalSolution_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Lun
+//
+
+@implementation GTLRBareMetalSolution_Lun
+@dynamic bootLun, identifier, multiprotocolType, name, shareable, sizeGb, state,
+         storageType, storageVolume, wwid;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Network
+//
+
+@implementation GTLRBareMetalSolution_Network
+@dynamic cidr, identifier, ipAddress, labels, macAddress, name, servicesCidr,
+         state, type, vlanId, vrf;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"macAddress" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Network_Labels
+//
+
+@implementation GTLRBareMetalSolution_Network_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Operation
+//
+
+@implementation GTLRBareMetalSolution_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Operation_Metadata
+//
+
+@implementation GTLRBareMetalSolution_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Operation_Response
+//
+
+@implementation GTLRBareMetalSolution_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_QosPolicy
+//
+
+@implementation GTLRBareMetalSolution_QosPolicy
+@dynamic bandwidthGbps;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -22,8 +425,179 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBareMetalSolution_ResetInstanceResponse
+//   GTLRBareMetalSolution_RestoreVolumeSnapshotRequest
 //
 
-@implementation GTLRBareMetalSolution_ResetInstanceResponse
+@implementation GTLRBareMetalSolution_RestoreVolumeSnapshotRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Schedule
+//
+
+@implementation GTLRBareMetalSolution_Schedule
+@dynamic crontabSpec, prefix, retentionCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_SnapshotReservationDetail
+//
+
+@implementation GTLRBareMetalSolution_SnapshotReservationDetail
+@dynamic reservedSpaceGib, reservedSpaceRemainingGib, reservedSpaceUsedPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_SnapshotSchedulePolicy
+//
+
+@implementation GTLRBareMetalSolution_SnapshotSchedulePolicy
+@dynamic descriptionProperty, identifier, labels, name, schedules;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedules" : [GTLRBareMetalSolution_Schedule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels
+//
+
+@implementation GTLRBareMetalSolution_SnapshotSchedulePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Status
+//
+
+@implementation GTLRBareMetalSolution_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRBareMetalSolution_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Status_Details_Item
+//
+
+@implementation GTLRBareMetalSolution_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_VlanAttachment
+//
+
+@implementation GTLRBareMetalSolution_VlanAttachment
+@dynamic peerIp, peerVlanId, routerIp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Volume
+//
+
+@implementation GTLRBareMetalSolution_Volume
+@dynamic autoGrownSizeGib, currentSizeGib, identifier, labels, name,
+         remainingSpaceGib, requestedSizeGib, snapshotAutoDeleteBehavior,
+         snapshotReservationDetail, snapshotSchedulePolicy, state, storageType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_Volume_Labels
+//
+
+@implementation GTLRBareMetalSolution_Volume_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_VolumeSnapshot
+//
+
+@implementation GTLRBareMetalSolution_VolumeSnapshot
+@dynamic createTime, descriptionProperty, identifier, name, sizeBytes,
+         storageVolume;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBareMetalSolution_VRF
+//
+
+@implementation GTLRBareMetalSolution_VRF
+@dynamic name, qosPolicy, state, vlanAttachments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vlanAttachments" : [GTLRBareMetalSolution_VlanAttachment class]
+  };
+  return map;
+}
+
 @end

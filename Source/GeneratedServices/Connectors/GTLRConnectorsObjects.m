@@ -365,8 +365,8 @@ NSString * const kGTLRConnectors_Source_SourceType_SourceTypeUnspecified = @"SOU
 @implementation GTLRConnectors_Connection
 @dynamic authConfig, configVariables, connectorVersion, createTime,
          descriptionProperty, egressBackends, envoyImageLocation, imageLocation,
-         inactive, labels, lockConfig, name, serviceAccount, serviceDirectory,
-         status, updateTime;
+         labels, lockConfig, name, serviceAccount, serviceDirectory, status,
+         suspended, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

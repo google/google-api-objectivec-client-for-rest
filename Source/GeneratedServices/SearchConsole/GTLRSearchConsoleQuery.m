@@ -202,6 +202,28 @@
 
 @end
 
+@implementation GTLRSearchConsoleQuery_UrlInspectionIndexInspect
+
++ (instancetype)queryWithObject:(GTLRSearchConsole_InspectUrlIndexRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/urlInspection/index:inspect";
+  GTLRSearchConsoleQuery_UrlInspectionIndexInspect *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRSearchConsole_InspectUrlIndexResponse class];
+  query.loggingName = @"searchconsole.urlInspection.index.inspect";
+  return query;
+}
+
+@end
+
 @implementation GTLRSearchConsoleQuery_UrlTestingToolsMobileFriendlyTestRun
 
 + (instancetype)queryWithObject:(GTLRSearchConsole_RunMobileFriendlyTestRequest *)object {

@@ -1333,8 +1333,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Name of the `Target`. Format is
- *  projects/{project}/locations/{location}/
- *  deliveryPipelines/{deliveryPipeline}/targets/a-z{0,62}.
+ *  projects/{project}/locations/{location}/targets/a-z{0,62}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1377,8 +1376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudDeploy_Target to include in the query.
  *  @param name Optional. Name of the `Target`. Format is
- *    projects/{project}/locations/{location}/
- *    deliveryPipelines/{deliveryPipeline}/targets/a-z{0,62}.
+ *    projects/{project}/locations/{location}/targets/a-z{0,62}.
  *
  *  @return GTLRCloudDeployQuery_ProjectsLocationsTargetsPatch
  */

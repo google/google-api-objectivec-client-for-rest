@@ -1445,7 +1445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPe
 
 
 /**
- *  Release notes specification, i.e. language and text.
+ *  Localized text in given language.
  */
 @interface GTLRAndroidPublisher_LocalizedText : GTLRObject
 

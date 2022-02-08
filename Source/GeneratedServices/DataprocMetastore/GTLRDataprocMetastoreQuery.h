@@ -24,6 +24,7 @@
 @class GTLRDataprocMetastore_Backup;
 @class GTLRDataprocMetastore_ExportMetadataRequest;
 @class GTLRDataprocMetastore_MetadataImport;
+@class GTLRDataprocMetastore_RemoveIamPolicyRequest;
 @class GTLRDataprocMetastore_RestoreServiceRequest;
 @class GTLRDataprocMetastore_Service;
 @class GTLRDataprocMetastore_SetIamPolicyRequest;
@@ -1099,6 +1100,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes the attached IAM policies for a resource
+ *
+ *  Method: metastore.projects.locations.services.removeIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the dataplane resource to remove IAM
+ *  policy, in the following
+ *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}
+ *  or
+ *  projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}/tables/{table_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_RemoveIamPolicyResponse.
+ *
+ *  Removes the attached IAM policies for a resource
+ *
+ *  @param object The @c GTLRDataprocMetastore_RemoveIamPolicyRequest to include
+ *    in the query.
+ *  @param resource Required. The relative resource name of the dataplane
+ *    resource to remove IAM policy, in the following
+ *    form:projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}
+ *    or
+ *    projects/{project_id}/locations/{location_id}/services/{service_id}/databases/{database_id}/tables/{table_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRemoveIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_RemoveIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

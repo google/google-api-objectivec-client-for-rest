@@ -90,12 +90,11 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRGameServices_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRGameServices_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRGameServices_AuditLogConfig class]
   };
   return map;
 }

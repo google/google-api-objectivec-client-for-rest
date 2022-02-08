@@ -1596,13 +1596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
 @property(nonatomic, copy, nullable) NSString *imageLocation;
 
 /**
- *  Optional. Inactive indicates the connection is active to use or not.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *inactive;
-
-/**
  *  Optional. Resource labels to represent user-provided metadata. Refer to
  *  cloud documentation on labels for more details.
  *  https://cloud.google.com/compute/docs/labeling-resources
@@ -1635,6 +1628,13 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Source_SourceType_SourceTypeU
 
 /** Output only. Current status of the connection. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ConnectionStatus *status;
+
+/**
+ *  Optional. Suspended indicates if a user has suspended a connection or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suspended;
 
 /** Output only. Updated time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

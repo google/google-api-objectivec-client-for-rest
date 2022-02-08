@@ -792,7 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Str
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -812,7 +812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -943,7 +943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Va
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -963,7 +963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_Laun
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -1061,7 +1061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_Co
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1081,7 +1081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_L
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -1162,7 +1162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_Verificat
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1182,7 +1182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our Terms of Service
+ *  information, see the "Deprecation Policy" section of our Terms of Service
  *  (https://cloud.google.com/terms/) and the Google Cloud Platform Subject to
  *  the Deprecation Policy (https://cloud.google.com/terms/deprecation)
  *  documentation.
@@ -1463,6 +1463,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto2;
  *  Value: "SYNTAX_PROTO3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_UptimeCheckConfig.checkerType
+
+/**
+ *  The default checker type. Currently converted to STATIC_IP_CHECKERS on
+ *  creation, the default conversion behavior may change in the future.
+ *
+ *  Value: "CHECKER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_CheckerTypeUnspecified;
+/**
+ *  STATIC_IP_CHECKERS are used for uptime checks that perform egress across the
+ *  public internet. STATIC_IP_CHECKERS use the static IP addresses returned by
+ *  ListUptimeCheckIps.
+ *
+ *  Value: "STATIC_IP_CHECKERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_StaticIpCheckers;
+/**
+ *  VPC_CHECKERS are used for uptime checks that perform egress using Service
+ *  Directory and private network access. When using VPC_CHECKERS, the monitored
+ *  resource type must be servicedirectory_service.
+ *
+ *  Value: "VPC_CHECKERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_CheckerType_VpcCheckers;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_UptimeCheckConfig.selectedRegions
@@ -4012,7 +4039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don't have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -4025,7 +4052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        production use cases. (Value: "BETA")
  *    @arg @c kGTLRMonitoring_MetricDescriptor_LaunchStage_Deprecated Deprecated
  *        features are scheduled to be shut down and removed. For more
- *        information, see the “Deprecation Policy” section of our Terms of
+ *        information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -4190,7 +4217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        for widespread use. By Alpha, all significant design issues are
  *        resolved and we are in the process of verifying functionality. Alpha
  *        customers need to apply for access, agree to applicable terms, and
- *        have their projects allowlisted. Alpha releases don’t have to be
+ *        have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4203,7 +4230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRMonitoring_MetricDescriptorMetadata_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our Terms of
+ *        more information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -4385,9 +4412,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Information in the labels field identifies the actual resource and its
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
- *  MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and
- *  "zone": { "type": "gce_instance", "labels": { "instance_id":
- *  "12345678901234", "zone": "us-central1-a" }}
+ *  MonitoredResourceDescriptor for "gce_instance" has labels "project_id",
+ *  "instance_id" and "zone": { "type": "gce_instance", "labels": {
+ *  "project_id": "my-project", "instance_id": "12345678901234", "zone":
+ *  "us-central1-a" }}
  */
 @interface GTLRMonitoring_MonitoredResource : GTLRObject
 
@@ -4468,7 +4496,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4481,7 +4509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our Terms of
+ *        more information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -4778,7 +4806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects allowlisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4791,7 +4819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        for limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our Terms of
+ *        more information, see the "Deprecation Policy" section of our Terms of
  *        Service (https://cloud.google.com/terms/) and the Google Cloud
  *        Platform Subject to the Deprecation Policy
  *        (https://cloud.google.com/terms/deprecation) documentation. (Value:
@@ -5790,6 +5818,27 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_UptimeCheckConfig : GTLRObject
 
 /**
+ *  The type of checkers to use to execute the Uptime check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_UptimeCheckConfig_CheckerType_CheckerTypeUnspecified
+ *        The default checker type. Currently converted to STATIC_IP_CHECKERS on
+ *        creation, the default conversion behavior may change in the future.
+ *        (Value: "CHECKER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_UptimeCheckConfig_CheckerType_StaticIpCheckers
+ *        STATIC_IP_CHECKERS are used for uptime checks that perform egress
+ *        across the public internet. STATIC_IP_CHECKERS use the static IP
+ *        addresses returned by ListUptimeCheckIps. (Value:
+ *        "STATIC_IP_CHECKERS")
+ *    @arg @c kGTLRMonitoring_UptimeCheckConfig_CheckerType_VpcCheckers
+ *        VPC_CHECKERS are used for uptime checks that perform egress using
+ *        Service Directory and private network access. When using VPC_CHECKERS,
+ *        the monitored resource type must be servicedirectory_service. (Value:
+ *        "VPC_CHECKERS")
+ */
+@property(nonatomic, copy, nullable) NSString *checkerType;
+
+/**
  *  The content that is expected to appear in the data returned by the target
  *  server against which the check is run. Currently, only the first entry in
  *  the content_matchers list is supported, and additional entries will be
@@ -5830,7 +5879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
  *  are valid for this field: uptime_url, gce_instance, gae_app,
- *  aws_ec2_instance, aws_elb_load_balancer k8s_service
+ *  aws_ec2_instance, aws_elb_load_balancer k8s_service servicedirectory_service
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 

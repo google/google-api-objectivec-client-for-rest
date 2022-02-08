@@ -156,6 +156,30 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig
+@dynamic configOverrides, networkConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Backup
 //
 
@@ -299,7 +323,22 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_HiveMetastoreConfig
-@dynamic configOverrides, endpointProtocol, kerberosConfig, version;
+@dynamic auxiliaryVersions, configOverrides, endpointProtocol, kerberosConfig,
+         version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_AuxiliaryVersionConfig class];
+}
+
 @end
 
 
@@ -668,6 +707,25 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_RemoveIamPolicyRequest
+//
+
+@implementation GTLRDataprocMetastore_RemoveIamPolicyRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_RemoveIamPolicyResponse
+//
+
+@implementation GTLRDataprocMetastore_RemoveIamPolicyResponse
+@dynamic success;
 @end
 
 

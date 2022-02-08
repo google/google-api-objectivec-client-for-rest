@@ -5860,7 +5860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Whether to run test cases in TestCasesConfig.test_cases periodically.
- *  Default false. If set to ture, run once a day.
+ *  Default false. If set to true, run once a day.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7802,7 +7802,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** The event that matched the query. Only filled for `EVENT` match type. */
+/**
+ *  The event that matched the query. Filled for `EVENT`, `NO_MATCH` and
+ *  `NO_INPUT` match types.
+ */
 @property(nonatomic, copy, nullable) NSString *event;
 
 /**
@@ -9147,7 +9150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Settings for exporting conversations to
- *  [Insights](https://cloud.google.com/dialogflow/priv/docs/insights).
+ *  [Insights](https://cloud.google.com/contact-center/insights/docs).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings : GTLRObject
 
@@ -13519,6 +13522,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Response message for Documents.ImportDocuments.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ImportDocumentsResponse : GTLRObject
+
+/** Includes details about skipped documents or any other warnings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
  *  An intent categorizes an end-user's intention for one conversation turn. For
  *  each agent, you define many intents, where your combined intents can handle
  *  a complete conversation. When an end-user writes or says something, referred
@@ -14498,6 +14512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Metadata in google::longrunning::Operation for Knowledge operations.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
+
+/** The name of the knowledge base interacted with during the operation. */
+@property(nonatomic, copy, nullable) NSString *knowledgeBase;
 
 /**
  *  Output only. The current state of this operation.

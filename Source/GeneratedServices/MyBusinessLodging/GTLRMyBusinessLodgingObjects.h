@@ -14757,7 +14757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessLodging_Wellness_WeightMachine
 
 /**
  *  Vegetarian meals. The property provides vegetarian menu options for guests.
- *  Vegetarian food does not contain animal products.
+ *  Vegetarian food does not contain meat, poultry, fish, or seafood.
  *
  *  Uses NSNumber of boolValue.
  */

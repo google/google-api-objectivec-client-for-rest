@@ -515,6 +515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigratingVm_State_Sta
 // GTLRVMMigrationService_MigrationError.code
 
 /**
+ *  Migrate for Compute encountered an error during appliance upgrade.
+ *
+ *  Value: "APPLIANCE_UPGRADE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeError;
+/**
  *  Migrate for Compute encountered an error in clone operation.
  *
  *  Value: "CLONE_ERROR"
@@ -710,13 +716,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Response message for 'AddGroupMigration' request.
- */
-@interface GTLRVMMigrationService_AddGroupMigrationResponse : GTLRObject
-@end
-
-
-/**
  *  AppliedLicense holds the license data returned by adaptation module report.
  */
 @interface GTLRVMMigrationService_AppliedLicense : GTLRObject
@@ -750,23 +749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Response message for 'CancelCloneJob' request.
- */
-@interface GTLRVMMigrationService_CancelCloneJobResponse : GTLRObject
-@end
-
-
-/**
  *  Request message for 'CancelCutoverJob' request.
  */
 @interface GTLRVMMigrationService_CancelCutoverJobRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for 'CancelCutoverJob' request.
- */
-@interface GTLRVMMigrationService_CancelCutoverJobResponse : GTLRObject
 @end
 
 
@@ -1349,13 +1334,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Response message for 'FinalizeMigration' request.
- */
-@interface GTLRVMMigrationService_FinalizeMigrationResponse : GTLRObject
-@end
-
-
-/**
  *  Describes message for 'Group' resource. The Group is a collections of
  *  several MigratingVms.
  */
@@ -1926,6 +1904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Output only. The error code.
  *
  *  Likely values:
+ *    @arg @c kGTLRVMMigrationService_MigrationError_Code_ApplianceUpgradeError
+ *        Migrate for Compute encountered an error during appliance upgrade.
+ *        (Value: "APPLIANCE_UPGRADE_ERROR")
  *    @arg @c kGTLRVMMigrationService_MigrationError_Code_CloneError Migrate for
  *        Compute encountered an error in clone operation. (Value:
  *        "CLONE_ERROR")
@@ -2119,13 +2100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
- *  Response message for 'PauseMigration' request.
- */
-@interface GTLRVMMigrationService_PauseMigrationResponse : GTLRObject
-@end
-
-
-/**
  *  Request message for 'RemoveMigration' request.
  */
 @interface GTLRVMMigrationService_RemoveGroupMigrationRequest : GTLRObject
@@ -2133,13 +2107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 /** The MigratingVm to remove. */
 @property(nonatomic, copy, nullable) NSString *migratingVm;
 
-@end
-
-
-/**
- *  Response message for 'RemoveMigration' request.
- */
-@interface GTLRVMMigrationService_RemoveGroupMigrationResponse : GTLRObject
 @end
 
 
@@ -2181,13 +2148,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Request message for 'ResumeMigration' request.
  */
 @interface GTLRVMMigrationService_ResumeMigrationRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for 'ResumeMigration' request.
- */
-@interface GTLRVMMigrationService_ResumeMigrationResponse : GTLRObject
 @end
 
 
@@ -2292,13 +2252,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Request message for 'StartMigrationRequest' request.
  */
 @interface GTLRVMMigrationService_StartMigrationRequest : GTLRObject
-@end
-
-
-/**
- *  Response message for 'StartMigration' request.
- */
-@interface GTLRVMMigrationService_StartMigrationResponse : GTLRObject
 @end
 
 

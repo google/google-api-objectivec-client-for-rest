@@ -47,9 +47,12 @@
 @class GTLRCloudBuild_GitHubEnterpriseSecrets;
 @class GTLRCloudBuild_GitHubEventsConfig;
 @class GTLRCloudBuild_GitRepoSource;
+@class GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
 @class GTLRCloudBuild_HTTPDelivery;
+@class GTLRCloudBuild_HybridPoolConfig;
+@class GTLRCloudBuild_HybridWorkerConfig;
 @class GTLRCloudBuild_InlineSecret;
 @class GTLRCloudBuild_InlineSecret_EnvMap;
 @class GTLRCloudBuild_NetworkConfig;
@@ -2425,6 +2428,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 
 /**
+ *  Configuration per workload for both Private Pools and Hybrid Pools.
+ */
+@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig : GTLRObject
+
+/**
+ *  The disk size (in GB) which is requested for the build container. If unset,
+ *  a value of 10 GB will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  The memory (in GB) which is requested for the build container. If unset, a
+ *  value of 4 GB will be used.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  The number of vCPUs which are requested for the build container. If unset, a
+ *  value of 1 will be used.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
+
+@end
+
+
+/**
  *  Represents the metadata of the long-running operation.
  */
 @interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata : GTLRObject
@@ -2551,6 +2586,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
 
 /** The URI to which JSON-containing HTTP POST requests should be sent. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Configuration for a Hybrid Worker Pool Next ID: 6
+ */
+@interface GTLRCloudBuild_HybridPoolConfig : GTLRObject
+
+/**
+ *  Default settings which will be applied to builds on this worker pool if they
+ *  are not specified in the build request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_HybridWorkerConfig *defaultWorkerConfig;
+
+/**
+ *  Required. Immutable. The Anthos/GKE Hub membership of the cluster which will
+ *  run the actual build operations. Example:
+ *  projects/{project}/locations/{location}/memberships/{cluster_name}
+ */
+@property(nonatomic, copy, nullable) NSString *membership;
+
+@end
+
+
+/**
+ *  These settings can be applied to a user's build operations. Next ID: 4
+ */
+@interface GTLRCloudBuild_HybridWorkerConfig : GTLRObject
+
+/**
+ *  The disk size (in GB) which is requested for the build container. Defaults
+ *  to 10 GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  The memory (in GB) which is requested for the build container. Defaults to 4
+ *  GB.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryGb;
+
+/**
+ *  The number of vCPUs which are requested for the build container. Defaults to
+ *  1.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcpuCount;
 
 @end
 
@@ -3041,6 +3129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  projects/{project}/locations/{location}/workerPools/{workerPoolId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Configuration per workload. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig *workerConfig;
 
 @end
 
@@ -3917,6 +4008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Updating;
  *  proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Hybrid pool configuration */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_HybridPoolConfig *hybridPoolConfig;
 
 /**
  *  Output only. The resource name of the `WorkerPool`, with format

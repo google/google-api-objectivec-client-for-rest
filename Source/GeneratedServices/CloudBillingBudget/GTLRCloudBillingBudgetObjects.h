@@ -45,7 +45,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.calendarPeriod
 
-/** Value: "CALENDAR_PERIOD_UNSPECIFIED" */
+/**
+ *  Calendar period is unset. This is the default if the budget is for a custom
+ *  time period (CustomPeriod).
+ *
+ *  Value: "CALENDAR_PERIOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified;
 /**
  *  A month. Month starts on the first day of each month, such as January 1,
@@ -235,7 +240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified
- *        Value "CALENDAR_PERIOD_UNSPECIFIED"
+ *        Calendar period is unset. This is the default if the budget is for a
+ *        custom time period (CustomPeriod). (Value:
+ *        "CALENDAR_PERIOD_UNSPECIFIED")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Month
  *        A month. Month starts on the first day of each month, such as January
  *        1, February 1, March 1, and so on. (Value: "MONTH")
@@ -506,14 +513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 
 /**
- *  Represents a whole or partial calendar date, such as a birthday. The time of
- *  day and time zone are either specified elsewhere or are insignificant. The
- *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  GTLRCloudBillingBudget_GoogleTypeDate
  */
 @interface GTLRCloudBillingBudget_GoogleTypeDate : GTLRObject
 

@@ -952,7 +952,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DebugSession
-@dynamic count, filter, name, timeout, tracesize, validity;
+@dynamic count, createTime, filter, name, timeout, tracesize, validity;
 @end
 
 
@@ -1533,7 +1533,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Instance
 @dynamic createdAt, descriptionProperty, diskEncryptionKeyName, displayName,
-         host, lastModifiedAt, location, name, peeringCidrRange, port,
+         host, ipRange, lastModifiedAt, location, name, peeringCidrRange, port,
          runtimeVersion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

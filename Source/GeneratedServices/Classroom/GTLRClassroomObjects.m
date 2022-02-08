@@ -75,6 +75,17 @@ NSString * const kGTLRClassroom_Feed_FeedType_FeedTypeUnspecified = @"FEED_TYPE_
 NSString * const kGTLRClassroom_GlobalPermission_Permission_CreateCourse = @"CREATE_COURSE";
 NSString * const kGTLRClassroom_GlobalPermission_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
 
+// GTLRClassroom_GradebookSettings.calculationType
+NSString * const kGTLRClassroom_GradebookSettings_CalculationType_CalculationTypeUnspecified = @"CALCULATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRClassroom_GradebookSettings_CalculationType_TotalPoints = @"TOTAL_POINTS";
+NSString * const kGTLRClassroom_GradebookSettings_CalculationType_WeightedCategories = @"WEIGHTED_CATEGORIES";
+
+// GTLRClassroom_GradebookSettings.displaySetting
+NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_DisplaySettingUnspecified = @"DISPLAY_SETTING_UNSPECIFIED";
+NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_HideOverallGrade = @"HIDE_OVERALL_GRADE";
+NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_ShowOverallGrade = @"SHOW_OVERALL_GRADE";
+NSString * const kGTLRClassroom_GradebookSettings_DisplaySetting_ShowTeachersOnly = @"SHOW_TEACHERS_ONLY";
+
 // GTLRClassroom_GradeHistory.gradeChangeType
 NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_AssignedGradePointsEarnedChange = @"ASSIGNED_GRADE_POINTS_EARNED_CHANGE";
 NSString * const kGTLRClassroom_GradeHistory_GradeChangeType_DraftGradePointsEarnedChange = @"DRAFT_GRADE_POINTS_EARNED_CHANGE";
@@ -210,8 +221,8 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_Course
 @dynamic alternateLink, calendarId, courseGroupEmail, courseMaterialSets,
          courseState, creationTime, descriptionProperty, descriptionHeading,
-         enrollmentCode, guardiansEnabled, identifier, name, ownerId, room,
-         section, teacherFolder, teacherGroupEmail, updateTime;
+         enrollmentCode, gradebookSettings, guardiansEnabled, identifier, name,
+         ownerId, room, section, teacherFolder, teacherGroupEmail, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -287,8 +298,8 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 @implementation GTLRClassroom_CourseWork
 @dynamic alternateLink, assigneeMode, assignment, associatedWithDeveloper,
          courseId, creationTime, creatorUserId, descriptionProperty, dueDate,
-         dueTime, identifier, individualStudentsOptions, materials, maxPoints,
-         multipleChoiceQuestion, scheduledTime, state,
+         dueTime, gradeCategory, identifier, individualStudentsOptions,
+         materials, maxPoints, multipleChoiceQuestion, scheduledTime, state,
          submissionModificationMode, title, topicId, updateTime, workType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -423,6 +434,39 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_GlobalPermission
 @dynamic permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradebookSettings
+//
+
+@implementation GTLRClassroom_GradebookSettings
+@dynamic calculationType, displaySetting, gradeCategories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gradeCategories" : [GTLRClassroom_GradeCategory class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_GradeCategory
+//
+
+@implementation GTLRClassroom_GradeCategory
+@dynamic defaultGradeDenominator, identifier, name, weight;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

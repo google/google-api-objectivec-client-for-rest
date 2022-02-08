@@ -2386,6 +2386,57 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/firstAndThirdPartyAudiences";
+  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDisplayVideo_FirstAndThirdPartyAudience class];
+  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers
+
+@dynamic firstAndThirdPartyAudienceId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_EditCustomerMatchMembersRequest *)object
+   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firstAndThirdPartyAudienceId" ];
+  NSString *pathURITemplate = @"v1/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}:editCustomerMatchMembers";
+  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesEditCustomerMatchMembers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firstAndThirdPartyAudienceId = firstAndThirdPartyAudienceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_EditCustomerMatchMembersResponse class];
+  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.editCustomerMatchMembers";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesGet
 
 @dynamic advertiserId, firstAndThirdPartyAudienceId, partnerId;
@@ -2417,6 +2468,33 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRDisplayVideo_ListFirstAndThirdPartyAudiencesResponse class];
   query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch
+
+@dynamic advertiserId, firstAndThirdPartyAudienceId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_FirstAndThirdPartyAudience *)object
+   firstAndThirdPartyAudienceId:(long long)firstAndThirdPartyAudienceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"firstAndThirdPartyAudienceId" ];
+  NSString *pathURITemplate = @"v1/firstAndThirdPartyAudiences/{+firstAndThirdPartyAudienceId}";
+  GTLRDisplayVideoQuery_FirstAndThirdPartyAudiencesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.firstAndThirdPartyAudienceId = firstAndThirdPartyAudienceId;
+  query.expectedObjectClass = [GTLRDisplayVideo_FirstAndThirdPartyAudience class];
+  query.loggingName = @"displayvideo.firstAndThirdPartyAudiences.patch";
   return query;
 }
 

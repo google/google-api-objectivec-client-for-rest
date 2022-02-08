@@ -2571,9 +2571,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Information in the labels field identifies the actual resource and its
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
- *  MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and
- *  "zone": { "type": "gce_instance", "labels": { "instance_id":
- *  "12345678901234", "zone": "us-central1-a" }}
+ *  MonitoredResourceDescriptor for "gce_instance" has labels "project_id",
+ *  "instance_id" and "zone": { "type": "gce_instance", "labels": {
+ *  "project_id": "my-project", "instance_id": "12345678901234", "zone":
+ *  "us-central1-a" }}
  */
 @interface GTLRLogging_MonitoredResource : GTLRObject
 
@@ -3011,6 +3012,35 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *wasLoadingRequest;
+
+@end
+
+
+/**
+ *  Describes the settings associated with a project, folder, organization,
+ *  billing account, or flexible resource.
+ */
+@interface GTLRLogging_Settings : GTLRObject
+
+/**
+ *  Optional. If set to true, the _Default sink in newly created projects and
+ *  folders will created in a disabled state. This can be used to automatically
+ *  disable log ingestion if there is already an aggregated sink configured in
+ *  the hierarchy. The _Default sink can be re-enabled manually if needed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableDefaultSink;
+
+/** Output only. The resource name of the settings. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The Cloud region that will be used for _Default and _Required log
+ *  buckets for newly created projects and folders. For example europe-west1.
+ *  This setting does not affect the location of custom log buckets.
+ */
+@property(nonatomic, copy, nullable) NSString *storageLocation;
 
 @end
 

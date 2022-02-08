@@ -230,14 +230,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  progress, else true. * `metadata.\@type` - the type of metadata. For
  *  example, the type string for CreateBackupMetadata is
  *  `type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata`.
- *  * `metadata.` - any field in metadata.value. * `error` - Error associated
- *  with the long-running operation. * `response.\@type` - the type of response.
- *  * `response.` - any field in response.value. You can combine multiple
+ *  * `metadata.` - any field in metadata.value. `metadata.type_url` must be
+ *  specified if filtering on metadata fields. * `error` - Error associated with
+ *  the long-running operation. * `response.\@type` - the type of response. *
+ *  `response.` - any field in response.value. You can combine multiple
  *  expressions by enclosing each expression in parentheses. By default,
  *  expressions are combined with AND logic, but you can specify AND, OR, and
  *  NOT logic explicitly. Here are a few examples: * `done:true` - The operation
- *  is complete. * `metadata.database:prod` - The database the backup was taken
- *  from has a name containing the string "prod". *
+ *  is complete. *
+ *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
+ *  AND` \\ `metadata.database:prod` - Returns operations where: * The
+ *  operation's metadata type is CreateBackupMetadata. * The database the backup
+ *  was taken from has a name containing the string "prod". *
  *  `(metadata.\@type=type.googleapis.com/google.spanner.admin.database.v1.CreateBackupMetadata)
  *  AND` \\ `(metadata.name:howl) AND` \\ `(metadata.progress.start_time <
  *  \\"2018-03-28T14:50:00Z\\") AND` \\ `(error:*)` - Returns operations where:

@@ -29,6 +29,7 @@
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
 @class GTLRLogging_LogView;
+@class GTLRLogging_Settings;
 @class GTLRLogging_TailLogEntriesRequest;
 @class GTLRLogging_UndeleteBucketRequest;
 @class GTLRLogging_WriteLogEntriesRequest;
@@ -412,6 +413,66 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects and folders in the Google Cloud organization.
  *
  *  @return GTLRLoggingQuery_BillingAccountsGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.billingAccounts.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsGetSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve settings.
+ *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *  "folders/[FOLDER_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  be get for Google Cloud projects, folders, organizations and billing
+ *  accounts. Currently it can only be configured for organizations. Once
+ *  configured for an organization, it applies to all projects and folders in
+ *  the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve settings.
+ *    "projects/[PROJECT_ID]/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *    "folders/[FOLDER_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can be get for Google Cloud projects, folders, organizations and billing
+ *    accounts. Currently it can only be configured for organizations. Once
+ *    configured for an organization, it applies to all projects and folders in
+ *    the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsGetSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2162,6 +2223,66 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects and folders in the Google Cloud organization.
  *
  *  @return GTLRLoggingQuery_FoldersGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.folders.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersGetSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve settings.
+ *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *  "folders/[FOLDER_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  be get for Google Cloud projects, folders, organizations and billing
+ *  accounts. Currently it can only be configured for organizations. Once
+ *  configured for an organization, it applies to all projects and folders in
+ *  the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve settings.
+ *    "projects/[PROJECT_ID]/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *    "folders/[FOLDER_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can be get for Google Cloud projects, folders, organizations and billing
+ *    accounts. Currently it can only be configured for organizations. Once
+ *    configured for an organization, it applies to all projects and folders in
+ *    the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_FoldersGetSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -4541,6 +4662,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.organizations.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsGetSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve settings.
+ *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *  "folders/[FOLDER_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  be get for Google Cloud projects, folders, organizations and billing
+ *  accounts. Currently it can only be configured for organizations. Once
+ *  configured for an organization, it applies to all projects and folders in
+ *  the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve settings.
+ *    "projects/[PROJECT_ID]/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *    "folders/[FOLDER_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can be get for Google Cloud projects, folders, organizations and billing
+ *    accounts. Currently it can only be configured for organizations. Once
+ *    configured for an organization, it applies to all projects and folders in
+ *    the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsGetSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a log bucket that can be used to store log entries. After a bucket
  *  has been created, the bucket's location cannot be changed.
  *
@@ -5804,6 +5985,75 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.organizations.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsUpdateSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name for the settings to update.
+ *  "organizations/[ORGANIZATION_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask identifying which fields from settings should be
+ *  updated. A field will be overwritten if and only if it is in the update
+ *  mask. Output only fields cannot be updated.See FieldMask for more
+ *  information.For example: "updateMask=kmsKeyName"
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param object The @c GTLRLogging_Settings to include in the query.
+ *  @param name Required. The resource name for the settings to update.
+ *    "organizations/[ORGANIZATION_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsUpdateSettings
+ */
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new exclusion in the _Default sink in a specified parent resource.
  *  Only log entries belonging to that resource can be excluded. You can have up
  *  to 10 exclusions in a resource.
@@ -6087,6 +6337,66 @@ NS_ASSUME_NONNULL_BEGIN
  *    projects and folders in the Google Cloud organization.
  *
  *  @return GTLRLoggingQuery_ProjectsGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.projects.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsGetSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve settings.
+ *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *  "folders/[FOLDER_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  be get for Google Cloud projects, folders, organizations and billing
+ *  accounts. Currently it can only be configured for organizations. Once
+ *  configured for an organization, it applies to all projects and folders in
+ *  the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve settings.
+ *    "projects/[PROJECT_ID]/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *    "folders/[FOLDER_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can be get for Google Cloud projects, folders, organizations and billing
+ *    accounts. Currently it can only be configured for organizations. Once
+ *    configured for an organization, it applies to all projects and folders in
+ *    the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_ProjectsGetSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -7799,6 +8109,66 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.getSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_V2GetSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource for which to retrieve settings.
+ *  "projects/[PROJECT_ID]/settings" "organizations/[ORGANIZATION_ID]/settings"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *  "folders/[FOLDER_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  be get for Google Cloud projects, folders, organizations and billing
+ *  accounts. Currently it can only be configured for organizations. Once
+ *  configured for an organization, it applies to all projects and folders in
+ *  the Google Cloud organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Gets the Log Router settings for the given resource.Note: Settings for the
+ *  Log Router can be get for Google Cloud projects, folders, organizations and
+ *  billing accounts. Currently it can only be configured for organizations.
+ *  Once configured for an organization, it applies to all projects and folders
+ *  in the Google Cloud organization.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param name Required. The resource for which to retrieve settings.
+ *    "projects/[PROJECT_ID]/settings"
+ *    "organizations/[ORGANIZATION_ID]/settings"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/settings"
+ *    "folders/[FOLDER_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can be get for Google Cloud projects, folders, organizations and billing
+ *    accounts. Currently it can only be configured for organizations. Once
+ *    configured for an organization, it applies to all projects and folders in
+ *    the Google Cloud organization.
+ *
+ *  @return GTLRLoggingQuery_V2GetSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Updates the Log Router CMEK settings for the given resource.Note: CMEK for
  *  the Log Router can currently only be configured for Google Cloud
  *  organizations. Once configured, it applies to all projects and folders in
@@ -7867,6 +8237,75 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_V2UpdateCmekSettings
  */
 + (instancetype)queryWithObject:(GTLRLogging_CmekSettings *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  Method: logging.updateSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_V2UpdateSettings : GTLRLoggingQuery
+
+/**
+ *  Required. The resource name for the settings to update.
+ *  "organizations/[ORGANIZATION_ID]/settings" For
+ *  example:"organizations/12345/settings"Note: Settings for the Log Router can
+ *  currently only be configured for Google Cloud organizations. Once
+ *  configured, it applies to all projects and folders in the Google Cloud
+ *  organization.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask identifying which fields from settings should be
+ *  updated. A field will be overwritten if and only if it is in the update
+ *  mask. Output only fields cannot be updated.See FieldMask for more
+ *  information.For example: "updateMask=kmsKeyName"
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_Settings.
+ *
+ *  Updates the Log Router settings for the given resource.Note: Settings for
+ *  the Log Router can currently only be configured for Google Cloud
+ *  organizations. Once configured, it applies to all projects and folders in
+ *  the Google Cloud organization.UpdateSettings will fail if 1) kms_key_name is
+ *  invalid, or 2) the associated service account does not have the required
+ *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key, or 3)
+ *  access to the key is disabled. 4) location_id is not supported by Logging.
+ *  5) location_id violate OrgPolicy.See Enabling CMEK for Log Router
+ *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
+ *  information.
+ *
+ *  @param object The @c GTLRLogging_Settings to include in the query.
+ *  @param name Required. The resource name for the settings to update.
+ *    "organizations/[ORGANIZATION_ID]/settings" For
+ *    example:"organizations/12345/settings"Note: Settings for the Log Router
+ *    can currently only be configured for Google Cloud organizations. Once
+ *    configured, it applies to all projects and folders in the Google Cloud
+ *    organization.
+ *
+ *  @return GTLRLoggingQuery_V2UpdateSettings
+ */
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
                            name:(NSString *)name;
 
 @end

@@ -50,20 +50,44 @@ NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Failed = @"F
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
 NSString * const kGTLRStorageTransfer_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
 
+// GTLRStorageTransfer_MetadataOptions.acl
+NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclDestinationBucketDefault = @"ACL_DESTINATION_BUCKET_DEFAULT";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclPreserve = @"ACL_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_Acl_AclUnspecified = @"ACL_UNSPECIFIED";
+
 // GTLRStorageTransfer_MetadataOptions.gid
 NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidNumber = @"GID_NUMBER";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidSkip = @"GID_SKIP";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Gid_GidUnspecified = @"GID_UNSPECIFIED";
+
+// GTLRStorageTransfer_MetadataOptions.kmsKey
+NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyDestinationBucketDefault = @"KMS_KEY_DESTINATION_BUCKET_DEFAULT";
+NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyPreserve = @"KMS_KEY_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_KmsKey_KmsKeyUnspecified = @"KMS_KEY_UNSPECIFIED";
 
 // GTLRStorageTransfer_MetadataOptions.mode
 NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModePreserve = @"MODE_PRESERVE";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeSkip = @"MODE_SKIP";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
+// GTLRStorageTransfer_MetadataOptions.storageClass
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassArchive = @"STORAGE_CLASS_ARCHIVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassColdline = @"STORAGE_CLASS_COLDLINE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassDestinationBucketDefault = @"STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassNearline = @"STORAGE_CLASS_NEARLINE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassPreserve = @"STORAGE_CLASS_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassStandard = @"STORAGE_CLASS_STANDARD";
+NSString * const kGTLRStorageTransfer_MetadataOptions_StorageClass_StorageClassUnspecified = @"STORAGE_CLASS_UNSPECIFIED";
+
 // GTLRStorageTransfer_MetadataOptions.symlink
 NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkPreserve = @"SYMLINK_PRESERVE";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkSkip = @"SYMLINK_SKIP";
 NSString * const kGTLRStorageTransfer_MetadataOptions_Symlink_SymlinkUnspecified = @"SYMLINK_UNSPECIFIED";
+
+// GTLRStorageTransfer_MetadataOptions.temporaryHold
+NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldPreserve = @"TEMPORARY_HOLD_PRESERVE";
+NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldSkip = @"TEMPORARY_HOLD_SKIP";
+NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldUnspecified = @"TEMPORARY_HOLD_UNSPECIFIED";
 
 // GTLRStorageTransfer_MetadataOptions.uid
 NSString * const kGTLRStorageTransfer_MetadataOptions_Uid_UidNumber = @"UID_NUMBER";
@@ -341,7 +365,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_MetadataOptions
-@dynamic gid, mode, symlink, uid;
+@dynamic acl, gid, kmsKey, mode, storageClass, symlink, temporaryHold, uid;
 @end
 
 

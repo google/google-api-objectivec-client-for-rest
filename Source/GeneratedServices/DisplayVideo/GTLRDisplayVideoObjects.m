@@ -1105,6 +1105,12 @@ NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOr
 NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop = @"OVER_THE_TOP";
 NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb = @"RTB";
 
+// GTLRDisplayVideo_InsertionOrder.reservationType
+NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeNotGuaranteed = @"RESERVATION_TYPE_NOT_GUARANTEED";
+NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeProgrammaticGuaranteed = @"RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED";
+NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeTagGuaranteed = @"RESERVATION_TYPE_TAG_GUARANTEED";
+NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeUnspecified = @"RESERVATION_TYPE_UNSPECIFIED";
+
 // GTLRDisplayVideo_InsertionOrderBudget.automationType
 NSString * const kGTLRDisplayVideo_InsertionOrderBudget_AutomationType_InsertionOrderAutomationTypeBidBudget = @"INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET";
 NSString * const kGTLRDisplayVideo_InsertionOrderBudget_AutomationType_InsertionOrderAutomationTypeBudget = @"INSERTION_ORDER_AUTOMATION_TYPE_BUDGET";
@@ -1312,6 +1318,12 @@ NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoDefaul
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInstall = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop = @"LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP";
+
+// GTLRDisplayVideo_LineItem.reservationType
+NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeNotGuaranteed = @"RESERVATION_TYPE_NOT_GUARANTEED";
+NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeProgrammaticGuaranteed = @"RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED";
+NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeTagGuaranteed = @"RESERVATION_TYPE_TAG_GUARANTEED";
+NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeUnspecified = @"RESERVATION_TYPE_UNSPECIFIED";
 
 // GTLRDisplayVideo_LineItem.warningMessages
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AllPartnerEnabledExchangesNegativelyTargeted = @"ALL_PARTNER_ENABLED_EXCHANGES_NEGATIVELY_TARGETED";
@@ -2757,6 +2769,45 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ContactInfo
+//
+
+@implementation GTLRDisplayVideo_ContactInfo
+@dynamic countryCode, hashedEmails, hashedFirstName, hashedLastName,
+         hashedPhoneNumbers, zipCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hashedEmails" : [NSString class],
+    @"hashedPhoneNumbers" : [NSString class],
+    @"zipCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ContactInfoList
+//
+
+@implementation GTLRDisplayVideo_ContactInfoList
+@dynamic contactInfos;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contactInfos" : [GTLRDisplayVideo_ContactInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails
 //
 
@@ -3215,6 +3266,26 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_EditCustomerMatchMembersRequest
+//
+
+@implementation GTLRDisplayVideo_EditCustomerMatchMembersRequest
+@dynamic addedContactInfoList, addedMobileDeviceIdList, advertiserId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_EditCustomerMatchMembersResponse
+//
+
+@implementation GTLRDisplayVideo_EditCustomerMatchMembersResponse
+@dynamic firstAndThirdPartyAudienceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_Empty
 //
 
@@ -3317,12 +3388,13 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_FirstAndThirdPartyAudience
-@dynamic activeDisplayAudienceSize, audienceSource, audienceType,
-         descriptionProperty, displayAudienceSize, displayDesktopAudienceSize,
-         displayMobileAppAudienceSize, displayMobileWebAudienceSize,
-         displayName, firstAndThirdPartyAudienceId,
-         firstAndThirdPartyAudienceType, gmailAudienceSize,
-         membershipDurationDays, name, youtubeAudienceSize;
+@dynamic activeDisplayAudienceSize, appId, audienceSource, audienceType,
+         contactInfoList, descriptionProperty, displayAudienceSize,
+         displayDesktopAudienceSize, displayMobileAppAudienceSize,
+         displayMobileWebAudienceSize, displayName,
+         firstAndThirdPartyAudienceId, firstAndThirdPartyAudienceType,
+         gmailAudienceSize, membershipDurationDays, mobileDeviceIdList, name,
+         youtubeAudienceSize;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3565,7 +3637,7 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 @dynamic advertiserId, bidStrategy, budget, campaignId, displayName,
          entityStatus, frequencyCap, insertionOrderId, insertionOrderType,
          integrationDetails, name, pacing, partnerCosts, performanceGoal,
-         updateTime;
+         reservationType, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3802,10 +3874,11 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_LineItem
 @dynamic advertiserId, bidStrategy, budget, campaignId, conversionCounting,
-         creativeIds, displayName, entityStatus, flight, frequencyCap,
-         insertionOrderId, integrationDetails, inventorySourceIds, lineItemId,
-         lineItemType, mobileApp, name, pacing, partnerCosts,
-         partnerRevenueModel, targetingExpansion, updateTime, warningMessages;
+         creativeIds, displayName, entityStatus, excludeNewExchanges, flight,
+         frequencyCap, insertionOrderId, integrationDetails, inventorySourceIds,
+         lineItemId, lineItemType, mobileApp, name, pacing, partnerCosts,
+         partnerRevenueModel, reservationType, targetingExpansion, updateTime,
+         warningMessages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4569,6 +4642,24 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_MobileApp
 @dynamic appId, displayName, platform, publisher;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_MobileDeviceIdList
+//
+
+@implementation GTLRDisplayVideo_MobileDeviceIdList
+@dynamic mobileDeviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mobileDeviceIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

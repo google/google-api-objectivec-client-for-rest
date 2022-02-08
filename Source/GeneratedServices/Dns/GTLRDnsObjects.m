@@ -578,8 +578,8 @@ NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy = @"b
 @implementation GTLRDns_Quota
 @dynamic dnsKeysPerManagedZone, itemsPerRoutingPolicy, kind, managedZones,
          managedZonesPerNetwork, networksPerManagedZone, networksPerPolicy,
-         policies, resourceRecordsPerRrset, rrsetAdditionsPerChange,
-         rrsetDeletionsPerChange, rrsetsPerManagedZone,
+         peeringZonesPerTargetNetwork, policies, resourceRecordsPerRrset,
+         rrsetAdditionsPerChange, rrsetDeletionsPerChange, rrsetsPerManagedZone,
          targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;
 

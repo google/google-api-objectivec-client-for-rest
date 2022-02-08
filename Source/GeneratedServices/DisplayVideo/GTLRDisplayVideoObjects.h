@@ -70,6 +70,8 @@
 @class GTLRDisplayVideo_CombinedAudience;
 @class GTLRDisplayVideo_CombinedAudienceGroup;
 @class GTLRDisplayVideo_CombinedAudienceTargetingSetting;
+@class GTLRDisplayVideo_ContactInfo;
+@class GTLRDisplayVideo_ContactInfoList;
 @class GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails;
 @class GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails;
@@ -153,6 +155,7 @@
 @class GTLRDisplayVideo_MaximizeSpendBidStrategy;
 @class GTLRDisplayVideo_MeasurementConfig;
 @class GTLRDisplayVideo_MobileApp;
+@class GTLRDisplayVideo_MobileDeviceIdList;
 @class GTLRDisplayVideo_Money;
 @class GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_NativeContentPositionTargetingOptionDetails;
@@ -6361,6 +6364,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrd
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InsertionOrder.reservationType
+
+/**
+ *  Not created through a guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_NOT_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeNotGuaranteed;
+/**
+ *  Created through a programmatic guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeProgrammaticGuaranteed;
+/**
+ *  Created through a tag guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_TAG_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeTagGuaranteed;
+/**
+ *  Reservation type value is not specified or is unknown in this version.
+ *
+ *  Value: "RESERVATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InsertionOrderBudget.automationType
 
 /**
@@ -7432,6 +7463,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  *  Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_LineItem.reservationType
+
+/**
+ *  Not created through a guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_NOT_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeNotGuaranteed;
+/**
+ *  Created through a programmatic guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeProgrammaticGuaranteed;
+/**
+ *  Created through a tag guaranteed inventory source.
+ *
+ *  Value: "RESERVATION_TYPE_TAG_GUARANTEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeTagGuaranteed;
+/**
+ *  Reservation type value is not specified or is unknown in this version.
+ *
+ *  Value: "RESERVATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_LineItem.warningMessages
@@ -11405,23 +11464,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  the details field of an AssignedTargetingOption when targeting_type is
  *  `TARGETING_TYPE_AUDIENCE_GROUP`. The relation between each group is UNION,
  *  except for excluded_first_and_third_party_audience_group and
- *  excluded_google_audience_group, of which COMPLEMENT is UNION'ed with other
- *  groups.
+ *  excluded_google_audience_group, of which COMPLEMENT is used as an
+ *  INTERSECTION with other groups.
  */
 @interface GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails : GTLRObject
 
 /**
  *  The first and third party audience ids and recencies of the excluded first
- *  and third party audience group. Used for negative targeting. Its COMPLEMENT
- *  is used to UNION other audience groups.
+ *  and third party audience group. Used for negative targeting. The COMPLEMENT
+ *  of the UNION of this group and other excluded audience groups is used as an
+ *  INTERSECTION to any positive audience targeting. All items are logically
+ *  ‘OR’ of each other.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FirstAndThirdPartyAudienceGroup *excludedFirstAndThirdPartyAudienceGroup;
 
 /**
  *  The Google audience ids of the excluded Google audience group. Used for
- *  negative targeting. It's COMPLEMENT is used to UNION other audience groups.
- *  Only contains Affinity, In-market and Installed-apps type Google audiences.
- *  All items are logically ‘OR’ of each other.
+ *  negative targeting. The COMPLEMENT of the UNION of this group and other
+ *  excluded audience groups is used as an INTERSECTION to any positive audience
+ *  targeting. Only contains Affinity, In-market and Installed-apps type Google
+ *  audiences. All items are logically ‘OR’ of each other.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GoogleAudienceGroup *excludedGoogleAudienceGroup;
 
@@ -12995,6 +13057,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Contact information defining a Customer Match audience member.
+ */
+@interface GTLRDisplayVideo_ContactInfo : GTLRObject
+
+/**
+ *  Country code of the member. Must also be set with the following fields: *
+ *  hashed_first_name * hashed_last_name * zip_codes
+ */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  A list of SHA256 hashed email of the member. Before hashing, remove all
+ *  whitespace and make sure the string is all lowercase.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hashedEmails;
+
+/**
+ *  SHA256 hashed first name of the member. Before hashing, remove all
+ *  whitespace and make sure the string is all lowercase. Must also be set with
+ *  the following fields: * country_code * hashed_last_name * zip_codes
+ */
+@property(nonatomic, copy, nullable) NSString *hashedFirstName;
+
+/**
+ *  SHA256 hashed last name of the member. Before hashing, remove all whitespace
+ *  and make sure the string is all lowercase. Must also be set with the
+ *  following fields: * country_code * hashed_first_name * zip_codes
+ */
+@property(nonatomic, copy, nullable) NSString *hashedLastName;
+
+/**
+ *  A list of SHA256 hashed phone numbers of the member. Before hashing, all
+ *  phone numbers must be formatted using the [E.164
+ *  format](//en.wikipedia.org/wiki/E.164) and include the country calling code.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hashedPhoneNumbers;
+
+/**
+ *  A list of zip codes of the member. Must also be set with the following
+ *  fields: * country_code * hashed_first_name * hashed_last_name
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *zipCodes;
+
+@end
+
+
+/**
+ *  Wrapper message for a list of contact information defining Customer Match
+ *  audience members.
+ */
+@interface GTLRDisplayVideo_ContactInfoList : GTLRObject
+
+/** A list of ContactInfo objects defining Customer Match audience members. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ContactInfo *> *contactInfos;
+
+@end
+
+
+/**
  *  Assigned content instream position targeting option details. This will be
  *  populated in the content_instream_position_details field when targeting_type
  *  is `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`.
@@ -14384,10 +14505,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRDisplayVideo_Date : GTLRObject
 
@@ -15160,6 +15281,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Request message for
+ *  FirstAndThirdPartyAudienceService.EditCustomerMatchMembers.
+ */
+@interface GTLRDisplayVideo_EditCustomerMatchMembersRequest : GTLRObject
+
+/**
+ *  Input only. A list of contact information to define the members to be added.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *addedContactInfoList;
+
+/**
+ *  Input only. A list of mobile device IDs to define the members to be added.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileDeviceIdList *addedMobileDeviceIdList;
+
+/**
+ *  Required. The ID of the owner advertiser of the updated Customer Match
+ *  FirstAndThirdPartyAudience.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+@end
+
+
+/**
+ *  The response of FirstAndThirdPartyAudienceService.EditCustomerMatchMembers.
+ */
+@interface GTLRDisplayVideo_EditCustomerMatchMembersResponse : GTLRObject
+
+/**
+ *  Required. The ID of the updated Customer Match FirstAndThirdPartyAudience.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstAndThirdPartyAudienceId;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -15824,6 +15987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *activeDisplayAudienceSize;
 
 /**
+ *  The app_id matches with the type of the mobile_device_ids being uploaded.
+ *  Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
  *  Output only. The source of the audience.
  *
  *  Likely values:
@@ -15846,7 +16015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *audienceSource;
 
 /**
- *  Output only. The type of the audience.
+ *  The type of the audience.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudience_AudienceType_ActivityBased
@@ -15877,6 +16046,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        ads, or YouTube channel. (Value: "YOUTUBE_USERS")
  */
 @property(nonatomic, copy, nullable) NSString *audienceType;
+
+/**
+ *  Input only. A list of contact information to define the initial audience
+ *  members. Only applicable to audience_type `CUSTOMER_MATCH_CONTACT_INFO`
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *contactInfoList;
 
 /**
  *  The user-provided description of the audience. Only applicable to first
@@ -15969,11 +16144,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The duration in days that an entry remains in the audience after the
- *  qualifying event. Only applicable to first party audiences.
+ *  qualifying event. If the audience has no expiration, set the value of this
+ *  field to 10000. Otherwise, the set value must be greater than 0 and less
+ *  than or equal to 540. Only applicable to first party audiences. This field
+ *  is required if one of the following audience_type is used: *
+ *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *membershipDurationDays;
+
+/**
+ *  Input only. A list of mobile device IDs to define the initial audience
+ *  members. Only applicable to audience_type `CUSTOMER_MATCH_DEVICE_ID`
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileDeviceIdList *mobileDeviceIdList;
 
 /** Output only. The resource name of the first and third party audience. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -16971,6 +17156,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /** Required. Performance goal of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_PerformanceGoal *performanceGoal;
+
+/**
+ *  Output only. The reservation type of the insertion order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeNotGuaranteed
+ *        Not created through a guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_NOT_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeProgrammaticGuaranteed
+ *        Created through a programmatic guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeTagGuaranteed
+ *        Created through a tag guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_TAG_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_ReservationType_ReservationTypeUnspecified
+ *        Reservation type value is not specified or is unknown in this version.
+ *        (Value: "RESERVATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reservationType;
 
 /**
  *  Output only. The timestamp when the insertion order was last updated.
@@ -18047,6 +18251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
+/**
+ *  Whether to exclude new exchanges from automatically being targeted by the
+ *  line item. This field is false by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *excludeNewExchanges;
+
 /** Required. The start and end time of the line item's flight. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_LineItemFlight *flight;
 
@@ -18136,6 +18348,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /** Required. The partner revenue model setting of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_PartnerRevenueModel *partnerRevenueModel;
+
+/**
+ *  Output only. The reservation type of the line item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeNotGuaranteed
+ *        Not created through a guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_NOT_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeProgrammaticGuaranteed
+ *        Created through a programmatic guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_PROGRAMMATIC_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeTagGuaranteed
+ *        Created through a tag guaranteed inventory source. (Value:
+ *        "RESERVATION_TYPE_TAG_GUARANTEED")
+ *    @arg @c kGTLRDisplayVideo_LineItem_ReservationType_ReservationTypeUnspecified
+ *        Reservation type value is not specified or is unknown in this version.
+ *        (Value: "RESERVATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reservationType;
 
 /**
  *  The [targeting
@@ -19382,6 +19613,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /** Output only. The app publisher. */
 @property(nonatomic, copy, nullable) NSString *publisher;
+
+@end
+
+
+/**
+ *  Wrapper message for a list of mobile device IDs defining Customer Match
+ *  audience members.
+ */
+@interface GTLRDisplayVideo_MobileDeviceIdList : GTLRObject
+
+/** A list of mobile device IDs defining Customer Match audience members. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mobileDeviceIds;
 
 @end
 

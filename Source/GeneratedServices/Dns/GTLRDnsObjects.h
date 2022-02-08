@@ -1295,6 +1295,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 @property(nonatomic, strong, nullable) NSNumber *networksPerPolicy;
 
 /**
+ *  Maximum allowed number of consumer peering zones per target network owned by
+ *  this producer project
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peeringZonesPerTargetNetwork;
+
+/**
  *  Maximum allowed number of policies per project.
  *
  *  Uses NSNumber of intValue.

@@ -38,6 +38,7 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
 
 // GTLRAlertCenter_AppsOutage.status
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Downgraded = @"DOWNGRADED";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_FalsePositive = @"FALSE_POSITIVE";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_Merged     = @"MERGED";
 NSString * const kGTLRAlertCenter_AppsOutage_Status_New        = @"NEW";

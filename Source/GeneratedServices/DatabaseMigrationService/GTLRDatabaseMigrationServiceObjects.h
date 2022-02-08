@@ -197,6 +197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
 // GTLRDatabaseMigrationService_ConnectionProfile.provider
 
 /**
+ *  Amazon Aurora.
+ *
+ *  Value: "AURORA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora;
+/**
  *  CloudSQL runs the database.
  *
  *  Value: "CLOUDSQL"
@@ -292,6 +298,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_En
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_DatabaseType.provider
 
+/**
+ *  Amazon Aurora.
+ *
+ *  Value: "AURORA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora;
 /**
  *  CloudSQL runs the database.
  *
@@ -1000,6 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *  The database provider.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Aurora
+ *        Amazon Aurora. (Value: "AURORA")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_Cloudsql
  *        CloudSQL runs the database. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_ConnectionProfile_Provider_DatabaseProviderUnspecified
@@ -1083,6 +1097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *  The database provider.
  *
  *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Aurora Amazon
+ *        Aurora. (Value: "AURORA")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql
  *        CloudSQL runs the database. (Value: "CLOUDSQL")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Provider_DatabaseProviderUnspecified

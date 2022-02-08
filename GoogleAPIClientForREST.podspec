@@ -180,6 +180,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CertificateAuthorityService/*.{h,m}'
   end
+  s.subspec 'CertificateManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CertificateManager/*.{h,m}'
+  end
   s.subspec 'ChromeManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ChromeManagement/*.{h,m}'
@@ -727,6 +731,10 @@ Pod::Spec.new do |s|
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
+  end
+  s.subspec 'PlayIntegrity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PlayIntegrity/*.{h,m}'
   end
   s.subspec 'PolicyAnalyzer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

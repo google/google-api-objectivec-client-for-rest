@@ -16,12 +16,14 @@
 
 // GTLRCloudKMS_AsymmetricDecryptResponse.protectionLevel
 NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Software = @"SOFTWARE";
 
 // GTLRCloudKMS_AsymmetricSignResponse.protectionLevel
 NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Software = @"SOFTWARE";
@@ -68,6 +70,7 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_RsaSignRawPkcs14096 = 
 
 // GTLRCloudKMS_CryptoKeyVersion.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Software = @"SOFTWARE";
@@ -111,24 +114,28 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_RsaSignRawPkcs
 
 // GTLRCloudKMS_CryptoKeyVersionTemplate.protectionLevel
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software = @"SOFTWARE";
 
 // GTLRCloudKMS_DecryptResponse.protectionLevel
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software = @"SOFTWARE";
 
 // GTLRCloudKMS_EncryptResponse.protectionLevel
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software = @"SOFTWARE";
 
 // GTLRCloudKMS_GenerateRandomBytesRequest.protectionLevel
 NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Software = @"SOFTWARE";
@@ -167,6 +174,7 @@ NSString * const kGTLRCloudKMS_ImportJob_ImportMethod_RsaOaep4096Sha1Aes256 = @"
 
 // GTLRCloudKMS_ImportJob.protectionLevel
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm   = @"HSM";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Software = @"SOFTWARE";
@@ -184,12 +192,14 @@ NSString * const kGTLRCloudKMS_KeyOperationAttestation_Format_CaviumV2Compressed
 
 // GTLRCloudKMS_MacSignResponse.protectionLevel
 NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Software = @"SOFTWARE";
 
 // GTLRCloudKMS_MacVerifyResponse.protectionLevel
 NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm = @"HSM";
 NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Software = @"SOFTWARE";
@@ -223,6 +233,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignRawPkcs14096 = @"RSA_S
 
 // GTLRCloudKMS_PublicKey.protectionLevel
 NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm   = @"HSM";
 NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
@@ -324,6 +335,25 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_Certificate
+//
+
+@implementation GTLRCloudKMS_Certificate
+@dynamic issuer, notAfterTime, notBeforeTime, parsed, rawDer, serialNumber,
+         sha256Fingerprint, subject, subjectAlternativeDnsNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAlternativeDnsNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_CertificateChains
 //
 
@@ -348,8 +378,9 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_CryptoKey
-@dynamic createTime, destroyScheduledDuration, importOnly, labels, name,
-         nextRotationTime, primary, purpose, rotationPeriod, versionTemplate;
+@dynamic createTime, cryptoKeyBackend, destroyScheduledDuration, importOnly,
+         labels, name, nextRotationTime, primary, purpose, rotationPeriod,
+         versionTemplate;
 @end
 
 
@@ -431,6 +462,28 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_EkmConnection
+//
+
+@implementation GTLRCloudKMS_EkmConnection
+@dynamic createTime, ETag, name, serviceResolvers;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceResolvers" : [GTLRCloudKMS_ServiceResolver class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_EncryptRequest
 //
 
@@ -472,7 +525,7 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_ExternalProtectionLevelOptions
-@dynamic externalKeyUri;
+@dynamic ekmConnectionKeyPath, externalKeyUri;
 @end
 
 
@@ -576,6 +629,28 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 
 + (NSString *)collectionItemsKey {
   return @"cryptoKeyVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ListEkmConnectionsResponse
+//
+
+@implementation GTLRCloudKMS_ListEkmConnectionsResponse
+@dynamic ekmConnections, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ekmConnections" : [GTLRCloudKMS_EkmConnection class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"ekmConnections";
 }
 
 @end
@@ -775,6 +850,24 @@ NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
 //
 
 @implementation GTLRCloudKMS_RestoreCryptoKeyVersionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ServiceResolver
+//
+
+@implementation GTLRCloudKMS_ServiceResolver
+@dynamic endpointFilter, hostname, serverCertificates, serviceDirectoryService;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serverCertificates" : [GTLRCloudKMS_Certificate class]
+  };
+  return map;
+}
+
 @end
 
 

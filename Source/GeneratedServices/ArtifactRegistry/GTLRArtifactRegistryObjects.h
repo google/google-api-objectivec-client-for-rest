@@ -956,7 +956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  The Cloud KMS resource name of the customer managed encryption key that’s
+ *  The Cloud KMS resource name of the customer managed encryption key that's
  *  used to encrypt the contents of the Repository. Has the form:
  *  `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
  *  This value may not be changed after the Repository has been created.

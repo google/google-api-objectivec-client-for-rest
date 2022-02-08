@@ -86,28 +86,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity;
 
 // ----------------------------------------------------------------------------
-// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment.recommendedAction
-
-/**
- *  Default unspecified type.
- *
- *  Value: "RECOMMENDED_ACTION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_RecommendedActionUnspecified;
-/**
- *  The customer should probably request 2FA to their user.
- *
- *  Value: "REQUEST_2FA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Request2fa;
-/**
- *  This is likely an already seen and safe request. 2FA can be skipped.
- *
- *  Value: "SKIP_2FA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Skip2fa;
-
-// ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest.annotation
 
 /**
@@ -444,21 +422,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /** Labels for this request. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
-
-/**
- *  Recommended action after this request.
- *
- *  Likely values:
- *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_RecommendedActionUnspecified
- *        Default unspecified type. (Value: "RECOMMENDED_ACTION_UNSPECIFIED")
- *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Request2fa
- *        The customer should probably request 2FA to their user. (Value:
- *        "REQUEST_2FA")
- *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_RecommendedAction_Skip2fa
- *        This is likely an already seen and safe request. 2FA can be skipped.
- *        (Value: "SKIP_2FA")
- */
-@property(nonatomic, copy, nullable) NSString *recommendedAction;
 
 @end
 

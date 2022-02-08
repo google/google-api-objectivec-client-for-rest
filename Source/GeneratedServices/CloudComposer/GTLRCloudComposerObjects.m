@@ -355,7 +355,7 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_PrivateEnvironmentConfig
-@dynamic cloudComposerNetworkIpv4CidrBlock,
+@dynamic cloudComposerConnectionSubnetwork, cloudComposerNetworkIpv4CidrBlock,
          cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
          enablePrivateEnvironment, privateClusterConfig, webServerIpv4CidrBlock,
          webServerIpv4ReservedRange;

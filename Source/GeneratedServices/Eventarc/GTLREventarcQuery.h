@@ -532,6 +532,84 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Get a single Provider.
+ *
+ *  Method: eventarc.projects.locations.providers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsProvidersGet : GTLREventarcQuery
+
+/** Required. The name of the provider to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_Provider.
+ *
+ *  Get a single Provider.
+ *
+ *  @param name Required. The name of the provider to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List providers.
+ *
+ *  Method: eventarc.projects.locations.providers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsProvidersList : GTLREventarcQuery
+
+/** The filter field that the list request will filter on. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The sorting order of the resources returned. Value should be a
+ *  comma-separated list of fields. The default sorting oder is ascending. To
+ *  specify descending order for a field, append a `desc` suffix; for example:
+ *  `name desc, _id`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of providers to return on each page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token; provide the value from the `next_page_token` field in a
+ *  previous `ListProviders` call to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListProviders` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent of the provider to get. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListProvidersResponse.
+ *
+ *  List providers.
+ *
+ *  @param parent Required. The parent of the provider to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsProvidersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Create a new trigger in a particular project and location.
  *
  *  Method: eventarc.projects.locations.triggers.create

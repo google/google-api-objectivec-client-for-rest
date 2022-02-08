@@ -489,17 +489,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_Exe
 // GTLRShoppingContent_FreeListingsProgramStatus.state
 
 /**
- *  Program is not onboarded for any country.
+ *  Program is enabled for at least one country.
  *
- *  Value: "NOT_ONBOARDED"
+ *  Value: "ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Enabled;
 /**
- *  Program is onboarded for at least one country.
+ *  Program is not enabled for any country.
  *
- *  Value: "ONBOARDED"
+ *  Value: "NOT_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotEnabled;
 /**
  *  State is not known.
  *
@@ -1223,17 +1223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 // GTLRShoppingContent_ShoppingAdsProgramStatus.state
 
 /**
- *  Program is not onboarded for any country.
+ *  Program is enabled for at least one country.
  *
- *  Value: "NOT_ONBOARDED"
+ *  Value: "ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Enabled;
 /**
- *  Program is onboarded for at least one country.
+ *  Program is not enabled for any country.
  *
- *  Value: "ONBOARDED"
+ *  Value: "NOT_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotEnabled;
 /**
  *  State is not known.
  *
@@ -3978,10 +3978,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRShoppingContent_Date : GTLRObject
 
@@ -4246,10 +4246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  If program is successfully onboarded for at least one region.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded
- *        Program is not onboarded for any country. (Value: "NOT_ONBOARDED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded
- *        Program is onboarded for at least one country. (Value: "ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_Enabled
+ *        Program is enabled for at least one country. (Value: "ENABLED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_NotEnabled
+ *        Program is not enabled for any country. (Value: "NOT_ENABLED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified
  *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
  */
@@ -13173,10 +13173,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  If program is successfully onboarded for at least one region.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded
- *        Program is not onboarded for any country. (Value: "NOT_ONBOARDED")
- *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded
- *        Program is onboarded for at least one country. (Value: "ONBOARDED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Enabled
+ *        Program is enabled for at least one country. (Value: "ENABLED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotEnabled
+ *        Program is not enabled for any country. (Value: "NOT_ENABLED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified
  *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
  */
