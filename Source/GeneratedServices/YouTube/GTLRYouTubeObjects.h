@@ -9,12 +9,14 @@
 // Documentation:
 //   https://developers.google.com/youtube/
 
-#if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
+#if GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
 #elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRObject.h"
-#else
+#elif COCOAPODS
   #import "GTLRObject.h"
+#else
+  #import <GoogleAPIClientForRESTCore/GTLRObject.h>
 #endif
 
 #if GTLR_RUNTIME_VERSION != 3000
