@@ -14,7 +14,7 @@
 #elif GTLR_BUILT_AS_FRAMEWORK
   #import "GTLR/GTLRService.h"
 #else
-  #import "GTLRService.h"
+  #import "../Objects/GTLRObject.h"
 #endif
 
 #if GTLR_RUNTIME_VERSION != 3000
