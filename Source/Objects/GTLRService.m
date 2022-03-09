@@ -211,12 +211,12 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 + (instancetype)uploadFetcherWithRequest:(NSURLRequest *)request
                           uploadMIMEType:(NSString *)uploadMIMEType
                                chunkSize:(int64_t)chunkSize
-                          fetcherService:(GTM_NULLABLE GTMSessionFetcherService *)fetcherServiceOrNil;
+                          fetcherService:(nullable GTMSessionFetcherService *)fetcherServiceOrNil;
 
 + (instancetype)uploadFetcherWithLocation:(NSURL *)uploadLocationURL
                            uploadMIMEType:(NSString *)uploadMIMEType
                                 chunkSize:(int64_t)chunkSize
-                           fetcherService:(GTM_NULLABLE GTMSessionFetcherService *)fetcherServiceOrNil;
+                           fetcherService:(nullable GTMSessionFetcherService *)fetcherServiceOrNil;
 
 @property(strong) NSURL *uploadLocationURL;
 @property(strong) NSData *uploadData;
