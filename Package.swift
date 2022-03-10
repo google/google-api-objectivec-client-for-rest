@@ -954,7 +954,7 @@ let package = Package(
         // End of products.
     ],
     dependencies: [
-        .package(url: "https://github.com/google/gtm-session-fetcher.git", from: "1.4.0")
+        .package(url: "https://github.com/google/gtm-session-fetcher.git", "1.6.1" ..< "2.0.0"),
     ],
     targets: [
         .target(

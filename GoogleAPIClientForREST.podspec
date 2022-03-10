@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   # Require at least 1.6.1 of the SessionFetcher since it has the same
   # deployment targets.
-  s.dependency 'GTMSessionFetcher', '>= 1.6.1'
+  s.dependency 'GTMSessionFetcher', '>= 1.6.1', '< 2.0'
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'Source/GTLRDefines.h',
