@@ -561,7 +561,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 @implementation GTLRLogging_LogEntry
 @dynamic httpRequest, insertId, jsonPayload, labels, logName, metadata,
          operation, protoPayload, receiveTimestamp, resource, severity,
-         sourceLocation, spanId, textPayload, timestamp, trace, traceSampled;
+         sourceLocation, spanId, split, textPayload, timestamp, trace,
+         traceSampled;
 @end
 
 
@@ -709,6 +710,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_LogSplit
+//
+
+@implementation GTLRLogging_LogSplit
+@dynamic index, totalSplits, uid;
 @end
 
 
@@ -913,7 +924,8 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_Settings
-@dynamic disableDefaultSink, name, storageLocation;
+@dynamic disableDefaultSink, kmsKeyName, kmsServiceAccountId, name,
+         storageLocation;
 @end
 
 

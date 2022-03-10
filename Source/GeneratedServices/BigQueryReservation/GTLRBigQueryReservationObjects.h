@@ -242,6 +242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 /**
  *  Output only. Name of the resource. E.g.:
  *  `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
+ *  For the assignment id, it must only contain lower case alphanumeric
+ *  characters or dashes and the max length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -314,8 +316,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Status *failureStatus;
 
 /**
+ *  Applicable only for commitments located within one of the BigQuery
+ *  multi-regions (US or EU). If set to true, this commitment is placed in the
+ *  organization's secondary region which is designated for disaster recovery
+ *  purposes. If false, this commitment is placed in the organization's default
+ *  region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary;
+
+/**
  *  Output only. The resource name of the capacity commitment, e.g.,
- *  `projects/myproject/locations/US/capacityCommitments/123`
+ *  `projects/myproject/locations/US/capacityCommitments/123` For the commitment
+ *  id, it must only contain lower case alphanumeric characters or dashes.It
+ *  must start with a letter and must not end with a dash. Its maximum length is
+ *  64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -537,6 +553,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  */
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
+/**
+ *  Maximum number of queries that are allowed to run concurrently in this
+ *  reservation. This is a soft limit due to asynchronous nature of the system
+ *  and various optimizations for small queries. Default value is 0 which means
+ *  that concurrency will be automatically set based on the reservation size.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *concurrency;
+
 /** Output only. Creation time of the reservation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
@@ -551,8 +577,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSNumber *ignoreIdleSlots;
 
 /**
+ *  Applicable only for reservations located within one of the BigQuery
+ *  multi-regions (US or EU). If set to true, this reservation is placed in the
+ *  organization's secondary region which is designated for disaster recovery
+ *  purposes. If false, this reservation is placed in the organization's default
+ *  region.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multiRegionAuxiliary;
+
+/**
  *  The resource name of the reservation, e.g., `projects/ * /locations/ *
- *  /reservations/team1-prod`.
+ *  /reservations/team1-prod`. For the reservation id, it must only contain
+ *  lower case alphanumeric characters or dashes.It must start with a letter and
+ *  must not end with a dash. Its maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

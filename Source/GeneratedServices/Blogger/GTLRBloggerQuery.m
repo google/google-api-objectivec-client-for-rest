@@ -33,13 +33,14 @@ NSString * const kGTLRBloggerRoleReader              = @"READER";
 NSString * const kGTLRBloggerRoleViewTypeUnspecified = @"VIEW_TYPE_UNSPECIFIED";
 
 // status
-NSString * const kGTLRBloggerStatusDeleted   = @"DELETED";
-NSString * const kGTLRBloggerStatusDraft     = @"DRAFT";
-NSString * const kGTLRBloggerStatusEmptied   = @"EMPTIED";
-NSString * const kGTLRBloggerStatusLive      = @"LIVE";
-NSString * const kGTLRBloggerStatusPending   = @"PENDING";
-NSString * const kGTLRBloggerStatusScheduled = @"SCHEDULED";
-NSString * const kGTLRBloggerStatusSpam      = @"SPAM";
+NSString * const kGTLRBloggerStatusDeleted     = @"DELETED";
+NSString * const kGTLRBloggerStatusDraft       = @"DRAFT";
+NSString * const kGTLRBloggerStatusEmptied     = @"EMPTIED";
+NSString * const kGTLRBloggerStatusLive        = @"LIVE";
+NSString * const kGTLRBloggerStatusPending     = @"PENDING";
+NSString * const kGTLRBloggerStatusScheduled   = @"SCHEDULED";
+NSString * const kGTLRBloggerStatusSoftTrashed = @"SOFT_TRASHED";
+NSString * const kGTLRBloggerStatusSpam        = @"SPAM";
 
 // view
 NSString * const kGTLRBloggerViewAdmin               = @"ADMIN";

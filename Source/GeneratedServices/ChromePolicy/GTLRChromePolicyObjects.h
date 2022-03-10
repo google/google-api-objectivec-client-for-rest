@@ -623,6 +623,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 @interface GTLRChromePolicy_GoogleChromePolicyV1ResolvedPolicy : GTLRObject
 
 /**
+ *  Output only. The added source key establishes at which level an entity was
+ *  explicitly added for management. This is useful for certain type of policies
+ *  that are only applied if they are explicitly added for management. For
+ *  example: apps and networks. An entity can only be deleted from management in
+ *  an Organizational Unit that it was explicitly added to. If this is not
+ *  present it means that the policy is managed without the need to explicitly
+ *  add an entity, for example: standard user or device policies.
+ */
+@property(nonatomic, strong, nullable) GTLRChromePolicy_GoogleChromePolicyV1PolicyTargetKey *addedSourceKey;
+
+/**
  *  Output only. The source resource from which this policy value is obtained.
  *  May be the same as `targetKey` if the policy is directly modified on the
  *  target, otherwise it would be another resource from which the policy gets
@@ -749,11 +760,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRChromePolicy_GoogleTypeDate : GTLRObject
 

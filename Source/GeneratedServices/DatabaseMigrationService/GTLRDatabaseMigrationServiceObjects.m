@@ -32,6 +32,7 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres14 = @"POSTGRES_14";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 
@@ -281,6 +282,34 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_DumpFlag
+//
+
+@implementation GTLRDatabaseMigrationService_DumpFlag
+@dynamic name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_DumpFlags
+//
+
+@implementation GTLRDatabaseMigrationService_DumpFlags
+@dynamic dumpFlags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dumpFlags" : [GTLRDatabaseMigrationService_DumpFlag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Empty
 //
 
@@ -458,10 +487,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_MigrationJob
-@dynamic createTime, destination, destinationDatabase, displayName, dumpPath,
-         duration, endTime, error, labels, name, phase, reverseSshConnectivity,
-         source, sourceDatabase, state, staticIpConnectivity, type, updateTime,
-         vpcPeeringConnectivity;
+@dynamic createTime, destination, destinationDatabase, displayName, dumpFlags,
+         dumpPath, duration, endTime, error, labels, name, phase,
+         reverseSshConnectivity, source, sourceDatabase, state,
+         staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
 
 

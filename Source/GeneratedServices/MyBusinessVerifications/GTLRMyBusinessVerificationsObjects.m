@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRMyBusinessVerifications_ComplyWithGuidelines.recommendationReason
+NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationDisabled = @"BUSINESS_LOCATION_DISABLED";
+NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_BusinessLocationSuspended = @"BUSINESS_LOCATION_SUSPENDED";
+NSString * const kGTLRMyBusinessVerifications_ComplyWithGuidelines_RecommendationReason_RecommendationReasonUnspecified = @"RECOMMENDATION_REASON_UNSPECIFIED";
+
 // GTLRMyBusinessVerifications_Verification.method
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Address = @"ADDRESS";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Auto = @"AUTO";
@@ -83,6 +88,7 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Vette
 //
 
 @implementation GTLRMyBusinessVerifications_ComplyWithGuidelines
+@dynamic recommendationReason;
 @end
 
 

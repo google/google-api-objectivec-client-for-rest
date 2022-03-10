@@ -35,6 +35,10 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ContactsPerson;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexFilesetSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexTableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
@@ -44,10 +48,18 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PersonalDetails;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaCsvSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaOrcSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaParquetSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument;
@@ -56,6 +68,7 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1TableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Tag;
@@ -170,6 +183,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Data
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_TableTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable.system
+
+/**
+ *  BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Bigquery;
+/**
+ *  Cloud Pub/Sub.
+ *
+ *  Value: "CLOUD_PUBSUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub;
+/**
+ *  Dataplex.
+ *
+ *  Value: "DATAPLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Dataplex;
+/**
+ *  Dataproc Metastore.
+ *
+ *  Value: "DATAPROC_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_DataprocMetastore;
+/**
+ *  Default unknown system.
+ *
+ *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_IntegratedSystemUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource.service
 
 /**
@@ -206,6 +253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub;
+/**
+ *  Dataplex.
+ *
+ *  Value: "DATAPLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Dataplex;
 /**
  *  Dataproc Metastore.
  *
@@ -261,6 +314,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset;
 /**
+ *  A Dataplex lake.
+ *
+ *  Value: "LAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake;
+/**
  *  Output only. The type of models. For more information, see [Supported models
  *  in BigQuery ML]
  *  (https://cloud.google.com/bigquery-ml/docs/introduction#supported_models_in).
@@ -287,6 +346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  *  Value: "TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table;
+/**
+ *  A Dataplex zone.
+ *
+ *  Value: "ZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Zone;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType.primitiveType
@@ -393,6 +458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Sear
  *  Value: "CLOUD_PUBSUB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub;
+/**
+ *  Dataplex.
+ *
+ *  Value: "DATAPLEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Dataplex;
 /**
  *  Dataproc Metastore.
  *
@@ -860,6 +931,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec : GTLRObject
 
 /**
+ *  Fields specific to a Dataplex table and present only in the Dataplex table
+ *  entries.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexTableSpec *dataplexTable;
+
+/**
  *  Type of this table.
  *
  *  Likely values:
@@ -871,6 +948,108 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown table type. (Value: "TABLE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  External table registered by Dataplex. Dataplex publishes data discovered
+ *  from an asset into multiple other systems (BigQuery, DPMS) in form of
+ *  tables. We call them "external tables". External tables are also synced into
+ *  the Data Catalog. This message contains pointers to those external tables
+ *  (fully qualified name, resource name et cetera) within the Data Catalog.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable : GTLRObject
+
+/** Name of the Data Catalog entry representing the external table. */
+@property(nonatomic, copy, nullable) NSString *dataCatalogEntry;
+
+/** Fully qualified name (FQN) of the external table. */
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
+
+/** Google Cloud resource name of the external table. */
+@property(nonatomic, copy, nullable) NSString *googleCloudResource;
+
+/**
+ *  Service in which the external table is registered.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Bigquery
+ *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_CloudPubsub
+ *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_Dataplex
+ *        Dataplex. (Value: "DATAPLEX")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_DataprocMetastore
+ *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable_System_IntegratedSystemUnspecified
+ *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *system;
+
+@end
+
+
+/**
+ *  Entry specyfication for a Dataplex fileset.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexFilesetSpec : GTLRObject
+
+/** Common Dataplex fields. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec *dataplexSpec;
+
+@end
+
+
+/**
+ *  Common Dataplex fields.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec : GTLRObject
+
+/**
+ *  Fully qualified resource name of an asset in Dataplex, to which the
+ *  underlying data source (Cloud Storage bucket or BigQuery dataset) of the
+ *  entity is attached.
+ */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/** Compression format of the data, e.g., zip, gzip etc. */
+@property(nonatomic, copy, nullable) NSString *compressionFormat;
+
+/** Format of the data. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema *dataFormat;
+
+/**
+ *  Project ID of the underlying Cloud Storage or BigQuery data. Note that this
+ *  may not be the same project as the correspondingly Dataplex lake / zone /
+ *  asset.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  Entry specification for a Dataplex table.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexTableSpec : GTLRObject
+
+/** Common Dataplex fields. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexSpec *dataplexSpec;
+
+/**
+ *  List of external tables registered by Dataplex in other systems based on the
+ *  same underlying data. External tables allow to query this data in those
+ *  systems.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexExternalTable *> *externalTables;
+
+/**
+ *  Indicates if the table schema is managed by the user or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userManaged;
 
 @end
 
@@ -898,6 +1077,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        Default unknown service. (Value: "SERVICE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+/** Output only. Data Catalog entry name, if applicable. */
+@property(nonatomic, copy, nullable) NSString *sourceEntry;
+
+/** Detailed properties of the underlying storage. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties *storageProperties;
 
 @end
 
@@ -975,6 +1160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Specification that applies to a fileset resource. Valid only for entries
+ *  with the `FILESET` type.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec *filesetSpec;
+
+/**
  *  Fully qualified name (FQN) of the resource. Set automatically for entries
  *  representing resources from synced systems. Settable only during creation
  *  and read-only afterwards. Can be used for search and lookup of the entries.
@@ -1002,6 +1193,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Dataplex
+ *        Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_DataprocMetastore
  *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified
@@ -1082,6 +1275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset An
  *        entry type for a set of files or objects. For example, a Cloud Storage
  *        fileset. (Value: "FILESET")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake A
+ *        Dataplex lake. (Value: "LAKE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model Output
  *        only. The type of models. For more information, see [Supported models
  *        in BigQuery ML]
@@ -1094,6 +1289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table Output
  *        only. The entry type that has a GoogleSQL schema, including logical
  *        views. (Value: "TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Zone A
+ *        Dataplex zone. (Value: "ZONE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1259,6 +1456,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  length is 200 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
+ *  Specification that applies to a fileset. Valid only for entries with the
+ *  'FILESET' type.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec : GTLRObject
+
+/**
+ *  Fields specific to a Dataplex fileset and present only in the Dataplex
+ *  fileset entries.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataplexFilesetSpec *dataplexFileset;
 
 @end
 
@@ -1529,6 +1741,87 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Set if the entry is starred; unset otherwise. */
 @property(nonatomic, strong, nullable) GTLRDateTime *starTime;
+
+@end
+
+
+/**
+ *  Native schema used by a resource represented as an entry. Used by query
+ *  engines for deserializing and parsing source data.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchema : GTLRObject
+
+/** Schema in Avro JSON format. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema *avro;
+
+/** Marks a CSV-encoded data source. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaCsvSchema *csv;
+
+/** Marks an ORC-encoded data source. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaOrcSchema *orc;
+
+/** Marks a Parquet-encoded data source. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaParquetSchema *parquet;
+
+/** Schema in protocol buffer format. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema *protobuf;
+
+/** Schema in Thrift format. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema *thrift;
+
+@end
+
+
+/**
+ *  Schema in Avro JSON format.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaAvroSchema : GTLRObject
+
+/** JSON source of the Avro schema. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Marks a CSV-encoded data source.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaCsvSchema : GTLRObject
+@end
+
+
+/**
+ *  Marks an ORC-encoded data source.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaOrcSchema : GTLRObject
+@end
+
+
+/**
+ *  Marks a Parquet-encoded data source.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaParquetSchema : GTLRObject
+@end
+
+
+/**
+ *  Schema in protocol buffer format.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaProtobufSchema : GTLRObject
+
+/** Protocol buffer source of the schema. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Schema in Thrift format.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PhysicalSchemaThriftSchema : GTLRObject
+
+/** Thrift IDL source of the schema. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
@@ -1894,6 +2187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Dataplex
+ *        Dataplex. (Value: "DATAPLEX")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_DataprocMetastore
  *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified
@@ -2020,6 +2315,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Response message for StarEntry. Empty for now
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1StarEntryResponse : GTLRObject
+@end
+
+
+/**
+ *  Details the properties of the underlying storage.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties : GTLRObject
+
+/**
+ *  Patterns to identify a set of files for this fileset. Examples of a valid
+ *  `file_pattern`: * `gs://bucket_name/dir/ *`: matches all files in the
+ *  `bucket_name/dir` directory * `gs://bucket_name/dir/ **`: matches all files
+ *  in the `bucket_name/dir` and all subdirectories recursively *
+ *  `gs://bucket_name/file*`: matches files prefixed by `file` in `bucket_name`
+ *  * `gs://bucket_name/??.txt`: matches files with two characters followed by
+ *  `.txt` in `bucket_name` * `gs://bucket_name/[aeiou].txt`: matches files that
+ *  contain a single vowel character followed by `.txt` in `bucket_name` *
+ *  `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ... or
+ *  `m` followed by `.txt` in `bucket_name` * `gs://bucket_name/a/ * /b`:
+ *  matches all files in `bucket_name` that match the `a/ * /b` pattern, such as
+ *  `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches
+ *  `gs://another_bucket/a.txt`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filePattern;
+
+/** File type in MIME format, for example, `text/plain`. */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
 @end
 
 
@@ -2228,7 +2551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  Indicates whether tags created with this template are public. Public tags do
  *  not require tag template access to appear in ListTags API response.
  *  Additionally, you can search for a public tag by value with a simple search
- *  query instead of using a ``tag:`` predicate.
+ *  query in addition to using a ``tag:`` predicate.
  *
  *  Uses NSNumber of boolValue.
  */

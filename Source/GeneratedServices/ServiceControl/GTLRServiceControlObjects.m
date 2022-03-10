@@ -12,6 +12,20 @@
 #import "GTLRServiceControlObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRServiceControl_V2LogEntry.severity
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Alert = @"ALERT";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Debug = @"DEBUG";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Default = @"DEFAULT";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Emergency = @"EMERGENCY";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Error = @"ERROR";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Info  = @"INFO";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Notice = @"NOTICE";
+NSString * const kGTLRServiceControl_V2LogEntry_Severity_Warning = @"WARNING";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRServiceControl_Api
 //
@@ -550,4 +564,109 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2HttpRequest
+//
+
+@implementation GTLRServiceControl_V2HttpRequest
+@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
+         latency, protocol, referer, remoteIp, requestMethod, requestSize,
+         requestUrl, responseSize, serverIp, status, userAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntry
+//
+
+@implementation GTLRServiceControl_V2LogEntry
+@dynamic httpRequest, insertId, labels, monitoredResourceLabels, name,
+         operation, protoPayload, severity, sourceLocation, structPayload,
+         textPayload, timestamp, trace;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntry_Labels
+//
+
+@implementation GTLRServiceControl_V2LogEntry_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntry_MonitoredResourceLabels
+//
+
+@implementation GTLRServiceControl_V2LogEntry_MonitoredResourceLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntry_ProtoPayload
+//
+
+@implementation GTLRServiceControl_V2LogEntry_ProtoPayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntry_StructPayload
+//
+
+@implementation GTLRServiceControl_V2LogEntry_StructPayload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntryOperation
+//
+
+@implementation GTLRServiceControl_V2LogEntryOperation
+@dynamic first, identifier, last, producer;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_V2LogEntrySourceLocation
+//
+
+@implementation GTLRServiceControl_V2LogEntrySourceLocation
+@dynamic file, function, line;
 @end

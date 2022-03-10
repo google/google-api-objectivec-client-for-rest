@@ -140,13 +140,6 @@ NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_ForwardCompliant
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_NonCompliant = @"NON_COMPLIANT";
 NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRCloudIdentity_UserInvitation.state
-NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted = @"ACCEPTED";
-NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined = @"DECLINED";
-NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited = @"INVITED";
-NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent = @"NOT_YET_SENT";
-NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudIdentity_CheckTransitiveMembershipResponse
@@ -661,7 +654,7 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest
-@dynamic customer;
+@dynamic customer, removeResetLock;
 @end
 
 
@@ -1146,14 +1139,4 @@ NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"ST
 
 @implementation GTLRCloudIdentity_UpdateMembershipRolesParams
 @dynamic fieldMask, membershipRole;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudIdentity_UserInvitation
-//
-
-@implementation GTLRCloudIdentity_UserInvitation
-@dynamic mailsSentCount, name, state, updateTime;
 @end

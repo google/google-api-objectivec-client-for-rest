@@ -456,6 +456,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Optional. This field sets the CA to have a pending delete duration of 0.
+ */
+@property(nonatomic, assign) BOOL skipGracePeriod;
+
+/**
  *  Fetches a @c GTLRCertificateAuthorityService_Operation.
  *
  *  Delete a CertificateAuthority.

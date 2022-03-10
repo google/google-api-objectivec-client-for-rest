@@ -39,7 +39,7 @@ NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly = @"https:/
 
 + (NSDictionary<NSString *, Class> *)kindStringToClassMap {
   return @{
-    @"deploymentmanager#operation" : [GTLRDeploymentManager_Operation class],
+    @"compute#operation" : [GTLRDeploymentManager_Operation class],
   };
 }
 

@@ -99,11 +99,13 @@ NSString * const kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized = @"PUSH_NOT
 NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
 
 // GTLRCloudBuild_GitFileSource.repoType
+NSString * const kGTLRCloudBuild_GitFileSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github = @"GITHUB";
 NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Unknown = @"UNKNOWN";
 
 // GTLRCloudBuild_GitRepoSource.repoType
+NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_BitbucketServer = @"BITBUCKET_SERVER";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github = @"GITHUB";
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown = @"UNKNOWN";
@@ -716,7 +718,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_GitFileSource
-@dynamic path, repoType, revision, uri;
+@dynamic bitbucketServerConfig, githubEnterpriseConfig, path, repoType,
+         revision, uri;
 @end
 
 
@@ -760,17 +763,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_GitRepoSource
-@dynamic ref, repoType, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig
-//
-
-@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV1BuildOptionsPoolOptionWorkerConfig
-@dynamic diskSizeGb, memoryGb, vcpuCount;
+@dynamic bitbucketServerConfig, githubEnterpriseConfig, ref, repoType, uri;
 @end
 
 
@@ -834,26 +827,6 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_HTTPDelivery
 @dynamic uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_HybridPoolConfig
-//
-
-@implementation GTLRCloudBuild_HybridPoolConfig
-@dynamic defaultWorkerConfig, membership;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBuild_HybridWorkerConfig
-//
-
-@implementation GTLRCloudBuild_HybridWorkerConfig
-@dynamic diskSizeGb, memoryGb, vcpuCount;
 @end
 
 
@@ -1163,7 +1136,7 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_PoolOption
-@dynamic name, workerConfig;
+@dynamic name;
 @end
 
 
@@ -1304,6 +1277,17 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 
 @implementation GTLRCloudBuild_RunBuildTriggerRequest
 @dynamic projectId, source, triggerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_RunWorkflowCustomOperationMetadata
+//
+
+@implementation GTLRCloudBuild_RunWorkflowCustomOperationMetadata
+@dynamic apiVersion, createTime, endTime, pipelineRunId, requestedCancellation,
+         target, verb;
 @end
 
 
@@ -1575,8 +1559,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Updating     = @"UPDATING";
 //
 
 @implementation GTLRCloudBuild_WorkerPool
-@dynamic annotations, createTime, deleteTime, displayName, ETag,
-         hybridPoolConfig, name, privatePoolV1Config, state, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, ETag, name,
+         privatePoolV1Config, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

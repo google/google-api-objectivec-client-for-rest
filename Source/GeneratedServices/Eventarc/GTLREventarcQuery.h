@@ -774,6 +774,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLREventarcQuery_ProjectsLocationsTriggersList : GTLREventarcQuery
 
 /**
+ *  Filter field. Used to filter the Triggers to be listed. Possible filters are
+ *  described in https://google.aip.dev/160. For example, using
+ *  "?filter=destination:gke" would list only Triggers with a gke destination.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  The sorting order of the resources returned. Value should be a
  *  comma-separated list of fields. The default sorting order is ascending. To
  *  specify descending order for a field, append a `desc` suffix; for example:

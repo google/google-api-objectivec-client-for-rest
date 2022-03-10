@@ -48,6 +48,8 @@ NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_Ee
 
 // GTLRAndroidPublisher_RegionalTaxRateInfo.taxTier
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierBooks1 = @"TAX_TIER_BOOKS_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierLiveOrBroadcast1 = @"TAX_TIER_LIVE_OR_BROADCAST_1";
+NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierMusicOrAudio1 = @"TAX_TIER_MUSIC_OR_AUDIO_1";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1 = @"TAX_TIER_NEWS_1";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";

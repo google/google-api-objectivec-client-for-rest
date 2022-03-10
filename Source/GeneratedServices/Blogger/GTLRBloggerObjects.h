@@ -99,6 +99,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Comment_Status_Spam;
 FOUNDATION_EXTERN NSString * const kGTLRBlogger_Page_Status_Draft;
 /** Value: "LIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRBlogger_Page_Status_Live;
+/** Value: "SOFT_TRASHED" */
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Page_Status_SoftTrashed;
 
 // ----------------------------------------------------------------------------
 // GTLRBlogger_Pageviews_Counts_Item.timeRange
@@ -129,6 +131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Draft;
 FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Live;
 /** Value: "SCHEDULED" */
 FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
+/** Value: "SOFT_TRASHED" */
+FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_SoftTrashed;
 
 /**
  *  GTLRBlogger_Blog
@@ -542,6 +546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
  *  Likely values:
  *    @arg @c kGTLRBlogger_Page_Status_Draft Value "DRAFT"
  *    @arg @c kGTLRBlogger_Page_Status_Live Value "LIVE"
+ *    @arg @c kGTLRBlogger_Page_Status_SoftTrashed Value "SOFT_TRASHED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -752,6 +757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBlogger_Post_Status_Scheduled;
  *    @arg @c kGTLRBlogger_Post_Status_Draft Value "DRAFT"
  *    @arg @c kGTLRBlogger_Post_Status_Live Value "LIVE"
  *    @arg @c kGTLRBlogger_Post_Status_Scheduled Value "SCHEDULED"
+ *    @arg @c kGTLRBlogger_Post_Status_SoftTrashed Value "SOFT_TRASHED"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 

@@ -567,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BasicChartSpec_StackedType_Stacke
 
 /**
  *  Instructs date, time, datetime, and duration fields to be output as strings
- *  in their given number format (which is dependent on the spreadsheet locale).
+ *  in their given number format (which depends on the spreadsheet locale).
  *
  *  Value: "FORMATTED_STRING"
  */
@@ -578,7 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
  *  portion of the value (left of the decimal) counts the days since December
  *  30th 1899. The fractional portion (right of the decimal) counts the time as
  *  a fraction of the day. For example, January 1st 1900 at noon would be 2.5, 2
- *  because it's 2 days after December 30st 1899, and .5 because noon is half a
+ *  because it's 2 days after December 30th 1899, and .5 because noon is half a
  *  day. February 1st 1900 at 3pm would be 33.625. This correctly treats the
  *  year 1900 as not a leap year.
  *
@@ -642,7 +642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchGetValuesByDataFilterRequest
 
 /**
  *  Instructs date, time, datetime, and duration fields to be output as strings
- *  in their given number format (which is dependent on the spreadsheet locale).
+ *  in their given number format (which depends on the spreadsheet locale).
  *
  *  Value: "FORMATTED_STRING"
  */
@@ -653,7 +653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
  *  portion of the value (left of the decimal) counts the days since December
  *  30th 1899. The fractional portion (right of the decimal) counts the time as
  *  a fraction of the day. For example, January 1st 1900 at noon would be 2.5, 2
- *  because it's 2 days after December 30st 1899, and .5 because noon is half a
+ *  because it's 2 days after December 30th 1899, and .5 because noon is half a
  *  day. February 1st 1900 at 3pm would be 33.625. This correctly treats the
  *  year 1900 as not a leap year.
  *
@@ -720,7 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesByDataFilterRequ
 
 /**
  *  Instructs date, time, datetime, and duration fields to be output as strings
- *  in their given number format (which is dependent on the spreadsheet locale).
+ *  in their given number format (which depends on the spreadsheet locale).
  *
  *  Value: "FORMATTED_STRING"
  */
@@ -731,7 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BatchUpdateValuesRequest_Response
  *  portion of the value (left of the decimal) counts the days since December
  *  30th 1899. The fractional portion (right of the decimal) counts the time as
  *  a fraction of the day. For example, January 1st 1900 at noon would be 2.5, 2
- *  because it's 2 days after December 30st 1899, and .5 because noon is half a
+ *  because it's 2 days after December 30th 1899, and .5 because noon is half a
  *  day. February 1st 1900 at 3pm would be 33.625. This correctly treats the
  *  year 1900 as not a leap year.
  *
@@ -4454,8 +4454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString
  *        Instructs date, time, datetime, and duration fields to be output as
- *        strings in their given number format (which is dependent on the
- *        spreadsheet locale). (Value: "FORMATTED_STRING")
+ *        strings in their given number format (which depends on the spreadsheet
+ *        locale). (Value: "FORMATTED_STRING")
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_SerialNumber
  *        Instructs date, time, datetime, and duration fields to be output as
  *        doubles in "serial number" format, as popularized by Lotus 1-2-3. The
@@ -4463,7 +4463,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        days since December 30th 1899. The fractional portion (right of the
  *        decimal) counts the time as a fraction of the day. For example,
  *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
- *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        December 30th 1899, and .5 because noon is half a day. February 1st
  *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
  *        not a leap year. (Value: "SERIAL_NUMBER")
  */
@@ -4636,8 +4636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString
  *        Instructs date, time, datetime, and duration fields to be output as
- *        strings in their given number format (which is dependent on the
- *        spreadsheet locale). (Value: "FORMATTED_STRING")
+ *        strings in their given number format (which depends on the spreadsheet
+ *        locale). (Value: "FORMATTED_STRING")
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_SerialNumber
  *        Instructs date, time, datetime, and duration fields to be output as
  *        doubles in "serial number" format, as popularized by Lotus 1-2-3. The
@@ -4645,7 +4645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        days since December 30th 1899. The fractional portion (right of the
  *        decimal) counts the time as a fraction of the day. For example,
  *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
- *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        December 30th 1899, and .5 because noon is half a day. February 1st
  *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
  *        not a leap year. (Value: "SERIAL_NUMBER")
  */
@@ -4767,8 +4767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString
  *        Instructs date, time, datetime, and duration fields to be output as
- *        strings in their given number format (which is dependent on the
- *        spreadsheet locale). (Value: "FORMATTED_STRING")
+ *        strings in their given number format (which depends on the spreadsheet
+ *        locale). (Value: "FORMATTED_STRING")
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_SerialNumber
  *        Instructs date, time, datetime, and duration fields to be output as
  *        doubles in "serial number" format, as popularized by Lotus 1-2-3. The
@@ -4776,7 +4776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        days since December 30th 1899. The fractional portion (right of the
  *        decimal) counts the time as a fraction of the day. For example,
  *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
- *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        December 30th 1899, and .5 because noon is half a day. February 1st
  *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
  *        not a leap year. (Value: "SERIAL_NUMBER")
  */

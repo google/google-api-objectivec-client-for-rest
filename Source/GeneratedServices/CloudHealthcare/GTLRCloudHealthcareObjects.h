@@ -2046,6 +2046,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_ExportResourcesRequest : GTLRObject
 
 /**
+ *  If provided, only resources updated after this time are exported. The time
+ *  uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For example,
+ *  `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`. The time must be
+ *  specified to the second and include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *xSince;
+
+/**
+ *  String of comma-delimited FHIR resource types. If provided, only resources
+ *  of the specified resource type(s) are exported.
+ */
+@property(nonatomic, copy, nullable) NSString *xType;
+
+/**
  *  The BigQuery output destination. The Cloud Healthcare Service Agent requires
  *  two IAM roles on the BigQuery location: `roles/bigquery.dataEditor` and
  *  `roles/bigquery.jobUser`. The output is one BigQuery table per resource

@@ -27,7 +27,6 @@
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
 @class GTLRArtifactRegistry_Hash;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
-@class GTLRArtifactRegistry_ImportGooGetArtifactsGcsSource;
 @class GTLRArtifactRegistry_ImportYumArtifactsGcsSource;
 @class GTLRArtifactRegistry_MavenRepositoryConfig;
 @class GTLRArtifactRegistry_Operation;
@@ -435,35 +434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
 
 /** Google Cloud Storage location where input content is located. */
 @property(nonatomic, strong, nullable) GTLRArtifactRegistry_ImportAptArtifactsGcsSource *gcsSource;
-
-@end
-
-
-/**
- *  Google Cloud Storage location where the artifacts currently reside.
- */
-@interface GTLRArtifactRegistry_ImportGooGetArtifactsGcsSource : GTLRObject
-
-/** Cloud Storage paths URI (e.g., gs://my_bucket/my_object). */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
-
-/**
- *  Supports URI wildcards for matching multiple objects from a single URI.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *useWildcards;
-
-@end
-
-
-/**
- *  The request to import new googet artifacts.
- */
-@interface GTLRArtifactRegistry_ImportGooGetArtifactsRequest : GTLRObject
-
-/** Google Cloud Storage location where input content is located. */
-@property(nonatomic, strong, nullable) GTLRArtifactRegistry_ImportGooGetArtifactsGcsSource *gcsSource;
 
 @end
 
@@ -1132,24 +1102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
  *  The request to upload an artifact.
  */
 @interface GTLRArtifactRegistry_UploadAptArtifactRequest : GTLRObject
-@end
-
-
-/**
- *  The response to upload an artifact.
- */
-@interface GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse : GTLRObject
-
-/** Operation to be returned to the user. */
-@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Operation *operation;
-
-@end
-
-
-/**
- *  The request to upload an artifact.
- */
-@interface GTLRArtifactRegistry_UploadGooGetArtifactRequest : GTLRObject
 @end
 
 

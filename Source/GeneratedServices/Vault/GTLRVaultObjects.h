@@ -1622,6 +1622,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  */
 @property(nonatomic, strong, nullable) NSNumber *showConfidentialModeContent;
 
+/**
+ *  To use the new export system, set to **true**.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useNewExport;
+
 @end
 
 

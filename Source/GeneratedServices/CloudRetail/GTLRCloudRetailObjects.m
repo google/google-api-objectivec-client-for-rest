@@ -1461,7 +1461,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec
-@dynamic conditionBoostSpecs;
+@dynamic conditionBoostSpecs, skipBoostSpecValidation;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1559,12 +1559,14 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
 @dynamic appliedControls, attributionToken, correctedQuery, facets,
-         nextPageToken, queryExpansionInfo, redirectUri, results, totalSize;
+         invalidConditionBoostSpecs, nextPageToken, queryExpansionInfo,
+         redirectUri, results, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appliedControls" : [NSString class],
     @"facets" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet class],
+    @"invalidConditionBoostSpecs" : [GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec class],
     @"results" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult class]
   };
   return map;
@@ -1661,7 +1663,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest
-@dynamic branchId, note;
+@dynamic branchId, force, note;
 @end
 
 

@@ -508,6 +508,43 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadata
+@dynamic commonMetadata, newlyAddedDocuments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"newlyAddedDocuments" : [GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetMetadataUpdatedDocument
+@dynamic destinationPrefix, sourcePrefix, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3ResyncDatasetResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionReference
 //
 
@@ -812,8 +849,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, tables, tokens, transforms,
-         visualElements;
+         pageNumber, paragraphs, provenance, symbols, tables, tokens,
+         transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -822,6 +859,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLine class],
     @"paragraphs" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph class],
+    @"symbols" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol class],
     @"tables" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable class],
     @"tokens" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageToken class],
     @"transforms" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageMatrix class],
@@ -974,6 +1012,24 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph
 @dynamic detectedLanguages, layout, provenance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageSymbol
+@dynamic detectedLanguages, layout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1438,8 +1494,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, tables, tokens, transforms,
-         visualElements;
+         pageNumber, paragraphs, provenance, symbols, tables, tokens,
+         transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1448,6 +1504,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageLine class],
     @"paragraphs" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph class],
+    @"symbols" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol class],
     @"tables" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable class],
     @"tokens" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageToken class],
     @"transforms" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageMatrix class],
@@ -1600,6 +1657,24 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph
 @dynamic detectedLanguages, layout, provenance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageSymbol
+@dynamic detectedLanguages, layout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2335,8 +2410,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, provenance, tables, tokens, transforms,
-         visualElements;
+         pageNumber, paragraphs, provenance, symbols, tables, tokens,
+         transforms, visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2345,6 +2420,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
     @"formFields" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField class],
     @"lines" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLine class],
     @"paragraphs" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph class],
+    @"symbols" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol class],
     @"tables" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable class],
     @"tokens" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageToken class],
     @"transforms" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix class],
@@ -2497,6 +2573,24 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph
 @dynamic detectedLanguages, layout, provenance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"detectedLanguages" : [GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageSymbol
+@dynamic detectedLanguages, layout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2951,7 +3045,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Prio
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersion
-@dynamic createTime, displayName, name, state;
+@dynamic createTime, displayName, kmsKeyName, kmsKeyVersionName, name, state;
 @end
 
 

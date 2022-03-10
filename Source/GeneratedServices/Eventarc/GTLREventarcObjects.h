@@ -237,7 +237,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 /**
  *  The Cloud Function resource name. Only Cloud Functions V2 is supported.
- *  Format: projects/{project}/locations/{location}/functions/{function}
+ *  Format: `projects/{project}/locations/{location}/functions/{function}`
  */
 @property(nonatomic, copy, nullable) NSString *cloudFunction;
 
@@ -279,6 +279,16 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  */
 @property(nonatomic, copy, nullable) NSString *attribute;
 
+/**
+ *  Optional. The operator used for matching the events with the value of the
+ *  filter. If not specified, only events that have an exact key-value pair
+ *  specified in the filter are matched. The only allowed value is
+ *  `match-path-pattern`.
+ *
+ *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
+ */
+@property(nonatomic, copy, nullable) NSString *operatorProperty;
+
 /** Required. The value for the attribute. */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -310,9 +320,10 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 /**
  *  Output only. The full name of the event type (for example,
  *  "google.cloud.storage.object.v1.finalized"). In the form of
- *  {provider-id}.{resource}.{version}.{verb}. Types MUST be versioned and event
- *  schemas are guaranteed to remain backward compatible within one version.
- *  Note that event type versions and API versions do not need to match.
+ *  {provider-specific-prefix}.{resource}.{version}.{verb}. Types MUST be
+ *  versioned and event schemas are guaranteed to remain backward compatible
+ *  within one version. Note that event type versions and API versions do not
+ *  need to match.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -887,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 /**
  *  Output only. In
- *  `projects/{project}/locations/{location}/providers/{provider-id}` format.
+ *  `projects/{project}/locations/{location}/providers/{provider_id}` format.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

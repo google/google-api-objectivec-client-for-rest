@@ -10542,11 +10542,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The age range of an audience. We only support targeting a
- *  continuous age range of an audience. Thus, the age range represented in this
- *  field can be 1) targeted solely, or, 2) part of a larger continuous age
- *  range. The reach of a continuous age range targeting can be expanded by also
- *  targeting an audience of an unknown age.
+ *  The age range of an audience. We only support targeting a continuous age
+ *  range of an audience. Thus, the age range represented in this field can be
+ *  1) targeted solely, or, 2) part of a larger continuous age range. The reach
+ *  of a continuous age range targeting can be expanded by also targeting an
+ *  audience of an unknown age. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails_AgeRange_AgeRange1824
@@ -11528,7 +11528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The audio content type.
+ *  The audio content type. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AudioContentTypeAssignedTargetingOptionDetails_AudioContentType_AudioContentTypeBroadcast
@@ -13147,7 +13147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *adType;
 
 /**
- *  Output only. The content instream position for video or audio ads.
+ *  The content instream position for video or audio ads. Output only in v1.
+ *  Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionMidRoll
@@ -13244,7 +13245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *adType;
 
 /**
- *  Output only. The content outstream position.
+ *  The content outstream position. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_ContentOutstreamPosition_ContentOutstreamPositionInArticle
@@ -14162,7 +14163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_CreativeConfig : GTLRObject
 
 /**
- *  The type of creative that can be assigned to the inventory source.
+ *  The type of creative that can be assigned to the inventory source. Only the
+ *  following types are supported: * `CREATIVE_TYPE_STANDARD` *
+ *  `CREATIVE_TYPE_VIDEO`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_CreativeConfig_CreativeType_CreativeTypeAudio
@@ -14504,11 +14507,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRDisplayVideo_Date : GTLRObject
 
@@ -14833,7 +14836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The display name of the device type.
+ *  The display name of the device type. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails_DeviceType_DeviceTypeComputer
@@ -15341,7 +15344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The serving environment.
+ *  The serving environment. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails_Environment_EnvironmentApp
@@ -16398,8 +16401,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_FrequencyCap : GTLRObject
 
 /**
- *  The maximum number of times a user may be shown with the same ad during this
- *  period. Must be greater than 0. Required when unlimited is `false`.
+ *  The maximum number of times a user may be shown the same ad during this
+ *  period. Must be greater than 0. Required when unlimited is `false` and
+ *  max_views is not set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -16465,7 +16469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_GenderAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The gender of the audience.
+ *  The gender of the audience. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_GenderAssignedTargetingOptionDetails_Gender_GenderFemale
@@ -18262,7 +18266,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Required. The start and end time of the line item's flight. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_LineItemFlight *flight;
 
-/** Required. The frequency capping setting of the line item. */
+/**
+ *  Required. The impression frequency cap settings of the line item. The
+ *  max_impressions field in this settings object must be used if assigning a
+ *  limited cap.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
 
 /**
@@ -19557,6 +19565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, copy, nullable) NSString *performanceGoalType;
 
+/**
+ *  Controls whether the strategy takes deal floor prices into account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *raiseBidForDeals;
+
 @end
 
 
@@ -19669,7 +19684,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The content position.
+ *  The content position. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle
@@ -19897,7 +19912,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_OmidAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Output only. The type of Open Measurement enabled inventory.
+ *  The type of Open Measurement enabled inventory. Output only in v1. Required
+ *  in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_OmidAssignedTargetingOptionDetails_Omid_OmidForMobileDisplayAds
@@ -21531,7 +21547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *excludedTargetingOptionId;
 
 /**
- *  Output only. An enum for the DV360 Sensitive category content classifier.
+ *  An enum for the DV360 Sensitive category content classifier. Output only in
+ *  v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails_SensitiveCategory_SensitiveCategoryAdult
@@ -22489,7 +22506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
 /**
- *  Output only. The video player size.
+ *  The video player size. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_VideoPlayerSizeAssignedTargetingOptionDetails_VideoPlayerSize_VideoPlayerSizeHd
@@ -22568,7 +22585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *targetingOptionId;
 
 /**
- *  Output only. The predicted viewability percentage.
+ *  The predicted viewability percentage. Output only in v1. Required in v2.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ViewabilityAssignedTargetingOptionDetails_Viewability_Viewability10PercentOrMore

@@ -30,6 +30,7 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
@@ -690,10 +691,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
+ *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
+ *  a credit card expiration date) Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRCloudFilestore_Date : GTLRObject
 
@@ -815,6 +816,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. The instance_type of this instance of format:
+ *  projects/{project_id}/locations/{location_id}/instanceTypes/{instance_type_id}.
+ *  Instance Type represents a high-level tier or SKU of the service that this
+ *  instance belong to. When enabled(eg: Maintenance Rollout), Rollout uses
+ *  'instance_type' along with 'software_versions' to determine whether instance
+ *  needs an update or not.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceType;
+
+/**
  *  Optional. Resource labels to represent user provided metadata. Each label is
  *  a key-value pair, where both the key and the value are arbitrary strings
  *  provided by the user.
@@ -846,6 +857,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. notification_parameters are information that service producers may
+ *  like to include that is not relevant to Rollout. This parameter will only be
+ *  passed to Gamma and Cloud Logging for notification/logging purpose.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters *notificationParameters;
 
 /**
  *  Output only. Custom string attributes used primarily to expose
@@ -957,6 +975,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules : GTLRObject
+@end
+
+
+/**
+ *  Optional. notification_parameters are information that service producers may
+ *  like to include that is not relevant to Rollout. This parameter will only be
+ *  passed to Gamma and Cloud Logging for notification/logging purpose.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters : GTLRObject
 @end
 
 

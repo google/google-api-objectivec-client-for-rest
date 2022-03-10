@@ -1587,8 +1587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  would be the underlying Subscription ID. For Google Cloud Platform, this
- *  would be the Billing Account ID of the billing subaccount."
+ *  is the underlying Subscription ID. For Google Cloud Platform, this is the
+ *  Billing Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -1672,14 +1672,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Represents information which resellers will get as part of notification from
- *  Cloud Pub/Sub.
+ *  Pub/Sub.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1alpha1SubscriberEvent : GTLRObject
 
-/** Customer event send as part of Pub/Sub event to partners. */
+/** Customer event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent *customerEvent;
 
-/** Entitlement event send as part of Pub/Sub event to partners. */
+/** Entitlement event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent *entitlementEvent;
 
 @end
@@ -3342,8 +3342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Output only. Provisioning ID of the entitlement. For Google Workspace, this
- *  would be the underlying Subscription ID. For Google Cloud Platform, this
- *  would be the Billing Account ID of the billing subaccount."
+ *  is the underlying Subscription ID. For Google Cloud Platform, this is the
+ *  Billing Account ID of the billing subaccount."
  */
 @property(nonatomic, copy, nullable) NSString *provisioningId;
 
@@ -3494,14 +3494,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 
 /**
  *  Represents information which resellers will get as part of notification from
- *  Cloud Pub/Sub.
+ *  Pub/Sub.
  */
 @interface GTLRCloudchannel_GoogleCloudChannelV1SubscriberEvent : GTLRObject
 
-/** Customer event send as part of Pub/Sub event to partners. */
+/** Customer event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent *customerEvent;
 
-/** Entitlement event send as part of Pub/Sub event to partners. */
+/** Entitlement event sent as part of Pub/Sub event to partners. */
 @property(nonatomic, strong, nullable) GTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent *entitlementEvent;
 
 @end
@@ -4066,8 +4066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  Required. CLDR region code of the country/region of the address. This is
  *  never inferred and it is up to the user to ensure the value is correct. See
- *  http://cldr.unicode.org/ and
- *  http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  https://cldr.unicode.org/ and
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;

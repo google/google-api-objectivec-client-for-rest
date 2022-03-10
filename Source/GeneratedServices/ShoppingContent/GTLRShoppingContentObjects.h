@@ -83,6 +83,7 @@
 @class GTLRShoppingContent_Error;
 @class GTLRShoppingContent_Errors;
 @class GTLRShoppingContent_FreeListingsProgramStatusRegionStatus;
+@class GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails;
 @class GTLRShoppingContent_GmbAccounts;
 @class GTLRShoppingContent_GmbAccountsGmbAccount;
 @class GTLRShoppingContent_Headers;
@@ -245,6 +246,7 @@
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequestEntry;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry;
 @class GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus;
+@class GTLRShoppingContent_ShoppingAdsProgramStatusReviewIneligibilityReasonDetails;
 @class GTLRShoppingContent_Table;
 @class GTLRShoppingContent_TestOrder;
 @class GTLRShoppingContent_TestOrderAddress;
@@ -486,26 +488,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_Exe
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_CaptureOrderResponse_ExecutionStatus_ExecutionStatusUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRShoppingContent_FreeListingsProgramStatus.state
+// GTLRShoppingContent_FreeListingsProgramStatus.globalState
 
 /**
- *  Program is enabled for at least one country.
+ *  Program is enabled and offers are uploaded for at least one country.
  *
  *  Value: "ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled;
+/**
+ *  Offers are not uploaded targeting even a single country for this program.
+ *
+ *  Value: "NO_OFFERS_UPLOADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NoOffersUploaded;
 /**
  *  Program is not enabled for any country.
  *
  *  Value: "NOT_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NotEnabled;
 /**
  *  State is not known.
  *
  *  Value: "PROGRAM_STATE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_ProgramStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.eligibilityStatus
@@ -526,7 +534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Disapproved;
 /**
- *  Program is currently onboarding.
+ *  Program is currently onboarding. Upload valid offers to complete onboarding.
  *
  *  Value: "ONBOARDING"
  */
@@ -544,7 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
 /**
- *  Account is under review.
+ *  Account is under review. Deprecated: This state is not created.
  *
  *  Value: "UNDER_REVIEW"
  */
@@ -558,76 +566,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatu
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning;
 
 // ----------------------------------------------------------------------------
-// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.enhancedEligibilityStatus
-
-/**
- *  If the account has no issues and review is completed successfully.
- *
- *  Value: "APPROVED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Approved;
-/**
- *  There are one or more issues that needs to be resolved for account to be
- *  active for the program. Detailed list of account issues are available in
- *  [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
- *  API.
- *
- *  Value: "DISAPPROVED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Disapproved;
-/**
- *  Program is currently onboarding.
- *
- *  Value: "ONBOARDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Onboarding;
-/**
- *  Account is waiting for review to start.
- *
- *  Value: "PENDING_REVIEW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_PendingReview;
-/**
- *  State is not known.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_StateUnspecified;
-/**
- *  Account is under review.
- *
- *  Value: "UNDER_REVIEW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_UnderReview;
-/**
- *  If account has issues but offers are servable. Some of the issue can make
- *  account DISAPPROVED after a certain deadline.
- *
- *  Value: "WARNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Warning;
-
-// ----------------------------------------------------------------------------
 // GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewEligibilityStatus
 
 /**
- *  Account for a region code is eligible for review.
+ *  Account is eligible for review for a specified region code.
  *
  *  Value: "ELIGIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible;
 /**
- *  Account for a region code is not eligible for review.
+ *  Account is not eligible for review for a specified region code.
  *
  *  Value: "INELIGIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
 /**
- *  Review eligibility state is unknown.
+ *  Review eligibility reason state is unknown.
  *
  *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewIneligibilityReason
+
+/**
+ *  Account is already under review.
+ *
+ *  Value: "ALREADY_UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview;
+/**
+ *  Cooldown period applies. Wait until cooldown period ends.
+ *
+ *  Value: "IN_COOLDOWN_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod;
+/**
+ *  No issues available to review.
+ *
+ *  Value: "NO_REVIEW_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired;
+/**
+ *  Not enough offers uploaded for this country.
+ *
+ *  Value: "NOT_ENOUGH_OFFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers;
+/**
+ *  All onboarding issues needs to be fixed.
+ *
+ *  Value: "ONBOARDING_ISSUES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues;
+/**
+ *  Requesting a review from Google is not possible.
+ *
+ *  Value: "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
@@ -1220,26 +1218,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Program
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds;
 
 // ----------------------------------------------------------------------------
-// GTLRShoppingContent_ShoppingAdsProgramStatus.state
+// GTLRShoppingContent_ShoppingAdsProgramStatus.globalState
 
 /**
- *  Program is enabled for at least one country.
+ *  Program is enabled and offers are uploaded for at least one country.
  *
  *  Value: "ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Enabled;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_Enabled;
+/**
+ *  Offers are not uploaded targeting even a single country for this program.
+ *
+ *  Value: "NO_OFFERS_UPLOADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NoOffersUploaded;
 /**
  *  Program is not enabled for any country.
  *
  *  Value: "NOT_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NotEnabled;
 /**
  *  State is not known.
  *
  *  Value: "PROGRAM_STATE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_ProgramStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.eligibilityStatus
@@ -1260,7 +1264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Disapproved;
 /**
- *  Program is currently onboarding.
+ *  Program is currently onboarding. Upload valid offers to complete onboarding.
  *
  *  Value: "ONBOARDING"
  */
@@ -1278,7 +1282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified;
 /**
- *  Account is under review.
+ *  Account is under review. Deprecated: This state is not created.
  *
  *  Value: "UNDER_REVIEW"
  */
@@ -1295,23 +1299,63 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus
 // GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewEligibilityStatus
 
 /**
- *  Account for a region code is eligible for review.
+ *  Account is eligible for review for a specified region code.
  *
  *  Value: "ELIGIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible;
 /**
- *  Account for a region code is not eligible for review.
+ *  Account is not eligible for review for a specified region code.
  *
  *  Value: "INELIGIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible;
 /**
- *  Review eligibility state is unknown.
+ *  Review eligibility reason state is unknown.
  *
  *  Value: "REVIEW_ELIGIBILITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewIneligibilityReason
+
+/**
+ *  Account is already under review.
+ *
+ *  Value: "ALREADY_UNDER_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview;
+/**
+ *  Cooldown period applies. Wait until cooldown period ends.
+ *
+ *  Value: "IN_COOLDOWN_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod;
+/**
+ *  No issues available to review.
+ *
+ *  Value: "NO_REVIEW_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired;
+/**
+ *  Not enough offers uploaded for this country.
+ *
+ *  Value: "NOT_ENOUGH_OFFERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers;
+/**
+ *  All onboarding issues needs to be fixed.
+ *
+ *  Value: "ONBOARDING_ISSUES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues;
+/**
+ *  Requesting a review from Google is not possible.
+ *
+ *  Value: "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
@@ -1337,7 +1381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Account data. After the creation of a new account it may take a few minutes
- *  before it is fully operational. The methods delete, insert, and update
+ *  before it's fully operational. The methods delete, insert, and update
  *  require the admin role.
  */
 @interface GTLRShoppingContent_Account : GTLRObject
@@ -1450,19 +1494,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_AccountAddress : GTLRObject
 
 /**
- *  CLDR country code (e.g. "US"). All MCA sub-accounts inherit the country of
- *  their parent MCA by default, however the country can be updated for
- *  individual sub-accounts.
+ *  CLDR country code (for example, "US"). All MCA sub-accounts inherit the
+ *  country of their parent MCA by default, however the country can be updated
+ *  for individual sub-accounts.
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  City, town or commune. May also include dependent localities or
- *  sublocalities (e.g. neighborhoods or suburbs).
+ *  sublocalities (for example, neighborhoods or suburbs).
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
-/** Postal code or ZIP (e.g. "94043"). */
+/** Postal code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /**
@@ -1765,6 +1809,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *effectiveAllowAvailabilityUpdates;
 
 /**
+ *  Output only. The effective value of allow_condition_updates. If
+ *  account_item_updates_settings is present, then this value is the same.
+ *  Otherwise, it represents the inherited value of the parent account.
+ *  Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *effectiveAllowConditionUpdates;
+
+/**
  *  Output only. The effective value of allow_price_updates. If
  *  account_item_updates_settings is present, then this value is the same.
  *  Otherwise, it represents the inherited value of the parent account.
@@ -1801,6 +1855,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowAvailabilityUpdates;
+
+/**
+ *  If condition updates are enabled, Google always updates item condition with
+ *  the condition detected from the details of your product.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowConditionUpdates;
 
 /**
  *  If price updates are enabled, Google always updates the active price with
@@ -2240,7 +2302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The status of an account, i.e., information about its products, which is
+ *  The status of an account, that is, information about its products, which is
  *  computed offline and not returned immediately at insertion time.
  */
 @interface GTLRShoppingContent_AccountStatus : GTLRObject
@@ -2588,7 +2650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Tax rules. Updating the tax rules will enable US taxes (not reversible).
+ *  Tax rules. Updating the tax rules will enable "US" taxes (not reversible).
  *  Defining no rules is equivalent to not charging tax at all.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountTaxTaxRule *> *rules;
@@ -2721,7 +2783,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  Tax calculation rule to apply in a state or province (USA only).
+ *  Tax calculation rule to apply in a state or province (US only).
  */
 @interface GTLRShoppingContent_AccountTaxTaxRule : GTLRObject
 
@@ -2844,18 +2906,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. City, town or commune. May also include dependent localities or
- *  sublocalities (e.g. neighborhoods or suburbs).
+ *  sublocalities (for example, neighborhoods or suburbs).
  */
 @property(nonatomic, copy, nullable) NSString *city;
 
 /**
  *  Required. [CLDR country
- *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
- *  (e.g. "US").
+ *  code](https://github.com/unicode-org/cldr/blob/latest/common/main/en.xml)
+ *  (for example, "US").
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
-/** Required. Postal code or ZIP (e.g. "94043"). */
+/** Required. Postal code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /** Street-level part of the address. */
@@ -3030,13 +3092,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Carrier service, such as `"UPS"` or `"Fedex"`. The list of supported
- *  carriers can be retrieved via the `getSupportedCarriers` method. Required.
+ *  carriers can be retrieved through the `getSupportedCarriers` method.
+ *  Required.
  */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
 /**
  *  Carrier service, such as `"ground"` or `"2 days"`. The list of supported
- *  services for a carrier can be retrieved via the `getSupportedCarriers`
+ *  services for a carrier can be retrieved through the `getSupportedCarriers`
  *  method. Required.
  */
 @property(nonatomic, copy, nullable) NSString *carrierService;
@@ -3069,7 +3132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_CarriersCarrier : GTLRObject
 
-/** The CLDR country code of the carrier (e.g., "US"). Always present. */
+/**
+ *  The CLDR country code of the carrier (for example, "US"). Always present.
+ */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -3079,12 +3144,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eddServices;
 
-/** The name of the carrier (e.g., `"UPS"`). Always present. */
+/** The name of the carrier (for example, `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A list of supported services (e.g., `"ground"`) for that carrier. Contains
- *  at least one service. This is the list of valid values for
+ *  A list of supported services (for example, `"ground"`) for that carrier.
+ *  Contains at least one service. This is the list of valid values for
  *  CarrierRate.carrierService.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
@@ -3413,8 +3478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *minute;
 
 /**
- *  Timezone identifier for the cutoff time. A list of identifiers can be found
- *  in the AdWords API documentation. E.g. "Europe/Zurich". Required.
+ *  Timezone identifier for the cutoff time (for example, "Europe/Zurich"). List
+ *  of identifiers. Required.
  */
 @property(nonatomic, copy, nullable) NSString *timezone;
 
@@ -3524,7 +3589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *paused;
 
 /**
- *  Time zone used for schedule. UTC by default. E.g., "America/Los_Angeles".
+ *  Time zone used for schedule. UTC by default. For example,
+ *  "America/Los_Angeles".
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -3704,7 +3770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The status of a datafeed, i.e., the result of the last retrieval of the
+ *  The status of a datafeed, that is, the result of the last retrieval of the
  *  datafeed computed asynchronously when the feed processing is finished.
  */
 @interface GTLRShoppingContent_DatafeedStatus : GTLRObject
@@ -3772,7 +3838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_DatafeedStatusError : GTLRObject
 
-/** The code of the error, e.g., "validation/invalid_value". */
+/** The code of the error, for example, "validation/invalid_value". */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /**
@@ -3785,7 +3851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** A list of example occurrences of the error, grouped by product. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_DatafeedStatusExample *> *examples;
 
-/** The error message, e.g., "Invalid price". */
+/** The error message, for example, "Invalid price". */
 @property(nonatomic, copy, nullable) NSString *message;
 
 @end
@@ -3952,8 +4018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  The list of destinations to exclude for this target (corresponds to
- *  unchecked check boxes in Merchant Center).
+ *  The list of destinations to exclude for this target (corresponds to cleared
+ *  check boxes in Merchant Center).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -3977,11 +4043,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRShoppingContent_Date : GTLRObject
 
@@ -4132,7 +4198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *maxHandlingTimeInDays;
 
 /**
- *  Maximum number of business days that is spent in transit. 0 means same day
+ *  Maximum number of business days that are spent in transit. 0 means same day
  *  delivery, 1 means next day delivery. Must be greater than or equal to
  *  `minTransitTimeInDays`.
  *
@@ -4149,7 +4215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *minHandlingTimeInDays;
 
 /**
- *  Minimum number of business days that is spent in transit. 0 means same day
+ *  Minimum number of business days that are spent in transit. 0 means same day
  *  delivery, 1 means next day delivery. Either `{min,max}TransitTimeInDays` or
  *  `transitTimeTable` must be set, but not both.
  *
@@ -4237,23 +4303,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_FreeListingsProgramStatus : GTLRObject
 
 /**
+ *  State of the program, It is set to enabled if there are offers for at least
+ *  one region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_Enabled
+ *        Program is enabled and offers are uploaded for at least one country.
+ *        (Value: "ENABLED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NoOffersUploaded
+ *        Offers are not uploaded targeting even a single country for this
+ *        program. (Value: "NO_OFFERS_UPLOADED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_NotEnabled
+ *        Program is not enabled for any country. (Value: "NOT_ENABLED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_GlobalState_ProgramStateUnspecified
+ *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *globalState;
+
+/**
  *  Status of the program in each region. Regions with the same status and
  *  review eligibility are grouped together in `regionCodes`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_FreeListingsProgramStatusRegionStatus *> *regionStatuses;
-
-/**
- *  If program is successfully onboarded for at least one region.
- *
- *  Likely values:
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_Enabled
- *        Program is enabled for at least one country. (Value: "ENABLED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_NotEnabled
- *        Program is not enabled for any country. (Value: "NOT_ENABLED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified
- *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -4266,7 +4337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
  *  It will be present when `eligibility_status` is `WARNING`. Date will be
- *  provided in ISO 8601 format i.e. YYYY-MM-DD
+ *  provided in ISO 8601 format: YYYY-MM-DD
  */
 @property(nonatomic, copy, nullable) NSString *disapprovalDate;
 
@@ -4284,51 +4355,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
  *        API. (Value: "DISAPPROVED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Onboarding
- *        Program is currently onboarding. (Value: "ONBOARDING")
+ *        Program is currently onboarding. Upload valid offers to complete
+ *        onboarding. (Value: "ONBOARDING")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_PendingReview
  *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
  *        State is not known. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_UnderReview
- *        Account is under review. (Value: "UNDER_REVIEW")
+ *        Account is under review. Deprecated: This state is not created.
+ *        (Value: "UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning
  *        If account has issues but offers are servable. Some of the issue can
  *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *eligibilityStatus;
 
-/**
- *  Eligibility status of the enhanced free listing program.
- *
- *  Likely values:
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Approved
- *        If the account has no issues and review is completed successfully.
- *        (Value: "APPROVED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Disapproved
- *        There are one or more issues that needs to be resolved for account to
- *        be active for the program. Detailed list of account issues are
- *        available in
- *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
- *        API. (Value: "DISAPPROVED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Onboarding
- *        Program is currently onboarding. (Value: "ONBOARDING")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_PendingReview
- *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_StateUnspecified
- *        State is not known. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_UnderReview
- *        Account is under review. (Value: "UNDER_REVIEW")
- *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Warning
- *        If account has issues but offers are servable. Some of the issue can
- *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
- */
-@property(nonatomic, copy, nullable) NSString *enhancedEligibilityStatus;
-
-/**
- *  Reason if a program in a given country is not eligible for review. Populated
- *  only if `review_eligibility_status` is `INELIGIBLE`.
- */
-@property(nonatomic, copy, nullable) NSString *ineligibilityReason;
+/** These issues must be fixed to become eligible for the review. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *onboardingIssues;
 
 /**
  *  The two-letter [ISO 3166-1
@@ -4343,21 +4386,71 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
- *        Account for a region code is eligible for review. (Value: "ELIGIBLE")
+ *        Account is eligible for review for a specified region code. (Value:
+ *        "ELIGIBLE")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible
- *        Account for a region code is not eligible for review. (Value:
- *        "INELIGIBLE")
+ *        Account is not eligible for review for a specified region code.
+ *        (Value: "INELIGIBLE")
  *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
- *        Review eligibility state is unknown. (Value:
+ *        Review eligibility reason state is unknown. (Value:
  *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
+
+/**
+ *  Review ineligibility reason if account is not eligible for review.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
+ *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
+ *        Cooldown period applies. Wait until cooldown period ends. (Value:
+ *        "IN_COOLDOWN_PERIOD")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired
+ *        No issues available to review. (Value: "NO_REVIEW_REQUIRED")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers
+ *        Not enough offers uploaded for this country. (Value:
+ *        "NOT_ENOUGH_OFFERS")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues
+ *        All onboarding issues needs to be fixed. (Value: "ONBOARDING_ISSUES")
+ *    @arg @c kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified
+ *        Requesting a review from Google is not possible. (Value:
+ *        "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reviewIneligibilityReason;
+
+/**
+ *  Reason if a program in a given country is not eligible for review. Populated
+ *  only if `review_eligibility_status` is `INELIGIBLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *reviewIneligibilityReasonDescription;
+
+/**
+ *  This contains additional information specific to review ineligibility
+ *  reasons. If review is ineligible because of `IN_COOLDOWN_PERIOD`, it will
+ *  contain timestamp for cooldown period.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails *reviewIneligibilityReasonDetails;
 
 /**
  *  These issues will be evaluated in review process. Fix all the issues before
  *  requesting the review.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
+
+@end
+
+
+/**
+ *  Additional details for review ineligibility reasons.
+ */
+@interface GTLRShoppingContent_FreeListingsProgramStatusReviewIneligibilityReasonDetails : GTLRObject
+
+/**
+ *  This timestamp represents end of cooldown period for review ineligbility
+ *  reason `IN_COOLDOWN_PERIOD`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cooldownTime;
 
 @end
 
@@ -4462,8 +4555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_HolidayCutoff : GTLRObject
 
 /**
- *  Date of the order deadline, in ISO 8601 format. E.g. "2016-11-29" for 29th
- *  November 2016. Required.
+ *  Date of the order deadline, in ISO 8601 format. For example, "2016-11-29"
+ *  for 29th November 2016. Required.
  */
 @property(nonatomic, copy, nullable) NSString *deadlineDate;
 
@@ -4477,8 +4570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *deadlineHour;
 
 /**
- *  Timezone identifier for the deadline hour. A list of identifiers can be
- *  found in the AdWords API documentation. E.g. "Europe/Zurich". Required.
+ *  Timezone identifier for the deadline hour (for example, "Europe/Zurich").
+ *  List of identifiers. Required.
  */
 @property(nonatomic, copy, nullable) NSString *deadlineTimezone;
 
@@ -4487,7 +4580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Date on which the deadline will become visible to consumers in ISO 8601
- *  format. E.g. "2016-10-31" for 31st October 2016. Required.
+ *  format. For example, "2016-10-31" for 31st October 2016. Required.
  */
 @property(nonatomic, copy, nullable) NSString *visibleFromDate;
 
@@ -4501,20 +4594,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The CLDR territory code of the country in which the holiday is available.
- *  E.g. "US", "DE", "GB". A holiday cutoff can only be configured in a shipping
- *  settings service with matching delivery country. Always present.
+ *  For example, "US", "DE", "GB". A holiday cutoff can only be configured in a
+ *  shipping settings service with matching delivery country. Always present.
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /**
- *  Date of the holiday, in ISO 8601 format. E.g. "2016-12-25" for Christmas
- *  2016. Always present.
+ *  Date of the holiday, in ISO 8601 format. For example, "2016-12-25" for
+ *  Christmas 2016. Always present.
  */
 @property(nonatomic, copy, nullable) NSString *date;
 
 /**
  *  Date on which the order has to arrive at the customer's, in ISO 8601 format.
- *  E.g. "2016-12-24" for 24th December 2016. Always present.
+ *  For example, "2016-12-24" for 24th December 2016. Always present.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryGuaranteeDate;
 
@@ -4685,7 +4778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** The settings for the About page. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_LiaAboutPageSettings *about;
 
-/** Required. CLDR country code (e.g. "US"). */
+/** Required. CLDR country code (for example, "US"). */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -5487,7 +5580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  A non-empty list of location IDs. They must all be of the same location type
- *  (e.g., state).
+ *  (for example, state).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locationIds;
 
@@ -5854,15 +5947,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The pre-tax or post-tax price depends on the location of the order. - For
- *  countries (e.g. US) where price attribute excludes tax, this field
- *  corresponds to the pre-tax value. - For coutries (e.g. France) where price
- *  attribute includes tax, this field corresponds to the post-tax value .
+ *  countries (for example, "US". where price attribute excludes tax, this field
+ *  corresponds to the pre-tax value. - For coutries (for example, "France")
+ *  where price attribute includes tax, this field corresponds to the post-tax
+ *  value .
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *priceAmount;
 
 /**
  *  Tax value, present only for countries where price attribute excludes tax
- *  (e.g. US). No tax is referenced as 0 value with the corresponding
+ *  (for example, "US". No tax is referenced as 0 value with the corresponding
  *  `currency`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
@@ -6013,7 +6107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_OrderAddress : GTLRObject
 
-/** CLDR country code (e.g. "US"). */
+/** CLDR country code (for example, "US"). */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -6032,11 +6126,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  City, town or commune. May also include dependent localities or
- *  sublocalities (e.g. neighborhoods or suburbs).
+ *  sublocalities (for example, neighborhoods or suburbs).
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
-/** Postal Code or ZIP (e.g. "94043"). */
+/** Postal Code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /** Name of the recipient. */
@@ -6079,7 +6173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  The reason for the cancellation. Orders that are canceled with a noInventory
  *  reason will lead to the removal of the product from Buy on Google until you
- *  make an update to that product. This will not affect your Shopping ads.
+ *  make an update to that product. This won't affect your Shopping ads.
  *  Acceptable values are: - "`autoPostInternal`" -
  *  "`autoPostInvalidBillingAddress`" - "`autoPostNoInventory`" -
  *  "`autoPostPriceError`" - "`autoPostUndeliverableShippingAddress`" -
@@ -6387,8 +6481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Product data as seen by customer from the time of the order placement. Note
- *  that certain attributes values (e.g. title or gtin) might be reformatted and
- *  no longer match values submitted via product feed.
+ *  that certain attributes values (for example, title or gtin) might be
+ *  reformatted and no longer match values submitted through product feed.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderLineItemProduct *product;
 
@@ -6531,7 +6625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** URL to the cached image shown to the user when order was placed. */
 @property(nonatomic, copy, nullable) NSString *shownImage;
 
-/** The CLDR territory // code of the target country of the product. */
+/** The CLDR territory code of the target country of the product. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
 /** The title of the product. */
@@ -6759,8 +6853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_OrderPromotionItem *> *appliedItems;
 
 /**
- *  Promotion end time in ISO 8601 format. Date, time, and offset required,
- *  e.g., "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
+ *  Promotion end time in ISO 8601 format. Date, time, and offset required, for
+ *  example, "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
@@ -6790,7 +6884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Promotion start time in ISO 8601 format. Date, time, and offset required,
- *  e.g., "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
+ *  for example, "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z".
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
@@ -7274,7 +7368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  If true, the item will be fully refunded. Allowed only when payment_type is
  *  FOP. Merchant can choose this refund option to indicate the full remaining
- *  amount of corresponding object to be refunded to the customer via FOP.
+ *  amount of corresponding object to be refunded to the customer through FOP.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7526,9 +7620,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The CLDR territory code of the country of the test order to create. Affects
- *  the currency and addresses of orders created via `template_name`, or the
- *  addresses of orders created via `test_order`. Acceptable values are: -
- *  "`US`" - "`FR`" Defaults to `US`.
+ *  the currency and addresses of orders created through `template_name`, or the
+ *  addresses of orders created through `test_order`. Acceptable values are: -
+ *  "`US`" - "`FR`" Defaults to "`US`".
  */
 @property(nonatomic, copy, nullable) NSString *country;
 
@@ -7623,15 +7717,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem : GTLRObject
 
 /**
- *  The total amount that is refunded. (e.g. refunding $5 each for 2 products
- *  should be done by setting quantity to 2 and amount to 10$) In case of
- *  multiple refunds, this should be the amount you currently want to refund to
- *  the customer.
+ *  The total amount that is refunded. (for example, refunding $5 each for 2
+ *  products should be done by setting quantity to 2 and amount to 10$) In case
+ *  of multiple refunds, this should be the amount you currently want to refund
+ *  to the customer.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_MonetaryAmount *amount;
 
 /**
- *  If true, the full item will be refunded. If this is true, amount should not
+ *  If true, the full item will be refunded. If this is true, amount shouldn't
  *  be provided and will be ignored.
  *
  *  Uses NSNumber of boolValue.
@@ -7670,7 +7764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  If set to true, all shipping costs for the order will be refunded. If this
- *  is true, amount should not be provided and will be ignored. If set to false,
+ *  is true, amount shouldn't be provided and will be ignored. If set to false,
  *  submit the amount of the partial shipping refund, excluding the shipping
  *  tax. The shipping tax is calculated and handled on Google's side.
  *
@@ -7769,31 +7863,31 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *  the carrier name and tracking URL in emails to customers. For select
  *  supported carriers, Google also automatically updates the shipment status
  *  based on the provided shipment ID. *Note:* You can also use unsupported
- *  carriers, but emails to customers will not include the carrier name or
- *  tracking URL, and there will be no automatic order status updates. Supported
- *  carriers for US are: - "`ups`" (United Parcel Service) *automatic status
- *  updates* - "`usps`" (United States Postal Service) *automatic status
- *  updates* - "`fedex`" (FedEx) *automatic status updates * - "`dhl`" (DHL
- *  eCommerce) *automatic status updates* (US only) - "`ontrac`" (OnTrac)
- *  *automatic status updates * - "`dhl express`" (DHL Express) - "`deliv`"
- *  (Deliv) - "`dynamex`" (TForce) - "`lasership`" (LaserShip) - "`mpx`"
- *  (Military Parcel Xpress) - "`uds`" (United Delivery Service) - "`efw`"
- *  (Estes Forwarding Worldwide) - "`jd logistics`" (JD Logistics) -
- *  "`yunexpress`" (YunExpress) - "`china post`" (China Post) - "`china ems`"
- *  (China Post Express Mail Service) - "`singapore post`" (Singapore Post) -
- *  "`pos malaysia`" (Pos Malaysia) - "`postnl`" (PostNL) - "`ptt`" (PTT Turkish
- *  Post) - "`eub`" (ePacket) - "`chukou1`" (Chukou1 Logistics) - "`bestex`"
- *  (Best Express) - "`canada post`" (Canada Post) - "`purolator`" (Purolator) -
- *  "`canpar`" (Canpar) - "`india post`" (India Post) - "`blue dart`" (Blue
- *  Dart) - "`delhivery`" (Delhivery) - "`dtdc`" (DTDC) - "`tpc india`" (TPC
- *  India) - "`lso`" (Lone Star Overnight) - "`tww`" (Team Worldwide) Supported
- *  carriers for FR are: - "`la poste`" (La Poste) *automatic status updates * -
- *  "`colissimo`" (Colissimo by La Poste) *automatic status updates* - "`ups`"
- *  (United Parcel Service) *automatic status updates * - "`chronopost`"
- *  (Chronopost by La Poste) - "`gls`" (General Logistics Systems France) -
- *  "`dpd`" (DPD Group by GeoPost) - "`bpost`" (Belgian Post Group) - "`colis
- *  prive`" (Colis Privé) - "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) - "`tnt`"
- *  (TNT) - "`db schenker`" (DB Schenker) - "`aramex`" (Aramex)
+ *  carriers, but emails to customers won't include the carrier name or tracking
+ *  URL, and there will be no automatic order status updates. Supported carriers
+ *  for "US" are: - "`ups`" (United Parcel Service) *automatic status updates* -
+ *  "`usps`" (United States Postal Service) *automatic status updates* -
+ *  "`fedex`" (FedEx) *automatic status updates * - "`dhl`" (DHL eCommerce)
+ *  *automatic status updates* (US only) - "`ontrac`" (OnTrac) *automatic status
+ *  updates * - "`dhl express`" (DHL Express) - "`deliv`" (Deliv) - "`dynamex`"
+ *  (TForce) - "`lasership`" (LaserShip) - "`mpx`" (Military Parcel Xpress) -
+ *  "`uds`" (United Delivery Service) - "`efw`" (Estes Forwarding Worldwide) -
+ *  "`jd logistics`" (JD Logistics) - "`yunexpress`" (YunExpress) - "`china
+ *  post`" (China Post) - "`china ems`" (China Post Express Mail Service) -
+ *  "`singapore post`" (Singapore Post) - "`pos malaysia`" (Pos Malaysia) -
+ *  "`postnl`" (PostNL) - "`ptt`" (PTT Turkish Post) - "`eub`" (ePacket) -
+ *  "`chukou1`" (Chukou1 Logistics) - "`bestex`" (Best Express) - "`canada
+ *  post`" (Canada Post) - "`purolator`" (Purolator) - "`canpar`" (Canpar) -
+ *  "`india post`" (India Post) - "`blue dart`" (Blue Dart) - "`delhivery`"
+ *  (Delhivery) - "`dtdc`" (DTDC) - "`tpc india`" (TPC India) - "`lso`" (Lone
+ *  Star Overnight) - "`tww`" (Team Worldwide) Supported carriers for FR are: -
+ *  "`la poste`" (La Poste) *automatic status updates * - "`colissimo`"
+ *  (Colissimo by La Poste) *automatic status updates* - "`ups`" (United Parcel
+ *  Service) *automatic status updates * - "`chronopost`" (Chronopost by La
+ *  Poste) - "`gls`" (General Logistics Systems France) - "`dpd`" (DPD Group by
+ *  GeoPost) - "`bpost`" (Belgian Post Group) - "`colis prive`" (Colis Privé) -
+ *  "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) - "`tnt`" (TNT) - "`db schenker`"
+ *  (DB Schenker) - "`aramex`" (Aramex)
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -7870,8 +7964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The phone number of the carrier fulfilling the delivery. The phone number is
- *  formatted as the international notation in ITU-T Recommendation E.123 (e.g.,
- *  "+41 44 668 1800").
+ *  formatted as the international notation in ITU-T Recommendation E.123 (for
+ *  example, "+41 44 668 1800").
  */
 @property(nonatomic, copy, nullable) NSString *carrierPhoneNumber;
 
@@ -8064,7 +8158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  If true, the full order will be refunded, including shipping. If this is
- *  true, amount should not be provided and will be ignored.
+ *  true, amount shouldn't be provided and will be ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8348,7 +8442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Updated delivery by date, in ISO 8601 format. If not specified only ship by
- *  date is updated. Provided date should be within 1 year timeframe and can not
+ *  date is updated. Provided date should be within 1 year timeframe and can't
  *  be a date in the past.
  */
 @property(nonatomic, copy, nullable) NSString *deliverByDate;
@@ -8372,7 +8466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Updated ship by date, in ISO 8601 format. If not specified only deliver by
- *  date is updated. Provided date should be within 1 year timeframe and can not
+ *  date is updated. Provided date should be within 1 year timeframe and can't
  *  be a date in the past.
  */
 @property(nonatomic, copy, nullable) NSString *shipByDate;
@@ -8778,10 +8872,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_PickupCarrierService : GTLRObject
 
-/** The name of the pickup carrier (e.g., `"UPS"`). Required. */
+/** The name of the pickup carrier (for example, `"UPS"`). Required. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
-/** The name of the pickup service (e.g., `"Access point"`). Required. */
+/**
+ *  The name of the pickup service (for example, `"Access point"`). Required.
+ */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
@@ -8792,14 +8888,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_PickupServicesPickupService : GTLRObject
 
-/** The name of the carrier (e.g., `"UPS"`). Always present. */
+/** The name of the carrier (for example, `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *carrierName;
 
-/** The CLDR country code of the carrier (e.g., "US"). Always present. */
+/**
+ *  The CLDR country code of the carrier (for example, "US"). Always present.
+ */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
- *  The name of the pickup service (e.g., `"Access point"`). Always present.
+ *  The name of the pickup service (for example, `"Access point"`). Always
+ *  present.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -8992,7 +9091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9031,7 +9130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9076,7 +9175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9141,7 +9240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9184,7 +9283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9233,7 +9332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. The identifier of the merchant's store. Either a `storeCode`
- *  inserted via the API or the code of the store in a Business Profile.
+ *  inserted through the API or the code of the store in a Business Profile.
  */
 @property(nonatomic, copy, nullable) NSString *storeCode;
 
@@ -9432,8 +9531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  A list of custom (merchant-provided) attributes. It can also be used for
- *  submitting any attribute of the feed specification in its generic form
- *  (e.g., `{ "name": "size type", "value": "regular" }`). This is useful for
+ *  submitting any attribute of the feed specification in its generic form (for
+ *  example, `{ "name": "size type", "value": "regular" }`). This is useful for
  *  submitting attributes not explicitly exposed by the API, such as additional
  *  attributes used for Buy on Google (formerly known as Shopping Actions).
  */
@@ -9486,8 +9585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *energyEfficiencyClass;
 
 /**
- *  The list of destinations to exclude for this target (corresponds to
- *  unchecked check boxes in Merchant Center).
+ *  The list of destinations to exclude for this target (corresponds to cleared
+ *  check boxes in Merchant Center).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedDestinations;
 
@@ -9624,7 +9723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *offerId;
 
-/** The item's pattern (e.g. polka dots). */
+/** The item's pattern (for example, polka dots). */
 @property(nonatomic, copy, nullable) NSString *pattern;
 
 /**
@@ -9738,8 +9837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *sizeType;
 
 /**
- *  The source of the offer, i.e., how the offer was created. Acceptable values
- *  are: - "`api`" - "`crawl`" - "`feed`"
+ *  The source of the offer, that is, how the offer was created. Acceptable
+ *  values are: - "`api`" - "`crawl`" - "`feed`"
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -9978,9 +10077,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Maximum handling time (inclusive) between when the order is received and
  *  shipped in business days. 0 means that the order is shipped on the same day
- *  as it is received if it happens before the cut-off time. Both
- *  maxHandlingTime and maxTransitTime are required if providing shipping
- *  speeds.
+ *  as it's received if it happens before the cut-off time. Both maxHandlingTime
+ *  and maxTransitTime are required if providing shipping speeds.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9988,7 +10086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Maximum transit time (inclusive) between when the order has shipped and when
- *  it is delivered in business days. 0 means that the order is delivered on the
+ *  it's delivered in business days. 0 means that the order is delivered on the
  *  same day as it ships. Both maxHandlingTime and maxTransitTime are required
  *  if providing shipping speeds.
  *
@@ -9999,8 +10097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Minimum handling time (inclusive) between when the order is received and
  *  shipped in business days. 0 means that the order is shipped on the same day
- *  as it is received if it happens before the cut-off time. minHandlingTime can
- *  only be present together with maxHandlingTime; but it is not required if
+ *  as it's received if it happens before the cut-off time. minHandlingTime can
+ *  only be present together with maxHandlingTime; but it's not required if
  *  maxHandlingTime is present.
  *
  *  Uses NSNumber of longLongValue.
@@ -10009,9 +10107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Minimum transit time (inclusive) between when the order has shipped and when
- *  it is delivered in business days. 0 means that the order is delivered on the
+ *  it's delivered in business days. 0 means that the order is delivered on the
  *  same day as it ships. minTransitTime can only be present together with
- *  maxTransitTime; but it is not required if maxTransitTime is present.
+ *  maxTransitTime; but it's not required if maxTransitTime is present.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -10104,7 +10202,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 
 /**
- *  The status of a product, i.e., information about a product computed
+ *  The status of a product, that is, information about a product computed
  *  asynchronously.
  */
 @interface GTLRShoppingContent_ProductStatus : GTLRObject
@@ -10467,7 +10565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The Promotions feature is currently in alpha and is not yet publicly
- *  available via Content API for Shopping. This documentation is provided for
+ *  available in Content API for Shopping. This documentation is provided for
  *  reference only may be subject to change. Represents a promotion. See the
  *  following articles for more details. * [Promotions feed
  *  specification](https://support.google.com/merchants/answer/2906014) * [Local
@@ -10658,13 +10756,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /** Destination ID for the promotion. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *promotionDestinationIds;
 
-/** String representation of the promotion display dates. */
+/**
+ *  String representation of the promotion display dates (deprecated: Use
+ *  promotion_display_time_period instead).
+ */
 @property(nonatomic, copy, nullable) NSString *promotionDisplayDates;
 
 /** TimePeriod representation of the promotion display dates. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TimePeriod *promotionDisplayTimePeriod;
 
-/** Required. String representation of the promotion effective dates. */
+/**
+ *  String representation of the promotion effective dates (deprecated: Use
+ *  promotion_effective_time_period instead).
+ */
 @property(nonatomic, copy, nullable) NSString *promotionEffectiveDates;
 
 /** Required. TimePeriod representation of the promotion effective dates. */
@@ -10743,7 +10847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The value of the rate group (e.g. flat rate $10). Can only be set if
+ *  The value of the rate group (for example, flat rate $10). Can only be set if
  *  `mainTable` and `subtables` are not set.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Value *singleValue;
@@ -11674,16 +11778,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_ReturnAddressAddress : GTLRObject
 
-/** CLDR country code (e.g. "US"). */
+/** CLDR country code (for example, "US"). */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
  *  City, town or commune. May also include dependent localities or
- *  sublocalities (e.g. neighborhoods or suburbs).
+ *  sublocalities (for example, neighborhoods or suburbs).
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
-/** Postal code or ZIP (e.g. "94043"). */
+/** Postal code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /** Name of the recipient to address returns to. */
@@ -12596,7 +12700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  The carrier-service pair delivering items to collection points. The list of
- *  supported pickup services can be retrieved via the
+ *  supported pickup services can be retrieved through the
  *  `getSupportedPickupServices` method. Required if and only if the service
  *  delivery type is `pickup`.
  */
@@ -12661,9 +12765,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *transferDate;
 
 /**
- *  The list of bank identifiers used for the transfer. e.g. Trace ID for
- *  Federal Automated Clearing House (ACH). This may also be known as the Wire
- *  ID.
+ *  The list of bank identifiers used for the transfer. For example, Trace ID
+ *  for Federal Automated Clearing House (ACH). This may also be known as the
+ *  Wire ID.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *transferIds;
 
@@ -12810,7 +12914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_SettlementTransactionIdentifiers : GTLRObject
 
-/** The identifier of the adjustments, if it is available. */
+/** The identifier of the adjustments, if it's available. */
 @property(nonatomic, copy, nullable) NSString *adjustmentId;
 
 /** The merchant provided order ID. */
@@ -13164,23 +13268,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @interface GTLRShoppingContent_ShoppingAdsProgramStatus : GTLRObject
 
 /**
+ *  State of the program, It is set to enabled if there are offers for at least
+ *  one region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_Enabled
+ *        Program is enabled and offers are uploaded for at least one country.
+ *        (Value: "ENABLED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NoOffersUploaded
+ *        Offers are not uploaded targeting even a single country for this
+ *        program. (Value: "NO_OFFERS_UPLOADED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_NotEnabled
+ *        Program is not enabled for any country. (Value: "NOT_ENABLED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_GlobalState_ProgramStateUnspecified
+ *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *globalState;
+
+/**
  *  Status of the program in each region. Regions with the same status and
  *  review eligibility are grouped together in `regionCodes`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus *> *regionStatuses;
-
-/**
- *  If program is successfully onboarded for at least one region.
- *
- *  Likely values:
- *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Enabled
- *        Program is enabled for at least one country. (Value: "ENABLED")
- *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotEnabled
- *        Program is not enabled for any country. (Value: "NOT_ENABLED")
- *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified
- *        State is not known. (Value: "PROGRAM_STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -13193,7 +13302,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 /**
  *  Date by which `eligibility_status` will go from `WARNING` to `DISAPPROVED`.
  *  It will be present when `eligibility_status` is `WARNING`. Date will be
- *  provided in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format i.e.
+ *  provided in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
  *  YYYY-MM-DD
  */
 @property(nonatomic, copy, nullable) NSString *disapprovalDate;
@@ -13212,24 +13321,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *        [accountstatuses](https://developers.google.com/shopping-content/reference/rest/v2.1/accountstatuses)
  *        API. (Value: "DISAPPROVED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Onboarding
- *        Program is currently onboarding. (Value: "ONBOARDING")
+ *        Program is currently onboarding. Upload valid offers to complete
+ *        onboarding. (Value: "ONBOARDING")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_PendingReview
  *        Account is waiting for review to start. (Value: "PENDING_REVIEW")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified
  *        State is not known. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_UnderReview
- *        Account is under review. (Value: "UNDER_REVIEW")
+ *        Account is under review. Deprecated: This state is not created.
+ *        (Value: "UNDER_REVIEW")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Warning
  *        If account has issues but offers are servable. Some of the issue can
  *        make account DISAPPROVED after a certain deadline. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *eligibilityStatus;
 
-/**
- *  Reason if a program in a given country is not eligible for review. Populated
- *  only if `review_eligibility_status` is `INELIGIBLE`.
- */
-@property(nonatomic, copy, nullable) NSString *ineligibilityReason;
+/** These issues must be fixed to become eligible for the review. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *onboardingIssues;
 
 /**
  *  The two-letter [ISO 3166-1
@@ -13244,21 +13352,71 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  *
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible
- *        Account for a region code is eligible for review. (Value: "ELIGIBLE")
+ *        Account is eligible for review for a specified region code. (Value:
+ *        "ELIGIBLE")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible
- *        Account for a region code is not eligible for review. (Value:
- *        "INELIGIBLE")
+ *        Account is not eligible for review for a specified region code.
+ *        (Value: "INELIGIBLE")
  *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified
- *        Review eligibility state is unknown. (Value:
+ *        Review eligibility reason state is unknown. (Value:
  *        "REVIEW_ELIGIBILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reviewEligibilityStatus;
+
+/**
+ *  Review ineligibility reason if account is not eligible for review.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_AlreadyUnderReview
+ *        Account is already under review. (Value: "ALREADY_UNDER_REVIEW")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_InCooldownPeriod
+ *        Cooldown period applies. Wait until cooldown period ends. (Value:
+ *        "IN_COOLDOWN_PERIOD")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NoReviewRequired
+ *        No issues available to review. (Value: "NO_REVIEW_REQUIRED")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_NotEnoughOffers
+ *        Not enough offers uploaded for this country. (Value:
+ *        "NOT_ENOUGH_OFFERS")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_OnboardingIssues
+ *        All onboarding issues needs to be fixed. (Value: "ONBOARDING_ISSUES")
+ *    @arg @c kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewIneligibilityReason_ReviewIneligibilityReasonUnspecified
+ *        Requesting a review from Google is not possible. (Value:
+ *        "REVIEW_INELIGIBILITY_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reviewIneligibilityReason;
+
+/**
+ *  Reason if a program in a given country is not eligible for review. Populated
+ *  only if `review_eligibility_status` is `INELIGIBLE`.
+ */
+@property(nonatomic, copy, nullable) NSString *reviewIneligibilityReasonDescription;
+
+/**
+ *  This contains additional information specific to review ineligibility
+ *  reasons. If review is ineligible because of `IN_COOLDOWN_PERIOD`, it will
+ *  contain timestamp for cooldown period.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ShoppingAdsProgramStatusReviewIneligibilityReasonDetails *reviewIneligibilityReasonDetails;
 
 /**
  *  These issues will be evaluated in review process. Fix all the issues before
  *  requesting the review.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reviewIssues;
+
+@end
+
+
+/**
+ *  Additional details for review ineligibility reasons.
+ */
+@interface GTLRShoppingContent_ShoppingAdsProgramStatusReviewIneligibilityReasonDetails : GTLRObject
+
+/**
+ *  This timestamp represents end of cooldown period for review ineligbility
+ *  reason `IN_COOLDOWN_PERIOD`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *cooldownTime;
 
 @end
 
@@ -13374,7 +13532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_TestOrderAddress : GTLRObject
 
-/** CLDR country code (e.g. "US"). */
+/** CLDR country code (for example, "US"). */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -13393,11 +13551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  City, town or commune. May also include dependent localities or
- *  sublocalities (e.g. neighborhoods or suburbs).
+ *  sublocalities (for example, neighborhoods or suburbs).
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
-/** Postal Code or ZIP (e.g. "94043"). */
+/** Postal Code or ZIP (for example, "94043"). */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /** Name of the recipient. */
@@ -13504,9 +13662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/**
- *  Required. The CLDR territory // code of the target country of the product.
- */
+/** Required. The CLDR territory code of the target country of the product. */
 @property(nonatomic, copy, nullable) NSString *targetCountry;
 
 /** Required. The title of the product. */
@@ -13649,7 +13805,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_UnitInvoice : GTLRObject
 
-/** Additional charges for a unit, e.g. shipping costs. */
+/** Additional charges for a unit, for example, shipping costs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_UnitInvoiceAdditionalCharge *> *additionalCharges;
 
 /**
@@ -13735,13 +13891,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, strong, nullable) NSNumber *noShipping;
 
 /**
- *  A percentage of the price represented as a number in decimal notation (e.g.,
- *  `"5.4"`). Can only be set if all other fields are not set.
+ *  A percentage of the price represented as a number in decimal notation (for
+ *  example, `"5.4"`). Can only be set if all other fields are not set.
  */
 @property(nonatomic, copy, nullable) NSString *pricePercentage;
 
 /**
- *  The name of a subtable. Can only be set in table cells (i.e., not for single
+ *  The name of a subtable. Can only be set in table cells (not for single
  *  values), and only if all other fields are not set.
  */
 @property(nonatomic, copy, nullable) NSString *subtableName;
@@ -13833,13 +13989,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Required. Carrier, such as `"UPS"` or `"Fedex"`. The list of supported
- *  carriers can be retrieved via the `listSupportedCarriers` method.
+ *  carriers can be retrieved through the `listSupportedCarriers` method.
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
 /**
  *  Required. Carrier service, such as `"ground"` or `"2 days"`. The list of
- *  supported services for a carrier can be retrieved via the
+ *  supported services for a carrier can be retrieved through the
  *  `listSupportedCarriers` method. The name of the service must be in the
  *  eddSupportedServices list.
  */
@@ -13853,7 +14009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 
 /**
  *  Shipping origin's country represented as a [CLDR territory
- *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml).
+ *  code](https://github.com/unicode-org/cldr/blob/latest/common/main/en.xml).
  */
 @property(nonatomic, copy, nullable) NSString *originCountry;
 

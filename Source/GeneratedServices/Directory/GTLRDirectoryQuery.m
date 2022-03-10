@@ -498,7 +498,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_CustomersChromePrintersList
 
-@dynamic filter, orgUnitId, pageSize, pageToken, parent;
+@dynamic filter, orderBy, orgUnitId, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

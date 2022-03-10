@@ -208,6 +208,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudComposer"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudDataplex",
+            targets: ["GoogleAPIClientForREST_CloudDataplex"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudDebugger",
             targets: ["GoogleAPIClientForREST_CloudDebugger"]
         ),
@@ -528,6 +532,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Fitness"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Forms",
+            targets: ["GoogleAPIClientForREST_Forms"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Games",
             targets: ["GoogleAPIClientForREST_Games"]
         ),
@@ -640,6 +648,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessAccountManagement"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessBusinessCalls",
+            targets: ["GoogleAPIClientForREST_MyBusinessBusinessCalls"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MyBusinessBusinessInformation",
             targets: ["GoogleAPIClientForREST_MyBusinessBusinessInformation"]
         ),
@@ -710,6 +722,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Playdeveloperreporting",
+            targets: ["GoogleAPIClientForREST_Playdeveloperreporting"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PlayIntegrity",
@@ -1292,6 +1308,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudDataplex",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CloudDataplex",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CloudDebugger",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudDebugger",
@@ -1772,6 +1794,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Forms",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Forms",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Games",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Games",
@@ -1940,6 +1968,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_MyBusinessBusinessCalls",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessBusinessCalls",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_MyBusinessBusinessInformation",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessBusinessInformation",
@@ -2045,6 +2079,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Playdeveloperreporting",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Playdeveloperreporting",
             publicHeadersPath: "."
         ),
         .target(

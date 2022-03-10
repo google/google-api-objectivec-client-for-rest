@@ -206,6 +206,13 @@ NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported = @"SUPPORT
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unknown = @"UNKNOWN";
 NSString * const kGTLRDataflow_SdkVersion_SdkSupportStatus_Unsupported = @"UNSUPPORTED";
 
+// GTLRDataflow_SendDebugCaptureRequest.dataFormat
+NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Brotli = @"BROTLI";
+NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Json = @"JSON";
+NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Raw = @"RAW";
+NSString * const kGTLRDataflow_SendDebugCaptureRequest_DataFormat_Zlib = @"ZLIB";
+
 // GTLRDataflow_Snapshot.state
 NSString * const kGTLRDataflow_Snapshot_State_Deleted          = @"DELETED";
 NSString * const kGTLRDataflow_Snapshot_State_Failed           = @"FAILED";
@@ -1455,7 +1462,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_MemInfo
-@dynamic currentLimitBytes, currentRssBytes, timestamp, totalGbMs;
+@dynamic currentLimitBytes, currentOoms, currentRssBytes, timestamp, totalGbMs;
 @end
 
 
@@ -1996,7 +2003,15 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_SdkHarnessContainerImage
-@dynamic containerImage, environmentId, useSingleCorePerContainer;
+@dynamic capabilities, containerImage, environmentId, useSingleCorePerContainer;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"capabilities" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2026,7 +2041,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_SendDebugCaptureRequest
-@dynamic componentId, data, location, workerId;
+@dynamic componentId, data, dataFormat, location, workerId;
 @end
 
 

@@ -372,23 +372,28 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInte
 // GTLROSConfig_ExecStepConfig.interpreter
 
 /**
- *  Invalid for a Windows ExecStepConfig. For a Linux ExecStepConfig, the
- *  interpreter will be parsed from the shebang line of the script if
- *  unspecified.
+ *  If the interpreter is not specified, the value defaults to `NONE`.
  *
  *  Value: "INTERPRETER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified;
 /**
- *  Indicates that the file is run with PowerShell flags `-NonInteractive`,
- *  `-NoProfile`, and `-ExecutionPolicy Bypass`.
+ *  Indicates that the file is run as follows on each operating system: + For
+ *  Linux VMs, the file is ran as an executable and the interpreter might be
+ *  parsed from the [shebang line](https://wikipedia.org/wiki/Shebang_(Unix)) of
+ *  the file. + For Windows VM, this value is not supported.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_None;
+/**
+ *  Indicates that the file is run with PowerShell.
  *
  *  Value: "POWERSHELL"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powershell;
 /**
- *  Indicates that the script is run with `/bin/sh` on Linux and `cmd` on
- *  Windows.
+ *  Indicates that the file is run with `/bin/sh` on Linux and `cmd` on Windows.
  *
  *  Value: "SHELL"
  */
@@ -708,7 +713,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentReportOSPolic
 // GTLROSConfig_OSPolicyResourceExecResourceExec.interpreter
 
 /**
- *  Defaults to NONE.
+ *  Invalid value, the request will return validation error.
  *
  *  Value: "INTERPRETER_UNSPECIFIED"
  */
@@ -1497,11 +1502,11 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day value, with a zero year, such as an anniversary * A year on
- *  its own, with zero month and day values * A year and month value, with a
- *  zero day, such as a credit card expiration date Related types are
- *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLROSConfig_Date : GTLRObject
 
@@ -1581,15 +1586,18 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *  (https://en.wikipedia.org/wiki/Shebang_\\(Unix\\)).
  *
  *  Likely values:
- *    @arg @c kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified
- *        Invalid for a Windows ExecStepConfig. For a Linux ExecStepConfig, the
- *        interpreter will be parsed from the shebang line of the script if
- *        unspecified. (Value: "INTERPRETER_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified If
+ *        the interpreter is not specified, the value defaults to `NONE`.
+ *        (Value: "INTERPRETER_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_ExecStepConfig_Interpreter_None Indicates that the
+ *        file is run as follows on each operating system: + For Linux VMs, the
+ *        file is ran as an executable and the interpreter might be parsed from
+ *        the [shebang line](https://wikipedia.org/wiki/Shebang_(Unix)) of the
+ *        file. + For Windows VM, this value is not supported. (Value: "NONE")
  *    @arg @c kGTLROSConfig_ExecStepConfig_Interpreter_Powershell Indicates that
- *        the file is run with PowerShell flags `-NonInteractive`, `-NoProfile`,
- *        and `-ExecutionPolicy Bypass`. (Value: "POWERSHELL")
+ *        the file is run with PowerShell. (Value: "POWERSHELL")
  *    @arg @c kGTLROSConfig_ExecStepConfig_Interpreter_Shell Indicates that the
- *        script is run with `/bin/sh` on Linux and `cmd` on Windows. (Value:
+ *        file is run with `/bin/sh` on Linux and `cmd` on Windows. (Value:
  *        "SHELL")
  */
 @property(nonatomic, copy, nullable) NSString *interpreter;
@@ -3080,7 +3088,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *
  *  Likely values:
  *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_InterpreterUnspecified
- *        Defaults to NONE. (Value: "INTERPRETER_UNSPECIFIED")
+ *        Invalid value, the request will return validation error. (Value:
+ *        "INTERPRETER_UNSPECIFIED")
  *    @arg @c kGTLROSConfig_OSPolicyResourceExecResourceExec_Interpreter_None If
  *        an interpreter is not specified, the source is executed directly. This
  *        execution, without an interpreter, only succeeds for executables and

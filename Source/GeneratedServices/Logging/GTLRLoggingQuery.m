@@ -1585,6 +1585,33 @@
 
 @end
 
+@implementation GTLRLoggingQuery_FoldersUpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRLogging_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}/settings";
+  GTLRLoggingQuery_FoldersUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRLogging_Settings class];
+  query.loggingName = @"logging.folders.updateSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRLoggingQuery_LocationsBucketsCreate
 
 @dynamic bucketId, parent;

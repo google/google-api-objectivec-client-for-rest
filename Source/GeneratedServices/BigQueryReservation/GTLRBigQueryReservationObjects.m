@@ -70,8 +70,8 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_CapacityCommitment
-@dynamic commitmentEndTime, commitmentStartTime, failureStatus, name, plan,
-         renewalPlan, slotCount, state;
+@dynamic commitmentEndTime, commitmentStartTime, failureStatus,
+         multiRegionAuxiliary, name, plan, renewalPlan, slotCount, state;
 @end
 
 
@@ -184,7 +184,8 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_Reservation
-@dynamic creationTime, ignoreIdleSlots, name, slotCapacity, updateTime;
+@dynamic concurrency, creationTime, ignoreIdleSlots, multiRegionAuxiliary, name,
+         slotCapacity, updateTime;
 @end
 
 

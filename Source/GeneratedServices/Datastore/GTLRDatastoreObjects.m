@@ -107,11 +107,13 @@ NSString * const kGTLRDatastore_GoogleDatastoreAdminV1MigrationStateEvent_State_
 // GTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails.concurrencyMode
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1PrepareStepDetails_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
 
 // GTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails.concurrencyMode
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_OptimisticWithEntityGroups = @"OPTIMISTIC_WITH_ENTITY_GROUPS";
 NSString * const kGTLRDatastore_GoogleDatastoreAdminV1RedirectWritesStepDetails_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
 
 // GTLRDatastore_PropertyFilter.op

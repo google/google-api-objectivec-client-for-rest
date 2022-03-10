@@ -493,6 +493,31 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_Temporar
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TemporaryHold_TemporaryHoldUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageTransfer_MetadataOptions.timeCreated
+
+/**
+ *  Preserves the source object's `timeCreated` metadata in the `customTime`
+ *  field in the destination object. Note that any value stored in the source
+ *  object's `customTime` field will not be propagated to the destination
+ *  object.
+ *
+ *  Value: "TIME_CREATED_PRESERVE_AS_CUSTOM_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedPreserveAsCustomTime;
+/**
+ *  Do not preserve the `timeCreated` metadata from the source object.
+ *
+ *  Value: "TIME_CREATED_SKIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedSkip;
+/**
+ *  TimeCreated behavior is unspecified.
+ *
+ *  Value: "TIME_CREATED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageTransfer_MetadataOptions.uid
 
 /**
@@ -826,11 +851,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
- *  following: * A full date, with non-zero year, month, and day values * A
- *  month and day, with a zero year (e.g., an anniversary) * A year on its own,
- *  with a zero month and a zero day * A year and month, with a zero day (e.g.,
- *  a credit card expiration date) Related types: * google.type.TimeOfDay *
- *  google.type.DateTime * google.protobuf.Timestamp
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRStorageTransfer_Date : GTLRObject
 
@@ -1337,6 +1362,27 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *        "TEMPORARY_HOLD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *temporaryHold;
+
+/**
+ *  Specifies how each object's `timeCreated` metadata is preserved for
+ *  transfers between Google Cloud Storage buckets. If unspecified, the default
+ *  behavior is the same as TIME_CREATED_SKIP.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedPreserveAsCustomTime
+ *        Preserves the source object's `timeCreated` metadata in the
+ *        `customTime` field in the destination object. Note that any value
+ *        stored in the source object's `customTime` field will not be
+ *        propagated to the destination object. (Value:
+ *        "TIME_CREATED_PRESERVE_AS_CUSTOM_TIME")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedSkip
+ *        Do not preserve the `timeCreated` metadata from the source object.
+ *        (Value: "TIME_CREATED_SKIP")
+ *    @arg @c kGTLRStorageTransfer_MetadataOptions_TimeCreated_TimeCreatedUnspecified
+ *        TimeCreated behavior is unspecified. (Value:
+ *        "TIME_CREATED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timeCreated;
 
 /**
  *  Specifies how each file's POSIX user ID (UID) attribute should be handled by

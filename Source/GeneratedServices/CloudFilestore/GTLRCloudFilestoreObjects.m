@@ -210,10 +210,11 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic consumerDefinedName, createTime, labels, maintenancePolicyNames,
-         maintenanceSchedules, maintenanceSettings, name, producerMetadata,
-         provisionedResources, slmInstanceTemplate, sloMetadata,
-         softwareVersions, state, tenantProjectId, updateTime;
+@dynamic consumerDefinedName, createTime, instanceType, labels,
+         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
+         name, notificationParameters, producerMetadata, provisionedResources,
+         slmInstanceTemplate, sloMetadata, softwareVersions, state,
+         tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -262,6 +263,20 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 + (Class)classForAdditionalProperties {
   return [GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_NotificationParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

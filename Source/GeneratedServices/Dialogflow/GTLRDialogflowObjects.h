@@ -215,6 +215,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata;
@@ -224,8 +225,10 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -299,8 +302,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination;
+@class GTLRDialogflow_GoogleCloudDialogflowV2InputDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage;
@@ -347,6 +353,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
@@ -1576,6 +1583,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Webh
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata.trainingModelType
+
+/**
+ *  ModelType unspecified.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_ModelTypeUnspecified;
+/**
+ *  ModelType smart reply bert model.
+ *
+ *  Value: "SMART_REPLY_BERT_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyBertModel;
+/**
+ *  ModelType smart reply dual encoder model.
+ *
+ *  Value: "SMART_REPLY_DUAL_ENCODER_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyDualEncoderModel;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.participantRole
+
+/**
+ *  Participant is an automated agent, such as a Dialogflow agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent;
+/**
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent;
+/**
+ *  Participant role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+
+/**
+ *  Run article suggestion model.
+ *
+ *  Value: "ARTICLE_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
+/**
+ *  Run FAQ model.
+ *
+ *  Value: "FAQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run smart reply model.
+ *
+ *  Value: "SMART_REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply;
+/**
+ *  Unspecified feature type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
 
 /**
@@ -1592,6 +1678,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
  *  Value: "CONVERSATION_STARTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted;
+/**
+ *  An existing conversation has received notification from Dialogflow that
+ *  human intervention is required.
+ *
+ *  Value: "HUMAN_INTERVENTION_NEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_HumanInterventionNeeded;
 /**
  *  An existing conversation has received a new message, either from API or
  *  telephony. It is configured in
@@ -2172,6 +2265,120 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata.participantRole
+
+/**
+ *  Participant is an automated agent, such as a Dialogflow agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent;
+/**
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent;
+/**
+ *  Participant role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+
+/**
+ *  Run article suggestion model.
+ *
+ *  Value: "ARTICLE_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
+/**
+ *  Run FAQ model.
+ *
+ *  Value: "FAQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run smart reply model.
+ *
+ *  Value: "SMART_REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply;
+/**
+ *  Unspecified feature type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
+
+/**
+ *  Participant is an automated agent, such as a Dialogflow agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent;
+/**
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent;
+/**
+ *  Participant role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+
+/**
+ *  Run article suggestion model.
+ *
+ *  Value: "ARTICLE_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
+/**
+ *  Run FAQ model.
+ *
+ *  Value: "FAQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run smart reply model.
+ *
+ *  Value: "SMART_REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply;
+/**
+ *  Unspecified feature type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent.type
 
 /**
@@ -2219,6 +2426,152 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conver
  *  Value: "UNRECOVERABLE_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel.state
+
+/**
+ *  Model being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Creating;
+/**
+ *  Model is deleting.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deleting;
+/**
+ *  Model is deployed and ready to use.
+ *
+ *  Value: "DEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deployed;
+/**
+ *  Model is deploying.
+ *
+ *  Value: "DEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deploying;
+/**
+ *  Model is in error state. Not ready to deploy and use.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Failed;
+/**
+ *  Model is being created but the training has not started, The model may
+ *  remain in this state until there is enough capacity to start training.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Pending;
+/**
+ *  Should not be used, an un-set enum has this value by default.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_StateUnspecified;
+/**
+ *  Model is not deployed but ready to deploy.
+ *
+ *  Value: "UNDEPLOYED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeployed;
+/**
+ *  Model is undeploying.
+ *
+ *  Value: "UNDEPLOYING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeploying;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata.state
+
+/**
+ *  The operation is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Cancelled;
+/**
+ *  The operation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Failed;
+/**
+ *  The operation is being prepared.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Initializing;
+/**
+ *  The operation is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Running;
+/**
+ *  Operation status not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_StateUnspecified;
+/**
+ *  The operation has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata.state
+
+/**
+ *  The training has been cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelled;
+/**
+ *  The training is in cancelling state.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelling;
+/**
+ *  The training has succeeded.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Failed;
+/**
+ *  Request is submitted, but training has not started yet. The model may remain
+ *  in this state until there is enough capacity to start training.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Pending;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_StateUnspecified;
+/**
+ *  The training has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Succeeded;
+/**
+ *  Custom model is training.
+ *
+ *  Value: "TRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Training;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
@@ -2638,6 +2991,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Sessio
  *  Value: "ENTITY_OVERRIDE_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.participantRole
+
+/**
+ *  Participant is an automated agent, such as a Dialogflow agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent;
+/**
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent;
+/**
+ *  Participant role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata.suggestionFeatureType
+
+/**
+ *  Run article suggestion model.
+ *
+ *  Value: "ARTICLE_SUGGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion;
+/**
+ *  Run FAQ model.
+ *
+ *  Value: "FAQ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq;
+/**
+ *  Run smart reply model.
+ *
+ *  Value: "SMART_REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply;
+/**
+ *  Unspecified feature type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata.trainingModelType
+
+/**
+ *  ModelType unspecified.
+ *
+ *  Value: "MODEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_ModelTypeUnspecified;
+/**
+ *  ModelType smart reply bert model.
+ *
+ *  Value: "SMART_REPLY_BERT_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyBertModel;
+/**
+ *  ModelType smart reply dual encoder model.
+ *
+ *  Value: "SMART_REPLY_DUAL_ENCODER_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata.state
@@ -4760,10 +5192,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestConfig : GTLRObject
 
 /**
- *  Flow name. If not set, default start flow is assumed. Format:
- *  `projects//locations//agents//flows/`.
+ *  Flow name to start the test case with. Format:
+ *  `projects//locations//agents//flows/`. Only one of `flow` and `page` should
+ *  be set to indicate the starting point of the test case. If both are set,
+ *  `page` takes precedence over `flow`. If neither is set, the test case will
+ *  start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *flow;
+
+/**
+ *  The page to start the test case with. Format:
+ *  `projects//locations//agents//flows//pages/`. Only one of `flow` and `page`
+ *  should be set to indicate the starting point of the test case. If both are
+ *  set, `page` takes precedence over `flow`. If neither is set, the test case
+ *  will start with start page on the default start flow.
+ */
+@property(nonatomic, copy, nullable) NSString *page;
 
 /** Session parameters to be compared when calculating differences. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackingParameters;
@@ -6217,7 +6661,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
  *  URI to export the agent to. The format of this URI must be `gs:///`. If left
- *  unspecified, the serialized agent is returned inline.
+ *  unspecified, the serialized agent is returned inline. Dialogflow performs a
+ *  write operation for the Cloud Storage object on the caller's behalf, so your
+ *  request authentication must have write permissions for the object. For more
+ *  information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -6260,7 +6708,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
  *  URI to export the flow to. The format of this URI must be `gs:///`. If left
- *  unspecified, the serialized flow is returned inline.
+ *  unspecified, the serialized flow is returned inline. Dialogflow performs a
+ *  write operation for the Cloud Storage object on the caller's behalf, so your
+ *  request authentication must have write permissions for the object. For more
+ *  information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *flowUri;
 
@@ -6335,7 +6787,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
  *  export the test cases to. The format of this URI must be `gs:///`. If
- *  unspecified, the serialized test cases is returned inline.
+ *  unspecified, the serialized test cases is returned inline. Dialogflow
+ *  performs a write operation for the Cloud Storage object on the caller's
+ *  behalf, so your request authentication must have write permissions for the
+ *  object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
@@ -6790,7 +7246,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
- *  import flow from. The format of this URI must be `gs:///`.
+ *  import flow from. The format of this URI must be `gs:///`. Dialogflow
+ *  performs a read operation for the Cloud Storage object on the caller's
+ *  behalf, so your request authentication must have read permissions for the
+ *  object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *flowUri;
 
@@ -6854,7 +7314,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
- *  import test cases from. The format of this URI must be `gs:///`.
+ *  import test cases from. The format of this URI must be `gs:///`. Dialogflow
+ *  performs a read operation for the Cloud Storage object on the caller's
+ *  behalf, so your request authentication must have read permissions for the
+ *  object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
@@ -8885,7 +9349,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
- *  restore agent from. The format of this URI must be `gs:///`.
+ *  restore agent from. The format of this URI must be `gs:///`. Dialogflow
+ *  performs a read operation for the Cloud Storage object on the caller's
+ *  behalf, so your request authentication must have read permissions for the
+ *  object. For more information, see [Dialogflow access
+ *  control](https://cloud.google.com/dialogflow/cx/docs/concept/access-control#storage).
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -9477,10 +9945,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TestConfig : GTLRObject
 
 /**
- *  Flow name. If not set, default start flow is assumed. Format:
- *  `projects//locations//agents//flows/`.
+ *  Flow name to start the test case with. Format:
+ *  `projects//locations//agents//flows/`. Only one of `flow` and `page` should
+ *  be set to indicate the starting point of the test case. If both are set,
+ *  `page` takes precedence over `flow`. If neither is set, the test case will
+ *  start with start page on the default start flow.
  */
 @property(nonatomic, copy, nullable) NSString *flow;
+
+/**
+ *  The page to start the test case with. Format:
+ *  `projects//locations//agents//flows//pages/`. Only one of `flow` and `page`
+ *  should be set to indicate the starting point of the test case. If both are
+ *  set, `page` takes precedence over `flow`. If neither is set, the test case
+ *  will start with start page on the default start flow.
+ */
+@property(nonatomic, copy, nullable) NSString *page;
 
 /** Session parameters to be compared when calculating differences. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *trackingParameters;
@@ -10490,6 +10970,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for article suggestion models.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata : GTLRObject
+
+/**
+ *  Optional. Type of the article suggestion model. If not provided, model_type
+ *  is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_ModelTypeUnspecified
+ *        ModelType unspecified. (Value: "MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyBertModel
+ *        ModelType smart reply bert model. (Value: "SMART_REPLY_BERT_MODEL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyDualEncoderModel
+ *        ModelType smart reply dual encoder model. (Value:
+ *        "SMART_REPLY_DUAL_ENCODER_MODEL")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingModelType;
+
+@end
+
+
+/**
  *  The response message for EntityTypes.BatchUpdateEntityTypes.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesResponse : GTLRObject
@@ -10607,6 +11110,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for a ConversationProfile.ClearSuggestionFeatureConfig operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation profile. Format:
+ *  `projects//locations//conversationProfiles/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Timestamp whe the request was created. The time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The participant role to remove the suggestion feature config. Only
+ *  HUMAN_AGENT or END_USER can be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+/**
+ *  Required. The type of the suggestion feature to remove.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
+ *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
+ *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
+ *        Run smart reply model. (Value: "SMART_REPLY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
+ *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionFeatureType;
+
+@end
+
+
+/**
  *  Dialogflow contexts are similar to natural language context. If a person
  *  says to you "they are orange", you need context in order to understand what
  *  "they" is referring to. Similarly, for Dialogflow to handle an end-user
@@ -10717,6 +11272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        A new conversation has been opened. This is fired when a telephone
  *        call is answered, or a conversation is created via the API. (Value:
  *        "CONVERSATION_STARTED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_HumanInterventionNeeded
+ *        An existing conversation has received notification from Dialogflow
+ *        that human intervention is required. (Value:
+ *        "HUMAN_INTERVENTION_NEEDED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage
  *        An existing conversation has received a new message, either from API
  *        or telephony. It is configured in
@@ -10847,7 +11406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. The language of this query. See [Language
  *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
  *  list of the currently supported language codes. Note that queries in the
- *  same session do not necessarily need to specify the same language.
+ *  same session do not necessarily need to specify the same language. This
+ *  field is ignored when used in the context of a
+ *  WebhookResponse.followup_event_input field, because the language was already
+ *  defined in the originating detect intent request.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -10913,6 +11475,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata related to the Export Data Operations (e.g. ExportDocument).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata : GTLRObject
+
+/** Cloud Storage file path of the exported data. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination *exportedGcsDestination;
+
+@end
+
+
+/**
  *  Represents answer from "frequently asked questions".
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer : GTLRObject
@@ -10963,6 +11536,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Google Cloud Storage location for the output.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GcsDestination : GTLRObject
+
+/**
+ *  Required. The Google Cloud Storage URIs for the output. A URI is of the
+ *  form: gs://bucket/object-prefix-or-name Whether a prefix or name is used
+ *  depends on the use case. The requesting user must have "write-permission" to
+ *  the bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 
@@ -12412,6 +13001,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata : GTLRObject
 
+/**
+ *  Metadata for the Export Data Operation such as the destination of export.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ExportOperationMetadata *exportOperationMetadata;
+
 /** The name of the knowledge base interacted with during the operation. */
 @property(nonatomic, copy, nullable) NSString *knowledgeBase;
 
@@ -12856,6 +13450,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for a ConversationProfile.SetSuggestionFeatureConfig operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation profile. Format:
+ *  `projects//locations//conversationProfiles/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Timestamp whe the request was created. The time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The participant role to add or update the suggestion feature
+ *  config. Only HUMAN_AGENT or END_USER can be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+/**
+ *  Required. The type of the suggestion feature to add or update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
+ *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
+ *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
+ *        Run smart reply model. (Value: "SMART_REPLY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
+ *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionFeatureType;
+
+@end
+
+
+/**
  *  Represents a smart reply answer.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer : GTLRObject
@@ -13136,6 +13782,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for a ConversationProfile.ClearSuggestionFeatureConfig operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation profile. Format:
+ *  `projects//locations//conversationProfiles/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Timestamp whe the request was created. The time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The participant role to remove the suggestion feature config. Only
+ *  HUMAN_AGENT or END_USER can be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+/**
+ *  Required. The type of the suggestion feature to remove.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
+ *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
+ *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
+ *        Run smart reply model. (Value: "SMART_REPLY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
+ *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionFeatureType;
+
+@end
+
+
+/**
  *  Dialogflow contexts are similar to natural language context. If a person
  *  says to you "they are orange", you need context in order to understand what
  *  "they" is referring to. Similarly, for Dialogflow to handle an end-user
@@ -13270,6 +13968,216 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a conversation model.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ConversationModel : GTLRObject
+
+/** Metadata for article suggestion models. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata *articleSuggestionModelMetadata;
+
+/** Output only. Creation time of this model. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Datasets used to create model. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2InputDataset *> *datasets;
+
+/** Required. The display name of the model. At most 64 bytes long. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Language code for the conversation model. If not specified, the language is
+ *  en-US. Language at ConversationModel should be set for all non en-us
+ *  languages. This should be a
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
+ *  Example: "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  ConversationModel resource name. Format: `projects//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Metadata for smart reply models. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata *smartReplyModelMetadata;
+
+/**
+ *  Output only. State of the model. A model can only serve prediction requests
+ *  after it gets deployed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Creating
+ *        Model being created. (Value: "CREATING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deleting
+ *        Model is deleting. (Value: "DELETING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deployed
+ *        Model is deployed and ready to use. (Value: "DEPLOYED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Deploying
+ *        Model is deploying. (Value: "DEPLOYING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Failed
+ *        Model is in error state. Not ready to deploy and use. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Pending
+ *        Model is being created but the training has not started, The model may
+ *        remain in this state until there is enough capacity to start training.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_StateUnspecified
+ *        Should not be used, an un-set enum has this value by default. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeployed
+ *        Model is not deployed but ready to deploy. (Value: "UNDEPLOYED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationModel_State_Undeploying
+ *        Model is undeploying. (Value: "UNDEPLOYING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Metadata for ConversationDatasets.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationDatasetOperationMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for a ConversationModels.CreateConversationModelEvaluation
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//locations//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//locations//conversationModels//evaluations/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModelEvaluation;
+
+/**
+ *  Timestamp when the request to create conversation model was submitted. The
+ *  time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  State of CreateConversationModel operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Cancelled
+ *        The operation is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Failed
+ *        The operation has failed. (Value: "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Initializing
+ *        The operation is being prepared. (Value: "INITIALIZING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Running
+ *        The operation is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_StateUnspecified
+ *        Operation status not specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelEvaluationOperationMetadata_State_Succeeded
+ *        The operation has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Metadata for a ConversationModels.CreateConversationModel operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  Timestamp when the request to create conversation model is submitted. The
+ *  time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  State of CreateConversationModel operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelled
+ *        The training has been cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Cancelling
+ *        The training is in cancelling state. (Value: "CANCELLING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Failed
+ *        The training has succeeded. (Value: "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Pending
+ *        Request is submitted, but training has not started yet. The model may
+ *        remain in this state until there is enough capacity to start training.
+ *        (Value: "PENDING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_StateUnspecified
+ *        Invalid. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Succeeded
+ *        The training has succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2CreateConversationModelOperationMetadata_State_Training
+ *        Custom model is training. (Value: "TRAINING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Metadata for ConversationDatasets.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationDatasetOperationMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for a ConversationModels.DeleteConversationModel operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2DeleteConversationModelOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  Timestamp when delete conversation model request was created. The time is
+ *  measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
+ *  Metadata for a ConversationModels.DeployConversationModel operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2DeployConversationModelOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  Timestamp when request to deploy conversation model was submitted. The time
+ *  is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  Each intent parameter has a type, called the entity type, which dictates
  *  exactly how data from an end-user expression is extracted. Dialogflow
  *  provides predefined system entities that can match many common types of
@@ -13377,7 +14285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Required. The language of this query. See [Language
  *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
  *  list of the currently supported language codes. Note that queries in the
- *  same session do not necessarily need to specify the same language.
+ *  same session do not necessarily need to specify the same language. This
+ *  field is ignored when used in the context of a
+ *  WebhookResponse.followup_event_input field, because the language was already
+ *  defined in the originating detect intent request.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -13443,6 +14354,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata related to the Export Data Operations (e.g. ExportDocument).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata : GTLRObject
+
+/** Cloud Storage file path of the exported data. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination *exportedGcsDestination;
+
+@end
+
+
+/**
  *  Represents answer from "frequently asked questions".
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer : GTLRObject
@@ -13497,6 +14419,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Google Cloud Storage location for the output.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2GcsDestination : GTLRObject
+
+/**
+ *  The Google Cloud Storage URIs for the output. A URI is of the form:
+ *  gs://bucket/object-prefix-or-name Whether a prefix or name is used depends
+ *  on the use case. The requesting user must have "write-permission" to the
+ *  bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Represents a notification sent to Cloud Pub/Sub subscribers for human agent
  *  assistant events in a specific conversation.
  */
@@ -13522,12 +14460,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for a ConversationDatasets.ImportConversationData operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the imported conversation dataset. Format:
+ *  `projects//locations//conversationDatasets/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationDataset;
+
+/**
+ *  Timestamp when import conversation data request was created. The time is
+ *  measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Partial failures are failures that don't fail the whole long running
+ *  operation, e.g. single files that couldn't be read.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *partialFailures;
+
+@end
+
+
+/**
+ *  Response used for ConversationDatasets.ImportConversationData long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ImportConversationDataOperationResponse : GTLRObject
+
+/**
+ *  The resource name of the imported conversation dataset. Format:
+ *  `projects//locations//conversationDatasets/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationDataset;
+
+/**
+ *  Number of conversations imported successfully.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *importCount;
+
+@end
+
+
+/**
  *  Response message for Documents.ImportDocuments.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ImportDocumentsResponse : GTLRObject
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  InputDataset used to create model or do evaluation. NextID:5
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2InputDataset : GTLRObject
+
+/**
+ *  Required. ConversationDataset resource name. Format:
+ *  `projects//locations//conversationDatasets/`
+ */
+@property(nonatomic, copy, nullable) NSString *dataset;
 
 @end
 
@@ -14513,6 +15513,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
 
+/**
+ *  Metadata for the Export Data Operation such as the destination of export.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ExportOperationMetadata *exportOperationMetadata;
+
 /** The name of the knowledge base interacted with during the operation. */
 @property(nonatomic, copy, nullable) NSString *knowledgeBase;
 
@@ -14948,6 +15953,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata for a ConversationProfile.SetSuggestionFeatureConfig operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation profile. Format:
+ *  `projects//locations//conversationProfiles/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationProfile;
+
+/**
+ *  Timestamp whe the request was created. The time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The participant role to add or update the suggestion feature
+ *  config. Only HUMAN_AGENT or END_USER can be used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+/**
+ *  Required. The type of the suggestion feature to add or update.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_ArticleSuggestion
+ *        Run article suggestion model. (Value: "ARTICLE_SUGGESTION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_Faq
+ *        Run FAQ model. (Value: "FAQ")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_SmartReply
+ *        Run smart reply model. (Value: "SMART_REPLY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SetSuggestionFeatureConfigOperationMetadata_SuggestionFeatureType_TypeUnspecified
+ *        Unspecified feature type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *suggestionFeatureType;
+
+@end
+
+
+/**
  *  Represents a smart reply answer.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer : GTLRObject
@@ -14969,6 +16026,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The content of the reply. */
 @property(nonatomic, copy, nullable) NSString *reply;
+
+@end
+
+
+/**
+ *  Metadata for smart reply models.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata : GTLRObject
+
+/**
+ *  Optional. Type of the smart reply model. If not provided, model_type is
+ *  used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_ModelTypeUnspecified
+ *        ModelType unspecified. (Value: "MODEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyBertModel
+ *        ModelType smart reply bert model. (Value: "SMART_REPLY_BERT_MODEL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_TrainingModelType_SmartReplyDualEncoderModel
+ *        ModelType smart reply dual encoder model. (Value:
+ *        "SMART_REPLY_DUAL_ENCODER_MODEL")
+ */
+@property(nonatomic, copy, nullable) NSString *trainingModelType;
 
 @end
 
@@ -15074,6 +16154,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  the returned replies is set in SmartReplyConfig.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SmartReplyAnswer *> *smartReplyAnswers;
+
+@end
+
+
+/**
+ *  Metadata for a ConversationModels.UndeployConversationModel operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2UndeployConversationModelOperationMetadata : GTLRObject
+
+/**
+ *  The resource name of the conversation model. Format:
+ *  `projects//conversationModels/`
+ */
+@property(nonatomic, copy, nullable) NSString *conversationModel;
+
+/**
+ *  Timestamp when the request to undeploy conversation model was submitted. The
+ *  time is measured on server side.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 @end
 

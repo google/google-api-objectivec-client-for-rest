@@ -191,6 +191,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_Signat
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512;
 /**
+ *  RSASSA-PSS 2048 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_2048_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss2048Sha256;
+/**
+ *  RSASSA-PSS 3072 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_3072_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss3072Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA256 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha256;
+/**
+ *  RSASSA-PSS 4096 bit key with a SHA512 digest.
+ *
+ *  Value: "RSA_SIGN_PSS_4096_SHA512"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha512;
+/**
  *  Not specified.
  *
  *  Value: "SIGNATURE_ALGORITHM_UNSPECIFIED"
@@ -371,6 +395,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Used to prevent updating the attestor when another request has
+ *  updated it since it was retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Required. The resource name, in the format: `projects/ * /attestors/ *`.
@@ -741,6 +771,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512
  *        RSASSA-PKCS1-v1_5 with a 4096 bit key and a SHA512 digest. (Value:
  *        "RSA_SIGN_PKCS1_4096_SHA512")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss2048Sha256
+ *        RSASSA-PSS 2048 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_2048_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss3072Sha256
+ *        RSASSA-PSS 3072 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_3072_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha256
+ *        RSASSA-PSS 4096 bit key with a SHA256 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA256")
+ *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha512
+ *        RSASSA-PSS 4096 bit key with a SHA512 digest. (Value:
+ *        "RSA_SIGN_PSS_4096_SHA512")
  *    @arg @c kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified
  *        Not specified. (Value: "SIGNATURE_ALGORITHM_UNSPECIFIED")
  */
@@ -782,6 +824,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Used to prevent updating the policy when another request has
+ *  updated it since it was retrieved.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Optional. Controls the evaluation of a Google-maintained global admission

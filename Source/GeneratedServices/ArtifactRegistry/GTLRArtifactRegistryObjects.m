@@ -157,34 +157,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRArtifactRegistry_ImportGooGetArtifactsGcsSource
-//
-
-@implementation GTLRArtifactRegistry_ImportGooGetArtifactsGcsSource
-@dynamic uris, useWildcards;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"uris" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ImportGooGetArtifactsRequest
-//
-
-@implementation GTLRArtifactRegistry_ImportGooGetArtifactsRequest
-@dynamic gcsSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRArtifactRegistry_ImportYumArtifactsGcsSource
 //
 
@@ -567,25 +539,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 //
 
 @implementation GTLRArtifactRegistry_UploadAptArtifactRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse
-//
-
-@implementation GTLRArtifactRegistry_UploadGooGetArtifactMediaResponse
-@dynamic operation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_UploadGooGetArtifactRequest
-//
-
-@implementation GTLRArtifactRegistry_UploadGooGetArtifactRequest
 @end
 
 

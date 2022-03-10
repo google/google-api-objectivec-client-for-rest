@@ -714,7 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Optional. `etag` is used for optimistic concurrency control as a way to help
  *  prevent simultaneous updates of an alert metadata from overwriting each
  *  other. It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform metatdata updates in order to avoid race
+ *  read-modify-write cycle to perform metadata updates in order to avoid race
  *  conditions: An `etag` is returned in the response which contains alert
  *  metadata, and systems are expected to put that etag in the request to update
  *  alert metadata to ensure that their change will be applied to the same
@@ -1170,6 +1170,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Customer domain for email template personalization. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
 /**
  *  A header to display above the incident message. Typically used to attach a
  *  localized notice on the timeline for followup comms translations.
@@ -1299,6 +1302,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /** The sender email address. */
 @property(nonatomic, copy, nullable) NSString *fromHeader;
+
+@end
+
+
+/**
+ *  Alert Created by the MSA team for communications necessary for continued use
+ *  of Google Workspace Products.
+ */
+@interface GTLRAlertCenter_MandatoryServiceAnnouncement : GTLRObject
+
+/**
+ *  Detailed, freeform text describing the announcement
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** One line summary of the announcement */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

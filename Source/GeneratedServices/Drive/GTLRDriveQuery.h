@@ -1533,7 +1533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Subscribes to changes to a file
+ *  Subscribes to changes to a file. While you can establish a channel
+ *  forchanges to a file on a shared drive, a change to a shared drive file
+ *  won't create a notification.
  *
  *  Method: drive.files.watch
  *
@@ -1583,7 +1585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Channel.
  *
- *  Subscribes to changes to a file
+ *  Subscribes to changes to a file. While you can establish a channel
+ *  forchanges to a file on a shared drive, a change to a shared drive file
+ *  won't create a notification.
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param fileId The ID of the file.
@@ -1596,7 +1600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Subscribes to changes to a file
+ *  Subscribes to changes to a file. While you can establish a channel
+ *  forchanges to a file on a shared drive, a change to a shared drive file
+ *  won't create a notification.
  *
  *  @param object The @c GTLRDrive_Channel to include in the query.
  *  @param fileId The ID of the file.

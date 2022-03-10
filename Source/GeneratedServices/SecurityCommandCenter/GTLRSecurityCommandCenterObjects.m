@@ -171,6 +171,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_Exp
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_NativeApi = @"NATIVE_API";
@@ -218,6 +219,7 @@ NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_Exploi
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExternalProxy = @"EXTERNAL_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_IngressToolTransfer = @"INGRESS_TOOL_TRANSFER";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_LocalAccounts = @"LOCAL_ACCOUNTS";
+NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyAuthenticationProcess = @"MODIFY_AUTHENTICATION_PROCESS";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ModifyCloudComputeInfrastructure = @"MODIFY_CLOUD_COMPUTE_INFRASTRUCTURE";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_MultiHopProxy = @"MULTI_HOP_PROXY";
 NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_NativeApi = @"NATIVE_API";
@@ -370,7 +372,7 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 //
 
 @implementation GTLRSecurityCommandCenter_Cve
-@dynamic cvssv3, identifier, references;
+@dynamic cvssv3, identifier, references, upstreamFixAvailable;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -510,6 +512,22 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse
 @dynamic duration, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport
+@dynamic createTime, dataset, descriptionProperty, filter, mostRecentEditor,
+         name, principal, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -838,6 +856,28 @@ NSString * const kGTLRSecurityCommandCenter_SetMuteRequest_Mute_Unmuted = @"UNMU
 
 @implementation GTLRSecurityCommandCenter_ListAssetsResult
 @dynamic asset, stateChange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ListBigQueryExportsResponse
+//
+
+@implementation GTLRSecurityCommandCenter_ListBigQueryExportsResponse
+@dynamic bigQueryExports, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bigQueryExports" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1BigQueryExport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"bigQueryExports";
+}
+
 @end
 
 

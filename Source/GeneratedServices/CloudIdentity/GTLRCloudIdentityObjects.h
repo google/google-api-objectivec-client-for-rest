@@ -670,40 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_RestrictionEvaluation_State_StateUnspecified;
 
-// ----------------------------------------------------------------------------
-// GTLRCloudIdentity_UserInvitation.state
-
-/**
- *  The user has accepted the invitation and is part of the organization.
- *
- *  Value: "ACCEPTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted;
-/**
- *  The user declined the invitation.
- *
- *  Value: "DECLINED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined;
-/**
- *  The user has been invited by email.
- *
- *  Value: "INVITED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited;
-/**
- *  The `UserInvitation` has been created and is ready for sending as an email.
- *
- *  Value: "NOT_YET_SENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent;
-/**
- *  The default value. This value is used if the state is omitted.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified;
-
 /**
  *  The response message for MembershipsService.CheckTransitiveMembership.
  */
@@ -1729,6 +1695,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
+/**
+ *  Optional. Specifies if a user is able to factory reset a device after a
+ *  Device Wipe. On iOS, this is called "Activation Lock", while on Android,
+ *  this is known as "Factory Reset Protection". If true, this protection will
+ *  be removed from the device, so that a user can successfully factory reset.
+ *  If false, the setting is untouched on the device.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *removeResetLock;
+
 @end
 
 
@@ -2553,55 +2530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  currently be updated.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_MembershipRole *membershipRole;
-
-@end
-
-
-/**
- *  The `UserInvitation` resource represents an email that can be sent to an
- *  unmanaged user account inviting them to join the customer's Google Workspace
- *  or Cloud Identity account. An unmanaged account shares an email address
- *  domain with the Google Workspace or Cloud Identity account but is not
- *  managed by it yet. If the user accepts the `UserInvitation`, the user
- *  account will become managed.
- */
-@interface GTLRCloudIdentity_UserInvitation : GTLRObject
-
-/**
- *  Number of invitation emails sent to the user.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *mailsSentCount;
-
-/**
- *  Shall be of the form
- *  `customers/{customer}/userinvitations/{user_email_address}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  State of the `UserInvitation`.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Accepted The user has
- *        accepted the invitation and is part of the organization. (Value:
- *        "ACCEPTED")
- *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Declined The user declined
- *        the invitation. (Value: "DECLINED")
- *    @arg @c kGTLRCloudIdentity_UserInvitation_State_Invited The user has been
- *        invited by email. (Value: "INVITED")
- *    @arg @c kGTLRCloudIdentity_UserInvitation_State_NotYetSent The
- *        `UserInvitation` has been created and is ready for sending as an
- *        email. (Value: "NOT_YET_SENT")
- *    @arg @c kGTLRCloudIdentity_UserInvitation_State_StateUnspecified The
- *        default value. This value is used if the state is omitted. (Value:
- *        "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Time when the `UserInvitation` was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

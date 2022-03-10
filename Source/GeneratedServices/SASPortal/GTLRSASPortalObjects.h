@@ -32,6 +32,7 @@
 @class GTLRSASPortal_FrequencyRange;
 @class GTLRSASPortal_InstallationParams;
 @class GTLRSASPortal_Node;
+@class GTLRSASPortal_NrqzValidation;
 @class GTLRSASPortal_Operation_Metadata;
 @class GTLRSASPortal_Operation_Response;
 @class GTLRSASPortal_Policy;
@@ -556,6 +557,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  */
 @property(nonatomic, copy, nullable) NSString *interferenceCoordinationGroup;
 
+/**
+ *  Output only. Whether a CPI has validated to have coordinated with the
+ *  National Quiet Zone office.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nrqzValidated;
+
+/** Output only. National Radio Quiet Zone validation info. */
+@property(nonatomic, strong, nullable) GTLRSASPortal_NrqzValidation *nrqzValidation;
+
 @end
 
 
@@ -966,6 +978,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /** User ids used by the devices belonging to this node. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sasUserIds;
+
+@end
+
+
+/**
+ *  Information about National Radio Quiet Zone validation. The presence of the
+ *  field indicates the device has been validated.
+ */
+@interface GTLRSASPortal_NrqzValidation : GTLRObject
+
+/** Validation case id. */
+@property(nonatomic, copy, nullable) NSString *caseId;
+
+/** CPI who signed the validation. */
+@property(nonatomic, copy, nullable) NSString *cpiId;
+
+/**
+ *  Device latitude associated with the validation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *latitude;
+
+/**
+ *  Device longitude associated with the validation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *longitude;
 
 @end
 

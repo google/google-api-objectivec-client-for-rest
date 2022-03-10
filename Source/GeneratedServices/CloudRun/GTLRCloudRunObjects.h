@@ -5,8 +5,9 @@
 //   Cloud Run Admin API (run/v2)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on incoming requests. The Cloud Run Admin API follows the Knative
-//   Serving API specification.
+//   based on incoming requests. The Cloud Run Admin API v1 follows the Knative
+//   Serving API specification, while v2 is aligned with Google Cloud AIP-based
+//   API standards, as described in https://google.aip.dev/.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -464,7 +465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_Exec
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -484,7 +485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_Laun
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -586,7 +587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Ingre
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don't have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -606,7 +607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_Launc
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Beta;
 /**
  *  Deprecated features are scheduled to be shut down and removed. For more
- *  information, see the “Deprecation Policy” section of our [Terms of
+ *  information, see the "Deprecation Policy" section of our [Terms of
  *  Service](https://cloud.google.com/terms/) and the [Google Cloud Platform
  *  Subject to the Deprecation
  *  Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -1322,7 +1323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Set the launch stage to a preview stage on write to allow use of preview
  *  features in that stage. On read, describes whether the resource uses preview
  *  features. Launch Stages are defined at [Google Cloud Platform Launch
- *  Stages](http://cloud.google.com/terms/launch-stages).
+ *  Stages](https://cloud.google.com/terms/launch-stages).
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Alpha Alpha
@@ -1330,7 +1331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        for widespread use. By Alpha, all significant design issues are
  *        resolved and we are in the process of verifying functionality. Alpha
  *        customers need to apply for access, agree to applicable terms, and
- *        have their projects allowlisted. Alpha releases don’t have to be
+ *        have their projects allowlisted. Alpha releases don't have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -1343,7 +1344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Revision_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -1681,7 +1682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  modifying objects. Cloud Run will populate some annotations using
  *  'run.googleapis.com' or 'serving.knative.dev' namespaces. This field follows
  *  Kubernetes annotations' namespacing, limits, and rules. More info:
- *  http://kubernetes.io/docs/user-guide/annotations
+ *  https://kubernetes.io/docs/user-guide/annotations
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunOpV2Service_Annotations *annotations;
 
@@ -1712,7 +1713,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
- *  User-provided description of the Service.
+ *  User-provided description of the Service. This field currently has a
+ *  512-character limit.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1788,7 +1790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  The launch stage as defined by [Google Cloud Platform Launch
- *  Stages](http://cloud.google.com/terms/launch-stages). Cloud Run supports
+ *  Stages](https://cloud.google.com/terms/launch-stages). Cloud Run supports
  *  `ALPHA`, `BETA`, and `GA`. If no value is specified, GA is assumed.
  *
  *  Likely values:
@@ -1797,7 +1799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects allowlisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don't have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -1810,7 +1812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        limited production use cases. (Value: "BETA")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunOpV2Service_LaunchStage_Deprecated
  *        Deprecated features are scheduled to be shut down and removed. For
- *        more information, see the “Deprecation Policy” section of our [Terms
+ *        more information, see the "Deprecation Policy" section of our [Terms
  *        of Service](https://cloud.google.com/terms/) and the [Google Cloud
  *        Platform Subject to the Deprecation
  *        Policy](https://cloud.google.com/terms/deprecation) documentation.
@@ -1927,7 +1929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  modifying objects. Cloud Run will populate some annotations using
  *  'run.googleapis.com' or 'serving.knative.dev' namespaces. This field follows
  *  Kubernetes annotations' namespacing, limits, and rules. More info:
- *  http://kubernetes.io/docs/user-guide/annotations
+ *  https://kubernetes.io/docs/user-guide/annotations
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

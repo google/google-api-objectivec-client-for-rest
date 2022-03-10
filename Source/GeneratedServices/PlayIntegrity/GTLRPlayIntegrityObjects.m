@@ -10,3 +10,121 @@
 
 #import "GTLRPlayIntegrityObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRPlayIntegrity_AccountDetails.appLicensingVerdict
+NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Licensed = @"LICENSED";
+NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unknown = @"UNKNOWN";
+NSString * const kGTLRPlayIntegrity_AccountDetails_AppLicensingVerdict_Unlicensed = @"UNLICENSED";
+
+// GTLRPlayIntegrity_AppIntegrity.appRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_PlayRecognized = @"PLAY_RECOGNIZED";
+NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unevaluated = @"UNEVALUATED";
+NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_Unknown = @"UNKNOWN";
+NSString * const kGTLRPlayIntegrity_AppIntegrity_AppRecognitionVerdict_UnrecognizedVersion = @"UNRECOGNIZED_VERSION";
+
+// GTLRPlayIntegrity_DeviceIntegrity.deviceRecognitionVerdict
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsBasicIntegrity = @"MEETS_BASIC_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsDeviceIntegrity = @"MEETS_DEVICE_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsStrongIntegrity = @"MEETS_STRONG_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_MeetsVirtualIntegrity = @"MEETS_VIRTUAL_INTEGRITY";
+NSString * const kGTLRPlayIntegrity_DeviceIntegrity_DeviceRecognitionVerdict_Unknown = @"UNKNOWN";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_AccountDetails
+//
+
+@implementation GTLRPlayIntegrity_AccountDetails
+@dynamic appLicensingVerdict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_AppIntegrity
+//
+
+@implementation GTLRPlayIntegrity_AppIntegrity
+@dynamic appRecognitionVerdict, certificateSha256Digest, packageName,
+         versionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificateSha256Digest" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DecodeIntegrityTokenRequest
+//
+
+@implementation GTLRPlayIntegrity_DecodeIntegrityTokenRequest
+@dynamic integrityToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DecodeIntegrityTokenResponse
+//
+
+@implementation GTLRPlayIntegrity_DecodeIntegrityTokenResponse
+@dynamic tokenPayloadExternal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_DeviceIntegrity
+//
+
+@implementation GTLRPlayIntegrity_DeviceIntegrity
+@dynamic deviceRecognitionVerdict;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceRecognitionVerdict" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_RequestDetails
+//
+
+@implementation GTLRPlayIntegrity_RequestDetails
+@dynamic nonce, requestPackageName, timestampMillis;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_TestingDetails
+//
+
+@implementation GTLRPlayIntegrity_TestingDetails
+@dynamic isTestingResponse;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPlayIntegrity_TokenPayloadExternal
+//
+
+@implementation GTLRPlayIntegrity_TokenPayloadExternal
+@dynamic accountDetails, appIntegrity, deviceIntegrity, requestDetails,
+         testingDetails;
+@end

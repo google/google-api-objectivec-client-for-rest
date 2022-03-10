@@ -4,7 +4,7 @@
 // API:
 //   Google Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in Google Chat.
+//   Enables apps to fetch information and perform actions in Google Chat.
 //   Authentication using a service account is a prerequisite for using the
 //   Google Chat REST API.
 // Documentation:
@@ -16,6 +16,7 @@
 // Constants
 
 // GTLRHangoutsChat_ActionResponse.type
+NSString * const kGTLRHangoutsChat_ActionResponse_Type_Dialog  = @"DIALOG";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage = @"NEW_MESSAGE";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig = @"REQUEST_CONFIG";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -57,7 +58,6 @@ NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_Image = @"IMAGE";
 NSString * const kGTLRHangoutsChat_CardHeader_ImageStyle_ImageStyleUnspecified = @"IMAGE_STYLE_UNSPECIFIED";
 
 // GTLRHangoutsChat_CommonEventObject.hostApp
-NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_AllHostApps = @"ALL_HOST_APPS";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Calendar = @"CALENDAR";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Chat = @"CHAT";
 NSString * const kGTLRHangoutsChat_CommonEventObject_HostApp_Demo = @"DEMO";

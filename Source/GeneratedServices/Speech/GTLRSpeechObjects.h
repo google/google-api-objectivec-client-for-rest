@@ -769,7 +769,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
-/** Transcript text representing the words that the user spoke. */
+/**
+ *  Transcript text representing the words that the user spoke. In languages
+ *  that use spaces to separate words, the transcript might have a leading space
+ *  if it isn't the first result. You can concatenate each result to obtain the
+ *  full transcript without using a separator.
+ */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
 /**

@@ -36,8 +36,8 @@ NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_Environmen
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
-NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadState = @"LOAD_STATE";
-NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_StoreState = @"STORE_STATE";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_LoadSnapshot = @"LOAD_SNAPSHOT";
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_SaveSnapshot = @"SAVE_SNAPSHOT";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Update = @"UPDATE";
 

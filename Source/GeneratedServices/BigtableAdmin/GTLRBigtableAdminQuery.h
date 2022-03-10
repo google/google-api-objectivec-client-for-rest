@@ -1803,7 +1803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  The view to be applied to the returned tables' fields. Only NAME_ONLY view
- *  (default) and REPLICATION_VIEW are supported.
+ *  (default), REPLICATION_VIEW and ENCRYPTION_VIEW are supported.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdminViewViewUnspecified Uses the default view for

@@ -443,7 +443,7 @@ NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod_OpenDay_Wednesday
 @dynamic canDelete, canHaveBusinessCalls, canHaveFoodMenus,
          canModifyServiceList, canOperateHealthData, canOperateLocalPost,
          canOperateLodgingData, duplicateLocation, hasGoogleUpdated,
-         hasPendingEdits, mapsUri, newReviewUri, placeId;
+         hasPendingEdits, hasVoiceOfMerchant, mapsUri, newReviewUri, placeId;
 @end
 
 

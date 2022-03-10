@@ -2688,7 +2688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredQuery *structuredQuery;
 
 /**
- *  Reads documents in a transaction.
+ *  Run the query within an already active transaction. The value here is the
+ *  opaque transaction ID to execute the query in.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2703,7 +2704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_RunQueryResponse : GTLRObject
 
-/** A query result. Not set when reporting partial progress. */
+/** A query result, not set when reporting partial progress. */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document *document;
 
 /**

@@ -507,7 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  CreateProduct or UpdateProduct request. If no inventory fields are set in
  *  CreateProductRequest.product, then any pre-existing inventory information
  *  for this product will be used. If no inventory fields are set in
- *  UpdateProductRequest.set_mask, then any existing inventory information will
+ *  SetInventoryRequest.set_mask, then any existing inventory information will
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
  *  feature is only available for users who have Retail Search enabled. Please
@@ -543,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  CreateProduct or UpdateProduct request. If no inventory fields are set in
  *  CreateProductRequest.product, then any pre-existing inventory information
  *  for this product will be used. If no inventory fields are set in
- *  UpdateProductRequest.set_mask, then any existing inventory information will
+ *  SetInventoryRequest.set_mask, then any existing inventory information will
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
  *  feature is only available for users who have Retail Search enabled. Please
@@ -604,10 +604,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deviceType;
 
 /**
- *  The list of languages of the query. This is the BCP-47 language code, such
- *  as "en-US" or "sr-Latn". For more information, see [Tags for Identifying
- *  Languages](https://tools.ietf.org/html/bcp47). The maximum number of allowed
- *  characters is 255. Only "en-US" is currently supported.
+ *  The language filters applied to the output suggestions. If set, it should
+ *  contain the language of the query. If not set, suggestions are returned
+ *  without considering language restrictions. This is the BCP-47 language code,
+ *  such as "en-US" or "sr-Latn". For more information, see [Tags for
+ *  Identifying Languages](https://tools.ietf.org/html/bcp47). The maximum
+ *  number of language codes is 3.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
@@ -1355,6 +1357,91 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name The name of the operation's parent resource.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: retail.projects.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsOperationsGet : GTLRCloudRetailQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: retail.projects.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsOperationsList : GTLRCloudRetailQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudRetail_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

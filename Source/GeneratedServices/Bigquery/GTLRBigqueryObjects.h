@@ -4200,6 +4200,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_TreeMethod_Tree
 @property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
+ *  [Optional] Preserves the embedded ASCII control characters (the first 32
+ *  characters in the ASCII-table, from '\\x00' to '\\x1F') when loading from
+ *  CSV. Only applicable to CSV, ignored for other formats.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preserveAsciiControlCharacters;
+
+/**
  *  If sourceFormat is set to "DATASTORE_BACKUP", indicates which entity
  *  properties to load into BigQuery from a Cloud Datastore backup. Property
  *  names are case sensitive and must be top-level properties. If no properties

@@ -309,6 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Dash;
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Hls;
 /** Value: "rtmp" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Rtmp;
+/** Value: "srt" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Srt;
 /** Value: "webrtc" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_CdnSettings_IngestionType_Webrtc;
 
@@ -5236,6 +5238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Dash Value "dash"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Hls Value "hls"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Rtmp Value "rtmp"
+ *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Srt Value "srt"
  *    @arg @c kGTLRYouTube_CdnSettings_IngestionType_Webrtc Value "webrtc"
  */
 @property(nonatomic, copy, nullable) NSString *ingestionType;
@@ -8151,7 +8154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  Describes information necessary for ingesting an RTMP or an HTTP stream.
+ *  Describes information necessary for ingesting an RTMP, HTTP, or SRT stream.
  */
 @interface GTLRYouTube_IngestionInfo : GTLRObject
 
@@ -8183,7 +8186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *rtmpsIngestionAddress;
 
-/** The HTTP or RTMP stream name that YouTube assigns to the video stream. */
+/** The stream name that YouTube assigns to the video stream. */
 @property(nonatomic, copy, nullable) NSString *streamName;
 
 @end

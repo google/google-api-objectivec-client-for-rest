@@ -31,6 +31,7 @@
 @class GTLRAndroidManagement_ApplicationReport;
 @class GTLRAndroidManagement_ApplicationReportingSettings;
 @class GTLRAndroidManagement_AppTrackInfo;
+@class GTLRAndroidManagement_AppVersion;
 @class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_CommonCriteriaModeInfo;
@@ -201,6 +202,120 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
  *  Value: "UNTRUSTED_APPS_POLICY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Application.appPricing
+
+/**
+ *  Unknown pricing, used to denote an approved app that is not generally
+ *  available.
+ *
+ *  Value: "APP_PRICING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_AppPricing_AppPricingUnspecified;
+/**
+ *  The app is free.
+ *
+ *  Value: "FREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_AppPricing_Free;
+/**
+ *  The app is free, but offers in-app purchases.
+ *
+ *  Value: "FREE_WITH_IN_APP_PURCHASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_AppPricing_FreeWithInAppPurchase;
+/**
+ *  The app is paid.
+ *
+ *  Value: "PAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_AppPricing_Paid;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Application.contentRating
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "CONTENT_RATING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_ContentRatingUnspecified;
+/**
+ *  Content suitable for ages 18 and above only.
+ *
+ *  Value: "EIGHTEEN_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_EighteenYears;
+/**
+ *  Content suitable for ages 7 and above only.
+ *
+ *  Value: "SEVEN_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_SevenYears;
+/**
+ *  Content suitable for ages 16 and above only.
+ *
+ *  Value: "SIXTEEN_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_SixteenYears;
+/**
+ *  Content suitable for ages 3 and above only.
+ *
+ *  Value: "THREE_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_ThreeYears;
+/**
+ *  Content suitable for ages 12 and above only.
+ *
+ *  Value: "TWELVE_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_ContentRating_TwelveYears;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Application.distributionChannel
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DISTRIBUTION_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_DistributionChannel_DistributionChannelUnspecified;
+/**
+ *  Package is a private app (restricted to an enterprise) but hosted by Google.
+ *
+ *  Value: "PRIVATE_GOOGLE_HOSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PrivateGoogleHosted;
+/**
+ *  Private app (restricted to an enterprise) and is privately hosted.
+ *
+ *  Value: "PRIVATE_SELF_HOSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PrivateSelfHosted;
+/**
+ *  Package is available through the Play store and not restricted to a specific
+ *  enterprise.
+ *
+ *  Value: "PUBLIC_GOOGLE_HOSTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PublicGoogleHosted;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Application.features
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "APP_FEATURE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_Features_AppFeatureUnspecified;
+/**
+ *  The app is a VPN.
+ *
+ *  Value: "VPN_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Application_Features_VpnApp;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationEvent.eventType
@@ -1630,6 +1745,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_R
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PasswordRequirements.unifiedLockSettings
+
+/**
+ *  A common lock for the device and the work profile is allowed.
+ *
+ *  Value: "ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock;
+/**
+ *  A separate lock for the work profile is required.
+ *
+ *  Value: "REQUIRE_SEPARATE_WORK_LOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock;
+/**
+ *  Unspecified. Defaults to ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK.
+ *
+ *  Value: "UNIFIED_LOCK_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_PermissionGrant.policy
 
 /**
@@ -1793,26 +1930,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTime
 // GTLRAndroidManagement_Policy.cameraAccess
 
 /**
- *  The field
- *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *  is ignored. All cameras on the device are disabled (for fully managed
- *  devices, this applies device-wide and for work profiles this applies only to
- *  the work profile).There are no explicit restrictions placed on the camera
- *  access toggle on Android 12 and above: on fully managed devices, the camera
- *  access toggle has no effect as all cameras are disabled. On devices with a
- *  work profile, this toggle has no effect on apps in the work profile, but it
- *  affects apps outside the work profile.
+ *  The field camera_disabled is ignored. All cameras on the device are disabled
+ *  (for fully managed devices, this applies device-wide and for work profiles
+ *  this applies only to the work profile).There are no explicit restrictions
+ *  placed on the camera access toggle on Android 12 and above: on fully managed
+ *  devices, the camera access toggle has no effect as all cameras are disabled.
+ *  On devices with a work profile, this toggle has no effect on apps in the
+ *  work profile, but it affects apps outside the work profile.
  *
  *  Value: "CAMERA_ACCESS_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled;
 /**
- *  The field
- *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *  is ignored. All cameras on the device are available. On fully managed
- *  devices running Android 12 and above, the user is unable to use the camera
- *  access toggle. On devices which are not fully managed or which run Android
- *  11 or below, this is equivalent to CAMERA_ACCESS_USER_CHOICE.
+ *  The field camera_disabled is ignored. All cameras on the device are
+ *  available. On fully managed devices running Android 12 and above, the user
+ *  is unable to use the camera access toggle. On devices which are not fully
+ *  managed or which run Android 11 or below, this is equivalent to
+ *  CAMERA_ACCESS_USER_CHOICE.
  *
  *  Value: "CAMERA_ACCESS_ENFORCED"
  */
@@ -1825,11 +1959,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_Ca
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified;
 /**
- *  The field
- *  camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *  is ignored. This is the default device behaviour: all cameras on the device
- *  are available. On Android 12 and above, the user can use the camera access
- *  toggle.
+ *  The field camera_disabled is ignored. This is the default device behaviour:
+ *  all cameras on the device are available. On Android 12 and above, the user
+ *  can use the camera access toggle.
  *
  *  Value: "CAMERA_ACCESS_USER_CHOICE"
  */
@@ -1914,7 +2046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisable
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint;
 /**
- *  Disable text entry into notifications on secure keyguard screens.
+ *  On devices running Android 6 and below, disables text entry into
+ *  notifications on secure keyguard screens. Has no effect on Android 7 and
+ *  above.
  *
  *  Value: "DISABLE_REMOTE_INPUT"
  */
@@ -2018,22 +2152,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Se
 // GTLRAndroidManagement_Policy.microphoneAccess
 
 /**
- *  The field
- *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *  is ignored. The microphone on the device is disabled (for fully managed
- *  devices, this applies device-wide).The microphone access toggle has no
- *  effect as the microphone is disabled.
+ *  The field unmute_microphone_disabled is ignored. The microphone on the
+ *  device is disabled (for fully managed devices, this applies device-wide).The
+ *  microphone access toggle has no effect as the microphone is disabled.
  *
  *  Value: "MICROPHONE_ACCESS_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessDisabled;
 /**
- *  The field
- *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *  is ignored. The microphone on the device is available. On devices running
- *  Android 12 and above, the user is unable to use the microphone access
- *  toggle. On devices which run Android 11 or below, this is equivalent to
- *  MICROPHONE_ACCESS_USER_CHOICE.
+ *  The field unmute_microphone_disabled is ignored. The microphone on the
+ *  device is available. On devices running Android 12 and above, the user is
+ *  unable to use the microphone access toggle. On devices which run Android 11
+ *  or below, this is equivalent to MICROPHONE_ACCESS_USER_CHOICE.
  *
  *  Value: "MICROPHONE_ACCESS_ENFORCED"
  */
@@ -2047,11 +2177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAcces
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUnspecified;
 /**
- *  The field
- *  unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *  is ignored. This is the default device behaviour: the microphone on the
- *  device is available. On Android 12 and above, the user can use the
- *  microphone access toggle.
+ *  The field unmute_microphone_disabled is ignored. This is the default device
+ *  behaviour: the microphone on the device is available. On Android 12 and
+ *  above, the user can use the microphone access toggle.
  *
  *  Value: "MICROPHONE_ACCESS_USER_CHOICE"
  */
@@ -2572,13 +2700,107 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @interface GTLRAndroidManagement_Application : GTLRObject
 
+/**
+ *  Whether this app is free, free with in-app purchases, or paid. If the
+ *  pricing is unspecified, this means the app is not generally available
+ *  anymore (even though it might still be available to people who own it).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Application_AppPricing_AppPricingUnspecified
+ *        Unknown pricing, used to denote an approved app that is not generally
+ *        available. (Value: "APP_PRICING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Application_AppPricing_Free The app is
+ *        free. (Value: "FREE")
+ *    @arg @c kGTLRAndroidManagement_Application_AppPricing_FreeWithInAppPurchase
+ *        The app is free, but offers in-app purchases. (Value:
+ *        "FREE_WITH_IN_APP_PURCHASE")
+ *    @arg @c kGTLRAndroidManagement_Application_AppPricing_Paid The app is
+ *        paid. (Value: "PAID")
+ */
+@property(nonatomic, copy, nullable) NSString *appPricing;
+
 /** Application tracks visible to the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_AppTrackInfo *> *appTracks;
+
+/** Versions currently available for this app. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_AppVersion *> *appVersions;
+
+/** The name of the author of the apps (for example, the app developer). */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** The countries which this app is available in as per ISO 3166-1 alpha-2. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableCountries;
+
+/** The app category (e.g. RACING, SOCIAL, etc.) */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  The content rating for this app.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_ContentRatingUnspecified
+ *        Unspecified. (Value: "CONTENT_RATING_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_EighteenYears
+ *        Content suitable for ages 18 and above only. (Value: "EIGHTEEN_YEARS")
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_SevenYears
+ *        Content suitable for ages 7 and above only. (Value: "SEVEN_YEARS")
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_SixteenYears
+ *        Content suitable for ages 16 and above only. (Value: "SIXTEEN_YEARS")
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_ThreeYears
+ *        Content suitable for ages 3 and above only. (Value: "THREE_YEARS")
+ *    @arg @c kGTLRAndroidManagement_Application_ContentRating_TwelveYears
+ *        Content suitable for ages 12 and above only. (Value: "TWELVE_YEARS")
+ */
+@property(nonatomic, copy, nullable) NSString *contentRating;
+
+/**
+ *  The localized promotional description, if available.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  How and to whom the package is made available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Application_DistributionChannel_DistributionChannelUnspecified
+ *        Unspecified. (Value: "DISTRIBUTION_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Application_DistributionChannel_PrivateGoogleHosted
+ *        Package is a private app (restricted to an enterprise) but hosted by
+ *        Google. (Value: "PRIVATE_GOOGLE_HOSTED")
+ *    @arg @c kGTLRAndroidManagement_Application_DistributionChannel_PrivateSelfHosted
+ *        Private app (restricted to an enterprise) and is privately hosted.
+ *        (Value: "PRIVATE_SELF_HOSTED")
+ *    @arg @c kGTLRAndroidManagement_Application_DistributionChannel_PublicGoogleHosted
+ *        Package is available through the Play store and not restricted to a
+ *        specific enterprise. (Value: "PUBLIC_GOOGLE_HOSTED")
+ */
+@property(nonatomic, copy, nullable) NSString *distributionChannel;
+
+/** Noteworthy features (if any) of this app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *features;
+
+/** Full app description, if available. */
+@property(nonatomic, copy, nullable) NSString *fullDescription;
+
+/**
+ *  A link to an image that can be used as an icon for the app. This image is
+ *  suitable for use at up to 512px x 512px
+ */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
  *  The set of managed properties available to be pre-configured for the app.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ManagedProperty *> *managedProperties;
+
+/**
+ *  The minimum Android SDK necessary to run the app.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minAndroidSdkVersion;
 
 /**
  *  The name of the app in the form
@@ -2589,8 +2811,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /** The permissions required by the app. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPermission *> *permissions;
 
+/** A link to the (consumer) Google Play details page for the app. */
+@property(nonatomic, copy, nullable) NSString *playStoreUrl;
+
+/** A localised description of the recent changes made to the app. */
+@property(nonatomic, copy, nullable) NSString *recentChanges;
+
+/** A list of screenshot links representing the app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *screenshotUrls;
+
+/**
+ *  A link to a smaller image that can be used as an icon for the app. This
+ *  image is suitable for use at up to 128px x 128px.
+ */
+@property(nonatomic, copy, nullable) NSString *smallIconUrl;
+
 /** The title of the app. Localized. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Output only. The approximate time (within 7 days) the app was last
+ *  published.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -2974,6 +3217,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  This represents a single version of the app.
+ */
+@interface GTLRAndroidManagement_AppVersion : GTLRObject
+
+/**
+ *  True if this version is a production track.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *production;
+
+/**
+ *  Track ids that the app version is published in. This doesn't include the
+ *  production track (see production instead).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *trackIds;
+
+/**
+ *  Unique increasing identifier for the app version.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *versionCode;
+
+/**
+ *  The string used in the Play store by the app developer to identify the
+ *  version. The string is not necessarily unique or localized (for example, the
+ *  string could be "1.4").
+ */
+@property(nonatomic, copy, nullable) NSString *versionString;
+
+@end
+
+
+/**
  *  An action to block access to apps and data on a fully managed device or in a
  *  work profile. This action also triggers a device or work profile to displays
  *  a user-facing notification with information (where possible) on how to
@@ -3339,10 +3617,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
  *  following: A full date, with non-zero year, month, and day values A month
- *  and day value, with a zero year, such as an anniversary A year on its own,
- *  with zero month and day values A year and month value, with a zero day, such
- *  as a credit card expiration dateRelated types are google.type.TimeOfDay and
- *  google.protobuf.Timestamp.
+ *  and day, with a zero year (e.g., an anniversary) A year on its own, with a
+ *  zero month and a zero day A year and month, with a zero day (e.g., a credit
+ *  card expiration date)Related types: * google.type.TimeOfDay *
+ *  google.type.DateTime * google.protobuf.Timestamp
  */
 @interface GTLRAndroidManagement_Date : GTLRObject
 
@@ -5178,6 +5456,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, copy, nullable) NSString *requirePasswordUnlock;
 
+/**
+ *  Controls whether a unified lock is allowed for the device and the work
+ *  profile, on devices running Android 9 and above with a work profile. This
+ *  has no effect on other devices. This can be set only if password_scope is
+ *  set to SCOPE_PROFILE, the policy will be rejected otherwise. If user has not
+ *  set a separate work lock and this field is set to
+ *  REQUIRE_SEPARATE_WORK_LOCK, a NonComplianceDetail is reported with
+ *  nonComplianceReason set to USER_ACTION.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock
+ *        A common lock for the device and the work profile is allowed. (Value:
+ *        "ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock
+ *        A separate lock for the work profile is required. (Value:
+ *        "REQUIRE_SEPARATE_WORK_LOCK")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified
+ *        Unspecified. Defaults to ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK. (Value:
+ *        "UNIFIED_LOCK_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unifiedLockSettings;
+
 @end
 
 
@@ -5465,39 +5765,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled
- *        The field
- *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *        is ignored. All cameras on the device are disabled (for fully managed
- *        devices, this applies device-wide and for work profiles this applies
- *        only to the work profile).There are no explicit restrictions placed on
- *        the camera access toggle on Android 12 and above: on fully managed
- *        devices, the camera access toggle has no effect as all cameras are
- *        disabled. On devices with a work profile, this toggle has no effect on
- *        apps in the work profile, but it affects apps outside the work
- *        profile. (Value: "CAMERA_ACCESS_DISABLED")
+ *        The field camera_disabled is ignored. All cameras on the device are
+ *        disabled (for fully managed devices, this applies device-wide and for
+ *        work profiles this applies only to the work profile).There are no
+ *        explicit restrictions placed on the camera access toggle on Android 12
+ *        and above: on fully managed devices, the camera access toggle has no
+ *        effect as all cameras are disabled. On devices with a work profile,
+ *        this toggle has no effect on apps in the work profile, but it affects
+ *        apps outside the work profile. (Value: "CAMERA_ACCESS_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced
- *        The field
- *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *        is ignored. All cameras on the device are available. On fully managed
- *        devices running Android 12 and above, the user is unable to use the
- *        camera access toggle. On devices which are not fully managed or which
- *        run Android 11 or below, this is equivalent to
- *        CAMERA_ACCESS_USER_CHOICE. (Value: "CAMERA_ACCESS_ENFORCED")
+ *        The field camera_disabled is ignored. All cameras on the device are
+ *        available. On fully managed devices running Android 12 and above, the
+ *        user is unable to use the camera access toggle. On devices which are
+ *        not fully managed or which run Android 11 or below, this is equivalent
+ *        to CAMERA_ACCESS_USER_CHOICE. (Value: "CAMERA_ACCESS_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUnspecified
  *        If camera_disabled is true, this is equivalent to
  *        CAMERA_ACCESS_DISABLED. Otherwise, this is equivalent to
  *        CAMERA_ACCESS_USER_CHOICE. (Value: "CAMERA_ACCESS_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessUserChoice
- *        The field
- *        camera_disabled(google.android.devicemanagement.v1.Policy.camera_disabled]
- *        is ignored. This is the default device behaviour: all cameras on the
- *        device are available. On Android 12 and above, the user can use the
- *        camera access toggle. (Value: "CAMERA_ACCESS_USER_CHOICE")
+ *        The field camera_disabled is ignored. This is the default device
+ *        behaviour: all cameras on the device are available. On Android 12 and
+ *        above, the user can use the camera access toggle. (Value:
+ *        "CAMERA_ACCESS_USER_CHOICE")
  */
 @property(nonatomic, copy, nullable) NSString *cameraAccess;
 
 /**
- *  Whether all cameras on the device are disabled.
+ *  If camera_access is set to any value other than CAMERA_ACCESS_UNSPECIFIED,
+ *  this has no effect. Otherwise this field controls whether cameras are
+ *  disabled: If true, all cameras are disabled, otherwise they are available.
+ *  For fully managed devices this field applies for all apps on the device. For
+ *  work profiles, this field applies only to apps in the work profile, and the
+ *  camera access of apps outside the work profile is unaffected.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5712,31 +6012,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessDisabled
- *        The field
- *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *        is ignored. The microphone on the device is disabled (for fully
- *        managed devices, this applies device-wide).The microphone access
- *        toggle has no effect as the microphone is disabled. (Value:
- *        "MICROPHONE_ACCESS_DISABLED")
+ *        The field unmute_microphone_disabled is ignored. The microphone on the
+ *        device is disabled (for fully managed devices, this applies
+ *        device-wide).The microphone access toggle has no effect as the
+ *        microphone is disabled. (Value: "MICROPHONE_ACCESS_DISABLED")
  *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessEnforced
- *        The field
- *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *        is ignored. The microphone on the device is available. On devices
- *        running Android 12 and above, the user is unable to use the microphone
- *        access toggle. On devices which run Android 11 or below, this is
- *        equivalent to MICROPHONE_ACCESS_USER_CHOICE. (Value:
- *        "MICROPHONE_ACCESS_ENFORCED")
+ *        The field unmute_microphone_disabled is ignored. The microphone on the
+ *        device is available. On devices running Android 12 and above, the user
+ *        is unable to use the microphone access toggle. On devices which run
+ *        Android 11 or below, this is equivalent to
+ *        MICROPHONE_ACCESS_USER_CHOICE. (Value: "MICROPHONE_ACCESS_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUnspecified
  *        If unmute_microphone_disabled is true, this is equivalent to
  *        MICROPHONE_ACCESS_DISABLED. Otherwise, this is equivalent to
  *        MICROPHONE_ACCESS_USER_CHOICE. (Value:
  *        "MICROPHONE_ACCESS_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_MicrophoneAccess_MicrophoneAccessUserChoice
- *        The field
- *        unmute_microphone_disabled(google.android.devicemanagement.v1.Policy.unmute_microphone_disabled]
- *        is ignored. This is the default device behaviour: the microphone on
- *        the device is available. On Android 12 and above, the user can use the
- *        microphone access toggle. (Value: "MICROPHONE_ACCESS_USER_CHOICE")
+ *        The field unmute_microphone_disabled is ignored. This is the default
+ *        device behaviour: the microphone on the device is available. On
+ *        Android 12 and above, the user can use the microphone access toggle.
+ *        (Value: "MICROPHONE_ACCESS_USER_CHOICE")
  */
 @property(nonatomic, copy, nullable) NSString *microphoneAccess;
 
@@ -5829,9 +6124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Password requirements. The field
  *  password_requirements.require_password_unlock must not be set. DEPRECATED -
- *  Use password_policies.Note:Complexity-based values of PasswordQuality, that
+ *  Use passwordPolicies.Note:Complexity-based values of PasswordQuality, that
  *  is, COMPLEXITY_LOW, COMPLEXITY_MEDIUM, and COMPLEXITY_HIGH, cannot be used
- *  here.
+ *  here. unified_lock_settings cannot be used here
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 
@@ -5948,7 +6243,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *screenCaptureDisabled;
 
-/** Actions to take during the setup process. */
+/**
+ *  Action to take during the setup process. At most one action may be
+ *  specified.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SetupAction *> *setupActions;
 
 /**
@@ -6037,7 +6335,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *uninstallAppsDisabled;
 
 /**
- *  Whether the microphone is muted and adjusting microphone volume is disabled.
+ *  If microphone_access is set to any value other than
+ *  MICROPHONE_ACCESS_UNSPECIFIED, this has no effect. Otherwise this field
+ *  controls whether microphones are disabled: If true, all microphones are
+ *  disabled, otherwise they are available. This is available only on fully
+ *  managed devices.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6278,7 +6580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage *descriptionProperty;
 
-/** An action to launch an app. */
+/**
+ *  An action to launch an app. The app will be launched with an intent
+ *  containing an extra with key
+ *  com.google.android.apps.work.clouddpc.EXTRA_LAUNCHED_AS_SETUP_ACTION set to
+ *  the boolean value true to indicate that this is a setup action flow.
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_LaunchAppAction *launchApp;
 
 /** Title of this action. */

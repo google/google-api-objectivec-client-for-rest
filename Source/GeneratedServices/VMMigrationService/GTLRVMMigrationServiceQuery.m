@@ -432,6 +432,33 @@ NSString * const kGTLRVMMigrationServiceViewUtilizationReportViewUnspecified = @
 
 @end
 
+@implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDatacenterConnectorsUpgradeAppliance
+
+@dynamic datacenterConnector;
+
++ (instancetype)queryWithObject:(GTLRVMMigrationService_UpgradeApplianceRequest *)object
+            datacenterConnector:(NSString *)datacenterConnector {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"datacenterConnector" ];
+  NSString *pathURITemplate = @"v1/{+datacenterConnector}:upgradeAppliance";
+  GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDatacenterConnectorsUpgradeAppliance *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.datacenterConnector = datacenterConnector;
+  query.expectedObjectClass = [GTLRVMMigrationService_Operation class];
+  query.loggingName = @"vmmigration.projects.locations.sources.datacenterConnectors.upgradeAppliance";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMMigrationServiceQuery_ProjectsLocationsSourcesDelete
 
 @dynamic name, requestId;

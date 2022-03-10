@@ -160,6 +160,12 @@ NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonLt = @"COM
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonNe = @"COMPARISON_NE";
 NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonUnspecified = @"COMPARISON_UNSPECIFIED";
 
+// GTLRMonitoring_MetricThreshold.evaluationMissingData
+NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataActive = @"EVALUATION_MISSING_DATA_ACTIVE";
+NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataInactive = @"EVALUATION_MISSING_DATA_INACTIVE";
+NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataNoOp = @"EVALUATION_MISSING_DATA_NO_OP";
+NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataUnspecified = @"EVALUATION_MISSING_DATA_UNSPECIFIED";
+
 // GTLRMonitoring_MonitoredResourceDescriptor.launchStage
 NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Alpha = @"ALPHA";
 NSString * const kGTLRMonitoring_MonitoredResourceDescriptor_LaunchStage_Beta = @"BETA";
@@ -196,6 +202,12 @@ NSString * const kGTLRMonitoring_OperationMetadata_State_Created = @"CREATED";
 NSString * const kGTLRMonitoring_OperationMetadata_State_Done  = @"DONE";
 NSString * const kGTLRMonitoring_OperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRMonitoring_QueryLanguageCondition.evaluationMissingData
+NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataActive = @"EVALUATION_MISSING_DATA_ACTIVE";
+NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataInactive = @"EVALUATION_MISSING_DATA_INACTIVE";
+NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataNoOp = @"EVALUATION_MISSING_DATA_NO_OP";
+NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataUnspecified = @"EVALUATION_MISSING_DATA_UNSPECIFIED";
 
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";
@@ -1266,7 +1278,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_MetricThreshold
 @dynamic aggregations, comparison, denominatorAggregations, denominatorFilter,
-         duration, filter, thresholdValue, trigger;
+         duration, evaluationMissingData, filter, thresholdValue, trigger;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1536,7 +1548,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_QueryLanguageCondition
-@dynamic duration, query, trigger;
+@dynamic duration, evaluationMissingData, query, trigger;
 @end
 
 

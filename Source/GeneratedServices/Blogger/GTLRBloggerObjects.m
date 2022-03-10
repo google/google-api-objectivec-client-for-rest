@@ -31,8 +31,9 @@ NSString * const kGTLRBlogger_Comment_Status_Pending = @"PENDING";
 NSString * const kGTLRBlogger_Comment_Status_Spam    = @"SPAM";
 
 // GTLRBlogger_Page.status
-NSString * const kGTLRBlogger_Page_Status_Draft = @"DRAFT";
-NSString * const kGTLRBlogger_Page_Status_Live  = @"LIVE";
+NSString * const kGTLRBlogger_Page_Status_Draft       = @"DRAFT";
+NSString * const kGTLRBlogger_Page_Status_Live        = @"LIVE";
+NSString * const kGTLRBlogger_Page_Status_SoftTrashed = @"SOFT_TRASHED";
 
 // GTLRBlogger_Pageviews_Counts_Item.timeRange
 NSString * const kGTLRBlogger_Pageviews_Counts_Item_TimeRange_AllTime = @"ALL_TIME";
@@ -45,9 +46,10 @@ NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowHideExisting = @"DONT
 NSString * const kGTLRBlogger_Post_ReaderComments_DontAllowShowExisting = @"DONT_ALLOW_SHOW_EXISTING";
 
 // GTLRBlogger_Post.status
-NSString * const kGTLRBlogger_Post_Status_Draft     = @"DRAFT";
-NSString * const kGTLRBlogger_Post_Status_Live      = @"LIVE";
-NSString * const kGTLRBlogger_Post_Status_Scheduled = @"SCHEDULED";
+NSString * const kGTLRBlogger_Post_Status_Draft       = @"DRAFT";
+NSString * const kGTLRBlogger_Post_Status_Live        = @"LIVE";
+NSString * const kGTLRBlogger_Post_Status_Scheduled   = @"SCHEDULED";
+NSString * const kGTLRBlogger_Post_Status_SoftTrashed = @"SOFT_TRASHED";
 
 // ----------------------------------------------------------------------------
 //

@@ -67,6 +67,7 @@ NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionUnspecified
 
 // GTLROSConfig_ExecStepConfig.interpreter
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
+NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_None = @"NONE";
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powershell = @"POWERSHELL";
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Shell = @"SHELL";
 

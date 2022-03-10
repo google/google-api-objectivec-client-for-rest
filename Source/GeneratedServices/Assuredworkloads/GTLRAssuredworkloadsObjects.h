@@ -968,10 +968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
-/**
- *  Required. Input only. Immutable. Settings specific to resources needed for
- *  CJIS.
- */
+/** Input only. Immutable. Settings specific to resources needed for CJIS. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadCJISSettings *cjisSettings;
 
 /**
@@ -1031,21 +1028,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. Input only. Immutable. Settings specific to resources needed for
- *  FedRAMP High.
+ *  Input only. Immutable. Settings specific to resources needed for FedRAMP
+ *  High.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadFedrampHighSettings *fedrampHighSettings;
 
 /**
- *  Required. Input only. Immutable. Settings specific to resources needed for
- *  FedRAMP Moderate.
+ *  Input only. Immutable. Settings specific to resources needed for FedRAMP
+ *  Moderate.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadFedrampModerateSettings *fedrampModerateSettings;
 
-/**
- *  Required. Input only. Immutable. Settings specific to resources needed for
- *  IL4.
- */
+/** Input only. Immutable. Settings specific to resources needed for IL4. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings *il4Settings;
 
 /**
@@ -1065,9 +1059,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
- *  Input only. Settings used to create a CMEK crypto key. When set a project
- *  with a KMS CMEK key is provisioned. This field is mandatory for a subset of
- *  Compliance Regimes.
+ *  Input only. Settings used to create a CMEK crypto key. When set, a project
+ *  with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28,
+ *  2022. In order to create a Keyring, callers should specify,
+ *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings *kmsSettings;
 
@@ -1130,9 +1125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadCJISSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1143,9 +1136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadFedrampHighSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1156,9 +1147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadFedrampModerateSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1169,9 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1247,7 +1234,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Resource identifier. For a project this represents project_id. If the
- *  project is already taken, the workload creation will fail.
+ *  project is already taken, the workload creation will fail. For KeyRing, this
+ *  represents the keyring_id. For a folder, don't set this value as folder_id
+ *  is assigned by Google.
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
@@ -1463,9 +1452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
- *  Input only. Settings used to create a CMEK crypto key. When set a project
- *  with a KMS CMEK key is provisioned. This field is mandatory for a subset of
- *  Compliance Regimes.
+ *  Input only. Settings used to create a CMEK crypto key. When set, a project
+ *  with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28,
+ *  2022. In order to create a Keyring, callers should specify,
+ *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings *kmsSettings;
 
@@ -1594,7 +1584,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Resource identifier. For a project this represents project_id. If the
- *  project is already taken, the workload creation will fail.
+ *  project is already taken, the workload creation will fail. For KeyRing, this
+ *  represents the keyring_id. For a folder, don't set this value as folder_id
+ *  is assigned by Google.
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
@@ -1817,9 +1809,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @property(nonatomic, copy, nullable) NSString *kajEnrollmentState;
 
 /**
- *  Input only. Settings used to create a CMEK crypto key. When set a project
- *  with a KMS CMEK key is provisioned. This field is mandatory for a subset of
- *  Compliance Regimes.
+ *  Input only. Settings used to create a CMEK crypto key. When set, a project
+ *  with a KMS CMEK key is provisioned. This field is deprecated as of Feb 28,
+ *  2022. In order to create a Keyring, callers should specify,
+ *  ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
  */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
 
@@ -1882,9 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadCJISSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1895,9 +1886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadFedrampHighSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1908,9 +1897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadFedrampModerateSettings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1921,9 +1908,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadIL4Settings : GTLRObject
 
-/**
- *  Required. Input only. Immutable. Settings used to create a CMEK crypto key.
- */
+/** Input only. Immutable. Settings used to create a CMEK crypto key. */
 @property(nonatomic, strong, nullable) GTLRAssuredworkloads_GoogleCloudAssuredworkloadsVersioningV1mainWorkloadKMSSettings *kmsSettings;
 
 @end
@@ -1999,7 +1984,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Resource identifier. For a project this represents project_id. If the
- *  project is already taken, the workload creation will fail.
+ *  project is already taken, the workload creation will fail. For KeyRing, this
+ *  represents the keyring_id. For a folder, don't set this value as folder_id
+ *  is assigned by Google.
  */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 

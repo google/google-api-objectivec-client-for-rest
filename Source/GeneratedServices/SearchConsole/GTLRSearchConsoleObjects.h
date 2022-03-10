@@ -344,7 +344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_IndexStatusInspectionResul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_BlockedByMetaTag;
 /**
- *  Indexing not allowed, No: 'noindex' detected in robots.txt.
+ *  Reserved, no longer in use.
  *
  *  Value: "BLOCKED_BY_ROBOTS_TXT"
  */
@@ -1323,8 +1323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *        Indexing not allowed, 'noindex' detected in 'robots' meta tag. (Value:
  *        "BLOCKED_BY_META_TAG")
  *    @arg @c kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_BlockedByRobotsTxt
- *        Indexing not allowed, No: 'noindex' detected in robots.txt. (Value:
- *        "BLOCKED_BY_ROBOTS_TXT")
+ *        Reserved, no longer in use. (Value: "BLOCKED_BY_ROBOTS_TXT")
  *    @arg @c kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_IndexingAllowed
  *        Indexing allowed. (Value: "INDEXING_ALLOWED")
  *    @arg @c kGTLRSearchConsole_IndexStatusInspectionResult_IndexingState_IndexingStateUnspecified

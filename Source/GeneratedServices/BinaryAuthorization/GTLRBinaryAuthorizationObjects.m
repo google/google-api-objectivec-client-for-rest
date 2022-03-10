@@ -42,6 +42,10 @@ NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSi
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs13072Sha256 = @"RSA_SIGN_PKCS1_3072_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha256 = @"RSA_SIGN_PKCS1_4096_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPkcs14096Sha512 = @"RSA_SIGN_PKCS1_4096_SHA512";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss2048Sha256 = @"RSA_SIGN_PSS_2048_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss3072Sha256 = @"RSA_SIGN_PSS_3072_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
 
 // GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
@@ -107,10 +111,14 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 //
 
 @implementation GTLRBinaryAuthorization_Attestor
-@dynamic descriptionProperty, name, updateTime, userOwnedGrafeasNote;
+@dynamic descriptionProperty, ETag, name, updateTime, userOwnedGrafeasNote;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 @end
@@ -244,12 +252,17 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 
 @implementation GTLRBinaryAuthorization_Policy
 @dynamic admissionWhitelistPatterns, clusterAdmissionRules,
-         defaultAdmissionRule, descriptionProperty, globalPolicyEvaluationMode,
-         istioServiceIdentityAdmissionRules, kubernetesNamespaceAdmissionRules,
+         defaultAdmissionRule, descriptionProperty, ETag,
+         globalPolicyEvaluationMode, istioServiceIdentityAdmissionRules,
+         kubernetesNamespaceAdmissionRules,
          kubernetesServiceAccountAdmissionRules, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

@@ -239,6 +239,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 @end
 
 /**
+ *  Gets effective IAM policies for a batch of resources.
+ *
+ *  Method: cloudasset.effectiveIamPolicies.batchGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_EffectiveIamPoliciesBatchGet : GTLRCloudAssetQuery
+
+/**
+ *  Required. The names refer to the [full_resource_names]
+ *  (https://cloud.google.com/asset-inventory/docs/resource-name-format) of
+ *  [searchable asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
+ *  A maximum of 20 resources' effective policies can be retrieved in a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Required. Only IAM policies on or below the scope will be returned. This can
+ *  only be an organization number (such as "organizations/123"), a folder
+ *  number (such as "folders/123"), a project ID (such as
+ *  "projects/my-project-id"), or a project number (such as "projects/12345").
+ *  To know how to get organization id, visit [here
+ *  ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
+ *  To know how to get folder or project id, visit [here
+ *  ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_BatchGetEffectiveIamPoliciesResponse.
+ *
+ *  Gets effective IAM policies for a batch of resources.
+ *
+ *  @param scope Required. Only IAM policies on or below the scope will be
+ *    returned. This can only be an organization number (such as
+ *    "organizations/123"), a folder number (such as "folders/123"), a project
+ *    ID (such as "projects/my-project-id"), or a project number (such as
+ *    "projects/12345"). To know how to get organization id, visit [here
+ *    ](https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id).
+ *    To know how to get folder or project id, visit [here
+ *    ](https://cloud.google.com/resource-manager/docs/creating-managing-folders#viewing_or_listing_folders_and_projects).
+ *
+ *  @return GTLRCloudAssetQuery_EffectiveIamPoliciesBatchGet
+ */
++ (instancetype)queryWithScope:(NSString *)scope;
+
+@end
+
+/**
  *  Creates a feed in a parent project/folder/organization to listen to its
  *  asset updates.
  *

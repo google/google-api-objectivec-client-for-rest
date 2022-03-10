@@ -83,7 +83,7 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 //
 
 @implementation GTLRCloudSupport_Actor
-@dynamic displayName, email, googleSupport, principalId;
+@dynamic displayName, email, googleSupport;
 @end
 
 
@@ -280,7 +280,7 @@ NSString * const kGTLRCloudSupport_WorkflowOperationMetadata_WorkflowOperationTy
 //
 
 @implementation GTLRCloudSupport_Escalation
-@dynamic actor, createTime, justification, name, reason;
+@dynamic justification, reason;
 @end
 
 

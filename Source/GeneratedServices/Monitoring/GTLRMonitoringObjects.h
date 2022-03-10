@@ -522,7 +522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_Contai
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
- *  Selects regular-expression matching. The match succeeds of the output
+ *  Selects regular-expression matching. The match succeeds if the output
  *  matches the regular expression specified in the content string. Regex
  *  matching is only supported for HTTP/HTTPS checks.
  *
@@ -1054,6 +1054,37 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_Co
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_ComparisonUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_MetricThreshold.evaluationMissingData
+
+/**
+ *  If there is no data to evaluate the condition, then evaluate the condition
+ *  as true. The default for conditions with a duration value.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataActive;
+/**
+ *  If there is no data to evaluate the condition, then evaluate the condition
+ *  as false.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataInactive;
+/**
+ *  Do not evaluate the condition to any value if there is no data.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_NO_OP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataNoOp;
+/**
+ *  An unspecified evaluation missing data option. Equivalent to
+ *  EVALUATION_MISSING_DATA_NO_OP.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_MonitoredResourceDescriptor.launchStage
 
 /**
@@ -1290,6 +1321,37 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Runni
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_QueryLanguageCondition.evaluationMissingData
+
+/**
+ *  If there is no data to evaluate the condition, then evaluate the condition
+ *  as true. The default for conditions with a duration value.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataActive;
+/**
+ *  If there is no data to evaluate the condition, then evaluate the condition
+ *  as false.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataInactive;
+/**
+ *  Do not evaluate the condition to any value if there is no data.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_NO_OP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataNoOp;
+/**
+ *  An unspecified evaluation missing data option. Equivalent to
+ *  EVALUATION_MISSING_DATA_NO_OP.
+ *
+ *  Value: "EVALUATION_MISSING_DATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
@@ -2454,7 +2516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_ContentMatcher : GTLRObject
 
 /**
- *  String or regex content to match. Maximum 1024 bytes. An empty content
+ *  String, regex or JSON content to match. Maximum 1024 bytes. An empty content
  *  string indicates no content matching is to be performed.
  */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -2474,7 +2536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        compatibility, but deprecated for future use). Treated as
  *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
- *        regular-expression matching. The match succeeds of the output matches
+ *        regular-expression matching. The match succeeds if the output matches
  *        the regular expression specified in the content string. Regex matching
  *        is only supported for HTTP/HTTPS checks. (Value: "MATCHES_REGEX")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
@@ -2701,7 +2763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  The text of the documentation, interpreted according to mime_type. The
  *  content may not exceed 8,192 Unicode characters and may not exceed more than
- *  10,240 bytes when encoded in UTF-8 format, whichever is smaller.
+ *  10,240 bytes when encoded in UTF-8 format, whichever is smaller. This text
+ *  can be templatized by using variables
+ *  (https://cloud.google.com/monitoring/alerts/doc-variables).
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -4374,6 +4438,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
+ *  A condition control that determines how metric-threshold conditions are
+ *  evaluated when data stops arriving.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataActive
+ *        If there is no data to evaluate the condition, then evaluate the
+ *        condition as true. The default for conditions with a duration value.
+ *        (Value: "EVALUATION_MISSING_DATA_ACTIVE")
+ *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataInactive
+ *        If there is no data to evaluate the condition, then evaluate the
+ *        condition as false. (Value: "EVALUATION_MISSING_DATA_INACTIVE")
+ *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataNoOp
+ *        Do not evaluate the condition to any value if there is no data.
+ *        (Value: "EVALUATION_MISSING_DATA_NO_OP")
+ *    @arg @c kGTLRMonitoring_MetricThreshold_EvaluationMissingData_EvaluationMissingDataUnspecified
+ *        An unspecified evaluation missing data option. Equivalent to
+ *        EVALUATION_MISSING_DATA_NO_OP. (Value:
+ *        "EVALUATION_MISSING_DATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationMissingData;
+
+/**
  *  Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
@@ -5031,6 +5117,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  alerted on quickly.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  A condition control that determines how metric-threshold conditions are
+ *  evaluated when data stops arriving.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataActive
+ *        If there is no data to evaluate the condition, then evaluate the
+ *        condition as true. The default for conditions with a duration value.
+ *        (Value: "EVALUATION_MISSING_DATA_ACTIVE")
+ *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataInactive
+ *        If there is no data to evaluate the condition, then evaluate the
+ *        condition as false. (Value: "EVALUATION_MISSING_DATA_INACTIVE")
+ *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataNoOp
+ *        Do not evaluate the condition to any value if there is no data.
+ *        (Value: "EVALUATION_MISSING_DATA_NO_OP")
+ *    @arg @c kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataUnspecified
+ *        An unspecified evaluation missing data option. Equivalent to
+ *        EVALUATION_MISSING_DATA_NO_OP. (Value:
+ *        "EVALUATION_MISSING_DATA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationMissingData;
 
 /**
  *  Monitoring Query Language (https://cloud.google.com/monitoring/mql) query

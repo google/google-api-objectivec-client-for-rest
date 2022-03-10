@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v1)
+//   Cloud DNS API (dns/v2)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
@@ -31,6 +31,7 @@
 @class GTLRDns_ManagedZonePeeringConfig;
 @class GTLRDns_ManagedZonePeeringConfigTargetNetwork;
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
+@class GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster;
 @class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_ManagedZoneReverseLookupConfig;
 @class GTLRDns_ManagedZoneServiceDirectoryConfig;
@@ -46,6 +47,7 @@
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
 @class GTLRDns_ResponsePolicy;
+@class GTLRDns_ResponsePolicyGKECluster;
 @class GTLRDns_ResponsePolicyNetwork;
 @class GTLRDns_ResponsePolicyRule;
 @class GTLRDns_ResponsePolicyRuleLocalData;
@@ -68,79 +70,79 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRDns_Change.status
 
-/** Value: "done" */
+/** Value: "DONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_Change_Status_Done;
-/** Value: "pending" */
+/** Value: "PENDING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_Change_Status_Pending;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKey.algorithm
 
-/** Value: "ecdsap256sha256" */
+/** Value: "ECDSAP256SHA256" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256;
-/** Value: "ecdsap384sha384" */
+/** Value: "ECDSAP384SHA384" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384;
-/** Value: "rsasha1" */
+/** Value: "RSASHA1" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha1;
-/** Value: "rsasha256" */
+/** Value: "RSASHA256" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha256;
-/** Value: "rsasha512" */
+/** Value: "RSASHA512" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Algorithm_Rsasha512;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKey.type
 
-/** Value: "keySigning" */
+/** Value: "KEY_SIGNING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Type_KeySigning;
-/** Value: "zoneSigning" */
+/** Value: "ZONE_SIGNING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKey_Type_ZoneSigning;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKeySpec.algorithm
 
-/** Value: "ecdsap256sha256" */
+/** Value: "ECDSAP256SHA256" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256;
-/** Value: "ecdsap384sha384" */
+/** Value: "ECDSAP384SHA384" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384;
-/** Value: "rsasha1" */
+/** Value: "RSASHA1" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha1;
-/** Value: "rsasha256" */
+/** Value: "RSASHA256" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha256;
-/** Value: "rsasha512" */
+/** Value: "RSASHA512" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_Algorithm_Rsasha512;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_DnsKeySpec.keyType
 
-/** Value: "keySigning" */
+/** Value: "KEY_SIGNING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_KeySigning;
-/** Value: "zoneSigning" */
+/** Value: "ZONE_SIGNING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_DnsKeySpec_KeyType_ZoneSigning;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_KeyDigest.type
 
-/** Value: "sha1" */
+/** Value: "SHA1" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha1;
-/** Value: "sha256" */
+/** Value: "SHA256" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha256;
-/** Value: "sha384" */
+/** Value: "SHA384" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_KeyDigest_Type_Sha384;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZone.visibility
 
-/** Value: "private" */
+/** Value: "PRIVATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Private;
-/** Value: "public" */
+/** Value: "PUBLIC" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZone_Visibility_Public;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ManagedZoneDnsSecConfig.nonExistence
 
-/** Value: "nsec" */
+/** Value: "NSEC" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec;
-/** Value: "nsec3" */
+/** Value: "NSEC3" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3;
 
 // ----------------------------------------------------------------------------
@@ -149,19 +151,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_NonExistence
 /**
  *  DNSSEC is disabled; the zone is not signed.
  *
- *  Value: "off"
+ *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Off;
 /**
  *  DNSSEC is enabled; the zone is signed and fully managed.
  *
- *  Value: "on"
+ *  Value: "ON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_On;
 /**
  *  DNSSEC is enabled, but in a "transfer" mode.
  *
- *  Value: "transfer"
+ *  Value: "TRANSFER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer;
 
@@ -173,22 +175,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transf
  *  RFC1918 addresses forward to the target through the VPC and non-RFC1918
  *  addresses forward to the target through the internet
  *
- *  Value: "default"
+ *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default;
 /**
  *  Cloud DNS always forwards to this target through the VPC.
  *
- *  Value: "private"
+ *  Value: "PRIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_Operation.status
 
-/** Value: "done" */
+/** Value: "DONE" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Done;
-/** Value: "pending" */
+/** Value: "PENDING" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 
 // ----------------------------------------------------------------------------
@@ -199,20 +201,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  *  RFC1918 addresses forward to the target through the VPC and non-RFC1918
  *  addresses forward to the target through the internet
  *
- *  Value: "default"
+ *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default;
 /**
  *  Cloud DNS always forwards to this target through the VPC.
  *
- *  Value: "private"
+ *  Value: "PRIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private;
 
 // ----------------------------------------------------------------------------
 // GTLRDns_ResponsePolicyRule.behavior
 
-/** Value: "behaviorUnspecified" */
+/** Value: "BEHAVIOR_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified;
 /**
  *  Skip a less-specific ResponsePolicyRule and continue normal query logic.
@@ -222,7 +224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_Behavior
  *  *.example.com -> 1.2.3.4 foo.example.com -> PASSTHRU Then a query for
  *  'foo.example.com' skips the wildcard.
  *
- *  Value: "bypassResponsePolicy"
+ *  Value: "BYPASS_RESPONSE_POLICY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy;
 
@@ -271,8 +273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  might not be updated yet.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_Change_Status_Done Value "done"
- *    @arg @c kGTLRDns_Change_Status_Pending Value "pending"
+ *    @arg @c kGTLRDns_Change_Status_Done Value "DONE"
+ *    @arg @c kGTLRDns_Change_Status_Pending Value "PENDING"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -328,11 +330,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  creation time.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 Value "ecdsap256sha256"
- *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384 Value "ecdsap384sha384"
- *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha1 Value "rsasha1"
- *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha256 Value "rsasha256"
- *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha512 Value "rsasha512"
+ *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap256sha256 Value "ECDSAP256SHA256"
+ *    @arg @c kGTLRDns_DnsKey_Algorithm_Ecdsap384sha384 Value "ECDSAP384SHA384"
+ *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha1 Value "RSASHA1"
+ *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha256 Value "RSASHA256"
+ *    @arg @c kGTLRDns_DnsKey_Algorithm_Rsasha512 Value "RSASHA512"
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -405,8 +407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  types. Immutable after creation time.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_DnsKey_Type_KeySigning Value "keySigning"
- *    @arg @c kGTLRDns_DnsKey_Type_ZoneSigning Value "zoneSigning"
+ *    @arg @c kGTLRDns_DnsKey_Type_KeySigning Value "KEY_SIGNING"
+ *    @arg @c kGTLRDns_DnsKey_Type_ZoneSigning Value "ZONE_SIGNING"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -462,12 +464,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Ecdsap256sha256 Value
- *        "ecdsap256sha256"
+ *        "ECDSAP256SHA256"
  *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Ecdsap384sha384 Value
- *        "ecdsap384sha384"
- *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha1 Value "rsasha1"
- *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha256 Value "rsasha256"
- *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha512 Value "rsasha512"
+ *        "ECDSAP384SHA384"
+ *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha1 Value "RSASHA1"
+ *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha256 Value "RSASHA256"
+ *    @arg @c kGTLRDns_DnsKeySpec_Algorithm_Rsasha512 Value "RSASHA512"
  */
 @property(nonatomic, copy, nullable) NSString *algorithm;
 
@@ -486,8 +488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  sign all other types of resource record sets.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_DnsKeySpec_KeyType_KeySigning Value "keySigning"
- *    @arg @c kGTLRDns_DnsKeySpec_KeyType_ZoneSigning Value "zoneSigning"
+ *    @arg @c kGTLRDns_DnsKeySpec_KeyType_KeySigning Value "KEY_SIGNING"
+ *    @arg @c kGTLRDns_DnsKeySpec_KeyType_ZoneSigning Value "ZONE_SIGNING"
  */
 @property(nonatomic, copy, nullable) NSString *keyType;
 
@@ -511,9 +513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  Specifies the algorithm used to calculate this digest.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_KeyDigest_Type_Sha1 Value "sha1"
- *    @arg @c kGTLRDns_KeyDigest_Type_Sha256 Value "sha256"
- *    @arg @c kGTLRDns_KeyDigest_Type_Sha384 Value "sha384"
+ *    @arg @c kGTLRDns_KeyDigest_Type_Sha1 Value "SHA1"
+ *    @arg @c kGTLRDns_KeyDigest_Type_Sha256 Value "SHA256"
+ *    @arg @c kGTLRDns_KeyDigest_Type_Sha384 Value "SHA384"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -622,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  private zones are visible only to Virtual Private Cloud resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "private"
- *    @arg @c kGTLRDns_ManagedZone_Visibility_Public Value "public"
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Private Value "PRIVATE"
+ *    @arg @c kGTLRDns_ManagedZone_Visibility_Public Value "PUBLIC"
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
@@ -678,8 +680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  only be changed while the state is OFF.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "nsec"
- *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 Value "nsec3"
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec Value "NSEC"
+ *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_NonExistence_Nsec3 Value "NSEC3"
  */
 @property(nonatomic, copy, nullable) NSString *nonExistence;
 
@@ -688,11 +690,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Off DNSSEC is disabled; the
- *        zone is not signed. (Value: "off")
+ *        zone is not signed. (Value: "OFF")
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_On DNSSEC is enabled; the
- *        zone is signed and fully managed. (Value: "on")
+ *        zone is signed and fully managed. (Value: "ON")
  *    @arg @c kGTLRDns_ManagedZoneDnsSecConfig_State_Transfer DNSSEC is enabled,
- *        but in a "transfer" mode. (Value: "transfer")
+ *        but in a "transfer" mode. (Value: "TRANSFER")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -732,10 +734,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *        Cloud DNS makes forwarding decisions based on address ranges; that is,
  *        RFC1918 addresses forward to the target through the VPC and
  *        non-RFC1918 addresses forward to the target through the internet
- *        (Value: "default")
+ *        (Value: "DEFAULT")
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private
  *        Cloud DNS always forwards to this target through the VPC. (Value:
- *        "private")
+ *        "PRIVATE")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
 
@@ -758,8 +760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 @interface GTLRDns_ManagedZoneOperationsListResponse : GTLRCollectionObject
 
 @property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
-
-/** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -828,10 +828,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  */
 @interface GTLRDns_ManagedZonePrivateVisibilityConfig : GTLRObject
 
+/** The list of Google Kubernetes Engine clusters that can see this zone. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster *> *gkeClusters;
+
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The list of VPC networks that can see this zone. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZonePrivateVisibilityConfigNetwork *> *networks;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster
+ */
+@interface GTLRDns_ManagedZonePrivateVisibilityConfigGKECluster : GTLRObject
+
+/**
+ *  The resource name of the cluster to bind this ManagedZone to. This should be
+ *  specified in the format like: projects/ * /locations/ * /clusters/ *. This
+ *  is referenced from GKE projects.locations.clusters.get API:
+ *  https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
+ */
+@property(nonatomic, copy, nullable) NSString *gkeClusterName;
+
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -976,8 +997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *  yet.
  *
  *  Likely values:
- *    @arg @c kGTLRDns_Operation_Status_Done Value "done"
- *    @arg @c kGTLRDns_Operation_Status_Pending Value "pending"
+ *    @arg @c kGTLRDns_Operation_Status_Done Value "DONE"
+ *    @arg @c kGTLRDns_Operation_Status_Pending Value "PENDING"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -1182,10 +1203,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *        Cloud DNS makes forwarding decision based on IP address ranges; that
  *        is, RFC1918 addresses forward to the target through the VPC and
  *        non-RFC1918 addresses forward to the target through the internet
- *        (Value: "default")
+ *        (Value: "DEFAULT")
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private
  *        Cloud DNS always forwards to this target through the VPC. (Value:
- *        "private")
+ *        "PRIVATE")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
 
@@ -1410,13 +1431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 
 
 /**
- *  GTLRDns_ResourceRecordSetsDeleteResponse
- */
-@interface GTLRDns_ResourceRecordSetsDeleteResponse : GTLRObject
-@end
-
-
-/**
  *  GTLRDns_ResourceRecordSetsListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1540,6 +1554,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  The list of Google Kubernetes Engine clusters to which this response policy
+ *  is applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_ResponsePolicyGKECluster *> *gkeClusters;
+
+/**
  *  Unique identifier for the resource; defined by the server (output only).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -1557,6 +1577,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
 
 /** User assigned name for this Response Policy. */
 @property(nonatomic, copy, nullable) NSString *responsePolicyName;
+
+@end
+
+
+/**
+ *  GTLRDns_ResponsePolicyGKECluster
+ */
+@interface GTLRDns_ResponsePolicyGKECluster : GTLRObject
+
+/**
+ *  The resource name of the cluster to bind this response policy to. This
+ *  should be specified in the format like: projects/ * /locations/ * /clusters/
+ *  *. This is referenced from GKE projects.locations.clusters.get API:
+ *  https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/get
+ */
+@property(nonatomic, copy, nullable) NSString *gkeClusterName;
+
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -1592,14 +1630,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ResponsePolicyRule_Behavior_BypassRe
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BehaviorUnspecified Value
- *        "behaviorUnspecified"
+ *        "BEHAVIOR_UNSPECIFIED"
  *    @arg @c kGTLRDns_ResponsePolicyRule_Behavior_BypassResponsePolicy Skip a
  *        less-specific ResponsePolicyRule and continue normal query logic. This
  *        can be used in conjunction with a wildcard to exempt a subset of the
  *        wildcard ResponsePolicyRule from the ResponsePolicy behavior and e.g.,
  *        query the public internet instead. For instance, if these rules exist:
  *        *.example.com -> 1.2.3.4 foo.example.com -> PASSTHRU Then a query for
- *        'foo.example.com' skips the wildcard. (Value: "bypassResponsePolicy")
+ *        'foo.example.com' skips the wildcard. (Value:
+ *        "BYPASS_RESPONSE_POLICY")
  */
 @property(nonatomic, copy, nullable) NSString *behavior;
 

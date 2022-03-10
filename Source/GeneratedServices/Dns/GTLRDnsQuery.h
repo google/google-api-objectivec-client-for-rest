@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud DNS API (dns/v1)
+//   Cloud DNS API (dns/v2)
 // Documentation:
 //   https://cloud.google.com/dns/docs
 
@@ -38,11 +38,11 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // sortBy
 
-/** Value: "changeSequence" */
+/** Value: "CHANGE_SEQUENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDnsSortByChangeSequence;
-/** Value: "id" */
+/** Value: "ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDnsSortById;
-/** Value: "startTime" */
+/** Value: "START_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 // ----------------------------------------------------------------------------
@@ -78,6 +78,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  location
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -93,6 +100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_Change to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Default global
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -100,6 +108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_Change *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone;
 
 @end
@@ -131,6 +140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  location
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -145,6 +161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Change.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Default global
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *  @param changeId The identifier of the requested change, from a previous
@@ -153,6 +170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ChangesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                         changeId:(NSString *)changeId;
 
@@ -170,6 +188,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ChangesList : GTLRDnsQuery
+
+/**
+ *  location
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
@@ -196,7 +221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Sorting criterion. The only supported value is change sequence.
  *
  *  Likely values:
- *    @arg @c kGTLRDnsSortByChangeSequence Value "changeSequence"
+ *    @arg @c kGTLRDnsSortByChangeSequence Value "CHANGE_SEQUENCE"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDnsSortByChangeSequence.
@@ -212,6 +237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates Changes to a ResourceRecordSet collection.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Default global
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -222,6 +248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -257,6 +284,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *dnsKeyId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -271,6 +306,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing DnsKey.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *  @param dnsKeyId The identifier of the requested DnsKey.
@@ -278,6 +316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_DnsKeysGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                         dnsKeyId:(NSString *)dnsKeyId;
 
@@ -302,6 +341,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  displayed.
  */
 @property(nonatomic, copy, nullable) NSString *digestType;
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
@@ -330,6 +377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates DnsKeys to a ResourceRecordSet collection.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -340,6 +390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -364,6 +415,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the managed zone addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -381,6 +440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Operation.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *  @param operation Identifies the operation addressed by this request (ID of
  *    the operation).
@@ -388,6 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ManagedZoneOperationsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                        operation:(NSString *)operation;
 
@@ -405,6 +468,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZoneOperationsList : GTLRDnsQuery
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Identifies the managed zone addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *managedZone;
@@ -428,8 +499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Sorting criterion. The only supported values are START_TIME and ID.
  *
  *  Likely values:
- *    @arg @c kGTLRDnsSortByStartTime Value "startTime"
- *    @arg @c kGTLRDnsSortById Value "id"
+ *    @arg @c kGTLRDnsSortByStartTime Value "START_TIME"
+ *    @arg @c kGTLRDnsSortById Value "ID"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDnsSortByStartTime.
@@ -442,6 +513,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates Operations for the given ManagedZone.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *
  *  @return GTLRDnsQuery_ManagedZoneOperationsList
@@ -451,6 +525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -473,6 +548,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -483,11 +566,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *
  *  @return GTLRDnsQuery_ManagedZonesCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
-                        project:(NSString *)project;
+                        project:(NSString *)project
+                       location:(NSString *)location;
 
 @end
 
@@ -510,6 +597,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -525,12 +620,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Deletes a previously created ManagedZone.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -556,6 +655,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -570,12 +677,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing ManagedZone.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -595,6 +706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /** Restricts the list to return only zones with this domain name. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
@@ -617,6 +736,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates ManagedZones that have been created but not yet deleted.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *
  *  @return GTLRDnsQuery_ManagedZonesList
  *
@@ -624,7 +746,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProject:(NSString *)project;
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location;
 
 @end
 
@@ -647,6 +770,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -662,6 +793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -669,6 +803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone;
 
 @end
@@ -692,6 +827,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -707,6 +850,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -714,6 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ManagedZone *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone;
 
 @end
@@ -736,6 +883,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -746,11 +901,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *
  *  @return GTLRDnsQuery_PoliciesCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
-                        project:(NSString *)project;
+                        project:(NSString *)project
+                       location:(NSString *)location;
 
 @end
 
@@ -773,6 +932,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** User given friendly name of the policy addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *policy;
 
@@ -787,12 +954,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  referenced by a network.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param policy User given friendly name of the policy addressed by this
  *    request.
  *
  *  @return GTLRDnsQuery_PoliciesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                           policy:(NSString *)policy;
 
 @end
@@ -817,6 +988,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** User given friendly name of the policy addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *policy;
 
@@ -829,12 +1008,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Policy.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param policy User given friendly name of the policy addressed by this
  *    request.
  *
  *  @return GTLRDnsQuery_PoliciesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                           policy:(NSString *)policy;
 
 @end
@@ -851,6 +1034,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesList : GTLRDnsQuery
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
@@ -873,6 +1064,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates all Policies associated with a project.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *
  *  @return GTLRDnsQuery_PoliciesList
  *
@@ -880,7 +1074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProject:(NSString *)project;
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location;
 
 @end
 
@@ -902,6 +1097,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** User given friendly name of the policy addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *policy;
 
@@ -915,6 +1118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param policy User given friendly name of the policy addressed by this
  *    request.
  *
@@ -922,6 +1128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                          policy:(NSString *)policy;
 
 @end
@@ -944,6 +1151,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** User given friendly name of the policy addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *policy;
 
@@ -957,6 +1172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param policy User given friendly name of the policy addressed by this
  *    request.
  *
@@ -964,6 +1182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_Policy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                          policy:(NSString *)policy;
 
 @end
@@ -988,6 +1207,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  location
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -997,10 +1223,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Project.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Default global
  *
  *  @return GTLRDnsQuery_ProjectsGet
  */
-+ (instancetype)queryWithProject:(NSString *)project;
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location;
 
 @end
 
@@ -1023,6 +1251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -1038,6 +1274,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResourceRecordSet to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -1045,6 +1284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone;
 
 @end
@@ -1068,6 +1308,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -1083,11 +1331,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Fetches a @c GTLRDns_ResourceRecordSetsDeleteResponse.
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
  *
  *  Deletes a previously created ResourceRecordSet.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *  @param name Fully qualified domain name.
@@ -1096,6 +1348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ResourceRecordSetsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                             name:(NSString *)name
                             type:(NSString *)type;
@@ -1123,6 +1376,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -1143,6 +1404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing ResourceRecordSet.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *  @param name Fully qualified domain name.
@@ -1151,6 +1415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ResourceRecordSetsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone
                             name:(NSString *)name
                             type:(NSString *)type;
@@ -1169,6 +1434,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ResourceRecordSetsList : GTLRDnsQuery
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
@@ -1209,6 +1482,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates ResourceRecordSets that you have created but not yet deleted.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
@@ -1219,6 +1495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                      managedZone:(NSString *)managedZone;
 
 @end
@@ -1242,6 +1519,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
  *  Identifies the managed zone addressed by this request. Can be the managed
  *  zone name or ID.
  */
@@ -1263,6 +1548,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResourceRecordSet to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *  @param name Fully qualified domain name.
@@ -1272,6 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                     managedZone:(NSString *)managedZone
                            name:(NSString *)name
                            type:(NSString *)type;
@@ -1296,6 +1585,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource, only applicable in the v APIs. This
+ *  information will be used for routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1306,11 +1603,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource, only applicable in
+ *    the v APIs. This information will be used for routing and will be part of
+ *    the resource name. (Default global)
  *
  *  @return GTLRDnsQuery_ResponsePoliciesCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
-                        project:(NSString *)project;
+                        project:(NSString *)project
+                       location:(NSString *)location;
 
 @end
 
@@ -1333,6 +1634,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1347,12 +1656,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  is non-empty or still being referenced by a network.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy addressed by
  *    this request.
  *
  *  @return GTLRDnsQuery_ResponsePoliciesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1377,6 +1690,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1389,12 +1710,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Response Policy.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy addressed by
  *    this request.
  *
  *  @return GTLRDnsQuery_ResponsePoliciesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1411,6 +1736,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ResponsePoliciesList : GTLRDnsQuery
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
@@ -1433,6 +1766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates all Response Policies associated with a project.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *
  *  @return GTLRDnsQuery_ResponsePoliciesList
  *
@@ -1440,7 +1776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithProject:(NSString *)project;
++ (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location;
 
 @end
 
@@ -1462,6 +1799,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1475,6 +1820,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Respones Policy addressed by
  *    this request.
  *
@@ -1482,6 +1830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1504,6 +1853,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1517,6 +1874,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicy to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy addressed by
  *    this request.
  *
@@ -1524,6 +1884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicy *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1546,6 +1907,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1562,6 +1931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy containing
  *    the Response Policy Rule.
  *
@@ -1569,6 +1941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1591,6 +1964,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1612,6 +1993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Deletes a previously created Response Policy Rule.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy containing
  *    the Response Policy Rule.
  *  @param responsePolicyRule User assigned name of the Response Policy Rule
@@ -1620,6 +2004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ResponsePolicyRulesDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy
               responsePolicyRule:(NSString *)responsePolicyRule;
 
@@ -1645,6 +2030,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1665,6 +2058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Fetches the representation of an existing Response Policy Rule.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy containing
  *    the Response Policy Rule.
  *  @param responsePolicyRule User assigned name of the Response Policy Rule
@@ -1673,6 +2069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @return GTLRDnsQuery_ResponsePolicyRulesGet
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy
               responsePolicyRule:(NSString *)responsePolicyRule;
 
@@ -1690,6 +2087,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ResponsePolicyRulesList : GTLRDnsQuery
+
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
@@ -1715,6 +2120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Enumerates all Response Policy Rules associated with a project.
  *
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy to list.
  *
  *  @return GTLRDnsQuery_ResponsePolicyRulesList
@@ -1724,6 +2132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project
+                        location:(NSString *)location
                   responsePolicy:(NSString *)responsePolicy;
 
 @end
@@ -1746,6 +2155,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1767,6 +2184,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy containing
  *    the Response Policy Rule.
  *  @param responsePolicyRule User assigned name of the Response Policy Rule
@@ -1776,6 +2196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy
              responsePolicyRule:(NSString *)responsePolicyRule;
 
@@ -1799,6 +2220,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
+/**
+ *  Specifies the location of the resource. This information will be used for
+ *  routing and will be part of the resource name.
+ *
+ *  @note If not set, the documented server-side default will be global.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Identifies the project addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1820,6 +2249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param object The @c GTLRDns_ResponsePolicyRule to include in the query.
  *  @param project Identifies the project addressed by this request.
+ *  @param location Specifies the location of the resource. This information
+ *    will be used for routing and will be part of the resource name. (Default
+ *    global)
  *  @param responsePolicy User assigned name of the Response Policy containing
  *    the Response Policy Rule.
  *  @param responsePolicyRule User assigned name of the Response Policy Rule
@@ -1829,6 +2261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithObject:(GTLRDns_ResponsePolicyRule *)object
                         project:(NSString *)project
+                       location:(NSString *)location
                  responsePolicy:(NSString *)responsePolicy
              responsePolicyRule:(NSString *)responsePolicyRule;
 

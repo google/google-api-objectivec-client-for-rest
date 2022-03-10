@@ -126,6 +126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  device.
  *
  *  Method: cloudidentity.devices.cancelWipe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesCancelWipe : GTLRCloudIdentityQuery
 
@@ -170,6 +173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Identity Premium
  *
  *  Method: cloudidentity.devices.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesCreate : GTLRCloudIdentityQuery
 
@@ -205,6 +211,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Deletes the specified device.
  *
  *  Method: cloudidentity.devices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDelete : GTLRCloudIdentityQuery
 
@@ -246,6 +255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Approves device to access user data.
  *
  *  Method: cloudidentity.devices.deviceUsers.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersApprove : GTLRCloudIdentityQuery
 
@@ -283,6 +295,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Blocks device from accessing user data
  *
  *  Method: cloudidentity.devices.deviceUsers.block
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersBlock : GTLRCloudIdentityQuery
 
@@ -322,6 +337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  and the device being wiped.
  *
  *  Method: cloudidentity.devices.deviceUsers.cancelWipe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe : GTLRCloudIdentityQuery
 
@@ -361,6 +379,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Gets the client state for the device user
  *
  *  Method: cloudidentity.devices.deviceUsers.clientStates.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet : GTLRCloudIdentityQuery
 
@@ -423,6 +445,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Lists the client states for the given search query.
  *
  *  Method: cloudidentity.devices.deviceUsers.clientStates.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesList : GTLRCloudIdentityQuery
 
@@ -485,6 +511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Premium
  *
  *  Method: cloudidentity.devices.deviceUsers.clientStates.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesPatch : GTLRCloudIdentityQuery
 
@@ -566,6 +595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  device data.
  *
  *  Method: cloudidentity.devices.deviceUsers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersDelete : GTLRCloudIdentityQuery
 
@@ -610,6 +642,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Retrieves the specified DeviceUser
  *
  *  Method: cloudidentity.devices.deviceUsers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersGet : GTLRCloudIdentityQuery
 
@@ -653,6 +689,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Lists/Searches DeviceUsers.
  *
  *  Method: cloudidentity.devices.deviceUsers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersList : GTLRCloudIdentityQuery
 
@@ -817,6 +857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  apps such as Photos.
  *
  *  Method: cloudidentity.devices.deviceUsers.wipe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersWipe : GTLRCloudIdentityQuery
 
@@ -860,6 +903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Retrieves the specified device.
  *
  *  Method: cloudidentity.devices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesGet : GTLRCloudIdentityQuery
 
@@ -902,6 +949,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Lists/Searches devices.
  *
  *  Method: cloudidentity.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesReadonly
  */
 @interface GTLRCloudIdentityQuery_DevicesList : GTLRCloudIdentityQuery
 
@@ -985,6 +1036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Wipes all data on the specified device.
  *
  *  Method: cloudidentity.devices.wipe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevices
  */
 @interface GTLRCloudIdentityQuery_DevicesWipe : GTLRCloudIdentityQuery
 

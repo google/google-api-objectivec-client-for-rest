@@ -523,7 +523,8 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 //
 
 @implementation GTLRAlertCenter_GoogleOperations
-@dynamic affectedUserEmails, attachmentData, descriptionProperty, header, title;
+@dynamic affectedUserEmails, attachmentData, descriptionProperty, domain,
+         header, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -614,6 +615,21 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_MaliciousEntity
 @dynamic displayName, entity, fromHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_MandatoryServiceAnnouncement
+//
+
+@implementation GTLRAlertCenter_MandatoryServiceAnnouncement
+@dynamic descriptionProperty, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 

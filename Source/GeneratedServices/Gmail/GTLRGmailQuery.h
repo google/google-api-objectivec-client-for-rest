@@ -2883,8 +2883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Immediately and permanently deletes the specified thread. This operation
- *  cannot be undone. Prefer `threads.trash` instead.
+ *  Immediately and permanently deletes the specified thread. Any messages that
+ *  belong to the thread are also deleted. This operation cannot be undone.
+ *  Prefer `threads.trash` instead.
  *
  *  Method: gmail.users.threads.delete
  *
@@ -2912,8 +2913,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Immediately and permanently deletes the specified thread. This operation
- *  cannot be undone. Prefer `threads.trash` instead.
+ *  Immediately and permanently deletes the specified thread. Any messages that
+ *  belong to the thread are also deleted. This operation cannot be undone.
+ *  Prefer `threads.trash` instead.
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3112,7 +3114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Moves the specified thread to the trash.
+ *  Moves the specified thread to the trash. Any messages that belong to the
+ *  thread are also moved to the trash.
  *
  *  Method: gmail.users.threads.trash
  *
@@ -3140,7 +3143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Thread.
  *
- *  Moves the specified thread to the trash.
+ *  Moves the specified thread to the trash. Any messages that belong to the
+ *  thread are also moved to the trash.
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3154,7 +3158,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Removes the specified thread from the trash.
+ *  Removes the specified thread from the trash. Any messages that belong to the
+ *  thread are also removed from the trash.
  *
  *  Method: gmail.users.threads.untrash
  *
@@ -3182,7 +3187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Thread.
  *
- *  Removes the specified thread from the trash.
+ *  Removes the specified thread from the trash. Any messages that belong to the
+ *  thread are also removed from the trash.
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)

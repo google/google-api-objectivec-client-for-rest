@@ -1361,8 +1361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Maximum number of datasources to fetch in a request. The max value is 100.
- *  The default value is 10
+ *  Maximum number of datasources to fetch in a request. The max value is 1000.
+ *  The default value is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

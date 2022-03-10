@@ -35,6 +35,30 @@ NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsP
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_DisallowInstall = @"DISALLOW_INSTALL";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_UntrustedAppsPolicyUnspecified = @"UNTRUSTED_APPS_POLICY_UNSPECIFIED";
 
+// GTLRAndroidManagement_Application.appPricing
+NSString * const kGTLRAndroidManagement_Application_AppPricing_AppPricingUnspecified = @"APP_PRICING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Application_AppPricing_Free = @"FREE";
+NSString * const kGTLRAndroidManagement_Application_AppPricing_FreeWithInAppPurchase = @"FREE_WITH_IN_APP_PURCHASE";
+NSString * const kGTLRAndroidManagement_Application_AppPricing_Paid = @"PAID";
+
+// GTLRAndroidManagement_Application.contentRating
+NSString * const kGTLRAndroidManagement_Application_ContentRating_ContentRatingUnspecified = @"CONTENT_RATING_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Application_ContentRating_EighteenYears = @"EIGHTEEN_YEARS";
+NSString * const kGTLRAndroidManagement_Application_ContentRating_SevenYears = @"SEVEN_YEARS";
+NSString * const kGTLRAndroidManagement_Application_ContentRating_SixteenYears = @"SIXTEEN_YEARS";
+NSString * const kGTLRAndroidManagement_Application_ContentRating_ThreeYears = @"THREE_YEARS";
+NSString * const kGTLRAndroidManagement_Application_ContentRating_TwelveYears = @"TWELVE_YEARS";
+
+// GTLRAndroidManagement_Application.distributionChannel
+NSString * const kGTLRAndroidManagement_Application_DistributionChannel_DistributionChannelUnspecified = @"DISTRIBUTION_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PrivateGoogleHosted = @"PRIVATE_GOOGLE_HOSTED";
+NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PrivateSelfHosted = @"PRIVATE_SELF_HOSTED";
+NSString * const kGTLRAndroidManagement_Application_DistributionChannel_PublicGoogleHosted = @"PUBLIC_GOOGLE_HOSTED";
+
+// GTLRAndroidManagement_Application.features
+NSString * const kGTLRAndroidManagement_Application_Features_AppFeatureUnspecified = @"APP_FEATURE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Application_Features_VpnApp = @"VPN_APP";
+
 // GTLRAndroidManagement_ApplicationEvent.eventType
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_ApplicationEventTypeUnspecified = @"APPLICATION_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Changed = @"CHANGED";
@@ -304,6 +328,11 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlo
 NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_RequirePasswordUnlockUnspecified = @"REQUIRE_PASSWORD_UNLOCK_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_RequirePasswordUnlock_UseDefaultDeviceTimeout = @"USE_DEFAULT_DEVICE_TIMEOUT";
 
+// GTLRAndroidManagement_PasswordRequirements.unifiedLockSettings
+NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_AllowUnifiedWorkAndPersonalLock = @"ALLOW_UNIFIED_WORK_AND_PERSONAL_LOCK";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_RequireSeparateWorkLock = @"REQUIRE_SEPARATE_WORK_LOCK";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_UnifiedLockSettings_UnifiedLockSettingsUnspecified = @"UNIFIED_LOCK_SETTINGS_UNSPECIFIED";
+
 // GTLRAndroidManagement_PermissionGrant.policy
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Grant = @"GRANT";
@@ -503,13 +532,25 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Application
-@dynamic appTracks, managedProperties, name, permissions, title;
+@dynamic appPricing, appTracks, appVersions, author, availableCountries,
+         category, contentRating, descriptionProperty, distributionChannel,
+         features, fullDescription, iconUrl, managedProperties,
+         minAndroidSdkVersion, name, permissions, playStoreUrl, recentChanges,
+         screenshotUrls, smallIconUrl, title, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"appTracks" : [GTLRAndroidManagement_AppTrackInfo class],
+    @"appVersions" : [GTLRAndroidManagement_AppVersion class],
+    @"availableCountries" : [NSString class],
+    @"features" : [NSString class],
     @"managedProperties" : [GTLRAndroidManagement_ManagedProperty class],
-    @"permissions" : [GTLRAndroidManagement_ApplicationPermission class]
+    @"permissions" : [GTLRAndroidManagement_ApplicationPermission class],
+    @"screenshotUrls" : [NSString class]
   };
   return map;
 }
@@ -619,6 +660,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_AppTrackInfo
 @dynamic trackAlias, trackId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_AppVersion
+//
+
+@implementation GTLRAndroidManagement_AppVersion
+@dynamic production, trackIds, versionCode, versionString;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trackIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1303,7 +1362,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          passwordMinimumLowerCase, passwordMinimumNonLetter,
          passwordMinimumNumeric, passwordMinimumSymbols,
          passwordMinimumUpperCase, passwordQuality, passwordScope,
-         requirePasswordUnlock;
+         requirePasswordUnlock, unifiedLockSettings;
 @end
 
 

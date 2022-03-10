@@ -8426,7 +8426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, assign) long long firstAndThirdPartyAudienceId;
 
 /**
- *  Required. The mask to control which fields to update.
+ *  Required. The mask to control which fields to update. Updates are only
+ *  supported for the following fields: * `displayName` * `description` *
+ *  `membershipDurationDays`
  *
  *  String format is a comma-separated list of fields.
  */

@@ -4621,7 +4621,7 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_MaximizeSpendBidStrategy
 @dynamic customBiddingAlgorithmId, maxAverageCpmBidAmountMicros,
-         performanceGoalType;
+         performanceGoalType, raiseBidForDeals;
 @end
 
 

@@ -67,6 +67,32 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 @end
 
+@implementation GTLRCloudAssetQuery_EffectiveIamPoliciesBatchGet
+
+@dynamic names, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}/effectiveIamPolicies:batchGet";
+  GTLRCloudAssetQuery_EffectiveIamPoliciesBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_BatchGetEffectiveIamPoliciesResponse class];
+  query.loggingName = @"cloudasset.effectiveIamPolicies.batchGet";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_FeedsCreate
 
 @dynamic parent;

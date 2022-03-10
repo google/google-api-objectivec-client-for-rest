@@ -359,6 +359,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList : GTLRCloudchannelQuery
 
 /**
+ *  Optional. Filters applied to the [CloudChannelService.ListCustomers]
+ *  results. See
+ *  https://cloud.google.com/channel/docs/concepts/google-cloud/filter-customers
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of customers to return. The service may return
  *  fewer than this value. If unspecified, returns at most 10 customers. The
  *  maximum value is 50.
@@ -1512,6 +1520,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. Filters applied to the [CloudChannelService.ListCustomers]
+ *  results. See
+ *  https://cloud.google.com/channel/docs/concepts/google-cloud/filter-customers
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of customers to return. The service may return
